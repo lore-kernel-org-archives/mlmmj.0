@@ -1,45 +1,35 @@
-From: Kurt Lieber <klieber@gentoo.org>
-Date: Thu, 16 Sep 2004 11:54:19 +0000
-Subject: Re: RFE: post-only
-Message-Id: <20040916115419.GP442@mail.lieber.org>
-MIME-Version: 1
-Content-Type: multipart/mixed; boundary="iibEmBFpDzSsDyxm"
+From: Mads Martin Joergensen <mmj@mmj.dk>
+Date: Wed, 01 Sep 2004 08:59:24 +0000
+Subject: mlmmj-1.0.0-RC3
+Message-Id: <20040901085924.GA68017@panther.mmj.dk>
 List-Id: <mlmmj.mlmmj.org>
-References: <20040901122213.GD23171@mail.lieber.org>
-In-Reply-To: <20040901122213.GD23171@mail.lieber.org>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
+Hey all,
 
---iibEmBFpDzSsDyxm
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Thanks to Luca Mercuri and Allan Joergensen for help with testing this
+one. The ChangeLog has it as usual:
 
-On Thu, Sep 16, 2004 at 12:45:11PM +0200 or thereabouts, Mads Martin Joerge=
-nsen wrote:
-> > Is it possible for a user to do this via email commands?  I'd rather not
-> > have to manually manage the lists manually.
->=20
-> With current CVS it's possible to do this:
->=20
->  echo | mail listname+subscribe-nomail@domail.tld
->=20
-> and then one's subscribed to the list, but not getting any mail.
+1.0.0-RC3
+ o NULL and 0 are not the same on 64-bit platforms, so fix execlp(..., 0); to
+   be execlp(..., NULL);
+ o Add web-interface (PHP). Thank you Christoph Thiel
+ o Have the random numbers be somewhat longer everywhere and not just somewhere
+ o Move free() to where it belongs fixing problems with mlmmj-process some
+   people have been seen
+ o Fix printing of cron entry in mlmmj-make-ml.sh
 
-Great!  We'll give it a shot.
+I urge people to upgrade from mlmmj-1.0.0-RC{1,2} ASAP allthough they've
+not seen any problems.
 
---kurt
+http://mlmmj.mmj.dk/files/mlmmj-1.0.0-RC3.tar.gz
+http://mlmmj.mmj.dk/files/mlmmj-1.0.0-RC3.tar.bz2
 
---iibEmBFpDzSsDyxm
-Content-Type: application/pgp-signature
-Content-Disposition: inline
-
------BEGIN PGP SIGNATURE-----
-Version: GnuPG v1.2.4 (GNU/Linux)
-
-iD8DBQFBSX7qJPpRNiftIEYRAijPAJwKzoHqQojS25C3HPJ4ROZ73P9yTwCdFSSG
-zg6kqIaZJwCj+JDxlm99guY=
-=2TBa
------END PGP SIGNATURE-----
-
---iibEmBFpDzSsDyxm--
+-- 
+Mads Martin Joergensen, http://mmj.dk
+"Why make things difficult, when it is possible to make them cryptic
+ and totally illogical, with just a little bit more effort?"
+                                -- A. P. J.
