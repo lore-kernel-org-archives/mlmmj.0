@@ -1,32 +1,28 @@
 From: Mads Martin Joergensen <mmj@mmj.dk>
-Date: Thu, 04 Nov 2004 18:27:46 +0000
-Subject: Re: bug report: don't force your /etc/aliases on me! :)
-Message-Id: <20041104182746.GE23670@mmj.dk>
+Date: Mon, 22 Nov 2004 15:01:13 +0000
+Subject: mlmmj-1.1.0-RC2 is out
+Message-Id: <20041122150113.GA66786@mmj.dk>
 List-Id: <mlmmj.mlmmj.org>
-References: <20041104174318.GN10927@mail.lieber.org>
-In-Reply-To: <20041104174318.GN10927@mail.lieber.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 To: mlmmj@mlmmj.org
 
-* Kurt Lieber <klieber@gentoo.org> [Nov 04. 2004 18:43]:
-> I was just perusing mlmmj-make-ml.sh and realized it expects the alias file
-> to be at /etc/aliases.  By default, Gentoo places this file in
-> /etc/mail/aliases and I imagine other distros may place it elsewhere.  I've
-> attached a patch that *should* handle this more gracefully -- I've tested
-> it on our system, but additional testing (and feedback) is welcome.
+Hey all,
 
-Thnks, applied.
+Not a lot of changes--there was also a tiny buglet fixed and an php
+interface update.
 
-> If I can find some time in the next week or so, I'll take a crack at
-> re-writing mlmmj-make-ml.sh to add in the /etc/skel features I asked
-> about previously.
+1.1.0-RC2
+ o Strip envelope from before resending to +owner
+ o Make statctrl bail if it's not possible to stat()
+ o Add mlmmj-list binary to list the subcribers (-count) of a list
 
-Would be nice indeed!
+To be found in the usual place. Don't forget to read UPGRADE when
+upgrading from something pre-1.1.
 
--- 
-Mads Martin Joergensen, http://mmj.dk
+--=20
+Mads Martin Joergensen, http://mmj.dk                           B=C5K!
 "Why make things difficult, when it is possible to make them cryptic
  and totally illogical, with just a little bit more effort?"
                                 -- A. P. J.
