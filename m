@@ -1,26 +1,36 @@
 From: Mads Martin Joergensen <mmj@mmj.dk>
-Date: Wed, 25 Aug 2004 17:36:54 +0000
-Subject: mlmmj-1.0.0-RC2
-Message-Id: <20040825173654.GA91703@panther.mmj.dk>
+Date: Fri, 20 Aug 2004 19:17:21 +0000
+Subject: mlmmj-1.0.0-RC1
+Message-Id: <20040820191721.GJ88334@panther.mmj.dk>
 List-Id: <mlmmj.mlmmj.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Hey there,
+Hey all,
 
-There was a semi nasty bug in RC1 causing +owner mails not to make it to
-the owner but be left in the incoming/ queue, due to a missing break; in
-a switch statement. So here goes RC2:
+So this is the first release candidate for mlmmj-1.0.0. Why? Because
+it has all my original requirements for a 1.0.0 version and even some
+more--the access control and the webinterface was not on my original
+list of wanted features.
 
-1.0.0-RC2
- o Do not allow mails from <> going to the list
- o Fix mailing to +owner again by adding missing 'break;' to switch in
-   mlmmj-send
- o perl-admin updates from Christian Laursen
- o php-user updates from Christoph Thiel
- o Use Delivered-To: instead of To: when available
+So go get all you know to give this one a spin, so we can get those
+bugreports and make this piece of software as stable as the one we're
+inspired of.
+
+The ChangeLog is telling the tale of the changes since 0.8.3:
+
+1.0.0-RC1
+ o Add web-interface. Thanks Christian Laursen for new perl-admin!
+ o Dump the customheaders before any Mime headers
+ o Implement +get-N functionality, so it's possible to send a mail to
+   foolist+get-101@domain.tld to retrieve mail 101 from that list. It's
+   deliberately only possible to request one mail at a time.
+ o Make sure that only either root or the listdir owner can execute the
+   binaries when it has something to do with lists.
+ o Don't leave bounces-help@ mails lying around in queue/
+ o Remove unanchored ".*" from beginning of regexp
 
 -- 
 Mads Martin Joergensen, http://mmj.dk
