@@ -1,39 +1,59 @@
-From: Mads Martin Joergensen <mmj@mmj.dk>
-Date: Fri, 20 Aug 2004 19:17:21 +0000
-Subject: mlmmj-1.0.0-RC1
-Message-Id: <20040820191721.GJ88334@panther.mmj.dk>
+From: "Fabrizio Gatti" <f.gatti@dms.it>
+Date: Wed, 22 Sep 2004 08:38:58 +0000
+Subject: hypermail 2.1.8
+Message-Id: <00d801c4a07f$9b0519b0$0a00a8c0@FABERKOUT>
+MIME-Version: 1
+Content-Type: multipart/mixed; boundary="----=_NextPart_000_00D5_01C4A090.5E24EEB0"
 List-Id: <mlmmj.mlmmj.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Hey all,
+This is a multi-part message in MIME format.
 
-So this is the first release candidate for mlmmj-1.0.0. Why? Because
-it has all my original requirements for a 1.0.0 version and even some
-more--the access control and the webinterface was not on my original
-list of wanted features.
+------=_NextPart_000_00D5_01C4A090.5E24EEB0
+Content-Type: text/plain;
+	charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 
-So go get all you know to give this one a spin, so we can get those
-bugreports and make this piece of software as stable as the one we're
-inspired of.
+Hi,
+I've just installed mlmmj, and it's great!!!
+Now, I'm trying to setup hypermail 2.1.8 but it seems to read only mbox =
+files.
+How is possible to let it work with the separeted files created by =
+mlmmj?
 
-The ChangeLog is telling the tale of the changes since 0.8.3:
+Any seggestions?
 
-1.0.0-RC1
- o Add web-interface. Thanks Christian Laursen for new perl-admin!
- o Dump the customheaders before any Mime headers
- o Implement +get-N functionality, so it's possible to send a mail to
-   foolist+get-101@domain.tld to retrieve mail 101 from that list. It's
-   deliberately only possible to request one mail at a time.
- o Make sure that only either root or the listdir owner can execute the
-   binaries when it has something to do with lists.
- o Don't leave bounces-help@ mails lying around in queue/
- o Remove unanchored ".*" from beginning of regexp
+Thanks
+------=_NextPart_000_00D5_01C4A090.5E24EEB0
+Content-Type: text/html;
+	charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 
--- 
-Mads Martin Joergensen, http://mmj.dk
-"Why make things difficult, when it is possible to make them cryptic
- and totally illogical, with just a little bit more effort?"
-                                -- A. P. J.
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<META http-equiv=3DContent-Type content=3D"text/html; =
+charset=3Diso-8859-1">
+<META content=3D"MSHTML 6.00.2800.1458" name=3DGENERATOR>
+<STYLE></STYLE>
+</HEAD>
+<BODY bgColor=3D#ffffff>
+<DIV><FONT face=3DArial size=3D2>Hi,</FONT></DIV>
+<DIV><FONT face=3DArial size=3D2>I've just installed mlmmj, and it's=20
+great!!!</FONT></DIV>
+<DIV><FONT face=3DArial size=3D2>Now, I'm trying to setup <A=20
+href=3D"http://www.hypermail.org/"><FONT face=3D"Times New =
+Roman"><EM>hypermail=20
+2.1.8</EM></FONT></A><FONT face=3D"Times New Roman"><EM> =
+</EM></FONT><FONT=20
+face=3DArial>but it seems to read only mbox files.</FONT></FONT></DIV>
+<DIV><FONT face=3DArial size=3D2>How is possible to let it work with the =
+separeted=20
+files created by mlmmj?</FONT></DIV>
+<DIV><FONT face=3DArial size=3D2></FONT>&nbsp;</DIV>
+<DIV><FONT face=3DArial size=3D2>Any seggestions?</FONT></DIV>
+<DIV><FONT face=3DArial size=3D2></FONT>&nbsp;</DIV>
+<DIV><FONT face=3DArial size=3D2>Thanks</FONT></DIV></BODY></HTML>
+
+------=_NextPart_000_00D5_01C4A090.5E24EEB0--
+
+
