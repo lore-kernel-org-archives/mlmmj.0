@@ -1,7 +1,7 @@
-From: "Morten K. Poulsen" <morten@afdelingp.dk>
-Date: Mon, 14 Mar 2005 09:30:56 +0000
+From: Jakob Hirsch <jh@plonk.de>
+Date: Wed, 16 Mar 2005 11:42:21 +0000
 Subject: Re: exim4
-Message-Id: <20050314093055.GA5630@pc200694.webdmz.tv2.dk>
+Message-Id: <42381B9D.2000607@plonk.de>
 List-Id: <mlmmj.mlmmj.org>
 References: <4232593D.2000404@plonk.de>
 In-Reply-To: <4232593D.2000404@plonk.de>
@@ -10,35 +10,19 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-On Mon, Mar 14, 2005 at 12:55:30AM +0100, Jakob Hirsch wrote:
-> >I would prefer for security reasons not to start parsing environment
-> >variables. 
-> 
-> Sounds sensible, but mlmmj uses execvp, which uses PATH itself, so why should
-> you have to parse that yourself?
+Mads Martin Joergensen wrote:
 
-It only uses $PATH if the given argument does not contain a slash. We might as
-well use execl() instead of execlp(). I may patch that.
+>>>>runs into the same problems as me: return_path_add is needed in the 
+>>>>transport calling mlmmj-recieve. I had a hard time finding that out, 
+>>>Could you maybe write it into README.exim and send it to me, then I'll
+>>>include it.
 
-> Another possibility would be to use a hard coded path from configure or some
-> header file.
+I put that in http://plonk.de/sw/mlmmj/README.exim4
 
-Configure it at build time? Yikes.
+>>btw, after I had it running, I saw a post in the archive about just this 
+>>subject (http://mlmmj.mmj.dk/archive/0154.html). Should have checked the 
+>>archives a little more thoroughly...
+> The README also has this: "Also make sure that exim will add the
+> envelope from in the Return-Path: header."
 
-> > Besides, with this method, you can have many mlmmj installations in
-> > parallel.
-> 
-> mlmmj uses no config file, so what's the use? Having different versions of
-> mlmmj running? That should be done with configure's --program-suffix.
-> Otherwise you end up having a directory for every mlmmj installation.
-
-Exactly! I want to use two different versions of mlmmj for the same list, when
-testing a new patch. One set of binaries in one directory, the other set in
-another directory, and two different aliases. Therefore I _need_ the full path,
-and it can not be in the configuration file, as the two versions share it.
-
-Morten
-
--- 
-Morten K. Poulsen <morten@afdelingp.dk>
-http://www.afdelingp.dk/
+errr... ok, will go and hit myself with my LART...
