@@ -1,31 +1,30 @@
-From: Mads Martin Joergensen <mmj@mmj.dk>
-Date: Sat, 08 Jan 2005 09:52:26 +0000
-Subject: Re: Danish listtexts?
-Message-Id: <20050108095226.GQ712@mmj.dk>
+From: Wolf Bergenheim <wolf@bergenheim.net>
+Date: Fri, 14 Jan 2005 15:00:35 +0000
+Subject: Mlmmj +owner messages do not have date headersMlmmj +owner messages
+Message-Id: <41E7DE93.9050407@bergenheim.net>
 List-Id: <mlmmj.mlmmj.org>
-References: <200501080136.51460.kr@casalogic.com>
-In-Reply-To: <200501080136.51460.kr@casalogic.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-* Kaare Rasmussen <kr@casalogic.com> [Jan 08. 2005 10:37]:
-> > Yeah, Jesper Lund was kind enough to offer danish listtexts, I've put
-> > them in http://mlmmj.mmj.dk/files for people to download. If anyone would
-> 
-> Great. Thanks!
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
 
-You're welcome.
+Hi!
 
-> > be interested in German ones, I also have that.
-> 
-> I think they're in the tarball.
+The mails from mlmmj system seem to be missing date headers. Is it
+possible to make mlmmj add that header with the current date stamp?
 
-Ah, yes, they were added before 1.1.0.
+- --W
 
--- 
-Mads Martin Joergensen, http://mmj.dk
-"Why make things difficult, when it is possible to make them cryptic
- and totally illogical, with just a little bit more effort?"
-                                -- A. P. J.
+- --
+
+<:3 )---- Wolf Bergenheim ----( 8:>
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.2.5 (GNU/Linux)
+
+iD8DBQFB596Q7wAiM835oB0RArARAKCEdkZ0FPnkIMflDkPCLvaa5wwKWACgumnh
+v/J+41DwiTIzwgFQuZdGglw=u2Lr
+-----END PGP SIGNATURE-----
