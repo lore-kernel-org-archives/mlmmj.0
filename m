@@ -1,29 +1,36 @@
 From: Mads Martin Joergensen <mmj@mmj.dk>
-Date: Sun, 16 Jan 2005 18:36:45 +0000
-Subject: Re: Empty mail
-Message-Id: <20050116183645.GT33603@mmj.dk>
+Date: Sun, 16 Jan 2005 19:00:09 +0000
+Subject: mlmmj-1.2.0-RC1 - VERP support
+Message-Id: <20050116190009.GU33603@mmj.dk>
 List-Id: <mlmmj.mlmmj.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Hey all,
+Hey together,
 
-Sorry about the last empty one. I'm doing the final tests for 1.2.0-RC1
-(with VERP support) and did
+As mentioned before, here's the first release candidate for 1.2.0. Most
+notable is a couple of locking fixes and VERP support to make
+mlmmj+postfix perform as fast (sometimes faster) than qmail+ezmlm.
 
- $ echo | mail mlmmj@mmj.dk
+The ChangeLog has it (the 1.1.1 RCs were never announced):
 
-Instead of
-
- $ echo | mail mlmmj-test@mmj.dk
-
-The VERP support performance looks good, and will bring mlmmj+postfix up
-to the same speed as qmail+ezmlm.
-
-Would anyone happen to know how to use VERP with qmail over SMTP instead
-of qmail-inject?
+ 1.2.0-RC1
+  o Add VERP support. http://www.postfix.org/VERP_README.html
+    $smtpd_authorized_verp_clients should be the only one needed to touch
+ 1.1.1-RC2
+  o It's ok to log to a symbolic link to somewhere else
+  o Add Message-Id: and Date: headers to mail from mlmmj
+  o Make log_oper() varargs capable (Rob Holland)
+ 1.1.1-RC1
+  o Never discard anything from LISTDIR/queue/, let the admin be able to judge
+  o Grab the lock when sending a mail to make sure noone does bad things
+    to it underneath us
+  o Danish listtexts, thanks Jesper Lund
+  o Add control/noget to turn off listname+get-INDEX
+  o Rearrange envelope from to be listname+bounces-index-user=domain.tld@ instead
+    of listname+bounces-user=domain.tld-index@ to prepare for VERP support
 
 -- 
 Mads Martin Joergensen, http://mmj.dk
