@@ -1,7 +1,7 @@
-From: Christian Laursen <xi@borderworlds.dk>
-Date: Wed, 23 Mar 2005 22:44:36 +0000
+From: Mads Martin Joergensen <mmj@mmj.dk>
+Date: Thu, 24 Mar 2005 00:38:44 +0000
 Subject: Re: memory management in mlmmj
-Message-Id: <86vf7it223.fsf@borg.borderworlds.dk>
+Message-Id: <20050324003844.GC67964@mmj.dk>
 List-Id: <mlmmj.mlmmj.org>
 References: <20050323212830.GA21199@mopo.webdmz.tv2.dk>
 In-Reply-To: <20050323212830.GA21199@mopo.webdmz.tv2.dk>
@@ -10,8 +10,7 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-"Morten K. Poulsen" <morten@afdelingp.dk> writes:
-
+* Morten K. Poulsen <morten@afdelingp.dk> [Mar 23. 2005 22:29]:
 > Memory management makes up quite a large portion of the code, especially
 > freeing memory at error conditions. How about we sacrifice a tiny bit of memory
 > and performance and automate it?
@@ -24,14 +23,35 @@ To: mlmmj@mlmmj.org
 > 
 > It is not new, I think PHP does something like this (where a request is the
 > scope).
-
-Apache has also done something similar for years. It is probably available in
-APR, but it's probably not feasible to link against that monstrosity.
-
+> 
+> I have made a small proof of concept:
+> http://www.afdelingp.dk/files/memory.c
+> 
+> MEM_BEGIN opens a new scope.
+> MEM_END closes the current scope.
+> MEM_SAVE(ptr) moves a chunk of memory to the parent scope.
+> 
+> mymalloc() and myfree() works as usual.
+> 
 > Is it a bad idea?
 
-Personally I like it, but since I'm not touching much of the code in question
-my opinion doesn't count that much.
+The idea is nice, but why start changing all this code that works
+already with something that had no serious testing yet? There's so many
+other places that could need some work before this.
+
+Also we should have a look at:
+
+ http://irccrew.org/~cras/security/c-guide.html and
+
+and (from the dovecot imap server source):
+
+ dovecot-0.99.14/src/lib/mempool*
+
+before deciding on how to approach this. There's some really nice ideas
+here as well.
 
 -- 
-Christian Laursen
+Mads Martin Joergensen, http://mmj.dk
+"Why make things difficult, when it is possible to make them cryptic
+ and totally illogical, with just a little bit more effort?"
+                                -- A. P. J.
