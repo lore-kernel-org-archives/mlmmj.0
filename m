@@ -1,36 +1,35 @@
 From: Mads Martin Joergensen <mmj@mmj.dk>
-Date: Fri, 20 Aug 2004 10:17:11 +0000
-Subject: Re: New version of the perl-admin webinterface
-Message-Id: <20040820101711.GF88334@panther.mmj.dk>
+Date: Wed, 11 Aug 2004 22:28:18 +0000
+Subject: mlmmj-0.8.3, vacation is over
+Message-Id: <20040811222818.GG83848@panther.mmj.dk>
 List-Id: <mlmmj.mlmmj.org>
-References: <861xi2uns2.fsf@borg.borderworlds.dk>
-In-Reply-To: <861xi2uns2.fsf@borg.borderworlds.dk>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-* Christian Laursen <xi@borderworlds.dk> [Aug 20. 2004 12:06]:
-> I started out to just add the new tunables for 0.8.3 to the perl-admin
-> webinterface and ended up mostly rewriting it too.
-> 
-> It now uses CGI::FastTemplate to construct the HTML pages in order to
-> make it possible to customize the pages.
-> 
-> Furthermore it is possible to configure alternative topdirs and change
-> the text for the existing tunables.
-> 
-> The code is here:
-> http://hoegaarden.pil.dk/~cfsl/perl-admin.tar.bz2
-> 
-> Comments, questions and suggestions are of course welcome.
+Hey together,
 
-Very nice! I've been testing it, and it's definately an improvement (not
-that the old interface was bad or anything).
+I've just rolled 0.8.3.
+ChangeLog has it:
 
-I'm going to wrap this up and release 1.0.0-RC1 real soon now. I've
-finished the +get feature that was the last one on my original feature
-plan for 1.0.
+--- ChangeLog   3 Jul 2004 12:29:24 -0000
++++ ChangeLog   11 Aug 2004 22:09:22 -0000
+@@ -1,3 +1,14 @@
++0.8.3
++ o Have mlmmj-make-ml.sh remind people about using cron if they want
++ o Replying to the confirmation address is enough to sub/unsub, no matter what
++   address is used the second time
++ o Fix possible DoS wrt. unsubscribing. Thank you Erik Toubro Nielsen
++ o Add 'notifysub' functionality to have owner know when people sub/unsub.
++   Thank you Kenneth Vestergaard Schmidt
++ o Use Return-Path: for envelope From. Thanks Anders Johansson
++ o Specification of which relayhost to use can now be done in control/relayhost
++ o Add configure check to link against libnsl if needed.
++ o Implement our own daemon() function since we don't have daemon() on Solaris
+
+It's important that you all update your listdir/text. The 2 new files
+are notifysub and notifyunsub.
 
 -- 
 Mads Martin Joergensen, http://mmj.dk
