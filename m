@@ -1,20 +1,28 @@
 From: Mads Martin Joergensen <mmj@mmj.dk>
-Date: Thu, 03 Feb 2005 08:17:30 +0000
-Subject: Re: Asking for a list of lists that one is subscribed to
-Message-Id: <20050203081730.GH7982@mmj.dk>
+Date: Mon, 14 Feb 2005 23:19:03 +0000
+Subject: mlmmj-1.2.4 - small features and a valgrind round
+Message-Id: <20050214231903.GO59254@mmj.dk>
 List-Id: <mlmmj.mlmmj.org>
-References: <200502030959.13281.wolf+mlmmj@bergenheim.net>
-In-Reply-To: <200502030959.13281.wolf+mlmmj@bergenheim.net>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-* Wolf Bergenheim <wolf+mlmmj@bergenheim.net> [Feb 03. 2005 08:59]:
-> Is there any way for a list member to ask to which lists he is
-> subscribed to?  Or to ask if he is subscribed to list X?
+Hey all,
 
-Not currently. There might be in future versions :)
+Ok, so Andrea encouraged me to go through a complete valgrind house
+keeping round. And since we had a couple of requested features, now
+gotten extra testing, I thought it was time to roll 1.2.4:
+
+1.2.4
+ o Spend some time making valgrind completely happy
+ o Unlink totally harmless .lock files in subscribers dir
+ o Make it possible to specify more than one listaddress in
+   LISTDIR/control/listaddress. The first one is the "real" one.
+ o Make the port to connect to controlable with LISTDIR/control/smtpport
+
+(Yes, I know mlmmj was littering lock files in the listdir, and the
+subscribers dir. It's totally harmless, and won't happen anymore.)
 
 -- 
 Mads Martin Joergensen, http://mmj.dk
