@@ -1,7 +1,7 @@
-From: Mads Martin Joergensen <mmj@mmj.dk>
-Date: Thu, 03 Feb 2005 16:03:24 +0000
+From: Uffe Jakobsen <uffe@uffe.org>
+Date: Thu, 03 Feb 2005 16:58:58 +0000
 Subject: Re: Corrections to mlmmj-1.2.2
-Message-Id: <20050203160324.GQ7982@mmj.dk>
+Message-Id: <42025852.9010104@uffe.org>
 List-Id: <mlmmj.mlmmj.org>
 References: <4202359E.7030404@uffe.org>
 In-Reply-To: <4202359E.7030404@uffe.org>
@@ -10,20 +10,22 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-* Uffe Jakobsen <uffe@uffe.org> [Feb 03. 2005 16:26]:
-> WRONG:
-> mlmmj-test:     "|/usr/bin/mlmmj-recieve -L /var/spool/mlmmj/mlmmj-test"
+
+Hi Martin,
+
+Mads Martin Joergensen wrote:
 > 
-> RIGHT:
-> mlmmj-test:     |"/usr/bin/mlmmj-recieve -L /var/spool/mlmmj/mlmmj-test"
+> I know of Postfix, Sendmail and Exim working with the first syntax
+> specified here.
+> 
+> What do you base the assumption that it's wrong on?
+> 
 
-I know of Postfix, Sendmail and Exim working with the first syntax
-specified here.
+Sorry my mistake just testeted the /etc/aliases "thing" and I found out that I had some kind of "invisible" control/escape char in the string -  sorry about that.
 
-What do you base the assumption that it's wrong on?
+The current description in your README is working fine.
 
--- 
-Mads Martin Joergensen, http://mmj.dk
-"Why make things difficult, when it is possible to make them cryptic
- and totally illogical, with just a little bit more effort?"
-                                -- A. P. J.
+I was blinded by my invisible "bug"-char and due to the fact that man pages on both FC2 and Solaris that '|' should be the first char - only the HPUX man page specifies that "|/som/binary" is legal for aliases file.
+
+Kind regards Uffe Jakobsen
+
