@@ -1,31 +1,41 @@
-From: Christoph Thiel <ct@kki.org>
-Date: Fri, 04 Jun 2004 20:34:25 +0000
+From: Mads Martin Joergensen <mmj@mmj.dk>
+Date: Fri, 04 Jun 2004 22:11:40 +0000
 Subject: Re: mlmmj-0.5.2
-Message-Id: <Pine.LNX.4.58.0406042229270.4448@hermes.cthiel.de>
+Message-Id: <20040604221140.GW36115@panther.mmj.dk>
 List-Id: <mlmmj.mlmmj.org>
 References: <20040529154106.GB36109@panther.mmj.dk>
 In-Reply-To: <20040529154106.GB36109@panther.mmj.dk>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="macroman"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-LS0tLS1CRUdJTiBQR1AgU0lHTkVEIE1FU1NBR0UtLS0tLQpIYXNoOiBTSEExCgpIaSB0aGVyZSwK
-Ck9uIFNhdCwgMjkgTWF5IDIwMDQsIE1hZHMgTWFydGluIEpvZXJnZW5zZW4gd3JvdGU6Cgo+IG1s
-bW1qLTAuNS4yIGlzIG91dC4KCkkganVzdCB1cGRhdGVkIHRvIDAuNS4yLi4uIGFuZCBpdCBzZWVt
-cyB0byBiZSB3b3JraW5nIGFzIGV4cGVjdGVkLgoKQnR3OiBXb3VsZG4ndCBpdCBiZSBjb25zZXF1
-ZW50bHkgdG8gbW92ZSBsaXN0ZGlyL21vZGVyYXRvcnMgdG8KbGlzdGRpci9jb250cm9sL21vZGVy
-YXRvcnM/CgotIC0tLSBtbG1tai1wcm9jZXNzLmN+ICAgIDIwMDQtMDYtMDQgMjI6Mjk6MDkuMDAw
-MDAwMDAwICswMjAwCisrKyBtbG1tai1wcm9jZXNzLmMgICAgIDIwMDQtMDYtMDQgMjI6Mjk6MDku
-MDAwMDAwMDAwICswMjAwCkBAIC02MSw3ICs2MSw3IEBACiAgICAgICAgfQogICAgICAgIGZyZWUo
-cmFuZG9tc3RyKTsKIAotIC0gICAgICAgbW9kZXJhdG9yc2ZpbGVuYW1lID0gY29uY2F0c3RyKDIs
-IGxpc3RkaXIsICIvbW9kZXJhdG9ycyIpOworICAgICAgIG1vZGVyYXRvcnNmaWxlbmFtZSA9IGNv
-bmNhdHN0cigyLCBsaXN0ZGlyLCAiL2NvbnRyb2wvbW9kZXJhdG9ycyIpOwogICAgICAgIGlmKCht
-b2RlcmF0b3JzZmlsZSA9IGZvcGVuKG1vZGVyYXRvcnNmaWxlbmFtZSwgInIiKSkgPSBOVUxMKSB7
-CiAgICAgICAgICAgICAgICBsb2dfZXJyb3IoTE9HX0FSR1MsICJDb3VsZCBub3Qgb3BlbiAnJXMn
-IiwgbW9kZXJhdG9yc2ZpbGVuYW1lKTsKICAgICAgICAgICAgICAgIGZyZWUocXVldWVmaWxlbmFt
-ZSk7CgoKQmVzdCByZWdhcmRzLAoJQ2hyaXN0b3BoCi0gLS0KQ2hyaXN0b3BoIFRoaWVsIDxjdEBr
-a2kub3JnPiwgaHR0cDovL2N0LmtraS5vcmcvCi0tLS0tQkVHSU4gUEdQIFNJR05BVFVSRS0tLS0t
-ClZlcnNpb246IEdudVBHIHYxLjIuNCAoR05VL0xpbnV4KQoKaUQ4REJRRkF3TnpTU1Eyd1M5SmVE
-cDBSQXBLSkFKOUhkUm92eEg5SkE2ZXdpUFRXZzRUZ1dteFR2UUNnaU5aQQpDK2dvWi9IaW1OVVZH
-T1dDVXcyU1V5SZBHOQotLS0tLUVORCBQR1AgU0lHTkFUVVJFLS0tLS0KCg==
+* Christoph Thiel <ct@kki.org> [Jun 04. 2004 22:34]:
+> > mlmmj-0.5.2 is out.
+> 
+> I just updated to 0.5.2... and it seems to be working as expected.
+
+Sounds good.
+
+> Btw: Wouldn't it be consequently to move listdir/moderators to
+> listdir/control/moderators?
+> 
+> - --- mlmmj-process.c~    2004-06-04 22:29:09.000000000 +0200
+> +++ mlmmj-process.c     2004-06-04 22:29:09.000000000 +0200
+> @@ -61,7 +61,7 @@
+>         }
+>         free(randomstr);
+>  
+> - -       moderatorsfilename = concatstr(2, listdir, "/moderators");
+> +       moderatorsfilename = concatstr(2, listdir, "/control/moderators");
+>         if((moderatorsfile = fopen(moderatorsfilename, "r")) = NULL) {
+>                 log_error(LOG_ARGS, "Could not open '%s'", moderatorsfilename);
+>                 free(queuefilename);
+
+Indeed it would. Thanks.
+
+-- 
+Mads Martin Joergensen, http://mmj.dk
+"Why make things difficult, when it is possible to make them cryptic
+ and totally illogical, with just a little bit more effort?"
+                                -- A. P. J.
