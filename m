@@ -1,61 +1,80 @@
 From: Mads Martin Joergensen <mmj@mmj.dk>
-Date: Sun, 06 Jun 2004 22:35:15 +0000
-Subject: mlmmj-0.6.0
-Message-Id: <20040606223515.GC10614@panther.mmj.dk>
+Date: Mon, 21 Jun 2004 11:42:30 +0000
+Subject: mlmmj-0.8.0 is out
+Message-Id: <20040621114230.GA91104@panther.mmj.dk>
 List-Id: <mlmmj.mlmmj.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Hey people,
+Hello people,
 
-I've just released 0.6.0. Major thing here is code cleanup and
-performance. FILE* usage is completely gone, and mmap are used some more
-places.
+Since a very nice feature have been added to mlmmj I've released version
+0.8.0 just now. The ChangeLog has it all:
 
-Feedback is as always appreciated :)
+0.8.0
+ o Added regular expression based access control.
+ o Added wrappers for malloc(), realloc(), free() and strdup(), so we
+   can bail out if any of them fail.
 
-The latest ChangeLog:
+For those wondering about what regular expression based access control
+is, I'll end this mail with README.access:
 
-0.6.0
- o Add several unlinks. No need to litter queue/ with useless files
- o Don't use moderation/queue for outgoing, just use queue/
- o Christoph Thiel pointed out that listaddress and moderators belong in
-   control/ so move them there
- o Get rid of all FILE * instances and replace them with fd's
- o Also mmap the subscribers file when reading subcribers
- o Do an mmap of the mail to send once, instead of reading the mail for
-   each mail to send
- o Rip out the ability to fork to make more than one connection to relayhos=
-t.
-   It turned out to not make any performance gain (tested with lists with
-   more than 120000 subscribers), and thus only complicated things. [*]
-   KISS won, so it's gone.
- o mlmmj-maint now handles resends and cleanup
- o Fixed interrupted fgets() in write_mailbody_from_file()
- o Fixed leak of subfile in mlmmj-send
+README.access                           present in mlmmj versions >= 0.8.0
 
-And the relevant stuff from UPGRADE:
+Access control in mlmmj
+===========
+If the file listdir/control/access is present, access control is enabled.
 
-This applies to everyone using mlmmj > 0.5.2:
+NOTE: the default action is to deny access (reject the mail), so an empty
+access control file will cause mlmmj to reject all posts, whereas a non-
+existant file will change nothing, and mlmmj will behave as usual.
 
- Following directories have moved into the control/ directory since that
- is where they rightfully belong:
+Each header in the mail is tested against each rule, rule by rule. That is,
+all headers are first tested against the first rule, then all headers are
+tested against the second rule, and so on.
 
-  =B7 listaddress
-  =B7 moderators
+The first rule to match a header decides which action to take - allow or
+deny the post.
 
- The following directory can be deleted:
+The syntax is quite simple: action[ [!]regexp]
+- "Action" can be "allow" or "deny".
+- The optional "!" makes the rule a match, if NO header matches the regular
+  expression.
+- "Regexp" is a POSIX.2 extended regular expression. Matching is done case
+  insensitive.
 
-  =B7 moderation/queue
 
- Start mlmmj-maintd
+First a simple example. This rule set will reject any mail that is NOT plain
+text, or has a subject that contains "BayStar", and allow anything else:
 
-[*] As usual a big Thank You goes to Morten Poulsen for testing mlmmj
-    with his big ass lists.
+deny !^Content-Type: text/plain
+deny ^Subject:.*BayStar
+allow
 
---=20
+
+Now on to a more advanced example. Morten can post anything, Mads Martin can
+post if the subject does not contain "SCO". Everything else is denied:
+
+allow ^From: Morten
+deny ^Subject:.*SCO
+allow ^From: Mads Martin
+deny
+
+The last rule (deny) can be left out, as deny is the default action.
+
+
+A third example. Deny any mails with "discount", "weightloss", or "bonus" in
+the subject. Allow PGP signed and plain text mails. Anything else is denied:
+
+deny ^Subject:.*discount
+deny ^Subject:.*weightloss
+deny ^Subject:.*bonus
+allow ^Content-Type: multipart/signed
+allow ^Content-Type: text/plain
+
+-- 
 Mads Martin Joergensen, http://mmj.dk
 "Why make things difficult, when it is possible to make them cryptic
  and totally illogical, with just a little bit more effort?"
