@@ -1,50 +1,42 @@
-From: Kurt Lieber <klieber@gentoo.org>
-Date: Thu, 04 Nov 2004 17:12:45 +0000
-Subject: feature request: /etc/skel functionality
-Message-Id: <20041104171245.GL10927@mail.lieber.org>
-MIME-Version: 1
-Content-Type: multipart/mixed; boundary="qnnAaaMsXgirVbdt"
+From: Christoph Thiel <ct@kki.org>
+Date: Thu, 04 Nov 2004 17:21:15 +0000
+Subject: Re: feature request: /etc/skel functionality
+Message-Id: <Pine.LNX.4.61.0411041817170.8979@t41p.thiel.lan>
 List-Id: <mlmmj.mlmmj.org>
+References: <20041104171245.GL10927@mail.lieber.org>
+In-Reply-To: <20041104171245.GL10927@mail.lieber.org>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
 
---qnnAaaMsXgirVbdt
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
+Hi there,
 
-When we create a new list, there are certain things that we always want to
-have in place.  There's always a certain address subscribed to every list
-(for our custom archives), there's also a set of MIME types that we want to
-reject, etc.
+On Thu, 4 Nov 2004, Kurt Lieber wrote:
 
-Since I don't think either ezmlm or mlmmj have a notion of "global"
-configuration settings, it would be nice to at least have /etc/skel-type
-functionality.[1]  That is to say, let me set up a default list directory
-(/etc/mlmmj-skel?) exactly the way I want it.  Then, when I create a new
-list, it will make a copy of that directory and modify it based on the new
-list name, plus additional parameters I provide.
+> Since I don't think either ezmlm or mlmmj have a notion of "global"
+> configuration settings, it would be nice to at least have /etc/skel-type
+> functionality.[1]  That is to say, let me set up a default list directory
+> (/etc/mlmmj-skel?) exactly the way I want it.  Then, when I create a new
+> list, it will make a copy of that directory and modify it based on the new
+> list name, plus additional parameters I provide.
 
-Hopefully, this makes sense.  If not, let me know and I can try to explain
-it differently.  This is a nice-to-have feature, but not something we'd
-consider a must-have.
+Sounds like that could be done by enhancing mlmmj-make-ml.sh... It already 
+creates the basic dirs and it shouldn't be to difficult to copy some files 
+from $mlmmj_skel ;)
 
---kurt
 
-[1] In case folks are unfamiliar with /etc/skel, items placed in there are
-automatically copied over to a user's home directory when their account is
-first created.  This allows a sysadmin to create a default home directory
-for all users on that machine.
-
---qnnAaaMsXgirVbdt
-Content-Type: application/pgp-signature
-Content-Disposition: inline
-
+Regards
+	Christoph
+- --
+Christoph Thiel <ct@kki.org>, http://ct.kki.org/
 -----BEGIN PGP SIGNATURE-----
-Version: GnuPG v1.2.6 (GNU/Linux)
+Version: GnuPG v1.2.5 (GNU/Linux)
 
-iD8DBQFBimMNJPpRNiftIEYRAhhAAKCYggpHdL+R9qzVJEBr0x4e6yTXpACfUX5R
-cQK+5NmvgjfCDojlg/h2jFk=
-=GVQk
+iD8DBQFBimUOSQ2wS9JeDp0RAvRXAJ9+Ucmv3N7Cogm98E5Rmzuxq4jUJACfQq0F
+kpsaf97m0lsXPhcFJNbi6yE=llgK
 -----END PGP SIGNATURE-----
 
---qnnAaaMsXgirVbdt--
