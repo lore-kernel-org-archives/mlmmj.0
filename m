@@ -1,7 +1,7 @@
-From: Wolf Bergenheim <wolf+mlmmj@bergenheim.net>
-Date: Tue, 08 Feb 2005 11:37:28 +0000
+From: Mads Martin Joergensen <mmj@mmj.dk>
+Date: Tue, 08 Feb 2005 11:40:57 +0000
 Subject: Re: mlmmj-1.2.3 released. Features added and bugs squashed.
-Message-Id: <200502081337.29966.wolf+mlmmj@bergenheim.net>
+Message-Id: <20050208114057.GB67839@mmj.dk>
 List-Id: <mlmmj.mlmmj.org>
 References: <20050208095412.GE56543@mmj.dk>
 In-Reply-To: <20050208095412.GE56543@mmj.dk>
@@ -10,17 +10,15 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-On Tuesday 08 February 2005 11:54, Mads Martin Joergensen wrote:
-> Hey all,
->
-> The ChangeLog has the glory details, I can recommend an upgrade:
->
+* Wolf Bergenheim <wolf+mlmmj@bergenheim.net> [Feb 08. 2005 12:37]:
+> > The ChangeLog has the glory details, I can recommend an upgrade:
+> 
+> So no support for multiple list addresses ):
 
-So no support for multiple list addresses ):
-
---W
+It's coming, but I wanted to get this bugfix out first. Next version :)
 
 -- 
-
-<:3 )---- Wolf Bergenheim ----( 8:>
-
+Mads Martin Joergensen, http://mmj.dk
+"Why make things difficult, when it is possible to make them cryptic
+ and totally illogical, with just a little bit more effort?"
+                                -- A. P. J.
