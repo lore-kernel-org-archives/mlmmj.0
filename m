@@ -1,49 +1,50 @@
-From: Mike Grice <mike@mikegrice.com>
-Date: Thu, 06 Jan 2005 14:32:50 +0000
-Subject: mlmmj <-> ezmlm
-Message-Id: <41DD4C12.9070509@mikegrice.com>
-MIME-Version: 1
-Content-Type: multipart/mixed; boundary="------------enigFED99AED3DD255A79EBE3B5B"
+From: Mads Martin Joergensen <mmj@mmj.dk>
+Date: Sat, 08 Jan 2005 11:22:59 +0000
+Subject: Re: mlmmj <-> ezmlm
+Message-Id: <20050108112259.GX712@mmj.dk>
 List-Id: <mlmmj.mlmmj.org>
+References: <41DD4C12.9070509@mikegrice.com>
+In-Reply-To: <41DD4C12.9070509@mikegrice.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-This is an OpenPGP/MIME signed message (RFC 2440 and 3156)
---------------enigFED99AED3DD255A79EBE3B5B
-Content-Type: text/plain; charset=ISO-8859-1; format=flowed
-Content-Transfer-Encoding: 7bit
+* Mike Grice <mike@mikegrice.com> [Jan 06. 2005 15:30]:
+> Hi there,
+> 
+> I've got a (potentially) tricky problem.  We are moving our mail
+> system over to Exim from qmail, and one of the major blocks in our way
+> is that we have literally hundreds of mailing-lists set up using
+> ezmlm.  I found out about this project during my search for a
+> replacement.
+> 
+> What I want to know, and I'm praying that the answer is yes, is the
+> following.
+> 
+> Is there an easy (read: automated) way to convert an ezmlm
+> mailing-list and preserve its information to an mlmmj list?  If this
+> is the case, I will be able to migrate our current lists over to mlmmj
+> and all will be good.
 
-Hi there,
+There is none yet, but I don't think it will be that hard.
 
-I've got a (potentially) tricky problem.  We are moving our mail system 
-over to Exim from qmail, and one of the major blocks in our way is that 
-we have literally hundreds of mailing-lists set up using ezmlm.  I found 
-out about this project during my search for a replacement.
+The subscribers will be handled by a bash loop something like this, you
+should of course substitute withyour install paths etc.:
 
-What I want to know, and I'm praying that the answer is yes, is the 
-following.
+for ADDR in `/usr/local/bin/ezmlm-list /var/spool/ezmlm/NAME` ; do
+        /usr/local/bin/mlmmj-sub -L /var/spool/mlmmj/NAME -a $ADDR
+done
 
-Is there an easy (read: automated) way to convert an ezmlm mailing-list 
-and preserve its information to an mlmmj list?  If this is the case, I 
-will be able to migrate our current lists over to mlmmj and all will be 
-good.
+It's getting too long since I touched ezmlm lists to remember the
+settings flags, but I dunno if it wouldn't be better to sit down reading
+TUNABLES and deciding freshly for each new list.
 
-Any suggestions greatly appreciated!
+If you manage to create a nice script for this, I'll of course add it to
+the contrib/ directory of mlmmj ;-)
 
-Thanks,
-Mike
-
---------------enigFED99AED3DD255A79EBE3B5B
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: OpenPGP digital signature
-Content-Disposition: attachment; filename="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-Version: GnuPG v1.2.4 (GNU/Linux)
-Comment: Using GnuPG with Thunderbird - http://enigmail.mozdev.org
-
-iD8DBQFB3UwSOTVmGN5NJs4RAi8KAJ9wNGx7Zx+rkawP45dEgP0b4NrpEQCg3zOB
-i5mmZPMu+hl7H3ojsm6PkS8=
-=NyY3
------END PGP SIGNATURE-----
-
---------------enigFED99AED3DD255A79EBE3B5B--
+-- 
+Mads Martin Joergensen, http://mmj.dk
+"Why make things difficult, when it is possible to make them cryptic
+ and totally illogical, with just a little bit more effort?"
+                                -- A. P. J.
