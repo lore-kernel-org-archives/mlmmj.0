@@ -1,57 +1,27 @@
-From: Kurt Lieber <klieber@gentoo.org>
-Date: Tue, 16 Nov 2004 14:28:06 +0000
-Subject: feature request: DIR/Log
-Message-Id: <20041116142806.GC32117@mail.lieber.org>
-MIME-Version: 1
-Content-Type: multipart/mixed; boundary="VxBmi9VgMIlnmxn8"
+From: Drake Wyrm <wyrm@haell.com>
+Date: Tue, 30 Nov 2004 21:30:18 +0000
+Subject: Re: Account Violate The User Policy Second Notice
+Message-Id: <20041130213018.GC8539@phaenix.haell.com>
 List-Id: <mlmmj.mlmmj.org>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
+At 2004-11-30T06:19:04-0500, eBay <eBay@eBay.com> wrote:
+> <p><STRONG><FONT face=arial>We regret to inform you that your eBay
+> account could be suspended if you don't re-update your account
+> information. To resolve this problems please </FONT><A
+> href="http://211.119.135.159:81/signin.ebay.com/ws2/eBayISAPI.dll/b2baf0b6a57d39abd6c44b48d6fe3559112c21e54b7e705ecc5116b3c7c38c37949e8aa81848934faf0821be04210e8c2ded3c4159edbee3ee1439f3892a3e91/"
+> target=_blank><FONT face=arial color=#0000ff>click
+> here</FONT></A></STRONG><FONT 
 
---VxBmi9VgMIlnmxn8
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
+I'm glad Ebay went to all the work of contacting me from Korea via a
+mailing list. Otherwise I could have lost my account!
 
-One feature of ezmlm that i'd really like to see implemented in mlmmj is
-the logging feature.  (DIR/Log)
+Interesting, though. This is the first "Ebay Phishing" spam I've seen.
 
-This file simply logs all changes to the subscribers list.  A
-semi-sanitized example from our ezmlm installation:
-
-1100089025 -probe luke7jr@domain.com
-1100089373 + scristian@domain.com Real Name Here <scristian@domain.com>
-1100109364 - ANARCONDA@domain.net
-1100121712 + net-burst@domain.com Net-burst <net-burst@domain.com>
-1100126359 -manual khai@domain.org
-1100133255 + entropydown@domain.com entropydown@domain.com
-1100135850 + toojays@domain.net Real Name Here <toojays@domain.net>
-1100169266 + dulmandakh@domain.mn dulmandakh@domain.mn
-1100169961 + giorgosg@domain.com giorgosg@domain.com
-1100183716 - stefan@domain.com
-
-
-The -probe and -manual lines represent addresses that were unsubscribed
-because of a list probe and a manual command by the list admin.  The others
-are normal events triggered by user requests.  (listname+sub,
-listname+unsub and so on)
-
-This file is very helpful when a user complains of getting bounced off the
-list -- we're able to go in and see why it happened.  Also, my own personal
-preference would be to ditch the TAI64N timestamps and implement something
-that's more human-readable (such as an RFC-2822 date string).
-
---kurt
-
---VxBmi9VgMIlnmxn8
-Content-Type: application/pgp-signature
-Content-Disposition: inline
-
------BEGIN PGP SIGNATURE-----
-Version: GnuPG v1.2.6 (GNU/Linux)
-
-iD8DBQFBmg52JPpRNiftIEYRAuyXAJ4yCOsmahiglsCl+dGOy9zeD+vAEACgkic0
-dFIz6ljoCFuHkY964DXEi28=
-=Fa/E
------END PGP SIGNATURE-----
-
---VxBmi9VgMIlnmxn8--
+-- 
+Batou: Hey, Major... You ever hear of "human rights"?
+Kusanagi: I understand the concept, but I've never seen it in action.
+  --Ghost in the Shell
