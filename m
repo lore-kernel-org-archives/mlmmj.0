@@ -1,7 +1,7 @@
-From: Christopher Mahmood <ckm@loafer.org>
-Date: Thu, 19 Aug 2004 19:03:16 +0000
+From: Mads Martin Joergensen <mmj@mmj.dk>
+Date: Thu, 19 Aug 2004 19:21:45 +0000
 Subject: Re: Checking envelope From for recipient delimiter
-Message-Id: <20040819190316.GB27547@oogabooga.loafer.org>
+Message-Id: <20040819192145.GQ70901@panther.mmj.dk>
 List-Id: <mlmmj.mlmmj.org>
 References: <20040819121309.GK70901@panther.mmj.dk>
 In-Reply-To: <20040819121309.GK70901@panther.mmj.dk>
@@ -10,17 +10,19 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-* Mads Martin Joergensen (mmj@mmj.dk) [040819 05:13]:
-> They bounced to listname+bounces-... in envelope From but had a
-> different address in To:. Since they've configured the list to not
-> require the listaddress in the To: or Cc: header, the bounce ended up on
-> the list.
+* Anders Johansson <andjoh@rydsbo.net> [Aug 19. 2004 20:52]:
+> Sending a mail to my_cross_posting will produce a mail with
+> "my_cross_posting" in To:, but the respective list addresses in each
+> RCPT TO:
+> 
+> Please don't use DATA information for anything important, it's just
+> plain text
 
-I think bouncing to header addresses is normal behavior for Lotus
-although it is configurable.
-
-ezmlm just silently drops any mail with a null sender.
+So what do you suggest to use as the most reliable way of getting the
+RCPT TO: out of a mail, when the To: in the body cannot be used?
 
 -- 
-
--ckm
+Mads Martin Joergensen, http://mmj.dk
+"Why make things difficult, when it is possible to make them cryptic
+ and totally illogical, with just a little bit more effort?"
+                                -- A. P. J.
