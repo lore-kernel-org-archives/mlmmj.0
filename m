@@ -1,7 +1,7 @@
-From: Mads Toftum <mads@toftum.dk>
-Date: Tue, 22 Mar 2005 11:50:06 +0000
+From: Mike Grice <Mike@MikeGrice.com>
+Date: Tue, 22 Mar 2005 12:01:07 +0000
 Subject: Re: Feature request - better bounce messages
-Message-Id: <20050322115006.GA30357@cr>
+Message-Id: <1111492867.14856.18.camel@localhost.localdomain>
 List-Id: <mlmmj.mlmmj.org>
 References: <20050322100356.GC30047@cr>
 In-Reply-To: <20050322100356.GC30047@cr>
@@ -10,18 +10,26 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-On Tue, Mar 22, 2005 at 11:23:11AM +0100, Mads Martin Joergensen wrote:
+On Tue, 2005-03-22 at 11:03 +0100, Mads Toftum wrote:
+-snipped-
+> Here is the index(es) of the messages that bounced in the attempt of
+> delivering them to you:
 > 
-> So in case there's more bounce indexes in one probe message, I can only
-> include the last one. That one I have though, and it could be added to
-> the probe.
+>         257
 > 
-I do think that ezmlm does the same (or at least the one at apache.org
-does) and I think it will be just fine to do it that way.
+> It would be really nice if we could get the smtp status from the 
+> bounce as ezmlm does.
 
-vh
+It would be neat if it had the Subject: line of the mail next to the
+index number as well.  That would rock.
 
-Mads Toftum
+Say, does anyone know what the difference is between ezmlm <-> mlmmj
+archive format?  Would it be possible to port message archives across?
+(I'm currently moving a ****load of ezmlm lists over to mlmmj by the end
+of the month)...
+
+Mike
+
 -- 
-`Darn it, who spiked my coffee with water?!' - lwall
+Sticking feathers up your butt does not make you a chicken.
 
