@@ -1,27 +1,35 @@
-From: Drake Wyrm <wyrm@haell.com>
-Date: Tue, 30 Nov 2004 21:30:18 +0000
-Subject: Re: Account Violate The User Policy Second Notice
-Message-Id: <20041130213018.GC8539@phaenix.haell.com>
+From: Mads Martin Joergensen <mmj@mmj.dk>
+Date: Mon, 29 Nov 2004 08:32:37 +0000
+Subject: mlmmj-1.1.0 released
+Message-Id: <20041129083237.GA15391@mmj.dk>
 List-Id: <mlmmj.mlmmj.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-At 2004-11-30T06:19:04-0500, eBay <eBay@eBay.com> wrote:
-> <p><STRONG><FONT face=arial>We regret to inform you that your eBay
-> account could be suspended if you don't re-update your account
-> information. To resolve this problems please </FONT><A
-> href="http://211.119.135.159:81/signin.ebay.com/ws2/eBayISAPI.dll/b2baf0b6a57d39abd6c44b48d6fe3559112c21e54b7e705ecc5116b3c7c38c37949e8aa81848934faf0821be04210e8c2ded3c4159edbee3ee1439f3892a3e91/"
-> target=_blank><FONT face=arial color=#0000ff>click
-> here</FONT></A></STRONG><FONT 
+Hey all,
 
-I'm glad Ebay went to all the work of contacting me from Korea via a
-mailing list. Otherwise I could have lost my account!
+It's time to get this one out the door, otherwise we'll keep adding bits
+and pieces which really doesn't fit in an RC period.
 
-Interesting, though. This is the first "Ebay Phishing" spam I've seen.
+It's VERY important to read UPGRADING when upgrading from 1.0.0 or
+below, since the listtexts have completely changed, and there's a couple
+of new directories below the listdir.
+
+So enjoy, here's the changes since RC3:
+
+1.1.0
+ o If mlmmj-recieve was invoked with a uid not root or not the owner of
+   listdir inform about the uid actually invoked with
+ o Add German listtexts (Hendrik Norman Vogelsang)
+ o Add hooks for installing listtexts into $(pkgdatadir) (Drake Wyrm)
+ o Add mlmmj-list manual page
+ o Make mlmmj-list be capable of listing owners, moderators too
+ o Perl interface updates
 
 -- 
-Batou: Hey, Major... You ever hear of "human rights"?
-Kusanagi: I understand the concept, but I've never seen it in action.
-  --Ghost in the Shell
+Mads Martin Joergensen, http://mmj.dk
+"Why make things difficult, when it is possible to make them cryptic
+ and totally illogical, with just a little bit more effort?"
+                                -- A. P. J.
