@@ -1,7 +1,7 @@
-From: Allan Joergensen <allan@nowhere.dk>
-Date: Tue, 08 Feb 2005 11:44:12 +0000
+From: Wolf Bergenheim <wolf+mlmmj@bergenheim.net>
+Date: Tue, 08 Feb 2005 11:45:30 +0000
 Subject: Re: mlmmj-1.2.3 released. Features added and bugs squashed.
-Message-Id: <20050208114412.GA13025@coredump.nowhere.dk>
+Message-Id: <200502081345.31555.wolf+mlmmj@bergenheim.net>
 List-Id: <mlmmj.mlmmj.org>
 References: <20050208095412.GE56543@mmj.dk>
 In-Reply-To: <20050208095412.GE56543@mmj.dk>
@@ -10,19 +10,22 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-On 08-Feb-2005, Mads Martin Joergensen wrote:
+On Tuesday 08 February 2005 13:40, Mads Martin Joergensen wrote:
+> * Wolf Bergenheim <wolf+mlmmj@bergenheim.net> [Feb 08. 2005 12:37]:
+> > > The ChangeLog has the glory details, I can recommend an upgrade:
+> >
+> > So no support for multiple list addresses ):
+>
+> It's coming, but I wanted to get this bugfix out first. Next version :)
 
-Hi,
+Great!
 
-> The ChangeLog has the glory details, I can recommend an upgrade:
-> 1.2.3
+I'm just impatient, because I've been asked to support 2 new parallel domains, 
+and would like the mailinglists to work with the new domains too.
 
-I would like to request a feature. It's been on my wishlist for quite
-some time; I would like the port of the outgoing relay server to be
-configurable (just changing init_socket.c works i know).
+--W
 
-mvh
 -- 
-Allan Joergensen
 
-"Do androids sleep with electric sheep?"
+<:3 )---- Wolf Bergenheim ----( 8:>
+
