@@ -1,7 +1,7 @@
-From: Mads Martin Joergensen <mmj@mmj.dk>
-Date: Sat, 04 Sep 2004 15:09:07 +0000
+From: Christoph Thiel <ct@kki.org>
+Date: Sat, 04 Sep 2004 17:13:14 +0000
 Subject: Re: mlmmj for Debian
-Message-Id: <20040904150906.GG36607@panther.mmj.dk>
+Message-Id: <Pine.LNX.4.58.0409041911220.4374@hermes.thiel.lan>
 List-Id: <mlmmj.mlmmj.org>
 References: <20040904131900.GF58209@freesbee.wheel.dk>
 In-Reply-To: <20040904131900.GF58209@freesbee.wheel.dk>
@@ -10,27 +10,29 @@ Content-Type: text/plain; charset="iso-8859-1"
 Content-Transfer-Encoding: quoted-printable
 To: mlmmj@mlmmj.org
 
-* S=F8ren Boll Overgaard <boll+mlmmj@fork.dk> [Sep 04. 2004 16:51]:
-> > > The packages are available at http://people.debian.org/~boll/
-> >=20
-> > Did you write man-pages? In that case, if you want to contribute them
-> > upstream, I can fold them in for 1.0.0.
->=20
-> I did indeed. They are rudimentary at best, and document only command line
-> options. No descriptions of functionality of the individual binaries are
-> included, mainly because I am sure about it myself.
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
 
-Having them there started means it's easy for me to sit and add bits and
-pieces, whenever there's a minute.
+Hi there,
 
-So I'll make sure to keep extending them.
+On Sat, 4 Sep 2004, S=C3=B8ren Boll Overgaard wrote:
 
-> They are available at http://people.debian.org/~boll/tmp/mlmmj/
+> The web-related packages are untested, as the fasttemplates library is in
+> a somewhat tricky state in Debian. I am currently working on this bit.
 
-I'll grab them later.
+You might want to use the php-* stuff, cause it comes with FastTemplates
+(php-version)...
 
---=20
-Mads Martin Joergensen, http://mmj.dk
-"Why make things difficult, when it is possible to make them cryptic
- and totally illogical, with just a little bit more effort?"
-                                -- A. P. J.
+
+Regards,
+	Christoph
+- --
+Christoph Thiel <ct@kki.org>, http://ct.kki.org/
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.2.4 (GNU/Linux)
+
+iD8DBQFBOfeqSQ2wS9JeDp0RAqQqAKCS652O+juquggkNFegf9csrEooBwCfTFcU
+46LBUErnjHPPLfvdNMQbI48=3D
+=3DFsTa
+-----END PGP SIGNATURE-----
+
