@@ -1,36 +1,31 @@
 From: Mads Martin Joergensen <mmj@mmj.dk>
-Date: Wed, 26 Jan 2005 18:11:48 +0000
-Subject: mlmmj-1.2.1 released
-Message-Id: <20050126181148.GA64790@mmj.dk>
+Date: Sun, 16 Jan 2005 18:36:45 +0000
+Subject: Re: Empty mail
+Message-Id: <20050116183645.GT33603@mmj.dk>
 List-Id: <mlmmj.mlmmj.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
 Hey all,
 
-This release adds switches to control the mails sent out by mlmmj when
-it's denying posts for some reason. And a FreeBSD-4 compile fix.
+Sorry about the last empty one. I'm doing the final tests for 1.2.0-RC1
+(with VERP support) and did
 
-ChangeLog:
+ $ echo | mail mlmmj@mmj.dk
 
-1.2.1
- o Introduce switches to turn off mails about posts being denied.
+Instead of
 
-And the relevant stuff from TUNABLES:
+ $ echo | mail mlmmj-test@mmj.dk
 
- =B7 notoccdenymails              (boolean)
- =B7 noaccessdenymails            (boolean)
- =B7 nosubonlydenymails           (boolean)
+The VERP support performance looks good, and will bring mlmmj+postfix up
+to the same speed as qmail+ezmlm.
 
-   These switches turns off whether mlmmj sends out notification about
-   postings being denied due to the listaddress not being in To: or Cc:
-   (see 'tocc'), when it was rejected due to an access rule (see
-   'access') or whether it's a subscribers only posting list (see
-   'subonlypost').
+Would anyone happen to know how to use VERP with qmail over SMTP instead
+of qmail-inject?
 
---=20
+-- 
 Mads Martin Joergensen, http://mmj.dk
 "Why make things difficult, when it is possible to make them cryptic
  and totally illogical, with just a little bit more effort?"
