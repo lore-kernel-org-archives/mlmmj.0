@@ -1,7 +1,7 @@
 From: Jakob Hirsch <jh@plonk.de>
-Date: Sun, 13 Mar 2005 23:48:42 +0000
+Date: Sun, 13 Mar 2005 23:55:30 +0000
 Subject: Re: exim4
-Message-Id: <4234D15A.1010409@plonk.de>
+Message-Id: <4234D2F2.3090601@plonk.de>
 List-Id: <mlmmj.mlmmj.org>
 References: <4232593D.2000404@plonk.de>
 In-Reply-To: <4232593D.2000404@plonk.de>
@@ -12,13 +12,19 @@ To: mlmmj@mlmmj.org
 
 Mads Martin Joergensen wrote:
 
->>runs into the same problems as me: return_path_add is needed in the 
->>transport calling mlmmj-recieve. I had a hard time finding that out, 
-> Could you maybe write it into README.exim and send it to me, then I'll
-> include it.
+>>I've wondered about that myself. If the binaries are installed somewhere
+>>in $PATH, wouldn't that provide sufficient method for finding them?
+> I would prefer for security reasons not to start parsing environment
+> variables. 
 
-Sure, in the next days.
+Sounds sensible, but mlmmj uses execvp, which uses PATH itself, so why 
+should you have to parse that yourself?
+Another possibility would be to use a hard coded path from configure or 
+some header file.
 
-btw, after I had it running, I saw a post in the archive about just this 
-subject (http://mlmmj.mmj.dk/archive/0154.html). Should have checked the 
-archives a little more thoroughly...
+ > Besides, with this method, you can have many mlmmj
+> installations in parallel.
+
+mlmmj uses no config file, so what's the use? Having different versions 
+of mlmmj running? That should be done with configure's --program-suffix. 
+Otherwise you end up having a directory for every mlmmj installation.
