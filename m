@@ -1,52 +1,31 @@
-From: Mads Martin Joergensen <mmj@mmj.dk>
-Date: Sun, 27 Jun 2004 21:34:58 +0000
-Subject: Re: mlmmj-0.8.1
-Message-Id: <20040627213458.GC30978@panther.mmj.dk>
+From: Christoph Thiel <ct@kki.org>
+Date: Fri, 04 Jun 2004 20:34:25 +0000
+Subject: Re: mlmmj-0.5.2
+Message-Id: <Pine.LNX.4.58.0406042229270.4448@hermes.cthiel.de>
 List-Id: <mlmmj.mlmmj.org>
-References: <20040625082942.GG10372@panther.mmj.dk>
-In-Reply-To: <20040625082942.GG10372@panther.mmj.dk>
+References: <20040529154106.GB36109@panther.mmj.dk>
+In-Reply-To: <20040529154106.GB36109@panther.mmj.dk>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="macroman"
+Content-Transfer-Encoding: base64
 To: mlmmj@mlmmj.org
 
-* Mads Martin Joergensen <mmj@mmj.dk> [Jun 25. 2004 10:29]:
-> 0.8.1
->  o Go through all open() calls and retry in case we (allthough it's extremely
->    unlikely) did get EEXIST
-
-This caused a nasty bug to appear in the function preparing standard
-replies. Apply this patch or just grab mlmmj-0.8.1.1.
-
---- mlmmj-0.8.1/src/prepstdreply.c
-+++ mlmmj-0.8.1/src/prepstdreply.c
-@@ -64,18 +64,17 @@
- 	myfree(tmp);
- 
- 	do {
--                tmp = random_str();
-+		tmp = random_str();
- 		myfree(retstr);
- 		retstr = concatstr(3, listdir, "/queue/", tmp);
- 		myfree(tmp);
- 
--                outfd = open(filename, O_RDWR|O_CREAT|O_EXCL,
--				       S_IRUSR|S_IWUSR);
-+		outfd = open(retstr, O_RDWR|O_CREAT|O_EXCL, S_IRUSR|S_IWUSR);
- 
- 	} while ((outfd < 0) && (errno = EEXIST));
- 	
- 	if(outfd < 0) {
--		log_error(LOG_ARGS, "Could not open std mail %s", tmp);
-+		log_error(LOG_ARGS, "Could not open std mail %s", retstr);
- 		myfree(str);
- 		return NULL;
- 	}
-
-Thanks to Christian Laursen for finding.
-
--- 
-Mads Martin Joergensen, http://mmj.dk
-"Why make things difficult, when it is possible to make them cryptic
- and totally illogical, with just a little bit more effort?"
-                                -- A. P. J.
+LS0tLS1CRUdJTiBQR1AgU0lHTkVEIE1FU1NBR0UtLS0tLQpIYXNoOiBTSEExCgpIaSB0aGVyZSwK
+Ck9uIFNhdCwgMjkgTWF5IDIwMDQsIE1hZHMgTWFydGluIEpvZXJnZW5zZW4gd3JvdGU6Cgo+IG1s
+bW1qLTAuNS4yIGlzIG91dC4KCkkganVzdCB1cGRhdGVkIHRvIDAuNS4yLi4uIGFuZCBpdCBzZWVt
+cyB0byBiZSB3b3JraW5nIGFzIGV4cGVjdGVkLgoKQnR3OiBXb3VsZG4ndCBpdCBiZSBjb25zZXF1
+ZW50bHkgdG8gbW92ZSBsaXN0ZGlyL21vZGVyYXRvcnMgdG8KbGlzdGRpci9jb250cm9sL21vZGVy
+YXRvcnM/CgotIC0tLSBtbG1tai1wcm9jZXNzLmN+ICAgIDIwMDQtMDYtMDQgMjI6Mjk6MDkuMDAw
+MDAwMDAwICswMjAwCisrKyBtbG1tai1wcm9jZXNzLmMgICAgIDIwMDQtMDYtMDQgMjI6Mjk6MDku
+MDAwMDAwMDAwICswMjAwCkBAIC02MSw3ICs2MSw3IEBACiAgICAgICAgfQogICAgICAgIGZyZWUo
+cmFuZG9tc3RyKTsKIAotIC0gICAgICAgbW9kZXJhdG9yc2ZpbGVuYW1lID0gY29uY2F0c3RyKDIs
+IGxpc3RkaXIsICIvbW9kZXJhdG9ycyIpOworICAgICAgIG1vZGVyYXRvcnNmaWxlbmFtZSA9IGNv
+bmNhdHN0cigyLCBsaXN0ZGlyLCAiL2NvbnRyb2wvbW9kZXJhdG9ycyIpOwogICAgICAgIGlmKCht
+b2RlcmF0b3JzZmlsZSA9IGZvcGVuKG1vZGVyYXRvcnNmaWxlbmFtZSwgInIiKSkgPSBOVUxMKSB7
+CiAgICAgICAgICAgICAgICBsb2dfZXJyb3IoTE9HX0FSR1MsICJDb3VsZCBub3Qgb3BlbiAnJXMn
+IiwgbW9kZXJhdG9yc2ZpbGVuYW1lKTsKICAgICAgICAgICAgICAgIGZyZWUocXVldWVmaWxlbmFt
+ZSk7CgoKQmVzdCByZWdhcmRzLAoJQ2hyaXN0b3BoCi0gLS0KQ2hyaXN0b3BoIFRoaWVsIDxjdEBr
+a2kub3JnPiwgaHR0cDovL2N0LmtraS5vcmcvCi0tLS0tQkVHSU4gUEdQIFNJR05BVFVSRS0tLS0t
+ClZlcnNpb246IEdudVBHIHYxLjIuNCAoR05VL0xpbnV4KQoKaUQ4REJRRkF3TnpTU1Eyd1M5SmVE
+cDBSQXBLSkFKOUhkUm92eEg5SkE2ZXdpUFRXZzRUZ1dteFR2UUNnaU5aQQpDK2dvWi9IaW1OVVZH
+T1dDVXcyU1V5SZBHOQotLS0tLUVORCBQR1AgU0lHTkFUVVJFLS0tLS0KCg==
