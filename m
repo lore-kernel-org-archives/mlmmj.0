@@ -1,30 +1,28 @@
-From: Mads Martin Joergensen <mmj@mmj.dk>
-Date: Tue, 26 Apr 2005 09:32:52 +0000
-Subject: Re: Feature Request: Subscriber Lists
-Message-Id: <20050426093252.GB22422@mmj.dk>
+From: lupin3rd <lupin3rd@gmx.it>
+Date: Tue, 05 Apr 2005 10:59:07 +0000
+Subject: can i run mlmmj commands how nobody user??
+Message-Id: <1112698748.11330.5.camel@zion>
 List-Id: <mlmmj.mlmmj.org>
-References: <1113237126.4613.5.camel@localhost.localdomain>
-In-Reply-To: <1113237126.4613.5.camel@localhost.localdomain>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-* Mike Grice <Mike@MikeGrice.com> [Apr 16. 2005 18:24]:
-> > This kind of sums it up for ezmlm+idx:
-> > http://www.dk.ezmlm.org/faq/FAQ-4.html#ss4.17
-> > http://www.dk.ezmlm.org/faq/FAQ-4.html#ss4.14
-> 
-> So can listname+list be added to the wishlist for features please?  It's
-> all thats stopping me ditching ezmlm entirely. :)
+i have a problem...
+i working to add mlmmj support to the GPL panel DTC (www.gplhost.com)...
 
-I've just finished implementing listname+list, and is about to start
-testing. When I feel confident about it, 1.2.5 is on it's way out.
+the first little problem is that i can't create ml with a single command
+(mlmmj-make-ml) but i solve this running:
+(echo $var1; echo $var2; echo N;) | /usr/bin/mlmmj-make-ml -L $var3 -s
+$var4
 
-Sorry for the delay, but work have been taking quite some time lately.
+Now i have a big problem... all the php scripts running how nobody user
+(from php script a can stop start apache, posfix, etc)... but if i run
+mlmmj-make-ml it don't create fine the mailing lists.
+It only works if i run from shell how root user.
+This is a big problem... if mlmmj want have a php panel for create ml.
 
--- 
-Mads Martin Joergensen, http://mmj.dk
-"Why make things difficult, when it is possible to make them cryptic
- and totally illogical, with just a little bit more effort?"
-                                -- A. P. J.
+Anyone can help me?
+
+Thanks
+
