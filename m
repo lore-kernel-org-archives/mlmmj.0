@@ -1,27 +1,32 @@
-From: Mads Martin Joergensen <mmj@mmj.dk>
-Date: Wed, 02 Feb 2005 08:35:48 +0000
-Subject: Re: Feature Request / I'm missing something: reply2list?
-Message-Id: <20050202083548.GA4901@mmj.dk>
+From: Mads Toftum <mads@toftum.dk>
+Date: Tue, 22 Mar 2005 10:03:56 +0000
+Subject: Feature request - better bounce messages
+Message-Id: <20050322100356.GC30047@cr>
 List-Id: <mlmmj.mlmmj.org>
-References: <1107280898.7622.111.camel@localhost.localdomain>
-In-Reply-To: <1107280898.7622.111.camel@localhost.localdomain>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-* Wolf Bergenheim <wolf+mlmmj@bergenheim.net> [Feb 01. 2005 23:44]:
-> > Not yet possible. But it's doable. Any objections from people on the
-> > list against having DIR/control/alternates with other list
-> > emailaddresses? If not, I'll add it in an upcoming release.
-> 
-> or how about allowing multiple entries in the LIST/control/listaddress that 
-> would seem to be more logical IMO...
+Hi,
 
-Yes, indeed it would. First address, would be the precedence one then.
+I've had a couple of bounce messages recently, and all I get is:
 
+Some messages to you could not be delivered. If you're getting this
+message it means things are back to normal, and it's merely for your
+information.
+
+Here is the index(es) of the messages that bounced in the attempt of
+delivering them to you:
+
+        257
+
+It would be really nice if we could get the smtp status from the 
+bounce as ezmlm does.
+
+vh
+
+Mads Toftum
 -- 
-Mads Martin Joergensen, http://mmj.dk
-"Why make things difficult, when it is possible to make them cryptic
- and totally illogical, with just a little bit more effort?"
-                                -- A. P. J.
+`Darn it, who spiked my coffee with water?!' - lwall
+
