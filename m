@@ -1,39 +1,52 @@
-From: Mads Martin Joergensen <mmj@mmj.dk>
-Date: Thu, 25 Nov 2004 20:37:43 +0000
-Subject: mlmmj-1.1.0-RC3 is released
-Message-Id: <20041125203743.GO11020@mmj.dk>
+From: Kurt Lieber <klieber@gentoo.org>
+Date: Wed, 15 Dec 2004 19:29:38 +0000
+Subject: bug: blank subjects do not get list subject prepended
+Message-Id: <20041215192938.GN32117@mail.lieber.org>
+MIME-Version: 1
+Content-Type: multipart/mixed; boundary="BfiOpY9z1HJf3NMZ"
 List-Id: <mlmmj.mlmmj.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
 To: mlmmj@mlmmj.org
 
-Hey all,
 
-I've just uploaded mlmmj-1.1.0-RC3 which has a tiny feature addition,
-but it was so unintrusive that it was safe enough to add since it's a
-really useful feature. Say you want to moderate all html mails to a
-list, you simply add this rule to DIR/control/access:
+--BfiOpY9z1HJf3NMZ
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
 
- moderate ^Content-Type: text/html
+Not sure how to explain this except with an example.
 
-It's especially useful for moderated lists who wants to allow e.g.
-posting with a password in the headers directly without the moderation
-run.
+With our list, gentoo-core, all subjects get [gentoo-core] prepended.  So:
 
-I would also like to urge people who have some additions or pending
-things for 1.1.0 to please try and get it done soon, so we can get this
-1.1.0 out the door.
+Subject: test message
 
-ChangeLog:
+shows up on the list as:
 
-1.1.0-RC3
- o Add 'moderate' tag for usage in control/access when one wants to have the
-   moderators moderate posts hitting this regexp. See README.access
- o Add a To: header with the recipient's address when sending digests
+Subject: [gentoo-core] test message
 
---=20
-Mads Martin Joergensen, http://mmj.dk                           B=C5K!
-"Why make things difficult, when it is possible to make them cryptic
- and totally illogical, with just a little bit more effort?"
-                                -- A. P. J.
+If a user leaves the subject line blank, the list subject thingy doesn't
+get prepended:
+
+Subject:
+
+should show up as:
+
+Subject: [gentoo-core]
+
+but it doesn't.
+
+This makes users who rely on these keywords for procmail filtering unhappy.
+
+--kurt
+
+--BfiOpY9z1HJf3NMZ
+Content-Type: application/pgp-signature
+Content-Disposition: inline
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.2.6 (GNU/Linux)
+
+iD8DBQFBwJCiJPpRNiftIEYRAkcrAKCExDPdPtcgGfWQ7U/CiazNs/uq7ACggdBp
+HYbGt52VxJZJqS7tess85t0=
+=ztkf
+-----END PGP SIGNATURE-----
+
+--BfiOpY9z1HJf3NMZ--
