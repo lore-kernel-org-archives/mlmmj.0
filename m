@@ -1,27 +1,52 @@
-From: Mads Martin Joergensen <mmj@mmj.dk>
-Date: Mon, 20 Sep 2004 21:05:23 +0000
+From: martin f krafft <madduck@madduck.net>
+Date: Mon, 20 Sep 2004 21:15:12 +0000
 Subject: Re: feature requests
-Message-Id: <20040920210523.GZ76919@mmj.dk>
+Message-Id: <20040920211512.GA11551@cirrus.madduck.net>
+MIME-Version: 1
+Content-Type: multipart/mixed; boundary="qMm9M+Fa2AknHoGS"
 List-Id: <mlmmj.mlmmj.org>
 References: <20040920191944.GA5112@cirrus.madduck.net>
 In-Reply-To: <20040920191944.GA5112@cirrus.madduck.net>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-* martin f krafft <madduck@madduck.net> [Sep 20. 2004 23:04]:
-> also sprach Mads Martin Joergensen <mmj@mmj.dk> [2004.09.20.2300 +0200]:
-> > Yeah, if it's there it's used, if not fallback to To: is done.
-> > It's a shame it didn't make it into the standards.
-> 
-> Why don't you just rely on the envelope recipient?
 
-Which header is that? I've looked through the RFCs but didn't find it,
-so please educate me, there's nothing I would rather do.
+--qMm9M+Fa2AknHoGS
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
--- 
-Mads Martin Joergensen, http://mmj.dk
-"Why make things difficult, when it is possible to make them cryptic
- and totally illogical, with just a little bit more effort?"
-                                -- A. P. J.
+also sprach Mads Martin Joergensen <mmj@mmj.dk> [2004.09.20.2305 +0200]:
+> Which header is that? I've looked through the RFCs but didn't find
+> it, so please educate me, there's nothing I would rather do.
+
+Return-Path, I think.
+
+Alternatively, you could not go via /etc/aliases and pass recipient
+as argument to a transport/director script.
+
+--=20
+martin;              (greetings from the heart of the sun.)
+  \____ echo mailto: !#^."<*>"|tr "<*> mailto:" net@madduck
+=20
+invalid/expired pgp subkeys? use subkeys.pgp.net as keyserver!
+spamtraps: madduck.bogus@madduck.net
+=20
+"not the truth in whose possession any man is, or thinks he is, but
+ the honest effort he has made to find out the truth, is what
+ constitutes the worth of man."
+                                                   -- gotthold lessing
+
+--qMm9M+Fa2AknHoGS
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: Digital signature
+Content-Disposition: inline
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.2.5 (GNU/Linux)
+
+iD8DBQFBT0hgIgvIgzMMSnURAjfzAJ40TvJ6XkXG+1NM90MNwCoPEhSr0gCg3W7K
+6OSMdqhtc2wwdPzRrkl+VOM=
+=/Twp
+-----END PGP SIGNATURE-----
+
+--qMm9M+Fa2AknHoGS--
