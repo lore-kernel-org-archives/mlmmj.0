@@ -1,7 +1,7 @@
-From: Uffe Jakobsen <uffe@uffe.org>
-Date: Thu, 03 Feb 2005 16:58:58 +0000
+From: Mads Martin Joergensen <mmj@mmj.dk>
+Date: Thu, 03 Feb 2005 17:00:04 +0000
 Subject: Re: Corrections to mlmmj-1.2.2
-Message-Id: <42025852.9010104@uffe.org>
+Message-Id: <20050203170004.GU7982@mmj.dk>
 List-Id: <mlmmj.mlmmj.org>
 References: <4202359E.7030404@uffe.org>
 In-Reply-To: <4202359E.7030404@uffe.org>
@@ -10,22 +10,21 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-
-Hi Martin,
-
-Mads Martin Joergensen wrote:
+* Uffe Jakobsen <uffe@uffe.org> [Feb 03. 2005 17:59]:
+> Sorry my mistake just testeted the /etc/aliases "thing" and I found out 
+> that I had some kind of "invisible" control/escape char in the string -  
+> sorry about that.
 > 
-> I know of Postfix, Sendmail and Exim working with the first syntax
-> specified here.
+> The current description in your README is working fine.
 > 
-> What do you base the assumption that it's wrong on?
-> 
+> I was blinded by my invisible "bug"-char and due to the fact that man pages 
+> on both FC2 and Solaris that '|' should be the first char - only the HPUX 
+> man page specifies that "|/som/binary" is legal for aliases file.
 
-Sorry my mistake just testeted the /etc/aliases "thing" and I found out that I had some kind of "invisible" control/escape char in the string -  sorry about that.
+Ah, no worries. It was just really puzzling.
 
-The current description in your README is working fine.
-
-I was blinded by my invisible "bug"-char and due to the fact that man pages on both FC2 and Solaris that '|' should be the first char - only the HPUX man page specifies that "|/som/binary" is legal for aliases file.
-
-Kind regards Uffe Jakobsen
-
+-- 
+Mads Martin Joergensen, http://mmj.dk
+"Why make things difficult, when it is possible to make them cryptic
+ and totally illogical, with just a little bit more effort?"
+                                -- A. P. J.
