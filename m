@@ -1,40 +1,63 @@
-From: "Morten K. Poulsen" <morten@afdelingp.dk>
-Date: Tue, 21 Sep 2004 14:54:41 +0000
+From: martin f krafft <madduck@madduck.net>
+Date: Tue, 21 Sep 2004 14:59:39 +0000
 Subject: Re: feature requests
-Message-Id: <20040921145441.GK1826@mopo.tv2.local>
+Message-Id: <20040921145939.GA16654@cirrus.madduck.net>
+MIME-Version: 1
+Content-Type: multipart/mixed; boundary="UlVJffcvxoiEqYs2"
 List-Id: <mlmmj.mlmmj.org>
 References: <20040920191944.GA5112@cirrus.madduck.net>
 In-Reply-To: <20040920191944.GA5112@cirrus.madduck.net>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-On Tue, Sep 21, 2004 at 04:22:19PM +0200, martin f krafft wrote:
-> The mailers can pass arguments to the transporters.
 
-OK, so adding an optional argument to mlmmj-receive with the envelope-to
-will solve this issue for all mailers. If your mailer does not support
-adding Delivered-To: you can pass it as an argument and have
-mlmmj-receive add it. That should work for all cases, right?
+--UlVJffcvxoiEqYs2
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> > When you configure your mail server for mlmmj, just make sure to
-> > set it up to add a Delivered-To: header. Thats reliable.
-> 
-> I don't think sendmail/exim/zmailer can do that. But I would be
-> happy to be proven wrong.
+also sprach Morten K. Poulsen <morten@afdelingp.dk> [2004.09.21.1654 +0200]:
+> OK, so adding an optional argument to mlmmj-receive with the envelope-to
+> will solve this issue for all mailers. If your mailer does not support
+> adding Delivered-To: you can pass it as an argument and have
+> mlmmj-receive add it. That should work for all cases, right?
 
-I know Exim can, but I think sendmail needs to be patched to do it. I
-don't know about zmailer.
+Yeah, sure. And that argument should be available by the time of
+/etc/aliases.db parsing.
 
-> In any case, this was just a heads-up. I am never going to use
-> anything but postfix anyway.
+> > In any case, this was just a heads-up. I am never going to use
+> > anything but postfix anyway.
+>=20
+> Some people might be using sendmail, and we want them to be able
+> to use mlmmj too :-)
 
-Some people might be using sendmail, and we want them to be able to use
-mlmmj too :-)
+Clearly a necessity. I mean, people seem to like retro-technology.
 
-Morten
+/me ducks
 
--- 
-Morten K. Poulsen <morten@afdelingp.dk>
-http://www.afdelingp.dk/
+(Eric Allman is a good acquaintance of mine)
+
+--=20
+martin;              (greetings from the heart of the sun.)
+  \____ echo mailto: !#^."<*>"|tr "<*> mailto:" net@madduck
+=20
+invalid/expired pgp subkeys? use subkeys.pgp.net as keyserver!
+spamtraps: madduck.bogus@madduck.net
+=20
+"computer science is no more about computers
+ than astronomy is about telescopes."
+                                                 -- edsgar w. dijkstra
+
+--UlVJffcvxoiEqYs2
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: Digital signature
+Content-Disposition: inline
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.2.5 (GNU/Linux)
+
+iD8DBQFBUEHbIgvIgzMMSnURAjTAAJ9gXew4rC2K7xJuHYl3GEH5sGHo9QCfW4ES
+E4UlVboLBlRSulWkHNS14Ss=
+=5QwP
+-----END PGP SIGNATURE-----
+
+--UlVJffcvxoiEqYs2--
