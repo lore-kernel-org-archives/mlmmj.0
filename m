@@ -1,133 +1,31 @@
 From: Mads Martin Joergensen <mmj@mmj.dk>
-Date: Mon, 17 Jan 2005 23:43:09 +0000
-Subject: ERRATA
-Message-Id: <20050117234309.GA59584@mmj.dk>
-MIME-Version: 1
-Content-Type: multipart/mixed; boundary="BXVAT5kNtrzKuDFl"
+Date: Tue, 18 Jan 2005 07:59:39 +0000
+Subject: Re: feature request: DIR/Log
+Message-Id: <20050118075939.GF59584@mmj.dk>
 List-Id: <mlmmj.mlmmj.org>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
+* Kurt Lieber <klieber@gentoo.org> [Nov 16. 2004 15:28]:
+> One feature of ezmlm that i'd really like to see implemented in mlmmj is
+> the logging feature.  (DIR/Log)
 
---BXVAT5kNtrzKuDFl
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+It took a while, but here we go. 1.2.0-RC2 will have similar to the
+following logging in DIR/mlmmj.operation.log:
 
-Hey all,
+ # tail -f mlmmj.operation.log 
+ Tue Jan 18 08:43:43 2005 mlmmj-sub: request for regular subscription from mmj@panther.mmj.dk
+ Tue Jan 18 08:44:55 2005 mlmmj-sub: mmj@panther.mmj.dk confirmed subscription to regular list
+ Tue Jan 18 08:44:55 2005 mlmmj-recieve: sending mail from mlmmj-test+bounces-help@mmj.dk to owner
+ Tue Jan 18 08:45:24 2005 mmj@panther.mmj.dk requested help
 
-Maybe some of you noticed the wrong envelope from on the last mail. It
-was due to a code-snippet getting inside a while() loop where it should
-have been on the outside after.
-
-I've attached the patch.
+It might be more verbose than ezmlm, but I thought 'human readable' log
+entries was preferred. Comments of course welcome.
 
 -- 
 Mads Martin Joergensen, http://mmj.dk
 "Why make things difficult, when it is possible to make them cryptic
  and totally illogical, with just a little bit more effort?"
                                 -- A. P. J.
-
---BXVAT5kNtrzKuDFl
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: attachment; filename="mlmmj-send-verpfix.diff"
-
-Index: mlmmj-send.c
-===================================================================
-RCS file: /home/mmj/MMJCVS/mlmmj/src/mlmmj-send.c,v
-retrieving revision 1.69
-diff -u -r1.69 mlmmj-send.c
---- mlmmj-send.c	16 Jan 2005 18:43:48 -0000	1.69
-+++ mlmmj-send.c	17 Jan 2005 23:40:34 -0000
-@@ -983,7 +983,7 @@
- 					"header. Not sending with VERP.");
- 			verp = NULL;
- 		}
--
-+		
- 		if(verp) {
- 			initsmtp(&sockfd, relay);
- 			if(write_mail_from(sockfd, verpfrom, verp)) {
-@@ -1053,49 +1053,45 @@
- 					stl.count = 0;
- 				}
- 			} while(res > 0);
--			if(stl.count) {
--				initsmtp(&sockfd, relay);
--				if(verp) {
--					sendres = send_mail_verp(sockfd,
--							&stl, mailmap,
--							st.st_size,
--							verpfrom,
--							listdir, hdrs, hdrslen,
--							body, bodylen, verp);
--					if(sendres)
--						requeuemail(listdir, strindex,
--								&stl, 0);
--				} else {
--					sendres = send_mail_many_list(sockfd,
--							NULL, NULL, mailmap,
--							st.st_size, &stl,
--							listaddr,
--							archivefilename,
--							listdir, mlmmjbounce,
--							hdrs, hdrslen, body,
--							bodylen);
--				}
--				endsmtp(&sockfd);
--				for(i = 0; i < stl.count; i++)
--					myfree(stl.strs[i]);
--				stl.count = 0;
--			}
--
--			myfree(verpfrom);
- 			myfree(subfilename);
--			myfree(stl.strs);
- 			close(subfd);
- 
--			if (sendres) {
--				/* If send_mail_many() failed we close the
--				 * connection to the mail server in a brutal
--				 * manner, because we could be in any state
--				 * (DATA for instance). */
--				close(sockfd);
-+		}
-+		if(stl.count) {
-+			initsmtp(&sockfd, relay);
-+			if(verp) {
-+				sendres = send_mail_verp(sockfd, &stl, mailmap,
-+						st.st_size, verpfrom, listdir,
-+						hdrs, hdrslen, body, bodylen,
-+						verp);
-+				if(sendres)
-+					requeuemail(listdir, strindex, &stl,
-+							0);
- 			} else {
--				endsmtp(&sockfd);
-+				sendres = send_mail_many_list(sockfd, NULL,
-+						NULL, mailmap, st.st_size,
-+						&stl, listaddr,
-+						archivefilename, listdir,
-+						mlmmjbounce, hdrs, hdrslen,
-+						body, bodylen);
- 			}
-+			endsmtp(&sockfd);
-+			for(i = 0; i < stl.count; i++)
-+				myfree(stl.strs[i]);
-+			stl.count = 0;
-+		}
-+
-+		if (sendres) {
-+			/* If send_mail_many() failed we close the
-+			 * connection to the mail server in a brutal
-+			 * manner, because we could be in any state
-+			 * (DATA for instance). */
-+			close(sockfd);
-+		} else {
-+			endsmtp(&sockfd);
- 		}
-+		myfree(stl.strs);
-+		myfree(verpfrom);
- 		closedir(subddir);
- 		myfree(subddirname);
- 		break;
-
---BXVAT5kNtrzKuDFl--
