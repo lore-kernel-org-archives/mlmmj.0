@@ -1,28 +1,28 @@
-From: Mads Martin Joergensen <mmj@mmj.dk>
-Date: Tue, 01 Feb 2005 10:31:02 +0000
-Subject: Re: mlmmj-1.2.2 released. Upgrade recommended.
-Message-Id: <20050201103102.GA88505@mmj.dk>
+From: =?iso-8859-1?Q?S=F8ren?= Boll Overgaard <boll+mlmmj@fork.dk>
+Date: Thu, 03 Feb 2005 14:59:29 +0000
+Subject: access to mlmmj CVS
+Message-Id: <20050203145929.GA49323@freesbee.wheel.dk>
 List-Id: <mlmmj.mlmmj.org>
-References: <20050201093217.GK64378@mmj.dk>
-In-Reply-To: <20050201093217.GK64378@mmj.dk>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 To: mlmmj@mlmmj.org
 
-* Mads Martin Joergensen <mmj@mmj.dk> [Feb 01. 2005 10:32]:
-> 1.2.2
->  o Make mlmmj-send work allthough no subscribers exist
+Hi,
 
-Forgot to mention;
+I was wondering if you would consider allowing general read access to the m=
+lmmj
+CVS repository. Alternatively or in addition to this, it would be nice to be
+able to subscribe to CVS-change notifications.
 
-This bug made the mlmmj-maintd process hang in the case where no people
-were subscribed to digests. No mail got lost or anything, since noone
-were expected to get any mail, but you might want to check if there's
-some hanging mlmmj-maintd or send processes on the system.
+In particular, this would be useful when packaging mlmmj for a specific
+distribution, since it would provide a heads up, when changes are made to=20
+CVS that may potentially conflict with patches written specifically for the=
+=20
+distribution in question.
 
--- 
-Mads Martin Joergensen, http://mmj.dk
-"Why make things difficult, when it is possible to make them cryptic
- and totally illogical, with just a little bit more effort?"
-                                -- A. P. J.
+--=20
+S=F8ren O.                                           ,''`.
+                                                  : :' :
+GPG key id: 0x1EB2DE66                            `. `'
+GPG signed mail preferred.                          `-
