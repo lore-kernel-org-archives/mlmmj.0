@@ -1,47 +1,46 @@
-From: Mads Martin Joergensen <mmj@mmj.dk>
-Date: Fri, 12 Nov 2004 11:26:31 +0000
-Subject: Re: feature request: mlmmj-list
-Message-Id: <20041112112631.GA6796@mmj.dk>
+From: Kurt Lieber <klieber@gentoo.org>
+Date: Thu, 04 Nov 2004 17:05:33 +0000
+Subject: feature request: DIR/mimereject
+Message-Id: <20041104170533.GK10927@mail.lieber.org>
+MIME-Version: 1
+Content-Type: multipart/mixed; boundary="J2dKNoLeXnWu5vox"
 List-Id: <mlmmj.mlmmj.org>
-References: <20041104132516.GE10927@mail.lieber.org>
-In-Reply-To: <20041104132516.GE10927@mail.lieber.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-* Kurt Lieber <klieber@gentoo.org> [Nov 04. 2004 15:05]:
-> > The only reason I could think of to do this is the -n switch.
-> > Fair enough--it'll happen before 1.1.
->
-> yeah, we use the -n switch all the time.  I've attached a simple bash
-> script that does everything I need it to.  It does basic checking, but it's
-> by no means "robust".  It looks like you'd expect a 10-minute bash script
-> to look. :)
->
-> Anyway, in case it's helpful to anyone else, have a blast.  No warranty,
-> blah blah blah.
 
-$ ./mlmmj-list -V -h
-mlmmj-list version 1.1.0-RC2
+--J2dKNoLeXnWu5vox
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
 
-$ ./mlmmj-list -h
-Usage: ./mlmmj-list -L /path/to/listdir [-d] [-h] [-n] [-N]
- -h: This help
- -L: Full path to list directory
- -d: Print for digesters list
- -N: Print for nomail version of list
- -n: Print subscriber count
- -V: Print version
+I didn't see this feature listed on the mlmmj page -- apologies if it
+already exists.
 
-$ file ./mlmmj-list
-./mlmmj-list: ELF 64-bit LSB executable, AMD x86-64, version 1 (SYSV),
-for GNU/Linux 2.4.1, dynamically linked (uses shared libs), not stripped
+That said, one thing we *really* need is the DIR/mimereject feature of
+ezmlm. (might be an ezmlm-idx specific feature, come to think of it) This
+feature scans list messages prior to sending them and rejects messages with
+pre-defined attachment types.  "application/octet-stream" is the one we
+block on most of our lists as those attachments are generally
+worms/viruses.
 
-:-)
+I'd *like* to have a global option that allowed me to say, "for any/all
+lists on this machine, reject messages with the following MIME types".  IF
+that's more difficult, then I'm content with at least being able to do it
+on a list-by-list basis.  Another option would be some sort of /etc/skel
+type functionality, but that's a separate feature request, so I'm going to
+send that in a separate email.
 
--- 
-Mads Martin Joergensen, http://mmj.dk
-"Why make things difficult, when it is possible to make them cryptic
- and totally illogical, with just a little bit more effort?"
-                                -- A. P. J.
+--kurt
+
+--J2dKNoLeXnWu5vox
+Content-Type: application/pgp-signature
+Content-Disposition: inline
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.2.6 (GNU/Linux)
+
+iD8DBQFBimFdJPpRNiftIEYRAv0oAJ9yYYfMiyLK33yx/NHhT2eLiv7jUACfTP9c
+bx48QZVdse/SC27t+pcJCW0=
+=4wEA
+-----END PGP SIGNATURE-----
+
+--J2dKNoLeXnWu5vox--
