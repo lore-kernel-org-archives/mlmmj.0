@@ -1,7 +1,7 @@
 From: Mads Martin Joergensen <mmj@mmj.dk>
-Date: Wed, 01 Sep 2004 08:59:24 +0000
-Subject: mlmmj-1.0.0-RC3
-Message-Id: <20040901085924.GA68017@panther.mmj.dk>
+Date: Thu, 09 Sep 2004 10:19:03 +0000
+Subject: mlmmj-1.0.0 is out
+Message-Id: <20040909101902.GA32501@mmj.dk>
 List-Id: <mlmmj.mlmmj.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
@@ -10,23 +10,33 @@ To: mlmmj@mlmmj.org
 
 Hey all,
 
-Thanks to Luca Mercuri and Allan Joergensen for help with testing this
-one. The ChangeLog has it as usual:
+After a few more bugs were squished, lots of code were stared at
+and a lot of testing it's no point to not get it out there.
 
-1.0.0-RC3
- o NULL and 0 are not the same on 64-bit platforms, so fix execlp(..., 0); to
-   be execlp(..., NULL);
- o Add web-interface (PHP). Thank you Christoph Thiel
- o Have the random numbers be somewhat longer everywhere and not just somewhere
- o Move free() to where it belongs fixing problems with mlmmj-process some
-   people have been seen
- o Fix printing of cron entry in mlmmj-make-ml.sh
+ http://mlmmj.mmj.dk/files/mlmmj-1.0.0.tar.gz
+ http://mlmmj.mmj.dk/files/mlmmj-1.0.0.tar.bz2
 
-I urge people to upgrade from mlmmj-1.0.0-RC{1,2} ASAP allthough they've
-not seen any problems.
+The ChangeLog has it as usual--it might seem like a lot of changes for a
+final release, but it's not. It only looks like a lot because the
+ChangeLog is a lot more fine grained.
 
-http://mlmmj.mmj.dk/files/mlmmj-1.0.0-RC3.tar.gz
-http://mlmmj.mmj.dk/files/mlmmj-1.0.0-RC3.tar.bz2
+1.0.0
+ o Replace index() with strchr()
+ o Add parenthesis around realloc call to make sure we alloc correctly
+ o Make header matching case insensitive
+ o Fix dumping of addresses to requeue
+ o Make the time an address can bounce before unsubscribed configurable with
+   listdir/control/bouncelife
+ o Correct mlmmj-make-ml.sh cronentry line to include -F
+ o Add manual pages. Thanks Soeren Boll for the initial ones
+ o Make random numbers lowercase hex since gmail is lowercasing the address
+   it replies to.
+ o Also make sanity check in mlmmj-maintd to ensure it's invoke either
+   as root or as listdir owner
+
+BTW: If anyone is interested in using digests with their lists, there's going
+to be a patch out the coming days--just need some more testing, but it's
+written already.
 
 -- 
 Mads Martin Joergensen, http://mmj.dk
