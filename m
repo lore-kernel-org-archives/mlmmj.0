@@ -1,7 +1,7 @@
-From: Anders Johansson <andjoh@rydsbo.net>
-Date: Thu, 19 Aug 2004 18:52:18 +0000
+From: Christopher Mahmood <ckm@loafer.org>
+Date: Thu, 19 Aug 2004 19:03:16 +0000
 Subject: Re: Checking envelope From for recipient delimiter
-Message-Id: <200408192052.19162.andjoh@rydsbo.net>
+Message-Id: <20040819190316.GB27547@oogabooga.loafer.org>
 List-Id: <mlmmj.mlmmj.org>
 References: <20040819121309.GK70901@panther.mmj.dk>
 In-Reply-To: <20040819121309.GK70901@panther.mmj.dk>
@@ -10,19 +10,17 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-On Thursday 19 August 2004 20:45, Mads Martin Joergensen wrote:
-> Sane systems use the RCPT TO: as the user specified in To: right?
+* Mads Martin Joergensen (mmj@mmj.dk) [040819 05:13]:
+> They bounced to listname+bounces-... in envelope From but had a
+> different address in To:. Since they've configured the list to not
+> require the listaddress in the To: or Cc: header, the bounce ended up on
+> the list.
 
-Terminology moment: by RCPT TO: we mean the envelope recipient. By To: we mean 
-the header inside the data segment. Just to be clear
+I think bouncing to header addresses is normal behavior for Lotus
+although it is configurable.
 
-No, the To: is (or should be) irrelevant. For example, if you set up an alias 
-and send a mail to that alias, To: will be the alias, RCPT TO: will be the 
-real address. e.g.
+ezmlm just silently drops any mail with a null sender.
 
-my_cross_posting:      mlmmj@mmj.dk, suse-linux-e@suse.com, kde-user@kde.org
+-- 
 
-Sending a mail to my_cross_posting will produce a mail with "my_cross_posting" 
-in To:, but the respective list addresses in each RCPT TO:
-
-Please don't use DATA information for anything important, it's just plain text
+-ckm
