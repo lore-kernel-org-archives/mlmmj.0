@@ -1,36 +1,28 @@
-From: "Morten K. Poulsen" <morten@afdelingp.dk>
-Date: Fri, 09 Jul 2004 20:45:29 +0000
-Subject: first version of web-interfaces released
-Message-Id: <20040709204529.GA7798@mopo.tv2.local>
+From: Mads Martin Joergensen <mmj@mmj.dk>
+Date: Sat, 03 Jul 2004 07:38:28 +0000
+Subject: Bugfix release 0.8.2 is out
+Message-Id: <20040703073828.GA47684@panther.mmj.dk>
 List-Id: <mlmmj.mlmmj.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Hi,
+Hey there,
 
-I have just committed the first version of web-interfaces for mlmmj to
-CVS. There are three interfaces:
+Just wanted to get these bugfixes out before I go to Germany for the
+whole week. I doubt I'll get any mlmmj hacking done in this time.
 
-- php-user subscription interface written in PHP by Christoph Thiel
-- perl-user subscription interface written in Perl by me
-- perl-admin mailing list settings interface written in Perl by me
+The ChangeLog has it:
 
-They will be included in the next release, but you can get the files
-now, if you want to check them out:
-http://mlmmj.mmj.dk/files/mlmmj-0.8.2-webinterface.tar.bz2
-http://mlmmj.mmj.dk/files/mlmmj-0.8.2-webinterface.tar.gz
-
-I am no great Perl hacker, so feedback (and patches) are more than
-welcome. Also a php-admin interface would be appreciated.
-
-I am away on vacation for a week starting Sunday, so I will probably not
-answer your mail right away.
-
-Have a nice weekend!
-Morten
+0.8.2
+ o Make sure we don't cut of the first char of an emailaddress
+ o Fix header value copying (thanks Anders Johansson)
+ o Don't segfault if there's no email address in the To: header
+ o Clean up the subconf and unsubconf directories for stale requests as well
 
 -- 
-Morten K. Poulsen <morten@afdelingp.dk>
-http://www.afdelingp.dk/
+Mads Martin Joergensen, http://mmj.dk
+"Why make things difficult, when it is possible to make them cryptic
+ and totally illogical, with just a little bit more effort?"
+                                -- A. P. J.
