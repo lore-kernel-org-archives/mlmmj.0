@@ -1,40 +1,59 @@
-From: Mads Martin Joergensen <mmj@mmj.dk>
-Date: Mon, 18 Oct 2004 16:08:41 +0000
-Subject: Re: SOLVED: mail accepted but not retransmitted?
-Message-Id: <20041018160841.GA12047@mmj.dk>
+From: Andrew Kohlsmith <akohlsmith-mlmmj@benshaw.com>
+Date: Fri, 15 Oct 2004 16:14:34 +0000
+Subject: mail accepted but not retransmitted?
+Message-Id: <200410151214.34989.akohlsmith-mlmmj@benshaw.com>
 List-Id: <mlmmj.mlmmj.org>
-References: <200410181000.30302.akohlsmith-mlmmj@benshaw.com>
-In-Reply-To: <200410181000.30302.akohlsmith-mlmmj@benshaw.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-* Andrew Kohlsmith <akohlsmith-mlmmj@benshaw.com> [Oct 18. 2004 16:32]:
-> > > I am shortly going to submit a patch to mlmmj-1.0.0 which uses the
-> > > RECIPDELIM define throughout; right now only about 1/3 of the code uses
-> > > it.  :-)
-> >
-> > We're looking forward to it. It is a well known issue.
-> 
-> I just did the patch, now I am just testing.  :-)
+Pardon my ignorance, I am new to postfix and mlmmj, but I have been a diehard 
+qmail + ezmlm user for damn near a decade now (well the qmail part anyway).
 
-Awesome!
+I am setting up an entirely-virutal mail domain just like I do with 
+qmail+vpopmail and the virtual domain part is working great.  I created a 
+mlmmj-test@virtual.dom mailing list and subscribed my email address 
+(different domain, different server) to it.
 
-> > > Thank you all for your help in tracking this problem down.  It was a real
-> > > bear of a problem and should probably make its way into a FAQ or README
-> > > somewhere.
-> >
-> > Well, no, it should be patched, if it is a problem in mlmmj. I guess we
-> > will have to debug that a bit.
-> 
-> I'm not sure if it's an mlmmj issue or a glibc issue.  I'll play a little 
-> more.
+I can send a message to mlmmj-test@virtual.dom and I see it delivered via the 
+mlmmj-receive program.
 
-Thanks for debugging this, we really appreciate it.
+My /etc/aliases line:
+mlmmj-test:  "|/usr/local/bin/mlmmj-recieve -L /var/spool/mlmmj/mlmmj-test/"
 
--- 
-Mads Martin Joergensen, http://mmj.dk
-"Why make things difficult, when it is possible to make them cryptic
- and totally illogical, with just a little bit more effort?"
-                                -- A. P. J.
+Now I look in /var/spool/mlmmj/mlmmj-test/queue and I see the message there:
+
+# cat /var/spool/mlmmj/mlmmj-test/queue/245a58f23ff51521
+X-Original-To: mlmmj-test@mixdown.ca
+Delivered-To: mlmmj-test@gromit.mixdown.ca
+Received: from me.com (localhost [127.0.0.1])
+        by gromit.mixdown.ca (Postfix) with SMTP id B7E93414E0B
+        for <mlmmj-test@mixdown.ca>; Tue, 12 Oct 2004 10:25:04 -0400 (EDT)
+From: akohlsmith@benshaw.com
+To: mlmmj-test@mixdown.ca
+Subject: test x
+Message-Id: <20041012142504.B7E93414E0B@gromit.mixdown.ca>
+Date: Tue, 12 Oct 2004 10:25:04 -0400 (EDT)
+
+test x
+#
+
+but mlmmj-deliver never seems to get called.  Relevant bits from maillog:
+
+Oct 12 10:25:23 gromit postfix/cleanup[30745]: B7E93414E0B: 
+message-id=<20041012142504.B7E93414E0B@gromit.mixdown.ca>
+Oct 12 10:25:23 gromit postfix/qmgr[30715]: B7E93414E0B: 
+from=<akohlsmith@benshaw.com>, size62, nrcpt=1 (queue active)
+Oct 12 10:25:23 gromit postfix/local[30746]: B7E93414E0B: 
+to=<mlmmj-test@gromit.mixdown.ca>, orig_to=<mlmmj-test@mixdown.ca>, 
+relay=local, delay, status=sent (delivered to 
+command: /usr/local/bin/mlmmj-recieve -L /var/spool/mlmmj/mlmmj-test/)
+Oct 12 10:25:23 gromit postfix/qmgr[30715]: B7E93414E0B: removed
+
+And that's it...  I do have the maintenance cron task running but it doesn't 
+seem to do much, as evidenced in the maintenance log...
+
+I feel I'm missing something REALLY basic here but I can't figure it out.
+
+-A.
