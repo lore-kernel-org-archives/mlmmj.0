@@ -1,35 +1,45 @@
-From: Mads Martin Joergensen <mmj@mmj.dk>
-Date: Thu, 16 Sep 2004 10:45:11 +0000
+From: Kurt Lieber <klieber@gentoo.org>
+Date: Thu, 16 Sep 2004 11:54:19 +0000
 Subject: Re: RFE: post-only
-Message-Id: <20040916104511.GD28796@mmj.dk>
+Message-Id: <20040916115419.GP442@mail.lieber.org>
+MIME-Version: 1
+Content-Type: multipart/mixed; boundary="iibEmBFpDzSsDyxm"
 List-Id: <mlmmj.mlmmj.org>
 References: <20040901122213.GD23171@mail.lieber.org>
 In-Reply-To: <20040901122213.GD23171@mail.lieber.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-* Kurt Lieber <klieber@gentoo.org> [Sep 02. 2004 00:18]:
-> > > We have a number of users who prefer to read via Gmane.  Because all our
-> > > lists only allow posts from subscribers, we have a number of requests for a
-> > > "post-only" feature whereby users can subsribe to a list for purposes of
-> > > posting, but not actually receive any email.
-> > 
-> > You can add the address(s) or domains to the allow list but not
-> > subscribe them.
-> 
-> Is it possible for a user to do this via email commands?  I'd rather not
-> have to manually manage the lists manually.
 
-With current CVS it's possible to do this:
+--iibEmBFpDzSsDyxm
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
- echo | mail listname+subscribe-nomail@domail.tld
+On Thu, Sep 16, 2004 at 12:45:11PM +0200 or thereabouts, Mads Martin Joerge=
+nsen wrote:
+> > Is it possible for a user to do this via email commands?  I'd rather not
+> > have to manually manage the lists manually.
+>=20
+> With current CVS it's possible to do this:
+>=20
+>  echo | mail listname+subscribe-nomail@domail.tld
+>=20
+> and then one's subscribed to the list, but not getting any mail.
 
-and then one's subscribed to the list, but not getting any mail.
+Great!  We'll give it a shot.
 
--- 
-Mads Martin Joergensen, http://mmj.dk
-"Why make things difficult, when it is possible to make them cryptic
- and totally illogical, with just a little bit more effort?"
-                                -- A. P. J.
+--kurt
+
+--iibEmBFpDzSsDyxm
+Content-Type: application/pgp-signature
+Content-Disposition: inline
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.2.4 (GNU/Linux)
+
+iD8DBQFBSX7qJPpRNiftIEYRAijPAJwKzoHqQojS25C3HPJ4ROZ73P9yTwCdFSSG
+zg6kqIaZJwCj+JDxlm99guY=
+=2TBa
+-----END PGP SIGNATURE-----
+
+--iibEmBFpDzSsDyxm--
