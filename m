@@ -1,23 +1,19 @@
-From: Mads Martin Joergensen <mmj@mmj.dk>
-Date: Fri, 18 Mar 2005 13:40:04 +0000
-Subject: Re: exim4
-Message-Id: <20050318134004.GD3870@mmj.dk>
+From: lupin3rd <lupin3rd@gmx.it>
+Date: Thu, 31 Mar 2005 12:56:38 +0000
+Subject: how to delete a mailing list?
+Message-Id: <1112273798.14927.2.camel@zion>
 List-Id: <mlmmj.mlmmj.org>
-References: <4232593D.2000404@plonk.de>
-In-Reply-To: <4232593D.2000404@plonk.de>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-* Jakob Hirsch <jh@plonk.de> [Mar 16. 2005 12:42]:
-> 
-> I put that in http://plonk.de/sw/mlmmj/README.exim4
+I read all man of the commands... but seem that there isn't a command to
+delete a mailing list...
+if i create a mailing list with command mlmmj-make-ml, could be a
+mlmmj-rm-ml :) that remove...
 
-Thanks! I've committed to CVS, so it'll be part of next release.
+Manually i must only delete the directory of mailing list?
 
--- 
-Mads Martin Joergensen, http://mmj.dk
-"Why make things difficult, when it is possible to make them cryptic
- and totally illogical, with just a little bit more effort?"
-                                -- A. P. J.
+Thanks a lot
+
