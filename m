@@ -1,7 +1,7 @@
-From: =?iso-8859-1?Q?S=F8ren?= Boll Overgaard <boll+mlmmj@fork.dk>
-Date: Tue, 07 Sep 2004 09:38:47 +0000
+From: Mads Martin Joergensen <mmj@mmj.dk>
+Date: Tue, 07 Sep 2004 09:45:38 +0000
 Subject: Re: splitting configuration from the spool/queue
-Message-Id: <20040907093847.GE70234@freesbee.wheel.dk>
+Message-Id: <20040907094538.GB82386@panther.mmj.dk>
 List-Id: <mlmmj.mlmmj.org>
 References: <20040907083520.GA70234@freesbee.wheel.dk>
 In-Reply-To: <20040907083520.GA70234@freesbee.wheel.dk>
@@ -10,21 +10,31 @@ Content-Type: text/plain; charset="iso-8859-1"
 Content-Transfer-Encoding: quoted-printable
 To: mlmmj@mlmmj.org
 
-On Tue, Sep 07, 2004 at 11:19:54AM +0200, Mads Martin Joergensen wrote:
-> >
-> > Would you be interested in a patch for mlmmj-make-ml.sh which requires
-> > the user to decide if she wants to make links from
-> > /etc/mlmmj/lists/<listname> to /var/spool/mlmmj/control or some such?
+* S=F8ren Boll Overgaard <boll+mlmmj@fork.dk> [Sep 07. 2004 11:37]:
+> > > Well, making the symlinks from /var to /etc would break future
+> > > introductions of calls to chroot(), so symlinks, if used, should
+> > > probably be from /etc to /var, and not vice-versa.
+> >=20
+> > If the symlinks go from /etc to /var, how can the config files be on
+> > a read-only mounted filesystem?
 >=20
-> I think such a patch belongs with the distributions, since FHS is Linux
-> specific, and mlmmj is not. It's just like the patch to mlmmj-make-ml.sh
-> to make it know where the listtexts are installed.
+> Obviously the system would need to be made read-write during
+> configuration changes. To my knowledge that's not unreasonable for
+> /etc on a production server.
 
-That's fair enough. I will go ahead and build a set of debian specific patc=
-hes.
+Yeah, that's pretty normal I think.
+
+Disclaimer: it's entirely possible I've gotten this messed up in my
+            head--it's know to happen before :)
+
+What I meant is: if the symlinks are in /etc pointing to the actual
+files below /var/.../control holding the data, then the config files are
+not on the read-only file system, are they?
+
+But that's only a problem in the case of chroot environments of course.
 
 --=20
-S=F8ren O.                                           ,''`.
-                                                   : :' :
-GPG key id: 0x1EB2DE66                             `. `'
-GPG signed mail preferred.                           `-
+Mads Martin Joergensen, http://mmj.dk
+"Why make things difficult, when it is possible to make them cryptic
+ and totally illogical, with just a little bit more effort?"
+                                -- A. P. J.
