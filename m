@@ -1,7 +1,7 @@
-From: Mads Martin Joergensen <mmj@mmj.dk>
-Date: Sat, 12 Mar 2005 20:04:18 +0000
+From: Jakob Hirsch <jh@plonk.de>
+Date: Sun, 13 Mar 2005 23:48:42 +0000
 Subject: Re: exim4
-Message-Id: <20050312200418.GT12734@mmj.dk>
+Message-Id: <4234D15A.1010409@plonk.de>
 List-Id: <mlmmj.mlmmj.org>
 References: <4232593D.2000404@plonk.de>
 In-Reply-To: <4232593D.2000404@plonk.de>
@@ -10,21 +10,15 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-* Drake Wyrm <wyrm@haell.com> [Mar 12. 2005 15:36]:
-> > > btw, why is it needed to run the mlmmj-tools always with full path? It's 
-> > > a little annoying.
-> > 
-> > It's needed to figure out where the other mlmmj binaries are located.
-> 
-> I've wondered about that myself. If the binaries are installed somewhere
-> in $PATH, wouldn't that provide sufficient method for finding them?
+Mads Martin Joergensen wrote:
 
-I would prefer for security reasons not to start parsing environment
-variables. Besides, with this method, you can have many mlmmj
-installations in parallel.
+>>runs into the same problems as me: return_path_add is needed in the 
+>>transport calling mlmmj-recieve. I had a hard time finding that out, 
+> Could you maybe write it into README.exim and send it to me, then I'll
+> include it.
 
--- 
-Mads Martin Joergensen, http://mmj.dk
-"Why make things difficult, when it is possible to make them cryptic
- and totally illogical, with just a little bit more effort?"
-                                -- A. P. J.
+Sure, in the next days.
+
+btw, after I had it running, I saw a post in the archive about just this 
+subject (http://mlmmj.mmj.dk/archive/0154.html). Should have checked the 
+archives a little more thoroughly...
