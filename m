@@ -1,28 +1,42 @@
-From: Mads Martin Joergensen <mmj@mmj.dk>
-Date: Sat, 03 Jul 2004 07:38:28 +0000
-Subject: Bugfix release 0.8.2 is out
-Message-Id: <20040703073828.GA47684@panther.mmj.dk>
+From: Luca Mercuri <siggy@gentoo.org>
+Date: Tue, 31 Aug 2004 16:09:15 +0000
+Subject: trouble configuration
+Message-Id: <4134A2AB.2050202@gentoo.org>
 List-Id: <mlmmj.mlmmj.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Hey there,
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
 
-Just wanted to get these bugfixes out before I go to Germany for the
-whole week. I doubt I'll get any mlmmj hacking done in this time.
+Hey,
+I have tried to install mlmmj 1.0.0-RC2 on my box.
 
-The ChangeLog has it:
+I have followed all the steps indicates on README file but, at the end,
+when i try to send message on test list the message comes saved in
+'incoming' and 'queue' directory.
+The message doesn't sended to user of list.
 
-0.8.2
- o Make sure we don't cut of the first char of an emailaddress
- o Fix header value copying (thanks Anders Johansson)
- o Don't segfault if there's no email address in the To: header
- o Clean up the subconf and unsubconf directories for stale requests as well
+I think that for these exist mlmmj-maintd but these don't work.
+I try on daemon mode and with crontab.
 
--- 
-Mads Martin Joergensen, http://mmj.dk
-"Why make things difficult, when it is possible to make them cryptic
- and totally illogical, with just a little bit more effort?"
-                                -- A. P. J.
+Someone can help me?
+
+thanks.
+
+- --
+Luca Mercuri - Gentoo developer infrastructure -
+siggy@gentoo.org
+Gentoo linux: http://www.gentoo.org
+
+Key ID = AD54279A
+Key fingerprint = 60F6 CD45 2B21 4810 94C1  94B9 40F3 FE51 AD54 279A
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.2.4 (GNU/Linux)
+Comment: Using GnuPG with Thunderbird - http://enigmail.mozdev.org
+
+iD8DBQFBNKKrQPP+Ua1UJ5oRAvA9AJ47oD+Jwt/lb9xz8Z7eVCDdgkKxJwCfcl+N
+jJb+JH51IHiGpCZDcplr1HA=vJUn
+-----END PGP SIGNATURE-----
