@@ -1,7 +1,7 @@
-From: Mads Martin Joergensen <mmj@mmj.dk>
-Date: Sat, 16 Oct 2004 16:34:09 +0000
+From: Andrew Kohlsmith <akohlsmith-mlmmj@benshaw.com>
+Date: Sat, 16 Oct 2004 16:38:51 +0000
 Subject: Re: mail accepted but not retransmitted?
-Message-Id: <20041016163409.GG48081@mmj.dk>
+Message-Id: <200410161238.51325.akohlsmith-mlmmj@benshaw.com>
 List-Id: <mlmmj.mlmmj.org>
 References: <200410151214.34989.akohlsmith-mlmmj@benshaw.com>
 In-Reply-To: <200410151214.34989.akohlsmith-mlmmj@benshaw.com>
@@ -10,20 +10,15 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-* Andrew Kohlsmith <akohlsmith-mmj@benshaw.com> [Oct 16. 2004 16:43]:
-> > What's the To: header, Delivered-To: header and contents of
-> > listdir/control/listaddress?
-> 
-> The To: and Delivered-To: headers were in the original emal, but I think I see 
-> the problem now; To: is to mixdown.ca, Delivered-To: is to gromit.mixdown.ca 
-> and listaddress is mixdown.ca.
-> 
-> I'll play with this a little more.  :-)
+On Saturday 16 October 2004 12:34, Mads Martin Joergensen wrote:
+> Does it work if you touch listdir/control/tocc ?
 
-Does it work if you touch listdir/control/tocc ?
+No.  :-(
 
--- 
-Mads Martin Joergensen, http://mmj.dk
-"Why make things difficult, when it is possible to make them cryptic
- and totally illogical, with just a little bit more effort?"
-                                -- A. P. J.
+# ls -l control/tocc
+-rw-r--r--  1 vmail vmail 0 2004-10-16 12:32 control/tocc
+
+At what point is mlmmj supposed to take the messages in the queue and send 
+them?
+
+-A.
