@@ -1,81 +1,34 @@
-From: Mads Martin Joergensen <mmj@mmj.dk>
-Date: Mon, 21 Jun 2004 11:42:30 +0000
-Subject: mlmmj-0.8.0 is out
-Message-Id: <20040621114230.GA91104@panther.mmj.dk>
+From: Kurt Lieber <klieber@gentoo.org>
+Date: Wed, 07 Jul 2004 13:12:46 +0000
+Subject: any list archives available?
+Message-Id: <20040707131246.GB18023@mail.lieber.org>
+MIME-Version: 1
+Content-Type: multipart/mixed; boundary="kPJzzQLfoH/TRWrW"
 List-Id: <mlmmj.mlmmj.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Hello people,
 
-Since a very nice feature have been added to mlmmj I've released version
-0.8.0 just now. The ChangeLog has it all:
+--kPJzzQLfoH/TRWrW
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
 
-0.8.0
- o Added regular expression based access control.
- o Added wrappers for malloc(), realloc(), free() and strdup(), so we
-   can bail out if any of them fail.
+We're looking at potential replacements for our current list manager,
+ezmlm-idx and are considering mlmmj.  Before I go asking a bunch of
+questions that have probably been asked before, are their list archives
+available anywhere?  I didn't see any listed on the home page of the site.
 
-For those wondering about what regular expression based access control
-is, I'll end this mail with README.access:
+--kurt
 
-README.access                           present in mlmmj versions >= 0.8.0
+--kPJzzQLfoH/TRWrW
+Content-Type: application/pgp-signature
+Content-Disposition: inline
 
-Access control in mlmmj
-===========
-If the file listdir/control/access is present, access control is enabled.
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.2.4 (GNU/Linux)
 
-NOTE: the default action is to deny access (reject the mail), so an empty
-access control file will cause mlmmj to reject all posts, whereas a non-
-existant file will change nothing, and mlmmj will behave as usual.
+iD8DBQFA6/bOJPpRNiftIEYRApbjAJ9uOXpS5D2idk6dgtW54jkV0d5oNQCfd2Qr
+eeWoCJr6xl9ueYXHNAPps2Q=
+=NqtX
+-----END PGP SIGNATURE-----
 
-Each header in the mail is tested against each rule, rule by rule. That is,
-all headers are first tested against the first rule, then all headers are
-tested against the second rule, and so on.
-
-The first rule to match a header decides which action to take - allow or
-deny the post.
-
-The syntax is quite simple: action[ [!]regexp]
-- "Action" can be "allow" or "deny".
-- The optional "!" makes the rule a match, if NO header matches the regular
-  expression.
-- "Regexp" is a POSIX.2 extended regular expression. Matching is done case
-  insensitive.
-
-
-First a simple example. This rule set will reject any mail that is NOT plain
-text, or has a subject that contains "BayStar", and allow anything else:
-
-deny !^Content-Type: text/plain
-deny ^Subject:.*BayStar
-allow
-
-
-Now on to a more advanced example. Morten can post anything, Mads Martin can
-post if the subject does not contain "SCO". Everything else is denied:
-
-allow ^From: Morten
-deny ^Subject:.*SCO
-allow ^From: Mads Martin
-deny
-
-The last rule (deny) can be left out, as deny is the default action.
-
-
-A third example. Deny any mails with "discount", "weightloss", or "bonus" in
-the subject. Allow PGP signed and plain text mails. Anything else is denied:
-
-deny ^Subject:.*discount
-deny ^Subject:.*weightloss
-deny ^Subject:.*bonus
-allow ^Content-Type: multipart/signed
-allow ^Content-Type: text/plain
-
--- 
-Mads Martin Joergensen, http://mmj.dk
-"Why make things difficult, when it is possible to make them cryptic
- and totally illogical, with just a little bit more effort?"
-                                -- A. P. J.
+--kPJzzQLfoH/TRWrW--
