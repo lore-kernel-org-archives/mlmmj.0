@@ -1,26 +1,24 @@
-From: "Morten K. Poulsen" <morten@afdelingp.dk>
-Date: Mon, 18 Oct 2004 12:51:02 +0000
+From: Andrew Kohlsmith <akohlsmith-mlmmj@benshaw.com>
+Date: Mon, 18 Oct 2004 13:26:56 +0000
 Subject: Re: mail accepted but not retransmitted?
-Message-Id: <20041018125102.GA6989@mopo.i.tv2.dk>
+Message-Id: <200410180926.56989.akohlsmith-mlmmj@benshaw.com>
 List-Id: <mlmmj.mlmmj.org>
 References: <200410151214.34989.akohlsmith-mlmmj@benshaw.com>
 In-Reply-To: <200410151214.34989.akohlsmith-mlmmj@benshaw.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="macroman"
+Content-Transfer-Encoding: base64
 To: mlmmj@mlmmj.org
 
-On Sun, Oct 17, 2004 at 10:31:25PM -0400, Andrew Kohlsmith wrote:
-> Everything seems to be as it should be as far as I can tell -- It was a
-> standard install.
-
-Could you try adding the -F option to mlmmj-recieve in your alias? That will
-force mlmmj-recieve to NOT fork into the background, thereby getting the output
-from it back to the mail server. That should give you (the sender) an error
-mail with the output from mlmmj-recieve.
-
-Morten
-
--- 
-Morten K. Poulsen <morten@afdelingp.dk>
-http://www.afdelingp.dk/
+T24gT2N0b2JlciAxOCwgMjAwNCAwODo1MSBhbSwgTW9ydGVuIEsuIFBvdWxzZW4gd3JvdGU6Cj4g
+Q291bGQgeW91IHRyeSBhZGRpbmcgdGhlIC1GIG9wdGlvbiB0byBtbG1tai1yZWNpZXZlIGluIHlv
+dXIgYWxpYXM/IFRoYXQKPiB3aWxsIGZvcmNlIG1sbW1qLXJlY2lldmUgdG8gTk9UIGZvcmsgaW50
+byB0aGUgYmFja2dyb3VuZCwgdGhlcmVieSBnZXR0aW5nCj4gdGhlIG91dHB1dCBmcm9tIGl0IGJh
+Y2sgdG8gdGhlIG1haWwgc2VydmVyLiBUaGF0IHNob3VsZCBnaXZlIHlvdSAodGhlCj4gc2VuZGVy
+KSBhbiBlcnJvciBtYWlsIHdpdGggdGhlIG91dHB1dCBmcm9tIG1sbW1qLXJlY2lldmUuCgpPY3Qg
+MTggMDk6Mjc6MzQgZ3JvbWl0IHBvc3RmaXgvbG9jYWxbMjI2N106IDFERUJCNDE0Q0UwOiAKdG89
+PG1sbW1qLXRlc3RAZ3JvbWl0Lm1peGRvd24uY2E+LCByZWxheT1sb2NhbCwgZGVsYXkiLCBzdGF0
+dXPeZmVycmVkIAooQ29tbWFuZCBkaWVkIHdpdGggc2lnbmFsIDExOiAiL3Vzci9sb2NhbC9iaW4v
+bWxtbWotcmVjaWV2ZSAtRiAKLUwgL3Zhci9zcG9vbC9tbG1tai9tbG1tai10ZXN0LyIpCgpXZWxs
+IHRoZXJlIHdlIGdvLiAgTm93IHRvIGZpZ3VyZSBvdXQgd2h5IHRoZSBkYW1uIHRoaW5nIGlzIHNp
+ZzExJ2luZy4gIEkga25vdyAKdGhlIFJBTSdzIGdvb2QsIEkganVzdCB0ZXN0ZWQgaXQuCgotQS4K
