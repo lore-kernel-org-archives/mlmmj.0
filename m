@@ -1,7 +1,7 @@
-From: Jakob Hirsch <jh@plonk.de>
-Date: Wed, 16 Mar 2005 12:16:42 +0000
+From: Mads Martin Joergensen <mmj@mmj.dk>
+Date: Fri, 18 Mar 2005 13:40:04 +0000
 Subject: Re: exim4
-Message-Id: <423823AA.2050604@plonk.de>
+Message-Id: <20050318134004.GD3870@mmj.dk>
 List-Id: <mlmmj.mlmmj.org>
 References: <4232593D.2000404@plonk.de>
 In-Reply-To: <4232593D.2000404@plonk.de>
@@ -10,15 +10,14 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Mads Martin Joergensen wrote:
+* Jakob Hirsch <jh@plonk.de> [Mar 16. 2005 12:42]:
+> 
+> I put that in http://plonk.de/sw/mlmmj/README.exim4
 
-> Actually mlmmj-list doesn't invoke any other binaries, so I'll remove
-> the check in that one for the next version.
+Thanks! I've committed to CVS, so it'll be part of next release.
 
-I did not look there, but it runs already fine without full path.
-
->>Another possibility would be to use default values for these things 
->>(taken at configure time). Would you accept a patch for that?
-> Not likely. But I would love to put your wrapper scripts in contrib/
-
-ok, will be happy to send it when it's ready.
+-- 
+Mads Martin Joergensen, http://mmj.dk
+"Why make things difficult, when it is possible to make them cryptic
+ and totally illogical, with just a little bit more effort?"
+                                -- A. P. J.
