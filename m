@@ -1,29 +1,25 @@
-From: Mike Grice <Mike@MikeGrice.com>
-Date: Thu, 31 Mar 2005 13:05:38 +0000
-Subject: Re: how to delete a mailing list?
-Message-Id: <1112274338.24863.22.camel@localhost.localdomain>
+From: lupin3rd <lupin3rd@gmx.it>
+Date: Wed, 30 Mar 2005 21:48:54 +0000
+Subject: How to change directory?
+Message-Id: <1112219335.8456.5.camel@zion>
 List-Id: <mlmmj.mlmmj.org>
-References: <1112273798.14927.2.camel@zion>
-In-Reply-To: <1112273798.14927.2.camel@zion>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-On Thu, 2005-03-31 at 14:56 +0200, lupin3rd wrote:
-> I read all man of the commands... but seem that there isn't a command to
-> delete a mailing list...
-> if i create a mailing list with command mlmmj-make-ml, could be a
-> mlmmj-rm-ml :) that remove...
-> 
-> Manually i must only delete the directory of mailing list?
+I want that my mlmmj maling lists stay in my /var/www directory and not
+in /var/spool/mail, can i set this?
 
-A mailing-list is only the sum of its directory and control files... so
-just delete the directory.  Remember to delete any aliases you may have
-set up for your MTA, as well.
+....because my GPL control panel take all files of a domain.tld
+in /var/www/domain.tld...
+Can i tell to mlmmj when i create a new maling list when store the
+directory?
 
-Mike
+in this way i can store maling list of a domain in a directory...mailing
+list of anothere domain in other...
 
--- 
-Sticking feathers up your butt does not make you a chicken.
+Thanks a lot.
+
+P.S. Excuse for my bad english, i'm italian :)
 
