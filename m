@@ -1,32 +1,58 @@
-From: Mads Martin Joergensen <mmj@mmj.dk>
-Date: Mon, 20 Sep 2004 21:17:02 +0000
+From: martin f krafft <madduck@madduck.net>
+Date: Mon, 20 Sep 2004 21:21:12 +0000
 Subject: Re: feature requests
-Message-Id: <20040920211702.GC76919@mmj.dk>
+Message-Id: <20040920212112.GA12063@cirrus.madduck.net>
+MIME-Version: 1
+Content-Type: multipart/mixed; boundary="YZ5djTAD1cGYuMQK"
 List-Id: <mlmmj.mlmmj.org>
 References: <20040920191944.GA5112@cirrus.madduck.net>
 In-Reply-To: <20040920191944.GA5112@cirrus.madduck.net>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-* martin f krafft <madduck@madduck.net> [Sep 20. 2004 23:15]:
-> also sprach Mads Martin Joergensen <mmj@mmj.dk> [2004.09.20.2305 +0200]:
-> > Which header is that? I've looked through the RFCs but didn't find
-> > it, so please educate me, there's nothing I would rather do.
-> 
-> Return-Path, I think.
 
-Return-Path is the envelope from. RFC{,2}821.
+--YZ5djTAD1cGYuMQK
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> Alternatively, you could not go via /etc/aliases and pass recipient
-> as argument to a transport/director script.
+also sprach Mads Martin Joergensen <mmj@mmj.dk> [2004.09.20.2317 +0200]:
+> > Return-Path, I think.
+>=20
+> Return-Path is the envelope from. RFC{,2}821.
 
-In that case you might as well set the Delivered-To: in case you don't
-have, because in case you do have it, it's the envelope to.
+ah, right. sorry, i mixed that up.
 
--- 
-Mads Martin Joergensen, http://mmj.dk
-"Why make things difficult, when it is possible to make them cryptic
- and totally illogical, with just a little bit more effort?"
-                                -- A. P. J.
+> > Alternatively, you could not go via /etc/aliases and pass
+> > recipient as argument to a transport/director script.
+>=20
+> In that case you might as well set the Delivered-To: in case you
+> don't have, because in case you do have it, it's the envelope to.
+
+True. But how will you make it work reliably with exim and sendmail
+(and zmailer, I think)?
+
+--=20
+martin;              (greetings from the heart of the sun.)
+  \____ echo mailto: !#^."<*>"|tr "<*> mailto:" net@madduck
+=20
+invalid/expired pgp subkeys? use subkeys.pgp.net as keyserver!
+spamtraps: madduck.bogus@madduck.net
+=20
+"sometimes the urge to do bad
+ is nearly overpowering"
+                                                          -- ben horne
+
+--YZ5djTAD1cGYuMQK
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: Digital signature
+Content-Disposition: inline
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.2.5 (GNU/Linux)
+
+iD8DBQFBT0nIIgvIgzMMSnURAttxAJ9HPgUVyH46pT5c5L7yu5hTO0xXUgCfeG1w
+bmYgOMSEVrlgmJIDfNR9+x0=
+=ZGZ7
+-----END PGP SIGNATURE-----
+
+--YZ5djTAD1cGYuMQK--
