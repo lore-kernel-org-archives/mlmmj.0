@@ -1,42 +1,40 @@
-From: "Morten K. Poulsen" <morten@afdelingp.dk>
-Date: Tue, 29 Mar 2005 09:24:06 +0000
-Subject: Re: memory management in mlmmj
-Message-Id: <20050329092406.GA7738@note231205.webdmz.tv2.dk>
+From: Togan Muftuoglu <toganm@dinamizm.com>
+Date: Thu, 10 Mar 2005 11:23:11 +0000
+Subject: Configuring Postfix as a mailgateway for mlmmj
+Message-Id: <20050310112311.GF210@dinamizm.com>
 List-Id: <mlmmj.mlmmj.org>
-References: <20050323212830.GA21199@mopo.webdmz.tv2.dk>
-In-Reply-To: <20050323212830.GA21199@mopo.webdmz.tv2.dk>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-On Thu, Mar 24, 2005 at 01:38:44AM +0100, Mads Martin Joergensen wrote:
-> > Is it a bad idea?
-> 
-> The idea is nice, but why start changing all this code that works already
-> with something that had no serious testing yet? There's so many other places
-> that could need some work before this.
+Hi,
 
-True, but the code is getting big and relatively difficult to maintain.
+I have installed mlmmj-1.2.4-3 on a SUSE 8.2 machine which is acting as
+a mailgateway.
 
-> Also we should have a look at:
-> 
->  http://irccrew.org/~cras/security/c-guide.html
+I have created the list via the command
 
-Dovecot memory pools look very nice. And they are under the MIT license. I will
-look at the source code soon.
+mlmmj-make-ml.sh -L 5element -a
 
-On Wed, Mar 23, 2005 at 11:44:36PM +0100, Christian Laursen wrote:
-> > It is not new, I think PHP does something like this (where a request is the
-> > scope).
-> 
-> Apache has also done something similar for years. It is probably available in
-> APR, but it's probably not feasible to link against that monstrosity.
+and run the newaliases command.
 
-I think you are right ;-)
+Since this machine is running as a mailserver gateway doing antivirus,
+RBL, header checks along with the user check via relay_recipients maps
+and then relaying the accepted mail to the inside mailserver, I am not
+sure if the /etc/aliases file is the one I need. I have thought of the
+relay_recipients_maps yet that would deliver the mail to the inside
+mailserver which is not what I want.
 
-Morten
+Where would be the correct place to have "listname" added as alias or
+virtual or whatever
 
+Thanks
 -- 
-Morten K. Poulsen <morten@afdelingp.dk>
-http://www.afdelingp.dk/
+
+Togan Muftuoglu
+
+I am the seasoned traveler of the Labyrinth.
+I overturn barriers and boundaries, opening new paths and portals for
+innovation. (Chinese Proverb)
+
