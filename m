@@ -1,7 +1,7 @@
-From: Christoph Thiel <ct@kki.org>
-Date: Wed, 19 May 2004 14:17:51 +0000
+From: Mads Martin Joergensen <mmj@mmj.dk>
+Date: Wed, 19 May 2004 20:54:43 +0000
 Subject: Re: 0.5.1-RC
-Message-Id: <Pine.LNX.4.58.0405191612430.4920@hermes.cthiel.de>
+Message-Id: <20040519205443.GH92302@panther.mmj.dk>
 List-Id: <mlmmj.mlmmj.org>
 References: <20040519134647.GG92302@panther.mmj.dk>
 In-Reply-To: <20040519134647.GG92302@panther.mmj.dk>
@@ -10,39 +10,39 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
------BEGIN PGP SIGNED MESSAGE-----
-Hash: SHA1
-
-Hi again,
-
-On Wed, 19 May 2004, Christoph Thiel wrote:
-
-> > The reason for this quick release is that I know at least one member of
-> > this list is awaiting the second changelog item from the top ;-)
+* Christoph Thiel <ct@kki.org> [May 19. 2004 16:17]:
+> > > The reason for this quick release is that I know at least one member of
+> > > this list is awaiting the second changelog item from the top ;-)
+> > 
+> > Wow, cool! I really appreciate prefixing. I'll give it a try later today.
 > 
-> Wow, cool! I really appreciate prefixing. I'll give it a try later today.
+> Ok, works for me :) (I just converted all lists on my main server and turned
+> prefixing on.)
 
-Ok, works for me :) (I just converted all lists on my main server and turned
-prefixing on.)
+Just don't kill us if something breaks ;-)
 
-Just a quick note: For the next release TODO needs to be updated...
+> Just a quick note: For the next release TODO needs to be updated...
+> 
+>  o subject prefix. (Subject: [mlmmj-test] Lets see)
+> 
+> can be removed now. (Or are you planning on implementing further
+> enhancements?)
 
- o subject prefix. (Subject: [mlmmj-test] Lets see)
+It's gone.
 
-can be removed now. (Or are you planning on implementing further enhancements?)
+> BTW: Turning on "Reply-To" for this list, would be very nice. And
+> setting "X-Mailinglist" would be another nice improvement ;)
 
-BTW: Turning on "Reply-To" for this list, would be very nice. And setting
-"X-Mailinglist" would be another nice improvement ;)
+I think Reply-To: munging is evil,
+https://mail.fukt.bth.se/pipermail/crux/2003-June/000588.html has a good
+solution.
 
+The X-Mailinglist: mlmmj header should be added now.
 
-Regards,
-	Christoph
-- --
-Christoph Thiel <ct@kki.org>, http://ct.kki.org/
------BEGIN PGP SIGNATURE-----
-Version: GnuPG v1.2.4 (GNU/Linux)
+mlmmj-0.5.1 is out.
 
-iD8DBQFAq2yQSQ2wS9JeDp0RAlqyAJ9UImfxgOkxniXDkQfbs1xXWUEFiwCgkx+R
-mzI8en60fb9gB76b/84WkGE=3q3w
------END PGP SIGNATURE-----
-
+-- 
+Mads Martin Joergensen, http://mmj.dk
+"Why make things difficult, when it is possible to make them cryptic
+ and totally illogical, with just a little bit more effort?"
+                                -- A. P. J.
