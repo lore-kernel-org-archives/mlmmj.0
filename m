@@ -1,35 +1,26 @@
 From: Mads Martin Joergensen <mmj@mmj.dk>
-Date: Wed, 11 Aug 2004 22:28:18 +0000
-Subject: mlmmj-0.8.3, vacation is over
-Message-Id: <20040811222818.GG83848@panther.mmj.dk>
+Date: Wed, 25 Aug 2004 17:36:54 +0000
+Subject: mlmmj-1.0.0-RC2
+Message-Id: <20040825173654.GA91703@panther.mmj.dk>
 List-Id: <mlmmj.mlmmj.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Hey together,
+Hey there,
 
-I've just rolled 0.8.3.
-ChangeLog has it:
+There was a semi nasty bug in RC1 causing +owner mails not to make it to
+the owner but be left in the incoming/ queue, due to a missing break; in
+a switch statement. So here goes RC2:
 
---- ChangeLog   3 Jul 2004 12:29:24 -0000
-+++ ChangeLog   11 Aug 2004 22:09:22 -0000
-@@ -1,3 +1,14 @@
-+0.8.3
-+ o Have mlmmj-make-ml.sh remind people about using cron if they want
-+ o Replying to the confirmation address is enough to sub/unsub, no matter what
-+   address is used the second time
-+ o Fix possible DoS wrt. unsubscribing. Thank you Erik Toubro Nielsen
-+ o Add 'notifysub' functionality to have owner know when people sub/unsub.
-+   Thank you Kenneth Vestergaard Schmidt
-+ o Use Return-Path: for envelope From. Thanks Anders Johansson
-+ o Specification of which relayhost to use can now be done in control/relayhost
-+ o Add configure check to link against libnsl if needed.
-+ o Implement our own daemon() function since we don't have daemon() on Solaris
-
-It's important that you all update your listdir/text. The 2 new files
-are notifysub and notifyunsub.
+1.0.0-RC2
+ o Do not allow mails from <> going to the list
+ o Fix mailing to +owner again by adding missing 'break;' to switch in
+   mlmmj-send
+ o perl-admin updates from Christian Laursen
+ o php-user updates from Christoph Thiel
+ o Use Delivered-To: instead of To: when available
 
 -- 
 Mads Martin Joergensen, http://mmj.dk
