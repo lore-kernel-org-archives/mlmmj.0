@@ -1,25 +1,33 @@
-From: "Morten K. Poulsen" <morten@afdelingp.dk>
-Date: Tue, 07 Sep 2004 08:21:34 +0000
-Subject: Re: ETA for digests?
-Message-Id: <20040907082134.GA1623@mopo.tv2.local>
+From: =?iso-8859-1?Q?S=F8ren?= Boll Overgaard <boll+mlmmj@fork.dk>
+Date: Tue, 07 Sep 2004 08:35:20 +0000
+Subject: splitting configuration from the spool/queue
+Message-Id: <20040907083520.GA70234@freesbee.wheel.dk>
 List-Id: <mlmmj.mlmmj.org>
-References: <20040831214700.GX23171@mail.lieber.org>
-In-Reply-To: <20040831214700.GX23171@mail.lieber.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 To: mlmmj@mlmmj.org
 
-On Mon, Sep 06, 2004 at 08:51:06PM -0700, Christopher Mahmood wrote:
-> I think anything that discourages people from replying to a mail in
-> the digest and that reply making it back to the list is a good thing.
+Hi,
 
-I agree, and From: is set to listname+help@domain.tld, but what should
-To: be set to? listname@domain.tld makes it quite easy for users to
-filter digests as normal list mails.
+This may or may not have been covered earlier, but I couldn't seem to find
+anything in the list archive, so here goes.
 
-Morten
+Is there any particular reason why the list configuration is situated in the
+same directory structure as the list queue and archive? According to the FH=
+S[1],
+list configuration should be somewhere under /etc while the queue and archi=
+ve
+should be somewhere under /var. This would have the added benefit that list
+configuration could be stored on a read-only file system for added security.
 
--- 
-Morten K. Poulsen <morten@afdelingp.dk>
-http://www.afdelingp.dk/
+Comments? Thoughts? Flames?
+
+[1] http://www.pathname.com/fhs/
+
+
+--=20
+S=F8ren O.                                           ,''`.
+                                                   : :' :
+GPG key id: 0x1EB2DE66                             `. `'
+GPG signed mail preferred.                           `-
