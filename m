@@ -1,7 +1,7 @@
-From: Mads Martin Joergensen <mmj@mmj.dk>
-Date: Tue, 08 Feb 2005 16:22:28 +0000
+From: "Morten K. Poulsen" <morten@afdelingp.dk>
+Date: Tue, 08 Feb 2005 17:57:15 +0000
 Subject: Re: mlmmj-1.2.3 released. Features added and bugs squashed.
-Message-Id: <20050208162228.GG67839@mmj.dk>
+Message-Id: <20050208175715.GA12405@note241453.webdmz.tv2.dk>
 List-Id: <mlmmj.mlmmj.org>
 References: <20050208095412.GE56543@mmj.dk>
 In-Reply-To: <20050208095412.GE56543@mmj.dk>
@@ -10,171 +10,53 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-* Mads Martin Joergensen <mmj@mmj.dk> [Feb 08. 2005 17:20]:
-> > > I would like to request a feature. It's been on my wishlist for quite
-> > > some time; I would like the port of the outgoing relay server to be
-> > > configurable (just changing init_socket.c works i know).
-> > 
-> > Allan, could you try this patch. It'll make the port configurable with
-> > LISTDIR/control/smtpport.
+Hi Wolf,
+
+On Tue, Feb 08, 2005 at 02:56:32PM +0200, Wolf Bergenheim wrote:
+> ahem.. it is a production server... I'd rather not put untested code there...
+> I hope you understand... /:
 > 
-> No, wait, there's a bit missing.
+> But thanks for jumping up and doing it. It's not that much of a rush.. the
+> new domains are going live 1.3 (:
 
-Now it also defaults to 25 ;-))
+If you want to support two addresses for the same list, you could create two
+lists with symlinks for the common files. Eg.:
 
---- include/init_sockfd.h
-+++ include/init_sockfd.h
-@@ -24,6 +24,6 @@
- #ifndef INIT_SOCKFD_H
- #define INIT_SOCKFD_H
- 
--void init_sockfd(int *sockfd, const char *relayhost);
-+void init_sockfd(int *sockfd, const char *relayhost, unsigned short port);
- 
- #endif /* INIT_SOCKFD_H */
---- include/mlmmj-send.h	16 Jan 2005 18:43:48 -0000	1.10
-+++ include/mlmmj-send.h	8 Feb 2005 16:21:10 -0000
-@@ -45,7 +45,7 @@
- 		   size_t mailsize, const char *from, const char *listdir,
- 		   const char *hdrs, size_t hdrslen, const char *body,
- 		   size_t bodylen, const char *extra);
--int initsmtp(int *sockfd, const char *relayhost);
-+int initsmtp(int *sockfd, const char *relayhost, unsigned short port);
- int endsmtp(int *sockfd);
- 
- #endif /* MMJML_SEND_H */
---- src/init_sockfd.c
-+++ src/init_sockfd.c
-@@ -32,11 +32,10 @@
- #include "init_sockfd.h"
- #include "log_error.h"
- 
--void init_sockfd(int *sockfd, const char *relayhost)
-+void init_sockfd(int *sockfd, const char *relayhost, unsigned short port)
- {
- 	int len;
- 	struct sockaddr_in addr;
--	u_short port = 25;
- 
- 	if (getenv("MLMMJ_TESTING")) {
- 		relayhost = "127.0.0.1";
---- src/mlmmj-send.c
-+++ src/mlmmj-send.c
-@@ -290,13 +290,13 @@
- 	return 0;
- }
- 
--int initsmtp(int *sockfd, const char *relayhost)
-+int initsmtp(int *sockfd, const char *relayhost, unsigned short port)
- {
- 	int retval = 0;
- 	char *reply = NULL;
- 	char *myhostname = hostnamestr();
- 	
--	init_sockfd(sockfd, relayhost);
-+	init_sockfd(sockfd, relayhost, port);
- 	
- 	if((reply = checkwait_smtpreply(*sockfd, MLMMJ_CONNECT)) != NULL) {
- 		log_error(LOG_ARGS, "No proper greeting to our connect"
-@@ -600,7 +600,7 @@
- 	char *mlmmjbounce = NULL, *bindir, *mailmap, *probefile, *a;
- 	char *body = NULL, *hdrs = NULL, *memmailsizestr = NULL, *verp = NULL;
- 	char relay[16], *listname, *listfqdn, *verpfrom, *maxverprecipsstr;
--	char strindex[32], *reply;
-+	char strindex[32], *reply, *strport;
- 	ssize_t memmailsize = 0;
- 	DIR *subddir;
- 	struct dirent *dp;
-@@ -608,6 +608,7 @@
- 	struct hostent *relayent;
- 	uid_t uid;
- 	struct strlist stl;
-+	unsigned short smtpport = 25;
- 
- 	CHECKFULLPATH(argv[0]);
- 	
-@@ -863,11 +864,14 @@
- 				strncpy(relay, RELAYHOST, sizeof(relay));
- 		}
- 	}
-+	strport = ctrlvalue(listdir, "smtpport");
-+	if(strport)
-+		smtpport = (unsigned short)atol(strport);
- 
- 	switch(listctrl[0]) {
- 	case '1': /* A single mail is to be sent */
- 	case '6':
--		initsmtp(&sockfd, relay);
-+		initsmtp(&sockfd, relay, smtpport);
- 		sendres = send_mail(sockfd, bounceaddr, to_addr, replyto,
- 				mailmap, st.st_size, listdir, NULL,
- 				hdrs, hdrslen, body, bodylen);
-@@ -910,7 +914,7 @@
- 		}
- 		break;
- 	case '2': /* Moderators */
--		initsmtp(&sockfd, relay);
-+		initsmtp(&sockfd, relay, smtpport);
- 		if(send_mail_many_fd(sockfd, bounceaddr, NULL, mailmap,
- 				     st.st_size, subfd, NULL, NULL, listdir,
- 				     NULL, hdrs, hdrslen, body, bodylen))
-@@ -919,7 +923,7 @@
- 			endsmtp(&sockfd);
- 		break;
- 	case '3': /* resending earlier failed mails */
--		initsmtp(&sockfd, relay);
-+		initsmtp(&sockfd, relay, smtpport);
- 		if(send_mail_many_fd(sockfd, NULL, NULL, mailmap, st.st_size,
- 				subfd, listaddr, mailfilename, listdir,
- 				mlmmjbounce, hdrs, hdrslen, body, bodylen))
-@@ -929,7 +933,7 @@
- 		unlink(subfilename);
- 		break;
- 	case '4': /* send mails to owner */
--		initsmtp(&sockfd, relay);
-+		initsmtp(&sockfd, relay, smtpport);
- 		if(send_mail_many_fd(sockfd, bounceaddr, NULL, mailmap,
- 				st.st_size, subfd, listaddr, mailfilename,
- 				listdir, mlmmjbounce, hdrs, hdrslen, body,
-@@ -939,7 +943,7 @@
- 			endsmtp(&sockfd);
- 		break;
- 	case '5': /* bounceprobe - handle relayhost local users bouncing*/
--		initsmtp(&sockfd, relay);
-+		initsmtp(&sockfd, relay, smtpport);
- 		sendres = send_mail(sockfd, bounceaddr, to_addr, replyto,
- 				mailmap, st.st_size, listdir, NULL,
- 				hdrs, hdrslen, body, bodylen);
-@@ -999,7 +1003,7 @@
- 		}
- 		
- 		if(verp) {
--			initsmtp(&sockfd, relay);
-+			initsmtp(&sockfd, relay, smtpport);
- 			if(write_mail_from(sockfd, verpfrom, verp)) {
- 				log_error(LOG_ARGS,
- 						"Could not write MAIL FROM\n");
-@@ -1034,7 +1038,7 @@
- 				res = getaddrsfromfd(&stl, subfd,
- 						maxverprecips);
- 				if(stl.count = maxverprecips) {
--					initsmtp(&sockfd, relay);
-+					initsmtp(&sockfd, relay, smtpport);
- 					if(verp) {
- 						sendres = send_mail_verp(
- 								sockfd, &stl,
-@@ -1072,7 +1076,7 @@
- 
- 		}
- 		if(stl.count) {
--			initsmtp(&sockfd, relay);
-+			initsmtp(&sockfd, relay, smtpport);
- 			if(verp) {
- 				sendres = send_mail_verp(sockfd, &stl, mailmap,
- 						st.st_size, verpfrom, listdir,
+$ ls -l /var/spool/mlmmj/list-386596/
+drwxr-xr-x  2 nobody  wheel   240 Dec  3 12:49 archive
+drwxr-xr-x  2 nobody  wheel   632 Aug 26 19:59 bounce
+drwxr-xr-x  2 nobody  wheel   288 Aug  3  2004 control
+drwxr-xr-x  2 nobody  wheel  2224 Dec  3 13:51 incoming
+-rw-r--r--  1 nobody  wheel     2 Dec  3 12:48 index
+drwxr-xr-x  2 nobody  wheel   368 Dec  3 12:48 log
+drwxr-xr-x  2 nobody  wheel    48 Aug  3  2004 moderation
+drwxr-xr-x  3 nobody  wheel    80 Aug 26 19:59 queue
+drwxr-xr-x  6 nobody  wheel   144 Sep  3 15:20 requeue
+drwxr-xr-x  2 nobody  wheel    48 May  5  2004 subconf
+drwxr-xr-x  2 nobody  wheel    72 Dec  3 12:48 subscribers.d
+drwxr-xr-x  2 nobody  wheel   216 May 12  2004 text
+drwxr-xr-x  2 nobody  wheel    48 May  6  2004 unsubconf
+
+$ ls -l /var/spool/mlmmj/list-386596-alias
+lrwxrwxrwx  1 nobody  wheel    23 Feb  8 18:52 archive -> ../list-386596/archive/
+lrwxrwxrwx  1 nobody  wheel    22 Feb  8 18:52 bounce -> ../list-386596/bounce/
+drwxr-xr-x  2 nobody  wheel    48 Feb  8 18:53 control
+lrwxrwxrwx  1 nobody  wheel    24 Feb  8 18:53 incoming -> ../list-386596/incoming/
+lrwxrwxrwx  1 nobody  wheel    20 Feb  8 18:53 index -> ../list-386596/index
+lrwxrwxrwx  1 nobody  wheel    19 Feb  8 18:53 log -> ../list-386596/log/
+lrwxrwxrwx  1 nobody  wheel    26 Feb  8 18:53 moderation -> ../list-386596/moderation/
+lrwxrwxrwx  1 nobody  wheel    21 Feb  8 18:53 queue -> ../list-386596/queue/
+lrwxrwxrwx  1 nobody  wheel    23 Feb  8 18:53 requeue -> ../list-386596/requeue/
+lrwxrwxrwx  1 nobody  wheel    23 Feb  8 18:53 subconf -> ../list-386596/subconf/
+lrwxrwxrwx  1 nobody  wheel    29 Feb  8 18:53 subscribers.d -> ../list-386596/subscribers.d/
+lrwxrwxrwx  1 nobody  wheel    20 Feb  8 18:53 text -> ../list-386596/text/
+lrwxrwxrwx  1 nobody  wheel    25 Feb  8 18:53 unsubconf -> ../list-386596/unsubconf/
+
+OBS! This is not tested, but it should "solve" your problem without any change
+to the code.
+
+Morten
 
 -- 
-Mads Martin Joergensen, http://mmj.dk
-"Why make things difficult, when it is possible to make them cryptic
- and totally illogical, with just a little bit more effort?"
-                                -- A. P. J.
+Morten K. Poulsen <morten@afdelingp.dk>
+http://www.afdelingp.dk/
