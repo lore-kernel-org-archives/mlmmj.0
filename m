@@ -1,24 +1,30 @@
-From: Andrew Kohlsmith <akohlsmith-mlmmj@benshaw.com>
-Date: Mon, 18 Oct 2004 13:26:56 +0000
+From: "Morten K. Poulsen" <morten@afdelingp.dk>
+Date: Mon, 18 Oct 2004 14:00:11 +0000
 Subject: Re: mail accepted but not retransmitted?
-Message-Id: <200410180926.56989.akohlsmith-mlmmj@benshaw.com>
+Message-Id: <20041018140011.GC7292@mopo.i.tv2.dk>
 List-Id: <mlmmj.mlmmj.org>
 References: <200410151214.34989.akohlsmith-mlmmj@benshaw.com>
 In-Reply-To: <200410151214.34989.akohlsmith-mlmmj@benshaw.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="macroman"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 To: mlmmj@mlmmj.org
 
-T24gT2N0b2JlciAxOCwgMjAwNCAwODo1MSBhbSwgTW9ydGVuIEsuIFBvdWxzZW4gd3JvdGU6Cj4g
-Q291bGQgeW91IHRyeSBhZGRpbmcgdGhlIC1GIG9wdGlvbiB0byBtbG1tai1yZWNpZXZlIGluIHlv
-dXIgYWxpYXM/IFRoYXQKPiB3aWxsIGZvcmNlIG1sbW1qLXJlY2lldmUgdG8gTk9UIGZvcmsgaW50
-byB0aGUgYmFja2dyb3VuZCwgdGhlcmVieSBnZXR0aW5nCj4gdGhlIG91dHB1dCBmcm9tIGl0IGJh
-Y2sgdG8gdGhlIG1haWwgc2VydmVyLiBUaGF0IHNob3VsZCBnaXZlIHlvdSAodGhlCj4gc2VuZGVy
-KSBhbiBlcnJvciBtYWlsIHdpdGggdGhlIG91dHB1dCBmcm9tIG1sbW1qLXJlY2lldmUuCgpPY3Qg
-MTggMDk6Mjc6MzQgZ3JvbWl0IHBvc3RmaXgvbG9jYWxbMjI2N106IDFERUJCNDE0Q0UwOiAKdG89
-PG1sbW1qLXRlc3RAZ3JvbWl0Lm1peGRvd24uY2E+LCByZWxheT1sb2NhbCwgZGVsYXkiLCBzdGF0
-dXPeZmVycmVkIAooQ29tbWFuZCBkaWVkIHdpdGggc2lnbmFsIDExOiAiL3Vzci9sb2NhbC9iaW4v
-bWxtbWotcmVjaWV2ZSAtRiAKLUwgL3Zhci9zcG9vbC9tbG1tai9tbG1tai10ZXN0LyIpCgpXZWxs
-IHRoZXJlIHdlIGdvLiAgTm93IHRvIGZpZ3VyZSBvdXQgd2h5IHRoZSBkYW1uIHRoaW5nIGlzIHNp
-ZzExJ2luZy4gIEkga25vdyAKdGhlIFJBTSdzIGdvb2QsIEkganVzdCB0ZXN0ZWQgaXQuCgotQS4K
+On Mon, Oct 18, 2004 at 09:26:56AM -0400, Andrew Kohlsmith wrote:
+> Oct 18 09:27:34 gromit postfix/local[2267]: 1DEBB414CE0:=20
+> to=3D<mlmmj-test@gromit.mixdown.ca>, relay=3Dlocal, delay", status=DEferr=
+ed=20
+> (Command died with signal 11: "/usr/local/bin/mlmmj-recieve -F=20
+> -L /var/spool/mlmmj/mlmmj-test/")
+>=20
+> Well there we go.  Now to figure out why the damn thing is sig11'ing.
+
+Ouch! Not good.
+
+Are you familiar with gdb?
+
+Morten
+
+--=20
+Morten K. Poulsen <morten@afdelingp.dk>
+http://www.afdelingp.dk/
