@@ -1,7 +1,7 @@
-From: Kaare Rasmussen <kr@casalogic.com>
-Date: Sat, 08 Jan 2005 09:38:55 +0000
+From: Mads Martin Joergensen <mmj@mmj.dk>
+Date: Sat, 08 Jan 2005 09:52:26 +0000
 Subject: Re: Danish listtexts?
-Message-Id: <200501081038.55307.kr@casalogic.com>
+Message-Id: <20050108095226.GQ712@mmj.dk>
 List-Id: <mlmmj.mlmmj.org>
 References: <200501080136.51460.kr@casalogic.com>
 In-Reply-To: <200501080136.51460.kr@casalogic.com>
@@ -10,13 +10,22 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Hi
+* Kaare Rasmussen <kr@casalogic.com> [Jan 08. 2005 10:37]:
+> > Yeah, Jesper Lund was kind enough to offer danish listtexts, I've put
+> > them in http://mlmmj.mmj.dk/files for people to download. If anyone would
+> 
+> Great. Thanks!
 
-> Yeah, Jesper Lund was kind enough to offer danish listtexts, I've put
-> them in http://mlmmj.mmj.dk/files for people to download. If anyone would
+You're welcome.
 
-Great. Thanks!
+> > be interested in German ones, I also have that.
+> 
+> I think they're in the tarball.
 
-> be interested in German ones, I also have that.
+Ah, yes, they were added before 1.1.0.
 
-I think they're in the tarball.
+-- 
+Mads Martin Joergensen, http://mmj.dk
+"Why make things difficult, when it is possible to make them cryptic
+ and totally illogical, with just a little bit more effort?"
+                                -- A. P. J.
