@@ -1,147 +1,214 @@
-From: Mads Martin Joergensen <mmj@mmj.dk>
-Date: Mon, 24 May 2004 13:36:09 +0000
-Subject: Bouncehandling FIX for mlmmj-0.5.1
-Message-Id: <20040524133609.GA56661@panther.mmj.dk>
+From: Christoph Thiel <ct@kki.org>
+Date: Sun, 27 Jun 2004 11:02:55 +0000
+Subject: mlmmj-webinterface (for mlmmj-0.8.1)
+Message-Id: <Pine.LNX.4.58.0406271300400.4730@hermes.cthiel.de>
+MIME-Version: 1
+Content-Type: multipart/mixed; boundary="655872-1779086036-1088334175=:4730"
 List-Id: <mlmmj.mlmmj.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Hey all,
+  This message is in MIME format.  The first part should be readable text,
+  while the remaining parts are likely unreadable without MIME-aware tools.
+  Send mail to mime@docserver.cac.washington.edu for more info.
+X-Mailinglist: mlmmj
 
-Just discovered that bouncehandling is broken in 0.5.1 since it's not
-using the new subscribers.d functionality but the old subscribers file.
+--655872-1779086036-1088334175=:4730
+Content-Type: TEXT/PLAIN; charset=US-ASCII
 
-Here's a patch to correct it. The patch also includes functionality to
-handle bouncing sub/unsub requests.
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
 
-It's tested against 0.5.1 and it works here:
+Hi there,
 
-diff -urp mlmmj-0.5.1.old/src/mlmmj-bounce.c mlmmj-0.5.1/src/mlmmj-bounce.c
---- mlmmj-0.5.1.old/src/mlmmj-bounce.c	2004-04-27 22:11:59.000000000 +0200
-+++ mlmmj-0.5.1/src/mlmmj-bounce.c	2004-05-24 15:28:45.000000000 +0200
-@@ -15,6 +15,7 @@
- #include <sys/stat.h>
- #include <fcntl.h>
- #include <time.h>
-+#include <dirent.h>
- 
- #include "mlmmj.h"
- #include "strgen.h"
-@@ -32,13 +33,15 @@ static void print_help(const char *prg)
- 
- int main(int argc, char **argv)
- {
--	int opt, noprocess = 0;
-+	int opt, subread, noprocess = 0;
- 	char *listdir = NULL, *address = NULL, *number = NULL;
--	char *filename, *bfilename, *a, *buf;
-+	char *subreadname, *bfilename, *a, *buf, *subddirname;
- 	size_t len;
- 	int fd;
- 	time_t t;
- 	off_t suboff;
-+	DIR *subddir;
-+	struct dirent *dp;
- 
- 	log_set_name(argv[0]);
- 
-@@ -73,33 +76,81 @@ int main(int argc, char **argv)
- #if 0
- 	log_error(LOG_ARGS, "[%s] [%s] [%s]", listdir, address, number);
- #endif
-+
-+	/* check if it's sub/unsub requests bouncing, and in that case
-+	 * simply remove the confirmation file. Variablenames address and
-+	 * number are a bit misleading in this case due to the different
-+	 * construction of the sub/unsub confirmation From header.
-+	 */
-+	if(strncmp(address, "confsub-", 8) = 0) {
-+		a = concatstr(5, listdir, "/subconf/", address + 8, "-",
-+				number);
-+		unlink(a);
-+		free(a);
-+		exit(EXIT_SUCCESS);
-+	}
-+	if(strncmp(address, "confunsub-", 10) = 0) {
-+		a = concatstr(5, listdir, "/unsubconf/", address + 10, "-",
-+				number);
-+		unlink(a);
-+		free(a);
-+		exit(EXIT_SUCCESS);
-+	}
-+	
- 	/* save the filename with '=' before replacing it with '@' */
- 	bfilename = concatstr(3, listdir, "/bounce/", address);
- 
- 	a = strchr(address, '=');
--	if (!a) exit(EXIT_SUCCESS);  /* ignore malformed address */
-+	if (!a)
-+		exit(EXIT_SUCCESS);  /* ignore malformed address */
- 	*a = '@';
- 
- 	/* make sure it's a subscribed address */
--	filename = concatstr(2, listdir, "/subscribers");
--	if ((fd = open(filename, O_RDONLY)) < 0) {
--		log_error(LOG_ARGS, "Could not open '%s'", filename);
--		free(filename); free(bfilename);
-+	subddirname = concatstr(2, listdir, "/subscribers.d/");
-+	if((subddir = opendir(subddirname)) = NULL) {
-+		log_error(LOG_ARGS, "Could not opendir(%s)",
-+				    subddirname);
-+		free(subddirname);
- 		exit(EXIT_FAILURE);
- 	}
--	suboff = find_subscriber(fd, address);
-+	free(subddirname);
-+	while((dp = readdir(subddir)) != NULL) {
-+		if(!strcmp(dp->d_name, "."))
-+			continue;
-+		if(!strcmp(dp->d_name, ".."))
-+			continue;
-+		subreadname = concatstr(3, listdir, "/subscribers.d/",
-+				dp->d_name);
-+
-+		subread = open(subreadname, O_RDONLY);
-+		if(subread = -1) {
-+			log_error(LOG_ARGS, "Could not open '%s'",
-+					subreadname);
-+			free(subreadname);
-+			continue;
-+		}
-+
-+		suboff = find_subscriber(subread, address);
-+		close(subread);
-+		free(subreadname);
-+
-+		if(suboff = -1)
-+			continue;
-+		else
-+			break;
-+	}
-+	closedir(subddir);
-+
- 	if(suboff = -1) {
--		free(filename); free(bfilename);
-+		free(bfilename);
- 		exit(EXIT_SUCCESS); /* Not subbed, so exit silently */
- 	}
- 
--	free(filename);
--
- 	/* TODO make sure the file we open below is not a symlink */
- 	if ((fd = open(bfilename, O_WRONLY|O_APPEND|O_CREAT,
- 			S_IRUSR|S_IWUSR)) < 0) {
- 		log_error(LOG_ARGS, "Could not open '%s'", bfilename);
--		free(filename); free(bfilename);
-+		free(bfilename);
- 		exit(EXIT_FAILURE);
- 	}
- 	free(bfilename);
+enclosed the first release of the mlmmj-webinterface. Have fun... :)
 
--- 
-Mads Martin Joergensen, http://mmj.dk
-"Why make things difficult, when it is possible to make them cryptic
- and totally illogical, with just a little bit more effort?"
-                                -- A. P. J.
+
+Regards,
+	Christoph
+- --
+Christoph Thiel <ct@kki.org>, http://ct.kki.org/
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.2.4 (GNU/Linux)
+
+iD8DBQFA3qlkSQ2wS9JeDp0RAr9SAKCWthvfT62QecV5xyb4crGevWP1LQCgg9cW
+yhiBSrjBYGVrMzOvVZjjmtE=
+=9s9R
+-----END PGP SIGNATURE-----
+
+--655872-1779086036-1088334175=:4730
+Content-Type: TEXT/PLAIN; charset=US-ASCII; name="webinterface.dif"
+Content-Transfer-Encoding: BASE64
+Content-ID: <Pine.LNX.4.58.0406271302550.4730@hermes.cthiel.de>
+Content-Description: 
+Content-Disposition: attachment; filename="webinterface.dif"
+
+ZGlmZiAtdXJOIG1sbW1qLTAuOC4xLm9yaWcvUkVBRE1FLndlYmludGVyZmFj
+ZSBtbG1tai0wLjguMS9SRUFETUUud2ViaW50ZXJmYWNlDQotLS0gbWxtbWot
+MC44LjEub3JpZy9SRUFETUUud2ViaW50ZXJmYWNlCTE5NzAtMDEtMDEgMDE6
+MDA6MDAuMDAwMDAwMDAwICswMTAwDQorKysgbWxtbWotMC44LjEvUkVBRE1F
+LndlYmludGVyZmFjZQkyMDA0LTA2LTI3IDEyOjU5OjExLjYwNjkxNTk4NCAr
+MDIwMA0KQEAgLTAsMCArMSwzNSBAQA0KK1JFQURNRSB3ZWJpbnRlcmZhY2UJ
+CQkJCUp1biAyN3RoIDIwMDQNCisNCitFaGgsIHdoYXQncyB0aGF0Pw0KKyAg
+IFRoZSBtbG1tai13ZWJpbnRlcmZhY2Ugd2FzIGNyZWF0ZWQgdG8gZ2l2ZSBw
+ZW9wbGUgdGhlIG9wcG9ydHVuaXR5IHRvDQore3N1Yix1bnN1Yn1zY3JpYmUg
+dG8geW91ciBtYWlsaW5nbGlzdHMgd2l0aG91dCBoYXZpbmcgdG8gd3JpdGUg
+YW4gaW5pdGlhbA0KK3tzdWIsdW5zdWJ9c2NyaWJlLW1haWwsIGJ1dCBvbmx5
+IGNvbXBsZXRpbmcgYSBmb3JtLg0KKw0KKw0KK1doYXQgYXJlIHRoZSByZXF1
+aXJlbWVudHM/DQorICAgT25seSBhIHdlYnNlcnZlciwgdGhhdCBoYXMgUEhQ
+ID49IDMuMC44IHN1cHBvcnQuDQorDQorDQorSG93IGNhbiBJIGluc3RhbGwv
+dXNlIHRoZSB3ZWJpbnRlcmZhY2U/DQorICAgLSBVcGxvYWQgd2ViaW50ZXJm
+YWNlL21sbW1qLnBocCB0byB5b3VyIHdlYnNlcnZlci4NCisgICAtIEhhdmUg
+YSBsb29rIGF0IHdlYmludGVyZmFjZS9leGFtcGxlLmh0bWwgYW5kIGNvcHkg
+b25lIG9yIGJvdGggZm9ybXMNCisgICAgIGFuZCBwdXQgdGhlbSBpbnRvIHlv
+dXIgd2Vic2l0ZS4NCisgICAtIEFkanVzdCB0aGUgb3B0aW9ucyB0byBzYXRp
+c2Z5IHlvdXIgbmVlZHM6DQorDQorDQorICAgICAgVGhlIG1haWxpbmdsaXN0
+IHlvdXIgd2FudCB0byB7c3ViLHVuc3VifXNjcmliZSB0bzoNCisgICAgICA8
+aW5wdXQgbmFtZT0ibWFpbGluZ2xpc3QiIHR5cGU9ImhpZGRlbiIgdmFsdWU9
+InRlc3RAY3Qua2tpLm9yZyI+DQorDQorICAgICAgRG8geW91IHdhbnQgdG8g
+c3Vic2NyaWJlIG9yIHVuc3Vic2NyaWJlPw0KKyAgICAgIDxpbnB1dCBuYW1l
+PSJqb2IiIHR5cGU9ImhpZGRlbiIgdmFsdWU9InN1YnNjcmliZSI+DQorDQor
+ICAgICBXaGVyZSBkbyB5b3Ugd2FudCB0byByZWRpcmVjdCB5b3VyIHVzZXIg
+YWZ0ZXIgYSBmYWlsdXJlPyANCisgICAgIDxpbnB1dCBuYW1lPSJyZWRpcmVj
+dF9mYWlsdXJlIiB0eXBlPSJoaWRkZW4iIHZhbHVlPSJodHRwOi8vd3d3LmZh
+aWx1cmUuY29tLyI+DQorDQorICAgICBXaGF0IHNob3VsZCBiZSB0aGUgc3Vj
+Y2VzcyByZWRpcmVjdD8NCisgICAgIDxpbnB1dCBuYW1lPSJyZWRpcmVjdF9z
+dWNjZXNzIiB0eXBlPSJoaWRkZW4iIHZhbHVlPSJodHRwOi8vd3d3LnN1Y2Nl
+c3MuY29tLyI+DQorDQorDQorVGhhdCdzIGl0IC0gaGF2ZSBhIGZ1biENCisN
+CisJQ2hyaXN0b3BoIFRoaWVsIDxjdCBhdCBra2kgZG90IG9yZz4NCmRpZmYg
+LXVyTiBtbG1tai0wLjguMS5vcmlnL3dlYmludGVyZmFjZS9leGFtcGxlLmh0
+bWwgbWxtbWotMC44LjEvd2ViaW50ZXJmYWNlL2V4YW1wbGUuaHRtbA0KLS0t
+IG1sbW1qLTAuOC4xLm9yaWcvd2ViaW50ZXJmYWNlL2V4YW1wbGUuaHRtbAkx
+OTcwLTAxLTAxIDAxOjAwOjAwLjAwMDAwMDAwMCArMDEwMA0KKysrIG1sbW1q
+LTAuOC4xL3dlYmludGVyZmFjZS9leGFtcGxlLmh0bWwJMjAwNC0wNi0yMiAx
+MToxMjoxNi4wMDAwMDAwMDAgKzAyMDANCkBAIC0wLDAgKzEsMzQgQEANCis8
+IURPQ1RZUEUgaHRtbCBQVUJMSUMgIi0vL1czQy8vRFREIEhUTUwgMy4yLy9F
+TiI+DQorPGh0bWw+DQorPGhlYWQ+DQorPHRpdGxlPm1sbW1qLXdlYmludGVy
+ZmFjZTwvdGl0bGU+DQorPC9oZWFkPg0KKzxib2R5Pg0KKzxoMT5zdWJzY3Jp
+YmU8L2gxPg0KKw0KKzwhLS0gbWxtbWotd2ViaW50ZXJmYWNlIChzZWUgUkVB
+RE1FLndlYmludGVyZmFjZSBmb3IgZG9jdW1lbnRhdGlvbikgLS0+DQorPGZv
+cm0gYWN0aW9uPSJtbG1tai5waHAiIG1ldGhvZD0icG9zdCI+DQorPGlucHV0
+IG5hbWU9Im1haWxpbmdsaXN0IiB0eXBlPSJoaWRkZW4iIHZhbHVlPSJ0ZXN0
+QGN0LmtraS5vcmciPiANCis8aW5wdXQgbmFtZT0iam9iIiB0eXBlPSJoaWRk
+ZW4iIHZhbHVlPSJzdWJzY3JpYmUiPiANCis8aW5wdXQgbmFtZT0icmVkaXJl
+Y3RfZmFpbHVyZSIgdHlwZT0iaGlkZGVuIiB2YWx1ZT0iaHR0cDovL3d3dy5m
+YWlsdXJlLmNvbS8iPiANCis8aW5wdXQgbmFtZT0icmVkaXJlY3Rfc3VjY2Vz
+cyIgdHlwZT0iaGlkZGVuIiB2YWx1ZT0iaHR0cDovL3d3dy5zdWNjZXNzLmNv
+bS8iPg0KKzxpbnB1dCBuYW1lPSJlbWFpbCIgdHlwZT0idGV4dCIgc2l6ZT0i
+MzAiIG1heGxlbmd0aD0iMjU0Ij48YnI+DQorPGlucHV0IHR5cGU9InN1Ym1p
+dCIgdmFsdWU9IlN1YnNjcmliZSI+IDxpbnB1dCB0eXBlPSJyZXNldCI+DQor
+PC9mb3JtPg0KKw0KKzxicj4NCis8YnI+DQorIA0KKzxoMT51bnN1YnNjcmli
+ZTwvaDE+DQorDQorPGZvcm0gYWN0aW9uPSJtbG1tai5waHAiIG1ldGhvZD0i
+cG9zdCI+DQorPGlucHV0IG5hbWU9Im1haWxpbmdsaXN0IiB0eXBlPSJoaWRk
+ZW4iIHZhbHVlPSJ0ZXN0QGN0LmtraS5vcmciPiANCis8aW5wdXQgbmFtZT0i
+am9iIiB0eXBlPSJoaWRkZW4iIHZhbHVlPSJ1bnN1YnNjcmliZSI+IA0KKzxp
+bnB1dCBuYW1lPSJyZWRpcmVjdF9mYWlsdXJlIiB0eXBlPSJoaWRkZW4iIHZh
+bHVlPSJodHRwOi8vd3d3LmZhaWx1cmUuY29tIj4NCis8aW5wdXQgbmFtZT0i
+cmVkaXJlY3Rfc3VjY2VzcyIgdHlwZT0iaGlkZGVuIiB2YWx1ZT0iaHR0cDov
+L3d3dy5zdWNjZXNzLmNvbSI+DQorPGlucHV0IG5hbWU9ImVtYWlsIiB0eXBl
+PSJ0ZXh0IiBzaXplPSIzMCIgbWF4bGVuZ3RoPSIyNTQiPjxicj4NCis8aW5w
+dXQgdHlwZT0ic3VibWl0IiB2YWx1ZT0iVW5zdWJzY3JpYmUiPiA8aW5wdXQg
+dHlwZT0icmVzZXQiPg0KKw0KKzwvZm9ybT4NCis8L2JvZHk+DQorPC9odG1s
+Pg0KZGlmZiAtdXJOIG1sbW1qLTAuOC4xLm9yaWcvd2ViaW50ZXJmYWNlL21s
+bW1qLnBocCBtbG1tai0wLjguMS93ZWJpbnRlcmZhY2UvbWxtbWoucGhwDQot
+LS0gbWxtbWotMC44LjEub3JpZy93ZWJpbnRlcmZhY2UvbWxtbWoucGhwCTE5
+NzAtMDEtMDEgMDE6MDA6MDAuMDAwMDAwMDAwICswMTAwDQorKysgbWxtbWot
+MC44LjEvd2ViaW50ZXJmYWNlL21sbW1qLnBocAkyMDA0LTA2LTI3IDEyOjM4
+OjIwLjg3MTA1NjczNiArMDIwMA0KQEAgLTAsMCArMSwxMzkgQEANCis8Pw0K
+Kw0KKy8qIENvcHlyaWdodCAoQykgMjAwNCBDaHJpc3RvcGggVGhpZWwgPGN0
+IGF0IGtraSBkb3Qgb3JnPg0KKyAqDQorICogUGVybWlzc2lvbiBpcyBoZXJl
+YnkgZ3JhbnRlZCwgZnJlZSBvZiBjaGFyZ2UsIHRvIGFueSBwZXJzb24gb2J0
+YWluaW5nIGEgY29weQ0KKyAqIG9mIHRoaXMgc29mdHdhcmUgYW5kIGFzc29j
+aWF0ZWQgZG9jdW1lbnRhdGlvbiBmaWxlcyAodGhlICJTb2Z0d2FyZSIpLCB0
+bw0KKyAqIGRlYWwgaW4gdGhlIFNvZnR3YXJlIHdpdGhvdXQgcmVzdHJpY3Rp
+b24sIGluY2x1ZGluZyB3aXRob3V0IGxpbWl0YXRpb24gdGhlDQorICogcmln
+aHRzIHRvIHVzZSwgY29weSwgbW9kaWZ5LCBtZXJnZSwgcHVibGlzaCwgZGlz
+dHJpYnV0ZSwgc3VibGljZW5zZSwgYW5kL29yDQorICogc2VsbCBjb3BpZXMg
+b2YgdGhlIFNvZnR3YXJlLCBhbmQgdG8gcGVybWl0IHBlcnNvbnMgdG8gd2hv
+bSB0aGUgU29mdHdhcmUgaXMNCisgKiBmdXJuaXNoZWQgdG8gZG8gc28sIHN1
+YmplY3QgdG8gdGhlIGZvbGxvd2luZyBjb25kaXRpb25zOg0KKyAqDQorICog
+VGhlIGFib3ZlIGNvcHlyaWdodCBub3RpY2UgYW5kIHRoaXMgcGVybWlzc2lv
+biBub3RpY2Ugc2hhbGwgYmUgaW5jbHVkZWQgaW4NCisgKiBhbGwgY29waWVz
+IG9yIHN1YnN0YW50aWFsIHBvcnRpb25zIG9mIHRoZSBTb2Z0d2FyZS4NCisg
+Kg0KKyAqIFRIRSBTT0ZUV0FSRSBJUyBQUk9WSURFRCAiQVMgSVMiLCBXSVRI
+T1VUIFdBUlJBTlRZIE9GIEFOWSBLSU5ELCBFWFBSRVNTIE9SDQorICogSU1Q
+TElFRCwgSU5DTFVESU5HIEJVVCBOT1QgTElNSVRFRCBUTyBUSEUgV0FSUkFO
+VElFUyBPRiBNRVJDSEFOVEFCSUxJVFksDQorICogRklUTkVTUyBGT1IgQSBQ
+QVJUSUNVTEFSIFBVUlBPU0UgQU5EIE5PTklORlJJTkdFTUVOVC4gSU4gTk8g
+RVZFTlQgU0hBTEwgVEhFDQorICogQVVUSE9SUyBPUiBDT1BZUklHSFQgSE9M
+REVSUyBCRSBMSUFCTEUgRk9SIEFOWSBDTEFJTSwgREFNQUdFUyBPUiBPVEhF
+Ug0KKyAqIExJQUJJTElUWSwgV0hFVEhFUiBJTiBBTiBBQ1RJT04gT0YgQ09O
+VFJBQ1QsIFRPUlQgT1IgT1RIRVJXSVNFLCBBUklTSU5HDQorICogRlJPTSwg
+T1VUIE9GIE9SIElOIENPTk5FQ1RJT04gV0lUSCBUSEUgU09GVFdBUkUgT1Ig
+VEhFIFVTRSBPUiBPVEhFUiBERUFMSU5HUw0KKyAqIElOIFRIRSBTT0ZUV0FS
+RS4NCisgKi8NCisNCisNCisvLyBlcnJvcl9yZXBvcnRpbmcoRV9BTEwpOw0K
+Kw0KK2NsYXNzIG1sbW1qDQorew0KKyAgICB2YXIgJGVtYWlsOw0KKyAgICB2
+YXIgJG1haWxpbmdsaXN0Ow0KKyAgICB2YXIgJGpvYjsNCisgICAgdmFyICRy
+ZWRpcmVjdF9zdWNjZXNzOw0KKyAgICB2YXIgJHJlZGlyZWN0X2ZhaWx1cmU7
+DQorDQorICAgIHZhciAkZGVsaW1pdGVyOw0KKyAgICB2YXIgJGVycm9yczsN
+CisgICAgDQorICAgIGZ1bmN0aW9uIGlzX2VtYWlsKCRzdHJpbmc9IiIpIA0K
+Kwl7DQorCSAgICBpZiAoZXJlZ2koIl5bYS16MC05XC5fLV0rIi5jaHIoNjQp
+LiIrW2EtejAtOVwuXy1dK1wuK1thLXpdezIsNH0kIiwgJHN0cmluZykpIA0K
+KwkgICAgeyANCisJCXJldHVybiBUUlVFOyANCisJICAgIH0NCisJICAgIGVs
+c2UgDQorCSAgICB7IA0KKwkJcmV0dXJuIEZBTFNFOyANCisJICAgIH0NCisJ
+fQ0KKw0KKyAgICBmdW5jdGlvbiBlcnJvcigkc3RyaW5nPSIiKQ0KKwl7DQor
+CSAgICAkdGhpcy0+ZXJyb3JzID0gVFJVRTsNCisvLwkgICAgZGllKCRzdHJp
+bmcpOw0KKwl9DQorDQorICAgIGZ1bmN0aW9uIG1sbW1qKCkNCisJew0KKwkg
+ICAgZ2xvYmFsICRIVFRQX1BPU1RfVkFSUywgJEhUVFBfU0VSVkVSX1ZBUlM7
+DQorCSAgICANCisJICAgIC8vIHNldCBtYW5kYXRvcnkgdmFycy4uLg0KKwkg
+ICAgJHRoaXMtPmVycm9ycyA9IEZBTFNFOw0KKwkgICAgJHRoaXMtPmRlbGlt
+aXRlciA9ICIrIjsNCisJICAgIA0KKwkgICAgaWYgKCFpc3NldCgkSFRUUF9Q
+T1NUX1ZBUlNbImVtYWlsIl0pICYmDQorCQkhaXNzZXQoJEhUVFBfUE9TVF9W
+QVJTWyJtYWlsaW5nbGlzdCJdKSAmJg0KKwkJIWlzc2V0KCRIVFRQX1BPU1Rf
+VkFSU1siam9iIl0pICYmDQorCQkhaXNzZXQoJEhUVFBfUE9TVF9WQVJTWyJy
+ZWRpcmVjdF9zdWNjZXNzIl0pICYmDQorCQkhaXNzZXQoJEhUVFBfUE9TVF9W
+QVJTWyJyZWRpcmVjdF9mYWlsdXJlIl0pKQ0KKwkgICAgew0KKwkJJHRoaXMt
+PmVycm9ycyA9IFRSVUU7DQorCQlpZihpc3NldCgkSFRUUF9QT1NUX1ZBUlNb
+InJlZGlyZWN0X2ZhaWx1cmUiXSkpDQorCQl7DQorCQkgICAgaGVhZGVyKCJM
+b2NhdGlvbjogIi4kSFRUUF9QT1NUX1ZBUlNbInJlZGlyZWN0X2ZhaWx1cmUi
+XSk7DQorCQkgICAgZXhpdDsNCisJCX0NCisJCWVsc2UNCisJCSAgICBkaWUo
+IkFuIGVycm9yIG9jY3VycmVkLiBQbGVhc2UgY2hlY2sgUkVBRE1FLndlYmlu
+dGVyZmFjZSBmb3IgZGV0YWlscy4iKTsNCisJICAgIH0NCisJICAgIGVsc2UN
+CisJICAgIHsNCisJCWlmKCR0aGlzLT5pc19lbWFpbCgkSFRUUF9QT1NUX1ZB
+UlNbImVtYWlsIl0pKQ0KKwkJICAgICR0aGlzLT5lbWFpbCA9ICRIVFRQX1BP
+U1RfVkFSU1siZW1haWwiXTsNCisJCWVsc2UNCisJCSAgICAkdGhpcy0+ZXJy
+b3IoIkVSUk9SOiBlbWFpbCBpcyBub3QgYSB2YWxpZCBlbWFpbCBhZGRyZXNz
+LiIpOw0KKw0KKwkJaWYoJHRoaXMtPmlzX2VtYWlsKCRIVFRQX1BPU1RfVkFS
+U1sibWFpbGluZ2xpc3QiXSkpDQorCQkgICAgJHRoaXMtPm1haWxpbmdsaXN0
+ID0gJEhUVFBfUE9TVF9WQVJTWyJtYWlsaW5nbGlzdCJdOw0KKwkJZWxzZQ0K
+KwkJICAgICR0aGlzLT5lcnJvcigiRVJST1I6IG1haWxpbmdsaXN0IGlzIG5v
+dCBhIHZhbGlkIGVtYWlsIGFkZHJlc3MuIik7DQorCQkNCisJCSR0aGlzLT5q
+b2IgPSAkSFRUUF9QT1NUX1ZBUlNbImpvYiJdOw0KKwkJDQorCQlpZighKCgk
+dGhpcy0+am9iID09ICJzdWJzY3JpYmUiKSBPUiAoJHRoaXMtPmpvYiA9PSAi
+dW5zdWJzY3JpYmUiKSkpDQorCQl7DQorCQkgICAgJHRoaXMtPmVycm9yKCJF
+UlJPUjogam9iIHVua25vd24uIik7DQorCQl9DQorCQkNCisJCSR0aGlzLT5y
+ZWRpcmVjdF9mYWlsdXJlID0gJEhUVFBfUE9TVF9WQVJTWyJyZWRpcmVjdF9m
+YWlsdXJlIl07DQorCQkkdGhpcy0+cmVkaXJlY3Rfc3VjY2VzcyA9ICRIVFRQ
+X1BPU1RfVkFSU1sicmVkaXJlY3Rfc3VjY2VzcyJdOw0KKw0KKwkgICAgfQ0K
+Kw0KKwkgICAgLy8gbm93IHdlIHNob3VsZCB0cnkgdG8gZ28gYWhlYWQgYW5k
+IHtzdWIsdW5zdWJ9c2NyaWJlLi4uIDspDQorCSAgICANCisJICAgIGlmKCEk
+dGhpcy0+ZXJyb3JzKQ0KKwkgICAgew0KKwkJLy8gQCBePSBjaGFyKDY0KQ0K
+KwkJDQorCQkkdG8gPSBzdHJfcmVwbGFjZShjaHIoNjQpLCR0aGlzLT5kZWxp
+bWl0ZXIuJHRoaXMtPmpvYi5jaHIoNjQpLCR0aGlzLT5tYWlsaW5nbGlzdCk7
+DQorCQkkc3ViamVjdCA9ICR0aGlzLT5qb2IuIiB0byAiLiR0aGlzLT5tYWls
+aW5nbGlzdDsNCisJCSRib2R5ID0gJHRoaXMtPmpvYjsNCisJCSRhZGRoZWFk
+ZXIgPSAiRnJvbTogIi4kdGhpcy0+ZW1haWwuIlxyXG4iOw0KKwkJJGFkZGhl
+YWRlciAuPSAiQ0M6ICIuJHRoaXMtPmVtYWlsLiJcclxuIjsNCisJCSRhZGRo
+ZWFkZXIgLj0gIkNvbW1lbnQ6IFJlY2VpdmVkIGZyb20gIi4gJEhUVFBfU0VS
+VkVSX1ZBUlNbIlJFTU9URV9BRERSIl0gDQorCQkgICAgLiIgYnkgIi4gJEhU
+VFBfU0VSVkVSX1ZBUlNbIlNFUlZFUl9OQU1FIl0uICIgd2l0aCBIVFRQO1xy
+XG5cdCIuZGF0ZSgiciIpLiJcclxuIjsNCisJCSRhZGRoZWFkZXIgLj0gIlgt
+TWFpbGVyOiBtbG1tai13ZWJpbnRlcmZhY2UgcG93ZXJlZCBieSBQSFAvIi4g
+cGhwdmVyc2lvbigpIC4iXHJcbiI7DQorCQkkYWRkaGVhZGVyIC49ICJYLU9y
+aWdpbmF0aW5nLUlQOiAiLiRIVFRQX1NFUlZFUl9WQVJTWyJSRU1PVEVfQURE
+UiJdOw0KKwkJDQorCQlpZighbWFpbCgkdG8sICRzdWJqZWN0LCAkYm9keSwg
+JGFkZGhlYWRlcikpDQorCQkgICAgJHRoaXMtPmVycm9yKCR0aGlzLT5qb2Iu
+IiBmYWlsZWQuIik7DQorCSAgICB9DQorCSAgICANCisJICAgIGlmKCR0aGlz
+LT5lcnJvcnMpDQorCSAgICB7DQorCQloZWFkZXIoIkxvY2F0aW9uOiAiLiR0
+aGlzLT5yZWRpcmVjdF9mYWlsdXJlKTsNCisJCWV4aXQ7DQorCSAgICB9DQor
+CSAgICBlbHNlDQorCSAgICB7DQorCQloZWFkZXIoIkxvY2F0aW9uOiAiLiR0
+aGlzLT5yZWRpcmVjdF9zdWNjZXNzKTsNCisJCWV4aXQ7DQorCSAgICB9DQor
+CX0NCit9DQorDQorDQorJG1haWxpbmdsaXN0ID0gbmV3IG1sbW1qOw0KKw0K
+Kz8+DQo=
+
+--655872-1779086036-1088334175=:4730--
+
