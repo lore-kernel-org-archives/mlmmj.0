@@ -1,35 +1,26 @@
-From: Mads Martin Joergensen <mmj@mmj.dk>
-Date: Tue, 08 Feb 2005 09:54:12 +0000
-Subject: mlmmj-1.2.3 released. Features added and bugs squashed.
-Message-Id: <20050208095412.GE56543@mmj.dk>
+From: Wolf Bergenheim <wolf+mlmmj@bergenheim.net>
+Date: Tue, 08 Feb 2005 11:37:28 +0000
+Subject: Re: mlmmj-1.2.3 released. Features added and bugs squashed.
+Message-Id: <200502081337.29966.wolf+mlmmj@bergenheim.net>
 List-Id: <mlmmj.mlmmj.org>
+References: <20050208095412.GE56543@mmj.dk>
+In-Reply-To: <20050208095412.GE56543@mmj.dk>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Hey all,
+On Tuesday 08 February 2005 11:54, Mads Martin Joergensen wrote:
+> Hey all,
+>
+> The ChangeLog has the glory details, I can recommend an upgrade:
+>
 
-First, I want to express a big thank you to Andrea Barisani who once
-again found a pretty hard to find bug, and also helped with a lot of
-testing wrt. DSN support addition.
+So no support for multiple list addresses ):
 
-The ChangeLog has the glory details, I can recommend an upgrade:
-
-1.2.3
- o Only allow subscription of addresses with '@' in them
- o Fix return value from unsubscribe function
- o Add extra lock layer when accessing subscribers files
- o In case of listname+bounces-INDEX use the DSN (RFC1891) report to
-   extract the bouncing address
- o Fix usage of a zero sized control/verp string
- o Make the Date: header RFC2822 conformant
-
-http://mlmmj.mmj.dk/files/mlmmj-1.2.3.tar.gz
-http://mlmmj.mmj.dk/files/mlmmj-1.2.3.tar.bz2
+--W
 
 -- 
-Mads Martin Joergensen, http://mmj.dk
-"Why make things difficult, when it is possible to make them cryptic
- and totally illogical, with just a little bit more effort?"
-                                -- A. P. J.
+
+<:3 )---- Wolf Bergenheim ----( 8:>
+
