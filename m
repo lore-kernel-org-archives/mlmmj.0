@@ -1,27 +1,36 @@
-From: Mads Martin Joergensen <mmj@mmj.dk>
-Date: Sun, 11 Jul 2004 12:35:03 +0000
-Subject: Re: any list archives available?
-Message-Id: <20040711123503.GA24702@panther.mmj.dk>
+From: "Morten K. Poulsen" <morten@afdelingp.dk>
+Date: Fri, 09 Jul 2004 20:45:29 +0000
+Subject: first version of web-interfaces released
+Message-Id: <20040709204529.GA7798@mopo.tv2.local>
 List-Id: <mlmmj.mlmmj.org>
-References: <20040707131246.GB18023@mail.lieber.org>
-In-Reply-To: <20040707131246.GB18023@mail.lieber.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-* Kurt Lieber <klieber@gentoo.org> [Jul 07. 2004 15:09]:
-> We're looking at potential replacements for our current list manager,
-> ezmlm-idx and are considering mlmmj.  Before I go asking a bunch of
-> questions that have probably been asked before, are their list archives
-> available anywhere?  I didn't see any listed on the home page of the site.
+Hi,
 
-I've just created them, will update every hour.
+I have just committed the first version of web-interfaces for mlmmj to
+CVS. There are three interfaces:
 
-http://mlmmj.mmj.dk/archive/
+- php-user subscription interface written in PHP by Christoph Thiel
+- perl-user subscription interface written in Perl by me
+- perl-admin mailing list settings interface written in Perl by me
+
+They will be included in the next release, but you can get the files
+now, if you want to check them out:
+http://mlmmj.mmj.dk/files/mlmmj-0.8.2-webinterface.tar.bz2
+http://mlmmj.mmj.dk/files/mlmmj-0.8.2-webinterface.tar.gz
+
+I am no great Perl hacker, so feedback (and patches) are more than
+welcome. Also a php-admin interface would be appreciated.
+
+I am away on vacation for a week starting Sunday, so I will probably not
+answer your mail right away.
+
+Have a nice weekend!
+Morten
 
 -- 
-Mads Martin Joergensen, http://mmj.dk
-"Why make things difficult, when it is possible to make them cryptic
- and totally illogical, with just a little bit more effort?"
-                                -- A. P. J.
+Morten K. Poulsen <morten@afdelingp.dk>
+http://www.afdelingp.dk/
