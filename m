@@ -1,31 +1,30 @@
 From: Mads Martin Joergensen <mmj@mmj.dk>
-Date: Thu, 17 Jun 2004 19:30:42 +0000
-Subject: mlmmj-0.7.3
-Message-Id: <20040617193042.GL45162@panther.mmj.dk>
+Date: Mon, 14 Jun 2004 15:19:00 +0000
+Subject: mlmmj-0.7.2
+Message-Id: <20040614151900.GA29389@panther.mmj.dk>
 List-Id: <mlmmj.mlmmj.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Hey together,
+Hey all,
 
-We're now free an in free beer :)
+I've just uploaded mlmmj-0.7.2 tarballs to the website. There's the
+following changes which was needed for some users to put it in
+production:
 
-ChangeLog since 0.7.2:
+0.7.2
+ o Make it possible to only let subscribers post
+ o Implement feature to deny posts where the listaddress is not in To: or
+   Cc:. Enabled pr. default, but can be disabled by touching control/tocc
+ o Make mlmmj-sub change uid to the owner of listdir to avoid permission
+   problems. Disable with -U to mlmmj-sub.
+ o More memory debugging
 
-0.7.3
- o Implement control/delheaders in where one can specify all the headers
-   to delete in incoming mail to the list.
- o Add +owner functionality (control/owner). Several addresses possible.
- o Relicense the whole thing to be MIT instead of GPL
+Don't forget to upgrade the list texts!
 
-UPGRADE:
-This applies to everyone using mlmmj > 0.7.2:
----------------------------------------------
-
- Don't forget to add the emailaddress of the list owner
- in listdir/control/owner
+As usual, feedback is very welcome.
 
 -- 
 Mads Martin Joergensen, http://mmj.dk
