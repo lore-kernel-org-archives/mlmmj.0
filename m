@@ -1,61 +1,32 @@
-From: Wolf Bergenheim <wolf+mlmmj@bergenheim.net>
-Date: Mon, 20 Sep 2004 06:57:50 +0000
-Subject: Re: mlmmj doesn't send mails to the list
-Message-Id: <Pine.LNX.4.61.0409200953540.19142@watson.hemma.bergenheim.net>
-MIME-Version: 1
-Content-Type: multipart/mixed; boundary="117353488-1572763463-1095663285=:19142"
+From: =?iso-8859-1?Q?S=F8ren?= Boll Overgaard <boll+mlmmj@fork.dk>
+Date: Sat, 04 Sep 2004 13:19:00 +0000
+Subject: mlmmj for Debian
+Message-Id: <20040904131900.GF58209@freesbee.wheel.dk>
 List-Id: <mlmmj.mlmmj.org>
-References: <Pine.LNX.4.61.0409200903170.19142@watson.hemma.bergenheim.net>
-In-Reply-To: <Pine.LNX.4.61.0409200903170.19142@watson.hemma.bergenheim.net>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 To: mlmmj@mlmmj.org
 
-  This message is in MIME format.  The first part should be readable text,
-  while the remaining parts are likely unreadable without MIME-aware tools.
+Hi,
 
---117353488-1572763463-1095663285=:19142
-Content-Type: TEXT/PLAIN; charset="iso-8859-15"; format="flowed"
-Content-Transfer-Encoding: quoted-printable
-Content-ID: <Pine.LNX.4.61.0409200956551.19142@watson.hemma.bergenheim.net>
+I've been packaging mlmmj and contributed modules for Debian. I would really
+appreciate it if you (assuming you run Debian) would lend a hand with the
+testing.
 
-On Mon, 20 Sep 2004, [iso-8859-1] S=F8ren Boll Overgaard wrote:
+The packages are available at http://people.debian.org/~boll/
 
-> On Mon, Sep 20, 2004 at 08:30:14AM +0200, S=F8ren Boll Overgaard wrote:
->>
->> Could you include the relevant snippets from /var/spool/mail.log?
->
-> That's /var/log/mail.log obviously.
->
+The web-related packages are untested, as the fasttemplates library is in a
+somewhat tricky state in Debian. I am currently working on this bit.
 
-This is resolved. I didn't really follow the instructions, so it was my=20
-own fault. (:
+I would genuinely appreciate any feedback you might have to offer, be it in=
+ the
+form of patches, flames or otherwise to my private address or the list.
 
-Thanks anayway. I have put a different exim configuration:
-
-  In the routers section:
-  mlmmj_router:
-    driver =3D accept
-    require_files =3D /etc/mlmmj/lists/${local_part}/control/listaddress
-    local_part_suffix_optional
-    local_part_suffix =3D +*
-    local_parts =3D !.bin:!.etc
-    domains =3D +local_domains
-    transport =3D mlmmj_transport
-
-  and in the transports section:
-  mlmmj_transport:
-    driver =3D pipe
-    return_path_add
-    command =3D /usr/bin/mlmmj-recieve -L /var/spool/mlmmj/${local_part}/
-    current_directory =3D /var/spool/mlmmj
-    home_directory =3D /var/spool/mlmmj
-    user =3D list
-    group =3D list
-
-The problem was the missing return_path_add instruction in the transport.
-
---W
+Thanks.
 
 --=20
-
-<:3 )---- Wolf Bergenheim ----( 8:>
---117353488-1572763463-1095663285=:19142--
+S=F8ren O.                                           ,''`.
+                                                   : :' :
+GPG key id: 0x1EB2DE66                             `. `'
+GPG signed mail preferred.                           `-
