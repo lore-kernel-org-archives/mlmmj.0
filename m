@@ -1,7 +1,7 @@
-From: Mads Martin Joergensen <mmj@mmj.dk>
-Date: Mon, 14 Mar 2005 08:56:29 +0000
+From: Christian Laursen <xi@borderworlds.dk>
+Date: Mon, 14 Mar 2005 09:29:37 +0000
 Subject: Re: exim4
-Message-Id: <20050314085629.GB19605@mmj.dk>
+Message-Id: <86r7iiefsu.fsf@borg.borderworlds.dk>
 List-Id: <mlmmj.mlmmj.org>
 References: <4232593D.2000404@plonk.de>
 In-Reply-To: <4232593D.2000404@plonk.de>
@@ -10,25 +10,35 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-* Jakob Hirsch <jh@plonk.de> [Mar 14. 2005 00:48]:
-> >>runs into the same problems as me: return_path_add is needed in the 
-> >>transport calling mlmmj-recieve. I had a hard time finding that out, 
-> >Could you maybe write it into README.exim and send it to me, then I'll
-> >include it.
+Jakob Hirsch <jh@plonk.de> writes:
+
+> Mads Martin Joergensen wrote:
 > 
-> Sure, in the next days.
+> >>I've wondered about that myself. If the binaries are installed somewhere
+> >>in $PATH, wouldn't that provide sufficient method for finding them?
+> > I would prefer for security reasons not to start parsing environment
+> > variables.
+> 
+> Sounds sensible, but mlmmj uses execvp, which uses PATH itself, so why
+> should you have to parse that yourself?
+> Another possibility would be to use a hard coded path from configure
+> or some header file.
 
-Nice.
+The currently implemented approach works very well. I for one don't like
+it when things have to change for no good reason.
 
-> btw, after I had it running, I saw a post in the archive about just this 
-> subject (http://mlmmj.mmj.dk/archive/0154.html). Should have checked the 
-> archives a little more thoroughly...
+If it is so annoying to use the full path, write a wrapper.
 
-The README also has this: "Also make sure that exim will add the
-envelope from in the Return-Path: header."
+>  > Besides, with this method, you can have many mlmmj
+> > installations in parallel.
+> 
+> mlmmj uses no config file, so what's the use? Having different
+> versions of mlmmj running? That should be done with configure's
+> --program-suffix. Otherwise you end up having a directory for every
+> mlmmj installation.
+
+A directory for every installation seems far less confusing than one
+directory clobbered with mulitple version from my point of view.
 
 -- 
-Mads Martin Joergensen, http://mmj.dk
-"Why make things difficult, when it is possible to make them cryptic
- and totally illogical, with just a little bit more effort?"
-                                -- A. P. J.
+Christian Laursen
