@@ -1,49 +1,36 @@
 From: Mads Martin Joergensen <mmj@mmj.dk>
-Date: Sat, 08 Jan 2005 11:22:59 +0000
-Subject: Re: mlmmj <-> ezmlm
-Message-Id: <20050108112259.GX712@mmj.dk>
+Date: Wed, 26 Jan 2005 18:11:48 +0000
+Subject: mlmmj-1.2.1 released
+Message-Id: <20050126181148.GA64790@mmj.dk>
 List-Id: <mlmmj.mlmmj.org>
-References: <41DD4C12.9070509@mikegrice.com>
-In-Reply-To: <41DD4C12.9070509@mikegrice.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 To: mlmmj@mlmmj.org
 
-* Mike Grice <mike@mikegrice.com> [Jan 06. 2005 15:30]:
-> Hi there,
-> 
-> I've got a (potentially) tricky problem.  We are moving our mail
-> system over to Exim from qmail, and one of the major blocks in our way
-> is that we have literally hundreds of mailing-lists set up using
-> ezmlm.  I found out about this project during my search for a
-> replacement.
-> 
-> What I want to know, and I'm praying that the answer is yes, is the
-> following.
-> 
-> Is there an easy (read: automated) way to convert an ezmlm
-> mailing-list and preserve its information to an mlmmj list?  If this
-> is the case, I will be able to migrate our current lists over to mlmmj
-> and all will be good.
+Hey all,
 
-There is none yet, but I don't think it will be that hard.
+This release adds switches to control the mails sent out by mlmmj when
+it's denying posts for some reason. And a FreeBSD-4 compile fix.
 
-The subscribers will be handled by a bash loop something like this, you
-should of course substitute withyour install paths etc.:
+ChangeLog:
 
-for ADDR in `/usr/local/bin/ezmlm-list /var/spool/ezmlm/NAME` ; do
-        /usr/local/bin/mlmmj-sub -L /var/spool/mlmmj/NAME -a $ADDR
-done
+1.2.1
+ o Introduce switches to turn off mails about posts being denied.
 
-It's getting too long since I touched ezmlm lists to remember the
-settings flags, but I dunno if it wouldn't be better to sit down reading
-TUNABLES and deciding freshly for each new list.
+And the relevant stuff from TUNABLES:
 
-If you manage to create a nice script for this, I'll of course add it to
-the contrib/ directory of mlmmj ;-)
+ =B7 notoccdenymails              (boolean)
+ =B7 noaccessdenymails            (boolean)
+ =B7 nosubonlydenymails           (boolean)
 
--- 
+   These switches turns off whether mlmmj sends out notification about
+   postings being denied due to the listaddress not being in To: or Cc:
+   (see 'tocc'), when it was rejected due to an access rule (see
+   'access') or whether it's a subscribers only posting list (see
+   'subonlypost').
+
+--=20
 Mads Martin Joergensen, http://mmj.dk
 "Why make things difficult, when it is possible to make them cryptic
  and totally illogical, with just a little bit more effort?"
