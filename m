@@ -1,22 +1,36 @@
 From: "Morten K. Poulsen" <morten@afdelingp.dk>
-Date: Tue, 22 Mar 2005 12:24:12 +0000
-Subject: Re: Feature request - better bounce messages
-Message-Id: <20050322122412.GA7156@mopo.webdmz.tv2.dk>
+Date: Wed, 23 Mar 2005 21:28:30 +0000
+Subject: memory management in mlmmj
+Message-Id: <20050323212830.GA21199@mopo.webdmz.tv2.dk>
 List-Id: <mlmmj.mlmmj.org>
-References: <20050322100356.GC30047@cr>
-In-Reply-To: <20050322100356.GC30047@cr>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-On Tue, Mar 22, 2005 at 12:01:07PM +0000, Mike Grice wrote:
-> It would be neat if it had the Subject: line of the mail next to the index
-> number as well.  That would rock.
+Memory management makes up quite a large portion of the code, especially
+freeing memory at error conditions. How about we sacrifice a tiny bit of memory
+and performance and automate it?
 
-No, the primary reason we don't do that is spam filtering. If my mail server
-rejected a spam message (with a spamish subject), then the probe mail will also
-be rejected, and I will be kicked off the list.
+The basic idea here is to have scopes of dynamic memory, a lot like local
+variables. At the beginning of each function we could begin a scope, and at the
+end of a function (and at returns) we could end it. If we need to return a
+pointer to some memory, we could move that chunk of memory up to the parent
+scope. I think that would work well, and make the code a lot more readable.
+
+It is not new, I think PHP does something like this (where a request is the
+scope).
+
+I have made a small proof of concept:
+http://www.afdelingp.dk/files/memory.c
+
+MEM_BEGIN opens a new scope.
+MEM_END closes the current scope.
+MEM_SAVE(ptr) moves a chunk of memory to the parent scope.
+
+mymalloc() and myfree() works as usual.
+
+Is it a bad idea?
 
 Morten
 
