@@ -1,7 +1,7 @@
 From: Mads Martin Joergensen <mmj@mmj.dk>
-Date: Mon, 06 Sep 2004 21:38:19 +0000
+Date: Thu, 16 Sep 2004 10:45:11 +0000
 Subject: Re: RFE: post-only
-Message-Id: <20040906213819.GA76344@panther.mmj.dk>
+Message-Id: <20040916104511.GD28796@mmj.dk>
 List-Id: <mlmmj.mlmmj.org>
 References: <20040901122213.GD23171@mail.lieber.org>
 In-Reply-To: <20040901122213.GD23171@mail.lieber.org>
@@ -22,11 +22,11 @@ To: mlmmj@mlmmj.org
 > Is it possible for a user to do this via email commands?  I'd rather not
 > have to manually manage the lists manually.
 
-We've prepared the infrastructure for this, so it'll be available as a
-patch shortly after the digest patch, which we'll have ready (thanks to
-Morten!) later this evening.
+With current CVS it's possible to do this:
 
-Both of them will be part of mlmmj-1.1 as well.
+ echo | mail listname+subscribe-nomail@domail.tld
+
+and then one's subscribed to the list, but not getting any mail.
 
 -- 
 Mads Martin Joergensen, http://mmj.dk
