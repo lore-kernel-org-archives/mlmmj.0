@@ -1,7 +1,7 @@
-From: Mads Martin Joergensen <mmj@mmj.dk>
-Date: Mon, 20 Sep 2004 21:25:20 +0000
+From: "Morten K. Poulsen" <morten@afdelingp.dk>
+Date: Tue, 21 Sep 2004 10:42:34 +0000
 Subject: Re: feature requests
-Message-Id: <20040920212520.GG76919@mmj.dk>
+Message-Id: <20040921104234.GC1826@mopo.tv2.local>
 List-Id: <mlmmj.mlmmj.org>
 References: <20040920191944.GA5112@cirrus.madduck.net>
 In-Reply-To: <20040920191944.GA5112@cirrus.madduck.net>
@@ -10,20 +10,24 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-* martin f krafft <madduck@madduck.net> [Sep 20. 2004 23:21]:
+On Mon, Sep 20, 2004 at 11:21:12PM +0200, martin f krafft wrote:
 > > > Alternatively, you could not go via /etc/aliases and pass
 > > > recipient as argument to a transport/director script.
-> > 
+
+How do you do that? Remember, we need the extended part (+stuff) as
+well.
+
 > > In that case you might as well set the Delivered-To: in case you
 > > don't have, because in case you do have it, it's the envelope to.
 > 
 > True. But how will you make it work reliably with exim and sendmail
 > (and zmailer, I think)?
 
-When Delivered-To: is not there, I'm relying on the To: header.
+When you configure your mail server for mlmmj, just make sure to set it
+up to add a Delivered-To: header. Thats reliable.
+
+Morten
 
 -- 
-Mads Martin Joergensen, http://mmj.dk
-"Why make things difficult, when it is possible to make them cryptic
- and totally illogical, with just a little bit more effort?"
-                                -- A. P. J.
+Morten K. Poulsen <morten@afdelingp.dk>
+http://www.afdelingp.dk/
