@@ -1,7 +1,7 @@
-From: Mads Martin Joergensen <mmj@mmj.dk>
-Date: Tue, 08 Feb 2005 11:40:57 +0000
+From: Allan Joergensen <allan@nowhere.dk>
+Date: Tue, 08 Feb 2005 11:44:12 +0000
 Subject: Re: mlmmj-1.2.3 released. Features added and bugs squashed.
-Message-Id: <20050208114057.GB67839@mmj.dk>
+Message-Id: <20050208114412.GA13025@coredump.nowhere.dk>
 List-Id: <mlmmj.mlmmj.org>
 References: <20050208095412.GE56543@mmj.dk>
 In-Reply-To: <20050208095412.GE56543@mmj.dk>
@@ -10,15 +10,19 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-* Wolf Bergenheim <wolf+mlmmj@bergenheim.net> [Feb 08. 2005 12:37]:
-> > The ChangeLog has the glory details, I can recommend an upgrade:
-> 
-> So no support for multiple list addresses ):
+On 08-Feb-2005, Mads Martin Joergensen wrote:
 
-It's coming, but I wanted to get this bugfix out first. Next version :)
+Hi,
 
+> The ChangeLog has the glory details, I can recommend an upgrade:
+> 1.2.3
+
+I would like to request a feature. It's been on my wishlist for quite
+some time; I would like the port of the outgoing relay server to be
+configurable (just changing init_socket.c works i know).
+
+mvh
 -- 
-Mads Martin Joergensen, http://mmj.dk
-"Why make things difficult, when it is possible to make them cryptic
- and totally illogical, with just a little bit more effort?"
-                                -- A. P. J.
+Allan Joergensen
+
+"Do androids sleep with electric sheep?"
