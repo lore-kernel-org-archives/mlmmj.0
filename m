@@ -1,39 +1,133 @@
 From: Mads Martin Joergensen <mmj@mmj.dk>
-Date: Sun, 16 Jan 2005 19:00:09 +0000
-Subject: mlmmj-1.2.0-RC1 - VERP support
-Message-Id: <20050116190009.GU33603@mmj.dk>
+Date: Mon, 17 Jan 2005 23:43:09 +0000
+Subject: ERRATA
+Message-Id: <20050117234309.GA59584@mmj.dk>
+MIME-Version: 1
+Content-Type: multipart/mixed; boundary="BXVAT5kNtrzKuDFl"
 List-Id: <mlmmj.mlmmj.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Hey together,
 
-As mentioned before, here's the first release candidate for 1.2.0. Most
-notable is a couple of locking fixes and VERP support to make
-mlmmj+postfix perform as fast (sometimes faster) than qmail+ezmlm.
+--BXVAT5kNtrzKuDFl
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-The ChangeLog has it (the 1.1.1 RCs were never announced):
+Hey all,
 
- 1.2.0-RC1
-  o Add VERP support. http://www.postfix.org/VERP_README.html
-    $smtpd_authorized_verp_clients should be the only one needed to touch
- 1.1.1-RC2
-  o It's ok to log to a symbolic link to somewhere else
-  o Add Message-Id: and Date: headers to mail from mlmmj
-  o Make log_oper() varargs capable (Rob Holland)
- 1.1.1-RC1
-  o Never discard anything from LISTDIR/queue/, let the admin be able to judge
-  o Grab the lock when sending a mail to make sure noone does bad things
-    to it underneath us
-  o Danish listtexts, thanks Jesper Lund
-  o Add control/noget to turn off listname+get-INDEX
-  o Rearrange envelope from to be listname+bounces-index-user=domain.tld@ instead
-    of listname+bounces-user=domain.tld-index@ to prepare for VERP support
+Maybe some of you noticed the wrong envelope from on the last mail. It
+was due to a code-snippet getting inside a while() loop where it should
+have been on the outside after.
+
+I've attached the patch.
 
 -- 
 Mads Martin Joergensen, http://mmj.dk
 "Why make things difficult, when it is possible to make them cryptic
  and totally illogical, with just a little bit more effort?"
                                 -- A. P. J.
+
+--BXVAT5kNtrzKuDFl
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: attachment; filename="mlmmj-send-verpfix.diff"
+
+Index: mlmmj-send.c
+===================================================================
+RCS file: /home/mmj/MMJCVS/mlmmj/src/mlmmj-send.c,v
+retrieving revision 1.69
+diff -u -r1.69 mlmmj-send.c
+--- mlmmj-send.c	16 Jan 2005 18:43:48 -0000	1.69
++++ mlmmj-send.c	17 Jan 2005 23:40:34 -0000
+@@ -983,7 +983,7 @@
+ 					"header. Not sending with VERP.");
+ 			verp = NULL;
+ 		}
+-
++		
+ 		if(verp) {
+ 			initsmtp(&sockfd, relay);
+ 			if(write_mail_from(sockfd, verpfrom, verp)) {
+@@ -1053,49 +1053,45 @@
+ 					stl.count = 0;
+ 				}
+ 			} while(res > 0);
+-			if(stl.count) {
+-				initsmtp(&sockfd, relay);
+-				if(verp) {
+-					sendres = send_mail_verp(sockfd,
+-							&stl, mailmap,
+-							st.st_size,
+-							verpfrom,
+-							listdir, hdrs, hdrslen,
+-							body, bodylen, verp);
+-					if(sendres)
+-						requeuemail(listdir, strindex,
+-								&stl, 0);
+-				} else {
+-					sendres = send_mail_many_list(sockfd,
+-							NULL, NULL, mailmap,
+-							st.st_size, &stl,
+-							listaddr,
+-							archivefilename,
+-							listdir, mlmmjbounce,
+-							hdrs, hdrslen, body,
+-							bodylen);
+-				}
+-				endsmtp(&sockfd);
+-				for(i = 0; i < stl.count; i++)
+-					myfree(stl.strs[i]);
+-				stl.count = 0;
+-			}
+-
+-			myfree(verpfrom);
+ 			myfree(subfilename);
+-			myfree(stl.strs);
+ 			close(subfd);
+ 
+-			if (sendres) {
+-				/* If send_mail_many() failed we close the
+-				 * connection to the mail server in a brutal
+-				 * manner, because we could be in any state
+-				 * (DATA for instance). */
+-				close(sockfd);
++		}
++		if(stl.count) {
++			initsmtp(&sockfd, relay);
++			if(verp) {
++				sendres = send_mail_verp(sockfd, &stl, mailmap,
++						st.st_size, verpfrom, listdir,
++						hdrs, hdrslen, body, bodylen,
++						verp);
++				if(sendres)
++					requeuemail(listdir, strindex, &stl,
++							0);
+ 			} else {
+-				endsmtp(&sockfd);
++				sendres = send_mail_many_list(sockfd, NULL,
++						NULL, mailmap, st.st_size,
++						&stl, listaddr,
++						archivefilename, listdir,
++						mlmmjbounce, hdrs, hdrslen,
++						body, bodylen);
+ 			}
++			endsmtp(&sockfd);
++			for(i = 0; i < stl.count; i++)
++				myfree(stl.strs[i]);
++			stl.count = 0;
++		}
++
++		if (sendres) {
++			/* If send_mail_many() failed we close the
++			 * connection to the mail server in a brutal
++			 * manner, because we could be in any state
++			 * (DATA for instance). */
++			close(sockfd);
++		} else {
++			endsmtp(&sockfd);
+ 		}
++		myfree(stl.strs);
++		myfree(verpfrom);
+ 		closedir(subddir);
+ 		myfree(subddirname);
+ 		break;
+
+--BXVAT5kNtrzKuDFl--
