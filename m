@@ -1,7 +1,7 @@
 From: Mads Martin Joergensen <mmj@mmj.dk>
-Date: Mon, 29 Nov 2004 08:32:37 +0000
-Subject: mlmmj-1.1.0 released
-Message-Id: <20041129083237.GA15391@mmj.dk>
+Date: Fri, 12 Nov 2004 01:42:30 +0000
+Subject: mlmmj-1.1.0-RC1 released
+Message-Id: <20041112014230.GA96456@mmj.dk>
 List-Id: <mlmmj.mlmmj.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
@@ -10,23 +10,52 @@ To: mlmmj@mlmmj.org
 
 Hey all,
 
-It's time to get this one out the door, otherwise we'll keep adding bits
-and pieces which really doesn't fit in an RC period.
+After quite some hacking and a bit of procrastination, here's the first
+release candidate of mlmmj-1.1.0.
 
-It's VERY important to read UPGRADING when upgrading from 1.0.0 or
-below, since the listtexts have completely changed, and there's a couple
-of new directories below the listdir.
+http://mlmmj.mmj.dk/files/mlmmj-1.1.0-RC1.tar.bz2
+http://mlmmj.mmj.dk/files/mlmmj-1.1.0-RC1.tar.gz
 
-So enjoy, here's the changes since RC3:
+Highlights (details below):
 
-1.1.0
- o If mlmmj-recieve was invoked with a uid not root or not the owner of
-   listdir inform about the uid actually invoked with
- o Add German listtexts (Hendrik Norman Vogelsang)
- o Add hooks for installing listtexts into $(pkgdatadir) (Drake Wyrm)
- o Add mlmmj-list manual page
- o Make mlmmj-list be capable of listing owners, moderators too
- o Perl interface updates
+ o -d switch for mlmmj-maintd for specifying a directory containing
+   several lists that needs maintenance.
+ o digests
+ o 'nomail' lists where subscribers recieve no emails
+ o listtexts can now be completely translated, since the subject now is
+   in the files in listdir/text
+ o a lot of bugfixes
+
+Now since the listtext handling have changed, and there's a couple of
+new directories and tunables, please be careful when upgrading from 1.0!
+
+I can recommend creating a fresh temp list for comparing directory
+content.
+
+Here's the complete snippet of changes from the changelog:
+
+1.1.0-RC1
+ o Rewrite the way listtexts are managed, and in the process move the Subject:
+   out into the listtext file making mlmmj completely translateable
+ o Enhance perl webinterface - including group writable patch
+ o Add option control/nosubconfirm which makes it possible to subscribe
+   without confirmation by just sending the mail. USE WITH CARE!
+ o Make files discarded by maintd end in .by-maintd to make them distinct
+ o Fix off-by-one error in the function cleaning quoted printable chars
+ o Close the correct fd's in mlmmj-process
+ o Be consistent when using To: or Delivered-To:
+ o mlmmj-unsub should also change user id to the listdir owner
+ o Add support for not archiving the list by touching listdir/control/noarchive
+ o Add 'nomail' version of lists. Subscribers to the nomail version are
+   subscribed, but does not get any mail
+ o Don't talk about changing uid in mlmmj-sub when we're not really doing it
+ o Add sanity checks to disallow denial mails going to the list
+ o Add digest functionality
+ o Implement -d option for mlmmj-maintd to be able to supply it with a directory
+   containing several listdirs, where mlmmj-maintd then will run maintenance
+ o Chown option and a fix for mlmmj-make-ml.sh. Thanks Ingo Lameter
+
+Thanks to everyone who contributed.
 
 -- 
 Mads Martin Joergensen, http://mmj.dk
