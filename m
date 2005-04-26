@@ -1,43 +1,35 @@
-From: Stephan Wentz <stephan@wentz.it>
-Date: Tue, 26 Apr 2005 09:51:13 +0000
-Subject: Re: Read-only mailinglist?
-Message-Id: <426E0F11.9050804@wentz.it>
+From: Mads Martin Joergensen <mmj@mmj.dk>
+Date: Tue, 26 Apr 2005 10:31:52 +0000
+Subject: mlmmj-1.2.5 released
+Message-Id: <20050426103152.GC97827@mmj.dk>
 List-Id: <mlmmj.mlmmj.org>
-References: <426E063F.7030404@wentz.it>
-In-Reply-To: <426E063F.7030404@wentz.it>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
------BEGIN PGP SIGNED MESSAGE-----
-Hash: SHA1
+Hey all,
 
-Mads Martin Joergensen wrote:
-> * Stephan Wentz <stephan@wentz.it> [Apr 26. 2005 11:08]:
-> 
->>I'm new to mlmmj, but it really works great!
->>
->>I want to open a read-only mailinglist for cvs-commit-messages, how
->>would I do this? Should I set the list moderated and put the cvs-sender
->>(cvs@wentz.it) to the moderators-list? Or is there any other option I
->>have missed?
-> 
-> 
-> Did you read README.access?
-> 
-> I think it'll give you what you need.
-> 
+So here we go:
 
-Apparently, I didn't. ;-)
-Thanks for the hint!
+1.2.5
+ o Make listname+list send the list of regular subscribers to the owner
+   who requested it.
+ o Michael Fleming corrected some spelling / grammatical errors and made
+   occasional minor clarifications in the english list texts.
+ o Add README.sendmail from Andrea Barisani
+ o Add README.exim4 from Jakob Hirsch
+ o Skip addresses without a @ when sending
+ o Set SO_KEEPALIVE for our connection socket
 
-Stephan
------BEGIN PGP SIGNATURE-----
-Version: GnuPG v1.2.5 (MingW32)
-Comment: Using GnuPG with Thunderbird - http://enigmail.mozdev.org
+Most important here is to remember to copy the 'listsubs' file to
+DIR/text, otherwise listname+list@domain.tld will not work.
 
-iD8DBQFCbg8R8qQ9XV7tBNQRAt/UAKCTzhMtIZv5A8XNkiYauSg4wd9q8ACgyD/P
-Ivn6/6jhFkjPfQIbztcO7EA=rrW6
------END PGP SIGNATURE-----
+As usual--feedback etc. is very welcome.
 
+Enjoy,
+-- 
+Mads Martin Joergensen, http://mmj.dk
+"Why make things difficult, when it is possible to make them cryptic
+ and totally illogical, with just a little bit more effort?"
+                                -- A. P. J.
