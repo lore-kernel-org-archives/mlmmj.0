@@ -1,7 +1,7 @@
-From: Mike Grice <Mike@MikeGrice.com>
-Date: Sat, 16 Apr 2005 16:24:50 +0000
+From: Mads Martin Joergensen <mmj@mmj.dk>
+Date: Tue, 26 Apr 2005 09:32:52 +0000
 Subject: Re: Feature Request: Subscriber Lists
-Message-Id: <1113668690.1669.0.camel@localhost.localdomain>
+Message-Id: <20050426093252.GB22422@mmj.dk>
 List-Id: <mlmmj.mlmmj.org>
 References: <1113237126.4613.5.camel@localhost.localdomain>
 In-Reply-To: <1113237126.4613.5.camel@localhost.localdomain>
@@ -10,32 +10,21 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-On Tue, 2005-04-12 at 20:23 -0700, Christopher Mahmood wrote:
-> * Jakob Hirsch (jh@plonk.de) [050412 16:15]:
-> > Christian Laursen wrote:
-> > 
-> > >So the bad guys can send the subscriber list to the owner.
-> > 
-> > The talk was also about list management.
-> > list is harmless, obviously (unless you have a really large list).
+* Mike Grice <Mike@MikeGrice.com> [Apr 16. 2005 18:24]:
+> > This kind of sums it up for ezmlm+idx:
+> > http://www.dk.ezmlm.org/faq/FAQ-4.html#ss4.17
+> > http://www.dk.ezmlm.org/faq/FAQ-4.html#ss4.14
 > 
-> The worst a bad guy can do is generate confirmation requests that
-> are sent to the owner (or moderator in the case of ezmlm+idx).
-> Unless they can actually read the mail that is sent and get the
-> authentication cookie in the reply-to address there's nothing they
-> can do.
-> 
-> This kind of sums it up for ezmlm+idx:
-> http://www.dk.ezmlm.org/faq/FAQ-4.html#ss4.17
-> http://www.dk.ezmlm.org/faq/FAQ-4.html#ss4.14
+> So can listname+list be added to the wishlist for features please?  It's
+> all thats stopping me ditching ezmlm entirely. :)
 
-So can listname+list be added to the wishlist for features please?  It's
-all thats stopping me ditching ezmlm entirely. :)
+I've just finished implementing listname+list, and is about to start
+testing. When I feel confident about it, 1.2.5 is on it's way out.
 
-Cheers
-Mike
+Sorry for the delay, but work have been taking quite some time lately.
 
 -- 
-Sticking feathers up your butt does not make you a chicken.
-
-
+Mads Martin Joergensen, http://mmj.dk
+"Why make things difficult, when it is possible to make them cryptic
+ and totally illogical, with just a little bit more effort?"
+                                -- A. P. J.
