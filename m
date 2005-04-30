@@ -1,74 +1,62 @@
-From: Mads Martin Joergensen <mmj@mmj.dk>
-Date: Wed, 27 Apr 2005 12:27:03 +0000
-Subject: Fix for moderation race
-Message-Id: <20050427122703.GL97827@mmj.dk>
+From: =?iso-8859-1?q?B=E8r_Kessels?= <berkessels@gmx.net>
+Date: Sat, 30 Apr 2005 17:42:52 +0000
+Subject: Drupal integration with mlmmj
+Message-Id: <200504301942.57396.berkessels@gmx.net>
+MIME-Version: 1
+Content-Type: multipart/mixed; boundary="nextPart3239546.CZE1eZh6Ak"
 List-Id: <mlmmj.mlmmj.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Hey all,
+--nextPart3239546.CZE1eZh6Ak
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+Content-Disposition: inline
 
-Andrea Barisani pointed out that if mlmmj-send is in the middle of
-sending a moderated mail and someone else moderates it as well, the mail
-could possibly be sent more than once.
+Hello,
 
-I wonder why noone have hit it before, or maybe they did but just never
-told me? ... anyway, here's the fix:
+Recently I was told on IRC to get in touch with you. I have your great=20
+application integrated with Drupal forums. I use the forums as an archive, =
+as=20
+well as a posting interface. People who post on the forums will send mails =
+to=20
+the mailinglist, people who use the mailinglist will see their posts on the=
+=20
+forums (threaded and all).=20
 
---- ChangeLog
-+++ ChangeLog
-@@ -1,3 +1,5 @@
-+ o When sending moderated mails, rename them so that they wont be moderated
-+   again while sending
- 1.2.5
-  o Make listname+list send the list of regular subscribers to the owner who
-    requested it.
---- src/listcontrol.c
-+++ src/listcontrol.c
-@@ -102,7 +102,7 @@
- {
- 	char *atsign, *recipdelimsign, *bouncenr, *tmpstr;
- 	char *controlstr, *param, *conffilename, *moderatefilename;
--	char *c, *archivefilename;
-+	char *c, *archivefilename, *sendfilename;
- 	const char *subswitch;
- 	size_t len;
- 	struct stat stbuf;
-@@ -483,16 +483,25 @@
- 		/* TODO Add accept/reject parameter to moderate */
- 		unlink(mailname);
- 		moderatefilename = concatstr(3, listdir, "/moderation/", param);
-+		sendfilename = concatstr(2, moderatefilename, ".sending");
- 		myfree(param);
-+
- 		if(stat(moderatefilename, &stbuf) < 0) {
- 			myfree(moderatefilename);
- 			exit(EXIT_SUCCESS); /* just exit, no mail to moderate */
- 		}
-+		/* Rename it to avoid mail being sent twice */
-+		if(rename(moderatefilename, sendfilename) < 0) {
-+			log_error(LOG_ARGS, "Could not rename to .sending");
-+			exit(EXIT_FAILURE);
-+		}
-+
- 		log_oper(listdir, OPLOGFNAME, "%s moderated %s",
- 				fromemails->emaillist[0], moderatefilename);
-+		myfree(moderatefilename);
- 		execlp(mlmmjsend, mlmmjsend,
- 				"-L", listdir,
--				"-m", moderatefilename, (char *)NULL);
-+				"-m", sendfilename, (char *)NULL);
- 		log_error(LOG_ARGS, "execlp() of '%s' failed",
- 					mlmmjsend);
- 		exit(EXIT_FAILURE);
+Also, the drupal profile settings are the interface for mailinglists. You c=
+an=20
+subscribe/unsubscribe on the website.=20
 
-I'll of course release 1.2.6 soon with this, but I want to fold in
-another couple of things before. I wont wait more than a week though.
+I did not write the modules (drupal PHP) for all this, there was a betha=20
+forummail module that did most of this for me. In addition two long-time=20
+modules, mailhandler and listhandler, were used. New to all this, is that i=
+=20
+hacked forummail to use mlmmj instead of mlmm, becuase I did not like the=20
+systems mlmm required.=20
 
--- 
-Mads Martin Joergensen, http://mmj.dk
-"Why make things difficult, when it is possible to make them cryptic
- and totally illogical, with just a little bit more effort?"
-                                -- A. P. J.
+However, I would like to know if you are interested in this project. If you=
+=20
+are interested in recieving the files, for example. Or if you are intereste=
+d=20
+in anything else. Just let me know.=20
+
+B=E8r
+=2D-=20
+| B=E8r Kessels | webschuur.com | website development |
+| Turnhoutsebaan 34/3 | 2140 Antwerpen | Belgi=EB |
+| IM: ber@jabber.org.uk | MSN: berkessels@gmx.net |
+| pers: bler.webschuur.com | prof: www.webschuur.com |
+
+--nextPart3239546.CZE1eZh6Ak
+Content-Type: application/pgp-signature
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.2.5 (GNU/Linux)
+
+iD8DBQBCc8OhtTlCs2sF2DYRAnd6AKDHNwo1uqlYGzD/EJRgpECGk6gddgCgmjPj
+sgoAFvt2iHjk85k1INbWX6A=
+=uB2R
+-----END PGP SIGNATURE-----
+
+--nextPart3239546.CZE1eZh6Ak--
