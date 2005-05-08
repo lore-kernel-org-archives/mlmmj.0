@@ -1,40 +1,44 @@
 From: Mads Martin Joergensen <mmj@mmj.dk>
-Date: Mon, 09 May 2005 16:35:01 +0000
-Subject: Re: 1.2.6.1 (Was Re: 1.2.6 released. No more queue littering ...)
-Message-Id: <20050509163501.GQ87309@mmj.dk>
+Date: Sun, 08 May 2005 18:26:45 +0000
+Subject: 1.2.6 released. No more queue littering ...
+Message-Id: <20050508182645.GF87309@mmj.dk>
 List-Id: <mlmmj.mlmmj.org>
-References: <20050509074717.GJ87309@mmj.dk>
-In-Reply-To: <20050509074717.GJ87309@mmj.dk>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-* Jakob Hirsch <jh@plonk.de> [May 09. 2005 18:25]:
-> > if(is_subbed_in(subddirname, address)) {
-> >         /* Address is not subscribed */
-> >         myfree(subddirname);
-> >         myfree(listaddr);
-> >
-> >         printf("%s is not subscribed to %s.\n", address, listaddr);
-> >         generate_notsubscribed(listdir, listaddr, address, mlmmjsend);
-> 
-> Because of myfree(listaddr) and using listaddr after that, right? Then 
-> using listaddr in printf is also not ok.
+Hey people,
 
-Yes, the printf is wrong too. *sigh* I need to move this to mempools
-ASAP.
+So ... as usual Andrea Barisani have found a couple of bugs, which we've
+fixed. This time the most annoying one was mlmmj littering files in
+LISTDIR/queue/, in case of odd mails that were to be ignored. So after
+you upgraded to 1.2.6 you should clean up your queue directories for old
+crap--if any.
 
-> Wouldn't it be easier to move to myfree(listaddr) below the printf and 
-> generate_notsubscribed?
+There's also a couple of nice patches from Jakob Hirsch, so now mlmmj
+will tell you if you're trying to subscribe an already subscribed
+address or trying to unsub without being subbed.
 
-I would rather only always rely on listdir, since we're sure it's not
-gone underneath us.
+The ChangeLog has it as usual:
 
-> And in mlmmj-sub.c listaddr is not freed in the block where 
-> generate_subscribed is called.
-
-No, the problem only existed in mlmmj-unsub.c
+1.2.6
+ o If prefix but no Subject: header is present, add one (Jakob Hirsch)
+ o Add notification mail when subbed people try to sub (Jakob Hirsch)
+ o Install SIGTERM handler in mlmmj-send to allow it to shut down
+   gracefully
+ o Also remove mails when it's a bounce from a person not subbed
+ o Introduce read() wrapper (Stevens)
+ o Bouncing confirmation mails of sub or unsub should be cleaned from
+   the queue as well
+ o Normally mails which doesn't have exactly one From: emailaddress are
+   discarded but certain ISPs have bounce mails with no From: header,
+   forcing us to allow bounce mails with no From: to make sure they're
+   caught
+ o In case of a succesful DSN parse, we werent deleting the mail, and
+   thus littering the queue
+ o When sending moderated mails, rename them so that they wont be
+   moderated again while sending
 
 -- 
 Mads Martin Joergensen, http://mmj.dk
