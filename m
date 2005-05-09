@@ -1,38 +1,36 @@
-From: Michael Fleming <mfleming@enlartenment.com>
-Date: Fri, 13 May 2005 00:13:02 +0000
-Subject: Re: 1.2.7 released
-Message-Id: <20050513001302.GA6440@enlartenment.com>
+From: Mads Martin Joergensen <mmj@mmj.dk>
+Date: Mon, 09 May 2005 07:47:17 +0000
+Subject: 1.2.6.1 (Was Re: 1.2.6 released. No more queue littering ...)
+Message-Id: <20050509074717.GJ87309@mmj.dk>
 List-Id: <mlmmj.mlmmj.org>
-References: <20050512074648.GA99660@mmj.dk>
-In-Reply-To: <20050512074648.GA99660@mmj.dk>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-On Thu, May 12, 2005 at 09:46:48AM +0200, Mads Martin Joergensen waffled
-thusly:
-> Hey all,
+* Mads Martin Joergensen <mmj@mmj.dk> [May 09. 2005 09:16]:
+> >  o If prefix but no Subject: header is present, add one (Jakob Hirsch)
 > 
-> I know that there's been quite some releases lately, but I rather have
-> those bugs squashed so we can keep the latest release as stable as 1.2.4
-> was.
+> There's a bug here. In case we meet a subject already we forget to clear
+> the flag. This patch should fix it, so that no 2 subjects are present:
+> 
+> --- do_all_the_voodo_here.c     8 May 2005 16:18:02 -0000       1.24
+> +++ do_all_the_voodo_here.c     9 May 2005 07:13:51 -0000
+> @@ -142,6 +142,7 @@
+>                 /* Add Subject: prefix if wanted */
+>                 if(prefix) {
+>                         if(strncasecmp(hdrline, "Subject:", 8) = 0) {
+> +                               subject_present = 1;
+>                                 unqp = cleanquotedp(hdrline + 8);
+>                                 if(strstr(hdrline + 8, prefix) = NULL &&
+>                                    strstr(unqp, prefix) = NULL) {
 
-I've committed an RPM of this to Fedora Extras' -devel branch (for FC4
-release) however I've not been able to get many reviewers (needed for
-build approval) :-( I'm trying to drum up a little more interest..
-
-I would also be interested in experiences building the package under
-non-i386 arches of Fedora Core 3 (x86_64 and ppc in particular) and/or
-FC4test (gcc 4.0). I lack a test rig for these arches / versions,
-unfortunately.
-
-http://www.enlartenment.com/extras/ has an SRPM of the current CVS tagged
-version @ Extras.
-
-Cheers,
-Michael.
+So there was another condition causing potential wrong MAIL FROM: on the
+sub-subscriber mails, and since the Subject: bug is grave enough I've
+released 1.2.6.1. Sorry for the mess.
 
 -- 
-Michael Fleming <mfleming@enlartenment.com>
-"Bother" said the Borg, "We've assimilated Pooh!"
+Mads Martin Joergensen, http://mmj.dk
+"Why make things difficult, when it is possible to make them cryptic
+ and totally illogical, with just a little bit more effort?"
+                                -- A. P. J.
