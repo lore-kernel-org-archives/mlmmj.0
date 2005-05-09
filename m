@@ -1,7 +1,7 @@
-From: Jakob Hirsch <jh@plonk.de>
-Date: Mon, 09 May 2005 16:25:53 +0000
+From: Mads Martin Joergensen <mmj@mmj.dk>
+Date: Mon, 09 May 2005 16:35:01 +0000
 Subject: Re: 1.2.6.1 (Was Re: 1.2.6 released. No more queue littering ...)
-Message-Id: <427F8F11.5090801@plonk.de>
+Message-Id: <20050509163501.GQ87309@mmj.dk>
 List-Id: <mlmmj.mlmmj.org>
 References: <20050509074717.GJ87309@mmj.dk>
 In-Reply-To: <20050509074717.GJ87309@mmj.dk>
@@ -10,28 +10,34 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Mads Martin Joergensen wrote:
-
->>You mean it's possible that listaddr is not set (or not correct) when 
->>generate_subscribed in mlmmj-sub.c is called? I don't see that right 
->>now. What am I missing?
-> It was unsub-notsubscribed, sorry. Anyway; Here's an excerpt from
-> mlmmj-unsub.c (1.2.6 one) line 432:
-
-The change is in both mlmmj-unsub.c and mlmmj-unsub.c.
-
->  if(is_subbed_in(subddirname, address)) {
->          /* Address is not subscribed */
->          myfree(subddirname);
->          myfree(listaddr);
+* Jakob Hirsch <jh@plonk.de> [May 09. 2005 18:25]:
+> > if(is_subbed_in(subddirname, address)) {
+> >         /* Address is not subscribed */
+> >         myfree(subddirname);
+> >         myfree(listaddr);
+> >
+> >         printf("%s is not subscribed to %s.\n", address, listaddr);
+> >         generate_notsubscribed(listdir, listaddr, address, mlmmjsend);
 > 
->          printf("%s is not subscribed to %s.\n", address, listaddr);
->          generate_notsubscribed(listdir, listaddr, address, mlmmjsend);
+> Because of myfree(listaddr) and using listaddr after that, right? Then 
+> using listaddr in printf is also not ok.
 
-Because of myfree(listaddr) and using listaddr after that, right? Then 
-using listaddr in printf is also not ok.
-Wouldn't it be easier to move to myfree(listaddr) below the printf and 
-generate_notsubscribed?
+Yes, the printf is wrong too. *sigh* I need to move this to mempools
+ASAP.
 
-And in mlmmj-sub.c listaddr is not freed in the block where 
-generate_subscribed is called.
+> Wouldn't it be easier to move to myfree(listaddr) below the printf and 
+> generate_notsubscribed?
+
+I would rather only always rely on listdir, since we're sure it's not
+gone underneath us.
+
+> And in mlmmj-sub.c listaddr is not freed in the block where 
+> generate_subscribed is called.
+
+No, the problem only existed in mlmmj-unsub.c
+
+-- 
+Mads Martin Joergensen, http://mmj.dk
+"Why make things difficult, when it is possible to make them cryptic
+ and totally illogical, with just a little bit more effort?"
+                                -- A. P. J.
