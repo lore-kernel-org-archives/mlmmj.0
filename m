@@ -1,31 +1,19 @@
 From: Filippo Fadda <fifadd@tin.it>
-Date: Mon, 23 May 2005 08:19:56 +0000
-Subject: Re: Italian translation
-Message-Id: <6.2.1.2.2.20050523101950.02a21c10@postino.programmazione.it>
+Date: Sat, 21 May 2005 13:39:55 +0000
+Subject: Silent subscriptions
+Message-Id: <6.2.1.2.2.20050521153538.02b3fbe8@postino.programmazione.it>
 List-Id: <mlmmj.mlmmj.org>
-References: <6.2.1.2.2.20050521150410.02b43ca8@popmail.email.it>
-In-Reply-To: <6.2.1.2.2.20050521150410.02b43ca8@popmail.email.it>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Ok I will translate texts in the next days.
+Is there some way to subscribe a member via email without the member itself 
+confirms the subscription?
+I want to be able to subscribe someone without ask for confirmation because 
+the confirmation is made by a flag located on the registration form of my site.
 
-Bye
+Best Regards
 
 -Filippo Fadda
-
-At 13:00 22/05/2005, you wrote:
->* Filippo Fadda <fifadd@tin.it> [May 21. 2005 15:30]:
-> > Is there some italian listtexts? If any kind of italian translation
-> > doesn't exist I can make it.
->
->There exist none yet, so you're very welcome :-)
->
->--
->Mads Martin Joergensen, http://mmj.dk
->"Why make things difficult, when it is possible to make them cryptic
->  and totally illogical, with just a little bit more effort?"
->                                 -- A. P. J.
 
