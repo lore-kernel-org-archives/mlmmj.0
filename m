@@ -1,7 +1,7 @@
-From: Mads Martin Joergensen <mmj@mmj.dk>
-Date: Sun, 22 May 2005 11:00:09 +0000
+From: Filippo Fadda <fifadd@tin.it>
+Date: Mon, 23 May 2005 08:19:56 +0000
 Subject: Re: Italian translation
-Message-Id: <20050522110009.GA80196@mmj.dk>
+Message-Id: <6.2.1.2.2.20050523101950.02a21c10@postino.programmazione.it>
 List-Id: <mlmmj.mlmmj.org>
 References: <6.2.1.2.2.20050521150410.02b43ca8@popmail.email.it>
 In-Reply-To: <6.2.1.2.2.20050521150410.02b43ca8@popmail.email.it>
@@ -10,14 +10,22 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-* Filippo Fadda <fifadd@tin.it> [May 21. 2005 15:30]:
-> Is there some italian listtexts? If any kind of italian translation
-> doesn't exist I can make it.
+Ok I will translate texts in the next days.
 
-There exist none yet, so you're very welcome :-)
+Bye
 
--- 
-Mads Martin Joergensen, http://mmj.dk
-"Why make things difficult, when it is possible to make them cryptic
- and totally illogical, with just a little bit more effort?"
-                                -- A. P. J.
+-Filippo Fadda
+
+At 13:00 22/05/2005, you wrote:
+>* Filippo Fadda <fifadd@tin.it> [May 21. 2005 15:30]:
+> > Is there some italian listtexts? If any kind of italian translation
+> > doesn't exist I can make it.
+>
+>There exist none yet, so you're very welcome :-)
+>
+>--
+>Mads Martin Joergensen, http://mmj.dk
+>"Why make things difficult, when it is possible to make them cryptic
+>  and totally illogical, with just a little bit more effort?"
+>                                 -- A. P. J.
+
