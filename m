@@ -1,7 +1,7 @@
-From: Jakob Hirsch <jh@plonk.de>
-Date: Mon, 23 May 2005 21:36:44 +0000
+From: Mads Martin Joergensen <mmj@mmj.dk>
+Date: Mon, 23 May 2005 22:27:58 +0000
 Subject: Re: Mail interface
-Message-Id: <42924CEC.40107@plonk.de>
+Message-Id: <20050523222758.GG10293@mmj.dk>
 List-Id: <mlmmj.mlmmj.org>
 References: <CPEHIEFMEADNLPLEFGKMCEHOCCAA.christian@wix.dk>
 In-Reply-To: <CPEHIEFMEADNLPLEFGKMCEHOCCAA.christian@wix.dk>
@@ -10,10 +10,17 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Christian Wix wrote:
+* Jakob Hirsch <jh@plonk.de> [May 23. 2005 23:36]:
+> >Is it possible to disable the mail interface? (ie.
+> >mlmmj+subscribe@mmj.dk). I will not allow users to subscribe or
+> >unsubscribe.
+> 
+> TUNABLES: closedlist
 
-> Is it possible to disable the mail interface? (ie.
-> mlmmj+subscribe@mmj.dk). I will not allow users to subscribe or
-> unsubscribe.
+And also 'noget'.
 
-TUNABLES: closedlist
+-- 
+Mads Martin Joergensen, http://mmj.dk
+"Why make things difficult, when it is possible to make them cryptic
+ and totally illogical, with just a little bit more effort?"
+                                -- A. P. J.
