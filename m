@@ -1,28 +1,33 @@
-From: Vegard Svanberg <vegard@svanberg.no>
-Date: Mon, 27 Jun 2005 13:17:56 +0000
-Subject: Re: "forwarding" recipient_delimited addresses
-Message-Id: <20050627131756.GM4446@svanberg.no>
+From: Michael Fleming <mfleming@enlartenment.com>
+Date: Tue, 14 Jun 2005 10:24:06 +0000
+Subject: mlmmj in Fedora Core Extras :-)
+Message-Id: <20050614202406.654260d1.mfleming@enlartenment.com>
 List-Id: <mlmmj.mlmmj.org>
-References: <20050627120803.GJ4446@svanberg.no>
-In-Reply-To: <20050627120803.GJ4446@svanberg.no>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-* Marcelo E. Magallon <marcelo.magallon@gmail.com> [2005-06-27 15:06]:
 
->  > I have mailing lists on one domain (lists.domain.test) and forward
->  > list addresses from listname@realdomain.test to
->  > listname@lists.domain.test.  Do I have to forward each and every
->  > command (listname+subscribe, unsubscribe etc) or can I, easily,
->  > forward something like listname+* to listname@lists.domain.test?
-> 
->  It depends on your MTA, really.
+For those who haven't already got it or don't follow the Extras list, my
+package for mlmmj got approved and imported into Fedora Extras
+(http://www.fedoraproject.org/wiki/Extras).
 
-Sorry, forgot to say it's Postfix. I suppose Postfix has something
-similar, I'll go RTFMing some more. Thanks!
+There are currently builds for the just-released Fedora Core 4 version,
+plus for Fedora Core 3 (which now supercedes the version I've been
+maintaining in my RPM package repository). This covers all architectures
+supported by Fedora Core (ix86 / x86_64 / ppc)
+
+Rawhide (devel branch) builds are ongoing, as one would expect :-)
+
+If any FC users have a feature request or have found a package-related bug,
+feel free to let me know via email or ideally bugzilla.redhat.com (Extras ->
+mlmmj component) so I can keep tabs and reference them in any package
+ %changelog entries.
+
+Cheers,
+Michael Fleming.
 
 -- 
-Vegard Svanberg <vegard@svanberg.no> [*Takapa@IRC (EFnet)]
-
+Michael Fleming <mfleming@enlartenment.com>
+"Bother" said the Borg, "We've assimilated Pooh!"
