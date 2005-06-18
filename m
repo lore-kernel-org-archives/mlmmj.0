@@ -1,42 +1,39 @@
-From: Csillag =?iso-8859-2?Q?Tam=E1s?= <cstamas@digitus.itk.ppke.hu>
-Date: Thu, 23 Jun 2005 16:27:57 +0000
-Subject: Re: RFC 2047 encoding of mlmmj mails
-Message-Id: <20050623162757.GA1843@digitus>
+From: =?iso-8859-1?Q?S=F8ren?= Boll Overgaard <boll+mlmmj@fork.dk>
+Date: Sat, 18 Jun 2005 05:44:16 +0000
+Subject: mlmmj in Debian experimental
+Message-Id: <20050618054416.GB46345@freesbee.wheel.dk>
 List-Id: <mlmmj.mlmmj.org>
-References: <937117890506221350629a2636@mail.gmail.com>
-In-Reply-To: <937117890506221350629a2636@mail.gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="iso-8859-1"
 Content-Transfer-Encoding: quoted-printable
 To: mlmmj@mlmmj.org
 
-Hi,
+Hello,
 
-On 06/22, Marcelo E. Magall=F3n wrote:
-> Hi,
->=20
-> first and foremost, thank you! mlmmj is really a joy!
->=20
-> I just finished translating my list/text/ files to Spanish (I can
-> contribute the translations if someone else is interested), and I ran
-> into a little problem.  The subject lines contain non-ASCII
-> characters, like this:
->=20
->     Subject: Moderaci=F3n requerida para $listaddr$
->=20
-> According to RFC 2047 that should read something like:
->=20
->     Subject: =3D?UTF-8?Q?Moderaci=3DC3=3DB3n=3D20requerida=3D20para=3D20$=
-listaddr?=3D
+If you are not using debian, this probably isn't interesting to you.
 
-You can solve this problem this way:
-=3D?utf8?Q?Moderaci=3DC3=3DB3?=3D??=3D?utf8?Q?n?=3D requerida para $listadd=
-r$
-(this the way my mailer does)
+I would just like to point any debian users' attention to the experimental
+version of the mlmmj package[1]. If at all possible, I encourage you to try=
+ it
+out, so any significant errors are detected before I upload to unstable.
 
-AFAIK you do not need to encode the entire line.
+The experimental package, besides being the latest upstream version, attemp=
+ts
+to autodetect your installed MTA at list creation time, and set list=20
+permissions accordingly, just as a few bugs have been fixed in the debian=20
+edition of mlmmj-make-ml. Information about how to access the experimental
+archive can be deduced from [2].
+
+Please report bugs to me directly at boll@debian.org or via
+http://bugs.debian.org/
+
+Thanks.
+
+[1] http://packages.debian.org/experimental/mail/mlmmj
+[2] http://lists.debian.org/debian-user/2003/04/msg01105.html
 
 --=20
-Boy, backups sure are a lot faster since I linked /dev/st0 to /dev/null...
-
-cstamas
+S=F8ren O.                                           ,''`.
+                                                  : :' :
+GPG key id: 0x1EB2DE66                            `. `'
+GPG signed mail preferred.                          `-
