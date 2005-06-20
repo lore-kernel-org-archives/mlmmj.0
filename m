@@ -1,39 +1,30 @@
-From: =?iso-8859-1?Q?S=F8ren?= Boll Overgaard <boll+mlmmj@fork.dk>
-Date: Sat, 18 Jun 2005 05:44:16 +0000
-Subject: mlmmj in Debian experimental
-Message-Id: <20050618054416.GB46345@freesbee.wheel.dk>
+From: Mads Martin Joergensen <mmj@mmj.dk>
+Date: Mon, 20 Jun 2005 14:01:02 +0000
+Subject: mlmmj-1.2.8 released
+Message-Id: <20050620140102.GA27543@mmj.dk>
 List-Id: <mlmmj.mlmmj.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Hello,
+Hey people,
 
-If you are not using debian, this probably isn't interesting to you.
+After some debugging with Christian Laursen who spotted two closedir()
+calls that weren't supposed to be there, I've wrapped up 1.2.8. The
+ChangeLog has it as usual:
 
-I would just like to point any debian users' attention to the experimental
-version of the mlmmj package[1]. If at all possible, I encourage you to try=
- it
-out, so any significant errors are detected before I upload to unstable.
+ o Don't closedir() before done (GOOD spotting Christian Laursen)
+ o Make sure the resend of queue files will not loop indefinately
+ o Make Date: header RFC2822 compliant (Jakob Hirsch)
+ o Add -s switch to mlmmj-{,un}sub to control whether or not to send a mail
+   telling about already subscribed, or not subscribed when trying to
+   subscribe or unsubscribe (Christian Laursen)
 
-The experimental package, besides being the latest upstream version, attemp=
-ts
-to autodetect your installed MTA at list creation time, and set list=20
-permissions accordingly, just as a few bugs have been fixed in the debian=20
-edition of mlmmj-make-ml. Information about how to access the experimental
-archive can be deduced from [2].
+Enjoy, and feedback are as usual always welcome.
 
-Please report bugs to me directly at boll@debian.org or via
-http://bugs.debian.org/
-
-Thanks.
-
-[1] http://packages.debian.org/experimental/mail/mlmmj
-[2] http://lists.debian.org/debian-user/2003/04/msg01105.html
-
---=20
-S=F8ren O.                                           ,''`.
-                                                  : :' :
-GPG key id: 0x1EB2DE66                            `. `'
-GPG signed mail preferred.                          `-
+-- 
+Mads Martin Joergensen, http://mmj.dk
+"Why make things difficult, when it is possible to make them cryptic
+ and totally illogical, with just a little bit more effort?"
+                                -- A. P. J.
