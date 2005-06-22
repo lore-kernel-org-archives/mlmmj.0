@@ -1,7 +1,7 @@
 From: Christian Laursen <xi@borderworlds.dk>
-Date: Wed, 22 Jun 2005 09:25:52 +0000
+Date: Wed, 22 Jun 2005 09:43:21 +0000
 Subject: Re: List creation in the perl-admin web interface
-Message-Id: <868y12kajj.fsf@borg.borderworlds.dk>
+Message-Id: <864qbqk9qe.fsf@borg.borderworlds.dk>
 List-Id: <mlmmj.mlmmj.org>
 References: <86d5qekc0f.fsf@borg.borderworlds.dk>
 In-Reply-To: <86d5qekc0f.fsf@borg.borderworlds.dk>
@@ -10,34 +10,32 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Mads Martin Joergensen <mmj@mmj.dk> writes:
+Marcus Rueckert <mrueckert@suse.de> writes:
 
-> * Christian Laursen <xi@borderworlds.dk> [Jun 22. 2005 10:54]:
+> On Wednesday, 22. June 2005 10:54, Christian Laursen wrote:
 >
-> I've been wanting to rewrite mlmmj-make-ml anyway, making it possible to
-> pass all options for making a list on the commandline. mlmmj-make-ml.sh
-> is an ugly hack anyway--it was written pre-0.1.0.
-
-Ah yes, I forgot about the requirement of a non-interactive mlmmj-make-ml.
- 
-> And when we have mlmmj-make-ml written proper, the rest seems
-> achievable. Especially now we can write it with the above in mind.
+> > It will probably require mlmmj-make-ml to be a suid root binary,
+> > preferably only installed suid root if enabled by an option to the
+> > configure script or similar.
 > 
-> Any other considerations?
+> It does not have to be suid root. it could be suid mailinglist/maildrop group.
+> and the group has write permissions to the mailinglist basedir.
 
-I have some ideas about what would be nice to have in the configuration file.
-(Although it could be made possible to override those if running as root)
+Currently our configuration has control owned by the www user and the
+rest of the listdir owned by mlmmj. However I think control could be
+owned by mlmmj too if it is made group writable.
 
-- Unprivileged users who are allowed to make lists (Perhaps just a group)
-- Directories in which new listdirs are allowed to be created
-- Allowed list domains
-- Allowed prepopulated skeleton control dirs
-- Allowed custom scripts to run after list creation
-- Allowed listtexts directories
+> > Since the unprivileged user can't do any postprocessing on the created
+> > listdir there will have to be some support for running a custom script
+> > to do that. The custom script should also take care of adding an alias
+> > to the mail configuration.
+> 
+> you could use a special alias file which is writable by the group too. and 
+> include it into your mta config. Most distros do that with mailman e.g..
 
-Some of this might work better if grouped in profiles.
-
-Nothing more comes to mind at this time.
+Sure, but can you do it in a way that is general enough to satisfy all
+setups? Furthermore we have to be careful not to break old
+installations too much.
 
 -- 
 Christian Laursen
