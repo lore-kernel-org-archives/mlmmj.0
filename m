@@ -1,36 +1,34 @@
-From: Andrea Barisani <lcars@gentoo.org>
-Date: Tue, 07 Jun 2005 19:55:30 +0000
-Subject: Re: Italian translation
-Message-Id: <20050607195530.GA3475@sole.infis.univ.trieste.it>
+From: Christian Laursen <xi@borderworlds.dk>
+Date: Wed, 22 Jun 2005 08:54:08 +0000
+Subject: List creation in the perl-admin web interface
+Message-Id: <86d5qekc0f.fsf@borg.borderworlds.dk>
 List-Id: <mlmmj.mlmmj.org>
-References: <6.2.1.2.2.20050521150410.02b43ca8@popmail.email.it>
-In-Reply-To: <6.2.1.2.2.20050521150410.02b43ca8@popmail.email.it>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-On Tue, Jun 07, 2005 at 09:53:09PM +0200, fifadd@tin.it wrote:
-> Hi, here you can find the italian translation of list texts. Any comments
-> or adjustments are appreciated.
-> 
-> Thank you
-> 
-> -Filippo Fadda
->
+There has been some talk about adding list creation functionality to
+the web interface.
 
-Maybe substituting all accented character with <char>' (example: mlmmj e'
-stupendo) is better, not everyone uses 8-bit extended ascii table.
+Most of the work involved in getting it to work consists of making
+mlmmj itself support list creation by preconfigured unprivileged
+users.
 
-I'll take a look at the whole archive later just to give mmj a second opinion
-about this ;).
+It will probably require mlmmj-make-ml to be a suid root binary,
+preferably only installed suid root if enabled by an option to the
+configure script or similar.
 
-Cheers
+Since the unprivileged user can't do any postprocessing on the created
+listdir there will have to be some support for running a custom script
+to do that. The custom script should also take care of adding an alias
+to the mail configuration.
+
+All this would probably be configured in a global configuration file
+as the unprivileged user should be trusted as little as possible.
+
+With this in place it should be a walk in the park to add the
+functionality to the web interface.
 
 -- 
-Andrea Barisani <lcars@gentoo.org>                            .*.
-Gentoo Linux Infrastructure Developer                          V
-                                                             (   )
-GPG-Key 0x864C9B9E http://dev.gentoo.org/~lcars/pubkey.asc   (   )
-    0A76 074A 02CD E989 CE7F AC3F DA47 578E 864C 9B9E        ^^_^^
-      "Pluralitas non est ponenda sine necessitate"
+Christian Laursen
