@@ -1,7 +1,7 @@
-From: Marcus Rueckert <mrueckert@suse.de>
-Date: Wed, 22 Jun 2005 09:12:30 +0000
+From: Mads Martin Joergensen <mmj@mmj.dk>
+Date: Wed, 22 Jun 2005 09:15:49 +0000
 Subject: Re: List creation in the perl-admin web interface
-Message-Id: <200506221112.31226.mrueckert@suse.de>
+Message-Id: <20050622091549.GW27543@mmj.dk>
 List-Id: <mlmmj.mlmmj.org>
 References: <86d5qekc0f.fsf@borg.borderworlds.dk>
 In-Reply-To: <86d5qekc0f.fsf@borg.borderworlds.dk>
@@ -10,29 +10,32 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-On Wednesday, 22. June 2005 10:54, Christian Laursen wrote:
-> There has been some talk about adding list creation functionality to
-> the web interface.
->
-> Most of the work involved in getting it to work consists of making
-> mlmmj itself support list creation by preconfigured unprivileged
-> users.
->
-> It will probably require mlmmj-make-ml to be a suid root binary,
-> preferably only installed suid root if enabled by an option to the
-> configure script or similar.
+* Marcus Rueckert <mrueckert@suse.de> [Jun 22. 2005 11:12]:
+> > There has been some talk about adding list creation functionality to
+> > the web interface.
+> >
+> > Most of the work involved in getting it to work consists of making
+> > mlmmj itself support list creation by preconfigured unprivileged
+> > users.
+> >
+> > It will probably require mlmmj-make-ml to be a suid root binary,
+> > preferably only installed suid root if enabled by an option to the
+> > configure script or similar.
+> 
+> It does not have to be suid root. it could be suid mailinglist/maildrop group.
+> and the group has write permissions to the mailinglist basedir.
 
-It does not have to be suid root. it could be suid mailinglist/maildrop group.
-and the group has write permissions to the mailinglist basedir.
+Well, the very first thing I'm going to do in the binary anyway is that
+in case we're root, priviledges will be dropped by changing uid to the
+user owning the directory the mailinglist will be created in. This way,
+it doesn't matter that every OS out there has a different user for the
+mailserver--it'll simply Just Work. Of course they're only going to be
+dropped in case we _are_ root.
 
-> Since the unprivileged user can't do any postprocessing on the created
-> listdir there will have to be some support for running a custom script
-> to do that. The custom script should also take care of adding an alias
-> to the mail configuration.
+Just the same way mlmmj-{,un}sub does it.
 
-you could use a special alias file which is writable by the group too. and 
-include it into your mta config. Most distros do that with mailman e.g..
-
-so long,
-
-darix
+-- 
+Mads Martin Joergensen, http://mmj.dk
+"Why make things difficult, when it is possible to make them cryptic
+ and totally illogical, with just a little bit more effort?"
+                                -- A. P. J.
