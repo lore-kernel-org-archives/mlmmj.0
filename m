@@ -1,28 +1,30 @@
-From: fifadd@tin.it
-Date: Wed, 20 Jul 2005 09:41:26 +0000
-Subject: Re: recipdelim patch
-Message-Id: <42D3CDD00000E399@ims3a.cp.tin.it>
+From: Mads Martin Joergensen <mmj@mmj.dk>
+Date: Tue, 05 Jul 2005 08:43:36 +0000
+Subject: Re: /dev/hda3
+Message-Id: <20050705084336.GH3874@mmj.dk>
 List-Id: <mlmmj.mlmmj.org>
-References: <42D3CDD00000B1FA@ims3a.cp.tin.it>
-In-Reply-To: <42D3CDD00000B1FA@ims3a.cp.tin.it>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
->Do you use a patched qmail? The qmail installation I can test on, has a
->proper Delivered-To:.
+* Madan Mohan <mmadan@iitk.ac.in> [Jul 05. 2005 10:40]:
 
-Yes, my qmail is patched, but the domain name is placed before the list address
-by vpopmail, perhaps, because I'm using it with qmail. I'm not sure of it
-but it's probable.
+[...]
 
->Did you try doing: sendmail fifadd@tin.it < /dev/null on your qmail
->machine? This sends a mail with no To: header. And I know of people who
->have done sendmail mlmmj+subscribe@mmj.dk < /dev/null in the past.
+> This is the error I am getting after "genkernel" compilation. And there is
+> no file "devfsd" in kernel configuration file.
+> 
+> How to resolve this problem ????Can anybody help me out.
 
-No, I didn't. I have sent a message from a mail client.
+This is the wrong list for this question. This list (mlmmj@mmj.dk) is
+about discussing the mlmmj project (http://mlmmj.mmj.dk).
 
--Filippo
+I would suggest gentoo-user@gentoo.org for this. To subscribe to that
+one send a mail to gentoo-user+subscribe@gentoo.org.
 
-
+-- 
+Mads Martin Joergensen, http://mmj.dk
+"Why make things difficult, when it is possible to make them cryptic
+ and totally illogical, with just a little bit more effort?"
+                                -- A. P. J.
