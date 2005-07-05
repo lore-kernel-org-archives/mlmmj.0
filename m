@@ -1,32 +1,52 @@
-From: Mads Martin Joergensen <mmj@mmj.dk>
-Date: Wed, 20 Jul 2005 06:18:40 +0000
-Subject: Re: Fw: footer isn't appended to multipart messages (part II: reality check!)
-Message-Id: <20050720061840.GS83227@mmj.dk>
+From: "Patrick Bennett" <patrick@pebcomputing.com>
+Date: Tue, 05 Jul 2005 10:00:09 +0000
+Subject: footer isn't
+Message-Id: <018c01c58148$5436e7c0$6564a8c0@stnick>
+MIME-Version: 1
+Content-Type: multipart/mixed; boundary="----=_NextPart_000_0189_01C5810D.A76577D0"
 List-Id: <mlmmj.mlmmj.org>
-References: <200507052130.02825.lists@seattleserver.com>
-In-Reply-To: <200507052130.02825.lists@seattleserver.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-* Jakob Hirsch <jh@plonk.de> [Jul 19. 2005 20:44]:
+This is a multi-part message in MIME format.
 
-[...]
+------=_NextPart_000_0189_01C5810D.A76577D0
+Content-Type: text/plain;
+	charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 
-> btw, what happens with log_error messages? I thought they appear in
-> mlmmj.operation.log...
+"footer" is only getting appended to incoming emails that are plain =
+text.  If the incoming email to the list is sent formatted as "Rich Text =
+(html)" the footer is not appended.  (Only tested with Outlook Express 6 =
+as the mailer.)  How can I make sure that all emails get the footer =
+appended?
 
-No, that ends up in mail syslog, /var/log/maillog on a FreeBSD system,
-/var/log/mail on SUSE LINUX.
+TIA,
+Patrick
+------=_NextPart_000_0189_01C5810D.A76577D0
+Content-Type: text/html;
+	charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 
-I know--mlmmj logging is horrible. Some people have promised in
-the past to clean it all up, so we had nice proper logging using syslog,
-but so far it failed.
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<META http-equiv=3DContent-Type content=3D"text/html; =
+charset=3Diso-8859-1">
+<META content=3D"MSHTML 6.00.2900.2668" name=3DGENERATOR>
+<STYLE></STYLE>
+</HEAD>
+<BODY bgColor=3D#ffffff>
+<DIV><FONT face=3DArial size=3D2>"footer" is only getting appended to =
+incoming=20
+emails that are plain text.&nbsp; If the incoming email to the list is =
+sent=20
+formatted as "Rich Text (html)" the footer is not appended.&nbsp; (Only =
+tested=20
+with Outlook Express 6 as the mailer.)&nbsp; How can I make sure that =
+all emails=20
+get the footer appended?</FONT></DIV>
+<DIV><FONT face=3DArial size=3D2></FONT>&nbsp;</DIV>
+<DIV><FONT face=3DArial size=3D2>TIA,</FONT></DIV>
+<DIV><FONT face=3DArial size=3D2>Patrick</FONT></DIV></BODY></HTML>
 
-mlmmj.operations.log is log_oper().
--- 
-Mads Martin Joergensen, http://mmj.dk
-"Why make things difficult, when it is possible to make them cryptic
- and totally illogical, with just a little bit more effort?"
-                                -- A. P. J.
+------=_NextPart_000_0189_01C5810D.A76577D0--
+
