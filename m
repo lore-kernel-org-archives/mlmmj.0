@@ -1,30 +1,32 @@
-From: Mads Martin Joergensen <mmj@mmj.dk>
-Date: Tue, 05 Jul 2005 08:43:36 +0000
-Subject: Re: /dev/hda3
-Message-Id: <20050705084336.GH3874@mmj.dk>
+From: "Madan Mohan" <mmadan@iitk.ac.in>
+Date: Tue, 05 Jul 2005 08:52:32 +0000
+Subject: /dev/hda3
+Message-Id: <3961.172.28.23.250.1120552832.squirrel@webmail.iitk.ac.in>
 List-Id: <mlmmj.mlmmj.org>
+References: <20050705084336.GH3874@mmj.dk>
+In-Reply-To: <20050705084336.GH3874@mmj.dk>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-* Madan Mohan <mmadan@iitk.ac.in> [Jul 05. 2005 10:40]:
+Hello All,
 
-[...]
+I am installing Gentoo 2005 with universal CD. After installation while
+rebooting,I have got this.
 
-> This is the error I am getting after "genkernel" compilation. And there is
-> no file "devfsd" in kernel configuration file.
-> 
-> How to resolve this problem ????Can anybody help me out.
+""
+mount: Mounting devfs on /dev failed.
+Error opening file ".devfsd" No such file or directory
+""
 
-This is the wrong list for this question. This list (mlmmj@mmj.dk) is
-about discussing the mlmmj project (http://mlmmj.mmj.dk).
+This is the error I am getting after "genkernel" compilation. And there is
+no file "devfsd" in kernel configuration file.
 
-I would suggest gentoo-user@gentoo.org for this. To subscribe to that
-one send a mail to gentoo-user+subscribe@gentoo.org.
+How to resolve this problem ????Can anybody help me out.
 
 -- 
-Mads Martin Joergensen, http://mmj.dk
-"Why make things difficult, when it is possible to make them cryptic
- and totally illogical, with just a little bit more effort?"
-                                -- A. P. J.
+
+Madan Mohan D
+(mmadan@iitk.ac.in)
+
