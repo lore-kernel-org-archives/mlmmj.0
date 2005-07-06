@@ -1,7 +1,7 @@
-From: "Patrick Bennett" <patrick@pebcomputing.com>
-Date: Tue, 05 Jul 2005 23:32:54 +0000
+From: Casey Allen Shobe <lists@seattleserver.com>
+Date: Wed, 06 Jul 2005 02:38:58 +0000
 Subject: Re: footer isn't appended to multipart messages (part II: reality check!)
-Message-Id: <008c01c581b9$df072f10$6564a8c0@stnick>
+Message-Id: <200507060238.58342.lists@seattleserver.com>
 List-Id: <mlmmj.mlmmj.org>
 References: <200507052130.02825.lists@seattleserver.com>
 In-Reply-To: <200507052130.02825.lists@seattleserver.com>
@@ -10,84 +10,103 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
+On Tuesday 05 July 2005 23:32, you wrote:
+> This is absolutely true- you (that is to say, *we*, that is to
+> say techie/programmer types) find this stuff very annoying. 
+> However, mailing lists are used by knitting clubs too, and I, for
+> one, DO NOT want the nightmare of administrating a knitting club
+> mailing list that has absolutely no dependable notification of
+> "how to do it yourself".
 
------ Original Message ----- 
-From: "Sven 'Darkman' Michels" <sven@darkman.de>
-To: <mlmmj@mmj.dk>
-Sent: Tuesday, July 05, 2005 3:09 PM
-Subject: Re: footer isn't appended to multipart messages
+Reality check indeed:  knitting club members aren't going to have a 
+clue wtf the reminder mail or appended text means.  They don't 
+understand what "unsubscribing from a mailing list" is, they just 
+use a particular address to talk to other club members.  If they 
+want off the list, no matter how much you spam them with 
+instructions, they will ask the head of the knitting club to do it.  
+I'm on some lists which append unsubscription messages to every 
+mail, and guess what I see posted there all the time?  empty 
+messages with "unsubscribe" subjects (often with unsubscribe 
+misspelled, not that it matters since that's not how the lists 
+work).
 
+Reality is, nontechy users have no interest in doing it themselves, 
+and techy users know right well how to find out.  Most anyone in 
+between will look up the website where they signed up to try to 
+figure it out.
 
-> -----BEGIN PGP SIGNED MESSAGE-----
-> Hash: SHA1
->
-> Casey Allen Shobe wrote:
-> | There is only one thing more annoying on mailing lists than
-> | appending stupid user text to every single message, and that is the
-> | monthly password reminders that mailman sends out.  I get spammed
-> | with about 50 of them at about the same time every month, so I
-> | wrote a filter to automatically delete them to retain sanity.
->
-> Full ACK. I got flooded by them, too. Never mind, everything can
-> be filtered ;)
+Also, even though Outhouse Express is not yet one of them, many mail 
+clients have built-in support for List-Unsubscribe header which 
+enables a button for unsubscribing from the list.
 
-This is absolutely true- you (that is to say, *we*, that is to say 
-techie/programmer types) find this stuff very annoying.  However, mailing 
-lists are used by knitting clubs too, and I, for one, DO NOT want the 
-nightmare of administrating a knitting club mailing list that has absolutely 
-no dependable notification of "how to do it yourself".
+> not sure which "example" you mean
 
+The example you asked about:  appending footers with 
+subscribe/unsubscribe information.
 
->
->
-> | That being said, List-Subscribe, List-Unsubcribe, etc. headers
-> | should be present, and they don't appear to be on this list.  Does
-> | mlmmj support them yet?
->
-> Well, yes and no. Yes: you can add them to Custom headers file,
-> No: they're not added automaticly (maybe this could be implemented
-> but i think it's ok if you run a lot of lists to generate the
-> customheaders file by a script or so ;)
->
->
-> | (this is not to say that your feature request/bug report is invalid
-> | - it is in fact useful in some cases and should work as you expect,
-> | but the example you provided should be discouraged and it's also
-> | not the easiest thing to implement due to the varying nature of
-> | what the multipart messages might contain, how the HTML is
-> | structured, etc.)
->
+> For other lists, on the contrary, it should be *encouraged* (see
+> above)! 
 
-not sure which "example" you mean, but if it's monthly nags (a.k.a. mailing 
-list subscribe/unsubscribe howto's), then, yes, it should be discouraged 
-*for appropriate lists and when there is no reliable way to append footer 
-text*.  For other lists, on the contrary, it should be *encouraged* (see 
-above)!
+I could not disagree with this statement more.  You really think 
+that when I (the idiot user in this example) feel like 
+unsubscribing that I'm going to wait around for the next monthly 
+mail or go digging around for an old one?  No, I'm going to whine 
+to the list owner or whomever I think is in charge if I can't 
+figure things out, and probably just the whole list to make sure 
+somebody hears me.
 
+> 1)  I haven't found the documentation on how to enforce text-only
+> mailing lists
 
-> correctly. I think the 'append a footer' feature is ok, too. Just
-> disable html mail and stuff and it's nearly fine. The List- Headers
-> should be always present (not hard to implement ;)
-> Implementing appending of stuff for multipartmessages just suck
-> cause you have so many ways clients do 'their' encoding and
-> maybe some gateways who add shitty 'this is confidential mail'
-> footers, too, so you may end up in a 4 or more part mail which
-> only contains a one liner...
->
+You could filter incoming messages with something like maildrop or 
+your own script.  Not sure how you'd go about mingling this with 
+mlmmj, perhaps somebody else can answer that.
 
-1)  I haven't found the documentation on how to enforce text-only mailing 
-lists (it's one of the first bits of info i looked for when i figured out 
-what the problem was; 2) not sure what happens on a text-only mlmmj list 
-when a multi-part msg is sent, but whatever it is, for the "knitting club", 
-it *can't* be a reject msg- a mailing list that fits the "knitting club's" 
-needs (and I realize this may never be what mlmmj is, though I wish it could 
-be, because I've very much liked the software otherwise) has to handle the 
-default settings of widespread (though not necessarily popular with us 
-programmer/techies) email clients (eg. outlook express).
+> 2) not sure what happens on a text-only mlmmj list when a
+> multi-part msg is sent, but [it] has to handle the
+> default settings of widespread [...] email clients [...].
 
-Regards,
-> Sven
->
+Short answer, if you want HTML mail to reach the list, then don't 
+block it.  If you care about people seeing signatures on every 
+single mail (even the HTML ones), then don't allow HTML.  You can't 
+(easily) have your cake and eat it too.
 
-    -Patrick 
+Long answer, you *can* have your cake and eat it too, but it will 
+require substantial work on your part to reduce the messages (which 
+I don't think you're actually willing to do or you might have just 
+implemented multipart footer appending yourself):
 
+* Outlook Express sends HTML and text multipart messages by default 
+I believe.  You could reduce this to plain text with some parsing, 
+removing the HTML part and leaving the plain text.
+
+* At least Thunderbird sends HTML-only mail by default.  It's not 
+that hard to go through and strip out HTML tags, since 99.9% of the 
+time, end users never use any custom HTML anyways, and if they do, 
+it's just a font or color and doesn't affect the legibility of the 
+message (except for the worse).
+
+* You will run into messages with lots of parts, where people think 
+it's a good idea to tack on a VCF, HTML message, text message, 
+separate parts for their spam filtering mechanism's signature, one 
+for saying the mail passed their lame virus scan, and an image of 
+the company's logo.  Good luck with those.
+
+Realistic answer, chances are you will never make your knitting club 
+members happy, because the majority of them cannot and will not 
+understand what a mailing list even is.  You might come closest 
+with the least effort by just going and signing up for yahoogroups, 
+which even gives you the option to convert all incoming messages to 
+HTML (*shudder*) and appends the dummy footer to every message, and 
+gives them an ad-filled web-interface that they can use instead of 
+email if they want to boot.
+
+Another answer, if you just want a monthly/weekly/whatever reminder, 
+just mail the list from a cron job.
+
+Cheers,
+-- 
+Casey Allen Shobe | http://casey.shobe.info
+cshobe@seattleserver.com | cell 425-443-4653
+AIM & Yahoo:  SomeLinuxGuy | ICQ:  1494523
+SeattleServer.com, Inc. | http://www.seattleserver.com
