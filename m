@@ -1,7 +1,7 @@
 From: Mads Martin Joergensen <mmj@mmj.dk>
-Date: Wed, 06 Jul 2005 08:05:59 +0000
-Subject: Re: footer isn't appended to multipart messages
-Message-Id: <20050706080558.GC28157@mmj.dk>
+Date: Wed, 06 Jul 2005 08:12:24 +0000
+Subject: Re: footer isn't appended to multipart messages (part II: reality check!)
+Message-Id: <20050706081224.GD28157@mmj.dk>
 List-Id: <mlmmj.mlmmj.org>
 References: <200507052130.02825.lists@seattleserver.com>
 In-Reply-To: <200507052130.02825.lists@seattleserver.com>
@@ -10,20 +10,77 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-* Sven 'Darkman' Michels <sven@darkman.de> [Jul 06. 2005 00:09]:
-> | That being said, List-Subscribe, List-Unsubcribe, etc. headers
-> | should be present, and they don't appear to be on this list.  Does
-> | mlmmj support them yet?
+* Patrick Bennett <patrick@pebcomputing.com> [Jul 06. 2005 01:37]:
+> >Full ACK. I got flooded by them, too. Never mind, everything can
+> >be filtered ;)
 > 
-> Well, yes and no. Yes: you can add them to Custom headers file,
-> No: they're not added automaticly (maybe this could be implemented
-> but i think it's ok if you run a lot of lists to generate the
-> customheaders file by a script or so ;)
+> This is absolutely true- you (that is to say, *we*, that is to say 
+> techie/programmer types) find this stuff very annoying.  However, mailing 
+> lists are used by knitting clubs too, and I, for one, DO NOT want the 
+> nightmare of administrating a knitting club mailing list that has 
+> absolutely no dependable notification of "how to do it yourself".
 
-It's meant to be added to customheaders. Plenty of people are using this
-for newsletters, etc. where they want control over stuff. If we add such
-stuff automatically people cannot take it away, while if we don't it's
-easy to add.
+If your users are that clueless I'm not sure mlmmj is the right list to
+use.
+
+> >| That being said, List-Subscribe, List-Unsubcribe, etc. headers
+> >| should be present, and they don't appear to be on this list.  Does
+> >| mlmmj support them yet?
+> >
+> >Well, yes and no. Yes: you can add them to Custom headers file,
+> >No: they're not added automaticly (maybe this could be implemented
+> >but i think it's ok if you run a lot of lists to generate the
+> >customheaders file by a script or so ;)
+> >
+> >
+> >| (this is not to say that your feature request/bug report is invalid
+> >| - it is in fact useful in some cases and should work as you expect,
+> >| but the example you provided should be discouraged and it's also
+> >| not the easiest thing to implement due to the varying nature of
+> >| what the multipart messages might contain, how the HTML is
+> >| structured, etc.)
+> 
+> not sure which "example" you mean, but if it's monthly nags (a.k.a. mailing 
+> list subscribe/unsubscribe howto's), then, yes, it should be discouraged 
+> *for appropriate lists and when there is no reliable way to append footer 
+> text*.  For other lists, on the contrary, it should be *encouraged* (see 
+> above)!
+
+If you want monthly notification mails, please consider using mailman.
+mlmmj is not going to have it.
+
+> >correctly. I think the 'append a footer' feature is ok, too. Just
+> >disable html mail and stuff and it's nearly fine. The List- Headers
+> >should be always present (not hard to implement ;)
+> >Implementing appending of stuff for multipartmessages just suck
+> >cause you have so many ways clients do 'their' encoding and
+> >maybe some gateways who add shitty 'this is confidential mail'
+> >footers, too, so you may end up in a 4 or more part mail which
+> >only contains a one liner...
+> 
+> 1)  I haven't found the documentation on how to enforce text-only mailing 
+> lists (it's one of the first bits of info i looked for when i figured out 
+> what the problem was; 2) not sure what happens on a text-only mlmmj list 
+> when a multi-part msg is sent, but whatever it is, for the "knitting club", 
+> it *can't* be a reject msg- a mailing list that fits the "knitting club's" 
+> needs (and I realize this may never be what mlmmj is, though I wish it 
+> could be, because I've very much liked the software otherwise) has to 
+> handle the default settings of widespread (though not necessarily popular 
+> with us programmer/techies) email clients (eg. outlook express).
+
+One of the very first examples in README.access:
+
+ deny !^Content-Type: text/plain
+ allow
+
+Put that in DIR/control/access, and a reject mail will be sent for
+everyone not sending a text/plain message. Now whether or not this
+reject mails fit the knitting club is up to you. Every list has it's own
+text dir, so you can simply modify DIR/text/access to fit what you need.
+Might even carry intructions on how to turn off html mail in outlook if
+you want. Or a link to a webpage explainging it.
+
+mlmmj allows for heavy customization.
 
 -- 
 Mads Martin Joergensen, http://mmj.dk
