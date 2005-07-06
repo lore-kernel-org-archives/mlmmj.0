@@ -1,53 +1,47 @@
-From: "Patrick Bennett" <patrick@pebcomputing.com>
-Date: Tue, 05 Jul 2005 15:10:34 +0000
-Subject: Re: footer isn't
-Message-Id: <001701c58173$b1bdb830$6564a8c0@stnick>
+From: Sven 'Darkman' Michels <sven@darkman.de>
+Date: Wed, 06 Jul 2005 22:55:42 +0000
+Subject: Announcement: mlmmj-webarchiver
+Message-Id: <42CC616E.1040905@darkman.de>
 List-Id: <mlmmj.mlmmj.org>
-References: <018c01c58148$5436e7c0$6564a8c0@stnick>
-In-Reply-To: <018c01c58148$5436e7c0$6564a8c0@stnick>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Ahah!  You're right, the footer *is* there on the "Rich Text" formatted raw 
-source, but is not appearing in the email viewer.  I assume this is because 
-the footer is being appended in an inappropriate place/way for an HTML mail, 
-so the email viewer is not interpretting the footer properly.  Will this be 
-fixed?
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
 
-It isn't acceptable, IMHO, for a list recipient/subscriber to get no ongoing 
-notice of how to unsubscribe from the list... is there, perhaps, a 
-subscription "reminder" function in mlmmj as there are in some other mailing 
-list softwares?
+Hi there,
 
-    -Patrick
+in the past days i've written a small script which allows everyone
+to build a shiny webarchive out of mlmmj's archive. This should be
+an easy, mostly out of the box working script to allow everyone
+to create webarchives when using mlmmj. Its not yet finished cause
+i've not that many time i wish to had. But since yesterday all the
+basic works. This is what you get now:
++ per list hypermail.rc (global hypermail.rc for every list
+~  without its own hypermail.rc, too)
++ config via. normal control dir of every archive
++ password (htaccess) protected archives
++ compressed archiv of every list (complete maildir)
++ example php script to make some list indexes
 
+as i said befor, this is not finished yet, but i would like to
+get some feedback from you. So please, if you got the time, test
+it a bit, make suggestions for features etc. to make mlmmj even
+more complete for everyone :)
 
------ Original Message ----- 
-From: "Mads Martin Joergensen" <mmj@suse.de>
-To: <mlmmj@mmj.dk>
-Sent: Tuesday, July 05, 2005 3:20 AM
-Subject: Re: footer isn't
+Download: http://vs165141.v.sectoor.de/mlmmj-webarchiver-0.51.tar.gz
+(This is just a temp. URL, will put it somewhere else later on.
+A small preview for what it does:
+http://vs165141.v.sectoor.de/mailarchive/mlmmj/
 
+Enjoy!
 
->* Patrick Bennett <patrick@pebcomputing.com> [Jul 05. 2005 12:04]:
->> "footer" is only getting appended to incoming emails that are plain
->> text.  If the incoming email to the list is sent formatted as "Rich
->> Text (html)" the footer is not appended.  (Only tested with Outlook
->> Express 6 as the mailer.)  How can I make sure that all emails get the
->> footer appended?
->
-> This is currently not possible. It's pretty simple how it's done--mlmmj
-> simply appends the footer at the very end of the mail.
->
-> If you look at the raw mail you'll see.
->
-> -- 
-> Mads Martin Joergensen, http://mmj.dk
-> "Why make things difficult, when it is possible to make them cryptic
-> and totally illogical, with just a little bit more effort?"
->                                -- A. P. J.
->
-> 
+Sven
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.2.2 (GNU/Linux)
 
+iD8DBQFCzGFtQoCguWUBzBwRAitHAKCsoHYdq+pafNjttujDeOqFPKtxDQCgr+ys
+80B62omDni9mRIf0C8dz+Ag=QMu5
+-----END PGP SIGNATURE-----
