@@ -1,30 +1,22 @@
-From: Mads Martin Joergensen <mmj@mmj.dk>
-Date: Mon, 20 Jun 2005 14:01:02 +0000
-Subject: mlmmj-1.2.8 released
-Message-Id: <20050620140102.GA27543@mmj.dk>
+From: Anthony Philipp <philipp1@uiuc.edu>
+Date: Tue, 12 Jul 2005 05:49:31 +0000
+Subject: webarchiver integration?
+Message-Id: <20050712054931.GT3693@zeus.itg.uiuc.edu>
 List-Id: <mlmmj.mlmmj.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Hey people,
+Hello,
 
-After some debugging with Christian Laursen who spotted two closedir()
-calls that weren't supposed to be there, I've wrapped up 1.2.8. The
-ChangeLog has it as usual:
+I like the idea of your webarchiver, I was wondering if you were
+planning on integrating it into mlmmj anytime soon? If it wouldn't
+be too much of a bother could you add this to the next release as an
+option? You could turn off webarchive off by default, so that
+hypermail is not a dependency. 
 
- o Don't closedir() before done (GOOD spotting Christian Laursen)
- o Make sure the resend of queue files will not loop indefinately
- o Make Date: header RFC2822 compliant (Jakob Hirsch)
- o Add -s switch to mlmmj-{,un}sub to control whether or not to send a mail
-   telling about already subscribed, or not subscribed when trying to
-   subscribe or unsubscribe (Christian Laursen)
+BTW I really like mlmmj, it is very light and awesome. Keep up the
+good work.
 
-Enjoy, and feedback are as usual always welcome.
-
--- 
-Mads Martin Joergensen, http://mmj.dk
-"Why make things difficult, when it is possible to make them cryptic
- and totally illogical, with just a little bit more effort?"
-                                -- A. P. J.
+Anthony Philipp
