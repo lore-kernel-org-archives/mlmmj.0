@@ -1,21 +1,19 @@
 From: Mads Martin Joergensen <mmj@mmj.dk>
-Date: Fri, 22 Jul 2005 07:52:26 +0000
-Subject: Re: mlmmj / sql support?
-Message-Id: <20050722075226.GG827@mmj.dk>
+Date: Fri, 15 Jul 2005 14:31:55 +0000
+Subject: List outage
+Message-Id: <20050715143155.GD9084@mmj.dk>
 List-Id: <mlmmj.mlmmj.org>
-References: <20050722073939.GF827@mmj.dk>
-In-Reply-To: <20050722073939.GF827@mmj.dk>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-* Gustavo A. Baratto <gbaratto@superb.net> [Jul 22. 2005 09:49]:
-> Interesting.... Any directions on how to do that?
+Hey all,
 
-Make a shellscript called mlmmj-sub and one called mlmmj-unsub which
-supports the same options and invokes either the sql binary or the real
-mlmmj-{,un}sub if needed.
+Tomorrow my DSL connection dies - I'm changing providers. It should be
+back up again monday, but you never know.
+
+I'll send a reply to the list as soon as it's back up.
 
 -- 
 Mads Martin Joergensen, http://mmj.dk
