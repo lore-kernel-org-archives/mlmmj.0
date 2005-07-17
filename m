@@ -1,35 +1,24 @@
-From: Stephan Wentz <stephan@wentz.it>
-Date: Tue, 12 Jul 2005 18:49:26 +0000
-Subject: Re: Announcement: mlmmj-webarchiver
-Message-Id: <42D410B6.2060500@wentz.it>
+From: fifadd@tin.it
+Date: Sun, 17 Jul 2005 02:05:15 +0000
+Subject: qmail porting is available!
+Message-Id: <42D3CDD00000849F@ims3a.cp.tin.it>
 List-Id: <mlmmj.mlmmj.org>
-References: <42CC616E.1040905@darkman.de>
-In-Reply-To: <42CC616E.1040905@darkman.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="windows-1252"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
------BEGIN PGP SIGNED MESSAGE-----
-Hash: SHA1
+Hi Mads,
 
-Stephan Wentz wrote:
-> Ah...
->=20
-> http://bugs.gentoo.org/show_bug.cgi?id=88428
->=20
-> for every gentoo'er who is also interested in this ;-)
->=20
-> I'll respond if it works on my server...
+I have completed the qmail porting. I will send you the new version of mlmmj
+that runs under qmail and postfix also, tomorrow. I will send you within
+the reviewed italian list texts and a qmail readme file, that I have to write.
+I have modified different files and I have added one header. Now you can
+choose your own delimiter, '-' or '+' and use mlmmj with exim, postfix and
+qmail!
 
-Works fine! If anyone else tests this, please comment in the above
-bug-report, so that hypermail gets added to portage soon...
+Bye
 
-Stephan
------BEGIN PGP SIGNATURE-----
-Version: GnuPG v1.2.4 (MingW32)
-Comment: Using GnuPG with Thunderbird - http://enigmail.mozdev.org
+-Filippo Fadda
 
-iD8DBQFC1BC28qQ9XV7tBNQRAsc4AJ9upreyXZgvtTepeQ9yJi7fAm54wQCfWg/s
-IL65xWq8vfh/P417scqvH0Q=3DNc0U
------END PGP SIGNATURE-----
+
