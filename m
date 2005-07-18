@@ -1,7 +1,7 @@
 From: Mads Martin Joergensen <mmj@mmj.dk>
-Date: Mon, 18 Jul 2005 17:35:45 +0000
+Date: Mon, 18 Jul 2005 20:29:33 +0000
 Subject: Re: mlmmj 1.2.9 UNOFFICIAL release, with qmail support
-Message-Id: <20050718173545.GE83227@mmj.dk>
+Message-Id: <20050718202933.GK83227@mmj.dk>
 List-Id: <mlmmj.mlmmj.org>
 References: <42D3CDD00000AB73@ims3a.cp.tin.it>
 In-Reply-To: <42D3CDD00000AB73@ims3a.cp.tin.it>
@@ -11,6 +11,8 @@ Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
 * fifadd@tin.it <fifadd@tin.it> [Jul 18. 2005 18:20]:
+> Hi Mads,
+> 
 > in attach you can find the version 1.2.9 of mlmmj. This version support properly
 > the qmail MTA. I have updated a lot of files, also the TODO, ChangeLog, VERSION,
 > etc. Now you can easily change the constant RECIPDELIM to make mlmmj compatible
@@ -24,8 +26,15 @@ To: mlmmj@mlmmj.org
 > Before to commit changes and release the official 1.2.9 version look at the
 > new sources and check them please.
 
-Sounds nice. I'm going to diff it against 1.2.8 and have a look this
-evening.
+There's a few memory leaks, and it's also changing the coding style of
+the existing code.
+
+What if you try removing all the stuff you commented out, and then
+instead of sending a whole tar-ball, create a patch with:
+
+$ diff -urpN mlmmj-1.2.8 mlmmj-1.2.9 > recipdelim.patch
+
+and then gzip the patch?
 
 -- 
 Mads Martin Joergensen, http://mmj.dk
