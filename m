@@ -1,7 +1,7 @@
-From: Mads Martin Joergensen <mmj@mmj.dk>
-Date: Mon, 18 Jul 2005 18:12:40 +0000
-Subject: Re: Fw: footer isn't appended to multipart messages (part II: reality check!)
-Message-Id: <20050718181240.GF83227@mmj.dk>
+From: Jakob Hirsch <jh@plonk.de>
+Date: Mon, 18 Jul 2005 23:26:56 +0000
+Subject: Re: Fw: footer isn't appended to multipart messages (part II: reality
+Message-Id: <42DC3AC0.1060109@plonk.de>
 List-Id: <mlmmj.mlmmj.org>
 References: <200507052130.02825.lists@seattleserver.com>
 In-Reply-To: <200507052130.02825.lists@seattleserver.com>
@@ -10,31 +10,42 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-* Jakob Hirsch <jh@plonk.de> [Jul 18. 2005 14:20]:
-> >>--- mlmmj-1.2.8/src/do_all_the_voodo_here.c	2005-05-09 14:50:15.000000000 +0200
-> >>+	int mime = 0;
-> >>+	char *content_orig = NULL;  /* original content-type header */
-> >>+	char *boundary = NULL;
-> > Couldn't you read it from mlmmj-process.c ?
-> 
-> I'm not sure if I understand what you mean.
-> 
-> I have to modify the Content-Type header and parts of the message, which
-> can only be done in do_all_the_voodo_here(), AFAICT. The Content-Type is
-> not needed outside of do_all_the_voodo_here(), so I did not mess with it
-> in mlmmj-process.c.
-> 
-> Or did I miss something here?
+Mads Martin Joergensen wrote:
 
-You're right. I was thinking somewhere else in the code--but indeed; in
-do_all_the_voodo_here() is when that stuff is read.
+> Is it just me, or is the second patch much better than the first one?
 
-Is it just me, or is the second patch much better than the first one?
+Of course it's better, else I wouldn't have posted it. :)
+But the difference is not that big. I took out one forgotten debug
+message and made it a little more reliable. (Seems that the local Samba
+Festival and the Tour de France passing through was a little too much
+distraction :)
 
-How much testing have this seen?
+> How much testing have this seen?
 
--- 
-Mads Martin Joergensen, http://mmj.dk
-"Why make things difficult, when it is possible to make them cryptic
- and totally illogical, with just a little bit more effort?"
-                                -- A. P. J.
+I tested the most common cases: no content-type, text/plain,
+multipart/mixed (i.e. attachment) and multipart/alternative (i.e. html
+and text, with or without attachment). Everybody feel free to send
+something else to test@list.ymmv.de.
+
+Possible problems I see:
+
+- as I did no full parsing of the Content-Type header, the recognition
+of the boundary is not 100% reliable, but it's very unlikely that
+;boundary=" is something else.
+
+- I only handle multipart/mixed and multipart/alternative, everything
+else is assumed to be plain text, which is probably not true but it's
+also the former behaviour. Maybe it's better to re-encapsulate
+everything that is not already multipart/mixed. What do you think?
+
+- Finding the close delimiter of multipart/mixed messages will not work
+if there is (too much) text after the closing delimiter. This should
+normally not happen, as this text will not be displayed by mail clients
+(which was the why this came up at all). I think this is a minor issue.
+
+- memory leaks if something goes wrong (i.e., at every return -1). Also
+not important IMHO, as the mlmmj-process will immediatly exit then, but
+I can fix this if you want.
+
+- "voodo" is spelled "voodoo", btw. :)
+
