@@ -1,7 +1,7 @@
-From: Mads Martin Joergensen <mmj@mmj.dk>
-Date: Tue, 19 Jul 2005 07:25:23 +0000
-Subject: Re: Fw: footer isn't appended to multipart messages (part II: reality check!)
-Message-Id: <20050719072523.GO83227@mmj.dk>
+From: Jakob Hirsch <jh@plonk.de>
+Date: Tue, 19 Jul 2005 07:59:32 +0000
+Subject: Re: Fw: footer isn't appended to multipart messages (part II: reality
+Message-Id: <42DCB2E4.2020405@plonk.de>
 List-Id: <mlmmj.mlmmj.org>
 References: <200507052130.02825.lists@seattleserver.com>
 In-Reply-To: <200507052130.02825.lists@seattleserver.com>
@@ -10,63 +10,52 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-* Jakob Hirsch <jh@plonk.de> [Jul 19. 2005 01:27]:
-> > Is it just me, or is the second patch much better than the first one?
-> 
-> Of course it's better, else I wouldn't have posted it. :)
-> But the difference is not that big. I took out one forgotten debug
-> message and made it a little more reliable. (Seems that the local Samba
-> Festival and the Tour de France passing through was a little too much
-> distraction :)
+Mads Martin Joergensen wrote:
 
-Hehe :)
+>>and text, with or without attachment). Everybody feel free to send
+>>something else to test@list.ymmv.de.
+> People, please send all kinds of potential mails breaking this to this
+> list. I would really like to have this tested.
 
-> > How much testing have this seen?
-> 
-> I tested the most common cases: no content-type, text/plain,
-> multipart/mixed (i.e. attachment) and multipart/alternative (i.e. html
-> and text, with or without attachment). Everybody feel free to send
-> something else to test@list.ymmv.de.
+Found 1 non-working case already: Pine uses an all upper-case
+Content-Type line, strstr("boundary") fails. There is a strchrstr() on
+my system, but it seems to be a GNUism (even without having a man-page),
+so I have to invent my own.
 
-People, please send all kinds of potential mails breaking this to this
-list. I would really like to have this tested.
+>>Possible problems I see:
+>>
+>>- as I did no full parsing of the Content-Type header, the recognition
+>>of the boundary is not 100% reliable, but it's very unlikely that
+>>;boundary=" is something else.
+> How hard would it be to parse it completely?
 
-> Possible problems I see:
-> 
-> - as I did no full parsing of the Content-Type header, the recognition
-> of the boundary is not 100% reliable, but it's very unlikely that
-> ;boundary=" is something else.
+Depends on what can possibly appear in the Content-Type line. Until now,
+all I ever saw there was 'multipart/something; boundary="...."' at most.
+I have to investigate.
 
-How hard would it be to parse it completely?
+>>- I only handle multipart/mixed and multipart/alternative, everything
+>>else is assumed to be plain text, which is probably not true but it's
+>>also the former behaviour. Maybe it's better to re-encapsulate
+>>everything that is not already multipart/mixed. What do you think?
+> But if it's assumed to be text/plain, then the behaviour is as before,
+> no more, no less?
 
-> - I only handle multipart/mixed and multipart/alternative, everything
-> else is assumed to be plain text, which is probably not true but it's
-> also the former behaviour. Maybe it's better to re-encapsulate
-> everything that is not already multipart/mixed. What do you think?
+Yes. In most cases you'll get the old behaviour if something goes wrong.
+Worst case is no footer at all, but then the user won't have seen it anyway.
 
-But if it's assumed to be text/plain, then the behaviour is as before,
-no more, no less?
+>>- Finding the close delimiter of multipart/mixed messages will not work
+>>if there is (too much) text after the closing delimiter. This should
+>>normally not happen, as this text will not be displayed by mail clients
+>>(which was the why this came up at all). I think this is a minor issue.
+> What does "too much text" mean in this case?
 
-> - Finding the close delimiter of multipart/mixed messages will not work
-> if there is (too much) text after the closing delimiter. This should
-> normally not happen, as this text will not be displayed by mail clients
-> (which was the why this came up at all). I think this is a minor issue.
+The code goes back 2*strlen(boundary)-1, so the garbage has to be less
+than strlen(boundary), which is about 10..30 chars. I could read a
+bigger buffer or even consecutively read back overlapping blocks. Hmm,
+not too hard to do, so maybe I should stick to reliability.
 
-What does "too much text" mean in this case?
+>>- "voodo" is spelled "voodoo", btw. :)
+> Yeah--mlmmj have a history of misspelled words. Look at mlmmj-recieve
 
-> - memory leaks if something goes wrong (i.e., at every return -1). Also
-> not important IMHO, as the mlmmj-process will immediatly exit then, but
-> I can fix this if you want.
+Stumbled across that already :)
 
-Don't.
-
-> - "voodo" is spelled "voodoo", btw. :)
-
-Yeah--mlmmj have a history of misspelled words. Look at mlmmj-recieve
-:-)
-
--- 
-Mads Martin Joergensen, http://mmj.dk
-"Why make things difficult, when it is possible to make them cryptic
- and totally illogical, with just a little bit more effort?"
-                                -- A. P. J.
