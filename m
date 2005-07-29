@@ -1,38 +1,35 @@
-From: fifadd@tin.it
-Date: Tue, 19 Jul 2005 15:34:03 +0000
-Subject: Re: mlmmj 1.2.9 UNOFFICIAL release, with qmail support
-Message-Id: <42D3CDD00000CF71@ims3a.cp.tin.it>
+From: Michael Erdely <merdely@gmail.com>
+Date: Fri, 29 Jul 2005 17:46:46 +0000
+Subject: mlmmj with OpenBSD's sendmail
+Message-Id: <72aa2990507291046a93884d@mail.gmail.com>
 List-Id: <mlmmj.mlmmj.org>
-References: <42D3CDD00000AB73@ims3a.cp.tin.it>
-In-Reply-To: <42D3CDD00000AB73@ims3a.cp.tin.it>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
+Hi,
 
->-- Messaggio originale --
->Date: Tue, 19 Jul 2005 11:11:32 +0200
->From: Mads Martin Joergensen <mmj@mmj.dk>
->To: mlmmj@mmj.dk
->Subject: Re: mlmmj 1.2.9 UNOFFICIAL release, with qmail support
->
->
->* Morten K. Poulsen <morten@afdelingp.dk> [Jul 19. 2005 11:10]:
->> On Mon, Jul 18, 2005 at 11:41:03PM +0200, Mads Martin Joergensen wrote:
->> >  if(owner && strncmp(recipdelim, concatstr(2, RECIPDELIM, "owner@"),
->7) == 0) {
->> 
->> Wouldn't
->> 
->> if(owner && strncmp(recipdelim, RECIPDELIM"owner@", 7) == 0) {
->> 
->> do the same? Then the compiler handles the concatenation.
->
->Indeed! I totally forgot about that.
+I'm trying to get mlmmj running on OpenBSD 3.6 (and then, soon, OpenBSD 3.7).
 
-Idem!
+I'm using a virtual users table in sendmail with the following entry:
+mlmmj-test@mydomain.com  mlmmj-test-mydomain.com
 
--Filippo
+I have an /etc/mail/aliases entry:
+mlmmj-test-mydomain.com: "|/usr/local/bin/mlmmj-recieve -L
+/var/spool/mlmmj/mlmmj-test/"
 
+I've successfully subscribed to my test list.  When I try to send
+email to it, it ends up in queue/discarded.
 
+I used mlmmj-make-ml.sh to create the list.  Ran chown -R daemon
+/var/spool/mlmmj.
+
+Ideas?  Can I provide more useful info?
+
+Thanks.
+
+-- 
+http://erdelynet.com/
+
+Support OpenBSD! http://www.openbsd.org/orders.html
