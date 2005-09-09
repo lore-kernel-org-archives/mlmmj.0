@@ -1,76 +1,107 @@
-From: Joel Aelwyn <joel@lightbearer.com>
-Date: Fri, 09 Sep 2005 07:20:32 +0000
+From: Jason Diamond <jason@diamond.name>
+Date: Fri, 09 Sep 2005 14:50:31 +0000
 Subject: Re: archive directory only has one message in it
-Message-Id: <432137C0.60007@lightbearer.com>
+Message-Id: <551ec88905090907506ce2dcca@mail.gmail.com>
 MIME-Version: 1
-Content-Type: multipart/mixed; boundary="------------enigD32D933152AF4B8B049DB4FD"
+Content-Type: multipart/mixed; boundary="----=_Part_1731_26302321.1126277431794"
 List-Id: <mlmmj.mlmmj.org>
 References: <4320A09D.9060608@diamond.name>
 In-Reply-To: <4320A09D.9060608@diamond.name>
 To: mlmmj@mlmmj.org
 
-This is an OpenPGP/MIME signed message (RFC 2440 and 3156)
---------------enigD32D933152AF4B8B049DB4FD
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+------=_Part_1731_26302321.1126277431794
+Content-Type: text/plain; charset=ISO-8859-1
+Content-Transfer-Encoding: quoted-printable
+Content-Disposition: inline
 
-Jason Diamond wrote:
-> Hi.
-> 
-> I just created my first mailing list today using mlmmj. Everything seems 
-> to be working except for the archive. When I look in the archive 
-> directory, it contains one file called "0". The contents of that file 
-> are the most recent message posted to the list. The rest of the messages 
-> seem to have been lost. Is this normal or might I have something 
-> misconfigured?
-> 
-> I'm using Exim 4 on a Debian Sarge machine. The version of mlmmj I'm 
-> running is 1.2.7 since that what was in Debian experimental. The 
-> ChangeLog didn't say any bug was fixed regarding archives for 1.2.8 so I 
-> haven't tried doing a manual upgrade to that version.
-> 
-> Any ideas? Thanks.
+On 9/9/05, Joel Aelwyn <joel@lightbearer.com> wrote:
+>=20
+>=20
+> My copy, from the same source but hand-built to handle a few other tweaks
+> (like my variant of "support characters other than + as a separator",=20
+> which I
+> need to tweak slightly given something pointed out on the list), certainl=
+y
+> doesn't appear to have this issue. However, there is one thing you should
+> probably check, given the description of the problem: make sure the=20
+> 'index'
+> file exists, and is writeable, since that appears to be what mlmmj uses t=
+o
+> keep track of the archive's last posting number (and thus, if it doesn't
+> exist, it probably thinks that it should write out '0', and does so... an=
+d=20
+> if
+> it can't create the index file, well... lather, rinse, repeat). Did you=
+=20
+> check
+> your logfile to see if it reported anything?
+>=20
 
-My copy, from the same source but hand-built to handle a few other tweaks 
-(like my variant of "support characters other than + as a separator", which I 
-need to tweak slightly given something pointed out on the list), certainly 
-doesn't appear to have this issue. However, there is one thing you should 
-probably check, given the description of the problem: make sure the 'index' 
-file exists, and is writeable, since that appears to be what mlmmj uses to 
-keep track of the archive's last posting number (and thus, if it doesn't 
-exist, it probably thinks that it should write out '0', and does so... and if 
-it can't create the index file, well... lather, rinse, repeat). Did you check 
-your logfile to see if it reported anything?
+I think this is the problem.
 
-Wishlist items:
+The index file does exist but it's owned by root:root (the user I was when =
+I=20
+ran mlmmj-make-ml) and not writable by anybody else.
 
-*) Detect if the index file fails to write out, and if so, store the message 
-in a temporary area with a guaranteed-unique name (it might start with a hash 
-of the entire message, and then append '.1', '.2', etc, if there are other 
-copies...)
+I have exim launching the mlmmj-recieve program as nobody:nogroup since=20
+that's what all of the files in my mailing list directory (except index)=20
+were owned by. Could this be a bug in mlmmj-make-ml?
 
-*) Detect a pre-existing file, and don't write to it if one exists (I think 
-O_EXCL is generally available these days?) This one is pretty crucial, 
-actually, if there is ever any intent of allowing 'mere mortals' to touch any 
-part of the queue system, but delivery runs as mlmmj; otherwise it's prone to 
-symlink attacks, etc. Very bad. If the file already exists, something has gone 
-horribly wrong in the first place, and the message should probably be handed 
-as above; assume this is for the humans to untangle, but throw lots of klaxons 
-about it (mail the list admin, log it, etc.) so that they know.
--- 
-Joel Aelwyn <joel@lightbearer.com>
+I didn't realize that index needed to be written to by the user running=20
+mlmmj-receive. This is definitely good to know.
 
---------------enigD32D933152AF4B8B049DB4FD
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: OpenPGP digital signature
-Content-Disposition: attachment; filename="signature.asc"
+I only have two log files in my mailing list directory:=20
+mlmmj-maintd.lastrun.log and mlmmj.operation.log. Neither of them mentions=
+=20
+not being able to write to index.
 
------BEGIN PGP SIGNATURE-----
-Version: GnuPG v1.4.2 (MingW32)
+Thanks!
 
-iD8DBQFDITfAlZCPwGNtWe4RAl+0AJ965M0ITmccqUUj8MVSdZHUCc/qQACdGApg
-b0iTEKIVA/lqhuoDJJzuYfc=
-=qrX+
------END PGP SIGNATURE-----
+--=20
+Jason
 
---------------enigD32D933152AF4B8B049DB4FD--
+------=_Part_1731_26302321.1126277431794
+Content-Type: text/html; charset=ISO-8859-1
+Content-Transfer-Encoding: quoted-printable
+Content-Disposition: inline
+
+On 9/9/05, <b class=3D"gmail_sendername">Joel Aelwyn</b> &lt;<a href=3D"mai=
+lto:joel@lightbearer.com">joel@lightbearer.com</a>&gt; wrote:<div><span cla=
+ss=3D"gmail_quote"></span><blockquote class=3D"gmail_quote" style=3D"border=
+-left: 1px solid rgb(204, 204, 204); margin: 0pt 0pt 0pt 0.8ex; padding-lef=
+t: 1ex;">
+<br>My copy, from the same source but hand-built to handle a few other twea=
+ks<br>(like my variant of &quot;support characters other than + as a separa=
+tor&quot;, which I<br>need to tweak slightly given something pointed out on=
+ the list), certainly
+<br>doesn't appear to have this issue. However, there is one thing you shou=
+ld<br>probably check, given the description of the problem: make sure the '=
+index'<br>file exists, and is writeable, since that appears to be what mlmm=
+j uses to
+<br>keep track of the archive's last posting number (and thus, if it doesn'=
+t<br>exist, it probably thinks that it should write out '0', and does so...=
+ and if<br>it can't create the index file, well... lather, rinse, repeat). =
+Did you check
+<br>your logfile to see if it reported anything?<br></blockquote></div><br>
+I think this is the problem.<br>
+<br>
+The index file does exist but it's owned by root:root (the user I was
+when I ran mlmmj-make-ml) and not writable by anybody else.<br>
+<br>
+I have exim launching the mlmmj-recieve program as nobody:nogroup since
+that's what all of the files in my mailing list directory (except
+index) were owned by. Could this be a bug in mlmmj-make-ml?<br>
+<br>
+I didn't realize that index needed to be written to by the user running mlm=
+mj-receive. This is definitely good to know.<br>
+<br>
+I only have two log files in my mailing list directory:
+mlmmj-maintd.lastrun.log and mlmmj.operation.log. Neither of them
+mentions not being able to write to index.<br>
+<br>
+Thanks!<br>
+<br>
+-- <br>
+Jason<br>
+
+------=_Part_1731_26302321.1126277431794--
