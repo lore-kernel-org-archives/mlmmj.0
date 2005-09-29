@@ -1,37 +1,25 @@
-From: "Patrick Bennett" <patrick@pebcomputing.com>
-Date: Thu, 29 Sep 2005 11:40:10 +0000
+From: Mads Martin Joergensen <mmj@mmj.dk>
+Date: Thu, 29 Sep 2005 11:43:56 +0000
 Subject: Re: silently discarded post
-Message-Id: <006501c5c4ea$8d0259a0$6664a8c0@stnick>
+Message-Id: <20050929114356.GK75399@mmj.dk>
 List-Id: <mlmmj.mlmmj.org>
 References: <003f01c5c4e1$dbd80420$6664a8c0@stnick>
 In-Reply-To: <003f01c5c4e1$dbd80420$6664a8c0@stnick>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-I wish I had seen that offer before I just apt-get updated to testing.  Heh=
-.=20
-Well, anyways, 1.2.8 now installed.... will wait for morning and ask my use=
-r=20
-to try posting again.
+* Patrick Bennett <patrick@pebcomputing.com> [Sep 29. 2005 13:42]:
+> I wish I had seen that offer before I just apt-get updated to testing.  
+> Heh. Well, anyways, 1.2.8 now installed.... will wait for morning and ask 
+> my user to try posting again.
 
-Thanks for the help,
-Patrick
-~~~~~~~~~~~~
+And if it fails again, please resend the mail, and the logs as before.
+Thanks.
 
-The 1.2.4-1 version of mlmmj is the one currently in the stable branch of
-Debian, and the 1.2.8-7 version in unstable probably won't install on a host
-running stable.
-
-If it would help, I will be happy to provide a backported version of 1.2.8 =
-
-that works on Debian stable.
-
---=20
-S=F8ren O.                                           ,''`.
-                                                  : :' :
-GPG key id: 0x1EB2DE66                            `. `'
-GPG signed mail preferred.                          `-
-
-
+-- 
+Mads Martin Joergensen, http://mmj.dk
+"Why make things difficult, when it is possible to make them cryptic
+ and totally illogical, with just a little bit more effort?"
+                                -- A. P. J.
