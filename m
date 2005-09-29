@@ -1,7 +1,7 @@
-From: Sven 'Darkman' Michels <sven@darkman.de>
-Date: Thu, 29 Sep 2005 11:16:59 +0000
+From: "Patrick Bennett" <patrick@pebcomputing.com>
+Date: Thu, 29 Sep 2005 11:40:10 +0000
 Subject: Re: silently discarded post
-Message-Id: <433BCD2B.7030604@darkman.de>
+Message-Id: <006501c5c4ea$8d0259a0$6664a8c0@stnick>
 List-Id: <mlmmj.mlmmj.org>
 References: <003f01c5c4e1$dbd80420$6664a8c0@stnick>
 In-Reply-To: <003f01c5c4e1$dbd80420$6664a8c0@stnick>
@@ -10,27 +10,28 @@ Content-Type: text/plain; charset="iso-8859-1"
 Content-Transfer-Encoding: quoted-printable
 To: mlmmj@mlmmj.org
 
------BEGIN PGP SIGNED MESSAGE-----
-Hash: SHA1
+I wish I had seen that offer before I just apt-get updated to testing.  Heh=
+.=20
+Well, anyways, 1.2.8 now installed.... will wait for morning and ask my use=
+r=20
+to try posting again.
 
-S=F8ren Boll Overgaard wrote:
-|>Can you try and reproduce with mlmmj-1.2.8?
-|
-| The 1.2.4-1 version of mlmmj is the one currently in the stable branch of
-| Debian, and the 1.2.8-7 version in unstable probably won't install on
-a host
-| running stable.
-|
-| If it would help, I will be happy to provide a backported version of
-1.2.8 that works on Debian stable.
+Thanks for the help,
+Patrick
+~~~~~~~~~~~~
 
-Try this for now: http://noc.sectoor.de/mlmmj_1.2.8-2_i386.deb
+The 1.2.4-1 version of mlmmj is the one currently in the stable branch of
+Debian, and the 1.2.8-7 version in unstable probably won't install on a host
+running stable.
 
-Regards,
-Sven
------BEGIN PGP SIGNATURE-----
-Version: GnuPG v1.2.2 (GNU/Linux)
+If it would help, I will be happy to provide a backported version of 1.2.8 =
 
-iD8DBQFDO80qQoCguWUBzBwRAkZ0AKCLJH94VzLS8BCpsygzdV1nESnebACfRuh1
-mIjxv8KR7M+qsFl8Q6dwEfs=3DlNOq
------END PGP SIGNATURE-----
+that works on Debian stable.
+
+--=20
+S=F8ren O.                                           ,''`.
+                                                  : :' :
+GPG key id: 0x1EB2DE66                            `. `'
+GPG signed mail preferred.                          `-
+
+
