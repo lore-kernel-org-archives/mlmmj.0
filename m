@@ -1,7 +1,7 @@
-From: Sven 'Darkman' Michels <sven@darkman.de>
-Date: Fri, 30 Sep 2005 14:38:42 +0000
+From: Mads Martin Joergensen <mmj@mmj.dk>
+Date: Fri, 30 Sep 2005 14:41:19 +0000
 Subject: Re: silently discarded post
-Message-Id: <433D4DF2.8060406@darkman.de>
+Message-Id: <20050930144119.GF18527@mmj.dk>
 List-Id: <mlmmj.mlmmj.org>
 References: <003f01c5c4e1$dbd80420$6664a8c0@stnick>
 In-Reply-To: <003f01c5c4e1$dbd80420$6664a8c0@stnick>
@@ -10,24 +10,22 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
------BEGIN PGP SIGNED MESSAGE-----
-Hash: SHA1
+* Sven 'Darkman' Michels <sven@darkman.de> [Sep 30. 2005 16:38]:
+> | It is the source of the error, and very hard to work around. Reason
+> | mlmmj discards it, is that it's not a valid from with two email adresses
+> | in it, and then it's thrown away.
+> 
+> How about checking the Return-Path instead of the From for such
+> checks? No bullshitsigns from bloated mailsystems and normally the
+> same address (if not its probably a spoofing, so it would work ok)
+> or did i forgot something?
 
-Mads Martin Joergensen wrote:
-| It is the source of the error, and very hard to work around. Reason
-| mlmmj discards it, is that it's not a valid from with two email adresses
-| in it, and then it's thrown away.
+It's already done on both :-)
 
-How about checking the Return-Path instead of the From for such
-checks? No bullshitsigns from bloated mailsystems and normally the
-same address (if not its probably a spoofing, so it would work ok)
-or did i forgot something?
+So we can be less restrictive.
 
-Regards,
-Darkman
------BEGIN PGP SIGNATURE-----
-Version: GnuPG v1.2.2 (GNU/Linux)
-
-iD8DBQFDPU3yQoCguWUBzBwRAtwhAKCK8xfuEpP8b6JU9N2jx3BYYRIKPQCfRIHT
-A4VcAusihcRrP3XKVWOIckA=pYUD
------END PGP SIGNATURE-----
+-- 
+Mads Martin Joergensen, http://mmj.dk
+"Why make things difficult, when it is possible to make them cryptic
+ and totally illogical, with just a little bit more effort?"
+                                -- A. P. J.
