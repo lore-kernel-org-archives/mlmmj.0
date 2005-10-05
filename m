@@ -1,333 +1,108 @@
-From: Filippo Fadda <fifadd@tin.it>
-Date: Tue, 04 Oct 2005 20:52:06 +0000
-Subject: RECIPDELIM patch, italian lists texts, qmail how-to and some
-Message-Id: <6.2.3.4.2.20051004222158.03132540@postino.programmazione.it>
+From: Joel Aelwyn <joel@lightbearer.com>
+Date: Wed, 05 Oct 2005 00:15:59 +0000
+Subject: Re: RECIPDELIM patch, italian lists texts, qmail how-to and some
+Message-Id: <43431B3F.9070702@lightbearer.com>
 MIME-Version: 1
-Content-Type: multipart/mixed; boundary="=====================_33150406==_"
+Content-Type: multipart/mixed; boundary="------------enigCE8A81856DC9A7A9814D1D87"
 List-Id: <mlmmj.mlmmj.org>
+References: <6.2.3.4.2.20051004222158.03132540@postino.programmazione.it>
+In-Reply-To: <6.2.3.4.2.20051004222158.03132540@postino.programmazione.it>
 To: mlmmj@mlmmj.org
 
---=====================_33150406==_
-Content-Type: text/html; charset="us-ascii"
+This is an OpenPGP/MIME signed message (RFC 2440 and 3156)
+--------------enigCE8A81856DC9A7A9814D1D87
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-<html>
-<body>
-Hi Mads,<br><br>
-here you can find the RECIPDELIM patch, with the italian lists texts and
-the qmail readme file. I'm running it for about 2 months, and it seems
-work good. But we have a problem to solve related to the delivery-to
-field. Qmail with vpopmail doesn't work with mlmmj, because as you can
-see from headers, vpopmail add the virtual domain name before the list
-name. So the code from 1.2.8 does not work.<br><br>
-Return-Path: &lt;newsletter-bounces-25@programmazione.it&gt;<br>
-Delivered-To: fifadd@tin.it<br>
-Received: (qmail 20834 invoked by uid 530); 4 Oct 2005 20:45:55
-+0200<br>
-Received: from localhost (HELO postino.programmazione.it)
-(127.0.0.1)<br>
-&nbsp; by postino.programmazione.it with SMTP; 4 Oct 2005 20:45:55
-+0200<br>
-Delivered-To: programmazione.it-newsletter@programmazione.it<br>
-Received: (qmail 17462 invoked by uid 530); 4 Oct 2005 20:44:11
-+0200<br>
-Received: from
-<a href="http://www.programmazione.it" eudora="autourl">
-www.programmazione.it</a> (HELO 10.254.3.10) (212.35.214.84)<br>
-&nbsp; by postino.programmazione.it with SMTP; 4 Oct 2005 20:44:11
-+0200<br>
-MIME-Version: 1.0<br>
-Content-type: text/html; charset=iso-8859-1<br>
-From: noreply@programmazione.it<br>
-To: newsletter@programmazione.it<br>
-Date: Tue,&nbsp; 4 Oct 2005 21:20:36 +0200<br>
-Message-Id: 9be7b2f116a9cec35258e9ae705d83e7@programmazione.it<br>
-Subject: Pensiero Digitale - Varie dal mondo<br><br>
-To make it working I have made this change. Delivery-to is not a related
-RFC field so, for me, is not right way, but if you prefer use it you have
-to find a better solution that is qmail+vpopmail compatible. The original
-code from 1.2.8 does not work and you need the following
-changes.<br><br>
--<x-tab>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</x-tab>if(whichto
-&amp;&amp; whichto-&gt;emaillist &amp;&amp;
-whichto-&gt;emaillist[0])<br>
--<x-tab>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</x-tab><x-tab>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</x-tab>recipdelim =
-strchr(whichto-&gt;emaillist[0], RECIPDELIM);<br>
--<x-tab>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</x-tab>else<br>
--<x-tab>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</x-tab><x-tab>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</x-tab>recipdelim =
-NULL;<br>
-+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if(toemails.emaillist
-&amp;&amp; toemails.emaillist[0])<br>
-+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-recipdelim = strstr(toemails.emaillist[0], RECIPDELIM);<br>
-+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else<br>
-+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-recipdelim = NULL;<br><br>
-The patch of <a name="439"></a>Joel Aelwyn that it seems based on my job,
-cannot work with qmail and vpopmail because it has the same 1.2.8
-problems.<br><br>
--Filippo</body>
-</html>
+Filippo Fadda wrote:
+> Hi Mads,
+> 
+> here you can find the RECIPDELIM patch, with the italian lists texts and 
+> the qmail readme file. I'm running it for about 2 months, and it seems 
+> work good. But we have a problem to solve related to the delivery-to 
+> field. Qmail with vpopmail doesn't work with mlmmj, because as you can 
+> see from headers, vpopmail add the virtual domain name before the list 
+> name. So the code from 1.2.8 does not work.
+> 
+> Return-Path: <newsletter-bounces-25@programmazione.it>
+> Delivered-To: fifadd@tin.it
+> Received: (qmail 20834 invoked by uid 530); 4 Oct 2005 20:45:55 +0200
+> Received: from localhost (HELO postino.programmazione.it) (127.0.0.1)
+>   by postino.programmazione.it with SMTP; 4 Oct 2005 20:45:55 +0200
+> Delivered-To: programmazione.it-newsletter@programmazione.it
+> Received: (qmail 17462 invoked by uid 530); 4 Oct 2005 20:44:11 +0200
+> Received: from www.programmazione.it <http://www.programmazione.it> 
+> (HELO 10.254.3.10) (212.35.214.84)
+>   by postino.programmazione.it with SMTP; 4 Oct 2005 20:44:11 +0200
+> MIME-Version: 1.0
+> Content-type: text/html; charset=iso-8859-1
+> From: noreply@programmazione.it
+> To: newsletter@programmazione.it
+> Date: Tue,  4 Oct 2005 21:20:36 +0200
+> Message-Id: 9be7b2f116a9cec35258e9ae705d83e7@programmazione.it
+> Subject: Pensiero Digitale - Varie dal mondo
+> 
+> To make it working I have made this change. Delivery-to is not a related 
+> RFC field so, for me, is not right way, but if you prefer use it you 
+> have to find a better solution that is qmail+vpopmail compatible. The 
+> original code from 1.2.8 does not work and you need the following changes.
+> 
+> -       if(whichto && whichto->emaillist && whichto->emaillist[0])
+> -                recipdelim = strchr(whichto->emaillist[0], RECIPDELIM);
+> -       else
+> -                recipdelim = NULL;
+> +        if(toemails.emaillist && toemails.emaillist[0])
+> +                recipdelim = strstr(toemails.emaillist[0], RECIPDELIM);
+> +        else
+> +                recipdelim = NULL;
+> 
+> The patch of Joel Aelwyn that it seems based on my job, cannot work with 
+> qmail and vpopmail because it has the same 1.2.8 problems.
 
---=====================_33150406==_
-Content-Type: application/octet-stream; name="recipdelim.patch.gz";
- x-mac-type="477A6970"; x-mac-creator="477A6970"
-Content-Transfer-Encoding: base64
-Content-Disposition: attachment; filename="recipdelim.patch.gz"
+Actually, I wrote it from scratch, though I did pay attention to what I could 
+see of known issues on the mailing list. There just aren't very many ways to 
+do this particular patch that won't look fairly similar, if done right. 
+However, using toemails seems like the wrong answer here; that's the whole 
+point of the "tocc" tunable, isn't it?
 
-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
---=====================_33150406==_--
+The *best* way to handle it, really, is to do exactly what qmail does 
+internally, and rely on the mailer to set environment variables (SENDER, 
+RECIPIENT, USER, HOST, LOCAL, and EXT - or rather, a particular subset of 
+those that I'd have to look up again to be sure of, other than EXT) with the 
+correct data in them, rather than trying to re-process the email addresses 
+(either destination or delivery based). This does, of course, require other 
+mailers to set those variables, but most things that aren't qmail are 
+sufficiently flexible to handle doing that as a config adjustment (if they 
+don't already do it by default).
 
+To the best of my knowledge, there *isn't* any RFC-required header that is 
+guaranteed to be present, and guaranteed to hold the list's email address. The 
+best bet is something that propagates RCPT TO, which actually controls 
+delivery - and that pretty much means Delivered-To, where it exists and 
+follows the convention of the first line being the RCPT TO data address. Or 
+requiring all mailers to either A) make the data available via an environment 
+variable, or B) set an RFC-approved, non-required header such as X-SMTP-RCPT_TO.
+
+Or, to pull out the swiss army knife, add another config file - that tells 
+mlmmj how to check for the list address (say, for example, "Match the 
+following regexp on any header" - but that then raises the question of whether 
+headers are handled as-delivered or collapsed, etc... still, this might be a 
+useful answer, overall, since much of it already exists in mlmmj for the 
+purposes of user checking and moderation controls).
+-- 
+Joel Aelwyn <joel@lightbearer.com>
+
+--------------enigCE8A81856DC9A7A9814D1D87
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: OpenPGP digital signature
+Content-Disposition: attachment; filename="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.2 (MingW32)
+
+iD8DBQFDQxs/lZCPwGNtWe4RAmbwAJ94Ses9F0rswilU5/aSMPrDu+biGACfbLEd
+h8GYDC8Xau8pq31eNU6l71g=
+=rTsz
+-----END PGP SIGNATURE-----
+
+--------------enigCE8A81856DC9A7A9814D1D87--
