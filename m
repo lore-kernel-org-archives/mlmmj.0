@@ -1,69 +1,43 @@
-From: Neale Pickett <neale@woozle.org>
-Date: Mon, 31 Oct 2005 03:19:51 +0000
-Subject: new find_email_adr.c
-Message-Id: <200510302019.51940.neale@woozle.org>
+From: Mads Martin Joergensen <mmj@mmj.dk>
+Date: Sun, 09 Oct 2005 15:12:04 +0000
+Subject: [CFT] mlmmj-1.2.9-RC1
+Message-Id: <20051009151204.GB17022@mmj.dk>
 List-Id: <mlmmj.mlmmj.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-This patch to my previous post removes two debugging statements, and fixes a 
-bug that showed up when people used bare email addresses in the headers.  For 
-instance:
+Hey all,
 
-  To: neale@woozle.org
+This have survived my own basic testing, but I would love for someone to
+have a run with it as well. If I forgot to merge a patch that I said I
+would, please resend.
 
-instead of
+Most notable is the fact that delimiter is configurable now, thanks to
+Joel Aelwyn. Also to Filippo for working on this.
 
-  To: Neale Pickett <neale@woozle.org>
+Also those who are running patched versions, please please download this
+tar-ball and make sure your patches are folded in.
 
-would trigger the bug (and bounce email).
+http://mlmmj.mmj.dk/files/mlmmj-1.2.9-RC1.tar.bz2
+http://mlmmj.mmj.dk/files/mlmmj-1.2.9-RC1.tar.gz
 
-I don't know if anybody's even tried my new find_email_adr.c, I haven't gotten 
-any feedback on it yet.  It works for me, so far.  You can find the whole 
-file--which fixes email-parsing problems (I think), and which may be dropped 
-into src/--at http://woozle.org/~neale/repos/mlmmj/src/find_email_adr.c (part 
-of a darcs repository).
+The ChangeLog has it as usual:
 
-Neale
+ 1.2.9
+  o Make recipient delimiter configurable per list. SIC! (Joel Aelwyn)
+  o Added italian list texts translation. A thanks to Andrea Barisani, he
+    has checked italian texts. (Filippo F. Fadda)
+  o Use is_subbed_in instead of find_subscriber when subscribing people
+    (Christian Laursen)
+  o Make it possible to confirm subscription even though it's a
+    closedlist.  It makes sense to be able to confirm a request submitted
+    by the sysadmin on the commandline
+  o Add 'subonlyget' tunable which makes +get-N only work for subscribers
 
---- find_email_adr.c	2005-10-10 13:14:54.000000000 -0600
-+++ /home/neale/src/import/mlmmj/src/find_email_adr.c	2005-10-30 
-20:07:40.000000000 -0700
-@@ -83,12 +83,16 @@
- 
- 	if (name = NULL)
- 		return (NULL);
--	if (strchr(name, '(') = NULL && strchr(name, '<') = NULL
--	    && strchr(name, ' ') = NULL)
--		return (name);
- 
- 	/* We assume that length(input) <= length(output) */
- 	nbuf = mymalloc(strlen(name) + 1);
-+
-+	if (strchr(name, '(') = NULL && strchr(name, '<') = NULL
-+	    && strchr(name, ' ') = NULL) {
-+		strcpy(nbuf, name);
-+		return (nbuf);
-+	}
-+
- 	gotlt = 0;
- 	lastsp = 0;
- 	bufend = nbuf;
-@@ -200,7 +204,6 @@
- 			p += 1;
- 		}
- 
--		printf("cur: %s\n", cur);
- 		while(cur && ((' ' = *cur) ||
- 			    ('\t' = *cur) ||
- 			    ('\r' = *cur) ||
-@@ -213,7 +216,6 @@
- 
- 		adr = skin(cur);
- 		if (adr) {
--			printf("adr: %s\n", adr);
- 			retstruct->emailcount++;
- 			retstruct->emaillist = (char **)myrealloc(retstruct->emaillist,
- 					  sizeof(char *) * retstruct->emailcount);
+-- 
+Mads Martin Joergensen, http://mmj.dk
+"Why make things difficult, when it is possible to make them cryptic
+ and totally illogical, with just a little bit more effort?"
+                                 -- A. P. J.
