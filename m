@@ -1,28 +1,29 @@
-From: Sven 'Darkman' Michels <sven@darkman.de>
-Date: Sun, 09 Oct 2005 18:33:48 +0000
-Subject: converter for other archives?
-Message-Id: <4349628C.8010508@darkman.de>
+From: Christian Laursen <xi@borderworlds.dk>
+Date: Sun, 09 Oct 2005 22:03:07 +0000
+Subject: Re: converter for other archives?
+Message-Id: <861x2uz6uc.fsf@borg.borderworlds.dk>
 List-Id: <mlmmj.mlmmj.org>
+References: <4349628C.8010508@darkman.de>
+In-Reply-To: <4349628C.8010508@darkman.de>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
------BEGIN PGP SIGNED MESSAGE-----
-Hash: SHA1
+Sven 'Darkman' Michels <sven@darkman.de> writes:
 
-Hi there,
+> anyone migrated other lists to mlmmj and keeps the archives?
+> I'm currently in the process of moving an old minimalist to
+> mlmmj but i'd like to keep the archive. So if anyone has a
+> script or so, would be nice to hear from ;)
 
-anyone migrated other lists to mlmmj and keeps the archives?
-I'm currently in the process of moving an old minimalist to
-mlmmj but i'd like to keep the archive. So if anyone has a
-script or so, would be nice to hear from ;)
+I have a small script that takes one mail on standard input and
+adds it to the archive.
 
-Thanks and regards,
-Darkman
------BEGIN PGP SIGNATURE-----
-Version: GnuPG v1.2.2 (GNU/Linux)
+It's on <http://borderworlds.dk/~xi/mlmmj-add-to-archive.pl>.
 
-iD8DBQFDSWKMQoCguWUBzBwRAtTqAKCh8NtuDP0K75/UuBTqentg91zpNgCfRED1
-Gbls3hen8yH9y1SH+T0dMEA=hKGR
------END PGP SIGNATURE-----
+Depending on what you are moving from you'll have to run it from
+formail or xargs or something else.
+
+-- 
+Christian Laursen
