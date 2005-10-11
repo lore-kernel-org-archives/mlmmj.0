@@ -1,7 +1,7 @@
-From: Mads Martin Joergensen <mmj@mmj.dk>
-Date: Tue, 11 Oct 2005 00:15:49 +0000
+From: Neale Pickett <neale@woozle.org>
+Date: Tue, 11 Oct 2005 03:06:31 +0000
 Subject: Re: Fw: footer isn't appended to multipart messages (part II: reality check!)
-Message-Id: <20051011001549.GG17022@mmj.dk>
+Message-Id: <200510102106.31581.neale@woozle.org>
 List-Id: <mlmmj.mlmmj.org>
 References: <200507052130.02825.lists@seattleserver.com>
 In-Reply-To: <200507052130.02825.lists@seattleserver.com>
@@ -10,20 +10,12 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-* Jakob Hirsch <jh@plonk.de> [Oct 11. 2005 00:08]:
-> > If this does get added I hope it's optional.
-> 
-> So there should be an option footer_never_mime? Don't think that makes
-> much sense. If the mail has a multipart content-type, the footer will
-> be lost. If it's already MIME, we only meet the standards.
+On Monday 10 October 2005 06:15 pm, Mads Martin Joergensen wrote:
+> * Jakob Hirsch <jh@plonk.de> [Oct 11. 2005 00:08]:
+>
+> > If it's already MIME, we only meet the standards.
+>
+> So how about meeting the standars when and only when it's already MIME?
 
-So how about meeting the standars when and only when it's already MIME?
-
-And BTW--if you don't configure mlmmj to do it, you can have a mailing
-list manager that doesn't touch the mails whatsoever.
-
--- 
-Mads Martin Joergensen, http://mmj.dk
-"Why make things difficult, when it is possible to make them cryptic
- and totally illogical, with just a little bit more effort?"
-                                 -- A. P. J.
++1 for this.  There's no need to make a message multipart if there's only one 
+part in the first place (unless that one part isn't text/plain, I guess).
