@@ -1,7 +1,7 @@
-From: Neale Pickett <neale@woozle.org>
-Date: Mon, 10 Oct 2005 19:31:26 +0000
+From: Mads Martin Joergensen <mmj@mmj.dk>
+Date: Tue, 11 Oct 2005 00:17:59 +0000
 Subject: Re: [CFT] mlmmj-1.2.9-RC1
-Message-Id: <200510101331.26538.neale@woozle.org>
+Message-Id: <20051011001759.GH17022@mmj.dk>
 List-Id: <mlmmj.mlmmj.org>
 References: <20051009151204.GB17022@mmj.dk>
 In-Reply-To: <20051009151204.GB17022@mmj.dk>
@@ -10,17 +10,34 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Here's a little thing I found, which I guess could cause segfaults in 
-low-memory situations:
+* Neale Pickett <neale@woozle.org> [Oct 10. 2005 21:21]:
+> On Sunday 09 October 2005 11:33 pm, Mads Martin Joergensen wrote:
+> > * Patrick Bennett <patrick@pebcomputing.com> [Oct 10. 2005 00:56]:
+> > > Also, I wonder about the issue of handling the "From:" header in an
+> > > RFC-compliant way
+> >
+> > I'm sure the code Neale found is exactly what's needed, it's only a
+> > matter of someone finding the time to integrate it, and send me a patch.
+> 
+> You made it too easy on me, Mads!  I only had to change one function!
+> 
+> This isn't a patch, because I rewrote the entire file.  Just drop it
+> into your src directory and try it out.  And please do, if you have
+> the stomach for it.  I'm not convinced this will work for all
+> situations.
 
---- old-mlmmj-1/src/strgen.c    2005-10-10 13:30:29.565420691 -0600
-+++ new-mlmmj-1/src/strgen.c    2005-10-10 10:50:22.000000000 -0600
-@@ -245,7 +245,7 @@
-        const char *weekday = NULL, *month = NULL;
+You apparantly haven't looked at the current version. Predates
+mlmmj-0.3.0....
 
-        /* 6 + 26 + ' ' + timezone which is 5 + '\n\0' = 40 */
--       timestr = (char *)malloc(40);
-+       timestr = (char *)mymalloc(40);
-        t = time(NULL);
+> Please consider this an "alpha" version.  My mail lists aren't
+> terribly active so I need help testing.
 
-        localtime_r(&t, &lttm);
+I'll review and merge before 1.2.9 if it's doable.
+
+Thanks a bunch!
+
+-- 
+Mads Martin Joergensen, http://mmj.dk
+"Why make things difficult, when it is possible to make them cryptic
+ and totally illogical, with just a little bit more effort?"
+                                 -- A. P. J.
