@@ -1,29 +1,100 @@
-From: Christian Laursen <xi@borderworlds.dk>
-Date: Sun, 09 Oct 2005 22:03:07 +0000
-Subject: Re: converter for other archives?
-Message-Id: <861x2uz6uc.fsf@borg.borderworlds.dk>
+From: 
+Date: Tue, 11 Oct 2005 13:19:17 +0000
+Subject: Re: mlmmj Spanish translation
+Message-Id: <8511b92f0510110619v70f64353q@mail.gmail.com>
+MIME-Version: 1
+Content-Type: multipart/mixed; boundary="----=_Part_10023_26739056.1129036757674"
 List-Id: <mlmmj.mlmmj.org>
-References: <4349628C.8010508@darkman.de>
-In-Reply-To: <4349628C.8010508@darkman.de>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+References: <8511b92f05090806466e1c973d@mail.gmail.com>
+In-Reply-To: <8511b92f05090806466e1c973d@mail.gmail.com>
 To: mlmmj@mlmmj.org
 
-Sven 'Darkman' Michels <sven@darkman.de> writes:
+------=_Part_10023_26739056.1129036757674
+Content-Type: text/plain; charset=ISO-8859-1
+Content-Transfer-Encoding: quoted-printable
+Content-Disposition: inline
 
-> anyone migrated other lists to mlmmj and keeps the archives?
-> I'm currently in the process of moving an old minimalist to
-> mlmmj but i'd like to keep the archive. So if anyone has a
-> script or so, would be nice to hear from ;)
+2005/9/8, Mads Martin Joergensen:
 
-I have a small script that takes one mail on standard input and
-adds it to the archive.
+> > Enrique please spell and grammar check this, and then give it a go for
+> > inclusion.
+>
+> Yeah, as soon as I get the go, it's going to be in CVS.
 
-It's on <http://borderworlds.dk/~xi/mlmmj-add-to-archive.pl>.
+Hi,
+I attach the revised Spanish translation. I hope it can be included in v1.2=
+.9.
 
-Depending on what you are moving from you'll have to run it from
-formail or xargs or something else.
+The Danish and German translations don't use UTF-8 encoding for the
+extended ASCII characters, so I didn't either.
 
--- 
-Christian Laursen
+Btw, I found a typo in the English listhelp file: `reccognized' should
+actually be `recognized'.
+
+I also noticed the German translation is missing the bounce-probe file.
+
+Best regards,
+ Quique
+
+
+--
+It is impossible to make anything foolproof, because fools are so ingenious=
+.
+- Roger Berg
+
+------=_Part_10023_26739056.1129036757674
+Content-Type: application/x-bzip2; name="es.tbz"
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment; filename="es.tbz"
+
+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
+KA1W
+------=_Part_10023_26739056.1129036757674--
