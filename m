@@ -1,46 +1,23 @@
-From: Patrick Bennett <patrick@pebcomputing.com>
-Date: Tue, 11 Oct 2005 21:25:56 +0000
-Subject: $subaddress$?
-Message-Id: <434C2DE4.4050000@pebcomputing.com>
+From: Mads Martin Joergensen <mmj@mmj.dk>
+Date: Tue, 11 Oct 2005 23:31:09 +0000
+Subject: Re: $subaddress$?
+Message-Id: <20051011233109.GT17022@mmj.dk>
 List-Id: <mlmmj.mlmmj.org>
+References: <434C2DE4.4050000@pebcomputing.com>
+In-Reply-To: <434C2DE4.4050000@pebcomputing.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-I would like to include some more helpful information in the 
-"subonlypost" response.  Therefore:
+* Patrick Bennett <patrick@pebcomputing.com> [Oct 11. 2005 23:32]:
+> I would like to include some more helpful information in the 
+> "subonlypost" response.  Therefore:
 
-~~~~
+Patches are very welcome :-)
 
-Hi, this is the mlmmj program managing the mailinglist
-
-cluwest@cielini.org
-
-You have tried to post from this email address:
-
-[omitted]
-
-But this address is not subscribed, and only subscribers may post to
-the list.
-
-To subscribe to the mailing list, send a message to:
-
-$subaddress$
-
-To subscribe to the digest of this list send a message to:
-
-cluwest+subscribe-digest@cielini.org
-
-To subscribe to the "nomail" version of this list send a message to:
-
-cluwest+subscribe-nomail@cielini.org
-  
-
-~~~~~
-What's the magic variable I should be using instead of "$subaddress$"?  
-I was guessing "$subaddress$" based on "$nomailsubaddr$", 
-"$digestsubaddr$", etc.
-
-Thanks,
-Patrick
+-- 
+Mads Martin Joergensen, http://mmj.dk
+"Why make things difficult, when it is possible to make them cryptic
+ and totally illogical, with just a little bit more effort?"
+                                 -- A. P. J.
