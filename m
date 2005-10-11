@@ -1,14 +1,46 @@
-From: "Quintino A. G. Souza" <quin@ime.unicamp.br>
-Date: Wed, 07 Sep 2005 23:39:01 +0000
-Subject: moderators posts
-Message-Id: <431F7A15.3040605@ime.unicamp.br>
+From: Patrick Bennett <patrick@pebcomputing.com>
+Date: Tue, 11 Oct 2005 21:25:56 +0000
+Subject: $subaddress$?
+Message-Id: <434C2DE4.4050000@pebcomputing.com>
 List-Id: <mlmmj.mlmmj.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-In ezmlm, a moderated mailing list can be configured in such a way that 
-posts from a moderator are only sent to be approved to himself (not to 
-all moderators).  Is there a way to achieve this with mlmmj?  If not, 
-I'd like to ask for the inclusion of this feature in a next version.
+I would like to include some more helpful information in the 
+"subonlypost" response.  Therefore:
+
+~~~~
+
+Hi, this is the mlmmj program managing the mailinglist
+
+cluwest@cielini.org
+
+You have tried to post from this email address:
+
+[omitted]
+
+But this address is not subscribed, and only subscribers may post to
+the list.
+
+To subscribe to the mailing list, send a message to:
+
+$subaddress$
+
+To subscribe to the digest of this list send a message to:
+
+cluwest+subscribe-digest@cielini.org
+
+To subscribe to the "nomail" version of this list send a message to:
+
+cluwest+subscribe-nomail@cielini.org
+  
+
+~~~~~
+What's the magic variable I should be using instead of "$subaddress$"?  
+I was guessing "$subaddress$" based on "$nomailsubaddr$", 
+"$digestsubaddr$", etc.
+
+Thanks,
+Patrick
