@@ -1,7 +1,7 @@
-From: Christian Laursen <xi@borderworlds.dk>
-Date: Tue, 25 Oct 2005 07:20:38 +0000
+From: Harrison Caudill <Harrison.Caudill@HyperSphere.org>
+Date: Tue, 25 Oct 2005 15:13:48 +0000
 Subject: Re: mlmmj + postfix + virtual
-Message-Id: <86u0f6oyex.fsf@borg.borderworlds.dk>
+Message-Id: <a1c8fe210510250813s2f57ad4dt244b7fc369e80299@mail.gmail.com>
 List-Id: <mlmmj.mlmmj.org>
 References: <a1c8fe210510242315y45d547dcj319abb8182873881@mail.gmail.com>
 In-Reply-To: <a1c8fe210510242315y45d547dcj319abb8182873881@mail.gmail.com>
@@ -10,16 +10,19 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Harrison Caudill <Harrison.Caudill@HyperSphere.org> writes:
-
-> /etc/postfix/virtual.regex:
-> /(gtda-announce.*)@gtda.org/ gtda-announce
-
-What happens if you change it to
-/gtda-announce@gtda.org/ gtda-announce
-?
-
-My first guess is that your regex eats the stuff after the delimiter.
-
--- 
-Christian Laursen
+T24gMjUgT2N0IDIwMDUgMDk6MjA6MzggKzAyMDAsIENocmlzdGlhbiBMYXVyc2VuIDx4aUBib3Jk
+ZXJ3b3JsZHMuZGs+IHdyb3RlOgo+IEhhcnJpc29uIENhdWRpbGwgPEhhcnJpc29uLkNhdWRpbGxA
+SHlwZXJTcGhlcmUub3JnPiB3cml0ZXM6Cj4KPiA+IC9ldGMvcG9zdGZpeC92aXJ0dWFsLnJlZ2V4
+Ogo+ID4gLyhndGRhLWFubm91bmNlLiopQGd0ZGEub3JnLyBndGRhLWFubm91bmNlCj4KPiBXaGF0
+IGhhcHBlbnMgaWYgeW91IGNoYW5nZSBpdCB0bwo+IC9ndGRhLWFubm91bmNlQGd0ZGEub3JnLyBn
+dGRhLWFubm91bmNlCj4gPwoKU29sdmVkIHRoZSBwcm9ibGVtIGFjdHVhbGx5LiAgSSBoYWQgZ3Rk
+YS1hbm5vdW5jZSB0aGVyZSB3aGVyZWFzIHdoYXQgSQpuZWVkZWQgd2FzICQxLiAgUG9zdGZpeCwg
+aW4gcmVnZXhwIG1vZGUsIHdpbGwgZW51bWVyYXRlIGFsbApwYXJlbnRoaXNpemVkIHBvcnRpb25z
+LCBhbmQgbWFrZSB0aGVtIGF2YWlsYWJsZSB0byB5b3UgaW4gdGhlIGZvcm0gb2YKJG4gd2hlcmUg
+biBpcyB0aGUgMS1vZmZzZXQgaW5kZXguCgpNeSBuZXh0IHRhc2sgaXMgdG8gc2V0IGNvbnRyb2xz
+IHN1Y2ggdGhhdCBvbmx5IHRoZSBtb2RlcmF0b3JzIGFyZQpjYXBhYmxlIG9mIHNlbmRpbmcgZW1h
+aWxzIHRvIHRoZSBsaXN0LgoKVGhhbmtzIGZvciB5b3VyIGhlbHAhCgotSGFycmlzb24KCi0tCkhh
+cnJpc29uIENhdWRpbGwgQlMgQlMgICAgICAgICAgICAgICB8ICAuXiAgICAgICAgd3d3Lmh5cGVy
+c3BoZXJlLm9yZwpDb21wdXRlciBTY2llbmNlICYgUGh5c2ljcyBHcmFkdWF0ZSAgfCAgfCBNZSpN
+ZT0xCkdlb3JnaWEgSW5zdGl0dXRlIG9mIFRlY2hub2xvZ3kgICAgICB8IHYnICAgICAgICAgSSdt
+IGp1c3QgYSBub3JtYWwgZ3V5Cg=
