@@ -1,34 +1,29 @@
-From: Mads Martin Joergensen <mmj@mmj.dk>
-Date: Sun, 09 Oct 2005 14:31:58 +0000
-Subject: Re: RECIPDELIM patch, italian lists texts, qmail how-to and some issues
-Message-Id: <20051009143158.GS78143@mmj.dk>
+From: Harrison Caudill <Harrison.Caudill@HyperSphere.org>
+Date: Tue, 25 Oct 2005 06:15:34 +0000
+Subject: mlmmj + postfix + virtual
+Message-Id: <a1c8fe210510242315y45d547dcj319abb8182873881@mail.gmail.com>
 List-Id: <mlmmj.mlmmj.org>
-References: <6.2.3.4.2.20051004222158.03132540@postino.programmazione.it>
-In-Reply-To: <6.2.3.4.2.20051004222158.03132540@postino.programmazione.it>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-* Joel Aelwyn <joel@lightbearer.com> [Oct 05. 2005 02:17]:
-> >-       if(whichto && whichto->emaillist && whichto->emaillist[0])
-> >-                recipdelim = strchr(whichto->emaillist[0], RECIPDELIM);
-> >-       else
-> >-                recipdelim = NULL;
-> >+        if(toemails.emaillist && toemails.emaillist[0])
-> >+                recipdelim = strstr(toemails.emaillist[0], RECIPDELIM);
-> >+        else
-> >+                recipdelim = NULL;
-
-A normal qmail sets Delivered-To: and mlmmj in case it wont find a
-Delivered-To: will fall back to To:, hence the whichto variable.
-
-Is vpopmail mangling Delivered-To:?
-
-Normal qmail does set Delivered-To: correctly AFAICT.
-
--- 
-Mads Martin Joergensen, http://mmj.dk
-"Why make things difficult, when it is possible to make them cryptic
- and totally illogical, with just a little bit more effort?"
-                                 -- A. P. J.
+U3ltcHRvbXM6IG5vdGhpbmcgd29ya3MuCgpzdWJzY3JpYmUvdW5zdWJzY3JpYmUgYXJlIHRyZWF0
+ZWQgYXMgcG9zdHMuICBwb3N0cyBhcmUgYm91bmNlZCBiZWNhdXNlCm9mIHRoZSB0b2NjIHByb2Js
+ZW0uICBFdmVuIHdpdGggdG9jYyBwbGFjZWQgaW4gdGhlIGNvbnRyb2wgZGlyZWN0b3J5CnRob3Vn
+aCwgdGhlIGZpcnN0IHByb2JsZW0gcGVyc2lzdHMuCgpXaGF0IGFtIEkgZG9pbmcgd3Jvbmc/ICBJ
+ZiBJIGNvdWxkIGZpZ3VyZSBvdXQgaG93IHRvIGdldCBzb21lIGxvZ3MKZnJvbSBtbG1taiBJIG1p
+Z2h0IGJlIGluIGEgYmV0dGVyIHBvc2l0aW9uIHRvIGZpeCB0aGluZ3MsIGJ1dCBJIGNhbid0CmZp
+bmQgYW55dGhpbmcgbWVhbmluZ2Z1bC4KCi9ldGMvcG9zdGZpeC9tYWluLmNmOgp2aXJ0dWFsX2Fs
+aWFzX21hcHMgPSByZWdleHA6L2V0Yy9wb3N0Zml4L3ZpcnR1YWwucmVnZXgKdmlydHVhbF9hbGlh
+c19kb21haW5zID0gaHlwZXJzcGhlcmUub3JnIG1ldHJpY3RlbnNvci5uZXQgZ3RkYS5vcmcKcmVj
+aXBpZW50X2RlbGltaXRlciA9ICsKYWxpYXNfbWFwcyA9IGhhc2g6L2V0Yy9tYWlsL2FsaWFzZXMK
+YWxpYXNfZGF0YWJhc2UgPSBoYXNoOi9ldGMvbWFpbC9hbGlhc2VzCgovZXRjL21haWwvYWxpYXNl
+czoKZ3RkYS1hbm5vdW5jZTogICJ8L3Vzci9iaW4vbWxtbWotcmVjaWV2ZSAtTCAvdmFyL3Nwb29s
+L21sbW1qL2d0ZGEtYW5ub3VuY2UvIgoKL2V0Yy9wb3N0Zml4L3ZpcnR1YWwucmVnZXg6Ci8oZ3Rk
+YS1hbm5vdW5jZS4qKUBndGRhLm9yZy8gZ3RkYS1hbm5vdW5jZQoKL3Zhci9zcG9vbC9tbG1tai9n
+dGRhLWFubm91bmNlL2NvbnRyb2wvbGlzdGFkZHJlc3M6Cmd0ZGEtYW5ub3VuY2VAZ3RkYS5vcmcK
+ClRoYW5rcyBndXlzLApIYXJyaXNvbgoKLS0KSGFycmlzb24gQ2F1ZGlsbCBCUyBCUyAgICAgICAg
+ICAgICAgIHwgIC5eICAgICAgICB3d3cuaHlwZXJzcGhlcmUub3JnCkNvbXB1dGVyIFNjaWVuY2Ug
+JiBQaHlzaWNzIEdyYWR1YXRlICB8ICB8IE1lKk1lPTEKR2VvcmdpYSBJbnN0aXR1dGUgb2YgVGVj
+aG5vbG9neSAgICAgIHwgdicgICAgICAgICBJJ20ganVzdCBhIG5vcm1hbCBndXkK
