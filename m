@@ -1,37 +1,69 @@
 From: Neale Pickett <neale@woozle.org>
-Date: Tue, 11 Oct 2005 12:55:23 +0000
-Subject: Re: Fw: footer isn't appended to multipart messages (part II:  reality check!)
-Message-Id: <200510110655.24309.neale@woozle.org>
+Date: Mon, 31 Oct 2005 03:19:51 +0000
+Subject: new find_email_adr.c
+Message-Id: <200510302019.51940.neale@woozle.org>
 List-Id: <mlmmj.mlmmj.org>
-References: <200507052130.02825.lists@seattleserver.com>
-In-Reply-To: <200507052130.02825.lists@seattleserver.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-On Tuesday 11 October 2005 03:30 am, Jakob Hirsch wrote:
+This patch to my previous post removes two debugging statements, and fixes a 
+bug that showed up when people used bare email addresses in the headers.  For 
+instance:
 
-> > DIR/control/mimeencapsulate seems like the TUNABLE for it :-)
->
-> something like footer_use_mime sounded logical for me, as it's only used
-> if there's a footer, but I don't really care about that.
+  To: neale@woozle.org
 
-What if you call it control/mime_footer, which would supercede control/footer 
-and contain a full MIME part?  For instance:
+instead of
 
-  Content-Type: text/plain
+  To: Neale Pickett <neale@woozle.org>
 
-  This is the snot mail list.  To unsubscribe, send a message with
-  the subject "UNSUBSCIBE" to every member of the list, individually.
+would trigger the bug (and bounce email).
 
-The advantage here would be that you could make the footer anything you like: 
-it could be HTML, or a PNG, or even a multipart/alternative with all three.
-
-If you wanted to be super spiff about it, you could check to make sure there's 
-a header block in the file and if not prepend the Content-Type: text/plain 
-part.
-
-Call me crazy,
+I don't know if anybody's even tried my new find_email_adr.c, I haven't gotten 
+any feedback on it yet.  It works for me, so far.  You can find the whole 
+file--which fixes email-parsing problems (I think), and which may be dropped 
+into src/--at http://woozle.org/~neale/repos/mlmmj/src/find_email_adr.c (part 
+of a darcs repository).
 
 Neale
+
+--- find_email_adr.c	2005-10-10 13:14:54.000000000 -0600
++++ /home/neale/src/import/mlmmj/src/find_email_adr.c	2005-10-30 
+20:07:40.000000000 -0700
+@@ -83,12 +83,16 @@
+ 
+ 	if (name = NULL)
+ 		return (NULL);
+-	if (strchr(name, '(') = NULL && strchr(name, '<') = NULL
+-	    && strchr(name, ' ') = NULL)
+-		return (name);
+ 
+ 	/* We assume that length(input) <= length(output) */
+ 	nbuf = mymalloc(strlen(name) + 1);
++
++	if (strchr(name, '(') = NULL && strchr(name, '<') = NULL
++	    && strchr(name, ' ') = NULL) {
++		strcpy(nbuf, name);
++		return (nbuf);
++	}
++
+ 	gotlt = 0;
+ 	lastsp = 0;
+ 	bufend = nbuf;
+@@ -200,7 +204,6 @@
+ 			p += 1;
+ 		}
+ 
+-		printf("cur: %s\n", cur);
+ 		while(cur && ((' ' = *cur) ||
+ 			    ('\t' = *cur) ||
+ 			    ('\r' = *cur) ||
+@@ -213,7 +216,6 @@
+ 
+ 		adr = skin(cur);
+ 		if (adr) {
+-			printf("adr: %s\n", adr);
+ 			retstruct->emailcount++;
+ 			retstruct->emaillist = (char **)myrealloc(retstruct->emaillist,
+ 					  sizeof(char *) * retstruct->emailcount);
