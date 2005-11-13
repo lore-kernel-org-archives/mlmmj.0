@@ -1,148 +1,297 @@
-From: Joel Aelwyn <joel@lightbearer.com>
-Date: Sun, 16 Oct 2005 23:35:05 +0000
-Subject: Re: mlmmj Spanish translation
-Message-Id: <4352E3A9.10205@lightbearer.com>
+From: Jeremy Hinegardner <jeremy@hinegardner.org>
+Date: Sun, 13 Nov 2005 03:47:40 +0000
+Subject: recipient delimiter bug with RC1
+Message-Id: <20051113034740.GF4414@hinegardner.org>
 MIME-Version: 1
-Content-Type: multipart/mixed; boundary="------------enig3D7083729FDAD22008865D14"
+Content-Type: multipart/mixed; boundary="OXfL5xGRrasGEqWY"
 List-Id: <mlmmj.mlmmj.org>
-References: <8511b92f05090806466e1c973d@mail.gmail.com>
-In-Reply-To: <8511b92f05090806466e1c973d@mail.gmail.com>
 To: mlmmj@mlmmj.org
 
-This is an OpenPGP/MIME signed message (RFC 2440 and 3156)
---------------enig3D7083729FDAD22008865D14
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: quoted-printable
 
-Marcelo E. Magall=C3=B3n wrote:
-> On 10/11/05, Mads Martin Joergensen <mmj@mmj.dk> wrote:
->=20
->>* Marcelo E. Magall=C3=B3n <marcelo.magallon@gmail.com> [Oct 11. 2005 1=
-5:49]:
->>
->>>>The Danish and German translations don't use UTF-8 encoding for the
->>>>extended ASCII characters, so I didn't either.
->>>
->>>That's wrong.
->>>
->>>mlmmj won't do anything with the text it reads from the files
->>>coding-wise, so it's certain that using UTF-8 characters without
->>>including *some* header to that effect will break a system somewhere.
->>
->>That's why they're not UTF-8?
->=20
->=20
-> I meant any non-ASCII characters.  Enrique's files are ISO-8859-1 (or
-> -15, whatever) and they will lead to the same kind of trouble.  You
-> need a header that states that the body of the email is binary-encoded
-> and that the charset is ISO-8859-1.  The files I sent initially did
-> exactly this because you can't rely on the MTA to add such headers.
+--OXfL5xGRrasGEqWY
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-Oy. Yes. Please, please, PLEASE. This is the entire reason for the variou=
-s=20
-standards that got written. If it's not US-ASCII, then it needs a Content=
--Type=20
-which declares a charset (and potentially the supporting pieces). That=20
-includes UTF-8 (which I prefer, strongly, but even so it needs to be decl=
-ared;=20
-the RFCs are fairly clear about this one, folks - no declaration means=20
-US-ASCII, any character with the eighth bit set pretty much has an undefi=
-ned=20
-behavior, IE, the mailer can do anything it wants - throw it away, try to=
-=20
-autoconvert it, rearrange it into poetry...)
+Hi all,
 
-The correct answer is to use the MIME standards. That's why they were wri=
-tten.=20
-I know some people on here seem to be allergic to MIME, but honestly, if =
-you=20
-are? Write in US-ASCII. That's the price of wanting to avoid the=20
-oh-so-terrible extra bits. It'll compress better anyway if someone ever=20
-archives it, too. :)
+I was looking forward recipient delimiter to be configurable.  But it
+just so happens that on postfix with virtual domains and postfix's
+recipient delimiter set to '-' it doesn't quite work.  The bug manifests
+itself if you have a mailing list that has a name containing the
+recipient delimiter.  
 
-> More problematic is this:
->=20
->     Subject: =C3=93rdenes disponibles para $listaddr$
->=20
-> because the encoding of the subject has to be embedded in the subject
-> line itself ... which is exactly what the files I sent did and Enrique
-> dutyfully broke.
+In other words, if both postfix and mlmmj have their recipient
+delimiters set to '-' and you create a mailing list named 'mlmmj-test'
+then your subscribes, unsubscribes are mishandled by 'mlmmj' when it
+attempts to parse the email address for control commands.
 
-See above. There are standards covering this quite well, already. They sh=
-ould=20
-be used.
+For example:
+    postfix recipient delimiter = -
+    mlmmj recipient delimiter   = -
+    list name                   = mlmmj-test
 
-> Marcelo
->=20
-> PS: I do have objections to the "improved" translation, but the crux
-> of the them lies in the differences between Spanish as spoken in Spain
-> and Spanish as spoken in the rest of the world, so I'll just let that
-> one slip by.  Just as an example, the proper English translation for
-> the subject line I'm quoting is "Available orders for $listaddr$"
-> instead of "Available commands for $listaddr$".
+When mlmmj-test-subscribe@example.com gets to mlmmj it parse the command
+as being 'test-subscribe' which doesn't match so it exits.  Even if it
+was just a regular post to mlmmj-test@example.com then mlmmj assumes
+that it has a command since the recipient delimiter is present.
 
-This would be why es_ES and es_MX (what I've usually seen used to cover m=
-ost=20
-of the variants spoken in the Americas, since there isn't a country code =
-for=20
-'North and South America'...) exist, yes? Much like, oh, en_US and en_GB =
-(and=20
-en_CA and en_AU, eh, mate?)
+I'm not sure if I explained the problem very well, but the attached
+patch fixes it for me.
 
-The things listed under 'en' or 'es' should be as absolutely neutral as=20
-possible, which generally means it will sound 'stilted' or 'simplified' t=
-o the=20
-speakers of *all* dialects of the language. "Under the hood" or "under th=
-e=20
-bonnet" is really "in the engine compartment", "the boot" or "the trunk" =
-is=20
-"the (luggage|cargo) area" or possibly "the rear of the vehicle" (which i=
-s not=20
-a "car", "lorrey", "cab", or "auto", and probably shouldn't be an "automo=
-bile"=20
-though that's more acceptable). And unless you're in San Francisco, a=20
-"trolley" is also to be avoided.
+enjoy,
 
-You'd never guess that I was born in Texas, grew up in Kansas, lived in N=
-orth=20
-Carolina and California, and have roomed with Brits, Canadians, and=20
-Australians, now would you? :) Seriously, though. If it's es_ES, call it =
-that.=20
-If it's es_MX, call it that. The generic 'es' (or 'en') is just that -=20
-generic. It will sound 'bad' because it strips out all possible dialect=20
-nuances, and those arise entirely because they represent meaningful=20
-distinctions in that dialect. "Orders", "commands", "instructions",=20
-"directions", and "directives" all mean subtly different things just in e=
-n_US=20
-(and usually several *other* subtly different things in other en_* dialec=
-ts).=20
-And, oddly enough, the use of 'commands' is sufficiently traditional *in =
-a=20
-technical vocabulary* that it can potentially override the normal word=20
-selection simply by weight of it's own subcultural traditions - so the be=
-st=20
-answer might well be to use a literal analog of 'commands' even though it=
-=20
-isn't as graceful or sensible as some other alternatives in some language=
-s.=20
-After all, there are (arguably) more graceful or sensible alternatives in=
- it's=20
-origin tongue. :)
---=20
-Joel Aelwyn <joel@lightbearer.com>
+-jeremy
+
+--
+========================================================================
+Jeremy Hinegardner                              jeremy@hinegardner.org 
 
 
---------------enig3D7083729FDAD22008865D14
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: OpenPGP digital signature
-Content-Disposition: attachment; filename="signature.asc"
+--OXfL5xGRrasGEqWY
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: attachment; filename="mlmmj-1.2.9-RC1.patch"
 
------BEGIN PGP SIGNATURE-----
-Version: GnuPG v1.4.2 (MingW32)
+diff -r -u ./mlmmj-1.2.9-RC1-orig/include/listcontrol.h ./mlmmj-1.2.9-RC1/include/listcontrol.h
+--- ./mlmmj-1.2.9-RC1-orig/include/listcontrol.h	Wed Jun 16 15:11:52 2004
++++ ./mlmmj-1.2.9-RC1/include/listcontrol.h	Sat Nov 12 16:49:08 2005
+@@ -25,7 +25,7 @@
+ #define LISTCONTROL_H
+ 
+ #include "find_email_adr.h"
+-
++char* getdelimlocation(const char* emailaddress, const char *listdelim);
+ int listcontrol(struct email_container *fromemails, const char *listdir,
+ 		const char *controladdr, const char *mlmmjsub,
+ 		const char *mlmmjunsub, const char *mlmmjsend,
+diff -r -u ./mlmmj-1.2.9-RC1-orig/src/listcontrol.c ./mlmmj-1.2.9-RC1/src/listcontrol.c
+--- ./mlmmj-1.2.9-RC1-orig/src/listcontrol.c	Sun Oct  9 08:17:52 2005
++++ ./mlmmj-1.2.9-RC1/src/listcontrol.c	Sat Nov 12 16:59:32 2005
+@@ -65,6 +65,7 @@
+ 	CTRL_HELP,
+ 	CTRL_GET,
+ 	CTRL_LIST,
++    CTRL_OWNER,
+ 	CTRL_END  /* end marker, must be last */
+ };
+ 
+@@ -93,23 +94,122 @@
+ 	{ "moderate",           1 },
+ 	{ "help",               0 },
+ 	{ "get",                1 },
+-	{ "list",               0 }
++	{ "list",               0 },
++    { "owner",              0 },
+ };
+ 
++/*
++ * with listdelim configurable, the listdelim could possibly appear in
++ * the list name and we need to be able to test if it is just appearing
++ * in the email address or if it actually in the email address
++ */
++char* getdelimlocation(const char* emailaddress, const char *listdelim)
++{
++    int i;
++    char buf[BUFSIZE];
++    char* delimpos = NULL;
++    
++    for (i = CTRL_SUBSCRIBE_DIGEST ; (i < CTRL_END) && (NULL == delimpos) ; i++) {
++        memset(buf,'\0',BUFSIZE);
++        strncat(buf,listdelim,strlen(listdelim));
++        strncat(buf,ctrl_commands[i].command,strlen(ctrl_commands[i].command));
++        delimpos = strstr(emailaddress,(const char*)buf);
++    }
+ 
++    return delimpos;
++}
++
++/*
++ * now with the listdelim configurable, it it possible for the listdelim 
++ * character to be in the email address ahead of where it needs to be
++ * processed.  
++ *
++ * This function attempts to parse the control address and pull out the
++ * command and parameters.
++ *
++ * a ctrl_e value is returned, and **param will contain the param value
++ * if there is one.  the calling function must remember to free
++ * param.
++ */
++int getcontrolcommand(const char *listdir, const char *listdelim, const char *controladdr, char **param)
++{
++    char *atsign, *controlbuf, *controlstr, *ctrlptr;
++    size_t len,cmdlen;
++    unsigned int ctrl = CTRL_END ;
++    int ctrl_found = 0;
++    int buflen;
++
++	atsign = strchr(controladdr, '@');
++	MY_ASSERT(atsign);
++    buflen     = atsign - controladdr + 1; 
++    controlbuf = mymalloc(buflen);
++    MY_ASSERT(controlbuf);
++    memset(controlbuf,'\0',buflen);
++    strncpy(controlbuf,controladdr,buflen -1);
++
++#if 0
++    log_oper(listdir, OPLOGFNAME, "controladdr   = [%s]", controladdr);
++    log_oper(listdir, OPLOGFNAME, "atsign        = [%s]", atsign);
++    log_oper(listdir, OPLOGFNAME, "controlbuffer = [%s]", controlbuf);
++#endif
++
++    ctrlptr = strstr(controlbuf,listdelim);
++    while (!ctrl_found && (NULL != ctrlptr)) {
++        len = strlen(ctrlptr);
++        controlstr = mymalloc(len) ;
++        MY_ASSERT(controlstr);
++	    snprintf(controlstr, len, "%s", ctrlptr + strlen(listdelim));
++#if 0
++        log_oper(listdir,OPLOGFNAME,"ctrlptr     = [%s]",ctrlptr);
++        log_oper(listdir,OPLOGFNAME,"controladdr = [%s]",controladdr);
++        log_oper(listdir,OPLOGFNAME,"controlstr  = [%s]",controlstr);
++#endif
++        /* loop over the valid commands looking for a match */
++        for (ctrl=0; ctrl<CTRL_END; ctrl++) {
++            cmdlen = strlen(ctrl_commands[ctrl].command);
++            if (strncmp(controlstr, ctrl_commands[ctrl].command, cmdlen) == 0) {
++                
++                /* if this is a valid command, and it has parameters,
++                 * then get the parameters
++                 */
++                if (ctrl_commands[ctrl].accepts_parameter && (controlstr[cmdlen] == '-')) {
++                    *param = mystrdup(controlstr + cmdlen + 1);
++                    MY_ASSERT(*param);
++                    if (strchr(*param, '/')) {
++                        errno = 0;
++                        log_error(LOG_ARGS, "Slash (/) in"
++                            " list control request,"
++                            " discarding mail");
++                        exit(EXIT_SUCCESS);
++                    }
++                    ctrl_found = 1;
++                } else if (!ctrl_commands[ctrl].accepts_parameter && (controlstr[cmdlen] == '\0')) {
++                    *param = NULL;
++                    ctrl_found = 1;
++                } else {
++                    log_oper(listdir, OPLOGFNAME, "invalid command [%s]",controlstr);
++                }
++                myfree(controlstr);
++                break;
++            }
++        }
++
++        ctrlptr = strstr(ctrlptr+1,listdelim);
++    }
++    return ctrl;	
++}
++
+ int listcontrol(struct email_container *fromemails, const char *listdir,
+ 		const char *controladdr, const char *mlmmjsub,
+ 		const char *mlmmjunsub, const char *mlmmjsend,
+ 		const char *mlmmjbounce, const char *mailname)
+ {
+-	char *atsign, *recipdelimsign, *listdelim, *bouncenr, *tmpstr;
+-	char *controlstr, *param = NULL, *conffilename, *moderatefilename;
++	char *listdelim, *bouncenr, *tmpstr;
++	char *param = NULL, *conffilename, *moderatefilename;
+ 	char *c, *archivefilename, *sendfilename;
+ 	const char *subswitch;
+-	size_t len;
+ 	struct stat stbuf;
+ 	int closedlist, nosubconfirm, tmpfd, noget, i, subonlyget = 0;
+-	size_t cmdlen;
+ 	unsigned int ctrl;
+ 	struct strlist *owners;
+ 	
+@@ -123,53 +223,12 @@
+ 		subswitch = "-C";
+ 	
+ 	listdelim = getlistdelim(listdir);
+-	recipdelimsign = strstr(controladdr, listdelim);
+-	MY_ASSERT(recipdelimsign);
+-	atsign = index(controladdr, '@');
+-	MY_ASSERT(atsign);
+-	len = atsign - recipdelimsign;
++    ctrl = getcontrolcommand(listdir,listdelim,controladdr,&param); 
+ 
+-	controlstr = mymalloc(len);
+-	MY_ASSERT(controlstr);
+-	snprintf(controlstr, len, "%s", recipdelimsign + strlen(listdelim));
+-	myfree(listdelim);
+-
+ #if 0
+-	log_error(LOG_ARGS, "controlstr = [%s]\n", controlstr);
+ 	log_error(LOG_ARGS, "fromemails->emaillist[0] = [%s]\n",
+ 			fromemails->emaillist[0]);
+ #endif
+-	for (ctrl=0; ctrl<CTRL_END; ctrl++) {
+-		cmdlen = strlen(ctrl_commands[ctrl].command);
+-		if (strncmp(controlstr, ctrl_commands[ctrl].command, cmdlen)
+-				== 0) {
+-
+-			if (ctrl_commands[ctrl].accepts_parameter &&
+-					(controlstr[cmdlen] == '-')) {
+-				param = mystrdup(controlstr + cmdlen + 1);
+-				MY_ASSERT(param);
+-				if (strchr(param, '/')) {
+-					errno = 0;
+-					log_error(LOG_ARGS, "Slash (/) in"
+-						" list control request,"
+-						" discarding mail");
+-					exit(EXIT_SUCCESS);
+-				}
+-			} else if (!ctrl_commands[ctrl].accepts_parameter &&
+-					(controlstr[cmdlen] == '\0')) {
+-				param = NULL;
+-			} else {
+-				/* malformed request, ignore and clean up */
+-				unlink(mailname);
+-				exit(EXIT_SUCCESS);
+-			}
+-
+-			myfree(controlstr);
+-			break;
+-
+-		}
+-	}
+-	
+ 	/* Only allow mails with bad From: header to be bounce mails */
+ 	if(fromemails->emailcount != 1 && ctrl != CTRL_BOUNCES) {
+ 		log_error(LOG_ARGS, "Discarding mail with invalid From: "
+@@ -570,6 +629,13 @@
+ 			}
+ 		}
+ 		break;
++
++    default: 
++        ;;
++#if 0
++        log_oper(listdir,OPLOGFNAME,"Unknown control [%d] from control address [%s]",ctrl,controladdr);
++#endif
++
+ 	}
+ 
+ 	unlink(mailname);
+Only in ./mlmmj-1.2.9-RC1-orig/src: mlmmj-make-ml.sh
+diff -r -u ./mlmmj-1.2.9-RC1-orig/src/mlmmj-process.c ./mlmmj-1.2.9-RC1/src/mlmmj-process.c
+--- ./mlmmj-1.2.9-RC1-orig/src/mlmmj-process.c	Sun Oct  9 08:17:52 2005
++++ ./mlmmj-1.2.9-RC1/src/mlmmj-process.c	Sat Nov 12 19:02:24 2005
+@@ -517,7 +517,7 @@
+ 
+ 	listdelim = getlistdelim(listdir);
+ 	if(whichto && whichto->emaillist && whichto->emaillist[0]){
+-		recipextra = strstr(whichto->emaillist[0], listdelim);
++		recipextra = getdelimlocation(whichto->emaillist[0], listdelim);
+ 		if (recipextra)
+ 			recipextra += strlen(listdelim);
+ 	} else
+@@ -571,7 +571,7 @@
+ 			exit(EXIT_FAILURE);
+ 		}
+ #if 0
+-		log_error(LOG_ARGS, "listcontrol(from, %s, %s, %s, %s, %s, %s)\n", listdir, toemails.emaillist[0], mlmmjsub, mlmmjunsub, mlmmjsend, mlmmjbounce);
++		log_error(LOG_ARGS, "listcontrol(from, %s, %s, %s, %s, %s, %s)\n", listdir, whichto->emaillist[0], mlmmjsub, mlmmjunsub, mlmmjsend, mlmmjbounce);
+ #endif
+ 		unlink(mailfile);
+ 		listcontrol(&fromemails, listdir, whichto->emaillist[0],
 
-iD8DBQFDUuOwlZCPwGNtWe4RAk43AJ9F3V354Tcs4efWyAww1j0RunPU6wCglhOl
-AxNpGW2rrlJ7DYtcwbWCrUA=
-=3p4F
------END PGP SIGNATURE-----
-
---------------enig3D7083729FDAD22008865D14--
+--OXfL5xGRrasGEqWY--
