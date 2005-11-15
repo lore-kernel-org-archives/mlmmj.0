@@ -1,7 +1,7 @@
-From: Mads Martin Joergensen <mmj@mmj.dk>
-Date: Tue, 15 Nov 2005 21:26:07 +0000
+From: Neale Pickett <neale@woozle.org>
+Date: Tue, 15 Nov 2005 21:36:01 +0000
 Subject: Re: case sensitivity of email addresses
-Message-Id: <20051115212607.GB85098@mmj.dk>
+Message-Id: <200511151436.01887.neale@woozle.org>
 List-Id: <mlmmj.mlmmj.org>
 References: <200511150837.22197.neale@woozle.org>
 In-Reply-To: <200511150837.22197.neale@woozle.org>
@@ -10,31 +10,34 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-* Neale Pickett <neale@woozle.org> [Nov 15. 2005 22:22]:
-> > FWIW, this is what RFC2821 says about:
-> >
-> >    The local-part of a mailbox MUST BE treated as case sensitive. 
-> > Therefore, SMTP implementations MUST take care to preserve the case of
-> > mailbox local-parts.  Mailbox domains are not case sensitive.  In
-> > particular, for some
-> >    hosts the user "smith" is different from the user "Smith".
-> > However, exploiting
-> >    the case sensitivity of mailbox local-parts impedes interoperability and
-> > is discouraged.
-> 
-> Right, so it's not clear to me what we're supposed to do in the face
-> of some mail clients changing the case of the local-part.  Given that
-> "exploiting the case sensitivity of mailbox local-parts ... is
-> discouraged", I propose the RFC is suggesting the check be
-> case-insensitive.
+On Tuesday 15 November 2005 02:26 pm, Mads Martin Joergensen wrote:
+>
+> We want mlmmj to be case insensitive. We're not doing RFC2821--that's
+> supposed to be handled by the smtpd delivering to mlmmj.
+>
+> Anyone have a patch, just for this?
 
-We want mlmmj to be case insensitive. We're not doing RFC2821--that's
-supposed to be handled by the smtpd delivering to mlmmj.
+I think this will do the most important bit.  Patch against RC1.
 
-Anyone have a patch, just for this?
 
--- 
-Mads Martin Joergensen, http://mmj.dk
-"Why make things difficult, when it is possible to make them cryptic
- and totally illogical, with just a little bit more effort?"
-                                 -- A. P. J.
+--- mlmmj-process.c~    2005-10-09 08:17:52.000000000 -0600
++++ mlmmj-process.c     2005-11-15 14:34:49.000000000 -0700
+@@ -619,7 +619,7 @@
+                for(i = 0; i < toemails.emailcount; i++) {
+                        for(j = 0; j < alternates->count; j++) {
+                                chomp(alternates->strs[j]);
+-                               if(strcmp(alternates->strs[j],
++                               if(strcasecmp(alternates->strs[j],
+                                        toemails.emaillist[i]) = 0)
+                                        intocc = 1;
+                        }
+@@ -627,7 +627,7 @@
+                for(i = 0; i < ccemails.emailcount; i++) {
+                        for(j = 0; j < alternates->count; j++) {
+                                chomp(alternates->strs[j]);
+-                               if(strcmp(alternates->strs[j],
++                               if(strcasecmp(alternates->strs[j],
+                                        ccemails.emaillist[i]) = 0)
+                                        intocc = 1;
+                        }
+
