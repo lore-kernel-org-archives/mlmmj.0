@@ -1,28 +1,34 @@
-From: "Jakob Hirsch" <jh@plonk.de>
-Date: Thu, 22 Dec 2005 08:57:31 +0000
-Subject: Re: more footer problems
-Message-Id: <42529.127.0.0.1.1135241851.squirrel@ymmv.de>
+From: Mads Martin Joergensen <mmj@mmj.dk>
+Date: Tue, 06 Dec 2005 13:50:00 +0000
+Subject: mlmmj-1.2.9-RC2 and scooping up patches
+Message-Id: <20051206135000.GA92814@mmj.dk>
 List-Id: <mlmmj.mlmmj.org>
-References: <43AA394B.9030003@pebcomputing.com>
-In-Reply-To: <43AA394B.9030003@pebcomputing.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Patrick Bennett wrote:
+Hey guys,
 
-> the control/footer seems to be appended to messages, however on plain
-> text messages they still do not appear in the client window, but are
-> only readable in the message source, while in html messages they are
-> treated like (tagless) html, so no line breaks are inserted.  there was
+Due to me being busy both in private and work, I've been neglecting this
+for too long.
 
-This is a known and common problem with mime messages (and one of the
-reasons many people don't like html mail, especially on lists).
-However, a few days ago, I posted a patch to add the footer in a MIME
-compliant way. It is not in 1.2.9, but according to Mads it will be in
-1.2.10-RC1.
+I've just created 1.2.9-RC2, with the new find_email_adr() from Neale
+and BSD. There's also a couple of other small bugfixes, but I might have
+missed something.
 
-> a problem in 1.2.8, iirc, that was attempted to have been fixed in 1.2.9.
+So if people would give
 
-AFAIK, there was no change regarding this in 1.2.9.
+  http://mlmmj.mmj.dk/files/mlmmj-1.2.9-RC2.tar.gz
+  http://mlmmj.mmj.dk/files/mlmmj-1.2.9-RC2.tar.bz2
+
+a whirl, it would be most appreciated, so we can get 1.2.9 out the door.
+Too much good stuff lingering in that tree.
+
+Thanks,
+
+-- 
+Mads Martin Joergensen, http://mmj.dk
+"Why make things difficult, when it is possible to make them cryptic
+ and totally illogical, with just a little bit more effort?"
+                                 -- A. P. J.
