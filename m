@@ -1,7 +1,7 @@
-From: Jason McCormick <jason@devrandom.org>
-Date: Wed, 07 Dec 2005 04:30:13 +0000
+From: Jakob Hirsch <jh@plonk.de>
+Date: Sat, 10 Dec 2005 04:05:57 +0000
 Subject: Re: mlmmj-1.2.9-RC2 and scooping up patches
-Message-Id: <43966555.2040502@devrandom.org>
+Message-Id: <439A5425.1060704@plonk.de>
 List-Id: <mlmmj.mlmmj.org>
 References: <20051206135000.GA92814@mmj.dk>
 In-Reply-To: <20051206135000.GA92814@mmj.dk>
@@ -12,16 +12,15 @@ To: mlmmj@mlmmj.org
 
 Mads Martin Joergensen wrote:
 
-> So if people would give
-> 
->   http://mlmmj.mmj.dk/files/mlmmj-1.2.9-RC2.tar.gz
->   http://mlmmj.mmj.dk/files/mlmmj-1.2.9-RC2.tar.bz2
-> 
-> a whirl, it would be most appreciated, so we can get 1.2.9 out the door.
-> Too much good stuff lingering in that tree.
+> I've just created 1.2.9-RC2, with the new find_email_adr() from Neale
 
-Installed for me and working so far, but my lists are very low-volume.
-Very happy about the case-insensitive stuff.  Thanks for the release!
+Ah, and something else: If VERP is active and a rcpt is rejected by the
+smtp server (nonexisting user), no further rcpts are tried.
 
-- Jason
 
+And a question about maintd: Exactly when is a list member automatically
+unsubscribed?
+I thought 'bouncelife' seconds after the first bounce, the next time
+maintd is run, but that seems not to be correct. If I set it to some low
+value (like 5s) and run maintd a while after a message bounced, the
+address is retried again and again.
