@@ -1,28 +1,32 @@
-From: "Morten K. Poulsen" <morten@afdelingp.dk>
-Date: Sun, 18 Dec 2005 22:49:29 +0000
-Subject: Fwd: Re: mlmmj Spanish translation
-Message-Id: <20051218234929.5k0grcs7gg4oockw@mail.n0rd.dk>
+From: =?iso-8859-1?Q?S=F8ren?= Boll Overgaard <boll+mlmmj@fork.dk>
+Date: Wed, 14 Dec 2005 21:59:51 +0000
+Subject: [boll+mlmmj@fork.dk: Re: mlmmj-1.2.9 released]
+Message-Id: <20051214215951.GV36357@freesbee.wheel.dk>
 List-Id: <mlmmj.mlmmj.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="iso-8859-1"
 Content-Transfer-Encoding: quoted-printable
 To: mlmmj@mlmmj.org
 
-Quoting Mads Martin Joergensen <mmj@mmj.dk>:
-> * Marcelo E. Magall=F3n <marcelo.magallon@gmail.com> [Oct 11. 2005 16:37]:
->> because the encoding of the subject has to be embedded in the subject
->> line itself ... which is exactly what the files I sent did and Enrique
->> dutyfully broke.
->
-> I think Morten has a gigantic encoding patch coming up, to fix these
-> things. Morten?
+Hello,
 
-I've been... uhm... away from keyboard for the past few months. I'm now liv=
-ing
-in Copenhagen, I have internet access again, and it is cold outside. Fine
-programming conditions.
+On Wed, Dec 14, 2005 at 09:35:35AM -0800, Patrick Bennett wrote:
+> >
+> Excellent!  It sounds like the "find_email_addr()" bit will better=20
+> handle the "From:" header my user is locked into.  Soren, you offerred=20
+> to backport 1.2.8 to sarge before, I wonder if 1.2.9 could also be=20
+> backported?
 
-When I am done reading the list mails, I will bring the patch up-to-date. It
-shouldn't take that long. A few days to finish the patch.
+The packages at http://people.debian.org/~boll/mlmmj/ were built in a sarge
+chroot. They are based on the same source tree that was just used to genera=
+te=20
+the sid packages which should hit unstable real soon now=AE.
 
-Morten
+I haven't actually tested the sarge packages though, as I don't have a sarge
+system running mlmmj. Let me know if you run into trouble.
+
+--=20
+S=F8ren O.                                           ,''`.
+                                                  : :' :
+GPG key id: 0x1EB2DE66                            `. `'
+GPG signed mail preferred.                          `-
