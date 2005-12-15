@@ -1,7 +1,7 @@
-From: Mads Martin Joergensen <mmj@mmj.dk>
-Date: Thu, 15 Dec 2005 21:41:45 +0000
-Subject: Re: Posts still being silently discarded in 1.2.9 [was Re: [boll+mlmmj@fork.dk: Re: mlmmj-1.2.9 rele
-Message-Id: <20051215214144.GN92814@mmj.dk>
+From: Patrick Bennett <patrick@pebcomputing.com>
+Date: Thu, 15 Dec 2005 22:58:04 +0000
+Subject: Re: Posts still being silently discarded in 1.2.9 [was Re: [boll+mlmmj@fork.dk:
+Message-Id: <43A1F4FC.6040406@pebcomputing.com>
 List-Id: <mlmmj.mlmmj.org>
 References: <43A1BA85.6010605@pebcomputing.com>
 In-Reply-To: <43A1BA85.6010605@pebcomputing.com>
@@ -10,104 +10,58 @@ Content-Type: text/plain; charset="iso-8859-1"
 Content-Transfer-Encoding: quoted-printable
 To: mlmmj@mlmmj.org
 
-* Patrick Bennett <patrick@pebcomputing.com> [Dec 15. 2005 19:48]:
-> >>Excellent!  It sounds like the "find_email_addr()" bit will better=20
-> >>handle the "From:" header my user is locked into.  Soren, you offerred =
+Mads Martin Joergensen wrote:
 
-> >>to backport 1.2.8 to sarge before, I wonder if 1.2.9 could also be=20
-> >>backported?
-> >
-> >The packages at http://people.debian.org/~boll/mlmmj/ were built in a sa=
-rge
-> >chroot. They are based on the same source tree that was just used to=20
-> >generate the sid packages which should hit unstable real soon now=AE.
-> >
-> >I haven't actually tested the sarge packages though, as I don't have
-> >a sarge system running mlmmj. Let me know if you run into trouble.
+>* Patrick Bennett <patrick@pebcomputing.com> [Dec 15. 2005 19:48]:
+> =20
 >
-> The sarge packages are functioning, thanks Soren!
->=20
-> However, the problem of my user's posts being silently discarded is not=20
-> solved.  I've attached the test email he sent for everyone's=20
-> examination.  Unfortunately, this is an email account provided by his=20
-> employer, and he will be starting a new job on Monday!  Thus, though his =
+>>>>Excellent!  It sounds like the "find_email_addr()" bit will better=20
+>>>>handle the "From:" header my user is locked into.  Soren, you offerred =
 
-> issue of not being able to post will likely be resolved by getting a new =
+>>>>to backport 1.2.8 to sarge before, I wonder if 1.2.9 could also be=20
+>>>>backported?
+>>>>       =20
+>>>>
+>>>The packages at http://people.debian.org/~boll/mlmmj/ were built in a sa=
+rge
+>>>chroot. They are based on the same source tree that was just used to=20
+>>>generate the sid packages which should hit unstable real soon now=AE.
+>>>
+>>>I haven't actually tested the sarge packages though, as I don't have
+>>>a sarge system running mlmmj. Let me know if you run into trouble.
+>>>     =20
+>>>
+>>The sarge packages are functioning, thanks Soren!
+>>
+>>However, the problem of my user's posts being silently discarded is not=20
+>>solved.  I've attached the test email he sent for everyone's=20
+>>examination.  Unfortunately, this is an email account provided by his=20
+>>employer, and he will be starting a new job on Monday!  Thus, though his =
 
-> email account, he will not be able to test for the bug any more.
+>>issue of not being able to post will likely be resolved by getting a new =
 
-What's the name of the list address? As I can see here, it's sent to
-stockton@norcalsolutions.com and has stockton@cielini.org in the To:.
+>>email account, he will not be able to test for the bug any more.
+>>   =20
+>>
+>
+>What's the name of the list address? As I can see here, it's sent to
+>stockton@norcalsolutions.com and has stockton@cielini.org in the To:.
+>
+> =20
+>
+the list address is "stockton@cielini.org".  norcalsolutions.com is the=20
+"real" domain name of the email server that is hosting the list. =20
+cielini.org is a "postfix style" virtual server.
 
-> >From DPatters@edd.ca.gov  Thu Dec 15 17:00:15 2005
-> Return-Path: <DPatters@edd.ca.gov>
-> X-Original-To: stockton@norcalsolutions.com
-> Delivered-To: stockton@norcalsolutions.com
-> Received: from newnorcal.norcalsolutions.com (localhost [127.0.0.1])
-> 	by mail.norcalsolutions.com (Postfix) with SMTP id 4CC88382C2
-> 	for <stockton@norcalsolutions.com>; Thu, 15 Dec 2005 17:00:15 +0000 (UTC)
-> Received: from hwaexbh02.cahwnet.gov (hwaexbh01.cahwnet.gov [158.96.104.2=
-2])
-> 	by mail.norcalsolutions.com (Postfix) with ESMTP id A5A16382C2
-> 	for <stockton@cielini.org>; Thu, 15 Dec 2005 17:00:05 +0000 (UTC)
-> Received: by hwaexbh01.cahwnet.gov with Internet Mail Service=20
-> 	(5.5.2657.72)id <YKG0H1LR>; Thu, 15 Dec 2005 09:07:02 -0800
-> Message-ID: <1BAAFEA9FFD4D411BB3300805FE685741A0A293A@eddexmb04.cahwnet.g=
-ov>
-> From: "Patterson, Daniel@EDD" <DPatters@edd.ca.gov>
-> To: 'Stockton Community' <stockton@cielini.org>
-> Subject: testing, testing, testing,  is this thing on?
-> Date: Thu, 15 Dec 2005 09:06:20 -0800
-> MIME-Version: 1.0
-> X-Mailer: Internet Mail Service (5.5.2657.72)
-> Content-Type: multipart/alternative;
-> 	boundary=3D"----_=3D_NextPart_001_01C60199.DE87D70A"
-> X-imss-version: 2.034
-> X-imss-result: Passed
-> X-imss-scores: Clean:11.32899 C:2 M:3 S:5 R:5
-> X-imss-settings: Baseline:3 C:1 M:1 S:2 R:1 (0.5000 0.5000)
->=20
-> This message is in MIME format. Since your mail reader does not understand
-> this format, some or all of this message may not be legible.
->=20
-> ------_=3D_NextPart_001_01C60199.DE87D70A
-> Content-Type: text/plain;
-> 	charset=3D"iso-8859-1"
->=20
-> please ignore,
->=20
-> Danny Patterson
->=20
->=20
->=20
-> ------_=3D_NextPart_001_01C60199.DE87D70A
-> Content-Type: text/html;
-> 	charset=3D"iso-8859-1"
->=20
-> <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
-> <HTML>
-> <HEAD>
-> <META HTTP-EQUIV=3D"Content-Type" CONTENT=3D"text/html; charset=3Diso-885=
-9-1">
-> <META NAME=3D"Generator" CONTENT=3D"MS Exchange Server version 5.5.2658.2=
-4">
-> <TITLE>testing, testing, testing,  is this thing on?</TITLE>
-> </HEAD>
-> <BODY>
->=20
-> <P><FONT FACE=3D"Arial">please ignore,</FONT>
-> </P>
->=20
-> <P><FONT FACE=3D"Arial">Danny Patterson</FONT>
-> </P>
-> <BR>
->=20
-> </BODY>
-> </HTML>
-> ------_=3D_NextPart_001_01C60199.DE87D70A--
+this sample email is the only user, out of 6 or so, that has any problem=20
+posting to the list.  you may recall we talked about this before on the=20
+list starting on 9/29/2005 under the thread "silently discarded posts". =20
+we came to the conclusion that is was because there were two "@" symbols=20
+in the "From:" header.   the details and whatnot have not changed except=20
+that now the list software is at Soren's packaging of 1.2.9 for sarge. =20
+if I understand correctly, 1.2.9 included a patch to better handle the=20
+"From:" header, including the case of two (legitimate) "@" symbols. =20
+apparently either the patch isn't working entirely correct for this=20
+case, or there is some other reason the posts are put into queue/discarded.
 
---=20
-Mads Martin Joergensen, http://mmj.dk
-"Why make things difficult, when it is possible to make them cryptic
- and totally illogical, with just a little bit more effort?"
-                                 -- A. P. J.
+    -Patrick
