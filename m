@@ -1,67 +1,80 @@
 From: Patrick Bennett <patrick@pebcomputing.com>
-Date: Thu, 15 Dec 2005 22:58:04 +0000
-Subject: Re: Posts still being silently discarded in 1.2.9 [was Re: [boll+mlmmj@fork.dk:
-Message-Id: <43A1F4FC.6040406@pebcomputing.com>
+Date: Fri, 16 Dec 2005 20:58:43 +0000
+Subject: Re: Posts still being silently discarded in 1.2.9
+Message-Id: <43A32A83.9010708@pebcomputing.com>
+MIME-Version: 1
+Content-Type: multipart/mixed; boundary="------------050308040706020403050303"
 List-Id: <mlmmj.mlmmj.org>
 References: <43A1BA85.6010605@pebcomputing.com>
 In-Reply-To: <43A1BA85.6010605@pebcomputing.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
 To: mlmmj@mlmmj.org
 
-Mads Martin Joergensen wrote:
+This is a multi-part message in MIME format.
+--------------050308040706020403050303
+Content-Type: text/plain; charset=ISO-8859-1; format=flowed
+Content-Transfer-Encoding: 7bit
 
->* Patrick Bennett <patrick@pebcomputing.com> [Dec 15. 2005 19:48]:
-> =20
->
->>>>Excellent!  It sounds like the "find_email_addr()" bit will better=20
->>>>handle the "From:" header my user is locked into.  Soren, you offerred =
-
->>>>to backport 1.2.8 to sarge before, I wonder if 1.2.9 could also be=20
->>>>backported?
->>>>       =20
->>>>
->>>The packages at http://people.debian.org/~boll/mlmmj/ were built in a sa=
-rge
->>>chroot. They are based on the same source tree that was just used to=20
->>>generate the sid packages which should hit unstable real soon now=AE.
->>>
->>>I haven't actually tested the sarge packages though, as I don't have
->>>a sarge system running mlmmj. Let me know if you run into trouble.
->>>     =20
->>>
->>The sarge packages are functioning, thanks Soren!
->>
->>However, the problem of my user's posts being silently discarded is not=20
->>solved.  I've attached the test email he sent for everyone's=20
->>examination.  Unfortunately, this is an email account provided by his=20
->>employer, and he will be starting a new job on Monday!  Thus, though his =
-
->>issue of not being able to post will likely be resolved by getting a new =
-
->>email account, he will not be able to test for the bug any more.
->>   =20
->>
->
->What's the name of the list address? As I can see here, it's sent to
->stockton@norcalsolutions.com and has stockton@cielini.org in the To:.
->
-> =20
->
-the list address is "stockton@cielini.org".  norcalsolutions.com is the=20
-"real" domain name of the email server that is hosting the list. =20
-cielini.org is a "postfix style" virtual server.
-
-this sample email is the only user, out of 6 or so, that has any problem=20
-posting to the list.  you may recall we talked about this before on the=20
-list starting on 9/29/2005 under the thread "silently discarded posts". =20
-we came to the conclusion that is was because there were two "@" symbols=20
-in the "From:" header.   the details and whatnot have not changed except=20
-that now the list software is at Soren's packaging of 1.2.9 for sarge. =20
-if I understand correctly, 1.2.9 included a patch to better handle the=20
-"From:" header, including the case of two (legitimate) "@" symbols. =20
-apparently either the patch isn't working entirely correct for this=20
-case, or there is some other reason the posts are put into queue/discarded.
+For comparisons' sake, I munged my yahoo accounts "From:" settings and 
+sent an email from it to the list.  It was also silently discarded.  I 
+would take this to mean that the new patch to better handle the "From:" 
+header in 1.2.9 isn't fully working.  The message is attached.
 
     -Patrick
+
+--------------050308040706020403050303
+Content-Type: text/plain;
+ name="discarded-email.12162005"
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline;
+ filename="discarded-email.12162005"
+
+From pebcomputing@yahoo.com  Fri Dec 16 19:58:43 2005
+Return-Path: <pebcomputing@yahoo.com>
+X-Original-To: stockton@norcalsolutions.com
+Delivered-To: stockton@norcalsolutions.com
+Received: from newnorcal.norcalsolutions.com (localhost [127.0.0.1])
+	by mail.norcalsolutions.com (Postfix) with SMTP id 510FA3852E
+	for <stockton@norcalsolutions.com>; Fri, 16 Dec 2005 19:58:43 +0000 (UTC)
+Received: from web54307.mail.yahoo.com (web54307.mail.yahoo.com [206.190.49.117])
+	by mail.norcalsolutions.com (Postfix) with SMTP id 7F7C23852E
+	for <stockton@cielini.org>; Fri, 16 Dec 2005 19:58:40 +0000 (UTC)
+Received: (qmail 78088 invoked by uid 60001); 16 Dec 2005 20:05:48 -0000
+DomainKey-Signature: a=rsa-sha1; q=dns; c=nofws;
+  s=s1024; d=yahoo.com;
+  h=Message-ID:Received:Date:From:Subject:To:MIME-Version:Content-Type:Content-Transfer-Encoding;
+  b=zYg0oTrJOquEgJaVVlGFxKSc3r/HrvwL8qfLZziHAHeh5X3CuvcIbMZwAjBKWps/0j5BDuRociIqasDPUGOEwEfsBj/3HoNo7+TW5ebqFHPVR4iWg4lxLCoTUKXTWPOsRw3n5CV3W5wXUMe+ECc6r7+Dze311qMSGnfjjI8Ytx4=  ;
+Message-ID: <20051216200548.78086.qmail@web54307.mail.yahoo.com>
+Received: from [69.239.23.75] by web54307.mail.yahoo.com via HTTP; Fri, 16 Dec 2005 12:05:48 PST
+Date: Fri, 16 Dec 2005 12:05:48 -0800 (PST)
+From: "Bennett, Patrick@yahoo" <pebcomputing@yahoo.com>
+Subject: test
+To: "stockton@cielini.org" <stockton@cielini.org>
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="0-2025302754-1134763548=:74114"
+Content-Transfer-Encoding: 7bit
+
+--0-2025302754-1134763548=:74114
+Content-Type: text/plain; charset=iso-8859-1
+Content-Transfer-Encoding: quoted-printable
+
+testing email list software.  please ignore if this makes the list.
+ =20
+       -Patrick
+ =20
+
+__________________________________________________
+Do You Yahoo!?
+Tired of spam?  Yahoo! Mail has the best spam protection around=20
+http://mail.yahoo.com=20
+--0-2025302754-1134763548=:74114
+Content-Type: text/html; charset=iso-8859-1
+Content-Transfer-Encoding: quoted-printable
+
+<div id=3D"RTEContent">testing email list software.&nbsp; please ignore i=
+f this makes the list.<br>  <br>  &nbsp;&nbsp;&nbsp;&nbsp; -Patrick<br>  =
+</div><p>__________________________________________________<br>Do You Yah=
+oo!?<br>Tired of spam?  Yahoo! Mail has the best spam protection around <=
+br>http://mail.yahoo.com=20
+--0-2025302754-1134763548=:74114--
+
+--------------050308040706020403050303--
