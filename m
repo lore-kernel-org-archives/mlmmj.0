@@ -1,26 +1,28 @@
-From: lupin3rd <lupin3rd@gmx.it>
-Date: Fri, 30 Dec 2005 22:17:15 +0000
-Subject: mlmmj in DTC
-Message-Id: <1135981035.13808.6.camel@localhost>
+From: "Morten K. Poulsen" <morten@afdelingp.dk>
+Date: Sun, 18 Dec 2005 22:49:29 +0000
+Subject: Fwd: Re: mlmmj Spanish translation
+Message-Id: <20051218234929.5k0grcs7gg4oockw@mail.n0rd.dk>
 List-Id: <mlmmj.mlmmj.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 To: mlmmj@mlmmj.org
 
-Hi at all :-)
-Domain Technology Control is one of the best GPL control panel for
-hosting and now it have also Mailing lists support; and this thanks to
-MLMMJ!
-I have finish today the code and now it's in CVS of DTC.
+Quoting Mads Martin Joergensen <mmj@mmj.dk>:
+> * Marcelo E. Magall=F3n <marcelo.magallon@gmail.com> [Oct 11. 2005 16:37]:
+>> because the encoding of the subject has to be embedded in the subject
+>> line itself ... which is exactly what the files I sent did and Enrique
+>> dutyfully broke.
+>
+> I think Morten has a gigantic encoding patch coming up, to fix these
+> things. Morten?
 
-For infos on DTC visit http://www.gplhost.com/?rub=softwares&sousrub=dtc
+I've been... uhm... away from keyboard for the past few months. I'm now liv=
+ing
+in Copenhagen, I have internet access again, and it is cold outside. Fine
+programming conditions.
 
-For a screenshot of new mailing list support:
-http://lupin3rd.dyndns.org/list.png
+When I am done reading the list mails, I will bring the patch up-to-date. It
+shouldn't take that long. A few days to finish the patch.
 
-
-A big thanks to all mlmmj's developers and to Thomas, DTC's father.
-
-Luca aka Lupin3rd
-
+Morten
