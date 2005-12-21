@@ -1,43 +1,29 @@
-From: Mads Martin Joergensen <mmj@mmj.dk>
-Date: Sat, 31 Dec 2005 03:26:40 +0000
-Subject: Re: headers
-Message-Id: <20051231032640.GJ66369@mmj.dk>
+From: Stephan Wentz <stephan@wentz.it>
+Date: Wed, 21 Dec 2005 08:39:55 +0000
+Subject: user activation?
+Message-Id: <43A914DB.6090009@wentz.it>
 List-Id: <mlmmj.mlmmj.org>
-References: <33223.80.166.75.19.1135980403.squirrel@mail.junc.org>
-In-Reply-To: <33223.80.166.75.19.1135980403.squirrel@mail.junc.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-* Benny Pedersen <me@junc.org> [Dec 30. 2005 23:03]:
-> List-Id: <mlmmj.mmj.dk>
-> List-Help: <mailto:mlmmj+help@mmj.dk>
-> List-Post: <mailto:mlmmj@mmj.dk>
-> List-Subscribe: <mailto:mlmmj+subscribe@mmj.dk>
-> List-Unsubscribe: <mailto:mlmmj+unsubscribe@mmj.dk>
-> 
-> if thay are added as headers, squirrelmail users would be more happy
-> :-)
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
 
-Just add them to customheaders when configuring your lists, and
-squirrelmail users would be happy--I'm a squirrelmail user myself :)
+hi all!
 
-> since the filter plugin show posting links above mails from a maillist
-> 
-> Precedence: list
-> 
-> would stop vacation scripts from posting holiday msgs to mail lists,
-> if thay are smart to look at the headers
+is there a possibility yet to have a list's subscription-process be
+moderated? so that the owner has to activate a user by a mail-command
+for private lists?
+right now i only see the possibility to be informed about subscriptions...
 
-Just add it.
+bye, stephan
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.2.5 (MingW32)
+Comment: Using GnuPG with Mozilla - http://enigmail.mozdev.org
 
-> other then that happy new yaer :-)
+iD8DBQFDqRTb8qQ9XV7tBNQRAlSRAKD9Ug3hATe1cMR0Rme6Kj4k2dybnwCgnxET
+dD3DMQ7mJPrbxicQhgjmrSU=/1GR
+-----END PGP SIGNATURE-----
 
-Likewise--and hope your christmas holidays went well.
-
--- 
-Mads Martin Joergensen, http://mmj.dk
-"Why make things difficult, when it is possible to make them cryptic
- and totally illogical, with just a little bit more effort?"
-                                 -- A. P. J.
