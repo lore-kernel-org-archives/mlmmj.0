@@ -1,26 +1,28 @@
-From: =?iso-8859-1?Q?S=F8ren?= Boll Overgaard <boll+mlmmj@fork.dk>
-Date: Thu, 22 Dec 2005 07:54:01 +0000
+From: "Jakob Hirsch" <jh@plonk.de>
+Date: Thu, 22 Dec 2005 08:57:31 +0000
 Subject: Re: more footer problems
-Message-Id: <20051222075401.GF94962@freesbee.wheel.dk>
+Message-Id: <42529.127.0.0.1.1135241851.squirrel@ymmv.de>
 List-Id: <mlmmj.mlmmj.org>
 References: <43AA394B.9030003@pebcomputing.com>
 In-Reply-To: <43AA394B.9030003@pebcomputing.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-On Wed, Dec 21, 2005 at 09:27:39PM -0800, Patrick Bennett wrote:
->=20
-> Soren, I am beginning to wonder if this package is actually from 1.2.8=20
-> source???
+Patrick Bennett wrote:
 
-Try doing a diff on the source in the debian package and the source in the
-original mlmmj-1.2.9 package. That should convince you that the Debian=20
-package is based on 1.2.9 code.
+> the control/footer seems to be appended to messages, however on plain
+> text messages they still do not appear in the client window, but are
+> only readable in the message source, while in html messages they are
+> treated like (tagless) html, so no line breaks are inserted.  there was
 
---=20
-S=F8ren O.                                           ,''`.
-                                                  : :' :
-GPG key id: 0x1EB2DE66                            `. `'
-GPG signed mail preferred.                          `-
+This is a known and common problem with mime messages (and one of the
+reasons many people don't like html mail, especially on lists).
+However, a few days ago, I posted a patch to add the footer in a MIME
+compliant way. It is not in 1.2.9, but according to Mads it will be in
+1.2.10-RC1.
+
+> a problem in 1.2.8, iirc, that was attempted to have been fixed in 1.2.9.
+
+AFAIK, there was no change regarding this in 1.2.9.
