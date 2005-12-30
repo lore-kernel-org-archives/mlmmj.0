@@ -1,26 +1,26 @@
-From: Mads Martin Joergensen <mmj@mmj.dk>
-Date: Wed, 21 Dec 2005 08:51:58 +0000
-Subject: Re: user activation?
-Message-Id: <20051221085158.GD53286@mmj.dk>
+From: lupin3rd <lupin3rd@gmx.it>
+Date: Fri, 30 Dec 2005 22:17:15 +0000
+Subject: mlmmj in DTC
+Message-Id: <1135981035.13808.6.camel@localhost>
 List-Id: <mlmmj.mlmmj.org>
-References: <43A914DB.6090009@wentz.it>
-In-Reply-To: <43A914DB.6090009@wentz.it>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-* Stephan Wentz <stephan@wentz.it> [Dec 21. 2005 09:38]:
-> is there a possibility yet to have a list's subscription-process be
-> moderated? so that the owner has to activate a user by a mail-command
-> for private lists?
-> right now i only see the possibility to be informed about
-> subscriptions...
+Hi at all :-)
+Domain Technology Control is one of the best GPL control panel for
+hosting and now it have also Mailing lists support; and this thanks to
+MLMMJ!
+I have finish today the code and now it's in CVS of DTC.
 
-No, that's not possible ATM. But it's one of the things on the TODO.
+For infos on DTC visit http://www.gplhost.com/?rub=softwares&sousrub=dtc
 
--- 
-Mads Martin Joergensen, http://mmj.dk
-"Why make things difficult, when it is possible to make them cryptic
- and totally illogical, with just a little bit more effort?"
-                                 -- A. P. J.
+For a screenshot of new mailing list support:
+http://lupin3rd.dyndns.org/list.png
+
+
+A big thanks to all mlmmj's developers and to Thomas, DTC's father.
+
+Luca aka Lupin3rd
+
