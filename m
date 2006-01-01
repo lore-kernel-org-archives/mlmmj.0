@@ -1,30 +1,28 @@
-From: "Benny Pedersen" <me@junc.org>
-Date: Tue, 03 Jan 2006 09:05:49 +0000
-Subject: Re: Happy new year from LIT
-Message-Id: <45996.80.166.75.19.1136279149.squirrel@mail.junc.org>
+From: "Morten K. Poulsen" <morten@afdelingp.dk>
+Date: Sun, 01 Jan 2006 20:25:19 +0000
+Subject: Re: headers
+Message-Id: <20060101212519.mofhnwqpyc40wo40@mail.n0rd.dk>
 List-Id: <mlmmj.mlmmj.org>
-References: <20060102050903.951A11A3C02@panther.mmj.dk>
-In-Reply-To: <20060102050903.951A11A3C02@panther.mmj.dk>
+References: <33223.80.166.75.19.1135980403.squirrel@mail.junc.org>
+In-Reply-To: <33223.80.166.75.19.1135980403.squirrel@mail.junc.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-On Mon, January 2, 2006 23:40, Drake Wyrm wrote:
-> Mads Martin Joergensen <mmj@mmj.dk> wrote:
->> * Christian Laursen <xi@borderworlds.dk> [Jan 02. 2006 10:29]:
->>>> On Mon, January 2, 2006 06:09, Tom wrote:
->>>> can we disable html postings here ? :-)
->>> subonlypost would probably do the trick too.
->> I wouldn't mind making it a subscribers only list. Any objections?
-> No objections, but I see enough spam on sub-only lists that I don't
-> think it would do much good. The only check, if I understand correctly, is that the From: header matches a
-> subscriber; this is easily spoofed by spam engines.
+Quoting Mads Martin Joergensen <mmj@mmj.dk>:
+> * Benny Pedersen <me@junc.org> [Dec 30. 2005 23:03]:
+>> List-Id: <mlmmj.mmj.dk>
+>> List-Help: <mailto:mlmmj+help@mmj.dk>
+>> List-Post: <mailto:mlmmj@mmj.dk>
+>> List-Subscribe: <mailto:mlmmj+subscribe@mmj.dk>
+>> List-Unsubscribe: <mailto:mlmmj+unsubscribe@mmj.dk>
+>>
+>> if thay are added as headers, squirrelmail users would be more happy
+>> :-)
+>
+> Just add them to customheaders when configuring your lists
 
-yes a subonlypost should mail to the from and ask for permit to post, but that will imho create more fuss
+Umh, Mads Martin... YOU are the list admin of mlmmj@mmj.dk ;-)
 
-and doing spf/domainkeys/gpg key check eh posible ?
-
-ml without a kind of auth have spam problems
-
-
+Morten
