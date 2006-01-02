@@ -1,7 +1,7 @@
-From: "Benny Pedersen" <me@junc.org>
-Date: Mon, 02 Jan 2006 10:59:32 +0000
+From: Sven 'Darkman' Michels <sven@darkman.de>
+Date: Mon, 02 Jan 2006 16:44:36 +0000
 Subject: Re: mlmlmj control files
-Message-Id: <52144.80.166.75.19.1136199572.squirrel@mail.junc.org>
+Message-Id: <43B95874.9040809@darkman.de>
 List-Id: <mlmmj.mlmmj.org>
 References: <33221.80.166.75.19.1136194203.squirrel@mail.junc.org>
 In-Reply-To: <33221.80.166.75.19.1136194203.squirrel@mail.junc.org>
@@ -10,15 +10,30 @@ Content-Type: text/plain; charset="iso-8859-1"
 Content-Transfer-Encoding: quoted-printable
 To: mlmmj@mlmmj.org
 
-On Mon, January 2, 2006 11:07, Mads Martin Joergensen wrote:
-> * Benny Pedersen <me@junc.org> [Jan 02. 2006 10:26]:
->> can i set relayhost from a control file ?
->> i tryed to make a patch, but that failed :(
-> Quote from TUNABLES:
-> =B7 relayhost                     (normal)
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
 
-i solved it by make an listner for smtpd on 127.0.0.1 in master.cf
+Hi,
 
-with out any restricktions, now finaly mlmmj works here
+Benny Pedersen wrote:
+>> Quote from TUNABLES:
+>> =B7 relayhost                     (normal)
+>=20
+> i solved it by make an listner for smtpd on 127.0.0.1 in master.cf
+>=20
+> with out any restricktions, now finaly mlmmj works here
 
+take care: when i played around with special smtpd ports
+for mlmmj i recognized that the value is ignored for all
+administration mails, means: subscribe, help etc ignores
+the port setting - dunno if it also ignores the relayhost
+for such mails... but mmj is informed and will fix it asap ;)
 
+Regards,
+Darkman
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.2.2 (GNU/Linux)
+
+iD8DBQFDuVhzQoCguWUBzBwRAhnfAJ4uXRO+6JO3SEyAnWxne69k1cI4xgCfQYkv
+iiEgqRUzmTSIwLfPbrvtFd0=3DR4Y1
+-----END PGP SIGNATURE-----
