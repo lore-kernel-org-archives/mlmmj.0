@@ -1,7 +1,7 @@
-From: Christian Laursen <xi@borderworlds.dk>
-Date: Mon, 02 Jan 2006 06:11:58 +0000
+From: Mads Martin Joergensen <mmj@mmj.dk>
+Date: Mon, 02 Jan 2006 07:32:58 +0000
 Subject: Re: Happy new year from LIT
-Message-Id: <86bqyvma4x.fsf@borg.borderworlds.dk>
+Message-Id: <20060102073258.GL66369@mmj.dk>
 List-Id: <mlmmj.mlmmj.org>
 References: <20060102050903.951A11A3C02@panther.mmj.dk>
 In-Reply-To: <20060102050903.951A11A3C02@panther.mmj.dk>
@@ -10,13 +10,15 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-"Benny Pedersen" <me@junc.org> writes:
-
+* Benny Pedersen <me@junc.org> [Jan 02. 2006 07:02]:
 > On Mon, January 2, 2006 06:09, Tom wrote:
->
+> 
 > can we disable html postings here ? :-)
 
-subonlypost would probably do the trick too.
+Yeah, just did.
 
 -- 
-Christian Laursen
+Mads Martin Joergensen, http://mmj.dk
+"Why make things difficult, when it is possible to make them cryptic
+ and totally illogical, with just a little bit more effort?"
+                                 -- A. P. J.
