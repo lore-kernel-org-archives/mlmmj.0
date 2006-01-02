@@ -1,7 +1,7 @@
-From: Mads Martin Joergensen <mmj@mmj.dk>
-Date: Mon, 02 Jan 2006 07:30:24 +0000
+From: Christian Laursen <xi@borderworlds.dk>
+Date: Mon, 02 Jan 2006 08:12:20 +0000
 Subject: Re: headers
-Message-Id: <20060102073024.GK66369@mmj.dk>
+Message-Id: <86mzif6obf.fsf@borg.borderworlds.dk>
 List-Id: <mlmmj.mlmmj.org>
 References: <33223.80.166.75.19.1135980403.squirrel@mail.junc.org>
 In-Reply-To: <33223.80.166.75.19.1135980403.squirrel@mail.junc.org>
@@ -10,17 +10,18 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-* Morten K. Poulsen <morten@afdelingp.dk> [Jan 01. 2006 21:25]:
-> >Just add them to customheaders when configuring your lists
-> 
-> Umh, Mads Martin... YOU are the list admin of mlmmj@mmj.dk ;-)
+Mads Martin Joergensen <mmj@mmj.dk> writes:
 
-DUH!
+> * Morten K. Poulsen <morten@afdelingp.dk> [Jan 01. 2006 21:25]:
+>> >Just add them to customheaders when configuring your lists
+>> 
+>> Umh, Mads Martin... YOU are the list admin of mlmmj@mmj.dk ;-)
+>
+> DUH!
+>
+> Done.
 
-Done.
+Argh, and broke my procmail-rule. :)
 
 -- 
-Mads Martin Joergensen, http://mmj.dk
-"Why make things difficult, when it is possible to make them cryptic
- and totally illogical, with just a little bit more effort?"
-                                 -- A. P. J.
+Christian Laursen
