@@ -1,7 +1,7 @@
-From: Mads Martin Joergensen <mmj@mmj.dk>
-Date: Mon, 02 Jan 2006 23:05:43 +0000
+From: "Benny Pedersen" <me@junc.org>
+Date: Tue, 03 Jan 2006 09:05:49 +0000
 Subject: Re: Happy new year from LIT
-Message-Id: <20060102230543.GC5262@mmj.dk>
+Message-Id: <45996.80.166.75.19.1136279149.squirrel@mail.junc.org>
 List-Id: <mlmmj.mlmmj.org>
 References: <20060102050903.951A11A3C02@panther.mmj.dk>
 In-Reply-To: <20060102050903.951A11A3C02@panther.mmj.dk>
@@ -10,25 +10,21 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-* Drake Wyrm <wyrm@haell.com> [Jan 02. 2006 23:44]:
-> > > > can we disable html postings here ? :-)
-> > > 
-> > > Yeah, just did.
-> > 
-> > Let's see if that interferes with signed email...
-> 
-> No problems noted. nifty.
+On Mon, January 2, 2006 23:40, Drake Wyrm wrote:
+> Mads Martin Joergensen <mmj@mmj.dk> wrote:
+>> * Christian Laursen <xi@borderworlds.dk> [Jan 02. 2006 10:29]:
+>>>> On Mon, January 2, 2006 06:09, Tom wrote:
+>>>> can we disable html postings here ? :-)
+>>> subonlypost would probably do the trick too.
+>> I wouldn't mind making it a subscribers only list. Any objections?
+> No objections, but I see enough spam on sub-only lists that I don't
+> think it would do much good. The only check, if I understand correctly, is that the From: header matches a
+> subscriber; this is easily spoofed by spam engines.
 
-It shouldn't. All I did was add this line to control/access:
+yes a subonlypost should mail to the from and ask for permit to post, but that will imho create more fuss
 
- moderate ^Content-Type: text/html
+and doing spf/domainkeys/gpg key check eh posible ?
 
-I choose to moderate them in the beginning, to see how much it is.
+ml without a kind of auth have spam problems
 
-And no, I didn't have to moderate your email :-)
 
--- 
-Mads Martin Joergensen, http://mmj.dk
-"Why make things difficult, when it is possible to make them cryptic
- and totally illogical, with just a little bit more effort?"
-                                 -- A. P. J.
