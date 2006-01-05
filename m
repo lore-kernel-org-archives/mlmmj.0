@@ -1,34 +1,54 @@
-From: Sven 'Darkman' Michels <sven@darkman.de>
-Date: Wed, 04 Jan 2006 19:58:12 +0000
+From: Thomas Goirand <thomas@goirand.fr>
+Date: Thu, 05 Jan 2006 03:12:18 +0000
 Subject: Re: mlmlmj control files
-Message-Id: <43BC28D4.1000502@darkman.de>
+Message-Id: <43BC8E92.9020001@goirand.fr>
 List-Id: <mlmmj.mlmmj.org>
 References: <33221.80.166.75.19.1136194203.squirrel@mail.junc.org>
 In-Reply-To: <33221.80.166.75.19.1136194203.squirrel@mail.junc.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
------BEGIN PGP SIGNED MESSAGE-----
-Hash: SHA1
 
-Hi,
 
 Mads Martin Joergensen wrote:
-> So it wasn't tomorrow, but the day after tomorrow :-)
->=20
-> Please test--I might have forgotten a place.
 
-so, for the records: i've tested the patch (with mmj, thanks :)
-and its working so far (at least it works like i expeceted and
-nothing else broke ;)
+>* Mads Martin Joergensen <mmj@mmj.dk> [Jan 04. 2006 20:30]:
+>  
+>
+>>* Mads Martin Joergensen <mmj@mmj.dk> [Jan 02. 2006 17:49]:
+>>    
+>>
+>>>Relayhost has the same problem, and I really should fix it tomorrow on
+>>>my last vacation day--it's a pretty ridiculous and annoying bug.
+>>>
+>>>Problem is that in the case of administrative mails, there was no need
+>>>to pass a list directory to mlmmj-send, and thus does there two files
+>>>not get read.
+>>>      
+>>>
+>>So it wasn't tomorrow, but the day after tomorrow :-)
+>>
+>>Please test--I might have forgotten a place.
+>>    
+>>
+Hello,
+
+As said before, we have setup MLMMJ inside our GPL control panel. It's 
+now a click and go, if your /etc/mailname and mydestination in postifx 
+is setup correctly. Our setup include amavis + clamav + spamassassin 
+(see http://www.gplhost.com/software-dtc.html). Virus as simply put in 
+quarantine, and a warning message is sent. For spam, they are marked as 
+spams, and when it's not a list, it's dropped inside a special IMAP 
+folder for spams.
+
+Would it be possible that MLMMJ handle the informations sent by both 
+clamav and spamassassin, warn the owner of the list (maybe send the mail 
+as attachment) and not send the mail to the subscribers? That would be a 
+killer feature that would make people switch IMHO.
 
 Regards,
-Darkman
------BEGIN PGP SIGNATURE-----
-Version: GnuPG v1.2.2 (GNU/Linux)
 
-iD8DBQFDvCjTQoCguWUBzBwRArdNAJ9OFTwy4+IL5fR5Qgq5vcn0wxWD8QCfctJA
-YTlFHDyBnPx/L6l68OoAqkA=EBuA
------END PGP SIGNATURE-----
+    Thomas Goirand
+
