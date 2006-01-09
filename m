@@ -1,7 +1,7 @@
-From: Mads Martin Joergensen <mmj@mmj.dk>
-Date: Mon, 09 Jan 2006 11:29:43 +0000
+From: "Jakob Hirsch" <jh@plonk.de>
+Date: Mon, 09 Jan 2006 12:02:06 +0000
 Subject: Re: more footer problems
-Message-Id: <20060109112943.GI72159@mmj.dk>
+Message-Id: <53904.127.0.0.1.1136808126.squirrel@ymmv.de>
 List-Id: <mlmmj.mlmmj.org>
 References: <43AA394B.9030003@pebcomputing.com>
 In-Reply-To: <43AA394B.9030003@pebcomputing.com>
@@ -10,18 +10,16 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-* Jakob Hirsch <jh@plonk.de> [Dec 22. 2005 09:57]:
-> This is a known and common problem with mime messages (and one of the
-> reasons many people don't like html mail, especially on lists).
-> However, a few days ago, I posted a patch to add the footer in a MIME
-> compliant way. It is not in 1.2.9, but according to Mads it will be in
-> 1.2.10-RC1.
+Mads Martin Joergensen wrote:
 
-I want to integrate this to CVS and release 1.2.10-RC1. Jakob, can you
-send me the latest, greatest and bugfree patch? :-)
+>> This is a known and common problem with mime messages (and one of the
+>> reasons many people don't like html mail, especially on lists).
+>> However, a few days ago, I posted a patch to add the footer in a MIME
+>> compliant way. It is not in 1.2.9, but according to Mads it will be in
+>> 1.2.10-RC1.
+> I want to integrate this to CVS and release 1.2.10-RC1. Jakob, can you
+> send me the latest, greatest and bugfree patch? :-)
 
--- 
-Mads Martin Joergensen, http://mmj.dk
-"Why make things difficult, when it is possible to make them cryptic
- and totally illogical, with just a little bit more effort?"
-                                 -- A. P. J.
+The last patch I sent to the list (mlmmj-footer-mime6.patch) works fine
+here. I also put it on http://plonk.de/sw/mlmmj/mlmmj-footer-mime6.patch
+(would be a little laborious to mail it from here...)
