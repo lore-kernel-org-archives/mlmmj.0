@@ -1,25 +1,33 @@
-From: Charlie Brady <charlieb@budge.apana.org.au>
-Date: Sat, 21 Jan 2006 19:23:20 +0000
-Subject: Re: Treatment of Delivered-To headers (Re: mlmmj-recieve silently
-Message-Id: <Pine.LNX.4.61.0601211420510.26660@e-smith.charlieb.ott.istop.com>
+From: =?ISO-8859-1?Q?S=E9bastien_CRAMATTE?= <s.cramatte@wanadoo.fr>
+Date: Mon, 09 Jan 2006 23:03:13 +0000
+Subject: about mlmmj / sql support and other features ....
+Message-Id: <43C2EBB1.7090107@wanadoo.fr>
 List-Id: <mlmmj.mlmmj.org>
-References: <Pine.LNX.4.61.0601202202460.6540@e-smith.charlieb.ott.istop.com>
-In-Reply-To: <Pine.LNX.4.61.0601202202460.6540@e-smith.charlieb.ott.istop.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
+Hello
 
-On Sat, 21 Jan 2006, Mads Martin Joergensen wrote:
+I have just seen post about  mlmmj / sql support
 
-> Agreed it's a bit more difficult. I'm just pr. default cautious about
-> reading environment variables :-)
+With special    mlmmj-unsub, mlmmj-sub  scripts we should store user 
+informations in various backend SQL or LDAP for example.
+But after how mlmmj can select user list stored in SQL or LDAP ?
 
-Perhaps because many system designs are incautious about adding 
-environment variables. SysV init is one such system. As soon as an admin 
-does "/etc/rc.d/init.d/some_daemon restart" the new daemon is likely to 
-have a different environment to the old.
+Maybe we could developp an  mlmmj-sub-mysql  and mlmmj-unsub-mysql  and 
+the same thing for ldap ?
+The problem is store configuration by list.
 
-See daemontools or runit for an alternative system for running daemons 
-with consistent reliable environment variable setup.
+The bounces informations should  have sql support too ?
+
+Moreover why Maildir format is not used to store archive ?
+Does it exists a PHP script that could extract data archive  or do I 
+must user hipermail ?
+
+
+Bye
+
+
+
