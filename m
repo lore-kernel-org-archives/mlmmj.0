@@ -1,7 +1,7 @@
 From: Charlie Brady <charlieb@budge.apana.org.au>
-Date: Sat, 21 Jan 2006 19:19:02 +0000
-Subject: Supporting qmail (Re: Treatment of Delivered-To headers)
-Message-Id: <Pine.LNX.4.61.0601211415470.26660@e-smith.charlieb.ott.istop.com>
+Date: Fri, 13 Jan 2006 22:01:48 +0000
+Subject: preline usage (Re: Is anyone using mlmmj with qmail?)
+Message-Id: <Pine.LNX.4.61.0601131658510.16146@e-smith.charlieb.ott.istop.com>
 List-Id: <mlmmj.mlmmj.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
@@ -9,17 +9,40 @@ Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
 
-On Sat, 21 Jan 2006, Mads Martin Joergensen wrote:
+On Fri, 13 Jan 2006, Thomas Goirand wrote:
 
-> But I've to admit, that when I wrote this, I deliberately always had in
-> mind that I ever would need to support qmail.
+> What is strange, is that when I just type "preline -f /usr/bin/mlmmj-recieve 
+> -L /var/spool/mlmmj/xen010503.gplhost.com_test" on the command line, it says 
+> "preline: usage: preline cmd [ arg ... ]" so it seems to be wrong.
 
-Then you cannot claim mail server independence :-)
+The man page for "preline" doesn't tell you a few things you need to know 
+to run it from the command line like that. As we can see in the source 
+code:
 
-> My rationale was that if one's using qmail, one would just use ezmlm 
-> anyway...
+...
+   if (!(ufline = env_get("UFLINE"))) die_usage();
+   if (!(rpline = env_get("RPLINE"))) die_usage();
+   if (!(dtline = env_get("DTLINE"))) die_usage();
 
-Ah, but you have a "decent license". :-)
+   while ((opt = getopt(argc,argv,"frdFRD")) != opteof)
+     switch(opt) {
+       case 'f': flagufline = 0; break;
+       case 'r': flagrpline = 0; break;
+       case 'd': flagdtline = 0; break;
+       case 'F': flagufline = 1; break;
+       case 'R': flagrpline = 1; break;
+       case 'D': flagdtline = 1; break;
+       default: die_usage();
+     }
+   argc -= optind;
+   argv += optind;
+   if (!*argv) die_usage();
 
-[It shouldn't be difficult at all for you to support qmail. The LDA 
-interface in qmail is small, flexible and reliable.]
+...
+
+there's a variety of things which can cause "usage" to be displayed. In 
+your case, it's the missing environment variables.
+
+See http://www.courier-mta.org/?preline.html for what you need to set 
+those variables to if you run from the command line. But qmail will 
+already have set those during delivery.
