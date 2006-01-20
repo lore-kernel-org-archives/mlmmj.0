@@ -1,7 +1,7 @@
-From: Charlie Brady <charlieb@budge.apana.org.au>
-Date: Fri, 20 Jan 2006 22:50:05 +0000
-Subject: Re: mlmmj-recieve silently discarding messages (Re: Is anyone	using
-Message-Id: <Pine.LNX.4.61.0601201746350.26234@e-smith.charlieb.ott.istop.com>
+From: "Morten K. Poulsen" <morten@afdelingp.dk>
+Date: Fri, 20 Jan 2006 23:54:06 +0000
+Subject: Re: mlmmj-recieve silently discarding messages (Re: Is anyone
+Message-Id: <20060121005406.7gb1nmmpwgo4ooog@mail.n0rd.dk>
 List-Id: <mlmmj.mlmmj.org>
 References: <Pine.LNX.4.61.0601161200120.26234@e-smith.charlieb.ott.istop.com>
 In-Reply-To: <Pine.LNX.4.61.0601161200120.26234@e-smith.charlieb.ott.istop.com>
@@ -10,30 +10,28 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
+Quoting Charlie Brady <charlieb@budge.apana.org.au>:
+> BTW, why don't you return an error status? Isn't that what an LDA should do?
 
-On Thu, 19 Jan 2006, Morten K. Poulsen wrote:
+I think we return EXIT_SUCCESS here for one of the following reasons:
 
-> Quoting Charlie Brady <charlieb@budge.apana.org.au>:
->> Without any log file information at all, and with a "success"
->> status, it's difficult to know what is wrong.
->
-> True.
->
->> IMO this silent (non-)success is a significant design flaw.
->
-> I don't think it is a *significant* design flaw, but what do I know.
+- The mail is a bounce sent to the list from a broken mail server, and 
+we do not want to create mail loops by bouncing it.
 
-I don't know what you know, but what I know from over 20 years admining 
-email systems is that software which discards email without telling anyone 
-is something that I'd stay away from and warn others not to use.
+- The mail was not accepted for delivery to the list (because of a 
+rule, because of missing list address in To:, ...), and some setting 
+explicitly stated that no deny mail was to be sent.
 
-> The attached patch adds log messages at all points where a mail is discarded. 
-> Could you please try it, and see if it helps you?
+When the mail is "malformed" - e.g. no Return-Path: - we should return 
+EXIT_FAILURE. The problem here is that we fork() to make sure that we 
+are not killed by the mail daemon who spawned us.
 
-Thanks, I'll try to find time over the weekend to try it.
+We should probably log more. We intended to not fill the system log 
+files with warnings about broken mails to a list. I am not saying it 
+was the best idea ever.
 
-BTW, why don't you return an error status? Isn't that what an LDA should 
-do?
+The log functions are not very good. There is only one log level, and 
+we always log the error string matching errno, which make info messages 
+difficult to read.
 
----
-Charlie
+Morten
