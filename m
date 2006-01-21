@@ -1,7 +1,7 @@
 From: Charlie Brady <charlieb@budge.apana.org.au>
-Date: Sat, 21 Jan 2006 19:53:20 +0000
+Date: Sat, 21 Jan 2006 20:03:43 +0000
 Subject: Re: mlmmj-recieve silently discarding messages (Re: Is anyone	using
-Message-Id: <Pine.LNX.4.61.0601211449220.26660@e-smith.charlieb.ott.istop.com>
+Message-Id: <Pine.LNX.4.61.0601211503000.26660@e-smith.charlieb.ott.istop.com>
 List-Id: <mlmmj.mlmmj.org>
 References: <Pine.LNX.4.61.0601161200120.26234@e-smith.charlieb.ott.istop.com>
 In-Reply-To: <Pine.LNX.4.61.0601161200120.26234@e-smith.charlieb.ott.istop.com>
@@ -11,17 +11,20 @@ Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
 
-On Sat, 21 Jan 2006, Mads Martin Joergensen wrote:
+On Thu, 19 Jan 2006, Morten K. Poulsen wrote:
 
-> * Charlie Brady <charlieb@budge.apana.org.au> [Jan 21. 2006 20:10]:
->> I'm sure that you know this, but the To: header can't be relied upon to
->> have any correlation with the envelope recipient address.
+> Quoting Charlie Brady <charlieb@budge.apana.org.au>:
+>> Without any log file information at all, and with a "success"
+>> status, it's difficult to know what is wrong.
 >
-> That's exactly why I want to use Delivered-To: :-)
+> True.
+>
+>> IMO this silent (non-)success is a significant design flaw.
+>
+> I don't think it is a *significant* design flaw, but what do I know.
+>
+> The attached patch adds log messages at all points where a mail is discarded. 
+> Could you please try it, and see if it helps you?
 
-As we've seen, you also cannot depend on Delivered-To: matching the 
-envelope recipient address. Or existing at all.
-
-> But as a fallback, To: is used.
-
-Is that for the sendmail case?
+It doesn't - we must still be hitting some other "unlink and exit" 
+condition.
