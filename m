@@ -1,37 +1,40 @@
-From: Charlie Brady <charlieb@budge.apana.org.au>
-Date: Sat, 21 Jan 2006 03:23:15 +0000
-Subject: Treatment of Return-Path: headers (Re: mlmmj-recieve silently
-Message-Id: <Pine.LNX.4.61.0601202210510.6540@e-smith.charlieb.ott.istop.com>
+From: Michael Fleming <mfleming@enlartenment.com>
+Date: Sat, 21 Jan 2006 07:20:32 +0000
+Subject: Re: Treatment of Return-Path: headers (Re: mlmmj-recieve silently
+Message-Id: <20060121172032.143bb8d4.mfleming@enlartenment.com>
 List-Id: <mlmmj.mlmmj.org>
+References: <Pine.LNX.4.61.0601202210510.6540@e-smith.charlieb.ott.istop.com>
+In-Reply-To: <Pine.LNX.4.61.0601202210510.6540@e-smith.charlieb.ott.istop.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
+On Fri, 20 Jan 2006 22:23:15 -0500 (EST). Charlie Brady waffled thusly:
 
-On Sat, 21 Jan 2006, Morten K. Poulsen wrote:
+> 
+> On Sat, 21 Jan 2006, Morten K. Poulsen wrote:
+> 
+> > When the mail is "malformed" - e.g. no Return-Path: - we should return 
+> > EXIT_FAILURE.
+> 
+> Do you have a reference to an RFC which says that Return-Path: is a 
+> required header? I don't believe that it is required. It's used by 
+> sendmail (and other MTAs which follow the pattern of sendmail) to record 
+> the envelope sender, but can't be expected to be provided by all MTAs 
+> unless it is mandated by an RFC.
 
-> When the mail is "malformed" - e.g. no Return-Path: - we should return 
-> EXIT_FAILURE.
+RFC 2822 Section 3.6.7. (Trace fields)
 
-Do you have a reference to an RFC which says that Return-Path: is a 
-required header? I don't believe that it is required. It's used by 
-sendmail (and other MTAs which follow the pattern of sendmail) to record 
-the envelope sender, but can't be expected to be provided by all MTAs 
-unless it is mandated by an RFC.
+...and
 
-In the case of qmail deliveries, the envelope sender is available as 
-$SENDER.
+RFC 822 Section 4.1 (Syntax)
 
-> The problem here is that we fork() to make sure that we are not 
-> killed by the mail daemon who spawned us.
+I've never seen a modern MTA that doesn't implement and use it, it's not
+specific to Sendmail.
 
-In the case of .qmail delivery, from the examples I've seen, the -F flag 
-will be used to avoid forking.
+Michael.
 
-I suspect this behaviour is wrong anyway. We can't just assume that the 
-mlmmj-send completed - the system might be shut down before it's done its 
-work, for instance. The LDA shouldn't return a delivery completed status 
-until the delivery is completed. This might mean that in rare 
-circumstances the delivery is done twice, but it should ensure that the 
-message is never lost.
+-- 
+Michael Fleming <mfleming@enlartenment.com>
+"Bother" said the Borg, "We've assimilated Pooh!"
