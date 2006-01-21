@@ -1,43 +1,52 @@
-From: Michael Fleming <mfleming@enlartenment.com>
-Date: Wed, 18 Jan 2006 14:26:19 +0000
-Subject: Re: mlmmj-1.2.10 bugfix release
-Message-Id: <20060119002619.7ddcca51.mfleming@enlartenment.com>
+From: Charlie Brady <charlieb@budge.apana.org.au>
+Date: Sat, 21 Jan 2006 03:10:22 +0000
+Subject: Treatment of Delivered-To headers (Re: mlmmj-recieve silently
+Message-Id: <Pine.LNX.4.61.0601202202460.6540@e-smith.charlieb.ott.istop.com>
 List-Id: <mlmmj.mlmmj.org>
-References: <20060118101910.GS87652@mmj.dk>
-In-Reply-To: <20060118101910.GS87652@mmj.dk>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-On Wed, 18 Jan 2006 11:19:10 +0100. Mads Martin Joergensen waffled thusly:
 
-> Hey all,
-> 
-> This release wasn't scheduled already, but due to a pretty nasty bug in
-> the new find_email_adr() function in 1.2.9, it's going out now. There's
-> also a little extra than just this bugfix:
-> 
-> 1.2.10
->  o Fix nasty bug in the new 1.2.9 find_email_adr() making comma in
->    quoted text in From: being discarded as invalid
->  o Simply make all addresses lowercase before doing anything else
->    wrt. sub/unsub and bounce
->  o Add czech listtexts (Lukas Hluze)
->  o Make non list emails (subconf, moderation etc.) also honor relayhost
->    and smtpport
->  o Add tunable to be able to close for subscription only (closedlistsub)
-> 
-> Enjoy, and upgrade those 1.2.9 boxes. http://mlmmj.mmj.dk/files
-> 
+On Fri, 20 Jan 2006, Morten K. Poulsen wrote:
 
-I've updated the mlmmj packages I maintain for Fedora Extras (Cores 3, 4 and
-Rawhide/devel branch) and they should be available when the Extras
-buildsystem next performs a new package push.
+> (now also sent to the list)
+>
+> Quoting Thomas Goirand <thomas@goirand.fr>:
+>> Delivered-To: xen010503-gplhost-com-test-subscribe@xen010503.gplhost.com
+> [snip]
+>> Would it be possible that mlmmj discrads the message because of the 
+>> Delivered-To:?
+>
+> Yes.
+>
+> Most likely because of this (mlmmj-process.c):
+>
+> 519         if(whichto && whichto->emaillist && whichto->emaillist[0]){
+> 520                 recipextra = strstr(whichto->emaillist[0], 
+> listdelim);
+> 521                 if (recipextra)
+> 522                         recipextra += strlen(listdelim);
+> 523         } else
+> 524                 recipextra = NULL;
+> 525         myfree(listdelim);
 
-Cheers,
-Michael.
+And this:
 
--- 
-Michael Fleming <mfleming@enlartenment.com>
-"Bother" said the Borg, "We've assimilated Pooh!"
+...
+         if(readhdrs[4].token) { /* Delivered-To: (envelope to) */
+                 for(i = 0; i < readhdrs[4].valuecount; i++) {
+                         find_email_adr(readhdrs[4].values[i], &dtoemails);
+                 }
+         }
+...
+
+The error here is that the Delivered-To header may not match the "envelope 
+to", and in the case of virtual domains, it definitely won't. But there is 
+no need to guess, just check $RECIPIENT in the environment.
+
+Unless you tell me I'm way off track, I'll try to get a patch together. It 
+should be safe to assume that $RECIPIENT won't be set under other MTAs. If 
+you think it's not, then we could use a command line flag to only activate 
+the environment check under qmail.
