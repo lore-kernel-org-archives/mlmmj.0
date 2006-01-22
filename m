@@ -1,7 +1,7 @@
-From: Charlie Brady <charlieb@budge.apana.org.au>
-Date: Sat, 21 Jan 2006 20:40:03 +0000
-Subject: Re: mlmmj-recieve silently discarding messages (Re: Is anyone	using
-Message-Id: <Pine.LNX.4.61.0601211531300.26660@e-smith.charlieb.ott.istop.com>
+From: "Morten K. Poulsen" <morten@afdelingp.dk>
+Date: Sun, 22 Jan 2006 00:43:28 +0000
+Subject: Re: mlmmj-recieve silently discarding messages (Re: Is anyone	using mlmmj with qmail?)
+Message-Id: <20060122004328.GJ58097@mmj.dk>
 List-Id: <mlmmj.mlmmj.org>
 References: <Pine.LNX.4.61.0601161200120.26234@e-smith.charlieb.ott.istop.com>
 In-Reply-To: <Pine.LNX.4.61.0601161200120.26234@e-smith.charlieb.ott.istop.com>
@@ -10,25 +10,21 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
+* Charlie Brady <charlieb@budge.apana.org.au> [Jan 21. 2006 21:40]:
+> >7940  write(3, "Delivered-To: xen010503-gplhost-"..., 68) = 68
+[snip]
+> Jan 21 20:31:05 xen010503 /usr/bin/mlmmj-process[8341]: listcontrol.c:141: 
+> controlstr = [gplhost-com-test-help] : No such file or directory
 
-On Sat, 21 Jan 2006, Charlie Brady wrote:
+This is the problem with qmail's Delivered-To: header. Mlmmj sees the
+recipient delimiter, splits the string in two parts (list name part and
+command part), and concludes that the mail does not make any sense
+(since the command part ("com-test-help") is not a valid commanad),
+removes the mail file, and exits.
 
-> [Here message is copied from incoming to queue file]
->
-> Note that first Delivered-To header does not match the envelope recipient 
-> address, due to qmail's method of virtual domain handling:
->
-> 7940  write(3, "Delivered-To: xen010503-gplhost-"..., 68) = 68
-> ...
-...
-> From the stat64 of "closedlist" downwards it's listcontrol() which is 
-> running. We expect something "meaty" to happen there, but nothing useful 
-> happens at all.
+I will cook up a patch that logs the reason later.
 
-This is what syslog tells us if I enable the debug logs in listcontrol:
+Morten
 
-Jan 21 20:31:05 xen010503 /usr/bin/mlmmj-process[8341]: listcontrol.c:141: 
-controlstr = [gplhost-com-test-help] : No such file or directory
-Jan 21 20:31:05 xen010503 /usr/bin/mlmmj-process[8341]: listcontrol.c:142: 
-fromemails->emaillist[0] = [charlieb@budge.apana.org.au] : No such file or 
-directory
+-- 
+Morten K. Poulsen <morten@afdelingp.dk>
