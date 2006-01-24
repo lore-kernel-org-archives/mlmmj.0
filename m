@@ -1,7 +1,7 @@
-From: Thomas Goirand <thomas@goirand.fr>
-Date: Tue, 24 Jan 2006 03:17:54 +0000
+From: Sven 'Darkman' Michels <sven@darkman.de>
+Date: Tue, 24 Jan 2006 04:08:12 +0000
 Subject: Re: 1.2.11 is out
-Message-Id: <43D59C62.9020803@goirand.fr>
+Message-Id: <43D5A82C.3020802@darkman.de>
 List-Id: <mlmmj.mlmmj.org>
 References: <20060123180701.GJ33296@mmj.dk>
 In-Reply-To: <20060123180701.GJ33296@mmj.dk>
@@ -10,40 +10,28 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
 
+Thomas Goirand wrote:
+> I think it's a shame that the original debian folder used to build that
+> binary package is not in the original tar.gz. Would it be possible to
+> include it in the next release?
 
-Sven 'Darkman' Michels wrote:
+Well, actually we use these builds for our listservers, so they're
+normally not for the public ;) The build process is quick'n dirty,
+so i didn't release anything else than that yet. I'll try to make
+a clean package in the next days to make you all more happy.
+At the moment the deb is nothing special, its based on the 1.2.8-7
+debian package with a few changes: removed the call_to_free patch
+since its already fixed in mlmmj, changed the fullpath patch (typo
+removed). Thats it. No voodoo, no backdors..
 
->-----BEGIN PGP SIGNED MESSAGE-----
->Hash: SHA1
->
->Hi,
->
->Patrick Bennett wrote:
->  
->
->>Is there a sarge dpkg available anywhere?
->>    
->>
->
->ftp://ftpmirror.sectoor.de/software/mlmmj/debian/mlmmj_1.2.11-1_i386.deb
->
->Regards,
->Sven
->-----BEGIN PGP SIGNATURE-----
->Version: GnuPG v1.2.2 (GNU/Linux)
->
->iD8DBQFD1TcHQoCguWUBzBwRAotkAJ4/WzuG1zcRWRWOIya6t52nMhufSACffXsk
->qMPMmgx9K4kipusz99GBmTc>=Uc9l
->-----END PGP SIGNATURE-----
->  
->
-I think it's a shame that the original debian folder used to build that 
-binary package is not in the original tar.gz. Would it be possible to 
-include it in the next release?
+Regards,
+Sven
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.2.2 (GNU/Linux)
 
-Thomas
-
-P.S: I'm investigating on MLMMJ + Qmail, I'll try to make a patch if I 
-can do it...
-
+iD8DBQFD1agsQoCguWUBzBwRApgmAJ0V7/KCaLdmEnIq5F3Y/UQROShXTACfQ5ii
+qzRBEFDG1UM68ODe9c2sHxI=zPPE
+-----END PGP SIGNATURE-----
