@@ -1,25 +1,35 @@
-From: Stefan Reinauer <stepan@coresystems.de>
-Date: Sun, 12 Mar 2006 20:14:08 +0000
+From: Mads Martin Joergensen <mmj@suse.de>
+Date: Mon, 13 Mar 2006 14:31:01 +0000
 Subject: Re: spam on the list?
-Message-Id: <20060312201408.GA2857@openbios.org>
+Message-Id: <20060313143101.GA5681@suse.de>
 List-Id: <mlmmj.mlmmj.org>
 References: <20060311223023.GO32725@zeus.itg.uiuc.edu>
 In-Reply-To: <20060311223023.GO32725@zeus.itg.uiuc.edu>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="ks_c_5601-1987"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-KiBBbnRob255IFBoaWxpcHAgPHBoaWxpcHAxQHVpdWMuZWR1PiBbMDYwMzExIDIzOjMwXToKPiBJ
-J3ZlIGJlZW4gcmVjaWV2aW5nIGEgbG90IG9mIHNwYW0gZnJvbSB0aGUgbGlzdC4gSXMgdGhlcmUg
-YW55IHdheQo+IHlvdSBndXlzIGNvdWxkIGZpbHRlciBpdD8gQWxzbyBteSBhZGRyZXNzIHNlZW1z
-IHRvIGhhdmUgYmVlbgo+IGhhcnZlc3RlZCBmcm9tIHRoZSB3ZWIgYXJjaGl2ZXMuIEl0IHRoZXJl
-IGFueXRoaW5nIHRoYXQgY2FuIGJlIGRvbmUKPiB0byBvYnNjdXJlIGVtYWlsIGFkZGVzc2VzPwo+
-IAo+IFRoYW5rcyBpbiBhZHZhbmNlIQoKSGksCgpJIHN1Z2dlc3QgcHV0dGluZyB0aGUgbGlzdCB0
-byAic3Vic2NyaWJlcnMgb25seSIgYW5kIHB1c2ggdGhvc2UgZmV3CmxlZnRvdmVyIG1lc3NhZ2Vz
-IHRocm91Z2ggbWFudWFsbHkuIE9uIGEgbWFpbGluZyBsaXN0IEkgaGF2ZSB0aGVyZQphcmUgMjAr
-IHNwYW1zIHBlciBkYXkgYnV0IGEgc2luZ2xlIGdvb2QgcG9zdCBzdGF5cyBpbiB0aGUgZmlsdGVy
-cyBpbiBhCm1vbnRoIG9yIHR3by4gRmFpciBlbm91Z2guLgoKU3RlZmFuCgotLSAKY29yZXN5c3Rl
-bXMgR21iSCC3IEJyYWhtc3N0ci4gMTYgtyBELTc5MTA0IEZyZWlidXJnIGkuIEJyLgogICAgICBU
-ZWwuOiArNDkgNzYxIDc2Njg4MjUgtyBGYXg6ICs0OSA3NjEgNzY2NDYxMwpFbWFpbDogaW5mb0Bj
-b3Jlc3lzdGVtcy5kZSAgtyBodHRwOi8vd3d3LmNvcmVzeXN0ZW1zLmRlLwo=
+* Stefan Reinauer <stepan@coresystems.de> [Mar 12. 2006 21:14]:
+> * Anthony Philipp <philipp1@uiuc.edu> [060311 23:30]:
+> > I've been recieving a lot of spam from the list. Is there any way
+> > you guys could filter it? Also my address seems to have been
+> > harvested from the web archives. It there anything that can be done
+> > to obscure email addesses?
+> > 
+> > Thanks in advance!
+> 
+> Hi,
+> 
+> I suggest putting the list to "subscribers only" and push those few
+> leftover messages through manually. On a mailing list I have there
+> are 20+ spams per day but a single good post stays in the filters in a
+> month or two. Fair enough..
+
+Ok, mlmmj list is now subscribers only.
+
+-- 
+Mads Martin Joergensen, http://mmj.dk
+"Why make things difficult, when it is possible to make them cryptic
+ and totally illogical, with just a little bit more effort?"
+                                -- A. P. J.
