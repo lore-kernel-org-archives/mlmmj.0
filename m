@@ -1,7 +1,7 @@
-From: Jakob Hirsch <jh@plonk.de>
-Date: Mon, 20 Mar 2006 00:40:21 +0000
+From: "Morten K. Poulsen" <morten@afdelingp.dk>
+Date: Mon, 20 Mar 2006 22:22:55 +0000
 Subject: Re: testing mlmmj
-Message-Id: <441DF9F5.6000305@plonk.de>
+Message-Id: <XFMail.20060320232255.morten@afdelingp.dk>
 List-Id: <mlmmj.mlmmj.org>
 References: <20060319162716.GU31545@waterworld.anvame.net>
 In-Reply-To: <20060319162716.GU31545@waterworld.anvame.net>
@@ -10,23 +10,31 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Andreas V. Meier wrote:
+On 20-Mar-2006 Jakob Hirsch wrote:
+> Andreas V. Meier wrote:
+>>>> Mar 19 01:32:41 waterworld /usr/bin/mlmmj-process[23489]:
+>>>> mlmmj-process.c:612: Discarding
+>>>> /raid/var/spool/mlmmj/mlmmj-test//incoming/ca5b636770aae27 due to
+>>>> invalid envelope from email count (was 0, must be 1): No such file or
+>>>> directory
+> 
+> Hm, now that I look at it, the error message looks a little strange,
+> esp. the "no such file..." part.
 
->>> Mar 19 01:32:41 waterworld /usr/bin/mlmmj-process[23489]:
->>> mlmmj-process.c:612: Discarding
->>> /raid/var/spool/mlmmj/mlmmj-test//incoming/ca5b636770aae27 due to
->>> invalid envelope from email count (was 0, must be 1): No such file or
->>> directory
+It is a debug message. Ignore the "No such file or directory" part.
 
-Hm, now that I look at it, the error message looks a little strange,
-esp. the "no such file..." part.
+If the mail has no envelope from address ("MAIL FROM:<>" in SMTP), it is a
+bounce mail. If such a mail is sent to the list, it must be from a broken mail
+server, and is therefore ignored.
 
-> The README.exim4 uses ${lc::$local_part} in the mlmmj_transport. At
+*But* if your mail server is not configured to add the envelope from address as
+a Return-Path: header, mlmmj can not see it. Is your server configured to add
+Return-Path?
 
-Funny enough, somebody else was hit by this a few hours ago.
+In the future mlmmj will also look at environment variables for envelope
+addresses (for qmail support) but it does not at the moment.
 
-The updated version (with some other things, too) is in
-http://ymmv.de/sw/mlmmj/README.exim4
+Morten
 
-Mads, could you put that in the next version? Tnx.
-
+-- 
+Morten K. Poulsen <morten@afdelingp.dk>
