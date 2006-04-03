@@ -1,43 +1,26 @@
-From: Mads Martin Joergensen <mmj@mmj.dk>
-Date: Fri, 21 Apr 2006 22:35:21 +0000
-Subject: Re: Email alias request
-Message-Id: <20060421223521.GA28064@mmj.dk>
+From: Martin Koch Andersen <martin@925.dk>
+Date: Mon, 03 Apr 2006 14:08:25 +0000
+Subject: Two To: headers added to auto-mails from list
+Message-Id: <44312C59.8000100@925.dk>
 List-Id: <mlmmj.mlmmj.org>
-References: <1145658765@psmtp.com>
-In-Reply-To: <1145658765@psmtp.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
+Hi,
 
-Hehe, sorry about that; it's just that I've started using this really
-cool Postini spamfiltering service, and of course wanted to add mlmmj
-list to be filtered as well...
+I have noticed that in emails from the list (confirm-sub, sub-ok etc.) I 
+get two To: headers.
 
+In the configuration of my list I have 'Add To: header'. And in 'Delete 
+headers' 'To:' is listed also.
 
+Why do I get this extra To: header? Could it be a bug with the mentioned 
+configuration above?
 
-* Alias Creation <mmj@mmj.dk> [Apr 22. 2006 00:32]:
-> Dear mlmmj@mmj.dk,
-> 
-> The user mmj@mmj.dk is requesting to take ownership of the Message
-> Center account for mlmmj@mmj.dk.
-> 
-> Normally this is requested in order to map an alternate address to a
-> primary account.
-> 
-> If you agree with this request, click the link below where you will be
-> taken to a page to confirm or deny the request.
-> 
-> Note:  some email applications cannot handle long URLs.  If there is a
-> problem with this URL, copy and paste it into your browser Address
-> field.
-> 
-> 
-> Thank you,
-> MMJ
+Using latest version.
+
 -- 
-Mads Martin Joergensen, http://mmj.dk
-"Why make things difficult, when it is possible to make them cryptic
- and totally illogical, with just a little bit more effort?"
-                                 -- A. P. J.
+Martin - http://925.dk
+"Shoot for the moon, even if you miss, you'll land among the stars."
