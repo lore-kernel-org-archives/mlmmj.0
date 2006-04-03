@@ -1,55 +1,35 @@
-From: "Andreas V. Meier" <andreas@anvame.net>
-Date: Mon, 03 Apr 2006 20:44:27 +0000
+From: Mads Martin Joergensen <mmj@mmj.dk>
+Date: Mon, 03 Apr 2006 22:49:46 +0000
 Subject: Re: Mailing list moving messages to queue/discarded
-Message-Id: <20060403204427.GG30687@waterworld.anvame.net>
-MIME-Version: 1
-Content-Type: multipart/mixed; boundary="lHGcFxmlz1yfXmOs"
+Message-Id: <20060403224946.GE79072@mmj.dk>
 List-Id: <mlmmj.mlmmj.org>
 References: <937117890604031225n6181817bk91c2794d6934f6c0@mail.gmail.com>
 In-Reply-To: <937117890604031225n6181817bk91c2794d6934f6c0@mail.gmail.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
+* Andreas V. Meier <andreas@anvame.net> [Apr 03. 2006 22:44]:
+> > I have set up a new mailing list (mlmmj 1.2.11, Exim 4, no VERP) and
+> > when I try to send a message to the mailing list, it gets moved to
+> > queue/discarded.
+> > 
+> > How can I find out why?
+> 
+> I found informative messages in my syslog when I started with mlmmj,
+> you might want to have a look there. I think the logs of exim would
+> just tell you that it was passed to mlmmj, right?
 
---lHGcFxmlz1yfXmOs
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Good place to start, paste them here if you need help. Also--does the
+messages in queue/discarded/ have a Return-Path: header?
 
-Hi Marcelo,
+http://mlmmj.mmj.dk/archive/0748.html was a thread an exim problem and
+also http://ymmv.de/sw/mlmmj/README.exim4 is the latest and greated from
+Jakob Hirsch about exim and mlmmj setup.
 
-On Mon, Apr 03, 2006 at 01:25:55PM -0600, Marcelo E. Magall=F3n wrote:
-> Hi,
->=20
-> I have set up a new mailing list (mlmmj 1.2.11, Exim 4, no VERP) and
-> when I try to send a message to the mailing list, it gets moved to
-> queue/discarded.
->=20
-> How can I find out why?
-
-I found informative messages in my syslog when I started with mlmmj, you mi=
-ght
-want to have a look there. I think the logs of exim would just tell you tha=
-t it
-was passed to mlmmj, right?
-
->=20
-> Marcelo
-
-Ciao
-
-Andreas
-
-
---lHGcFxmlz1yfXmOs
-Content-Type: application/pgp-signature
-Content-Disposition: inline
-
------BEGIN PGP SIGNATURE-----
-Version: GnuPG v1.2.3 (GNU/Linux)
-
-iD8DBQFEMYkr2A9/vRi9PS4RAo4GAJ4nFangdpZ1veQ2GOeu8IPBNqXddACfR0x5
-IZL4PQIK7iBeeLGOiWMaEsw=
-=aVKP
------END PGP SIGNATURE-----
-
---lHGcFxmlz1yfXmOs--
+-- 
+Mads Martin Joergensen, http://mmj.dk
+"Why make things difficult, when it is possible to make them cryptic
+ and totally illogical, with just a little bit more effort?"
+                                 -- A. P. J.
