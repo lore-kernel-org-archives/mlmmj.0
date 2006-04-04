@@ -1,78 +1,32 @@
-From: Christian Laursen <xi@borderworlds.dk>
-Date: Tue, 04 Apr 2006 18:16:55 +0000
+From: "Morten K. Poulsen" <morten@afdelingp.dk>
+Date: Tue, 04 Apr 2006 22:37:23 +0000
 Subject: Re: Two To: headers added to auto-mails from list
-Message-Id: <868xqlp5ns.fsf@borg.borderworlds.dk>
-MIME-Version: 1
-Content-Type: multipart/mixed; boundary="=-=-="
+Message-Id: <20060405003723.z92rwljk2sc4w0wc@mail.n0rd.dk>
 List-Id: <mlmmj.mlmmj.org>
 References: <44312C59.8000100@925.dk>
 In-Reply-To: <44312C59.8000100@925.dk>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
---=-=-=
-
-Martin Koch Andersen <martin@925.dk> writes:
-
-> I have noticed that in emails from the list (confirm-sub, sub-ok etc.)
-> I get two To: headers.
+Quoting Martin Koch Andersen <martin@925.dk>:
+> Morten K. Poulsen skrev:
+>>> Why do I get this extra To: header? Could it be a bug with the 
+>>> mentioned configuration above?
+>>
+>> I cannot see how the customheaders option could change a confsub or 
+>> sub-ok mail.
 >
-> In the configuration of my list I have 'Add To: header'. And in
-> Delete headers' 'To:' is listed also.
+> It seems like the 'delete headers' thing is not executed for confsub, 
+> sub-ok etc. mails? And in my setting I have also 'Add To: header' - 
+> so that the actual receiver address is added as To: address. Could 
+> this not be the reason the 'To:' header is set twice?
 
-I have just reproduced this.
+Ah, you are using the addtohdr option, not customheaders. I should read 
+a mail before replying to it :-)
 
-> Why do I get this extra To: header? Could it be a bug with the
-> mentioned configuration above?
+Have you tried Christian Laursen's patch? I think it is the right way 
+to fix this issue.
 
-The problem is that when addtohdr is true, an extra To: header is
-always appended by mlmmj-send even for mails not going to the list
-subscribers, e.g. subscribe confirmations and mails to moderators.
-
-I have made a small patch that only sets addtohdr from the control
-dir when resending earlier failed mails or sending normal list mail.
-I am however not sure that this is the right solution, so I would
-welcome any input.
-
-The patch is attached.
-
-> Using latest version.
-
-I know. :)
-
--- 
-Christian Laursen
-
---=-=-=
-Content-Type: text/x-patch
-Content-Disposition: inline; filename=mlmmj.diff
-Content-Description: mlmmj-send.c patch
-
-diff -urN mlmmj-1.2.11.orig/src/mlmmj-send.c mlmmj-1.2.11/src/mlmmj-send.c
---- mlmmj-1.2.11.orig/src/mlmmj-send.c	Tue Nov  1 14:23:49 2005
-+++ mlmmj-1.2.11/src/mlmmj-send.c	Tue Apr  4 19:43:42 2006
-@@ -823,7 +823,6 @@
- 		exit(EXIT_FAILURE);
- 	}
- 
--	addtohdr = statctrl(listdir, "addtohdr");
- 	memmailsizestr = ctrlvalue(listdir, "memorymailsize");
- 	ctrlarchive = statctrl(listdir, "noarchive");
- 	if(memmailsizestr) {
-@@ -886,6 +885,7 @@
- 		}
- 		break;
- 	case '3':
-+		addtohdr = statctrl(listdir, "addtohdr");
- 	case '4': /* sending mails to subfile */
- 		if((subfd = open(subfilename, O_RDONLY)) < 0) {
- 			log_error(LOG_ARGS, "Could not open '%s':",
-@@ -904,6 +904,7 @@
- 						archivefilename);
- 		break;
- 	default: /* normal list mail -- now handled when forking */
-+		addtohdr = statctrl(listdir, "addtohdr");
- 		break;
- 	}
- 
-
---=-=-=--
+Morten
