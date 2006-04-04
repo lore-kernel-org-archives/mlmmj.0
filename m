@@ -1,78 +1,78 @@
-From: Martin Koch Andersen <martin@925.dk>
-Date: Tue, 04 Apr 2006 16:31:34 +0000
+From: Christian Laursen <xi@borderworlds.dk>
+Date: Tue, 04 Apr 2006 18:16:55 +0000
 Subject: Re: Two To: headers added to auto-mails from list
-Message-Id: <44329F66.1010908@925.dk>
+Message-Id: <868xqlp5ns.fsf@borg.borderworlds.dk>
+MIME-Version: 1
+Content-Type: multipart/mixed; boundary="=-=-="
 List-Id: <mlmmj.mlmmj.org>
 References: <44312C59.8000100@925.dk>
 In-Reply-To: <44312C59.8000100@925.dk>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Hi,
+--=-=-=
 
-Morten K. Poulsen skrev:
-> Quoting Martin Koch Andersen <martin@925.dk>:
->> I have noticed that in emails from the list (confirm-sub, sub-ok etc.) 
->> I get two To: headers.
->>
->> In the configuration of my list I have 'Add To: header'. And in 
->> 'Delete headers' 'To:' is listed also.
-> 
-> That sounds very strange.
-> 
-> The headers are changed in the incoming mail. Then the mail is checked 
-> for list control commands, and a reply is sent if needed. The changed 
-> headers should never appear in the reply.
-> 
->> Why do I get this extra To: header? Could it be a bug with the 
->> mentioned configuration above?
-> 
-> I cannot see how the customheaders option could change a confsub or 
-> sub-ok mail.
+Martin Koch Andersen <martin@925.dk> writes:
 
-It seems like the 'delete headers' thing is not executed for confsub, 
-sub-ok etc. mails? And in my setting I have also 'Add To: header' - so 
-that the actual receiver address is added as To: address. Could this not 
-be the reason the 'To:' header is set twice?
+> I have noticed that in emails from the list (confirm-sub, sub-ok etc.)
+> I get two To: headers.
+>
+> In the configuration of my list I have 'Add To: header'. And in
+> Delete headers' 'To:' is listed also.
 
-Here is a sample:
+I have just reproduced this.
 
- From - Tue Apr 04 18:22:31 2006
-X-Account-Key: account2
-X-UIDL: UID3424-1115901712
-X-Mozilla-Status: 0001
-X-Mozilla-Status2: 00000000
-Return-Path: <news-twice-daily+bounces-help@list.xxx.com>
-Delivered-To: martin.yyy.dk@pop3.pil.dk
-Received: from watt.pil.dk (watt.pil.dk [195.41.47.12])
-	by heimdal.pil.dk (Postfix) with ESMTP id 06D40ACF9
-	for <martin@yyy.dk>; Tue,  4 Apr 2006 18:22:25 +0200 (CEST)
-Received: by watt.pil.dk (Postfix, from userid 106)
-	id 770FADFD3; Tue,  4 Apr 2006 18:22:55 +0200 (CEST)
-Received: from nibu.pil.dk (nibu.pil.dk [193.162.142.149])
-	by watt.pil.dk (Postfix) with ESMTP id 5D1ECDFCD
-	for <martin@yyy.dk>; Tue,  4 Apr 2006 18:22:55 +0200 (CEST)
-Received: from nibu.pil.dk (nibu.pil.dk [193.162.142.149])
-	by nibu.pil.dk (Postfix) with SMTP id A24856C2D7C
-	for <martin@yyy.dk>; Tue,  4 Apr 2006 18:22:24 +0200 (CEST)
-From: news-twice-daily+help@list.euobserver.com
-To: martin@yyy.dk
-Message-ID: <1144167744-747cf83f-mlmmj-113b64df@3d09bfb8.plonk>
-Date: Tue, 04 Apr 2006 18:22:24 +0200
-Subject: Goodbye from news-twice-daily@list.xxx.com
-To: martin@yyy.dk
-X-Virus-Status: No
+> Why do I get this extra To: header? Could it be a bug with the
+> mentioned configuration above?
 
-Thank you and goodbye!
+The problem is that when addtohdr is true, an extra To: header is
+always appended by mlmmj-send even for mails not going to the list
+subscribers, e.g. subscribe confirmations and mails to moderators.
 
-You have now been removed from the
+I have made a small patch that only sets addtohdr from the control
+dir when resending earlier failed mails or sending normal list mail.
+I am however not sure that this is the right solution, so I would
+welcome any input.
 
-news-twice-daily@list.xxx.com
+The patch is attached.
 
-mailinglist.
+> Using latest version.
+
+I know. :)
 
 -- 
-Martin - http://925.dk
-"Shoot for the moon, even if you miss, you'll land among the stars."
+Christian Laursen
+
+--=-=-=
+Content-Type: text/x-patch
+Content-Disposition: inline; filename=mlmmj.diff
+Content-Description: mlmmj-send.c patch
+
+diff -urN mlmmj-1.2.11.orig/src/mlmmj-send.c mlmmj-1.2.11/src/mlmmj-send.c
+--- mlmmj-1.2.11.orig/src/mlmmj-send.c	Tue Nov  1 14:23:49 2005
++++ mlmmj-1.2.11/src/mlmmj-send.c	Tue Apr  4 19:43:42 2006
+@@ -823,7 +823,6 @@
+ 		exit(EXIT_FAILURE);
+ 	}
+ 
+-	addtohdr = statctrl(listdir, "addtohdr");
+ 	memmailsizestr = ctrlvalue(listdir, "memorymailsize");
+ 	ctrlarchive = statctrl(listdir, "noarchive");
+ 	if(memmailsizestr) {
+@@ -886,6 +885,7 @@
+ 		}
+ 		break;
+ 	case '3':
++		addtohdr = statctrl(listdir, "addtohdr");
+ 	case '4': /* sending mails to subfile */
+ 		if((subfd = open(subfilename, O_RDONLY)) < 0) {
+ 			log_error(LOG_ARGS, "Could not open '%s':",
+@@ -904,6 +904,7 @@
+ 						archivefilename);
+ 		break;
+ 	default: /* normal list mail -- now handled when forking */
++		addtohdr = statctrl(listdir, "addtohdr");
+ 		break;
+ 	}
+ 
+
+--=-=-=--
