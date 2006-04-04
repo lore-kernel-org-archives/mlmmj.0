@@ -1,18 +1,30 @@
-From: Josh Rivel <josh@freek.com>
-Date: Tue, 14 Mar 2006 19:33:20 +0000
-Subject: Re: relaying denied with postfix-2.2.9 and mlmmj-1.2.11
-Message-Id: <20060314193320.GE20550@freek.com>
+From: Anthony Philipp <philipp1@uiuc.edu>
+Date: Tue, 04 Apr 2006 18:41:48 +0000
+Subject: feature request: global configs
+Message-Id: <20060404184148.GW29628@zeus.itg.uiuc.edu>
 List-Id: <mlmmj.mlmmj.org>
-References: <20060314164202.GC1858@freek.com>
-In-Reply-To: <20060314164202.GC1858@freek.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Problem has been solved.
-Had to reorder some things within main.cf.
+Hello,
 
-Thanks, sorry for wasting everyones time.
+I've been using mlmmj for over a year now, and posted to this list a
+few times. There is a feature which I think might be useful. Would
+there be a way to have a global control folder? For sites with many
+mailing lists, I would imagine that the configs would be quite
+similar. For instance the owner might be the same for all the lists
+but one. In that case you could override it per list.
 
-Josh
+The prefix is often something like this: [listname]
+
+Having a global prefix entry would make creating lists even easier.
+It might even make it "joyful." ;) 
+
+Thanks!
+
+Anthony
+
+PS if you guys want more feature suggestions I would be happy to
+post them here. So far this has been an awesome program!
