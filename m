@@ -1,36 +1,50 @@
-From: Mads Martin Joergensen <mmj@suse.de>
-Date: Mon, 03 Apr 2006 23:46:02 +0000
-Subject: Re: Mailing list moving messages to queue/discarded
-Message-Id: <20060403234602.GJ24165@suse.de>
+From: Alias Creation <mmj@mmj.dk>
+Date: Fri, 21 Apr 2006 22:32:46 +0000
+Subject: Email alias request
+Message-Id: <1145658765@psmtp.com>
+MIME-Version: 1
+Content-Type: multipart/mixed; boundary="------------7C69B185E4D6D2A68830CF49"
 List-Id: <mlmmj.mlmmj.org>
-References: <937117890604031225n6181817bk91c2794d6934f6c0@mail.gmail.com>
-In-Reply-To: <937117890604031225n6181817bk91c2794d6934f6c0@mail.gmail.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
 To: mlmmj@mlmmj.org
 
-* Marcelo E. Magall=F3n <marcelo.magallon@gmail.com> [Apr 04. 2006 01:38]:
-> > > I found informative messages in my syslog when I started with mlmmj,
-> > > you might want to have a look there. I think the logs of exim would
-> > > just tell you that it was passed to mlmmj, right?
->=20
-> Ah, thank you, I was looking for messases in the exim message log
-> only.  It didn't occur to me that mlmmj was sending messages to syslog
-> by itself.  That's something to remember!
->=20
-> > Good place to start, paste them here if you need help. Also--does the
-> > messages in queue/discarded/ have a Return-Path: header?
->=20
-> And this was indeed the problem.  No Return-Path, I had forgotten to
-> add it to the transport, just like the README says you have to.
->=20
-> Thanks!
+--------------7C69B185E4D6D2A68830CF49
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
 
-Our pleasure, glad you got it working :-)
+Dear mlmmj@mmj.dk,
 
---=20
-Mads Martin Joergensen, http://mmj.dk
-"Why make things difficult, when it is possible to make them cryptic
- and totally illogical, with just a little bit more effort?"
-                                -- A. P. J.
+The user mmj@mmj.dk is requesting to take ownership of the Message Center account for mlmmj@mmj.dk.
+
+Normally this is requested in order to map an alternate address to a primary account.
+
+If you agree with this request, click the link below where you will be taken to a page to confirm or deny the request.
+
+Note:  some email applications cannot handle long URLs.  If there is a problem with this URL, copy and paste it into your browser Address field.
+
+
+Thank you,
+MMJ
+--------------7C69B185E4D6D2A68830CF49
+Content-Type: text/html; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head><title>Alias Confirmation</title></head>
+<body>
+Dear mlmmj@mmj.dk,<br>
+<br>
+The user mmj@mmj.dk is requesting to take ownership of the Message Center account for mlmmj@mmj.dk.<br>
+<br>
+Normally this is requested in order to map an alternate address to a primary account.<br>
+<br>
+If you agree with this request, click the link below where you will be taken to a page to confirm or deny the request.<br>
+<br>
+Note:  some email applications cannot handle long URLs.  If there is a problem with this URL, copy and paste it into your browser Address field.<br>
+<br>
+<br>
+Thank you,<br>
+MMJ<br>
+</body></html>
+--------------7C69B185E4D6D2A68830CF49--
+
