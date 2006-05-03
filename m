@@ -1,140 +1,269 @@
-From: Fabio Busatto <fabio.busatto@programmazione.it>
-Date: Wed, 03 May 2006 13:46:28 +0000
-Subject: qmail+vpopmail support
-Message-Id: <20060503134628.GG5327@nachos.phaseit.com>
+From: Morten K. Poulsen <morten@afdelingp.dk>
+Date: Wed, 03 May 2006 18:32:38 +0000
+Subject: Re: qmail+vpopmail support
+Message-Id: <dbe0de84e34f681c3508092df90ac4f2@mail.n0rd.dk>
 MIME-Version: 1
-Content-Type: multipart/mixed; boundary="nFreZHaLTZJo0R7j"
+Content-Type: multipart/mixed; boundary="=_f942f185dbdea3416b03f5dd65b644a3"
 List-Id: <mlmmj.mlmmj.org>
+References: <20060503134628.GG5327@nachos.phaseit.com>
+In-Reply-To: <20060503134628.GG5327@nachos.phaseit.com>
 To: mlmmj@mlmmj.org
 
 
---nFreZHaLTZJo0R7j
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+--=_f942f185dbdea3416b03f5dd65b644a3
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
 
-Hi, I've tested patch-mlmmj-listcontrol_env with qmail, and
-I wrote a supplementary patch for it.
+Hi Fabio,
 
-The problem is that the patch works with the qmail standard
-installation, but quite all installations use vpopmail as
-virtual domain manager, and the patch doesn't work with it.
+On Wed, 3 May 2006 15:46:28 +0200, Fabio Busatto <fabio.busatto@programmazione.it> wrote:
+> Hi, I've tested patch-mlmmj-listcontrol_env with qmail, and
+> I wrote a supplementary patch for it.
 
-The EXT environment variable infact contains the username
-section after the first delimiter, but with vpopmail we have
-a rewrite of the address like this:
+Your patch looks good.
 
-user@domain.tld -> domain.tld-user@domain.tld
+I have applied it, and the new listcontrol_env patch (with your changes) is attached to this mail.
 
-So, EXT contains the username (and not the extension).
-The real extension is stored in the DEFAULT environment
-variable, in both qmail and vpopmail scenarios.
-But the problem is that DEFAULT is too common name to
-be sure that it contains really an extension, so the
-solution is to check for the value in DEFAULT, and to
-compare it with the value in the EXT environment
-variabile (qmail), or in the EXT2 environment variable
-(qmail+vpopmail). If it matches, we can assume that it
-contains an extension.
-
-The patch also includes README.qmail, with explaination
-of how mlmmj should be configured with qmail and a short
-configuration example for vpopmail users.
-
-This code has been tested in production environment
-(so I can say that it works for me), but should not to be
-marked stable until it will be applied in the mlmmj
-official release.
-
-Bye
-Fabio
-
---nFreZHaLTZJo0R7j
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: attachment; filename="patch-mlmmj-listcontrol_env_vpopmail.diff"
-
-diff -uNr mlmmj-1.2.11-orig/README.qmail mlmmj-1.2.11/README.qmail
---- mlmmj-1.2.11-orig/README.qmail	1970-01-01 01:00:00.000000000 +0100
-+++ mlmmj-1.2.11/README.qmail	2006-05-03 14:30:00.000000000 +0200
-@@ -0,0 +1,64 @@
-+|------------------------------------------------------------------------------|
-+|                     Using mlmmj with qmail (and vpopmail)                    |
-+|------------------------------------------------------------------------------|
-+|--------------- Fabio Busatto <fabio.busatto@programmazione.it> --------------|
-+|------------------------------------------------------------------------------|
-+
-+This mini-HOWTO is a step-by-step guide for using mlmmj with qmail MTA
-+(http://www.qmail.org/), and it has been successfully tested also with vpopmail
-+virtual domains (http://www.inter7.com/vpopmail/).
-+
-+Prerequisites:
-+- qmail (and vpopmail) correctly installed
-+- mlmmj correctly installed
-+
-+Conventions:
-+- ${BINDIR}: directory with mlmmj binary files (/usr/local/bin/)
-+- ${LISTDIR}: directory with list configuration files
-+              (/var/spool/mlmmj/listname)
-+- ${DQFILE}: dot-qmail file (see below)
-+
-+Configuration:
-+- the first thing you've to do is to create the list, using the
-+  mlmmj-make-ml.sh script (follow the classic procedure to do this step)
-+- enter the control directory for the list (${LISTDIR}/control/), and execute
-+  the following command:
-+   # cd ${LISTDIR}/control/; echo '-' > delimiter
-+- chown and chmod the file according to the mlmmj configuration
-+- create dot-qmail files for the list to handle direct requests and extensions:
-+   # echo -e "|${BINDIR}/mlmmj-recieve -L ${LISTDIR}" > ${DQFILE}
-+- chown and chmod the files according to the qmail (and vpopmail) configuration
-+
-+WARNING: REMEMBER that the delimiter is -, so do not use + when composing mail
-+addresses for extensions!!!
-+
-+WARNING: DO NOT USE 'preline' command in dot-qmail files, it will result in
-+mlmmj to not work properly!!!
-+
-+|------------------------------------------------------------------------------|
-+
-+Example:
-+
-+- Configuring mlmmj to handle ml@programmazione.it mailing list using qmail as
-+  MTA and vpopmail for virtual domain support:
-+
-+# mlmmj-make-ml.sh -c vpopmail:vchkpw -L ml
-+Creating Directorys below /var/spool/mlmmj. Use '-s spooldir' to change
-+The Domain for the List? [] : programmazione.it
-+The emailaddress of the list owner? [postmaster] : postmaster@programmazione.it
-+The path to texts for the list? [/usr/local/share/mlmmj/text.skel] :
-+chown -R vpopmail:vchkpw /var/spool/mlmmj/ml? [y/n]: y
-+
-+# cd /var/spool/mlmmj/ml/control/
-+# echo '-' > delimiter
-+# chown vpopmail:vchkpw delimiter
-+# cd /home/vpopmail/domains/programmazione.it/
-+# echo -e "|/usr/local/bin/mlmmj-recieve -L /var/spool/mlmmj/ml/" > .qmail-ml
-+# cp -a .qmail-ml .qmail-ml-default
-+# cat *-default
-+# chown vpopmail:vchkpw .qmail-ml .qmail-ml-default
-+# chmod 600 .qmail-ml .qmail-ml-default
-+
-+|------------------------------------------------------------------------------|
-+|--------------- Fabio Busatto <fabio.busatto@programmazione.it> --------------|
-+|------------------------------------------------------------------------------|
-diff -uNr mlmmj-1.2.11-orig/src/mlmmj-process.c mlmmj-1.2.11/src/mlmmj-process.c
---- mlmmj-1.2.11-orig/src/mlmmj-process.c	2006-05-03 14:39:21.000000000 +0200
-+++ mlmmj-1.2.11/src/mlmmj-process.c	2006-05-03 14:37:02.000000000 +0200
-@@ -542,7 +542,10 @@
- 	}
- 
- 	/* address extension (the "foo" part of "user+foo@domain.tld") */
--	if((envstr = getenv("EXT")) != NULL) {
-+	if(((envstr = getenv("DEFAULT")) != NULL) && (getenv("EXT2") != NULL) && (strcmp(envstr, getenv("EXT2")) == 0)) {
-+		/* qmail+vpopmail */
-+		recipextra = mystrdup(envstr);
-+	} else if(((envstr = getenv("DEFAULT")) != NULL) && (getenv("EXT") != NULL) && (strcmp(envstr, getenv("EXT")) == 0)) {
- 		/* qmail */
- 		recipextra = mystrdup(envstr);
- 	} else if((envstr = getenv("EXTENSION")) != NULL) {
+So everybody... please test the patch, and give me a Go/NoGo on the following platforms:
+- sendmail, vanilla
+- sendmail, with the patch in mlmmj/README.sendmail
+- postfix 1.x
+- postfix 2.x
+- exim3 (does mlmmj work here at all?)
+- exim4, as described in mlmmj/README.exim4
+- exim4, without headers_add and return_path_add
 
 
---nFreZHaLTZJo0R7j--
+Morten
+
+-- 
+Morten K. Poulsen <morten@afdelingp.dk>
+http://www.afdelingp.dk/
+--=_f942f185dbdea3416b03f5dd65b644a3
+Content-Type: text/plain
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment; filename="patch-mlmmj-listcontrol_env-rev2.diff"
+
+ZGlmZiAtdXJOIG9yaWctbWxtbWotMS4yLjExL2luY2x1ZGUvbGlzdGNvbnRyb2wuaCBtbG1tai0x
+LjIuMTEvaW5jbHVkZS9saXN0Y29udHJvbC5oCi0tLSBvcmlnLW1sbW1qLTEuMi4xMS9pbmNsdWRl
+L2xpc3Rjb250cm9sLmgJMjAwNC0wNi0xNiAyMzoxMTo1Mi4wMDAwMDAwMDAgKzAyMDAKKysrIG1s
+bW1qLTEuMi4xMS9pbmNsdWRlL2xpc3Rjb250cm9sLmgJMjAwNi0wNC0wOSAxODo0OToyMC4wMDAw
+MDAwMDAgKzAyMDAKQEAgLTI3LDcgKzI3LDcgQEAKICNpbmNsdWRlICJmaW5kX2VtYWlsX2Fkci5o
+IgogCiBpbnQgbGlzdGNvbnRyb2woc3RydWN0IGVtYWlsX2NvbnRhaW5lciAqZnJvbWVtYWlscywg
+Y29uc3QgY2hhciAqbGlzdGRpciwKLQkJY29uc3QgY2hhciAqY29udHJvbGFkZHIsIGNvbnN0IGNo
+YXIgKm1sbW1qc3ViLAorCQljb25zdCBjaGFyICpjb250cm9sc3RyLCBjb25zdCBjaGFyICptbG1t
+anN1YiwKIAkJY29uc3QgY2hhciAqbWxtbWp1bnN1YiwgY29uc3QgY2hhciAqbWxtbWpzZW5kLAog
+CQljb25zdCBjaGFyICptbG1tamJvdW5jZSwgY29uc3QgY2hhciAqbWFpbG5hbWUpOwogCmRpZmYg
+LXVyTiBvcmlnLW1sbW1qLTEuMi4xMS9zcmMvbGlzdGNvbnRyb2wuYyBtbG1tai0xLjIuMTEvc3Jj
+L2xpc3Rjb250cm9sLmMKLS0tIG9yaWctbWxtbWotMS4yLjExL3NyYy9saXN0Y29udHJvbC5jCTIw
+MDYtMDEtMDQgMjA6MTA6MjQuMDAwMDAwMDAwICswMTAwCisrKyBtbG1tai0xLjIuMTEvc3JjL2xp
+c3Rjb250cm9sLmMJMjAwNi0wNC0wOSAxODozOTo1MS4wMDAwMDAwMDAgKzAyMDAKQEAgLTk4LDE1
+ICs5OCwxNCBAQAogCiAKIGludCBsaXN0Y29udHJvbChzdHJ1Y3QgZW1haWxfY29udGFpbmVyICpm
+cm9tZW1haWxzLCBjb25zdCBjaGFyICpsaXN0ZGlyLAotCQljb25zdCBjaGFyICpjb250cm9sYWRk
+ciwgY29uc3QgY2hhciAqbWxtbWpzdWIsCisJCWNvbnN0IGNoYXIgKmNvbnRyb2xzdHIsIGNvbnN0
+IGNoYXIgKm1sbW1qc3ViLAogCQljb25zdCBjaGFyICptbG1tanVuc3ViLCBjb25zdCBjaGFyICpt
+bG1tanNlbmQsCiAJCWNvbnN0IGNoYXIgKm1sbW1qYm91bmNlLCBjb25zdCBjaGFyICptYWlsbmFt
+ZSkKIHsKLQljaGFyICphdHNpZ24sICpyZWNpcGRlbGltc2lnbiwgKmxpc3RkZWxpbSwgKmJvdW5j
+ZW5yLCAqdG1wc3RyOwotCWNoYXIgKmNvbnRyb2xzdHIsICpwYXJhbSA9IE5VTEwsICpjb25mZmls
+ZW5hbWUsICptb2RlcmF0ZWZpbGVuYW1lOworCWNoYXIgKmJvdW5jZW5yLCAqdG1wc3RyOworCWNo
+YXIgKnBhcmFtID0gTlVMTCwgKmNvbmZmaWxlbmFtZSwgKm1vZGVyYXRlZmlsZW5hbWU7CiAJY2hh
+ciAqYywgKmFyY2hpdmVmaWxlbmFtZSwgKnNlbmRmaWxlbmFtZTsKIAljb25zdCBjaGFyICpzdWJz
+d2l0Y2g7Ci0Jc2l6ZV90IGxlbjsKIAlzdHJ1Y3Qgc3RhdCBzdGJ1ZjsKIAlpbnQgY2xvc2VkbGlz
+dCwgbm9zdWJjb25maXJtLCB0bXBmZCwgbm9nZXQsIGksIGNsb3NlZGxpc3RzdWIsCiAJICAgIHN1
+Ym9ubHlnZXQgPSAwOwpAQCAtMTI2LDE4ICsxMjUsNiBAQAogCWVsc2UKIAkJc3Vic3dpdGNoID0g
+Ii1DIjsKIAkKLQlsaXN0ZGVsaW0gPSBnZXRsaXN0ZGVsaW0obGlzdGRpcik7Ci0JcmVjaXBkZWxp
+bXNpZ24gPSBzdHJzdHIoY29udHJvbGFkZHIsIGxpc3RkZWxpbSk7Ci0JTVlfQVNTRVJUKHJlY2lw
+ZGVsaW1zaWduKTsKLQlhdHNpZ24gPSBpbmRleChjb250cm9sYWRkciwgJ0AnKTsKLQlNWV9BU1NF
+UlQoYXRzaWduKTsKLQlsZW4gPSBhdHNpZ24gLSByZWNpcGRlbGltc2lnbjsKLQotCWNvbnRyb2xz
+dHIgPSBteW1hbGxvYyhsZW4pOwotCU1ZX0FTU0VSVChjb250cm9sc3RyKTsKLQlzbnByaW50Zihj
+b250cm9sc3RyLCBsZW4sICIlcyIsIHJlY2lwZGVsaW1zaWduICsgc3RybGVuKGxpc3RkZWxpbSkp
+OwotCW15ZnJlZShsaXN0ZGVsaW0pOwotCiAjaWYgMAogCWxvZ19lcnJvcihMT0dfQVJHUywgImNv
+bnRyb2xzdHIgPSBbJXNdXG4iLCBjb250cm9sc3RyKTsKIAlsb2dfZXJyb3IoTE9HX0FSR1MsICJm
+cm9tZW1haWxzLT5lbWFpbGxpc3RbMF0gPSBbJXNdXG4iLApAQCAtMTY4LDcgKzE1NSw2IEBACiAJ
+CQkJZXhpdChFWElUX1NVQ0NFU1MpOwogCQkJfQogCi0JCQlteWZyZWUoY29udHJvbHN0cik7CiAJ
+CQlicmVhazsKIAogCQl9CmRpZmYgLXVyTiBvcmlnLW1sbW1qLTEuMi4xMS9zcmMvbWxtbWotcHJv
+Y2Vzcy5jIG1sbW1qLTEuMi4xMS9zcmMvbWxtbWotcHJvY2Vzcy5jCi0tLSBvcmlnLW1sbW1qLTEu
+Mi4xMS9zcmMvbWxtbWotcHJvY2Vzcy5jCTIwMDYtMDEtMjMgMTg6NDQ6NTMuMDAwMDAwMDAwICsw
+MTAwCisrKyBtbG1tai0xLjIuMTEvc3JjL21sbW1qLXByb2Nlc3MuYwkyMDA2LTA1LTAzIDE5OjQ1
+OjU3LjAwMDAwMDAwMCArMDIwMApAQCAtMjk5LDYgKzI5OSwzOCBAQAogfQogCiAKK3N0YXRpYyBj
+aGFyICpyZWNpcGllbnRfZXh0cmEoY29uc3QgY2hhciAqbGlzdGRpciwgY29uc3QgY2hhciAqYWRk
+cikKK3sKKwljaGFyICpsaXN0ZGVsaW07CisJY2hhciAqZGVsaW0sICphdHNpZ24sICpyZXQ7CisJ
+c2l6ZV90IGxlbjsKKworCWlmICghYWRkcikKKwkJcmV0dXJuIE5VTEw7CisKKwlsaXN0ZGVsaW0g
+PSBnZXRsaXN0ZGVsaW0obGlzdGRpcik7CisJCisJZGVsaW0gPSBzdHJzdHIoYWRkciwgbGlzdGRl
+bGltKTsKKwlpZiAoIWRlbGltKSB7CisJCW15ZnJlZShsaXN0ZGVsaW0pOworCQlyZXR1cm4gTlVM
+TDsKKwl9CisJZGVsaW0gKz0gc3RybGVuKGxpc3RkZWxpbSk7CisJbXlmcmVlKGxpc3RkZWxpbSk7
+CisKKwlhdHNpZ24gPSBzdHJyY2hyKGRlbGltLCAnQCcpOworCWlmICghYXRzaWduKQorCQlyZXR1
+cm4gTlVMTDsKKworCWxlbiA9IGF0c2lnbiAtIGRlbGltOworCXJldCA9IChjaGFyICopbXltYWxs
+b2MobGVuICsgMSk7CisJc3RybmNweShyZXQsIGRlbGltLCBsZW4pOworCXJldFtsZW5dID0gJ1ww
+JzsKKworCXJldHVybiByZXQ7Cit9CisKKwogc3RhdGljIHZvaWQgcHJpbnRfaGVscChjb25zdCBj
+aGFyICpwcmcpCiB7CiAgICAgICAgIHByaW50ZigiVXNhZ2U6ICVzIC1MIC9wYXRoL3RvL2xpc3Qg
+LW0gL3BhdGgvdG8vbWFpbCBbLWhdIFstUF0gWy1WXVxuIgpAQCAtMzIzLDE2ICszNTUsMTYgQEAK
+IAljaGFyICptbG1tanNlbmQsICptbG1tanN1YiwgKm1sbW1qdW5zdWIsICptbG1tamJvdW5jZTsK
+IAljaGFyICpiaW5kaXIsICpzdWJqZWN0cHJlZml4LCAqZGlzY2FyZG5hbWUsICpsaXN0YWRkciwg
+Kmxpc3RkZWxpbTsKIAljaGFyICpsaXN0ZnFkbiwgKmxpc3RuYW1lLCAqZnJvbWFkZHI7Ci0JY2hh
+ciAqcXVldWVmaWxlbmFtZSwgKnJlY2lwZXh0cmEsICpvd25lciA9IE5VTEw7CisJY2hhciAqcXVl
+dWVmaWxlbmFtZSwgKnJlY2lwZXh0cmEgPSBOVUxMLCAqb3duZXIgPSBOVUxMOwogCWNoYXIgKm1h
+aWxkYXRhWzJdID0geyAicG9zdGVyYWRkciIsIE5VTEwgfTsKKwljaGFyICplbnZzdHIsICplZnJv
+bTsKIAlzdHJ1Y3Qgc3RhdCBzdDsKIAl1aWRfdCB1aWQ7CiAJc3RydWN0IGVtYWlsX2NvbnRhaW5l
+ciBmcm9tZW1haWxzID0geyAwLCBOVUxMIH07CiAJc3RydWN0IGVtYWlsX2NvbnRhaW5lciB0b2Vt
+YWlscyA9IHsgMCwgTlVMTCB9OwogCXN0cnVjdCBlbWFpbF9jb250YWluZXIgY2NlbWFpbHMgPSB7
+IDAsIE5VTEwgfTsKLQlzdHJ1Y3QgZW1haWxfY29udGFpbmVyIGVmcm9tZW1haWxzID0geyAwLCBO
+VUxMIH07Ci0Jc3RydWN0IGVtYWlsX2NvbnRhaW5lciBkdG9lbWFpbHMgPSB7IDAsIE5VTEwgfTsK
+LQlzdHJ1Y3QgZW1haWxfY29udGFpbmVyICp3aGljaHRvOworCXN0cnVjdCBlbWFpbF9jb250YWlu
+ZXIgcnBlbWFpbHMgPSB7IDAsIE5VTEwgfTsKKwlzdHJ1Y3QgZW1haWxfY29udGFpbmVyIGR0ZW1h
+aWxzID0geyAwLCBOVUxMIH07CiAJc3RydWN0IHN0cmxpc3QgKmFjY2Vzc19ydWxlcyA9IE5VTEw7
+CiAJc3RydWN0IHN0cmxpc3QgKmRlbGhlYWRlcnMgPSBOVUxMOwogCXN0cnVjdCBzdHJsaXN0IGFs
+bGhlYWRlcnM7CkBAIC00NzMsNjAgKzUwNSw4NCBAQAogCWlmKGZvb3RmZCA+PSAwKQogCQljbG9z
+ZShmb290ZmQpOwogCi0JaWYocmVhZGhkcnNbMF0udG9rZW4pIHsgLyogRnJvbTogYWRkcmVzc2Vz
+ICovCi0JCWZvcihpID0gMDsgaSA8IHJlYWRoZHJzWzBdLnZhbHVlY291bnQ7IGkrKykgewotCQkJ
+ZmluZF9lbWFpbF9hZHIocmVhZGhkcnNbMF0udmFsdWVzW2ldLCAmZnJvbWVtYWlscyk7Ci0JCX0K
+LQl9Ci0KLQlpZihyZWFkaGRyc1sxXS50b2tlbikgeyAvKiBUbzogYWRkcmVzc2VzICovCi0JCWZv
+cihpID0gMDsgaSA8IHJlYWRoZHJzWzFdLnZhbHVlY291bnQ7IGkrKykgewotCQkJZmluZF9lbWFp
+bF9hZHIocmVhZGhkcnNbMV0udmFsdWVzW2ldLCAmdG9lbWFpbHMpOwotCQl9Ci0JfQotCi0JaWYo
+cmVhZGhkcnNbMl0udG9rZW4pIHsgLyogQ2M6IGFkZHJlc3NlcyAqLwotCQlmb3IoaSA9IDA7IGkg
+PCByZWFkaGRyc1syXS52YWx1ZWNvdW50OyBpKyspIHsKLQkJCWZpbmRfZW1haWxfYWRyKHJlYWRo
+ZHJzWzJdLnZhbHVlc1tpXSwgJmNjZW1haWxzKTsKLQkJfQotCX0KLQotCWlmKHJlYWRoZHJzWzNd
+LnRva2VuKSB7IC8qIFJldHVybi1QYXRoOiAoZW52ZWxvcGUgZnJvbSkgKi8KLQkJZm9yKGkgPSAw
+OyBpIDwgcmVhZGhkcnNbM10udmFsdWVjb3VudDsgaSsrKSB7Ci0JCQlmaW5kX2VtYWlsX2Fkcihy
+ZWFkaGRyc1szXS52YWx1ZXNbaV0sICZlZnJvbWVtYWlscyk7Ci0JCX0KLQkJaWYoZWZyb21lbWFp
+bHMuZW1haWxjb3VudCA9PSAwKSB7Ci0JCQllZnJvbWVtYWlscy5lbWFpbGxpc3QgPQotCQkJCShj
+aGFyICoqKW15bWFsbG9jKHNpemVvZihjaGFyICopKTsKLQkJCWVmcm9tZW1haWxzLmVtYWlsbGlz
+dFswXSA9IG15c3RyZHVwKCI8PiIpOwotCQl9Ci0JfQotCi0JaWYocmVhZGhkcnNbNF0udG9rZW4p
+IHsgLyogRGVsaXZlcmVkLVRvOiAoZW52ZWxvcGUgdG8pICovCi0JCWZvcihpID0gMDsgaSA8IHJl
+YWRoZHJzWzRdLnZhbHVlY291bnQ7IGkrKykgewotCQkJZmluZF9lbWFpbF9hZHIocmVhZGhkcnNb
+NF0udmFsdWVzW2ldLCAmZHRvZW1haWxzKTsKKwkvKiBGcm9tOiBhZGRyZXNzZXMgKi8KKwlmb3Io
+aSA9IDA7IGkgPCByZWFkaGRyc1swXS52YWx1ZWNvdW50OyBpKyspIHsKKwkJZmluZF9lbWFpbF9h
+ZHIocmVhZGhkcnNbMF0udmFsdWVzW2ldLCAmZnJvbWVtYWlscyk7CisJfQorCisJLyogVG86IGFk
+ZHJlc3NlcyAqLworCWZvcihpID0gMDsgaSA8IHJlYWRoZHJzWzFdLnZhbHVlY291bnQ7IGkrKykg
+eworCQlmaW5kX2VtYWlsX2FkcihyZWFkaGRyc1sxXS52YWx1ZXNbaV0sICZ0b2VtYWlscyk7CisJ
+fQorCisJLyogQ2M6IGFkZHJlc3NlcyAqLworCWZvcihpID0gMDsgaSA8IHJlYWRoZHJzWzJdLnZh
+bHVlY291bnQ7IGkrKykgeworCQlmaW5kX2VtYWlsX2FkcihyZWFkaGRyc1syXS52YWx1ZXNbaV0s
+ICZjY2VtYWlscyk7CisJfQorCisJLyogUmV0dXJuLVBhdGg6IGFkZHJlc3NlcyAqLworCWZvcihp
+ID0gMDsgaSA8IHJlYWRoZHJzWzNdLnZhbHVlY291bnQ7IGkrKykgeworCQlmaW5kX2VtYWlsX2Fk
+cihyZWFkaGRyc1szXS52YWx1ZXNbaV0sICZycGVtYWlscyk7CisJfQorCisJLyogRGVsaXZlcmVk
+LVRvOiBhZGRyZXNzZXMgKi8KKwlmb3IoaSA9IDA7IGkgPCByZWFkaGRyc1s0XS52YWx1ZWNvdW50
+OyBpKyspIHsKKwkJZmluZF9lbWFpbF9hZHIocmVhZGhkcnNbNF0udmFsdWVzW2ldLCAmZHRlbWFp
+bHMpOworCX0KKworCS8qIGVudmVsb3BlIGZyb20gKi8KKwlpZigoZW52c3RyID0gZ2V0ZW52KCJT
+RU5ERVIiKSkgIT0gTlVMTCkgeworCQkvKiBxbWFpbCwgcG9zdGZpeCwgZXhpbSAqLworCQllZnJv
+bSA9IG15c3RyZHVwKGVudnN0cik7CisJfSBlbHNlIGlmKHJwZW1haWxzLmVtYWlsY291bnQgPj0g
+MSkgeworCQkvKiB0aGUgKGZpcnN0KSBSZXR1cm4tUGF0aDogaGVhZGVyICovCisJCWVmcm9tID0g
+bXlzdHJkdXAocnBlbWFpbHMuZW1haWxsaXN0WzBdKTsKKwl9IGVsc2UgeworCQllZnJvbSA9IG15
+c3RyZHVwKCIiKTsKKwl9CisKKwkvKiBhZGRyZXNzIGV4dGVuc2lvbiAodGhlICJmb28iIHBhcnQg
+b2YgInVzZXIrZm9vQGRvbWFpbi50bGQiKSAqLworCWlmKCgoZW52c3RyID0gZ2V0ZW52KCJERUZB
+VUxUIikpICE9IE5VTEwpCisJCQkmJiAoZ2V0ZW52KCJFWFQyIikgIT0gTlVMTCkKKwkJCSYmIChz
+dHJjbXAoZW52c3RyLCBnZXRlbnYoIkVYVDIiKSkgPT0gMCkpIHsKKwkJLyogcW1haWwrdnBvcG1h
+aWwgKi8KKwkJcmVjaXBleHRyYSA9IG15c3RyZHVwKGVudnN0cik7CisJfSBlbHNlIGlmKCgoZW52
+c3RyID0gZ2V0ZW52KCJERUZBVUxUIikpICE9IE5VTEwpCisJCQkmJiAoZ2V0ZW52KCJFWFQiKSAh
+PSBOVUxMKQorCQkJJiYgKHN0cmNtcChlbnZzdHIsIGdldGVudigiRVhUIikpID09IDApKSB7CisJ
+CS8qIHFtYWlsICovCisJCXJlY2lwZXh0cmEgPSBteXN0cmR1cChlbnZzdHIpOworCX0gZWxzZSBp
+ZigoZW52c3RyID0gZ2V0ZW52KCJFWFRFTlNJT04iKSkgIT0gTlVMTCkgeworCQkvKiBwb3N0Zml4
+ICovCisJCXJlY2lwZXh0cmEgPSBteXN0cmR1cChlbnZzdHIpOworCX0gZWxzZSBpZigoZW52c3Ry
+ID0gZ2V0ZW52KCJMT0NBTF9QQVJUX1NVRkZJWCIpKSAhPSBOVUxMKSB7CisJCS8qIGV4aW0gKi8K
+KwkJbGlzdGRlbGltID0gZ2V0bGlzdGRlbGltKGxpc3RkaXIpOworCQlpZiAoc3RybmNtcChlbnZz
+dHIsIGxpc3RkZWxpbSwgc3RybGVuKGxpc3RkZWxpbSkpID09IDApIHsKKwkJCXJlY2lwZXh0cmEg
+PSBteXN0cmR1cChlbnZzdHIgKyBzdHJsZW4obGlzdGRlbGltKSk7CisJCX0gZWxzZSB7CisJCQly
+ZWNpcGV4dHJhID0gbXlzdHJkdXAoZW52c3RyKTsKIAkJfQorCQlteWZyZWUobGlzdGRlbGltKTsK
+Kwl9IGVsc2UgaWYoZHRlbWFpbHMuZW1haWxjb3VudCA+PSAxKSB7CisJCS8qIHBhcnNlIHRoZSAo
+Zmlyc3QpIERlbGl2ZXJlZC1UbzogaGVhZGVyICovCisJCXJlY2lwZXh0cmEgPSByZWNpcGllbnRf
+ZXh0cmEobGlzdGRpciwgZHRlbWFpbHMuZW1haWxsaXN0WzBdKTsKKwl9IGVsc2UgaWYodG9lbWFp
+bHMuZW1haWxjb3VudCA+PSAxKSB7CisJCS8qIHBhcnNlIHRoZSAoZmlyc3QpIFRvOiBoZWFkZXIg
+Ki8KKwkJcmVjaXBleHRyYSA9IHJlY2lwaWVudF9leHRyYShsaXN0ZGlyLCB0b2VtYWlscy5lbWFp
+bGxpc3RbMF0pOworCX0gZWxzZSB7CisJCXJlY2lwZXh0cmEgPSBOVUxMOwogCX0KIAotCWlmKGR0
+b2VtYWlscy5lbWFpbGxpc3QpCi0JCXdoaWNodG8gPSAmZHRvZW1haWxzOwotCWVsc2UgaWYodG9l
+bWFpbHMuZW1haWxsaXN0KQotCQl3aGljaHRvID0gJnRvZW1haWxzOwotCWVsc2UKLQkJd2hpY2h0
+byA9IE5VTEw7Ci0KLQlsaXN0ZGVsaW0gPSBnZXRsaXN0ZGVsaW0obGlzdGRpcik7Ci0JaWYod2hp
+Y2h0byAmJiB3aGljaHRvLT5lbWFpbGxpc3QgJiYgd2hpY2h0by0+ZW1haWxsaXN0WzBdKXsKLQkJ
+cmVjaXBleHRyYSA9IHN0cnN0cih3aGljaHRvLT5lbWFpbGxpc3RbMF0sIGxpc3RkZWxpbSk7Ci0J
+CWlmIChyZWNpcGV4dHJhKQotCQkJcmVjaXBleHRyYSArPSBzdHJsZW4obGlzdGRlbGltKTsKLQl9
+IGVsc2UKKwlpZihyZWNpcGV4dHJhICYmIChzdHJsZW4ocmVjaXBleHRyYSkgPT0gMCkpIHsKKwkJ
+bXlmcmVlKHJlY2lwZXh0cmEpOwogCQlyZWNpcGV4dHJhID0gTlVMTDsKLQlteWZyZWUobGlzdGRl
+bGltKTsKKwl9CiAKKwkvKiBXaHkgaXMgdGhpcyBoZXJlLCBhbmQgbm90IGluIGxpc3Rjb250cm9s
+KCkgPyAgLS0gbW9ydGVucCAyMDA2MDQwOSAqLwogCWlmKHJlY2lwZXh0cmEpIHsKIAkJb3duZXIg
+PSBjb25jYXRzdHIoMiwgbGlzdGRpciwgIi9jb250cm9sL293bmVyIik7Ci0JCWlmKG93bmVyICYm
+IHN0cm5jbXAocmVjaXBleHRyYSwgIm93bmVyQCIsIDYpID09IDApIHsKKwkJaWYob3duZXIgJiYg
+c3RyY21wKHJlY2lwZXh0cmEsICJvd25lciIpID09IDApIHsKIAkJCS8qIHN0cmlwIGVudmVsb3Bl
+IGZyb20gYmVmb3JlIHJlc2VuZGluZyAqLwogCQkJZGVsaGVhZGVycy0+Y291bnQgPSAwOwogCQkJ
+ZGVsaGVhZGVycy0+c3RycyA9IE5VTEw7CkBAIC01NTksMTEgKzYxNSwxMSBAQAogCQkJdW5saW5r
+KG1haWxmaWxlKTsKIAkJCWxvZ19vcGVyKGxpc3RkaXIsIE9QTE9HRk5BTUUsICJtbG1tai1yZWNp
+ZXZlOiBzZW5kaW5nIgogCQkJCQkiIG1haWwgZnJvbSAlcyB0byBvd25lciIsCi0JCQkJCWVmcm9t
+ZW1haWxzLmVtYWlsbGlzdFswXSk7CisJCQkJCWVmcm9tKTsKIAkJCWV4ZWNscChtbG1tanNlbmQs
+IG1sbW1qc2VuZCwKIAkJCQkJIi1sIiwgIjQiLAogCQkJCQkiLUwiLCBsaXN0ZGlyLAotCQkJCQki
+LUYiLCBlZnJvbWVtYWlscy5lbWFpbGxpc3RbMF0sCisJCQkJCSItRiIsIGVmcm9tLAogCQkJCQki
+LXMiLCBvd25lciwKIAkJCQkJIi1hIiwKIAkJCQkJIi1tIiwgZG9uZW1haWxuYW1lLCAoY2hhciAq
+KU5VTEwpOwpAQCAtNTc1LDcgKzYzMSw3IEBACiAJCWxvZ19lcnJvcihMT0dfQVJHUywgImxpc3Rj
+b250cm9sKGZyb20sICVzLCAlcywgJXMsICVzLCAlcywgJXMpXG4iLCBsaXN0ZGlyLCB0b2VtYWls
+cy5lbWFpbGxpc3RbMF0sIG1sbW1qc3ViLCBtbG1tanVuc3ViLCBtbG1tanNlbmQsIG1sbW1qYm91
+bmNlKTsKICNlbmRpZgogCQl1bmxpbmsobWFpbGZpbGUpOwotCQlsaXN0Y29udHJvbCgmZnJvbWVt
+YWlscywgbGlzdGRpciwgd2hpY2h0by0+ZW1haWxsaXN0WzBdLAorCQlsaXN0Y29udHJvbCgmZnJv
+bWVtYWlscywgbGlzdGRpciwgcmVjaXBleHRyYSwKIAkJCSAgICBtbG1tanN1YiwgbWxtbWp1bnN1
+YiwgbWxtbWpzZW5kLCBtbG1tamJvdW5jZSwKIAkJCSAgICBkb25lbWFpbG5hbWUpOwogCQlyZXR1
+cm4gRVhJVF9TVUNDRVNTOwpAQCAtNjA0LDE0ICs2NjAsMTQgQEAKIAogCW15ZnJlZShkZWxoZWFk
+ZXJzKTsKIAotCWlmKGVmcm9tZW1haWxzLmVtYWlsY291bnQgIT0gMSkgeyAvKiBkb24ndCBzZW5k
+IG1haWxzIHdpdGggPD4gaW4gRnJvbQorCWlmKHN0cmNtcChlZnJvbSwgIiIpID09IDApIHsgLyog
+ZG9uJ3Qgc2VuZCBtYWlscyB3aXRoIDw+IGluIEZyb20KIAkJCQkJICAgICB0byB0aGUgbGlzdCAq
+LwogCQlkaXNjYXJkbmFtZSA9IGNvbmNhdHN0cigzLCBsaXN0ZGlyLAogCQkJCSIvcXVldWUvZGlz
+Y2FyZGVkLyIsCiAJCQkJcmFuZG9tc3RyKTsKLQkJbG9nX2Vycm9yKExPR19BUkdTLCAiRGlzY2Fy
+ZGluZyAlcyBkdWUgdG8gaW52YWxpZCBlbnZlbG9wZSIKLQkJCQkiIGZyb20gZW1haWwgY291bnQg
+KHdhcyAlZCwgbXVzdCBiZSAxKSIsCi0JCQkJbWFpbGZpbGUsIGVmcm9tZW1haWxzLmVtYWlsY291
+bnQpOworCQllcnJubyA9IDA7CisJCWxvZ19lcnJvcihMT0dfQVJHUywgIkRpc2NhcmRpbmcgJXMg
+ZHVlIHRvIG1pc3NpbmcgZW52ZWxvcGUiCisJCQkJIiBmcm9tIGFkZHJlc3MiLCBtYWlsZmlsZSk7
+CiAJCXJlbmFtZShtYWlsZmlsZSwgZGlzY2FyZG5hbWUpOwogCQl1bmxpbmsoZG9uZW1haWxuYW1l
+KTsKIAkJbXlmcmVlKGRvbmVtYWlsbmFtZSk7CmRpZmYgLXVyTiBvcmlnLW1sbW1qLTEuMi4xMS9S
+RUFETUUucW1haWwgbWxtbWotMS4yLjExL1JFQURNRS5xbWFpbAotLS0gb3JpZy1tbG1tai0xLjIu
+MTEvUkVBRE1FLnFtYWlsCTE5NzAtMDEtMDEgMDE6MDA6MDAuMDAwMDAwMDAwICswMTAwCisrKyBt
+bG1tai0xLjIuMTEvUkVBRE1FLnFtYWlsCTIwMDYtMDUtMDMgMTk6NDU6MzAuMDAwMDAwMDAwICsw
+MjAwCkBAIC0wLDAgKzEsNjQgQEAKK3wtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS18Cit8ICAgICAgICAg
+ICAgICAgICAgICAgVXNpbmcgbWxtbWogd2l0aCBxbWFpbCAoYW5kIHZwb3BtYWlsKSAgICAgICAg
+ICAgICAgICAgICAgfAorfC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLXwKK3wtLS0tLS0tLS0tLS0tLS0g
+RmFiaW8gQnVzYXR0byA8ZmFiaW8uYnVzYXR0b0Bwcm9ncmFtbWF6aW9uZS5pdD4gLS0tLS0tLS0t
+LS0tLS18Cit8LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tfAorCitUaGlzIG1pbmktSE9XVE8gaXMgYSBz
+dGVwLWJ5LXN0ZXAgZ3VpZGUgZm9yIHVzaW5nIG1sbW1qIHdpdGggcW1haWwgTVRBCisoaHR0cDov
+L3d3dy5xbWFpbC5vcmcvKSwgYW5kIGl0IGhhcyBiZWVuIHN1Y2Nlc3NmdWxseSB0ZXN0ZWQgYWxz
+byB3aXRoIHZwb3BtYWlsCit2aXJ0dWFsIGRvbWFpbnMgKGh0dHA6Ly93d3cuaW50ZXI3LmNvbS92
+cG9wbWFpbC8pLgorCitQcmVyZXF1aXNpdGVzOgorLSBxbWFpbCAoYW5kIHZwb3BtYWlsKSBjb3Jy
+ZWN0bHkgaW5zdGFsbGVkCistIG1sbW1qIGNvcnJlY3RseSBpbnN0YWxsZWQKKworQ29udmVudGlv
+bnM6CistICR7QklORElSfTogZGlyZWN0b3J5IHdpdGggbWxtbWogYmluYXJ5IGZpbGVzICgvdXNy
+L2xvY2FsL2Jpbi8pCistICR7TElTVERJUn06IGRpcmVjdG9yeSB3aXRoIGxpc3QgY29uZmlndXJh
+dGlvbiBmaWxlcworICAgICAgICAgICAgICAoL3Zhci9zcG9vbC9tbG1tai9saXN0bmFtZSkKKy0g
+JHtEUUZJTEV9OiBkb3QtcW1haWwgZmlsZSAoc2VlIGJlbG93KQorCitDb25maWd1cmF0aW9uOgor
+LSB0aGUgZmlyc3QgdGhpbmcgeW91J3ZlIHRvIGRvIGlzIHRvIGNyZWF0ZSB0aGUgbGlzdCwgdXNp
+bmcgdGhlCisgIG1sbW1qLW1ha2UtbWwuc2ggc2NyaXB0IChmb2xsb3cgdGhlIGNsYXNzaWMgcHJv
+Y2VkdXJlIHRvIGRvIHRoaXMgc3RlcCkKKy0gZW50ZXIgdGhlIGNvbnRyb2wgZGlyZWN0b3J5IGZv
+ciB0aGUgbGlzdCAoJHtMSVNURElSfS9jb250cm9sLyksIGFuZCBleGVjdXRlCisgIHRoZSBmb2xs
+b3dpbmcgY29tbWFuZDoKKyAgICMgY2QgJHtMSVNURElSfS9jb250cm9sLzsgZWNobyAnLScgPiBk
+ZWxpbWl0ZXIKKy0gY2hvd24gYW5kIGNobW9kIHRoZSBmaWxlIGFjY29yZGluZyB0byB0aGUgbWxt
+bWogY29uZmlndXJhdGlvbgorLSBjcmVhdGUgZG90LXFtYWlsIGZpbGVzIGZvciB0aGUgbGlzdCB0
+byBoYW5kbGUgZGlyZWN0IHJlcXVlc3RzIGFuZCBleHRlbnNpb25zOgorICAgIyBlY2hvIC1lICJ8
+JHtCSU5ESVJ9L21sbW1qLXJlY2lldmUgLUwgJHtMSVNURElSfSIgPiAke0RRRklMRX0KKy0gY2hv
+d24gYW5kIGNobW9kIHRoZSBmaWxlcyBhY2NvcmRpbmcgdG8gdGhlIHFtYWlsIChhbmQgdnBvcG1h
+aWwpIGNvbmZpZ3VyYXRpb24KKworV0FSTklORzogUkVNRU1CRVIgdGhhdCB0aGUgZGVsaW1pdGVy
+IGlzIC0sIHNvIGRvIG5vdCB1c2UgKyB3aGVuIGNvbXBvc2luZyBtYWlsCithZGRyZXNzZXMgZm9y
+IGV4dGVuc2lvbnMhISEKKworV0FSTklORzogRE8gTk9UIFVTRSAncHJlbGluZScgY29tbWFuZCBp
+biBkb3QtcW1haWwgZmlsZXMsIGl0IHdpbGwgcmVzdWx0IGluCittbG1taiB0byBub3Qgd29yayBw
+cm9wZXJseSEhIQorCit8LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tfAorCitFeGFtcGxlOgorCistIENv
+bmZpZ3VyaW5nIG1sbW1qIHRvIGhhbmRsZSBtbEBwcm9ncmFtbWF6aW9uZS5pdCBtYWlsaW5nIGxp
+c3QgdXNpbmcgcW1haWwgYXMKKyAgTVRBIGFuZCB2cG9wbWFpbCBmb3IgdmlydHVhbCBkb21haW4g
+c3VwcG9ydDoKKworIyBtbG1tai1tYWtlLW1sLnNoIC1jIHZwb3BtYWlsOnZjaGtwdyAtTCBtbAor
+Q3JlYXRpbmcgRGlyZWN0b3J5cyBiZWxvdyAvdmFyL3Nwb29sL21sbW1qLiBVc2UgJy1zIHNwb29s
+ZGlyJyB0byBjaGFuZ2UKK1RoZSBEb21haW4gZm9yIHRoZSBMaXN0PyBbXSA6IHByb2dyYW1tYXpp
+b25lLml0CitUaGUgZW1haWxhZGRyZXNzIG9mIHRoZSBsaXN0IG93bmVyPyBbcG9zdG1hc3Rlcl0g
+OiBwb3N0bWFzdGVyQHByb2dyYW1tYXppb25lLml0CitUaGUgcGF0aCB0byB0ZXh0cyBmb3IgdGhl
+IGxpc3Q/IFsvdXNyL2xvY2FsL3NoYXJlL21sbW1qL3RleHQuc2tlbF0gOgorY2hvd24gLVIgdnBv
+cG1haWw6dmNoa3B3IC92YXIvc3Bvb2wvbWxtbWovbWw/IFt5L25dOiB5CisKKyMgY2QgL3Zhci9z
+cG9vbC9tbG1tai9tbC9jb250cm9sLworIyBlY2hvICctJyA+IGRlbGltaXRlcgorIyBjaG93biB2
+cG9wbWFpbDp2Y2hrcHcgZGVsaW1pdGVyCisjIGNkIC9ob21lL3Zwb3BtYWlsL2RvbWFpbnMvcHJv
+Z3JhbW1hemlvbmUuaXQvCisjIGVjaG8gLWUgInwvdXNyL2xvY2FsL2Jpbi9tbG1tai1yZWNpZXZl
+IC1MIC92YXIvc3Bvb2wvbWxtbWovbWwvIiA+IC5xbWFpbC1tbAorIyBjcCAtYSAucW1haWwtbWwg
+LnFtYWlsLW1sLWRlZmF1bHQKKyMgY2F0ICotZGVmYXVsdAorIyBjaG93biB2cG9wbWFpbDp2Y2hr
+cHcgLnFtYWlsLW1sIC5xbWFpbC1tbC1kZWZhdWx0CisjIGNobW9kIDYwMCAucW1haWwtbWwgLnFt
+YWlsLW1sLWRlZmF1bHQKKworfC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLXwKK3wtLS0tLS0tLS0tLS0t
+LS0gRmFiaW8gQnVzYXR0byA8ZmFiaW8uYnVzYXR0b0Bwcm9ncmFtbWF6aW9uZS5pdD4gLS0tLS0t
+LS0tLS0tLS18Cit8LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tfAo=
+--=_f942f185dbdea3416b03f5dd65b644a3--
+
