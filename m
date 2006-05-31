@@ -1,7 +1,7 @@
 From: Fabio Busatto <fabio.busatto@programmazione.it>
-Date: Mon, 08 May 2006 11:17:53 +0000
+Date: Wed, 31 May 2006 23:23:12 +0000
 Subject: Re: qmail+vpopmail support
-Message-Id: <20060508111753.GA8657@nachos.phaseit.com>
+Message-Id: <20060531232312.GA309@nachos.phaseit.com>
 List-Id: <mlmmj.mlmmj.org>
 References: <20060503134628.GG5327@nachos.phaseit.com>
 In-Reply-To: <20060503134628.GG5327@nachos.phaseit.com>
@@ -10,44 +10,25 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-On Mon, May 08, 2006 at 04:29:22PM +0800, Thomas Goirand wrote:
-> Under my configuration it's:
-> user@domain.tld -> domain-tld-user@domain.tld
-> 
-> In fact, it could be:
-> user@domain.tld -> what-ever-you-like-user@domain.tld
+I finally reached the conclusion that DEFAULT is the right
+place to look for real extension commands.
+Every configuration i found uses .qmail files to manage the
+mlmmj list.
+By the way, DEFAULT is too common and can create a collision
+with other MTA (really?).
 
-Right, I only consider the vpopmail virtualdomains configuration, but
-there are other scenarios (like yours).
+So, two ways:
+- use DEFAULT instead of EXT when looking for extension
+- set another environment variabile using .qmail file,
+  and then check it
 
-> >+Prerequisites:
-> >+- qmail (and vpopmail) correctly installed
-> >+- mlmmj correctly installed
-> >  
-> Can it be used WITHOUT vpopmail? IMHO it shouldn't be REQUIRED.
+The first solution is clean, but maybe lacks of protection
+that can do mlmmj thinking to qmail even if it's not.
+The second is safer, but more complex to configure (each
+list must have variable setting in the .qmail file.
 
-vpopmail in brackets means that it's optional. I wrote the patch to support
-both bare qmail (without virtualdomains) and qmail+vpopmail.
-
-> >+WARNING: DO NOT USE 'preline' command in dot-qmail files, it will result 
-> >in
-> >+mlmmj to not work properly!!!
-> >  
-> I DO use the preline in the binary I use, and it works !!! Here is my 
-> .qmail-default file content:
-> 
-> |preline -f /usr/bin/mlmmj-recieve -L 
-> /var/www/sites/dtc/gplhost.sg/lists/gplhost.sg_dtcdev
-
-Good :) I found that preline breaks mlmmj under my configuration, but I
-didn't investigate too much. To be analyzed.
-
-Maybe the final solution to support qmail is to consider the DEFAULT environment
-variable, without care if this is not a real extension value.
-
-I'll be back on code and try to include more scenarios to better support virtualdomains.
-
-Thank you for your feedback!
+Any ideas? Which one do you think is better?
+Waiting for comments.
 
 -fabio
 -- 
