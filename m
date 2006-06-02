@@ -1,36 +1,33 @@
-From: Jakob Hirsch <jh@plonk.de>
-Date: Sat, 10 Jun 2006 23:09:46 +0000
-Subject: Re: delay in mailing to lists?
-Message-Id: <448B513A.1030104@plonk.de>
+From: Nate Beaty <natebeaty@gmail.com>
+Date: Fri, 02 Jun 2006 08:06:21 +0000
+Subject: batch list management via email?
+Message-Id: <EC7A0F40-5B1E-4721-9584-2EFA5ACAE6FE@gmail.com>
 List-Id: <mlmmj.mlmmj.org>
-References: <5D67D244-B0A5-4E06-BB80-0FC6B5EC1DAC@gmail.com>
-In-Reply-To: <5D67D244-B0A5-4E06-BB80-0FC6B5EC1DAC@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Quoting Nate Beaty:
+I'm moving from minimalist to mlmmj and was am wondering if the  
+ability for batch list management by email was ever implemented, as  
+requested here:
 
-> I've tried all sorts of things, and I assume the problem is simple and
-> due to some dumb misconfiguration on my part. Below is the output of
-> your command: (When I debug with "nate@clixel.com", it correctly skips
-> dnslookup and matches the vdom_aliases router.)
+<http://vs165141.v.sectoor.de/mailarchive/mlmmj/ 
+2005-04/0005.html#replies>
 
-sorry, my first thought was wrong.
-It seems you are using the verp router and that it matches before the
-router for local users (at least for nate@clixel.com). So can either put
-all router for local users in front of the verp_router or add
-!local_domains to the verp_router's domains condition.
+In minimalist, you can put the list password as the first line (or  
+among the headers) and then a series of sub/unsub commands in the  
+body. I currently utilize this from a custom admin for the list owner.
 
-For a proper test, run
-exim -d -f mlmmj-test+bounces-13@lists.clixel.com -bt nate@clixel.com
+If this isn't implemented, I assume a wrapper script could be written  
+to parse the requests and push them through mlmmj-sub, no?
 
-The mlmmj domain should not be local_domains.
-The reference to 127.0.0.1 you saw was about the sender host, which is
-correct.
+Excuse me if this has been answered, I've spent all day reading the  
+archives, and may have missed it.
 
-Oh, and recipient verification should be skipped for the mlmmj sender. I
-will update README.exim4 for that.
+Nate.
+
+--
+Clixel Design & Coding ~ http://clixel.com/
 
 
