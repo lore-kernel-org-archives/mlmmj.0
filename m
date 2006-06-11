@@ -1,36 +1,46 @@
-From: Nate Beaty <natebeaty@gmail.com>
-Date: Thu, 29 Jun 2006 10:02:47 +0000
-Subject: Encoding emails in header for AOL feedback loop?
-Message-Id: <42739F1F-EDF1-4641-B780-FD4061B679D4@gmail.com>
+From: =?iso-8859-1?Q?S=F8ren?= Boll Overgaard <boll+mlmmj@fork.dk>
+Date: Sun, 11 Jun 2006 21:11:07 +0000
+Subject: Re: mlmmj code refactoring, for ease of reuse
+Message-Id: <20060611211107.GQ28664@freesbee.wheel.dk>
 List-Id: <mlmmj.mlmmj.org>
+References: <20060528184943.GB60895@freesbee.wheel.dk>
+In-Reply-To: <20060528184943.GB60895@freesbee.wheel.dk>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 To: mlmmj@mlmmj.org
 
-I am having problems with AOL members who are apparently clicking  
-"spam" instead of deleting or just unsubscribing to newsletters they  
-have signed up for. I have set up the feedback loop via AOL's  
-postmaster, but they strip out the email address of the person  
-clicking "spam", even though it's VERP-encoded.
+Replying to my own post,
 
-Is there any way to encode their email into a header so AOL doesn't  
-strip it out and I can unsubscribe them?
+On Mon, May 29, 2006 at 11:08:56AM +0200, S=F8ren Boll Overgaard wrote:
+>=20
+> Generally though, I think it would be nice if mlmmj exported a more devel=
+oper
+> friendly C api, with functions like subscribe(), unsubscribe(), create_li=
+st(),
+> etc.  Perhaps even by means of a shared library?=20
+>=20
+> Anyway, I will look into the approach you are suggesting, probably based =
+on
+> python.
 
-I spent some time (on multiple occasions) on the phone with AOL, and  
-their only solution for this common problem is to get on their  
-whitelist with a higher threshold for bounces and spam complaints. I  
-did get on the whitelist, but this unending circle of people  
-subscribing to a newsletter and then clicking spam instead of delete  
-or unsubscribing (I get about 3-4 for every newsletter of ~20k sent  
-out) won't just go away and I'd rather deal with it myself.
+I have all but completed writing a server for remotely managing an mlmmj
+installation. The server is written in python and uses the mlmmj-* binaries=
+ for
+functionality whereever possible.
 
-Any ideas? How do other people deal with this problem on high-volume  
-lists?
+Additionally, I've written a fairly basic php client.
 
-Thanks,
-Nate.
+I would greatly appreciate it if someone would contribue clients written in
+other languages. In my opinion that would be the best way to thoroughly test
+the server before I publish the code.
 
---
-Clixel Design & Coding ~ http://clixel.com/
+If you are interested, please get in touch with me directly and we can
+coordinate.
 
+Thanks.
+
+--=20
+S=F8ren O.
+
+"Oh, bother" said the Borg, "we've assimilated Pooh".
