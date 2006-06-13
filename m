@@ -1,7 +1,7 @@
-From: Morten K. Poulsen <morten@afdelingp.dk>
-Date: Tue, 13 Jun 2006 15:45:09 +0000
+From: Fabio Busatto <fabio.busatto@programmazione.it>
+Date: Tue, 13 Jun 2006 17:27:51 +0000
 Subject: Re: qmail+vpopmail support
-Message-Id: <3b8eec78e131e48011cdda7a6aea2ddd@mail.n0rd.dk>
+Message-Id: <20060613172751.GA2379@nachos.phaseit.com>
 List-Id: <mlmmj.mlmmj.org>
 References: <20060503134628.GG5327@nachos.phaseit.com>
 In-Reply-To: <20060503134628.GG5327@nachos.phaseit.com>
@@ -10,20 +10,11 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
+On Tue, Jun 13, 2006 at 05:45:09PM +0200, Morten K. Poulsen wrote:
+> I think it is safe, if we check for DEFAULT as the last thing before falling back to reading headers.
 
-Hi,
+I agree, can you merge your new patch with README.qmail and sumbit when ready?
+Thanks for your work :)
 
-On Thu, 1 Jun 2006 01:23:12 +0200, Fabio Busatto <fabio.busatto@programmazione.it> wrote:
-> So, two ways:
-> - use DEFAULT instead of EXT when looking for extension
-> - set another environment variabile using .qmail file,
->   and then check it
-
-The idea of adding qmail support was to get it working out of the box. I think it is safe, if we check for DEFAULT as the last thing before falling back to reading headers.
-
-Morten
-
--- 
-Morten K. Poulsen <morten@afdelingp.dk>
-http://www.afdelingp.dk/
+-fabio
 
