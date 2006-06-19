@@ -1,7 +1,7 @@
-From: Mads Martin Joergensen <mmj@mmj.dk>
-Date: Sun, 18 Jun 2006 09:24:27 +0000
-Subject: Re: Mail sent to mlmmj-recieve but MLMMJ don't send subscribe confirmation
-Message-Id: <20060618092427.GE36678@mmj.dk>
+From: Morten K. Poulsen <morten@afdelingp.dk>
+Date: Mon, 19 Jun 2006 21:38:08 +0000
+Subject: Re: Mail sent to mlmmj-recieve but MLMMJ don't send subscribeconfirmation
+Message-Id: <e32fb572230f2e07600082b3dab7da0a@mail.n0rd.dk>
 List-Id: <mlmmj.mlmmj.org>
 References: <44916980.7060706@goirand.fr>
 In-Reply-To: <44916980.7060706@goirand.fr>
@@ -10,32 +10,24 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-* Thomas Goirand <thomas@goirand.fr> [Jun 18. 2006 08:42]:
-> > Did you change your command delimeter to a '-' (minus sign)?
-> > If not, this might be the problem and the address should read:
-> > testzigo+subscribe@stoppnazistene.no
->
+
+On Sun, 18 Jun 2006 14:42:04 +0800, Thomas Goirand <thomas@goirand.fr> wrote:
+> Christoph Wilke wrote:
+>> Did you change your command delimeter to a '-' (minus sign)?
+>> If not, this might be the problem and the address should read:
+>> testzigo+subscribe@stoppnazistene.no
+> 
 > Yes, my control panel does that setup as default. This might change in
 > the future, as I've noticed that using the '-' delimiter prevent from
 > using "my-address@my-domain.com". Anyway, this is NOT the problem.
-> 
-> I'll try to use the extensive logs from Martin next week, when I have
-> finished the migration of my ns2 (which is giving me headaches).
 
-Then be aware that if there's more than 1 recipient delimiter in the
-address, postfix cannot deliver it. I consider it a postfix bug, but
-Vietse thinks otherwise.
+How do you know that it is not the problem?
 
-Just try and deliver to:
+Did you remember to set the "delimiter" option in mlmmj?
 
-testuser-onedelimiter@some.domain
-
-and
-
-testuser-two-delimiters@some.domain
+Morten
 
 -- 
-Mads Martin Joergensen, http://mmj.dk
-"Why make things difficult, when it is possible to make them cryptic
- and totally illogical, with just a little bit more effort?"
-                                 -- A. P. J.
+Morten K. Poulsen <morten@afdelingp.dk>
+http://www.afdelingp.dk/
+
