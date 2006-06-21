@@ -1,28 +1,32 @@
-From: Mads Martin Joergensen <mmj@mmj.dk>
-Date: Thu, 29 Jun 2006 14:01:42 +0000
-Subject: Re: Moderators mail addresses case sensitive?
-Message-Id: <20060629140142.GN12076@mmj.dk>
+From: Christian Laursen <xi@borderworlds.dk>
+Date: Wed, 21 Jun 2006 21:16:12 +0000
+Subject: Re: [PATCH] qmail support
+Message-Id: <ygfwtbaqkf7.fsf@dominion.borderworlds.dk>
 List-Id: <mlmmj.mlmmj.org>
-References: <1391.130.83.236.92.1150991901.squirrel@130.83.185.211>
-In-Reply-To: <1391.130.83.236.92.1150991901.squirrel@130.83.185.211>
+References: <20060409202747.fp833b4vk884c4w0@mail.n0rd.dk>
+In-Reply-To: <20060409202747.fp833b4vk884c4w0@mail.n0rd.dk>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-* Christian Laursen <xi@borderworlds.dk> [Jun 29. 2006 13:45]:
-> > I've looked over the code and there is _no_ check
-> > who has sent the 'moderate' command.
-> > So anyone who has the cookie is able to start the
-> > spreading of the mail to be moderated.
-> 
-> Is that a problem?
+"Morten K. Poulsen" <morten@afdelingp.dk> writes:
 
-Not at all. Anyone can fake any emailaddress, and it's a million times
-easier to get a moderator address, than a cookie like that.
+> Attached is the long promised patch for qmail support. It is a diff
+> against mlmmj-1.2.11.
+>
+> The changes are:
+>
+
+[snip]
+
+> I need feedback before committing the patch.
+
+I have tested it on postfix 2.2.10 and it passes my basic tests.
+(Posting to a moderated list, sending mail to the moderator, approval
+and sending to the subscribers)
+
+Are there any specific tests I should run against it?
 
 -- 
-Mads Martin Joergensen, http://mmj.dk
-"Why make things difficult, when it is possible to make them cryptic
- and totally illogical, with just a little bit more effort?"
-                                 -- A. P. J.
+Christian Laursen
