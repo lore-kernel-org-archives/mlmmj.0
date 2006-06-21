@@ -1,7 +1,7 @@
-From: =?iso-8859-1?Q?S=F8ren?= Boll Overgaard <boll+mlmmj@fork.dk>
-Date: Wed, 21 Jun 2006 12:18:47 +0000
+From: Thomas Goirand <thomas@goirand.fr>
+Date: Wed, 21 Jun 2006 15:06:16 +0000
 Subject: Re: Mail sent to mlmmj-recieve but MLMMJ don't send subscribeconfirmation
-Message-Id: <20060621121847.GC32214@freesbee.wheel.dk>
+Message-Id: <44996068.6080202@goirand.fr>
 List-Id: <mlmmj.mlmmj.org>
 References: <44916980.7060706@goirand.fr>
 In-Reply-To: <44916980.7060706@goirand.fr>
@@ -10,22 +10,30 @@ Content-Type: text/plain; charset="iso-8859-1"
 Content-Transfer-Encoding: quoted-printable
 To: mlmmj@mlmmj.org
 
-On Wed, Jun 21, 2006 at 05:59:31PM +0800, Thomas Goirand wrote:
+S=F8ren Boll Overgaard wrote:
+> On Wed, Jun 21, 2006 at 05:59:31PM +0800, Thomas Goirand wrote:
+>> I've just tried using the source package from unstable debian, plus the
+>> patch you gave me, and MLMMJ doesn't produce anything in the syslog. I
+>> really don't know where to look at, any idea???
 >=20
-> I've just tried using the source package from unstable debian, plus the
-> patch you gave me, and MLMMJ doesn't produce anything in the syslog. I
-> really don't know where to look at, any idea???
+> Please note that the debian package includes a number of patches which ma=
+y or
+> may not cause other patches to be rejected. I haven't actually checked if=
+ this
+> is the case here, I just I would provide a heads-up.
+>=20
+> Maybe you would be better off with the pristine source package for testing
+> patches?
 
-Please note that the debian package includes a number of patches which may =
-or
-may not cause other patches to be rejected. I haven't actually checked if t=
-his
-is the case here, I just I would provide a heads-up.
+I just had a look, the patches in Debian are really minor, the only
+thing they patch are:
 
-Maybe you would be better off with the pristine source package for testing
-patches?
+1/ a display message (the one saying that binaries should be called with
+full path)
+2/ mlmmj-make-ml.sh
+3/ mlmmj php app (which I don't use)
 
---=20
-S=F8ren O.
+None of them seems to hurt, and the patch that gave Morten was applied
+with no error (it was not rejected).
 
-"Oh, bother" said the Borg, "we've assimilated Pooh".
+Thomas
