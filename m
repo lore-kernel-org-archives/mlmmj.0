@@ -1,49 +1,31 @@
-From: Thomas Goirand <thomas@goirand.fr>
-Date: Wed, 21 Jun 2006 09:59:31 +0000
+From: =?iso-8859-1?Q?S=F8ren?= Boll Overgaard <boll+mlmmj@fork.dk>
+Date: Wed, 21 Jun 2006 12:18:47 +0000
 Subject: Re: Mail sent to mlmmj-recieve but MLMMJ don't send subscribeconfirmation
-Message-Id: <44991883.1060702@goirand.fr>
+Message-Id: <20060621121847.GC32214@freesbee.wheel.dk>
 List-Id: <mlmmj.mlmmj.org>
 References: <44916980.7060706@goirand.fr>
 In-Reply-To: <44916980.7060706@goirand.fr>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 To: mlmmj@mlmmj.org
 
-Thomas Goirand wrote:
-> Morten K. Poulsen wrote:
->> On Sun, 18 Jun 2006 14:42:04 +0800, Thomas Goirand <thomas@goirand.fr> wrote:
->>> Christoph Wilke wrote:
->>>> Did you change your command delimeter to a '-' (minus sign)?
->>>> If not, this might be the problem and the address should read:
->>>> testzigo+subscribe@stoppnazistene.no
->>> Yes, my control panel does that setup as default. This might change in
->>> the future, as I've noticed that using the '-' delimiter prevent from
->>> using "my-address@my-domain.com". Anyway, this is NOT the problem.
->> How do you know that it is not the problem?
->>
->> Did you remember to set the "delimiter" option in mlmmj?
->>
->> Morten
-> 
-> As I said, we have MLMMJ being setup for all our control panel account,
-> I have arround 50 VPS setup with Postfix + MLMMJ and there was no
-> problem on them (at least nobody complained).
-> 
-> This VPS server is setup with the latest CVS version of our control
-> panel, and that might be the reason (maybe something broken in our CVS?).
-> 
-> Anyway, as I get less busy with super-important-urgent things this week,
-> I'll be able to check. I'm almost sure it's our fault, I just needed to
-> check, and there is a big chance that this patch doing extensive logging
-> will help me to find out.
-> 
-> Thomas
+On Wed, Jun 21, 2006 at 05:59:31PM +0800, Thomas Goirand wrote:
+>=20
+> I've just tried using the source package from unstable debian, plus the
+> patch you gave me, and MLMMJ doesn't produce anything in the syslog. I
+> really don't know where to look at, any idea???
 
-I've just tried using the source package from unstable debian, plus the
-patch you gave me, and MLMMJ doesn't produce anything in the syslog. I
-really don't know where to look at, any idea???
+Please note that the debian package includes a number of patches which may =
+or
+may not cause other patches to be rejected. I haven't actually checked if t=
+his
+is the case here, I just I would provide a heads-up.
 
-Thomas
+Maybe you would be better off with the pristine source package for testing
+patches?
 
+--=20
+S=F8ren O.
 
+"Oh, bother" said the Borg, "we've assimilated Pooh".
