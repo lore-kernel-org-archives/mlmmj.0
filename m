@@ -1,39 +1,36 @@
-From: Thomas Goirand <thomas@goirand.fr>
-Date: Wed, 21 Jun 2006 15:06:16 +0000
-Subject: Re: Mail sent to mlmmj-recieve but MLMMJ don't send subscribeconfirmation
-Message-Id: <44996068.6080202@goirand.fr>
+From: Nate Beaty <natebeaty@gmail.com>
+Date: Thu, 29 Jun 2006 10:02:47 +0000
+Subject: Encoding emails in header for AOL feedback loop?
+Message-Id: <42739F1F-EDF1-4641-B780-FD4061B679D4@gmail.com>
 List-Id: <mlmmj.mlmmj.org>
-References: <44916980.7060706@goirand.fr>
-In-Reply-To: <44916980.7060706@goirand.fr>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-S=F8ren Boll Overgaard wrote:
-> On Wed, Jun 21, 2006 at 05:59:31PM +0800, Thomas Goirand wrote:
->> I've just tried using the source package from unstable debian, plus the
->> patch you gave me, and MLMMJ doesn't produce anything in the syslog. I
->> really don't know where to look at, any idea???
->=20
-> Please note that the debian package includes a number of patches which ma=
-y or
-> may not cause other patches to be rejected. I haven't actually checked if=
- this
-> is the case here, I just I would provide a heads-up.
->=20
-> Maybe you would be better off with the pristine source package for testing
-> patches?
+I am having problems with AOL members who are apparently clicking  
+"spam" instead of deleting or just unsubscribing to newsletters they  
+have signed up for. I have set up the feedback loop via AOL's  
+postmaster, but they strip out the email address of the person  
+clicking "spam", even though it's VERP-encoded.
 
-I just had a look, the patches in Debian are really minor, the only
-thing they patch are:
+Is there any way to encode their email into a header so AOL doesn't  
+strip it out and I can unsubscribe them?
 
-1/ a display message (the one saying that binaries should be called with
-full path)
-2/ mlmmj-make-ml.sh
-3/ mlmmj php app (which I don't use)
+I spent some time (on multiple occasions) on the phone with AOL, and  
+their only solution for this common problem is to get on their  
+whitelist with a higher threshold for bounces and spam complaints. I  
+did get on the whitelist, but this unending circle of people  
+subscribing to a newsletter and then clicking spam instead of delete  
+or unsubscribing (I get about 3-4 for every newsletter of ~20k sent  
+out) won't just go away and I'd rather deal with it myself.
 
-None of them seems to hurt, and the patch that gave Morten was applied
-with no error (it was not rejected).
+Any ideas? How do other people deal with this problem on high-volume  
+lists?
 
-Thomas
+Thanks,
+Nate.
+
+--
+Clixel Design & Coding ~ http://clixel.com/
+
