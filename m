@@ -1,40 +1,33 @@
-From: Nate Beaty <natebeaty@gmail.com>
-Date: Mon, 03 Jul 2006 05:25:23 +0000
-Subject: Re: Encoding emails in header for AOL feedback loop?
-Message-Id: <128A1D1C-7E5E-4D2D-BF3D-73EE51E0AE3E@gmail.com>
+From: Morten K. Poulsen <morten@afdelingp.dk>
+Date: Tue, 04 Jul 2006 18:42:19 +0000
+Subject: Re: [PATCH] qmail support
+Message-Id: <d1e188c8c0914c0c936ea29c7fc6bf7e@mail.n0rd.dk>
 List-Id: <mlmmj.mlmmj.org>
-References: <42739F1F-EDF1-4641-B780-FD4061B679D4@gmail.com>
-In-Reply-To: <42739F1F-EDF1-4641-B780-FD4061B679D4@gmail.com>
+References: <20060409202747.fp833b4vk884c4w0@mail.n0rd.dk>
+In-Reply-To: <20060409202747.fp833b4vk884c4w0@mail.n0rd.dk>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-> You are referreing to the "Client TOS Notification" mails, right?
 
-Correct.
+On Wed, 21 Jun 2006 23:16:12 +0200, Christian Laursen <xi@borderworlds.dk> wrote:
+> "Morten K. Poulsen" <morten@afdelingp.dk> writes:
+>> I need feedback before committing the patch.
+> 
+> I have tested it on postfix 2.2.10 and it passes my basic tests.
+> (Posting to a moderated list, sending mail to the moderator, approval
+> and sending to the subscribers)
+> 
+> Are there any specific tests I should run against it?
 
-> I just took a look at one of those mails, and I see a non-stripped
-> Return-Path header:
->
-> Return-Path: 	<news-daily+bounces-78- 
-> foobar=aol.com@list.somedomain.tld>
->
-> I have of course changed the address above a little bit, but the info
-> seems to be there, at least in the mails they send to us.
+No, that should cover it.
 
-Holy smokes, you're right. Never mind! I was looking at these in  
-Apple Mail and pressing cmd-shift-h to view Long Headers, which only  
-expands the main headers. I didn't realize Mail would hide any  
-headers included in a message that's part of a multipart/mixed email!  
-Agh! Cmd-alt-u shows the Raw Source, which reveals the Return-Path  
-header.
+Thanks!
 
-Thanks for pointing this out. Immensely helpful to me. (Skulks away  
-feeling dumb.)
+Morten
 
-Nate.
-
---
-Clixel Design & Coding ~ http://clixel.com/
+-- 
+Morten K. Poulsen <morten@afdelingp.dk>
+http://www.afdelingp.dk/
 
