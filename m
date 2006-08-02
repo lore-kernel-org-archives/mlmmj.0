@@ -1,7 +1,7 @@
-From: Allan Joergensen <allan@nowhere.dk>
-Date: Wed, 02 Aug 2006 14:51:45 +0000
+From: Charlie Brady <charlieb@budge.apana.org.au>
+Date: Wed, 02 Aug 2006 15:00:28 +0000
 Subject: Re: Reply to the list
-Message-Id: <20060802145145.GA10010@coredump.nowhere.dk>
+Message-Id: <Pine.LNX.4.61.0608021059470.809@e-smith.charlieb.ott.istop.com>
 List-Id: <mlmmj.mlmmj.org>
 References: <20060802100026.340392251F@smtp6-g19.free.fr>
 In-Reply-To: <20060802100026.340392251F@smtp6-g19.free.fr>
@@ -10,14 +10,18 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-On 02-Aug-2006, Neale Pickett wrote:
 
-> > It may because the REPLY-TO is not forced...(?)
-> http://www.unicom.com/pw/reply-to-harmful.html
+On Wed, 2 Aug 2006, Allan Joergensen wrote:
 
-http://www.metasystema.net/essays/reply-to.mhtml
+> On 02-Aug-2006, Neale Pickett wrote:
+>
+>>> It may because the REPLY-TO is not forced...(?)
+>> http://www.unicom.com/pw/reply-to-harmful.html
+>
+> http://www.metasystema.net/essays/reply-to.mhtml
 
--- 
-Allan Willems Joergensen
+And to quote from the subversion mailing list guidelines:
 
-"Ta-da! The Pink-Wonder is ready for action!" - Pinky
+  The list administrators are aware of both documents, and see that both
+  sides of the argument have merits, but in the end have chosen not to
+  modify the Reply-to headers. Please don't resurrect the topic.
