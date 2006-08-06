@@ -1,29 +1,28 @@
 From: "Magnus Naeslund(k)" <mag@kite.se>
-Date: Sun, 06 Aug 2006 17:09:01 +0000
-Subject: Submitting patches, more automatic list creation
-Message-Id: <44D6222D.5020802@kite.se>
+Date: Sun, 06 Aug 2006 17:15:58 +0000
+Subject: Re: Submitting patches, more automatic list creation
+Message-Id: <44D623CE.7040101@kite.se>
 List-Id: <mlmmj.mlmmj.org>
+References: <44D6222D.5020802@kite.se>
+In-Reply-To: <44D6222D.5020802@kite.se>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Are patches welcome, or.. is this patch of any interest?
-I'm trying to automate list creatation when mlmmj-make-ml.sh is used in
-another script.
-I've added some options to mlmmj-make-ml.sh to make it easier for us to
-use it.
-I'm also considering to add an alternate listdir :
-/var/spool/mlmmj/$LISTNAME@$FQDN, would that be of interest to have in a
-switch?
+Magnus Naeslund(k) wrote:
+> Are patches welcome, or.. is this patch of any interest?
 
-I'm pasting in this patch into thunderbird, I hope it doesn't get garbeled.
+Here's an updated patch that fixes some display issues on -y.
+Also I forgot to mention that this contains a bugfix that makes 
+the script look for the dnsdomainname program if domainname doesn't
+exists, as is the case on many linux systems.
 
 Regards,
 Magnus
 
 --- mlmmj-make-ml.sh.in.orig	2006-08-06 18:15:58.000000000 +0200
-+++ mlmmj-make-ml.sh.in	2006-08-06 18:43:57.000000000 +0200
++++ mlmmj-make-ml.sh.in	2006-08-06 19:11:54.000000000 +0200
 @@ -6,6 +6,7 @@
  VERSION="0.1"
  DEFAULTDIR="/var/spool/mlmmj"
@@ -76,7 +75,7 @@ Magnus
  	fi
  fi
  
-@@ -76,35 +93,54 @@
+@@ -76,35 +93,58 @@
  
  test -f "$LISTDIR"/index || touch "$LISTDIR"/index
  
@@ -91,7 +90,11 @@ Magnus
 +	fi	
 +	
 +	echo -n "The Domain for the List? [$FQDN_SYSTEM] : "
-+	[ -z "$ALLYES" ] && read FQDN
++	if [ -z "$ALLYES" ]; then
++		read FQDN
++	else
++		echo
++	fi
 +	if [ -z "$FQDN" ]; then
 +		FQDN="$FQDN_SYSTEM"
 +	fi
@@ -154,7 +157,7 @@ Magnus
  fi
  
  LISTADDRESS="$LISTNAME@$FQDN"
-@@ -120,15 +156,20 @@
+@@ -120,15 +160,20 @@
  	MLMMJMAINTD="/path/to/mlmmj-maintd"
  fi
  
@@ -178,7 +181,7 @@ Magnus
  	case $OKIDOKI in
  		y|Y)
  		echo "$ALIAS" >> $ALIASFILE
-@@ -147,11 +188,16 @@
+@@ -147,11 +192,16 @@
  
  if [ "$DO_CHOWN" ] ; then
  	echo
@@ -198,4 +201,3 @@ Magnus
  		;;
  		n|N)
  			exit 0
-
