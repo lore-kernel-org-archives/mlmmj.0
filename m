@@ -1,7 +1,7 @@
 From: Mads Martin Joergensen <mmj@mmj.dk>
-Date: Sun, 06 Aug 2006 07:44:55 +0000
+Date: Sun, 06 Aug 2006 07:48:06 +0000
 Subject: Re: closedlistsub not working
-Message-Id: <20060806074455.GS34255@mmj.dk>
+Message-Id: <20060806074806.GT34255@mmj.dk>
 List-Id: <mlmmj.mlmmj.org>
 References: <44D546D2.3060702@kite.se>
 In-Reply-To: <44D546D2.3060702@kite.se>
@@ -10,28 +10,51 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-* Magnus Naeslund(k) <mag@kite.se> [Aug 06. 2006 03:39]:
-> Magnus Naeslund wrote:
-> > Hello,
+* Magnus Naeslund(k) <mag@kite.se> [Aug 06. 2006 03:33]:
+> Hello,
+> I'm a qmail defector that is evaluating mlmmj to be used with a postfix
+> installation instead of ezmlm + qmail. We might be moving quite a number
+> of lists over to mlmmj if the evaluation is positive.
 > 
-> Oh, I forgot to mention the mlmmj version used, it's a ubuntu (hence
-> debian) package, version 1.2.9-1.
+> When i tried to enable "closedlistsub" it still enables me to subscribe,
+> has anyone seen this before?
 
-That explains it :)
+See my other posting to the list.
 
-Look at ChangeLog:
+> Also I would be very happy if someone could help me with this:
+> 
+> I'm trying to map the different types of ezmlm lists we provide over to
+> the mlmmj options. These are the types of ezmlm list we have now:
+> 
+> announcelist_modsub:
+> 	A list that is moderated in two ways,
+> 	subscription requests are sent to moderator(s),
+> 	posts are also sent to moderators for approval.
+> 
+> announcelist:
+> 	Anyone can subscribe, but posts go to moderators.
+> 
+> priv_privpost:
+> 	Private list that only moderators can approve on
+> 	subscription requests.
+> 	Only subscribers can post.
+> 
+> priv_pubpost:
+> 	Private list that only moderators can approve on
+> 	subscription requests, but anyone can post to the list.
+> 	
+> pubsub: the normal kind of public list, anyone can post to it
+> 
+> I know that most of these should be easy with mlmmj, but some of them I
+> can't really map. Any pointers are appreciated.
 
-1.2.10
- o Fix nasty bug in the new 1.2.9 find_email_adr() making comma in
-   quoted text in From: being discarded as invalid
- o Simply make all addresses lowercase before doing anything else
-   wrt. sub/unsub and bounce
- o Add czech listtexts (Lukas Hluze)
- o Make non list emails (subconf, moderation etc.) also honor relayhost
-   and smtpport
- o Add tunable to be able to close for subscription only (closedlistsub)
+If I could just get myself together and finish moderated subscription
+(80% done) once more (previous implementation got lost with my previous
+laptop) all of the above will be possible.
 
-'closedlistsub' was added in 1.2.10.
+Maybe it really is time to get this out of my hair, and take another
+stab at it tonight. Last time I finished it and it was working, it was
+just a matter of a couple of hours...
 
 -- 
 Mads Martin Joergensen, http://mmj.dk
