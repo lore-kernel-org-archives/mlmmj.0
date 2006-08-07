@@ -1,34 +1,39 @@
-From: Morten K. Poulsen <morten@afdelingp.dk>
-Date: Wed, 30 Aug 2006 22:08:16 +0000
-Subject: RE: French text files
-Message-Id: <7200c5676c65f4daf19386ffef938167@mail.n0rd.dk>
+From: "Magnus Naeslund(k)" <mag@kite.se>
+Date: Mon, 07 Aug 2006 03:49:14 +0000
+Subject: Bug in subscriber searching function is_subbed_in()
+Message-Id: <44D6B83A.6030701@kite.se>
 List-Id: <mlmmj.mlmmj.org>
-References: <20060514163344.991A2497E2@smtp3-g19.free.fr>
-In-Reply-To: <20060514163344.991A2497E2@smtp3-g19.free.fr>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
+I found out that the subscribercode searches the subscriber directory 
+and tries to mmap the lockfile it created earlier which size is zero,
+hence the logentry:
 
-Hi Christophe,
+/usr/bin/mlmmj-sub[25209]: subscriberfuncs.c:61: Could not mmap fd: Invalid argument
 
-On Wed, 2 Aug 2006 15:28:55 +0200, "Christophe GALLIENNE" <christophe.gallienne@free.fr> wrote:
->>That would be appreciated.
-> 
-> OK, Please find here my text files in french...maybe someone must read it
-> again for eventual corrections.
+I modified the code to skip ALL files that starts with a dot, that
+takes care if . and .. directories aswell as the .$file.lock files.
 
-Thanks a lot.
+Is this patch acceptable?
 
-I have committed the texts to CVS now. I have no idea what the texts say, but nobody has objected ;-)
-
-There was no unsub-confirm-digest. Could you also translate that one?
+Regards,
+Magnus
 
 
-Morten
+--- mlmmj-1.2.11-vanilla/src/subscriberfuncs.c  2005-02-14 23:59:24.000000000 +0100
++++ mlmmj-1.2.11/src/subscriberfuncs.c  2006-08-07 05:42:49.000000000 +0200
+@@ -101,9 +101,8 @@
+        }
 
--- 
-Morten K. Poulsen <morten@afdelingp.dk>
-http://www.afdelingp.dk/
+        while((dp = readdir(subddir)) != NULL) {
+-               if(!strcmp(dp->d_name, "."))
+-                       continue;
+-               if(!strcmp(dp->d_name, ".."))
++                /* Skip "." ".." and ".*.lock" files */
++               if(dp->d_name[0] = '.')
+                        continue;
 
+                subreadname = concatstr(2, subddirname, dp->d_name);
