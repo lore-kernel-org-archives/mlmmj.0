@@ -1,29 +1,77 @@
-From: Mads Martin Joergensen <mmj@mmj.dk>
-Date: Thu, 24 Aug 2006 12:19:33 +0000
-Subject: Re: mailinglist owner subscribe?
-Message-Id: <20060824121933.GE38148@mmj.dk>
+From: "Magnus Naeslund(k)" <mag@kite.se>
+Date: Mon, 07 Aug 2006 00:56:27 +0000
+Subject: Delivered-to is causing me some problems
+Message-Id: <44D68FBB.6030807@kite.se>
 List-Id: <mlmmj.mlmmj.org>
-References: <4d4321660608240434i5444467g171a8b77f83c1742@mail.gmail.com>
-In-Reply-To: <4d4321660608240434i5444467g171a8b77f83c1742@mail.gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-* Mads Martin Joergensen <mmj@mmj.dk> [Aug 24. 2006 14:15]:
-> * Christian Nygaard <christiannygaard@gmail.com> [Aug 24. 2006 14:12]:
-> > Thanks Mads!
-> > 
-> > I will try to have the user use sudo and mlmmj-sub as you described.
-> 
-> Yep. If mlmmj-sub is invoked as root, it'll automatically switch and use
-> the right permissions.
+mlmmj is scanning Delivered-to: headers and trying to match where there listname is by checking for the delimiter. 
+This is causing me problems since I would like to be able to use one alias for all lists together with postfix.
+I've patched mlmmj-make-ml to create /var/spool/mlmmj/list@domain directories, and i've created virtual aliases in postfix to send the list to one local user like this:
 
-Note that there's switched to have mlmmj send welcome or confirmation
-mail. If just invoked, it'll just sub without any other action.
+list@domain.com listmgr-list=domain.com
 
--- 
-Mads Martin Joergensen, http://mmj.dk
-"Why make things difficult, when it is possible to make them cryptic
- and totally illogical, with just a little bit more effort?"
-                                 -- A. P. J.
+When a mail comes in i dispatch an mlmmj-recieve with the correct directory.
+The problem then is that postfix adds a 
+
+Delivered-to: listmgr-list=domain.com@mailserver.com
+
+and this freaks mlmmj out since it can't establish that the mail was sent to the list or something like that.
+
+I'm wondering if I'm going about this the wrong way, or if this is desired to be solved somehow.
+I've created a proof of concept patch below that takes care of this problem, but I'm not sure if it is desirable.
+One side effect of fixing this the "right" way would be that it could allow to have $delimiter characters in the listname.
+For example I'm forced to use the - delimiter, and that might allow me to create a list that's called list-test@domain.
+
+Well, guess I could always create lists that uses this alias system:
+
+virtual_alias:
+list@domain.com list_1
+
+local_alias:
+list_1: |mlmmj-recieve
+
+but then i'd need two aliases for every list.
+
+Regards,
+Magnus
+
+Un-optimal patch:
+
+--- mlmmj-1.2.11-vanilla/src/mlmmj-process.c    2006-01-23 18:44:53.000000000 +0100
++++ mlmmj-1.2.11/src/mlmmj-process.c    2006-08-07 02:35:42.000000000 +0200
+@@ -322,7 +322,7 @@
+        char *randomstr = NULL, *mqueuename;
+        char *mlmmjsend, *mlmmjsub, *mlmmjunsub, *mlmmjbounce;
+        char *bindir, *subjectprefix, *discardname, *listaddr, *listdelim;
+-       char *listfqdn, *listname, *fromaddr;
++       char *listfqdn, *listname, *listnameanddelim, *fromaddr;
+        char *queuefilename, *recipextra, *owner = NULL;
+        char *maildata[2] = { "posteraddr", NULL };
+        struct stat st;
+@@ -516,12 +516,20 @@
+                whichto = NULL;
+
+        listdelim = getlistdelim(listdir);
++       listaddr = getlistaddr(listdir);
++       listname = genlistname(listaddr);
++       listnameanddelim = concatstr(2, listname, listdelim);
++
+        if(whichto && whichto->emaillist && whichto->emaillist[0]){
+-               recipextra = strstr(whichto->emaillist[0], listdelim);
++               recipextra = strstr(whichto->emaillist[0], listnameanddelim);
+                if (recipextra)
+-                       recipextra += strlen(listdelim);
++                       recipextra += strlen(listnameanddelim);
+        } else
+                recipextra = NULL;
++
++       myfree(listnameanddelim);
++       myfree(listname);
++       myfree(listaddr);
+        myfree(listdelim);
+
+        if(recipextra) {
