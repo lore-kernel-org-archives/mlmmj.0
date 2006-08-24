@@ -1,30 +1,39 @@
-From: Christian Lackas <c.lackas@fz-juelich.de>
-Date: Sun, 06 Aug 2006 10:10:32 +0000
-Subject: Re: closedlistsub not working
-Message-Id: <20060806101032.GA54774@zel726.zel.kfa-juelich.de>
+From: "Christian Nygaard" <christiannygaard@gmail.com>
+Date: Thu, 24 Aug 2006 11:34:43 +0000
+Subject: mailinglist owner subscribe?
+Message-Id: <4d4321660608240434i5444467g171a8b77f83c1742@mail.gmail.com>
+MIME-Version: 1
+Content-Type: multipart/mixed; boundary="----=_Part_114559_27230845.1156419283870"
 List-Id: <mlmmj.mlmmj.org>
-References: <44D546D2.3060702@kite.se>
-In-Reply-To: <44D546D2.3060702@kite.se>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-* Mads Martin Joergensen <mmj@mmj.dk> [060806 09:57]:
+------=_Part_114559_27230845.1156419283870
+Content-Type: text/plain; charset=ISO-8859-1; format=flowed
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
-Hi Mads,
+How can the mailinglist owner subscribe new members to a mlmmj list?
 
-> If I could just get myself together and finish moderated subscription
-> (80% done) once more (previous implementation got lost with my
-> previous laptop) all of the above will be possible.
+I've tried chgrp subscribers.d folder and the files in it to list owners
+group + emacs to edit them but as soon as someone unsubscribes from the list
+the permissions are
+changed back to nobody.nobody ownership.
 
-hope I am not asking for too much, however, I just have the case that I
-need a list where mails of subscribers are send out directly and all
-other mails go into the moderation queue.
-Maybe, if you working in this area anyway... :-)
+Is there some mailinglist owner command that I missed that can be used?
 
-Thanks for a great program,
- Christian
+ezmlm does this by:
+mailinglist-subscribe-john=example.net@example.org
 
--- 
-http://www.lackas.net/                  http://www.spect-ct.com/
+Thanks for input,
+Chris
+
+------=_Part_114559_27230845.1156419283870
+Content-Type: text/html; charset=ISO-8859-1
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+How can the mailinglist owner subscribe new members to a mlmmj list?<br><br>I've tried chgrp subscribers.d folder and the files in it to list owners group + emacs to edit them but as soon as someone unsubscribes from the list the permissions are
+<br>changed back to nobody.nobody ownership. <br><br>Is there some mailinglist owner command that I missed that can be used?<br><br>ezmlm does this by:<br>mailinglist-subscribe-john=<a href="mailto:example.net@example.org">
+example.net@example.org</a><br><br>Thanks for input,<br>Chris<br>
+
+------=_Part_114559_27230845.1156419283870--
