@@ -1,74 +1,31 @@
-From: Henne Vogelsang <hvogel@opensuse.org>
-Date: Fri, 08 Sep 2006 13:29:22 +0000
-Subject: default listtext dir
-Message-Id: <20060908132922.GS24085@suse.de>
-MIME-Version: 1
-Content-Type: multipart/mixed; boundary="k+G3HLlWI7eRTl+h"
+From: Morten K. Poulsen <morten@afdelingp.dk>
+Date: Sat, 02 Sep 2006 11:41:27 +0000
+Subject: RE: Looking for French texts (Thank you)
+Message-Id: <510f08892d8e489516c31c18e2e50a44@mail.n0rd.dk>
 List-Id: <mlmmj.mlmmj.org>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
 
---k+G3HLlWI7eRTl+h
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Hi Jan,
 
-Hi,
+On Fri, 1 Sep 2006 23:40:29 +0200, "Joaquin ALMAGRO" <jan18@numericable.fr> wrote:
+> Hi, Morten
+> 
+> C'est du bon travail Christophe.
+> 
+> Thank you both for your help
+> jan
 
-i frequently run into the problem that i update mlmmj and have to wade
-trough all my lists and update the listtexts because some new one got
-added (e.g. submod-moderator) or something is modified. 
+The mlmmj list does not add a Reply-To header, so your reply was only to me.
 
-I would like to propose a default listtext directory (like there already
-is in datadir/mlmmj/text.skel). So listtexts would be searched
+I'm sending this reply to the list so Christophe can get his credits :)
 
-1. in spool/list/text/file and if not there
-2. in default/file
-
-This would mean that spool/list/text/file is just an overwrite and you
-can operate lists just with default texts (no text/ dir at all). Also
-comes in handy if the translations are behind etc.
-
-The following patch implements this in prestdreply.c. The only part that
-is missing is making configure setting the dir in config.h instead of
-hardcoding it. What do you think?
-
-Henne
+Morten
 
 -- 
-Henne Vogelsang, Core Services
-"Rules change. The Game remains the same."
-			 - Omar (The Wire)
+Morten K. Poulsen <morten@afdelingp.dk>
+http://www.afdelingp.dk/
 
---k+G3HLlWI7eRTl+h
-Content-Type: text/x-patch; charset=us-ascii
-Content-Disposition: attachment; filename="mlmmj-defaulttextdir.patch"
-
---- config.h.in
-+++ config.h.in
-@@ -129,3 +129,6 @@
- 
- /* Define to `unsigned' if <sys/types.h> does not define. */
- #undef size_t
-+
-+/* Define to the location of the default listext directory */
-+#define DEFAULTTEXTDIR  "/usr/share/mlmmj/text.skel/"
---- src/prepstdreply.c
-+++ src/prepstdreply.c
-@@ -166,8 +166,13 @@
- 	infd = open(tmp, O_RDONLY);
- 	myfree(tmp);
- 	if(infd < 0) {
--		log_error(LOG_ARGS, "Could not open std mail %s", filename);
--		return NULL;
-+		tmp = concatstr(2, DEFAULTTEXTDIR, filename);
-+		infd = open(tmp, O_RDONLY);
-+		myfree(tmp);
-+		if(infd < 0) {
-+			log_error(LOG_ARGS, "Could not open std mail %s", filename);
-+			return NULL;
-+		}	
- 	}
- 
- 	listaddr = getlistaddr(listdir);
-
---k+G3HLlWI7eRTl+h--
