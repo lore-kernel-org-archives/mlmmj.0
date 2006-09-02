@@ -1,29 +1,29 @@
 From: Morten K. Poulsen <morten@afdelingp.dk>
-Date: Wed, 13 Sep 2006 18:10:41 +0000
-Subject: Re: resending german list texts patch
-Message-Id: <43d5e2c7e6f9d3e5aeb9c41c441e62c7@mail.n0rd.dk>
+Date: Sat, 02 Sep 2006 21:09:39 +0000
+Subject: new mlmmj maintainer
+Message-Id: <13fa7cb763ccd61842a17f4a11e211aa@mail.n0rd.dk>
 List-Id: <mlmmj.mlmmj.org>
-References: <20060912205350.GA5166@coresystems.de>
-In-Reply-To: <20060912205350.GA5166@coresystems.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="macroman"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-CkhpIFN0YWZhbiwKClN0ZWZhbiBSZWluYXVlciA8c3RlcGFuQG9wZW5iaW9zLm9yZz4gd3JvdGU6
-Cj4gKiBtb3J0ZW5wIDxtb3J0ZW5wQG1haWwubjByZC5kaz4gWzA2MDkxMiAyMzoxMF06Cj4+IFN0
-ZWZhbiBSZWluYXVlciA8c3RlcGFuQG9wZW5iaW9zLm9yZz4gd3JvdGU6Cj4+PiBIb3BlIGl0IHdv
-cmtzIHRoaXMgdGltZS4KPj4KPj4gTm93IGl0J3MgYSBtaXggb2YgVVRGLTggYW5kIElTTy04ODU5
-LTEsIGJ1dCBJIHdpbGwgZmlndXJlIGl0IG91dCA6KQo+IAo+IFNvcnJ5LiBteSB2aW0gYXV0b21h
-dGljYWxseSBtYWtlcyBmaWxlcyBVVEYtOCB3aGVuIEkgYWRkIHRoZSBmaXJzdAo+IFVtbGF1dC4g
-SWYgdGhlcmUgYXJlIHVtbGF1dHMgYWxyZWFkeSwgdGhleSBzdGF5IElTTy1lbmNvZGVkLiBTb3Jy
-eQo+IGZvciB0aGUgbWVzcy4KCk5vIHByb2JsZW0sIGEgc21hbGwgc2hlbGwgc2NyaXB0IGZpeGVk
-IHRoZSBpc3N1ZSwgYW5kIHRoZSBwYXRjaCBhcHBsaWVkIGp1c3QgZmluZS4KCj4gV2hhdCBmb3Jt
-YXQgaXMgdGhlIHJlcXVpcmVkIG9uZSBmb3IgZnV0dXJlIHN1Ym1pc3Npb25zPwoKQW55IGZvcm1h
-dCB3aWxsIGRvLCBhcyBsb25nIGFzIGFsbCBvZiB0aGUgcGF0Y2ggaXMgaW4gdGhhdCBmb3JtYXQu
-CgpXaGVuIEkgZ2V0IHRoZSB0aW1lIChoYSEpIEkgd2lsbCBjaGFuZ2UgdGhlIGxpc3R0ZXh0cyB0
-byBiZSBpbiBxdW90ZWQgcHJpbnRhYmxlIFVURi04LiBTb21ldGhpbmcgbGlrZSB0aGlzOgoKRGll
-IGZvbGdlbmRlbiBLb21tYW5kb3Mgc2luZCB2ZXJmw7xnYmFyCgpUaGF0IHNob3VsZCBtYWtlIGl0
-IGVhc2llciB0byBtYW5hZ2UgcGF0Y2hlcy4KClRoYW5rcyBhZ2FpbiBmb3IgdGhlIHBhdGNoZXMu
-CgpNb3J0ZW4KCi0tIApNb3J0ZW4gSy4gUG91bHNlbiA8bW9ydGVuQGFmZGVsaW5ncC5kaz4KaHR0
-cDovL3d3dy5hZmRlbGluZ3AuZGsvCgo=
+
+Hi mlmmj list,
+
+Mads Martin has asked me to take over the position as maintainer of mlmmj.
+
+I have accepted his offer.
+
+He has, in return, promissed to finish subscription moderation soon.
+
+At this time, I do not plan to change the main strategy of the project. Each release will still be simple, secure, and - whenever possible - backwards compatible software. However, it has been almost one full year since the last release. It is my hope that we can obtain shorter release cycles.
+
+Quote from mmj: "This is keeping mlmmj from dying, and will be kept in it's original spirit :-)"
+
+Morten
+
+-- 
+Morten K. Poulsen <morten@afdelingp.dk>
+http://www.afdelingp.dk/
+
