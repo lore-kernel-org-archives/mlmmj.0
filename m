@@ -1,35 +1,27 @@
-From: "Joaquin ALMAGRO" <jan18@numericable.fr>
-Date: Sat, 02 Sep 2006 22:02:33 +0000
-Subject: Another user of mlmmj
-Message-Id: <CGEOKDHOKECBNBHBENCHIECKCFAA.jan18@numericable.fr>
+From: Morten K. Poulsen <morten@afdelingp.dk>
+Date: Sat, 02 Sep 2006 23:27:47 +0000
+Subject: Re: Another user of mlmmj
+Message-Id: <58a88cc7540f0c18be6c5ae8a301519b@mail.n0rd.dk>
 List-Id: <mlmmj.mlmmj.org>
+References: <CGEOKDHOKECBNBHBENCHIECKCFAA.jan18@numericable.fr>
+In-Reply-To: <CGEOKDHOKECBNBHBENCHIECKCFAA.jan18@numericable.fr>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Hi, all
 
-[mlmmj] henceforth used at the FFH French Hockey Federation, Paris (http://www.ffhockey.org)
+On Sun, 3 Sep 2006 00:02:33 +0200, "Joaquin ALMAGRO" <jan18@numericable.fr> wrote:
+> [mlmmj] henceforth used at the FFH French Hockey Federation, Paris
+> (http://www.ffhockey.org)
+[snip]
+> It works fine.
 
-System:
-Fedora Core 4 + Postfix 2.2 + Amavisd-new + Spamassassin + Razor + DCC + Pyzor + Clamd
+I am glad to hear that :)
 
-Transport model installation.
-# master.cf
-mlmmj   unix  -   n   n   -   -  pipe
-  flags=DORhu user=mlmmj argv=/usr/bin/mlmmj-recieve -F -L /var/spool/mlmmj/$nexthop/
+Morten
 
-Also forced to do a 
-# chown -R amavisd /var/spool/mlmmj
-
-It works fine.
-
-jan
-
-  .^.
-  /V\
-/(   )\
- ^^-^^
- 
+-- 
+Morten K. Poulsen <morten@afdelingp.dk>
+http://www.afdelingp.dk/
 
