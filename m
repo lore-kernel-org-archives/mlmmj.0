@@ -1,39 +1,32 @@
-From: Mads Martin Joergensen <mmj@mmj.dk>
-Date: Sun, 03 Sep 2006 21:23:20 +0000
+From: Thomas Goirand <thomas@goirand.fr>
+Date: Sun, 03 Sep 2006 21:42:11 +0000
 Subject: Re: new mlmmj maintainer
-Message-Id: <20060903212320.GV84492@mmj.dk>
+Message-Id: <44FB4C33.2040602@goirand.fr>
 List-Id: <mlmmj.mlmmj.org>
 References: <13fa7cb763ccd61842a17f4a11e211aa@mail.n0rd.dk>
 In-Reply-To: <13fa7cb763ccd61842a17f4a11e211aa@mail.n0rd.dk>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 To: mlmmj@mlmmj.org
 
-* Morten K. Poulsen <morten@afdelingp.dk> [Sep 02. 2006 23:09]:
+Morten K. Poulsen wrote:
+> Hi Søren,
 > 
-> Hi mlmmj list,
+> On Sun, 3 Sep 2006 00:56:51 +0200, Søren Boll Overgaard <boll+mlmmj@fork.dk> wrote:
+>> As part of your maintainership, would you consider setting up some sort of
+>> bug tracking facility for mlmmj? It would be a lot easier to help out with
+>> bugfixes and such, if iffues were consistently and publicly tracked.
 > 
-> Mads Martin has asked me to take over the position as maintainer of
-> mlmmj.
+> Yes, that is part of my plan. And some sort of patch management.
 > 
-> I have accepted his offer.
-> 
-> He has, in return, promissed to finish subscription moderation soon.
+> Morten
 
-Subscriber moderation was just committed to CVS. I've just been on the
-phone with Morten, and we expect 1.2.12-rc1 in a couple of hour.
+I hope nobody will take it bad but... is there some plans as well for a
+decent web page for the project? I mean something with the online
+documentation, a faq and so on...
 
-He'll fold in his Qmail and Digest (happy now lcars? ;) patch as well.
+Note that I'm not blaming anybody, I know it eats time to write it and
+maintain...
 
-I really appreciate this move by Morten, and since he's been been with
-the project since very early 0.x releases, he'll probably do even better
-than me :-)
-
-Any MySQL users out there, BTW? ;)
-
--- 
-Mads Martin Joergensen, http://mmj.dk
-"Why make things difficult, when it is possible to make them cryptic
- and totally illogical, with just a little bit more effort?"
-                                 -- A. P. J.
+Thomas
