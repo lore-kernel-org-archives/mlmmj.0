@@ -1,7 +1,7 @@
-From: Sven 'Darkman' Michels <sven@darkman.de>
-Date: Sun, 03 Sep 2006 21:58:14 +0000
+From: Mads Martin Joergensen <mmj@mmj.dk>
+Date: Sun, 03 Sep 2006 22:59:54 +0000
 Subject: Re: new mlmmj maintainer
-Message-Id: <44FB4FF6.50204@darkman.de>
+Message-Id: <20060903225954.GG84492@mmj.dk>
 List-Id: <mlmmj.mlmmj.org>
 References: <13fa7cb763ccd61842a17f4a11e211aa@mail.n0rd.dk>
 In-Reply-To: <13fa7cb763ccd61842a17f4a11e211aa@mail.n0rd.dk>
@@ -10,27 +10,19 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
------BEGIN PGP SIGNED MESSAGE-----
-Hash: SHA1
+* Mads Martin Joergensen <mmj@mmj.dk> [Sep 03. 2006 23:23]:
+> Subscriber moderation was just committed to CVS. I've just been on the
+> phone with Morten, and we expect 1.2.12-rc1 in a couple of hour.
 
-Mads Martin Joergensen wrote:
-> Did you notice http://lists.mysql.com/announce/388 :-)
+Morten just merged everything, and was just about to create the list of
+listtexts missing in various languages compared to english, when his
+internet connection broken down.
 
-uhm.. ;) not bad not bad... ;)
+Tomorrow night, we've made a deal--so expect it there if Murphy wants us
+to :-)
 
-
-> And now I have you Sven--please send your archive stuff for Morten to
-> include in 1.2.12!
-
-uhm *G* you got me. I'll try to pack it... its running with a "new"
-version since a few months now and i don't had any problems but
-thats not a proof of anything ;)
-
-laters,
-Sven
------BEGIN PGP SIGNATURE-----
-Version: GnuPG v1.2.2 (GNU/Linux)
-
-iD8DBQFE+0/1QoCguWUBzBwRAjlCAJ4rONKiePK8OM2HZBjSieoI5O4UPQCeN2Ys
-zq4ChQYP4OZFDTI+HzQ2DXg=N3c0
------END PGP SIGNATURE-----
+-- 
+Mads Martin Joergensen, http://mmj.dk
+"Why make things difficult, when it is possible to make them cryptic
+ and totally illogical, with just a little bit more effort?"
+                                 -- A. P. J.
