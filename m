@@ -1,27 +1,32 @@
-From: Morten K. Poulsen <morten@afdelingp.dk>
-Date: Sat, 02 Sep 2006 23:27:47 +0000
-Subject: Re: Another user of mlmmj
-Message-Id: <58a88cc7540f0c18be6c5ae8a301519b@mail.n0rd.dk>
+From: "Joaquin ALMAGRO" <jan@ffhockey.org>
+Date: Sun, 03 Sep 2006 10:30:03 +0000
+Subject: Accents and diacritics in mail headers
+Message-Id: <CGEOKDHOKECBNBHBENCHIEDDCFAA.jan@ffhockey.org>
 List-Id: <mlmmj.mlmmj.org>
-References: <CGEOKDHOKECBNBHBENCHIECKCFAA.jan18@numericable.fr>
-In-Reply-To: <CGEOKDHOKECBNBHBENCHIECKCFAA.jan18@numericable.fr>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
+Hi,
 
-On Sun, 3 Sep 2006 00:02:33 +0200, "Joaquin ALMAGRO" <jan18@numericable.fr> wrote:
-> [mlmmj] henceforth used at the FFH French Hockey Federation, Paris
-> (http://www.ffhockey.org)
-[snip]
-> It works fine.
+It is difficult to persuade French people to avoid accents or diacritics in the mail's headers.
+But RFC 2822 rule is clear.    
 
-I am glad to hear that :)
+[snip-begin {W3C World Wide Web Consortium}]
+-----------
+"RFC 2822 specifies rules for forming Internet messages. It does not allow the use of characters with codes above 127 to be used directly (non-encoded) in mail headers (it also prohibits NUL and bare CR)"
+-----------
+[snip-end]
 
-Morten
+International "text" translations must AVOID the use of "national" characters in headers (Christophe ?).
+Risk : banned mail with BAD HEADER error code.
 
--- 
-Morten K. Poulsen <morten@afdelingp.dk>
-http://www.afdelingp.dk/
+Perhaps a built-in procedure to remove all diacritics in header texts (Morten)?
+
+  .^.
+  /V\
+/(   )\
+ ^^-^^
+ 
 
