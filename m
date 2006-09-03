@@ -1,7 +1,7 @@
-From: Sven 'Darkman' Michels <sven@darkman.de>
-Date: Sun, 03 Sep 2006 21:45:06 +0000
+From: Mads Martin Joergensen <mmj@mmj.dk>
+Date: Sun, 03 Sep 2006 21:52:48 +0000
 Subject: Re: new mlmmj maintainer
-Message-Id: <44FB4CE2.9070309@darkman.de>
+Message-Id: <20060903215248.GE84492@mmj.dk>
 List-Id: <mlmmj.mlmmj.org>
 References: <13fa7cb763ccd61842a17f4a11e211aa@mail.n0rd.dk>
 In-Reply-To: <13fa7cb763ccd61842a17f4a11e211aa@mail.n0rd.dk>
@@ -10,19 +10,23 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
------BEGIN PGP SIGNED MESSAGE-----
-Hash: SHA1
+* Sven 'Darkman' Michels <sven@darkman.de> [Sep 03. 2006 23:45]:
+> -----BEGIN PGP SIGNED MESSAGE-----
+> Hash: SHA1
+> 
+> Mads Martin Joergensen wrote:
+> > Any MySQL users out there, BTW? ;)
+> 
+> *raises hand* *waves* ;)
+> me me me! ;)
 
-Mads Martin Joergensen wrote:
-> Any MySQL users out there, BTW? ;)
+Did you notice http://lists.mysql.com/announce/388 :-)
 
-*raises hand* *waves* ;)
-me me me! ;)
+And now I have you Sven--please send your archive stuff for Morten to
+include in 1.2.12!
 
-Darkman
------BEGIN PGP SIGNATURE-----
-Version: GnuPG v1.2.2 (GNU/Linux)
-
-iD8DBQFE+0ziQoCguWUBzBwRAqeCAJ4oN2HAdtrFverl9x5stxeuykYOhgCgp6PJ
-OYzCT8uay9bNNH/XsmKbrRQ=gG3t
------END PGP SIGNATURE-----
+-- 
+Mads Martin Joergensen, http://mmj.dk
+"Why make things difficult, when it is possible to make them cryptic
+ and totally illogical, with just a little bit more effort?"
+                                 -- A. P. J.
