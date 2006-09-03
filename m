@@ -1,7 +1,7 @@
 From: Mads Martin Joergensen <mmj@mmj.dk>
-Date: Sun, 03 Sep 2006 15:44:23 +0000
+Date: Sun, 03 Sep 2006 21:23:20 +0000
 Subject: Re: new mlmmj maintainer
-Message-Id: <20060903154423.GG84492@mmj.dk>
+Message-Id: <20060903212320.GV84492@mmj.dk>
 List-Id: <mlmmj.mlmmj.org>
 References: <13fa7cb763ccd61842a17f4a11e211aa@mail.n0rd.dk>
 In-Reply-To: <13fa7cb763ccd61842a17f4a11e211aa@mail.n0rd.dk>
@@ -10,18 +10,27 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-* Thomas Goirand <thomas@goirand.fr> [Sep 03. 2006 17:42]:
-> I hope nobody will take it bad but... is there some plans as well for
-> a decent web page for the project? I mean something with the online
-> documentation, a faq and so on...
+* Morten K. Poulsen <morten@afdelingp.dk> [Sep 02. 2006 23:09]:
+> 
+> Hi mlmmj list,
+> 
+> Mads Martin has asked me to take over the position as maintainer of
+> mlmmj.
+> 
+> I have accepted his offer.
+> 
+> He has, in return, promissed to finish subscription moderation soon.
 
-Don't feel bad. It's horrible the current one...
+Subscriber moderation was just committed to CVS. I've just been on the
+phone with Morten, and we expect 1.2.12-rc1 in a couple of hour.
 
-> Note that I'm not blaming anybody, I know it eats time to write it and
-> maintain...
+He'll fold in his Qmail and Digest (happy now lcars? ;) patch as well.
 
-... I've been hoping for a long time someone would step up and do
-something about it, since I don't have the time.
+I really appreciate this move by Morten, and since he's been been with
+the project since very early 0.x releases, he'll probably do even better
+than me :-)
+
+Any MySQL users out there, BTW? ;)
 
 -- 
 Mads Martin Joergensen, http://mmj.dk
