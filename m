@@ -1,7 +1,7 @@
-From: Christian Lackas <c.lackas@fz-juelich.de>
-Date: Tue, 05 Sep 2006 06:43:05 +0000
+From: Morten K. Poulsen <morten@afdelingp.dk>
+Date: Tue, 05 Sep 2006 17:02:23 +0000
 Subject: Re: mlmmj-1.2.12-RC1 released
-Message-Id: <20060905064304.GA61417@zel726.zel.kfa-juelich.de>
+Message-Id: <4b6e7a4eb3150fc8d5848352ce221d31@mail.n0rd.dk>
 List-Id: <mlmmj.mlmmj.org>
 References: <34f6b3c998e8d4bb4bd464d07c87532c@mail.n0rd.dk>
 In-Reply-To: <34f6b3c998e8d4bb4bd464d07c87532c@mail.n0rd.dk>
@@ -10,32 +10,29 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-* Morten K.Poulsen <morten@afdelingp.dk> [060904 21:52]:
 
-Hi Morten,
+Hi Jakob,
 
-> I am proud to present the first release candidate with me as maintainer.
+On Mon, 04 Sep 2006 23:02:01 +0200, Jakob Hirsch <jh@plonk.de> wrote:
+>> There has been a lot of bug fixes and enhancements since mlmmj-1.2.11.
+>> All of
+> 
+> Nice, thanks.
 
-thanks for your great work.
+I haven't done all the programming, I just released the work :)
 
-> de
-> - bounce-probe
-> - digest
-> - submod-moderator
-> - submod-requester
+>> If your patch is not included, please re-send it.
+> 
+> updated for this version:
+> http://plonk.de/sw/mlmmj/mlmmj-1.2.12-RC1.mime1.patch
 
-You can find a German translation here:
+I do not like the idea of having MIME parsing in the list manager itself. Or any kind of mail body parsing, for that matter.
 
-    http://www.spect-ct.com/temp/mlmmj-texts-de.tgz
-    http://www.spect-ct.com/temp/de/
+A much better solution would be to have it in a "wrapper" program. I would be happy to put such a program in the contrib directory of the distribution.
 
-BTW: Do I have to avoid 8-bit characters (like German umlauts) in the
-subject line (that's what I did, however, I was not sure if this is
-actually necessary)?
-
-Best regards,
- Christian
+Morten
 
 -- 
-http://www.lackas.net/ Perl Delphi Linux MP3 Searchengines Domainchecker
-http://www.spect-ct.com/ High resolution Molecular Imaging
+Morten K. Poulsen <morten@afdelingp.dk>
+http://www.afdelingp.dk/
+
