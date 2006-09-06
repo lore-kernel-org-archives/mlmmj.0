@@ -1,354 +1,834 @@
-From: Henne Vogelsang <hvogel@opensuse.org>
-Date: Wed, 06 Sep 2006 16:38:33 +0000
+From: Stefan Reinauer <stepan@openbios.org>
+Date: Wed, 06 Sep 2006 18:22:37 +0000
 Subject: Re: mlmmj-1.2.12-RC1 released
-Message-Id: <20060906163833.GA24085@suse.de>
+Message-Id: <20060906182237.GA12003@coresystems.de>
 MIME-Version: 1
-Content-Type: multipart/mixed; boundary="iAL9S67WQOXgEPD9"
+Content-Type: multipart/mixed; boundary="pf9I7BMVVzbSWLtt"
 List-Id: <mlmmj.mlmmj.org>
 References: <34f6b3c998e8d4bb4bd464d07c87532c@mail.n0rd.dk>
 In-Reply-To: <34f6b3c998e8d4bb4bd464d07c87532c@mail.n0rd.dk>
 To: mlmmj@mlmmj.org
 
 
---iAL9S67WQOXgEPD9
-Content-Type: text/plain; charset=us-ascii
+--pf9I7BMVVzbSWLtt
+Content-Type: text/plain; charset="utf-8"
 Content-Disposition: inline
-
-Hi,
+Content-Transfer-Encoding: 8bit
 
 On Monday, September 04, 2006 at 21:42:08, Morten K.Poulsen wrote:
 
 > If your patch is not included, please re-send it.
 
-As mm"the king of slack"j did not add my patches from the openSUSE
-package i re-send them. 8)
+Please add the following two patches as well:
 
-mlmmj-log.patch:
+  * mlmmj-1.2.12-RC1-fix-german.diff
 
-This patch logs the header if a deny rule matches in access control.
-So you can actually tell users what they are doing wrong.
+    This applies fixes to all German list texts. No idea if someone 
+    is really using them, but they had terribly many typos, comma
+    mistakes and sounded really rough. No guarantees, there are for
+    sure more typos, but it is a little less awkward like with this
+    patch applied.
 
-mlmmj-send_help-generic.patch
+  * mlmmj-1.2.12-RC1-fix-english.diff
+    
+    "throught" is not an english word. Maybe this was confused with
+    "trout" ? ;-)
 
-This patch makes send_help more generic. It adds 2 new parameters to
-send_help (name/textfile). So you can send other texts than listhelp
-with it. 
+    Please, please, don't send mails to users with "If you are admin
+    of this list". If you are admin of the list, you are supposed to
+    read the manual, not grep in user mails. 
 
-mlmmj-faq.patch 
-
-This patch adds the possiblity to send a FAQ of the list. It can be
-requested via listname+faq@fqdn. This uses the more generic send_help
-function.
-
-mlmmj-nodigestsub.patch
-
-This patch adds a control file to deny digest subscription. Usefull if
-you dont want digests and tell users about it. Uses the more generic
-send_help.
-
-mlmmj-nonomailsub.patch
-
-This patch adds a control file to deny nomail subscription. Usefull if
-you dont want nomail and tell users about it. Uses the more generic
-send_help.
-
-Henne
-
-BTW: All lists.opensuse.org lists run on mlmmj since a month or so and
-all lists.suse.com lists will follow later this year.
+Best regards,
+Stefan
 
 -- 
-Henne Vogelsang, Core Services
-"Rules change. The Game remains the same."
-			 - Omar (The Wire)
+coresystems GmbH • Brahmsstr. 16 • D-79104 Freiburg i. Br.
+      Tel.: +49 761 7668825 • Fax: +49 761 7664613
+Email: info@coresystems.de  • http://www.coresystems.de/
 
---iAL9S67WQOXgEPD9
-Content-Type: text/x-patch; charset=us-ascii
-Content-Disposition: attachment; filename="mlmmj-log.patch"
+--pf9I7BMVVzbSWLtt
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: attachment; filename="mlmmj-1.2.12-RC1-fix-english.diff"
 
---- src/mlmmj-process.c
-+++ src/mlmmj-process.c
-@@ -284,8 +284,8 @@
- 					break;
- 			}
+diff -ur mlmmj-1.2.12-RC1.orig/listtexts/digest mlmmj-1.2.12-RC1/listtexts/digest
+--- mlmmj-1.2.12-RC1.orig/listtexts/digest	2006-09-02 23:14:08.000000000 +0200
++++ mlmmj-1.2.12-RC1/listtexts/digest	2006-09-06 19:29:52.000000000 +0200
+@@ -1,5 +1,5 @@
+ Subject: Digest of $listaddr$ issue $digestissue$ ($digestinterval$)
  
--			log_error(LOG_ARGS, "A mail was %s by rule #%d",
--					logstr, rule_nr);
-+			log_error(LOG_ARGS, "A mail with header \"%s\" was %s by rule #%d \"%s\"",
-+				hdrs->strs[i], logstr, rule_nr, rule_ptr);
- 			ret = rule->act;
- 			free_rules(head);
- 			return ret;
+-Topics (messages $digestfirst$ throught $digestlast$):
++Topics (messages $digestfirst$ through $digestlast$):
+ 
+ $digestthreads$
+diff -ur mlmmj-1.2.12-RC1.orig/listtexts/notintocc mlmmj-1.2.12-RC1/listtexts/notintocc
+--- mlmmj-1.2.12-RC1.orig/listtexts/notintocc	2005-04-09 17:10:23.000000000 +0200
++++ mlmmj-1.2.12-RC1/listtexts/notintocc	2006-09-06 19:08:47.000000000 +0200
+@@ -10,8 +10,5 @@
+ In order to post to this list, the list address must be contained
+ in either the To: or Cc: header.
+ 
+-If you are an admin of an mlmmj driven list, you should know that this
+-behaviour can be changed by touching the list control file 'tocc'.
+-
+ Thanks.
+ 
 
---iAL9S67WQOXgEPD9
-Content-Type: text/x-patch; charset=us-ascii
-Content-Disposition: attachment; filename="mlmmj-faq.patch"
+--pf9I7BMVVzbSWLtt
+Content-Type: text/plain; charset="utf-8"
+Content-Disposition: attachment; filename="mlmmj-1.2.12-RC1-fix-german.diff"
+Content-Transfer-Encoding: 8bit
 
---- listtexts/Makefile.am
-+++ listtexts/Makefile.am
+diff -ur mlmmj-1.2.12-RC1.orig/listtexts/de/access mlmmj-1.2.12-RC1/listtexts/de/access
+--- mlmmj-1.2.12-RC1.orig/listtexts/de/access	2004-11-28 19:52:41.000000000 +0100
++++ mlmmj-1.2.12-RC1/listtexts/de/access	2006-09-06 19:19:28.000000000 +0200
+@@ -1,11 +1,12 @@
+ Subject: Beitrag zur Liste $listaddr$ abgelehnt
+ 
+-Hi, dies ist das mlmmj Programm das die Mailingliste
++Hi, dies ist das mlmmj-Programm, das die Mailingliste
+ 
+ $listaddr$
+ 
+ verwaltet.
+ 
+-Tut mir leid aber Ihre Mail konnte nicht versandt werden. Ein Filter
+-den der Administrator dieser Liste aufgesetzt hat traf auf Ihre Mail
+-zu.
++Tut mir leid, aber Ihre Mail konnte nicht versendet werden. Ein 
++Filter, den der Administrator dieser Liste aufgesetzt hat, traf 
++auf Ihre Mail zu.
++
+diff -ur mlmmj-1.2.12-RC1.orig/listtexts/de/bounce-probe mlmmj-1.2.12-RC1/listtexts/de/bounce-probe
+--- mlmmj-1.2.12-RC1.orig/listtexts/de/bounce-probe	2006-09-04 00:29:46.000000000 +0200
++++ mlmmj-1.2.12-RC1/listtexts/de/bounce-probe	2006-09-06 19:27:40.000000000 +0200
+@@ -1,14 +1,16 @@
+-Subject: Messages from $listaddr$ to you have been bouncing
++Subject: Nachrichten an Sie von $listaddr$ konnten nicht zugestellt werden
+ 
+-Hi, this is the mlmmj program managing the mailinglist
++Hi, dies ist das mlmmj-Programm, das die Mailingliste
+ 
+ $listaddr$
+ 
+-Some messages to you could not be delivered. If you're seeing this
+-message it means things are back to normal, and it's merely for your
+-information.
++verwaltet.
+ 
+-Here is the list of the bounced messages:
++Einige Nachrichten an Sie konnten nicht zugestellt werden. Wenn Sie
++diese Nachricht lesen, funktioniert die Zustellung wieder, und diese
++Nachricht dient lediglich Ihrer Information.
++
++Hier die Liste der nicht zugestellten Nachrichten:
+ 
+ $bouncenumbers$
+ 
+diff -ur mlmmj-1.2.12-RC1.orig/listtexts/de/digest mlmmj-1.2.12-RC1/listtexts/de/digest
+--- mlmmj-1.2.12-RC1.orig/listtexts/de/digest	2006-09-04 00:29:46.000000000 +0200
++++ mlmmj-1.2.12-RC1/listtexts/de/digest	2006-09-06 19:29:57.000000000 +0200
+@@ -1,5 +1,5 @@
+-Subject: Digest of $listaddr$ issue $digestissue$ ($digestinterval$)
++Subject: Übersicht $listaddr$ Ausgabe $digestissue$ ($digestinterval$)
+ 
+-Topics (messages $digestfirst$ throught $digestlast$):
++Themen (Nachrichten $digestfirst$ bis $digestlast$):
+ 
+ $digestthreads$
+diff -ur mlmmj-1.2.12-RC1.orig/listtexts/de/listhelp mlmmj-1.2.12-RC1/listtexts/de/listhelp
+--- mlmmj-1.2.12-RC1.orig/listtexts/de/listhelp	2004-11-28 19:52:41.000000000 +0100
++++ mlmmj-1.2.12-RC1/listtexts/de/listhelp	2006-09-06 19:31:36.000000000 +0200
+@@ -4,26 +4,26 @@
+ 
+ Die folgenden Kommandos sind verf�gbar:
+ 
+-Um sich auszutragen senden Sie eine Mail an:
++Um sich auszutragen, senden Sie eine Mail an:
+ 
+ $listunsubaddr$
+ 
+-Um sich auf die Digest Version auf die Liste einzutragen
++Um sich auf die Digest-Version auf die Liste einzutragen,
+ senden Sie eine Mail an:
+ 
+ $digestsubaddr$
+ 
+-Um sich auf die Nomail Version auf die Liste einzutragen
++Um sich auf die Nomail-Version auf die Liste einzutragen,
+ senden Sie eine Mail an:
+ 
+ $nomailsubaddr$
+ 
+-Wenn Sie sich auf die Nomail Version eintragen empfangen Sie keine
+-Nachrichten von der Liste sind aber trotzdem eingetragen. Dies ist
+-sinnvoll wenn Sie von mehreren Adressen Beitr�ge auf die Liste 
++Wenn Sie sich auf die Nomail-Version eintragen, empfangen Sie keine
++Nachrichten von der Liste, sind aber trotzdem eingetragen. Dies ist
++sinnvoll, wenn Sie von mehreren Adressen aus Beitr�ge auf die Liste 
+ schicken m�chten.
+ 
+-Um die Nachricht mit der Archivnummer N zu erhalten senden Sie eine
++Um die Nachricht mit der Archivnummer N zu erhalten, senden Sie eine
+ Mail an:
+ 
+ $listgetN$
+diff -ur mlmmj-1.2.12-RC1.orig/listtexts/de/listsubs mlmmj-1.2.12-RC1/listtexts/de/listsubs
+--- mlmmj-1.2.12-RC1.orig/listtexts/de/listsubs	2005-04-26 12:13:25.000000000 +0200
++++ mlmmj-1.2.12-RC1/listtexts/de/listsubs	2006-09-06 19:32:08.000000000 +0200
+@@ -1,11 +1,11 @@
+ Subject: Liste der Abonnenten von $listaddr$
+ 
+ 
+-Hi, dies ist das mlmmj Programm das die Mailingliste
++Hi, dies ist das mlmmj-Programm, das die Mailingliste
+ 
+ $listaddr$
+ 
+ verwaltet.
+ 
+-Folgendes ist die Liste der Abonnenten:
++Dies ist die Liste der Abonnenten:
+ 
+diff -ur mlmmj-1.2.12-RC1.orig/listtexts/de/moderation mlmmj-1.2.12-RC1/listtexts/de/moderation
+--- mlmmj-1.2.12-RC1.orig/listtexts/de/moderation	2004-11-28 19:52:41.000000000 +0100
++++ mlmmj-1.2.12-RC1/listtexts/de/moderation	2006-09-06 19:34:42.000000000 +0200
+@@ -2,24 +2,24 @@
+ 
+ Hallo,
+ 
+-Jemand hat eine Nachricht die Moderation ben�tigt an
++jemand hat eine Nachricht, welche moderiert werden muss, an
+ 
+ $listaddr$
+ 
+ geschickt.
+ 
+-Um die Nachricht zu akzeptieren schicken Sie eine Mail an:
++Um die Nachricht zu akzeptieren, schicken Sie eine Mail an:
+ 
+ $moderateaddr$
+ 
+-Ihr Mailprogramm benutzt diese Adresse warscheinlich von selber wenn Sie
+-die Antworten funktion benutzen.  
+-Wenn Sie die Machricht nicht akzeptieren m�chten ignorieren sie einfach
+-diese Mail.
++Ihr Mailprogramm verwendet diese Adresse vermutlich automatisch, wenn 
++Sie die Antworten-Funktion benutzen.
+ 
+-die folgenden Moderatoren haben dies Mail erhalten:
++Wenn Sie die Nachricht nicht akzeptieren m�chten, ignorieren sie diese 
++Mail einfach.
++
++Die folgenden Moderatoren haben diese Mail erhalten:
+ 
+ $moderators$
+ 
+---- unterhalb dieser Linie sehen Sie die ersten 100 Zeilen der Nachricht
+-die Moderation erfordert. --->
++--- Unterhalb dieser Linie sehen Sie die ersten 100 Zeilen der Nachricht, welche moderiert werden muss. --->
+diff -ur mlmmj-1.2.12-RC1.orig/listtexts/de/notifysub mlmmj-1.2.12-RC1/listtexts/de/notifysub
+--- mlmmj-1.2.12-RC1.orig/listtexts/de/notifysub	2004-11-28 19:52:41.000000000 +0100
++++ mlmmj-1.2.12-RC1/listtexts/de/notifysub	2006-09-06 19:35:02.000000000 +0200
+@@ -1,12 +1,12 @@
+ Subject: $newsub$ eingetragen auf $listaddr$
+ 
+ 
+-Hi, dies ist das mlmmj Programm das die Mailingliste
++Hi, dies ist das mlmmj-Programm, das die Mailingliste
+ 
+ $listaddr$
+ 
+ verwaltet.
+ 
+-Die folgende Adresse wurde gerade auf die Mailingliste eingetragen.
++Die folgende Adresse wurde gerade auf die Mailingliste eingetragen:
+ 
+ $newsub$
+diff -ur mlmmj-1.2.12-RC1.orig/listtexts/de/notifysub-digest mlmmj-1.2.12-RC1/listtexts/de/notifysub-digest
+--- mlmmj-1.2.12-RC1.orig/listtexts/de/notifysub-digest	2004-11-28 19:52:41.000000000 +0100
++++ mlmmj-1.2.12-RC1/listtexts/de/notifysub-digest	2006-09-06 19:35:32.000000000 +0200
+@@ -1,12 +1,12 @@
+-Subject: $newsub$ eingetragen auf die Digest Version von $listaddr$ 
++Subject: $newsub$ eingetragen auf die Digest-Version von $listaddr$ 
+ 
+-Hi, dies ist das mlmmj Programm das die Mailingliste
++Hi, dies ist das mlmmj-Programm, das die Mailingliste
+ 
+ $listaddr$
+ 
+ verwaltet.
+ 
+-Die folgende Adresse wurde gerade auf die Digest Version der
+-Mailingliste eingetragen. 
++Die folgende Adresse wurde gerade auf die Digest-Version der
++Mailingliste eingetragen: 
+ 
+ $newsub$
+diff -ur mlmmj-1.2.12-RC1.orig/listtexts/de/notifysub-nomail mlmmj-1.2.12-RC1/listtexts/de/notifysub-nomail
+--- mlmmj-1.2.12-RC1.orig/listtexts/de/notifysub-nomail	2004-11-28 19:52:41.000000000 +0100
++++ mlmmj-1.2.12-RC1/listtexts/de/notifysub-nomail	2006-09-06 19:35:52.000000000 +0200
+@@ -1,12 +1,12 @@
+-Subject: $newsub$ eingetragen auf die nomail Version von $listaddr$ 
++Subject: $newsub$ eingetragen auf die nomail-Version von $listaddr$ 
+ 
+-Hi, dies ist das mlmmj Programm das die Mailingliste
++Hi, dies ist das mlmmj-Programm, das die Mailingliste
+ 
+ $listaddr$
+ 
+ verwaltet.
+ 
+ Die folgende Adresse wurde gerade auf die nomail Version der
+-Mailingliste eingetragen. 
++Mailingliste eingetragen:
+ 
+ $newsub$
+diff -ur mlmmj-1.2.12-RC1.orig/listtexts/de/notifyunsub mlmmj-1.2.12-RC1/listtexts/de/notifyunsub
+--- mlmmj-1.2.12-RC1.orig/listtexts/de/notifyunsub	2004-11-28 19:52:41.000000000 +0100
++++ mlmmj-1.2.12-RC1/listtexts/de/notifyunsub	2006-09-06 19:36:06.000000000 +0200
 @@ -1,6 +1,6 @@
- ## Process this file with automake to produce Makefile.in
+ Subject: $oldsub$ ausgetragen aus $listaddr$
  
--dist_textlib_DATA = access bounce-probe listhelp moderation notifysub \
-+dist_textlib_DATA = access bounce-probe listhelp listfaq moderation notifysub \
- 	notifysub-digest notifysub-nomail notifyunsub notifyunsub-digest \
- 	notifyunsub-nomail notintocc sub-confirm sub-confirm-digest \
- 	sub-confirm-nomail sub-ok sub-ok-digest sub-ok-nomail subonlypost \
---- listtexts/Makefile.in
-+++ listtexts/Makefile.in
-@@ -105,7 +105,7 @@
- target_alias = @target_alias@
- textlibdir = @textlibdir@
+-Hi, dies ist das mlmmj Programm das die Mailingliste
++Hi, dies ist das mlmmj-Programm, das die Mailingliste
  
--dist_textlib_DATA = access bounce-probe listhelp moderation notifysub \
-+dist_textlib_DATA = access bounce-probe listhelp listfaq moderation notifysub \
- 	notifysub-digest notifysub-nomail notifyunsub notifyunsub-digest \
- 	notifyunsub-nomail notintocc sub-confirm sub-confirm-digest \
- 	sub-confirm-nomail sub-ok sub-ok-digest sub-ok-nomail subonlypost \
---- listtexts/listfaq
-+++ listtexts/listfaq
-@@ -0,0 +1,4 @@
-+Subject: FAQ - Frequently asked questions of the $listaddr$ list.
-+
-+Sorry no FAQ available yet.
-+
---- src/listcontrol.c
-+++ src/listcontrol.c
-@@ -63,6 +63,7 @@
- 	CTRL_BOUNCES,
- 	CTRL_MODERATE,
- 	CTRL_HELP,
-+	CTRL_FAQ,
- 	CTRL_GET,
- 	CTRL_LIST,
- 	CTRL_END  /* end marker, must be last */
-@@ -92,6 +93,7 @@
- 	{ "bounces",            1 },
- 	{ "moderate",           1 },
- 	{ "help",               0 },
-+	{ "faq",                0 },
- 	{ "get",                1 },
- 	{ "list",               0 }
- };
-@@ -628,6 +630,21 @@
- 		send_help(listdir, fromemails->emaillist[0], mlmmjsend, "help", "listhelp");
- 		break;
+ $listaddr$
  
-+       /* listname+faq@domain.tld */
-+        case CTRL_FAQ:
-+               if(!strchr(fromemails->emaillist[0], '@')) {
-+                       /* Not a valid From: address */
-+                       errno = 0;
-+                       log_error(LOG_ARGS, "A faq request was"
-+                               " sent with an invalid From: header."
-+                               " Ignoring mail");
-+                       return -1;
-+               }
-+               log_oper(listdir, OPLOGFNAME, "%s requested faq",
-+                               fromemails->emaillist[0]);
-+               send_help(listdir, fromemails->emaillist[0], mlmmjsend, "faq", "listfaq");
-+               break;
+diff -ur mlmmj-1.2.12-RC1.orig/listtexts/de/notifyunsub-digest mlmmj-1.2.12-RC1/listtexts/de/notifyunsub-digest
+--- mlmmj-1.2.12-RC1.orig/listtexts/de/notifyunsub-digest	2004-11-28 19:52:41.000000000 +0100
++++ mlmmj-1.2.12-RC1/listtexts/de/notifyunsub-digest	2006-09-06 19:36:24.000000000 +0200
+@@ -1,12 +1,12 @@
+ Subject: $oldsub$ ausgetragen aus der Digest Version von $listaddr$
+ 
+-Hi, dies ist das mlmmj Programm das die Mailingliste
++Hi, dies ist das mlmmj-Programm, das die Mailingliste
+ 
+ $listaddr$
+ 
+ verwaltet.
+ 
+ Die folgende Adresse wurde gerade aus der Digest Version der
+-Mailingliste ausgetragen.
++Mailingliste ausgetragen:
+ 
+ $oldsub$
+diff -ur mlmmj-1.2.12-RC1.orig/listtexts/de/notifyunsub-nomail mlmmj-1.2.12-RC1/listtexts/de/notifyunsub-nomail
+--- mlmmj-1.2.12-RC1.orig/listtexts/de/notifyunsub-nomail	2004-11-28 19:52:41.000000000 +0100
++++ mlmmj-1.2.12-RC1/listtexts/de/notifyunsub-nomail	2006-09-06 19:36:58.000000000 +0200
+@@ -1,12 +1,12 @@
+-Subject: $oldsub$ ausgetragen aus der Nomail Version von $listaddr$
++Subject: $oldsub$ ausgetragen aus der Nomail-Version von $listaddr$
+ 
+-Hi, dies ist das mlmmj Programm das die Mailingliste
++Hi, dies ist das mlmmj-Programm, das die Mailingliste
+ 
+ $listaddr$
+ 
+ verwaltet.
+ 
+-Die folgende Adresse wurde gerade aus der Nomail Version der
+-Mailingliste ausgetragen.
++Die folgende Adresse wurde gerade aus der Nomail-Version der
++Mailingliste ausgetragen:
+ 
+ $oldsub$
+diff -ur mlmmj-1.2.12-RC1.orig/listtexts/de/notintocc mlmmj-1.2.12-RC1/listtexts/de/notintocc
+--- mlmmj-1.2.12-RC1.orig/listtexts/de/notintocc	2004-11-28 19:52:41.000000000 +0100
++++ mlmmj-1.2.12-RC1/listtexts/de/notintocc	2006-09-06 19:37:14.000000000 +0200
+@@ -1,19 +1,16 @@
+ Subject: Nachricht an $listaddr$ abgelehnt
+ 
+-Hi, dies ist das mlmmj Programm das die Mailingliste
++Hi, dies ist das mlmmj-Programm, das die Mailingliste
+ 
+ $listaddr$
+ 
+ verwaltet.
+ 
+-Es tut mir leid aber Ihre Nachricht konnte nicht ant die Liste zugestellt
++Es tut mir leid, aber Ihre Nachricht konnte nicht an die Liste zugestellt
+ werden.
+ 
+-Um auf die liste zu posten muss die Adresse der Liste entweder im 
+-To: oder im Cc: Feld eingetragen sein.
+-
+-Wenn Sie ein Admin einer mlmmj liste sind sollten Sie wissen das dieses
+-Verhalten in dem control file 'tocc' ver�ndert werden kann.
++Um auf die Liste zu posten, muss die Adresse der Liste entweder im 
++To: oder im Cc: Feld der Mail eingetragen sein.
+ 
+ Danke.
+ 
+diff -ur mlmmj-1.2.12-RC1.orig/listtexts/de/sub-confirm mlmmj-1.2.12-RC1/listtexts/de/sub-confirm
+--- mlmmj-1.2.12-RC1.orig/listtexts/de/sub-confirm	2004-11-28 19:52:41.000000000 +0100
++++ mlmmj-1.2.12-RC1/listtexts/de/sub-confirm	2006-09-06 19:41:14.000000000 +0200
+@@ -1,26 +1,27 @@
+-Subject: Best�tigen Sie bitte das eintragen auf die Liste $listaddr$
++Subject: Best�tigen Sie bitte das Eintragen auf die Liste $listaddr$
+ 
+-Hi, dies ist das mlmmj Programm das die Mailingliste
++Hi, dies ist das mlmmj-Programm, das die Mailingliste
+ 
+ $listaddr$
+ 
+ verwaltet.
+ 
+-Um zu best�tigen das Sie die Adresse
++Um zu best�tigen, dass Sie die Adresse
+ 
+ $subaddr$
+ 
+-auf die Liste eintragen wollen senden Sie bitte eine
+-Best�tigung an folgende Adresse:
++auf die Liste eintragen wollen, senden Sie bitte eine
++Antwortmail an folgende Adresse:
+ 
+ $confaddr$
+ 
+-Diese Best�tigung erf�llt zwei zwecke. Wenn Sie diese Mail erhalten haben
+-kann die Liste Nachrichten an Sie zustellen und zweitens wird sichergestellt
+-das niemand diese Adresse auf eine Liste eintr�gt ohne das Sie dies m�chten.
++Diese Best�tigung erf�llt zwei Zwecke. Wenn Sie diese Mail erhalten
++haben, kann die Liste Nachrichten an Sie zustellen. Zweitens wird
++sichergestellt, dass niemand diese Adresse auf eine Liste eintr�gt, ohne
++dass Sie dies m�chten.
+ 
+-Ihr Mail-Programm sollte wenn Sie die Antworten Funktion benutzen automatisch
+-eine Mail an die Best�tigungsadresse schicken.
++Ihr Mail-Programm sollte, wenn Sie die Antworten-Funktion benutzen,
++automatisch eine Mail an die Best�tigungsadresse schicken.
+ 
+-Das Subject und der Text spielen bei dieser Mail keine Rolle.
++Der Betreff und der Text spielen bei dieser Mail keine Rolle.
+ 
+diff -ur mlmmj-1.2.12-RC1.orig/listtexts/de/sub-confirm-digest mlmmj-1.2.12-RC1/listtexts/de/sub-confirm-digest
+--- mlmmj-1.2.12-RC1.orig/listtexts/de/sub-confirm-digest	2004-11-28 19:52:41.000000000 +0100
++++ mlmmj-1.2.12-RC1/listtexts/de/sub-confirm-digest	2006-09-06 19:43:17.000000000 +0200
+@@ -1,26 +1,27 @@
+-Subject: Best�tigen Sie bitte das eintragen auf die Digest Version der Liste $listaddr$
++Subject: Best�tigen Sie bitte das Eintragen auf die Digest-Version der Liste $listaddr$
+ 
+-Hi, dies ist das mlmmj Programm das die Mailingliste
++Hi, dies ist das mlmmj-Programm, das die Mailingliste
+ 
+ $listaddr$
+ 
+ verwaltet.
+ 
+-Um zu best�tigen das Sie die Adresse 
++Um zu best�tigen, das Sie die Adresse 
+ 
+ $subaddr$
+ 
+-auf die Digest Version der Mailingliste eintragen wollen senden
+-Sie bitte eine Best�tigung an folgende Adresse:
++auf die Digest-Version der Mailingliste eintragen wollen, senden
++Sie bitte eine Antwortmail an folgende Adresse:
+ 
+ $confaddr$
+ 
+-Diese Best�tigung erf�llt zwei zwecke. Wenn Sie diese Mail erhalten haben
+-kann die Liste Nachrichten an Sie zustellen und zweitens wird sichergestellt
+-das niemand diese Adresse auf eine Liste eintr�gt ohne das Sie dies m�chten.
++Diese Best�tigung erf�llt zwei Zwecke: Wenn Sie diese Mail erhalten
++haben, kann die Liste Nachrichten an Sie zustellen. Zweitens wird
++sichergestellt, dass niemand diese Adresse auf eine Liste eintr�gt, 
++ohne das Sie dies m�chten.
+ 
+-Ihr Mail-Programm sollte wenn Sie die Antworten Funktion benutzen automatisch
+-eine Mail an die Best�tigungsadresse schicken.
++Ihr Mail-Programm sollte, wenn Sie die Antworten Funktion benutzen,
++automatisch eine Mail an die Best�tigungsadresse schicken.
+ 
+-Das Subject und der Text spielen bei dieser Mail keine Rolle.
++Der Betreff und der Text spielen bei dieser Mail keine Rolle.
+ 
+diff -ur mlmmj-1.2.12-RC1.orig/listtexts/de/sub-confirm-nomail mlmmj-1.2.12-RC1/listtexts/de/sub-confirm-nomail
+--- mlmmj-1.2.12-RC1.orig/listtexts/de/sub-confirm-nomail	2004-11-28 19:52:41.000000000 +0100
++++ mlmmj-1.2.12-RC1/listtexts/de/sub-confirm-nomail	2006-09-06 19:45:47.000000000 +0200
+@@ -1,26 +1,27 @@
+-Subject: Best�tigen Sie bitte das eintragen auf die Nomail Version der Liste $listaddr$
++Subject: Best�tigen Sie bitte das Eintragen auf die Nomail-Version der Liste $listaddr$
+ 
+-Hi, dies ist das mlmmj Programm das die Mailingliste
++Hi, dies ist das mlmmj-Programm, das die Mailingliste
+ 
+ $listaddr$
+ 
+ verwaltet.
+ 
+-Um zu best�tigen das Sie die Adresse 
++Um zu best�tigen, dass Sie die Adresse 
+ 
+ $subaddr$
+ 
+-auf die Nomail Version der Mailingliste eintragen wollen senden
+-Sie bitte eine Best�tigung an folgende Adresse:
++auf die Nomail-Version der Mailingliste eintragen wollen, senden Sie
++bitte eine Antwort-Mail an folgende Adresse:
+ 
+ $confaddr$
+ 
+-Diese Best�tigung erf�llt zwei zwecke. Wenn Sie diese Mail erhalten haben
+-kann die Liste Nachrichten an Sie zustellen und zweitens wird sichergestellt
+-das niemand diese Adresse auf eine Liste eintr�gt ohne das Sie dies m�chten.
++Diese Best�tigung erf�llt zwei Zwecke: Wenn Sie diese Mail erhalten
++haben, kann die Liste Nachrichten an Sie zustellen. Zweitens wird
++sichergestellt, dass niemand diese Adresse auf eine Liste eintr�gt, 
++ohne dass Sie dies m�chten.
+ 
+-Ihr Mail-Programm sollte wenn Sie die Antworten Funktion benutzen automatisch
+-eine Mail an die Best�tigungsadresse schicken.
++Ihr Mail-Programm sollte, wenn Sie die Antworten-Funktion benutzen,
++automatisch eine Mail an die Best�tigungsadresse schicken.
+ 
+-Das Subject und der Text spielen bei dieser Mail keine Rolle.
++Der Betreff und der Text spielen bei dieser Mail keine Rolle.
+ 
+diff -ur mlmmj-1.2.12-RC1.orig/listtexts/de/submod-moderator mlmmj-1.2.12-RC1/listtexts/de/submod-moderator
+--- mlmmj-1.2.12-RC1.orig/listtexts/de/submod-moderator	2006-09-04 00:29:46.000000000 +0200
++++ mlmmj-1.2.12-RC1/listtexts/de/submod-moderator	2006-09-06 19:52:31.000000000 +0200
+@@ -1,22 +1,26 @@
+-Subject: Subscription request for $listaddr$
++Subject: Abonnement-Antrag $listaddr$
+ 
+-Hi, this is the mlmmj program managing the mailinglist
++Hi, dies ist das mlmmj-Programm, das die Mailingliste 
+ 
+ $listaddr$
+ 
+-There is a subscription request from
++verwaltet.
 +
- 	/* listname+get-INDEX@domain.tld */
- 	case CTRL_GET:
- 		noget = statctrl(listdir, "noget");
---- src/prepstdreply.c
-+++ src/prepstdreply.c
-@@ -102,6 +102,9 @@
- 	} else if(strcmp(token, "helpaddr") == 0) {
- 		value = concatstr(4, listname, listdelim, "help@", fqdn);
- 		goto concatandreturn;
-+	} else if(strcmp(token, "faqaddr") == 0) {
-+		value = concatstr(4, listname, listdelim, "faq@", fqdn);
-+		goto concatandreturn;
- 	} else if(strcmp(token, "listgetN") == 0) {
- 		value = concatstr(4, listname, listdelim, "get-N@", fqdn);
- 		goto concatandreturn;
++Ein Abonnement-Antrag von
+ 
+ $subaddr$
+ 
+-waiting. To approve this request, please send a reply to
++wartet aus Bestätigung. Um diesen Antrag zu gewähren, senden Sie bitte
++eine Antwort an
+ 
+ $moderateaddr$
+ 
+-Your mailer probably automatically replies to this address, when you hit
+-the reply button. If you don't want to approve the request, simply ignore this
+-message.
++Ihr Mail-Programm sollte, wenn Sie die Antworten-Funktion benutzen,
++automatisch eine Mail an die Bestätigungsadresse schicken. Wenn Sie
++diesen Antrag nicht bestätigen möchten, ignorieren Sie diese Mail
++einfach.
+ 
+-The following subscription moderators have received this mail:
++Die folgenden Abonnement-Moderatoren haben diese Mail erhalten:
+ 
+ $moderators$
+ 
+diff -ur mlmmj-1.2.12-RC1.orig/listtexts/de/submod-requester mlmmj-1.2.12-RC1/listtexts/de/submod-requester
+--- mlmmj-1.2.12-RC1.orig/listtexts/de/submod-requester	2006-09-04 00:29:46.000000000 +0200
++++ mlmmj-1.2.12-RC1/listtexts/de/submod-requester	2006-09-06 19:54:57.000000000 +0200
+@@ -1,9 +1,11 @@
+-Subject: Subscription request waiting for approval
++Subject: Abonnemen-Antrag wartet auf Bestätigung
+ 
+-Hi, this is the mlmmj program managing the mailinglist
++Hi, dies ist das mlmmj-Program, welches die Mailingliste
+ 
+ $listaddr$
+ 
+-This list is configured to have moderated subscription, the request have
+-been queued for approval.
++verwaltet.
++
++Bevor Ihr Abonnement eingetragen werden kann, muss der Antrag von
++einem Moderator bestätigt werden. 
+ 
+diff -ur mlmmj-1.2.12-RC1.orig/listtexts/de/sub-ok mlmmj-1.2.12-RC1/listtexts/de/sub-ok
+--- mlmmj-1.2.12-RC1.orig/listtexts/de/sub-ok	2004-11-28 19:52:41.000000000 +0100
++++ mlmmj-1.2.12-RC1/listtexts/de/sub-ok	2006-09-06 19:55:26.000000000 +0200
+@@ -6,12 +6,12 @@
+ 
+ eingetragen.
+ 
+-Wenn Sie sich wieder austragen m�chten senden Sie eine Mail
++Wenn Sie sich wieder austragen m�chten, senden Sie eine Mail
+ an:
+ 
+ $listunsubaddr$
+ 
+-Um Hilfe zu dieser Liste zu bekommen senden Sie bitte ein Mail
++Um Hilfe zu dieser Liste zu bekommen, senden Sie bitte ein Mail
+ an:
+ 
+ $helpaddr$
+diff -ur mlmmj-1.2.12-RC1.orig/listtexts/de/sub-ok-digest mlmmj-1.2.12-RC1/listtexts/de/sub-ok-digest
+--- mlmmj-1.2.12-RC1.orig/listtexts/de/sub-ok-digest	2004-11-28 19:52:41.000000000 +0100
++++ mlmmj-1.2.12-RC1/listtexts/de/sub-ok-digest	2006-09-06 19:55:50.000000000 +0200
+@@ -1,17 +1,17 @@
+-Subject: Willkommen auf der Digest Version von $listaddr$
++Subject: Willkommen auf der Digest-Version von $listaddr$
+ 
+-Willkommen! Sie sind jetzt auf der Digest Version der Liste
++Willkommen! Sie sind jetzt auf der Digest-Version der Liste
+ 
+ $listaddr$
+ 
+ eingetragen.
+ 
+-Wenn Sie sich wieder austragen m�chten senden Sie eine Mail
++Wenn Sie sich wieder austragen m�chten, senden Sie eine Mail
+ an:
+ 
+ $listunsubaddr$
+ 
+-Um Hilfe zu dieser Liste zu bekommen senden Sie bitte ein Mail
++Um Hilfe zu dieser Liste zu bekommen, senden Sie bitte eine Mail
+ an:
+ 
+ $helpaddr$
+diff -ur mlmmj-1.2.12-RC1.orig/listtexts/de/sub-ok-nomail mlmmj-1.2.12-RC1/listtexts/de/sub-ok-nomail
+--- mlmmj-1.2.12-RC1.orig/listtexts/de/sub-ok-nomail	2004-11-28 19:52:41.000000000 +0100
++++ mlmmj-1.2.12-RC1/listtexts/de/sub-ok-nomail	2006-09-06 19:56:32.000000000 +0200
+@@ -1,17 +1,17 @@
+-Subject: Willkommen auf der Nomail Version von $listaddr$
++Subject: Willkommen auf der Nomail-Version von $listaddr$
+ 
+-Willkommen! Sie sind jetzt auf der Nomail Version der Liste
++Willkommen! Sie sind jetzt auf der Nomail-Version der Liste
+ 
+ $listaddr$
+ 
+ eingetragen.
+ 
+-Wenn Sie sich wieder austragen m�chten senden Sie eine Mail
++Wenn Sie sich wieder austragen m�chten, senden Sie eine Mail
+ an:
+ 
+ $listunsubaddr$
+ 
+-Um Hilfe zu dieser Liste zu bekommen senden Sie bitte ein Mail
++Um Hilfe zu dieser Liste zu bekommen, senden Sie bitte eine Mail
+ an:
+ 
+ $helpaddr$
+diff -ur mlmmj-1.2.12-RC1.orig/listtexts/de/subonlypost mlmmj-1.2.12-RC1/listtexts/de/subonlypost
+--- mlmmj-1.2.12-RC1.orig/listtexts/de/subonlypost	2004-11-28 19:52:41.000000000 +0100
++++ mlmmj-1.2.12-RC1/listtexts/de/subonlypost	2006-09-06 19:59:28.000000000 +0200
+@@ -1,26 +1,28 @@
+ Subject: $listaddr$ ist eine geschlossene Liste.
+ 
+-Hi, dies ist das mlmmj Programm das die Mailingliste
++Hi, dies ist das mlmmj-Programm, das die Mailingliste
+ 
+ $listaddr$
+ 
+ verwaltet.
+ 
+-Sie haben versuchen von der Adresse:
++Sie haben versucht, von der Adresse
+ 
+ $posteraddr$
+ 
+ eine Nachricht an die Liste zu schreiben. 
++
+ Diese Adresse ist aber nicht auf der Liste eingetragen.  
+ 
+ Diese Liste ist eine geschlossene Liste und erlaubt nur
+-Nachrichten von Adressen die auch eingetragen sind. 
++Nachrichten von Adressen, die auch eingetragen sind. 
+ 
+-Wenn Sie glauben das Sie eingetragen sind �berpr�fen Sie bitte
+-die Willkommen Nachricht oder �berpr�fen Sie die Header irgendeiner
+-Mail an die Liste.
+-
+-Um auch von einer anderen Adresse als von der mit der Sie eingetragen
+-sind Nachrichten an die Liste schicken zu k�nnen tragen Sie sich bitte
+-auf die Nomail Version dieser Liste ein.
++Wenn Sie glauben, dass Sie eingetragen sind, �berpr�fen Sie bitte die
++Willkommen-Nachricht, oder �berpr�fen Sie die Header irgendeiner Mail 
++an die Liste, um herauszufinden, mit welcher Email-Adresse Sie sich
++eingetragen haben.
++
++Um auch von einer anderen Adresse, als der mit der Sie eingetragen
++sind, Nachrichten an die Liste schicken zu k�nnen, tragen Sie die neue
++Adresse bitte auf die Nomail-Version dieser Liste ein.
+ 
+diff -ur mlmmj-1.2.12-RC1.orig/listtexts/de/sub-subscribed mlmmj-1.2.12-RC1/listtexts/de/sub-subscribed
+--- mlmmj-1.2.12-RC1.orig/listtexts/de/sub-subscribed	2005-05-07 15:11:37.000000000 +0200
++++ mlmmj-1.2.12-RC1/listtexts/de/sub-subscribed	2006-09-06 20:05:28.000000000 +0200
+@@ -1,6 +1,6 @@
+ Subject: Bereits eingetragen auf $listaddr$
+ 
+-Hi, hier ist das mlmmj Programm, das die Mailingliste
++Hi, hier ist das mlmmj-Programm, das die Mailingliste
+ 
+ $listaddr$
+ 
+diff -ur mlmmj-1.2.12-RC1.orig/listtexts/de/unsub-confirm mlmmj-1.2.12-RC1/listtexts/de/unsub-confirm
+--- mlmmj-1.2.12-RC1.orig/listtexts/de/unsub-confirm	2004-11-28 19:52:41.000000000 +0100
++++ mlmmj-1.2.12-RC1/listtexts/de/unsub-confirm	2006-09-06 20:07:21.000000000 +0200
+@@ -1,25 +1,25 @@
+-Subject: Best�tigen Sie bitte das austragen aus der Liste $listaddr$
++Subject: Best�tigen Sie bitte das Austragen aus der Liste $listaddr$
+ 
+-Hi, dies ist das mlmmj Programm das die Mailingliste
++Hi, dies ist das mlmmj-Programm, das die Mailingliste
+ 
+ $listaddr$
+ 
+ verwaltet.
+ 
+-Um zu best�tigen das Sie die Adresse
++Um zu best�tigen, dass Sie die Adresse
+ 
+ $subaddr$
+ 
+-aus der Liste austragen wollen senden Sie bitte eine
+-Best�tigung an folgende Adresse:
++aus der Liste austragen wollen, senden Sie bitte eine
++Antwort-Mail an folgende Adresse:
+ 
+ $confaddr$
+ 
+-Ihr Mail-Programm sollte wenn Sie die Antworten Funktion benutzen automatisch
+-eine Mail an die Best�tigungsadresse schicken.
++Ihr Mail-Programm sollte, wenn Sie die Antworten-Funktion benutzen,
++automatisch eine Mail an die Best�tigungsadresse schicken.
+ 
+-Wenn Sie nicht auf der Liste eingetragen sind werden Sie keine Antwort
+-erhalten. Um zu sehen mit welcher Adresse Sie auf der Liste eingetragen
+-sind �berpr�fen Sie bitte die Willkommen Nachricht oder �berpr�fen Sie
++Wenn Sie nicht auf der Liste eingetragen sind, werden Sie keine Antwort
++erhalten. Um zu sehen, mit welcher Adresse Sie auf der Liste eingetragen
++sind, �berpr�fen Sie bitte die Willkommen-Nachricht, oder �berpr�fen Sie
+ die Header irgendeiner Nachricht an die Liste.
+ 
+diff -ur mlmmj-1.2.12-RC1.orig/listtexts/de/unsub-confirm-digest mlmmj-1.2.12-RC1/listtexts/de/unsub-confirm-digest
+--- mlmmj-1.2.12-RC1.orig/listtexts/de/unsub-confirm-digest	2004-11-28 19:52:41.000000000 +0100
++++ mlmmj-1.2.12-RC1/listtexts/de/unsub-confirm-digest	2006-09-06 20:07:23.000000000 +0200
+@@ -1,25 +1,25 @@
+-Subject: Best�tigen Sie bitte das austragen aus der Digest Version der Liste $listaddr$
++Subject: Best�tigen Sie bitte das Austragen aus der Digest-Version der Liste $listaddr$
+ 
+-Hi, dies ist das mlmmj Programm das die Mailingliste
++Hi, dies ist das mlmmj-Programm, das die Mailingliste
+ 
+ $listaddr$
+ 
+ verwaltet.
+ 
+-Um zu best�tigen das Sie die Adresse
++Um zu best�tigen, dass Sie die Adresse
+ 
+ $subaddr$
+ 
+-aus der Digest Version der Liste austragen wollen senden Sie bitte eine
+-Best�tigung an folgende Adresse:
++aus der Digest-Version der Liste austragen m�chten, senden Sie bitte
++eine Antwort-Mail an folgende Adresse:
+ 
+ $confaddr$
+ 
+-Ihr Mail-Programm sollte wenn Sie die Antworten Funktion benutzen automatisch
+-eine Mail an die Best�tigungsadresse schicken.
++Ihr Mail-Programm sollte, wenn Sie die Antworten-Funktion benutzen,
++automatisch eine Mail an die Best�tigungsadresse schicken.
+ 
+-Wenn Sie nicht auf der Liste eingetragen sind werden Sie keine Antwort
+-erhalten. Um zu sehen mit welcher Adresse Sie auf der Liste eingetragen
+-sind �berpr�fen Sie bitte die Willkommen Nachricht oder �berpr�fen Sie
++Wenn Sie nicht auf der Liste eingetragen sind, werden Sie keine Antwort
++erhalten. Um zu sehen, mit welcher Adresse Sie auf der Liste eingetragen
++sind, �berpr�fen Sie bitte die Willkommen-Nachricht, oder �berpr�fen Sie
+ die Header irgendeiner Nachricht an die Liste.
+ 
+diff -ur mlmmj-1.2.12-RC1.orig/listtexts/de/unsub-confirm-nomail mlmmj-1.2.12-RC1/listtexts/de/unsub-confirm-nomail
+--- mlmmj-1.2.12-RC1.orig/listtexts/de/unsub-confirm-nomail	2004-11-28 19:52:41.000000000 +0100
++++ mlmmj-1.2.12-RC1/listtexts/de/unsub-confirm-nomail	2006-09-06 20:09:32.000000000 +0200
+@@ -1,25 +1,25 @@
+-Subject: Best�tigen Sie bitte das austragen aus der Nomail Version der Liste $listaddr$
++Subject: Best�tigen Sie bitte das Austragen aus der Nomail Version der Liste $listaddr$
+ 
+-Hi, dies ist das mlmmj Programm das die Mailingliste
++Hi, dies ist das mlmmj-Programm, das die Mailingliste
+ 
+ $listaddr$
+ 
+ verwaltet.
+ 
+-Um zu best�tigen das Sie die Adresse
++Um zu best�tigen, dass Sie die Adresse
+ 
+ $subaddr$
+ 
+-aus der Nomail Version der Liste austragen wollen senden Sie bitte eine
+-Best�tigung an folgende Adresse:
++aus der Nomail-Version der Liste austragen wollen, senden Sie bitte eine
++Antwort-Mail an folgende Adresse:
+ 
+ $confaddr$
+ 
+-Ihr Mail-Programm sollte wenn Sie die Antworten Funktion benutzen automatisch
+-eine Mail an die Best�tigungsadresse schicken.
++Ihr Mail-Programm sollte, wenn Sie die Antworten-Funktion verwenden,
++automatisch eine Mail an die Best�tigungsadresse schicken.
+ 
+-Wenn Sie nicht auf der Liste eingetragen sind werden Sie keine Antwort
+-erhalten. Um zu sehen mit welcher Adresse Sie auf der Liste eingetragen
+-sind �berpr�fen Sie bitte die Willkommen Nachricht oder �berpr�fen Sie
++Wenn Sie nicht auf der Liste eingetragen sind, werden Sie keine Antwort
++erhalten. Um zu sehen, mit welcher Adresse Sie auf der Liste eingetragen
++sind, �berpr�fen Sie bitte die Willkommen-Nachricht, oder �berpr�fen Sie
+ die Header irgendeiner Nachricht an die Liste.
+ 
+diff -ur mlmmj-1.2.12-RC1.orig/listtexts/de/unsub-notsubscribed mlmmj-1.2.12-RC1/listtexts/de/unsub-notsubscribed
+--- mlmmj-1.2.12-RC1.orig/listtexts/de/unsub-notsubscribed	2005-05-07 15:11:37.000000000 +0200
++++ mlmmj-1.2.12-RC1/listtexts/de/unsub-notsubscribed	2006-09-06 20:10:13.000000000 +0200
+@@ -1,16 +1,15 @@
+ Subject: Nicht eingetragen auf $listaddr$
+ 
+-Hi, hier ist das mlmmj Programm, das die Mailingliste 
++Hi, hier ist das mlmmj-Programm, das die Mailingliste 
+ 
+ $listaddr$
+ 
+ verwaltet.
+ 
+-Sie sind nicht auf dieser Liste eingetragen, deshalb koennen sie
++Sie sind nicht auf dieser Liste eingetragen, deshalb können Sie
+ sich auch nicht austragen.
+ 
+-
+-Um sich einzutragen, senden sie eine Mail an:
++Um sich einzutragen, senden Sie eine Mail an:
+ 
+ $listsubaddr$
+ 
+diff -ur mlmmj-1.2.12-RC1.orig/listtexts/de/unsub-ok mlmmj-1.2.12-RC1/listtexts/de/unsub-ok
+--- mlmmj-1.2.12-RC1.orig/listtexts/de/unsub-ok	2004-11-28 19:52:41.000000000 +0100
++++ mlmmj-1.2.12-RC1/listtexts/de/unsub-ok	2006-09-06 20:10:30.000000000 +0200
+@@ -1,4 +1,4 @@
+-Subject: Auf Wiedersehen von  $listaddr$
++Subject: Auf Wiedersehen von $listaddr$
+ 
+ Auf Wiedersehen! Sie wurden von der Liste 
+ 
+diff -ur mlmmj-1.2.12-RC1.orig/listtexts/de/unsub-ok-digest mlmmj-1.2.12-RC1/listtexts/de/unsub-ok-digest
+--- mlmmj-1.2.12-RC1.orig/listtexts/de/unsub-ok-digest	2004-11-28 19:52:41.000000000 +0100
++++ mlmmj-1.2.12-RC1/listtexts/de/unsub-ok-digest	2006-09-06 20:10:38.000000000 +0200
+@@ -1,4 +1,4 @@
+-Subject: Auf Wiedersehen von der Digest Version der Liste $listaddr$
++Subject: Auf Wiedersehen von der Digest-Version der Liste $listaddr$
+ 
+ Auf Wiedersehen! Sie wurden von der Liste 
+ 
+diff -ur mlmmj-1.2.12-RC1.orig/listtexts/de/unsub-ok-nomail mlmmj-1.2.12-RC1/listtexts/de/unsub-ok-nomail
+--- mlmmj-1.2.12-RC1.orig/listtexts/de/unsub-ok-nomail	2004-11-28 19:52:41.000000000 +0100
++++ mlmmj-1.2.12-RC1/listtexts/de/unsub-ok-nomail	2006-09-06 20:10:49.000000000 +0200
+@@ -1,4 +1,4 @@
+-Subject: Auf Wiedersehen von der Nomail Version der Liste $listaddr$
++Subject: Auf Wiedersehen von der Nomail-Version der Liste $listaddr$
+ 
+ Auf Wiedersehen! Sie wurden von der Liste 
+ 
 
---iAL9S67WQOXgEPD9
-Content-Type: text/x-patch; charset=us-ascii
-Content-Disposition: attachment; filename="mlmmj-send_help-generic.patch"
-
---- include/send_help.h
-+++ include/send_help.h
-@@ -25,6 +25,6 @@
- #define SEND_HELP_H
- 
- void send_help(const char *listdir, const char *emailaddr,
--	       const char *mlmmjsend);
-+	       const char *mlmmjsend, const char *name, const char *textfile);
- 
- #endif
---- src/listcontrol.c
-+++ src/listcontrol.c
-@@ -625,7 +625,7 @@
- 		}
- 		log_oper(listdir, OPLOGFNAME, "%s requested help",
- 				fromemails->emaillist[0]);
--		send_help(listdir, fromemails->emaillist[0], mlmmjsend);
-+		send_help(listdir, fromemails->emaillist[0], mlmmjsend, "help", "listhelp");
- 		break;
- 
- 	/* listname+get-INDEX@domain.tld */
---- src/send_help.c
-+++ src/send_help.c
-@@ -43,7 +43,7 @@
- #include "memory.h"
- 
- void send_help(const char *listdir, const char *emailaddr,
--	       const char *mlmmjsend)
-+	       const char *mlmmjsend, const char *name, const char *textfile)
- {
- 	char *queuefilename, *listaddr, *listdelim, *listname, *listfqdn;
- 	char *fromaddr;
-@@ -56,10 +56,10 @@
- 	fromaddr = concatstr(4, listname, listdelim, "bounces-help@", listfqdn);
- 	myfree(listdelim);
- 
--	queuefilename = prepstdreply(listdir, "listhelp", "$listowner$",
-+	queuefilename = prepstdreply(listdir, textfile, "$listowner$",
- 					emailaddr, NULL, 0, NULL, NULL);
- 	if(queuefilename == NULL) {
--		log_error(LOG_ARGS, "Could not prepare help mail");
-+		log_error(LOG_ARGS, "Could not prepare %s mail", name);
- 		exit(EXIT_FAILURE);
- 	}
- 	
-
---iAL9S67WQOXgEPD9
-Content-Type: text/x-patch; charset="utf-8"
-Content-Disposition: attachment; filename="mlmmj-nodigestsub.patch"
-Content-Transfer-Encoding: 8bit
-
---- TUNABLES
-+++ TUNABLES
-@@ -166,3 +166,9 @@
- 
-    If this file exists, digest mails won't have a text part with a thread
-    summary.
-+ 
-+ � nodigestsub			(boolean)
-+
-+   If this file exists, subscription to the digest version of the mailinglist
-+   will be denied. (Usefull if you dont want to allow digests and notify users 
-+   about it).
---- listtexts/Makefile.am
-+++ listtexts/Makefile.am
-@@ -3,7 +3,7 @@
- dist_textlib_DATA = access bounce-probe listhelp listfaq moderation notifysub \
- 	notifysub-digest notifysub-nomail notifyunsub notifyunsub-digest \
- 	notifyunsub-nomail notintocc sub-confirm sub-confirm-digest \
--	sub-confirm-nomail sub-ok sub-ok-digest sub-ok-nomail subonlypost \
-+	sub-confirm-nomail sub-ok sub-ok-digest sub-ok-nomail sub-deny-digest subonlypost \
- 	unsub-confirm unsub-confirm-digest unsub-confirm-nomail unsub-ok \
- 	unsub-ok-digest unsub-ok-nomail listsubs sub-subscribed \
- 	unsub-notsubscribed digest submod-moderator submod-requester
---- listtexts/Makefile.in
-+++ listtexts/Makefile.in
-@@ -108,7 +108,7 @@
- dist_textlib_DATA = access bounce-probe listhelp listfaq moderation notifysub \
- 	notifysub-digest notifysub-nomail notifyunsub notifyunsub-digest \
- 	notifyunsub-nomail notintocc sub-confirm sub-confirm-digest \
--	sub-confirm-nomail sub-ok sub-ok-digest sub-ok-nomail subonlypost \
-+	sub-confirm-nomail sub-ok sub-ok-digest sub-ok-nomail sub-deny-digest subonlypost \
- 	unsub-confirm unsub-confirm-digest unsub-confirm-nomail unsub-ok \
- 	unsub-ok-digest unsub-ok-nomail listsubs sub-subscribed \
- 	unsub-notsubscribed digest submod-moderator submod-requester
---- listtexts/sub-deny-digest
-+++ listtexts/sub-deny-digest
-@@ -0,0 +1,9 @@
-+Subject: Denied subscription to the digest of $listaddr$
-+
-+Your request to subscribe to the digest of the mailinglist
-+
-+$listaddr$
-+
-+has been denied. Digests are turned off for this
-+mailinglist.
-+
---- src/listcontrol.c
-+++ src/listcontrol.c
-@@ -206,6 +206,13 @@
- 				" Ignoring mail");
- 			return -1;
- 		}
-+                if (statctrl(listdir, "nodigestsub")) {
-+                        errno = 0;
-+                        log_error(LOG_ARGS,  "A subcribe-digest request was denied");
-+                               send_help(listdir, fromemails->emaillist[0],
-+                                               mlmmjsend, "nodigest", "sub-deny-digest");
-+                        return -1;
-+                }
- 		log_oper(listdir, OPLOGFNAME, "mlmmj-sub: request for digest"
- 					" subscription from %s",
- 					fromemails->emaillist[0]);
-
---iAL9S67WQOXgEPD9
-Content-Type: text/x-patch; charset="utf-8"
-Content-Disposition: attachment; filename="mlmmj-nonomailsub.patch"
-Content-Transfer-Encoding: 8bit
-
---- TUNABLES
-+++ TUNABLES
-@@ -172,3 +172,9 @@
-    If this file exists, subscription to the digest version of the mailinglist
-    will be denied. (Usefull if you dont want to allow digests and notify users 
-    about it).
-+   
-+  � nonomailsub			(boolean)
-+
-+   If this file exists, subscription to the nomail version of the mailinglist
-+   will be denied. (Usefull if you dont want to allow nomail and notify users 
-+   about it).  
---- listtexts/Makefile.am
-+++ listtexts/Makefile.am
-@@ -3,7 +3,7 @@
- dist_textlib_DATA = access bounce-probe listhelp listfaq moderation notifysub \
- 	notifysub-digest notifysub-nomail notifyunsub notifyunsub-digest \
- 	notifyunsub-nomail notintocc sub-confirm sub-confirm-digest \
--	sub-confirm-nomail sub-ok sub-ok-digest sub-ok-nomail sub-deny-digest subonlypost \
-+	sub-confirm-nomail sub-ok sub-ok-digest sub-ok-nomail sub-deny-digest sub-deny-nomail subonlypost \
- 	unsub-confirm unsub-confirm-digest unsub-confirm-nomail unsub-ok \
- 	unsub-ok-digest unsub-ok-nomail listsubs sub-subscribed \
- 	unsub-notsubscribed digest submod-moderator submod-requester
---- listtexts/Makefile.in
-+++ listtexts/Makefile.in
-@@ -108,7 +108,7 @@
- dist_textlib_DATA = access bounce-probe listhelp listfaq moderation notifysub \
- 	notifysub-digest notifysub-nomail notifyunsub notifyunsub-digest \
- 	notifyunsub-nomail notintocc sub-confirm sub-confirm-digest \
--	sub-confirm-nomail sub-ok sub-ok-digest sub-ok-nomail sub-deny-digest subonlypost \
-+	sub-confirm-nomail sub-ok sub-ok-digest sub-ok-nomail sub-deny-digest sub-deny-nomail subonlypost \
- 	unsub-confirm unsub-confirm-digest unsub-confirm-nomail unsub-ok \
- 	unsub-ok-digest unsub-ok-nomail listsubs sub-subscribed \
- 	unsub-notsubscribed digest submod-moderator submod-requester
---- listtexts/sub-deny-nomail
-+++ listtexts/sub-deny-nomail
-@@ -0,0 +1,9 @@
-+Subject: Denied subscription to the nomail version of $listaddr$
-+
-+Your request to subscribe to the nomail version of the mailinglist
-+
-+$listaddr$
-+
-+has been denied. The nomail version is turned off for this
-+mailinglist.
-+
---- src/listcontrol.c
-+++ src/listcontrol.c
-@@ -242,6 +242,13 @@
- 				" Ignoring mail");
- 			return -1;
- 		}
-+                if (statctrl(listdir, "nonomailsub")) {
-+                        errno = 0;
-+                        log_error(LOG_ARGS,  "A subcribe-nomail request was denied");
-+                               send_help(listdir, fromemails->emaillist[0],
-+                                               mlmmjsend, "nonomail", "sub-deny-nomail");
-+                        return -1;
-+                }
- 		log_oper(listdir, OPLOGFNAME, "mlmmj-sub: request for nomail"
- 					" subscription from %s",
- 					fromemails->emaillist[0]);
-
---iAL9S67WQOXgEPD9--
+--pf9I7BMVVzbSWLtt--
