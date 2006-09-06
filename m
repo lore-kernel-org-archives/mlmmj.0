@@ -1,7 +1,7 @@
 From: Morten K. Poulsen <morten@afdelingp.dk>
-Date: Wed, 06 Sep 2006 21:42:10 +0000
+Date: Wed, 06 Sep 2006 22:05:26 +0000
 Subject: Re: mlmmj-1.2.12-RC1 released
-Message-Id: <44bd91d66c5719013c8dc18bb266ac88@mail.n0rd.dk>
+Message-Id: <e50dc96df3080761491cf0b4076d015f@mail.n0rd.dk>
 List-Id: <mlmmj.mlmmj.org>
 References: <34f6b3c998e8d4bb4bd464d07c87532c@mail.n0rd.dk>
 In-Reply-To: <34f6b3c998e8d4bb4bd464d07c87532c@mail.n0rd.dk>
@@ -11,52 +11,30 @@ Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
 
-Hi Jakob,
+Hi Stefan,
 
-On Wed, 06 Sep 2006 21:42:02 +0200, Jakob Hirsch <jh@plonk.de> wrote:
-> Quoting Morten K. Poulsen:
->> I do not like the idea of having MIME parsing in the list manager
->> itself. Or any kind of mail body parsing, for that matter.
+On Wed, 6 Sep 2006 20:22:37 +0200, Stefan Reinauer <stepan@openbios.org> wrote:
+> On Monday, September 04, 2006 at 21:42:08, Morten K.Poulsen wrote:
+>> If your patch is not included, please re-send it.
 > 
-> Um, we had this discussion on this list about 9 months ago. Mads
-> promised to include this in 1.2.10-RC1...
-
-Yes, I see. But he didn't keep that promise.
-
-> The mime parsing it does is quite simple, if it even can be called
-> "parsing", since all we do is taking the mime headers and the body and
-> put it into a new mime envelope, which is, again, quite simple.
+> Please add the following two patches as well:
 > 
-> Most of the patch is simplyfing the "voodoo" and making it less ugly,
-> which I felt should be done because it got even more ugly with the mime
-> stuff in it. This should be done even without the mime stuff.
+>   * mlmmj-1.2.12-RC1-fix-german.diff
 
-I still do not like the idea of having MIME parsing in the list manager, but I will have another look at the patch after the release of mlmmj-1.2.12.
+I will apply this patch before the release, but the subjects must be RFC 2047 encoded. I must sleep now, and I am AFK until sunday, but I will apply it.
 
-> PS: For some strange reason, I cannot mail you directly. My MTA times
-> out after send its EHLO, but your SMTP greeting comes fast when I telnet
-> the smtp port of mail.n0rd.dk, so the connection seems to be ok.
+>   * mlmmj-1.2.12-RC1-fix-english.diff
+> 
+>     "throught" is not an english word. Maybe this was confused with
+>     "trout" ? ;-)
 
-worksforme
+* mortenp slaps stepan around a bit with a large trout
 
-Connected to panodil.n0rd.dk.
-Escape character is '^]'.
-220 panodil.n0rd.dk ESMTP Postfix
-EHLO example.org
-250-panodil.n0rd.dk
-250-PIPELINING
-250-SIZE 10240000
-250-VRFY
-250-ETRN
-250-STARTTLS
-250-AUTH LOGIN PLAIN
-250-AUTH=LOGIN PLAIN
-250-ENHANCEDSTATUSCODES
-250-8BITMIME
-250 DSN
-QUIT
-221 2.0.0 Bye
-Connection closed by foreign host.
+>     Please, please, don't send mails to users with "If you are admin
+>     of this list". If you are admin of the list, you are supposed to
+>     read the manual, not grep in user mails.
+
+I agree.
 
 Morten
 
