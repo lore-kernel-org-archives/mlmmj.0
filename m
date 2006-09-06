@@ -1,7 +1,7 @@
 From: Morten K. Poulsen <morten@afdelingp.dk>
-Date: Wed, 06 Sep 2006 21:31:27 +0000
+Date: Wed, 06 Sep 2006 21:42:10 +0000
 Subject: Re: mlmmj-1.2.12-RC1 released
-Message-Id: <9ae5564fb9c335a02f8e81cc4c283399@mail.n0rd.dk>
+Message-Id: <44bd91d66c5719013c8dc18bb266ac88@mail.n0rd.dk>
 List-Id: <mlmmj.mlmmj.org>
 References: <34f6b3c998e8d4bb4bd464d07c87532c@mail.n0rd.dk>
 In-Reply-To: <34f6b3c998e8d4bb4bd464d07c87532c@mail.n0rd.dk>
@@ -11,15 +11,52 @@ Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
 
-On Wed, 6 Sep 2006 23:28:51 +0200, Mads Martin Joergensen <mmj@mmj.dk> wrote:
-> * Morten K. Poulsen <morten@afdelingp.dk> [Sep 06. 2006 23:26]:
->> Cool, they all sound usefull. I will look at them and merge them in
->> for mlmmj-1.2.13.
-> 
-> Sounds like we'll see a swift 1.2.13 release from the new young
-> full-of-energy maintainer ;)
+Hi Jakob,
 
-Yes, it looks like the old maintainer has been ignoring patches for a year or two ;)
+On Wed, 06 Sep 2006 21:42:02 +0200, Jakob Hirsch <jh@plonk.de> wrote:
+> Quoting Morten K. Poulsen:
+>> I do not like the idea of having MIME parsing in the list manager
+>> itself. Or any kind of mail body parsing, for that matter.
+> 
+> Um, we had this discussion on this list about 9 months ago. Mads
+> promised to include this in 1.2.10-RC1...
+
+Yes, I see. But he didn't keep that promise.
+
+> The mime parsing it does is quite simple, if it even can be called
+> "parsing", since all we do is taking the mime headers and the body and
+> put it into a new mime envelope, which is, again, quite simple.
+> 
+> Most of the patch is simplyfing the "voodoo" and making it less ugly,
+> which I felt should be done because it got even more ugly with the mime
+> stuff in it. This should be done even without the mime stuff.
+
+I still do not like the idea of having MIME parsing in the list manager, but I will have another look at the patch after the release of mlmmj-1.2.12.
+
+> PS: For some strange reason, I cannot mail you directly. My MTA times
+> out after send its EHLO, but your SMTP greeting comes fast when I telnet
+> the smtp port of mail.n0rd.dk, so the connection seems to be ok.
+
+worksforme
+
+Connected to panodil.n0rd.dk.
+Escape character is '^]'.
+220 panodil.n0rd.dk ESMTP Postfix
+EHLO example.org
+250-panodil.n0rd.dk
+250-PIPELINING
+250-SIZE 10240000
+250-VRFY
+250-ETRN
+250-STARTTLS
+250-AUTH LOGIN PLAIN
+250-AUTH=LOGIN PLAIN
+250-ENHANCEDSTATUSCODES
+250-8BITMIME
+250 DSN
+QUIT
+221 2.0.0 Bye
+Connection closed by foreign host.
 
 Morten
 
