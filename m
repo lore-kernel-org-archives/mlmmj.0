@@ -1,7 +1,7 @@
-From: Jakob Hirsch <jh@plonk.de>
-Date: Wed, 06 Sep 2006 19:42:02 +0000
+From: Morten K. Poulsen <morten@afdelingp.dk>
+Date: Wed, 06 Sep 2006 21:26:27 +0000
 Subject: Re: mlmmj-1.2.12-RC1 released
-Message-Id: <44FF248A.9020906@plonk.de>
+Message-Id: <5e0929139bc01d7abbbdf853b93a41d7@mail.n0rd.dk>
 List-Id: <mlmmj.mlmmj.org>
 References: <34f6b3c998e8d4bb4bd464d07c87532c@mail.n0rd.dk>
 In-Reply-To: <34f6b3c998e8d4bb4bd464d07c87532c@mail.n0rd.dk>
@@ -10,36 +10,30 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Quoting Morten K. Poulsen:
 
->>> There has been a lot of bug fixes and enhancements since
->>> mlmmj-1.2.11. All of
->> Nice, thanks.
-> I haven't done all the programming, I just released the work :)
+Hi Henne,
 
-Well, the programming is the fun part...
+On Wed, 6 Sep 2006 18:38:33 +0200, Henne Vogelsang <hvogel@opensuse.org> wrote:
+> On Monday, September 04, 2006 at 21:42:08, Morten K.Poulsen wrote:
+>> If your patch is not included, please re-send it.
+> 
+> As mm"the king of slack"j did not add my patches from the openSUSE
+> package i re-send them. 8)
 
->>> If your patch is not included, please re-send it.
->> updated for this version: 
->> http://plonk.de/sw/mlmmj/mlmmj-1.2.12-RC1.mime1.patch
-> I do not like the idea of having MIME parsing in the list manager
-> itself. Or any kind of mail body parsing, for that matter.
+Hmmmm... sounds a lot like some guy i know. Mads something :)
 
-Um, we had this discussion on this list about 9 months ago. Mads
-promised to include this in 1.2.10-RC1...
+[snip, patches]
 
-The mime parsing it does is quite simple, if it even can be called
-"parsing", since all we do is taking the mime headers and the body and
-put it into a new mime envelope, which is, again, quite simple.
+Cool, they all sound usefull. I will look at them and merge them in for mlmmj-1.2.13.
 
-Most of the patch is simplyfing the "voodoo" and making it less ugly,
-which I felt should be done because it got even more ugly with the mime
-stuff in it. This should be done even without the mime stuff.
+> BTW: All lists.opensuse.org lists run on mlmmj since a month or so and
+> all lists.suse.com lists will follow later this year.
 
+Nice. It is cool when somebody start using a product, but have to fix some issues they are having - and then submit patches :)
 
+Morten
 
-
-PS: For some strange reason, I cannot mail you directly. My MTA times
-out after send its EHLO, but your SMTP greeting comes fast when I telnet
-the smtp port of mail.n0rd.dk, so the connection seems to be ok.
+-- 
+Morten K. Poulsen <morten@afdelingp.dk>
+http://www.afdelingp.dk/
 
