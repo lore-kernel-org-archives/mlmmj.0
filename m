@@ -1,7 +1,7 @@
-From: Morten K. Poulsen <morten@afdelingp.dk>
-Date: Wed, 06 Sep 2006 22:05:26 +0000
+From: Mads Martin Joergensen <mmj@mmj.dk>
+Date: Thu, 07 Sep 2006 10:26:38 +0000
 Subject: Re: mlmmj-1.2.12-RC1 released
-Message-Id: <e50dc96df3080761491cf0b4076d015f@mail.n0rd.dk>
+Message-Id: <20060907102638.GY20360@mmj.dk>
 List-Id: <mlmmj.mlmmj.org>
 References: <34f6b3c998e8d4bb4bd464d07c87532c@mail.n0rd.dk>
 In-Reply-To: <34f6b3c998e8d4bb4bd464d07c87532c@mail.n0rd.dk>
@@ -10,35 +10,24 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-
-Hi Stefan,
-
-On Wed, 6 Sep 2006 20:22:37 +0200, Stefan Reinauer <stepan@openbios.org> wrote:
-> On Monday, September 04, 2006 at 21:42:08, Morten K.Poulsen wrote:
->> If your patch is not included, please re-send it.
+* Morten K. Poulsen <morten@afdelingp.dk> [Sep 06. 2006 23:31]:
+> >> Cool, they all sound usefull. I will look at them and merge them in
+> >> for mlmmj-1.2.13.
+> > 
+> > Sounds like we'll see a swift 1.2.13 release from the new young
+> > full-of-energy maintainer ;)
 > 
-> Please add the following two patches as well:
-> 
->   * mlmmj-1.2.12-RC1-fix-german.diff
+> Yes, it looks like the old maintainer has been ignoring patches for a
+> year or two ;)
 
-I will apply this patch before the release, but the subjects must be RFC 2047 encoded. I must sleep now, and I am AFK until sunday, but I will apply it.
+Lets just see what happens to you when you get old! ;)
 
->   * mlmmj-1.2.12-RC1-fix-english.diff
-> 
->     "throught" is not an english word. Maybe this was confused with
->     "trout" ? ;-)
+So, on a more serious note--when you you plan on 1.2.12 final?
 
-* mortenp slaps stepan around a bit with a large trout
-
->     Please, please, don't send mails to users with "If you are admin
->     of this list". If you are admin of the list, you are supposed to
->     read the manual, not grep in user mails.
-
-I agree.
-
-Morten
+ [ This list have BTW already been upgraded to 1.2.12-RC1 ]
 
 -- 
-Morten K. Poulsen <morten@afdelingp.dk>
-http://www.afdelingp.dk/
-
+Mads Martin Joergensen, http://mmj.dk
+"Why make things difficult, when it is possible to make them cryptic
+ and totally illogical, with just a little bit more effort?"
+                                 -- A. P. J.
