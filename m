@@ -1,31 +1,33 @@
-From: Morten K. Poulsen <morten@afdelingp.dk>
-Date: Sat, 02 Sep 2006 11:41:27 +0000
-Subject: RE: Looking for French texts (Thank you)
-Message-Id: <510f08892d8e489516c31c18e2e50a44@mail.n0rd.dk>
+From: Sven 'Darkman' Michels <sven@darkman.de>
+Date: Fri, 08 Sep 2006 23:28:13 +0000
+Subject: possible small cosmetic "bug"?
+Message-Id: <4501FC8D.6010208@darkman.de>
 List-Id: <mlmmj.mlmmj.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
 
-Hi Jan,
+Hi there,
 
-On Fri, 1 Sep 2006 23:40:29 +0200, "Joaquin ALMAGRO" <jan18@numericable.fr> wrote:
-> Hi, Morten
-> 
-> C'est du bon travail Christophe.
-> 
-> Thank you both for your help
-> jan
+just spotted something that might be a kind of bug:
+i just saw a bounce in the bounce folder and noticed
+that mlmmj appended the footer to the bouncemsg, too
+(the .lastmsg one).
 
-The mlmmj list does not add a Reply-To header, so your reply was only to me.
+Dunno if thats relevant but i think this should not happen?
 
-I'm sending this reply to the list so Christophe can get his credits :)
+I'm sorry that i cannot check further right now but i'm really
+low on time...
 
-Morten
+Thanks & regards,
+Darkman
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.2.2 (GNU/Linux)
 
--- 
-Morten K. Poulsen <morten@afdelingp.dk>
-http://www.afdelingp.dk/
-
+iD8DBQFFAfyNQoCguWUBzBwRAlxgAKCPQVr40oxO9x5boHM68XByb8WdGwCgrUs1
+cHKjZkCJVtIVIN+uZj0liHkC2
+-----END PGP SIGNATURE-----
