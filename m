@@ -1,49 +1,74 @@
-From: Mads Martin Joergensen <mmj@mmj.dk>
-Date: Tue, 05 Sep 2006 00:05:30 +0000
-Subject: Re: Feature request: Checking and limiting mail size
-Message-Id: <20060905000530.GK84492@mmj.dk>
+From: Henne Vogelsang <hvogel@opensuse.org>
+Date: Fri, 08 Sep 2006 13:29:22 +0000
+Subject: default listtext dir
+Message-Id: <20060908132922.GS24085@suse.de>
+MIME-Version: 1
+Content-Type: multipart/mixed; boundary="k+G3HLlWI7eRTl+h"
 List-Id: <mlmmj.mlmmj.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-* Christoph Wilke <chris@filmkreis.tu-darmstadt.de> [Jun 13. 2006 17:23]:
-> Hej!
 
-Davs :-)
+--k+G3HLlWI7eRTl+h
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-> I implemented an mechanism for checking the size of all
-> incoming mails. If the size exceeds a given value, the
-> mail will discarded or rejected (depends on configuration).
-> 
-> The feature can be controlled in the usual way, creating
-> files or changing the values they contain, in the listdir's
-> control directory.
-> 
-> The size is set by a file called 'maxmailsize'. It contains
-> the maximum allowed value in bytes. If it doesn't exist,
-> no checks will be made. If the file 'nomaxmailsizedenymails'
-> exists, no reject notification will be sent.
-> 
-> I appended these two "variables" to the TUNABLES and wrote
-> a german and englich listtext.
+Hi,
 
-The fact that I postponed this and forgot about it, is exactly why I've
-handed over mlmmj maintainership ...
+i frequently run into the problem that i update mlmmj and have to wade
+trough all my lists and update the listtexts because some new one got
+added (e.g. submod-moderator) or something is modified. 
 
-* Daniel Walrond <daniel@walrond.co.uk> [Sep 05. 2006 00:48]:
-> Are you planning on incorporating the max mail size feature into mlmmj?
-> It would be a very feature to have. I've noticed that Christoph Wilke
-> published a patch on Jun 13 2006 is it wise to use that patch?
+I would like to propose a default listtext directory (like there already
+is in datadir/mlmmj/text.skel). So listtexts would be searched
 
-... let's let the new maintainer decide. After all--it's his project
-now.
+1. in spool/list/text/file and if not there
+2. in default/file
 
-Thanks for the patch, and especially thanks for reminding me/us!
+This would mean that spool/list/text/file is just an overwrite and you
+can operate lists just with default texts (no text/ dir at all). Also
+comes in handy if the translations are behind etc.
+
+The following patch implements this in prestdreply.c. The only part that
+is missing is making configure setting the dir in config.h instead of
+hardcoding it. What do you think?
+
+Henne
 
 -- 
-Mads Martin Joergensen, http://mmj.dk
-"Why make things difficult, when it is possible to make them cryptic
- and totally illogical, with just a little bit more effort?"
-                                 -- A. P. J.
+Henne Vogelsang, Core Services
+"Rules change. The Game remains the same."
+			 - Omar (The Wire)
+
+--k+G3HLlWI7eRTl+h
+Content-Type: text/x-patch; charset=us-ascii
+Content-Disposition: attachment; filename="mlmmj-defaulttextdir.patch"
+
+--- config.h.in
++++ config.h.in
+@@ -129,3 +129,6 @@
+ 
+ /* Define to `unsigned' if <sys/types.h> does not define. */
+ #undef size_t
++
++/* Define to the location of the default listext directory */
++#define DEFAULTTEXTDIR  "/usr/share/mlmmj/text.skel/"
+--- src/prepstdreply.c
++++ src/prepstdreply.c
+@@ -166,8 +166,13 @@
+ 	infd = open(tmp, O_RDONLY);
+ 	myfree(tmp);
+ 	if(infd < 0) {
+-		log_error(LOG_ARGS, "Could not open std mail %s", filename);
+-		return NULL;
++		tmp = concatstr(2, DEFAULTTEXTDIR, filename);
++		infd = open(tmp, O_RDONLY);
++		myfree(tmp);
++		if(infd < 0) {
++			log_error(LOG_ARGS, "Could not open std mail %s", filename);
++			return NULL;
++		}	
+ 	}
+ 
+ 	listaddr = getlistaddr(listdir);
+
+--k+G3HLlWI7eRTl+h--
