@@ -1,43 +1,119 @@
-From: Morten K. Poulsen <morten@afdelingp.dk>
-Date: Mon, 18 Sep 2006 19:18:03 +0000
-Subject: Re: [Fwd: Re: Mails in incoming cause of "invalid from"]
-Message-Id: <5cc1638fad7ae4e67ef00a22914cd607@mail.n0rd.dk>
+From: Stefan Reinauer <stepan@openbios.org>
+Date: Tue, 12 Sep 2006 20:53:50 +0000
+Subject: resending german list texts patch
+Message-Id: <20060912205350.GA5166@coresystems.de>
+MIME-Version: 1
+Content-Type: multipart/mixed; boundary="sm4nu43k4a2Rpi4c"
 List-Id: <mlmmj.mlmmj.org>
-References: <450B2711.4030008@darkman.de>
-In-Reply-To: <450B2711.4030008@darkman.de>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
 
-Hi Sven,
+--sm4nu43k4a2Rpi4c
+Content-Type: text/plain; charset="utf-8"
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
 
-On Sun, 17 Sep 2006 20:35:14 +0200, Sven 'Darkman' Michels <sven@darkman.de> wrote:
-> Mads Martin Joergensen wrote:
->> Can you try it without this patch?
-> 
-> doesn't work. It looks like the problem existed before
-> because i run 1.2.11 since beginning of the year and
-> haven't changed anything.
+Hi,
 
-Yes, it is an old (but unknown) issue. We have just never seen any problems with it.
+on Mortens request I am resending my german list texts patch. I must
+have messed something up with UTF8 letters last time. Hope it works this
+time.
 
-The problem is this; If a header is followed by a line beginning with whitespace, that next line is to be "folded" back into the first one (RFC 2822 section 2.2.3). We did that. However, we did not follow RFC 2822 section 3.2.3, which states:
+Thanks,
+Stefan
 
-   However, where CFWS occurs in this standard, it MUST NOT be inserted
-   in such a way that any line of a folded header field is made up
-   entirely of WSP characters and nothing else.
-
-So "Header: value1\n value2\n" was unfolded, but so was "\n body." So if a mail's body begin with a whitespace character, that first body line is folded onto the end-of-headers marker, and header parsing continues down through the mail body.
-
-I have fixed the issue, and you can get the patch from
-
-http://mlmmj.mmj.dk/~mortenp/patch-mlmmj-1.2.12_RC2-gethdrline.diff
-
-Morten
 
 -- 
-Morten K. Poulsen <morten@afdelingp.dk>
-http://www.afdelingp.dk/
+coresystems GmbH • Brahmsstr. 16 • D-79104 Freiburg i. Br.
+      Tel.: +49 761 7668825 • Fax: +49 761 7664613
+Email: info@coresystems.de  • http://www.coresystems.de/
 
+--sm4nu43k4a2Rpi4c
+Content-Type: application/x-gunzip
+Content-Disposition: attachment; filename="mlmmj-1.2.12-RC1-fix-german.diff.gz"
+Content-Transfer-Encoding: base64
+
+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
+
+--sm4nu43k4a2Rpi4c--
