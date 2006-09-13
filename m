@@ -1,35 +1,29 @@
-From: Stefan Reinauer <stepan@openbios.org>
-Date: Tue, 12 Sep 2006 21:19:48 +0000
+From: Morten K. Poulsen <morten@afdelingp.dk>
+Date: Wed, 13 Sep 2006 18:10:41 +0000
 Subject: Re: resending german list texts patch
-Message-Id: <20060912211948.GA10835@coresystems.de>
+Message-Id: <43d5e2c7e6f9d3e5aeb9c41c441e62c7@mail.n0rd.dk>
 List-Id: <mlmmj.mlmmj.org>
 References: <20060912205350.GA5166@coresystems.de>
 In-Reply-To: <20060912205350.GA5166@coresystems.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="macroman"
+Content-Transfer-Encoding: base64
 To: mlmmj@mlmmj.org
 
-* mortenp <mortenp@mail.n0rd.dk> [060912 23:10]:
-> 
-> Hi Stefan,
-> 
-> On Tue, 12 Sep 2006 22:53:50 +0200, Stefan Reinauer <stepan@openbios.org> wrote:
-> > on Mortens request I am resending my german list texts patch. I must
-> > have messed something up with UTF8 letters last time. Hope it works this
-> > time.
-> 
-> Now it's a mix of UTF-8 and ISO-8859-1, but I will figure it out :)
-
-Sorry. my vim automatically makes files UTF-8 when I add the first
-Umlaut. If there are umlauts already, they stay ISO-encoded. Sorry
-for the mess.
-
-What format is the required one for future submissions?
-
-Stefan
-
--- 
-coresystems GmbH • Brahmsstr. 16 • D-79104 Freiburg i. Br.
-      Tel.: +49 761 7668825 • Fax: +49 761 7664613
-Email: info@coresystems.de  • http://www.coresystems.de/
+CkhpIFN0YWZhbiwKClN0ZWZhbiBSZWluYXVlciA8c3RlcGFuQG9wZW5iaW9zLm9yZz4gd3JvdGU6
+Cj4gKiBtb3J0ZW5wIDxtb3J0ZW5wQG1haWwubjByZC5kaz4gWzA2MDkxMiAyMzoxMF06Cj4+IFN0
+ZWZhbiBSZWluYXVlciA8c3RlcGFuQG9wZW5iaW9zLm9yZz4gd3JvdGU6Cj4+PiBIb3BlIGl0IHdv
+cmtzIHRoaXMgdGltZS4KPj4KPj4gTm93IGl0J3MgYSBtaXggb2YgVVRGLTggYW5kIElTTy04ODU5
+LTEsIGJ1dCBJIHdpbGwgZmlndXJlIGl0IG91dCA6KQo+IAo+IFNvcnJ5LiBteSB2aW0gYXV0b21h
+dGljYWxseSBtYWtlcyBmaWxlcyBVVEYtOCB3aGVuIEkgYWRkIHRoZSBmaXJzdAo+IFVtbGF1dC4g
+SWYgdGhlcmUgYXJlIHVtbGF1dHMgYWxyZWFkeSwgdGhleSBzdGF5IElTTy1lbmNvZGVkLiBTb3Jy
+eQo+IGZvciB0aGUgbWVzcy4KCk5vIHByb2JsZW0sIGEgc21hbGwgc2hlbGwgc2NyaXB0IGZpeGVk
+IHRoZSBpc3N1ZSwgYW5kIHRoZSBwYXRjaCBhcHBsaWVkIGp1c3QgZmluZS4KCj4gV2hhdCBmb3Jt
+YXQgaXMgdGhlIHJlcXVpcmVkIG9uZSBmb3IgZnV0dXJlIHN1Ym1pc3Npb25zPwoKQW55IGZvcm1h
+dCB3aWxsIGRvLCBhcyBsb25nIGFzIGFsbCBvZiB0aGUgcGF0Y2ggaXMgaW4gdGhhdCBmb3JtYXQu
+CgpXaGVuIEkgZ2V0IHRoZSB0aW1lIChoYSEpIEkgd2lsbCBjaGFuZ2UgdGhlIGxpc3R0ZXh0cyB0
+byBiZSBpbiBxdW90ZWQgcHJpbnRhYmxlIFVURi04LiBTb21ldGhpbmcgbGlrZSB0aGlzOgoKRGll
+IGZvbGdlbmRlbiBLb21tYW5kb3Mgc2luZCB2ZXJmw7xnYmFyCgpUaGF0IHNob3VsZCBtYWtlIGl0
+IGVhc2llciB0byBtYW5hZ2UgcGF0Y2hlcy4KClRoYW5rcyBhZ2FpbiBmb3IgdGhlIHBhdGNoZXMu
+CgpNb3J0ZW4KCi0tIApNb3J0ZW4gSy4gUG91bHNlbiA8bW9ydGVuQGFmZGVsaW5ncC5kaz4KaHR0
+cDovL3d3dy5hZmRlbGluZ3AuZGsvCgo=
