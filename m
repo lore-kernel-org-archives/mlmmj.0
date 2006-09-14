@@ -1,44 +1,44 @@
-From: Mads Martin Joergensen <mmj@mmj.dk>
-Date: Mon, 25 Sep 2006 16:56:59 +0000
-Subject: Re: Moderator subscription
-Message-Id: <20060925165659.GK49588@mmj.dk>
+From: Nate Beaty <natebeaty@gmail.com>
+Date: Thu, 14 Sep 2006 06:45:49 +0000
+Subject: submod tunable not working for me.. ?
+Message-Id: <D47D1D36-3230-4FA0-B78E-8A7227FFD553@gmail.com>
 List-Id: <mlmmj.mlmmj.org>
-References: <4517E645.7090904@kite.se>
-In-Reply-To: <4517E645.7090904@kite.se>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-* Magnus Naeslund(k) <mag@kite.se> [Sep 25. 2006 18:30]:
-> >> How can a moderator subscribe a person to the list via the email 
-> interface? The ezmlm way doesn't work, if i send a mail to 
-> list-subscribe-email=host.com@listhost.com (yep - is the delimiter) it 
-> doesn't seem to work...
-> >
-> > Nope, that feature is not implemented in mlmmj.
-> 
-> Will patches added feature be accepted?
-> This is not only a moderator question, since the syntax is useful for 
-> normal users aswell.
+Perfect timing -- I just started a discussion list which needed  
+subscription moderation! However, I cannot get it to work for the  
+life of me.
 
-Absolutely they will. Patches are ALWAYS more than welcome :)
+I compiled the latest mlmmj and added a file "submod" with a single  
+email to my control/ directory, and when I attempt to subscribe  
+myself to the list, I first get the confirmation request via email,  
+which I respond to, and then I get a Mail Delivery failure:
 
-> > Change the From: header. mlmmj uses the From: header and not the
-> > envelope from to determine who requests subscription.
-> >
-> 
-> Yes this works, and our power-user customers can use that.
-> But it's not a easy interface for more normal-like users to use.
+>   comix+confsub-2234c52a6b0c615d-natebeaty=gmail.com@lists.clixel.com
+>     local delivery failed
 
-I know it's not as easy.
+However, a file (subscribe1a39a8b053aabcec) is added to the  
+moderation/ directory, and the temp file is removed from the subconf/  
+directory.. yet the moderator email listed in "submod" never receives  
+an email.
 
-> Let's see if I can come up with an acceptable patch...
+I tried having a blank file for "submod" and seeing if it would send  
+a confirmation email to the "owner" email. I also tried adding a file  
+"moderators" in the control/ directory with the single email I listed  
+in "submod". Neither worked.
 
-Let us know if you need help!
+If I remove the "submod" file in control/, the confirmation email  
+(like the one that gives the error above) works fine and the user is  
+subscribed.
 
--- 
-Mads Martin Joergensen, http://mmj.dk
-"Why make things difficult, when it is possible to make them cryptic
- and totally illogical, with just a little bit more effort?"
-                                 -- A. P. J.
+What am I doing wrong here? It looks like it's *almost* working.. but  
+I get no emails to the email listed in "submod" to confirm.
+
+Nate.
+
+--
+Clixel Design & Coding ~ http://clixel.com/
+
