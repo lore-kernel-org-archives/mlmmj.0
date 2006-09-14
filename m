@@ -1,7 +1,7 @@
-From: Mads Martin Joergensen <mmj@mmj.dk>
-Date: Thu, 14 Sep 2006 18:18:31 +0000
+From: Nate Beaty <natebeaty@gmail.com>
+Date: Thu, 14 Sep 2006 18:52:19 +0000
 Subject: Re: submod tunable not working for me.. ?
-Message-Id: <20060914181830.GG2175@mmj.dk>
+Message-Id: <19688B20-4F22-4E11-85F3-A736F6BB8F54@gmail.com>
 List-Id: <mlmmj.mlmmj.org>
 References: <D47D1D36-3230-4FA0-B78E-8A7227FFD553@gmail.com>
 In-Reply-To: <D47D1D36-3230-4FA0-B78E-8A7227FFD553@gmail.com>
@@ -10,115 +10,149 @@ Content-Type: text/plain; charset="iso-8859-1"
 Content-Transfer-Encoding: quoted-printable
 To: mlmmj@mlmmj.org
 
-Nate,
+On Sep 14, 2006, at 11:18 AM, Mads Martin Joergensen wrote:
 
-Thanks for catching this before 1.2.12 final!
+> Hmmm, I wonder why it would return 1 and not report anything in the
+> logs... weird indeed.
 
-* Nate Beaty <natebeaty@gmail.com> [Sep 14. 2006 19:28]:
-> On Sep 14, 2006, at 2:20 AM, Mads Martin Joergensen wrote:
->=20
-> >This has nothing to do with subscriber moderation, since it's a
-> >confirmation of subscription issue.
->=20
-> I would agree except when I remove the submod tunable from control/, =20
-> there is no Mail Delivery failure, and the user is able to confirm =20
-> their subscription just fine.
+The Exim log, correct?
 
-Hu, that does indeed sound weird.
+> It's the exact same with an empty submod file, but something in owner
+> instead?
 
-> >Subscriber moderation code doesn't kick in before after the subscriber
-> >have acknowledged it's his/hers emailaddress.
->=20
-> Well it seems mlmmj is getting the confirmation email, as it shows in =20
-> Exim's log and the file is removed from subconf/ and a file is =20
-> created in moderation/.
->=20
-> What is supposed to happen at that point? The email listed in submod =20
-> (or owner if it's empty) gets a confirmation email much like the =20
-> user's? And then the file disappears from moderation/ and the email =20
-> is moved to subscribers.d/, correct?
->=20
-> >What mailserver etc.? Did previous mlmmj versions work?
->=20
-> Sorry, I meant to include that in my first email. I'm on an up-to-=20
-> date Ubuntu Dapper box with Exim 4.60. I have been happily using =20
-> mlmmj 1.2.11 for quite a few months now with announce-only lists. =20
-> This is the first discussion list I've set up, and the owner asked =20
-> for subscription moderation. I had previously been using the debian-=20
-> packaged mlmmj, but compiled 1.2.12 for the submod capability.
->=20
-> My control/ dir:
->=20
-> > /var/spool/mlmmj/comix/control$ la
-> -rw-r--r-- 1 Debian-exim Debian-exim   7 2006-08-25 19:01 bouncelife
-> -rw-r--r-- 1 Debian-exim Debian-exim 323 2006-08-25 19:02 customheaders
-> -rw-r--r-- 1 Debian-exim Debian-exim 127 2006-08-25 19:01 footer
-> -rw-r--r-- 1 Debian-exim Debian-exim  23 2006-08-25 19:01 listaddress
-> -rw-r--r-- 1 Debian-exim Debian-exim  16 2006-09-13 23:18 moderators
-> -rw-r--r-- 1 Debian-exim Debian-exim  16 2006-09-13 23:37 owner
-> -rw-r--r-- 1 Debian-exim Debian-exim  12 2006-08-25 19:02 prefix
-> -rw-r--r-- 1 Debian-exim Debian-exim  16 2006-09-13 23:24 submod
-> -rw-r--r-- 1 Debian-exim Debian-exim   0 2006-08-25 19:01 subonlypost
-> -rw-r--r-- 1 Debian-exim Debian-exim   0 2006-08-25 19:01 verp
-> > /var/spool/mlmmj/comix/control$ more submod
-> nate@clixel.com
->=20
-> When I send a message to comix+subscribe@lists.clixel.com, I see in =20
-> subconf/
->=20
-> > /var/spool/mlmmj/comix$ la subconf
-> -rw------- 1 Debian-exim Debian-exim 19 2006-09-14 09:59 =20
-> c033b9b4a8ac676-natebeaty=3Dgmail.com
->=20
-> I reply to the confirmation email, and this shows in moderation/
->=20
-> > /var/spool/mlmmj/comix$ la moderation/
-> -rw------- 1 Debian-exim Debian-exim 31 2006-09-14 09:59 =20
-> subscribe5cda896c3c73687f
->=20
-> This is from my Exim mainlog:
->=20
-> 2006-09-14 09:59:56 1GNuZ9-0005pg-US SA: Debug: SAEximRunCond expand =20
-> returned: '1'
-> 2006-09-14 09:59:56 1GNuZ9-0005pg-US SA: Debug: check succeeded, =20
-> running spamc
-> 2006-09-14 09:59:57 1GNuZ9-0005pg-US SA: Action: scanned but message =20
-> isn't spam: score=3D-2.1 required=3D5.0 (scanned in 1/1 secs | Message-=20
-> Id: 5792A5BF-5E42-4065-9E0A-7FEA4E108E24@gmail.com). From =20
-> <natebeaty@gmail.com> (host=3Dnz-out-0102.google.com [64.233.162.204]) =20
-> for comix+confsub-c033b9b4a8ac676-natebeaty=3Dgmail.com@lists.clixel.com
-> 2006-09-14 09:59:57 1GNuZ9-0005pg-US <=3D natebeaty@gmail.com H=3Dnz-=20
-> out-0102.google.com [64.233.162.204] P=3Desmtp S'64 =20
-> idW92A5BF-5E42-4065-9E0A-7FEA4E108E24@gmail.com
-> 2006-09-14 09:59:57 1GNuZ9-0005pg-US ** comix@lists.clixel.com <comix=20
-> +confsub-c033b9b4a8ac676-natebeaty=3Dgmail.com@lists.clixel.com> =20
-> R=3Dmlmmj_router T=3Dmlmmj_transport: Child process of mlmmj_transport =20
-> transport returned 1 from command: /usr/bin/mlmmj-recieve
-> 2006-09-14 09:59:57 1GNuZB-0005po-9J SA: Debug: SAEximRunCond expand =20
-> returned: '0'
-> 2006-09-14 09:59:57 1GNuZB-0005po-9J SA: Action: Not running SA =20
-> because SAEximRunCond expanded to false (Message-Id: =20
-> 1GNuZB-0005po-9J). From <> (local) for natebeaty@gmail.com
-> 2006-09-14 09:59:57 1GNuZB-0005po-9J <=3D <> R=3D1GNuZ9-0005pg-US =20
-> U=DEbian-exim P=3Dlocal S807
-> 2006-09-14 09:59:57 1GNuZ9-0005pg-US Completed
-> 2006-09-14 09:59:58 1GNuZB-0005po-9J =3D> natebeaty@gmail.com =20
-> R=3Ddnslookup T=3Dremote_smtp H=3Dgmail-smtp-in.l.google.com [72.14.205.2=
-7]
-> 2006-09-14 09:59:58 1GNuZB-0005po-9J Completed
->=20
-> I'm guessing this is important: "Child process of mlmmj_transport =20
-> transport returned 1 from command: /usr/bin/mlmmj-recieve" since I =20
-> don't see it for confirmation on my other lists...
+Yep. My control dir:
 
-Hmmm, I wonder why it would return 1 and not report anything in the
-logs... weird indeed.
+ > /var/spool/mlmmj/comix$ la control
+-rw-r--r-- 1 Debian-exim Debian-exim   7 2006-08-25 19:01 bouncelife
+-rw-r--r-- 1 Debian-exim Debian-exim 323 2006-08-25 19:02 customheaders
+-rw-r--r-- 1 Debian-exim Debian-exim 127 2006-08-25 19:01 footer
+-rw-r--r-- 1 Debian-exim Debian-exim  23 2006-08-25 19:01 listaddress
+-rw-r--r-- 1 Debian-exim Debian-exim  16 2006-09-13 23:37 owner
+-rw-r--r-- 1 Debian-exim Debian-exim  12 2006-08-25 19:02 prefix
+-rw-r--r-- 1 Debian-exim Debian-exim   0 2006-09-14 11:33 submod
+-rw-r--r-- 1 Debian-exim Debian-exim   0 2006-08-25 19:01 subonlypost
+-rw-r--r-- 1 Debian-exim Debian-exim   0 2006-08-25 19:01 verp
 
-It's the exact same with an empty submod file, but something in owner
-instead?
+ > /var/spool/mlmmj/comix$ more control/owner
+nate@clixel.com
 
---=20
-Mads Martin Joergensen, http://mmj.dk
-"Why make things difficult, when it is possible to make them cryptic
- and totally illogical, with just a little bit more effort?"
-                                 -- A. P. J.
+And the same thing happens -- I get a bounce msg, but the file is =20
+removed from subconf/ and one created in moderation/ (and no email to =20
+"owner")
+
+2006-09-14 11:36:46 1GNw4r-0007gb-V5 SA: Debug: SAEximRunCond expand =20
+returned: '1'
+2006-09-14 11:36:46 1GNw4r-0007gb-V5 SA: Debug: check succeeded, =20
+running spamc
+2006-09-14 11:36:47 1GNw4r-0007gb-V5 SA: Action: scanned but message =20
+isn't spam: score=3D-2.1 required=3D5.0 (scanned in 1/1 secs | Message-=20
+Id: 000AAB1C-88EF-43B0-8952-1168F9E033A1@gmail.com). From =20
+<natebeaty@gmail.com> (host=3Dnz-out-0102.google.com [64.233.162.202]) =20
+for comix+confsub-3b83c7304630f9c1-natebeaty=3Dgmail.com@lists.clixel.com
+2006-09-14 11:36:47 1GNw4r-0007gb-V5 <=3D natebeaty@gmail.com H=3Dnz-=20
+out-0102.google.com [64.233.162.202] P=3Desmtp S'69 =20
+id=000AAB1C-88EF-43B0-8952-1168F9E033A1@gmail.com
+2006-09-14 11:36:47 1GNw4r-0007gb-V5 ** comix@lists.clixel.com <comix=20
++confsub-3b83c7304630f9c1-natebeaty=3Dgmail.com@lists.clixel.com> =20
+R=3Dmlmmj_router T=3Dmlmmj_transport: Child process of mlmmj_transport =20
+transport returned 1 from command: /usr/bin/mlmmj-recieve
+
+And the bounce msg:
+
+> This message was created automatically by mail delivery software.
+>
+> A message that you sent could not be delivered to one or more of its
+> recipients. This is a permanent error. The following address(es) =20
+> failed:
+>
+>   comix+confsub-3b83c7304630f9c1-natebeaty=3Dgmail.com@lists.clixel.com
+>     local delivery failed
+>
+> ------ This is a copy of the message, including all the headers. =20
+> ------
+>
+> Return-path: <natebeaty@gmail.com>
+> Received: from nz-out-0102.google.com ([64.233.162.202])
+> 	by mail.clixel.com with esmtp (Exim 4.60)
+> 	(envelope-from <natebeaty@gmail.com>)
+> 	id 1GNw4r-0007gb-V5
+> 	for comix+confsub-3b83c7304630f9c1-=20
+> natebeaty=3Dgmail.com@lists.clixel.com; Thu, 14 Sep 2006 11:36:47 -0700
+> Received: by nz-out-0102.google.com with SMTP id 4so1250017nzn
+>         for <comix+confsub-3b83c7304630f9c1-=20
+> natebeaty=3Dgmail.com@lists.clixel.com>; Thu, 14 Sep 2006 11:43:09 =20
+> -0700 (PDT)
+> DomainKey-Signature: a=3Drsa-sha1; q=3Ddns; c=3Dnofws;
+>         s=BEta; d=3Dgmail.com;
+>         h=3Dreceived:mime-version:in-reply-to:references:content-=20
+> type:message-id:content-transfer-encoding:from:subject:date:to:x-=20
+> mailer;
+>         b=3DIFA9G/tbR=20
+> +udjUFJSKBM6KO6ZT5wLpG7YLfSyICLWRNWUVY4orSDT5HAUEN2WVHhFJSUzDiFRfSzMAw=20
+> MjO2AdTLUTo7eXOYD/V0pzEJeRYFztM=20
+> +ULAgz3X87jXz6DauLN0SY3ylCx0S4nf3w5339FUZMMi7nhe0XUV9EJERz54M> Received: =
+by 10.65.112.5 with SMTP id p5mr11160788qbm;
+>         Thu, 14 Sep 2006 11:43:08 -0700 (PDT)
+> Received: from ?192.168.0.16? ( [63.105.22.58])
+>         by mx.gmail.com with ESMTP id e11sm1393584qbc.=20
+> 2006.09.14.11.43.08;
+>         Thu, 14 Sep 2006 11:43:08 -0700 (PDT)
+> Mime-Version: 1.0 (Apple Message framework v752.2)
+> In-Reply-To: <1158258829-25987b96-mlmmj-6c66daf9@2721aabb.plonk>
+> References: <1158258829-25987b96-mlmmj-6c66daf9@2721aabb.plonk>
+> Content-Type: text/plain; charset=3DUS-ASCII; delsp=3Dyes; format=3Dflowed
+> Message-Id: <000AAB1C-88EF-43B0-8952-1168F9E033A1@gmail.com>
+> Content-Transfer-Encoding: 7bit
+> From: Nate Beaty <natebeaty@gmail.com>
+> Date: Thu, 14 Sep 2006 11:43:04 -0700
+> To: comix+confsub-3b83c7304630f9c1-=20
+> natebeaty=3Dgmail.com@lists.clixel.com
+> X-Mailer: Apple Mail (2.752.2)
+> X-SA-Exim-Connect-IP: 64.233.162.202
+> X-SA-Exim-Mail-From: natebeaty@gmail.com
+> X-Spam-Checker-Version: SpamAssassin 3.1.0 (2005-09-13) on =20
+> mail.clixel.com
+> X-Spam-Level:
+> X-Spam-Status: No, score=3D-2.1 required=3D5.0 tests=3DAWL,BAYES_00 =20
+> autolearn=3Dham
+> 	version=3D3.1.0
+> Subject: Re: Confirm subscription to comix@lists.clixel.com
+> X-SA-Exim-Version: 4.2 (built Thu, 14 Apr 2005 16:52:54 +0000)
+> X-SA-Exim-Scanned: Yes (on mail.clixel.com)
+>
+>
+> On Sep 14, 2006, at 11:33 AM, comix+help@lists.clixel.com wrote:
+>
+>
+>> Hi, this is the mlmmj program managing the mailinglist
+>>
+>> comix@lists.clixel.com
+>>
+>> To confirm you want the address
+>>
+>> natebeaty@gmail.com
+>>
+>> added to this list, please send a reply to
+>>
+>> comix+confsub-3b83c7304630f9c1-natebeaty=3Dgmail.com@lists.clixel.com
+>>
+>> This confirmation serves two purposes. It tests that mail can be
+>> sent to
+>> your address. Secondly it makes sure someone else did not try and
+>> subscribe your emailaddress without your permission.
+>>
+>> Your mailer may automatically reply to the confirmation address
+>> when you hit
+>> the reply button.
+>>
+>> The subject and the body of the mail can be anything.
+
+Thanks again!
+
+Nate.
+
+--
+Clixel Design & Coding ~ http://clixel.com/
+
+
+
