@@ -1,7 +1,7 @@
-From: Sven 'Darkman' Michels <sven@darkman.de>
-Date: Sun, 17 Sep 2006 17:16:46 +0000
+From: Nate Beaty <natebeaty@gmail.com>
+Date: Sun, 17 Sep 2006 17:23:55 +0000
 Subject: Re: mlmmj-send processes eating cpu
-Message-Id: <450D82FE.6030600@darkman.de>
+Message-Id: <06EFB3A0-3AE3-4EB5-9585-B245E88A6ACE@gmail.com>
 List-Id: <mlmmj.mlmmj.org>
 References: <4BFA0DC3-3060-4B2B-8FBE-E5F8DD32E84E@gmail.com>
 In-Reply-To: <4BFA0DC3-3060-4B2B-8FBE-E5F8DD32E84E@gmail.com>
@@ -10,22 +10,18 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
------BEGIN PGP SIGNED MESSAGE-----
-Hash: SHA1
+On Sep 17, 2006, at 10:16 AM, Sven 'Darkman' Michels wrote:
 
-Nate Beaty wrote:
-> lrwx------ 1 Debian-exim root 64 2006-09-17 09:44 7 -> socket:[728893]
-> lrwx------ 1 Debian-exim root 64 2006-09-17 09:45 8 -> socket:[728895]
-> 
-> I'm learning as we go here.. anything else I can do?
+> so its a socket... lsof -n | grep 728893 i'd check now...
 
-so its a socket... lsof -n | grep 728893 i'd check now...
+ > sudo lsof -n | grep 728893
+mlmmj-sen 21636 Debian-exim    7u     sock        0,4               
+728893 can't identify protocol
 
-Regards,
-Darkman
------BEGIN PGP SIGNATURE-----
-Version: GnuPG v1.2.2 (GNU/Linux)
+Thanks,
+Nate.
 
-iD8DBQFFDYL+QoCguWUBzBwRAgbNAJ9k/6DbGABsvBFFkzSDXFiCsva8nACgpgM5
-m7T8MUblblKoJw2KIqgo4N0=yfjp
------END PGP SIGNATURE-----
+--
+Clixel Design & Coding ~ http://clixel.com/
+
+
