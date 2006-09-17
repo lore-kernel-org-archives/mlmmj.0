@@ -1,7 +1,7 @@
-From: Mads Martin Joergensen <mmj@mmj.dk>
-Date: Sun, 17 Sep 2006 15:07:43 +0000
+From: Sven 'Darkman' Michels <sven@darkman.de>
+Date: Sun, 17 Sep 2006 18:35:14 +0000
 Subject: Re: [Fwd: Re: Mails in incoming cause of "invalid from"]
-Message-Id: <20060917150743.GA20790@mmj.dk>
+Message-Id: <450D9562.50700@darkman.de>
 List-Id: <mlmmj.mlmmj.org>
 References: <450B2711.4030008@darkman.de>
 In-Reply-To: <450B2711.4030008@darkman.de>
@@ -10,46 +10,48 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-* Sven 'Darkman' Michels <sven@darkman.de> [Sep 16. 2006 22:23]:
-> > What I meant by reproducing is creating a mail in an editor doing this?
-> > I cannot do that. So there must be something seriously fishy with this
-> > one. Haven't had a chance to examine it yet.
-> 
-> it has become even more serious now: with 1.2.12-RC2 the same user
-> even can't subscribe to a new list... seems to be the same problem:
-> Sep 16 22:19:18 pamphlet /usr/bin/mlmmj-process[8010]:
-> listcontrol.c:180: Ignoring mail with invalid From: which was not a
-> bounce: Success
-> 
-> this was the reply to the confsub message... and the message has:
->   -----Original Message-----
-> From: test+help@c3f2m.de [mailto:test+help@c3f2m.de]
-> Sent: Saturday, September 16, 2006 9:40 PM
-> To: my@benjamin-oette.de
-> Subject: [test] Confirm subscription to test@c3f2m.de
-> 
-> in it (notice the missing spaces for from etc!). Mailer is Outlook 11.
-> Is it possible that something "removes" leading spaces?
-> 
-> *help?* ;)
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
 
-Can you try it without this patch?
+Mads Martin Joergensen wrote:
+> Can you try it without this patch?
 
---- chomp.c
-+++ chomp.c
-@@ -38,7 +38,7 @@
+doesn't work. It looks like the problem existed before
+because i run 1.2.11 since beginning of the year and
+haven't changed anything. The user with the problem
+did subscribe before moving to mlmmj, so we maybe
+never triggered that one. We played around with it
+now. It looks like the "From: " in the body is the
+normal behavior of outlook when replying to a mail.
+Now we add a "space" in front of the "From:" in the
+body and voila, it worked. So it seems the headerparser
+or whatever is broken. It doesn't stop parsing the
+mailheader after the "^$" line. May this from the new
+email address parsing?
 
-        i = strlen(str) - 1;
+I also tested this with thunderbird: when i add some
+"fake headers", it works with the following "code":
+  bla fasel
 
--       while(str[i] = '\n') {
-+       while(str[i] = '\n' || str[i] = '\r') {
-                str[i] = 0;
-                i--;
-        }
+  -----Original Message-----
+From: test+help@c3f2m.de [mailto:test+help@c3f2m.de]
+Sent: Saturday, September 16, 2006 9:40 PM
+To: my@email.address
+Subject: Confirm unsubscribe from test@c3f2m.de
 
 
--- 
-Mads Martin Joergensen, http://mmj.dk
-"Why make things difficult, when it is possible to make them cryptic
- and totally illogical, with just a little bit more effort?"
-                                 -- A. P. J.
+
+(maybe you need to change the listname to match yours, didn't
+test that)
+
+can't check all versions back now because i'm a little bit
+limited in time ;)
+
+Regards,
+Sven
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.2.2 (GNU/Linux)
+
+iD8DBQFFDZViQoCguWUBzBwRAqcOAKCdIXAbVcjghGzOZMCpCMy1ABvXmwCfcSgg
+mdRvH8MsVecnsYf0BGC5tZs=qfcc
+-----END PGP SIGNATURE-----
