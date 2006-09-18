@@ -1,7 +1,7 @@
 From: Morten K. Poulsen <morten@afdelingp.dk>
-Date: Wed, 13 Sep 2006 17:58:23 +0000
-Subject: mlmmj-1.2.12-RC2 released
-Message-Id: <e5893dd7d3ef5fdcadddfb47ee9af0c2@mail.n0rd.dk>
+Date: Mon, 18 Sep 2006 21:26:36 +0000
+Subject: mlmmj-1.2.12-RC3 released
+Message-Id: <08d9d1cc41f0727ee27b5e4b0cf219ba@mail.n0rd.dk>
 List-Id: <mlmmj.mlmmj.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
@@ -11,31 +11,30 @@ To: mlmmj@mlmmj.org
 
 Hi list,
 
-The second (and last, fingers crossed) release candidate for mlmmj-1.2.12 has been released.
+The third release candidate for mlmmj-1.2.12 has been released.
 
 
 It can be downloaded from:
 
-1553f1420e4631baf43591f947b57003
-http://mlmmj.mmj.dk/files/mlmmj-1.2.12-RC2.tar.bz2
+25c6102f2969310e9730ac1bd9468c23
+http://mlmmj.mmj.dk/files/mlmmj-1.2.12-RC3.tar.bz2
 
-0d878cf0004b9c3daa3b42d36caf0b1a
-http://mlmmj.mmj.dk/files/mlmmj-1.2.12-RC2.tar.gz
+797b1c78b5ee52c2d0987994b710d244
+http://mlmmj.mmj.dk/files/mlmmj-1.2.12-RC3.tar.gz
 
 
-Not a lot has changed since RC1, just a bit of spelling, update of the German translation and a fix for reading configuration files in CP/M (CRLF) format.
+Two fixes has been applied since mlmmj-1.2.12-RC2. One of the fixes is for unfolding headers - a mail with a white-space as the first character in the body would cause mlmmj to search the mail body for headers. The other fix is for handling an SMTP server which resets the connection while mlmmj is waiting for a reply.
 
-1.2.12-RC2
- o Changed German listtexts (Stefan Reinauer, Christian Lackas)
- o Changed English listtexts (Stefan Reinauer)
- o Changed chomp() to also remove CR from CRLF sequences
+1.2.12-RC3
+ o Fixed EOF handling in checkwait_smtpreply()
+ o Fixed header unfolding in gethdrline()
 
 
 Please take it for a spin, and give me a Go/No-Go for release.
 
 
 Have fun,
- Morten
+ Morten 
 
 -- 
 Morten K. Poulsen <morten@afdelingp.dk>
