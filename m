@@ -1,7 +1,7 @@
-From: Mads Martin Joergensen <mmj@mmj.dk>
-Date: Sun, 17 Sep 2006 20:08:22 +0000
+From: Morten K. Poulsen <morten@afdelingp.dk>
+Date: Mon, 18 Sep 2006 19:18:03 +0000
 Subject: Re: [Fwd: Re: Mails in incoming cause of "invalid from"]
-Message-Id: <20060917200822.GE20790@mmj.dk>
+Message-Id: <5cc1638fad7ae4e67ef00a22914cd607@mail.n0rd.dk>
 List-Id: <mlmmj.mlmmj.org>
 References: <450B2711.4030008@darkman.de>
 In-Reply-To: <450B2711.4030008@darkman.de>
@@ -10,45 +10,34 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-* Sven 'Darkman' Michels <sven@darkman.de> [Sep 17. 2006 20:35]:
-> -----BEGIN PGP SIGNED MESSAGE-----
-> Hash: SHA1
-> 
+
+Hi Sven,
+
+On Sun, 17 Sep 2006 20:35:14 +0200, Sven 'Darkman' Michels <sven@darkman.de> wrote:
 > Mads Martin Joergensen wrote:
-> > Can you try it without this patch?
+>> Can you try it without this patch?
 > 
 > doesn't work. It looks like the problem existed before
 > because i run 1.2.11 since beginning of the year and
-> haven't changed anything. The user with the problem
-> did subscribe before moving to mlmmj, so we maybe
-> never triggered that one. We played around with it
-> now. It looks like the "From: " in the body is the
-> normal behavior of outlook when replying to a mail.
-> Now we add a "space" in front of the "From:" in the
-> body and voila, it worked. So it seems the headerparser
-> or whatever is broken. It doesn't stop parsing the
-> mailheader after the "^$" line. May this from the new
-> email address parsing?
+> haven't changed anything.
 
-mlmmj should stop parsing headers when two newlines are met like the
-spec claims.
+Yes, it is an old (but unknown) issue. We have just never seen any problems with it.
 
-That's why when I add a From: on the beginning of a line after a
-newline, that From: isn't picked up.
+The problem is this; If a header is followed by a line beginning with whitespace, that next line is to be "folded" back into the first one (RFC 2822 section 2.2.3). We did that. However, we did not follow RFC 2822 section 3.2.3, which states:
 
-Could you look in a hex editor or such, to see if there's something
-making mlmmj believe there's more headers? Space or tab is enough to
-make it continue.
+   However, where CFWS occurs in this standard, it MUST NOT be inserted
+   in such a way that any line of a folded header field is made up
+   entirely of WSP characters and nothing else.
 
-> I also tested this with thunderbird: when i add some
-> "fake headers", it works with the following "code":
->   bla fasel
+So "Header: value1\n value2\n" was unfolded, but so was "\n body." So if a mail's body begin with a whitespace character, that first body line is folded onto the end-of-headers marker, and header parsing continues down through the mail body.
 
-Well, can you trigger it with Thunderbird, by writing From: somewhere
-after a newline?
+I have fixed the issue, and you can get the patch from
+
+http://mlmmj.mmj.dk/~mortenp/patch-mlmmj-1.2.12_RC2-gethdrline.diff
+
+Morten
 
 -- 
-Mads Martin Joergensen, http://mmj.dk
-"Why make things difficult, when it is possible to make them cryptic
- and totally illogical, with just a little bit more effort?"
-                                 -- A. P. J.
+Morten K. Poulsen <morten@afdelingp.dk>
+http://www.afdelingp.dk/
+
