@@ -1,44 +1,67 @@
-From: Morten K. Poulsen <morten@afdelingp.dk>
-Date: Mon, 25 Sep 2006 20:49:24 +0000
-Subject: Re: [PATCH] Subscriber other (was: Moderator subscription)
-Message-Id: <6f289252f9f2d3e993f0a0e8f6fe565b@mail.n0rd.dk>
+From: "Christophe GALLIENNE" <christophe.gallienne@free.fr>
+Date: Fri, 22 Sep 2006 10:49:49 +0000
+Subject: RE: French text files
+Message-Id: <001401c6de34$dc6fadd0$0303a8c0@gaesi.com>
+MIME-Version: 1
+Content-Type: multipart/mixed; boundary="----=_NextPart_000_0015_01C6DE45.9FF87DD0"
 List-Id: <mlmmj.mlmmj.org>
-References: <45183676.9010702@kite.se>
-In-Reply-To: <45183676.9010702@kite.se>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+References: <20060514163344.991A2497E2@smtp3-g19.free.fr>
+In-Reply-To: <20060514163344.991A2497E2@smtp3-g19.free.fr>
 To: mlmmj@mlmmj.org
 
+This is a multi-part message in MIME format.
 
-Hi Magnus,
+------=_NextPart_000_0015_01C6DE45.9FF87DD0
+Content-Type: text/plain;
+	charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 
-"Magnus Naeslund(k)" <mag@kite.se> wrote:
-> Mads Martin Joergensen wrote:
->> Absolutely they will. Patches are ALWAYS more than welcome :)
-> 
-> I'll make you eat those words :)
+-----Message d'origine-----
+De : Morten K. Poulsen [mailto:morten@afdelingp.dk] Envoy=E9 : jeudi 31 =
+ao=FBt
+2006 00:08 =C0 : mlmmj@mmj.dk Objet : RE: French text files
 
-Haha :)
 
-> This is an initial patch for the functionality that I was asking about.
+>Thanks a lot.
+Thanks for your and Joquin encouragement's ;)
 
-Thanks. The patch looks fine, but you'll probably have to resubmit it a few days after mlmmj-1.2.12 is out. We are known for ignoring patches ;)
+>There was no unsub-confirm-digest. Could you also translate that one?
+Oh sorry for this default and for the late in answer...please find in =
+this
+mail the file "unsub-confirm-digest.txt".
 
-[snip]
-> So if this patch is near lift off, I'll patch up the -help text to display
-> help for this command.
+Regards.
 
-Yep, help text is a good idea.
+Christophe.
 
-> P.S. I noticed that the "param" variable is sometimes freed, but sometimes
-> not. What is the rule here?
+------=_NextPart_000_0015_01C6DE45.9FF87DD0
+Content-Type: text/plain;
+	name="unsub-confirm-digest.txt"
+Content-Transfer-Encoding: quoted-printable
+Content-Disposition: attachment;
+	filename="unsub-confirm-digest.txt"
 
-Well, the rule is to free all memory. But IIRC every case ends with an execlp(), so it will not matter. It's just for the sake of Valgrind and me.
+Subject: Confirmation de votre d=E9sincription de la liste $listaddr$
 
-Morten
+Bonjour, ceci est le programme mlmmj de gestion de la liste de diffusion
+$listaddr$
 
--- 
-Morten K. Poulsen <morten@afdelingp.dk>
-http://www.afdelingp.dk/
+Pour confirmer que vous souhaitez bien que votre adresse
+$subaddr$
+
+soit d=E9sinscrite du r=E9sum=E9 de la liste merci de r=E9pondre =E0 =
+cette adresse :
+$confaddr$
+
+Votre client de messagerie va certainement r=E9pondre =E0 l'adresse de =
+confirmation quand vous cliquerez sur le bouton r=E9pondre.
+
+Si vous n'=EAtes pas inscrit =E0 la list vous ne recevrez pas de =
+r=E9ponse.
+
+Vous pouvez voir dans l'enveloppe "Return-Path" de l'ent=EAte d'un =
+message de la liste avec quelle adresse vous vous =EAtes inscrit.
+
+------=_NextPart_000_0015_01C6DE45.9FF87DD0--
+
 
