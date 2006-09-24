@@ -1,50 +1,23 @@
-From: Morten K. Poulsen <morten@afdelingp.dk>
-Date: Fri, 29 Sep 2006 21:12:27 +0000
-Subject: mlmmj-1.2.12-RC4 released
-Message-Id: <07000545535fd7f3f6fd56f93e19379f@mail.n0rd.dk>
+From: Fabio Busatto <fabio.busatto@programmazione.it>
+Date: Sun, 24 Sep 2006 08:38:38 +0000
+Subject: Re: qmail+vpopmail support
+Message-Id: <20060924083838.GA1435@nachos.phaseit.com>
 List-Id: <mlmmj.mlmmj.org>
+References: <20060503134628.GG5327@nachos.phaseit.com>
+In-Reply-To: <20060503134628.GG5327@nachos.phaseit.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
+On Tue, Jun 13, 2006 at 05:45:09PM +0200, Morten K. Poulsen wrote:
+> The idea of adding qmail support was to get it working out of the box. I think it is safe,
+> if we check for DEFAULT as the last thing before falling back to reading headers.
 
-Hi list,
+I just downloaded the last mlmmj release, and I noticed that it still checks for EXT environment
+variable instead of DEFAULT (needed to support virtual domains in qmail).
 
-The fourth release candidate for mlmmj-1.2.12 has been released.
+Patch missed?
 
-
-It can be downloaded from:
-
-1ec92f3752d4ad6874364ba46e456141
-http://mlmmj.mmj.dk/files/mlmmj-1.2.12-RC4.tar.bz2
-
-c8d7e6200bf44dd66b0b799e3da76def
-http://mlmmj.mmj.dk/files/mlmmj-1.2.12-RC4.tar.gz
-
-
-A few minor bugs has been fixed, and a single file has been translated:
-
- o Fixed memory leak in checkwait_smtpreply()
- o Changed mlmmj-process to look at environment variable DEFAULT instead
-   of EXT for qmail (Fabio Busatto)
- o Added Frensh listtext unsub-confirm-digest (Christophe Gallienne)
-
-
-I honestly believe this is ready for release. But please install it at test it anyway.
-
-I have tested with Postfix on FreeBSD. I need a go on:
-- sendmail
-- exim
-- qmail
-- Linux
-
-Please, please, pretty please.
-
-
-Morten
-
--- 
-Morten K. Poulsen <morten@afdelingp.dk>
-http://www.afdelingp.dk/
-
+Bye
+-fabio
