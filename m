@@ -1,29 +1,21 @@
-From: Morten K. Poulsen <morten@afdelingp.dk>
-Date: Tue, 12 Sep 2006 15:50:07 +0000
-Subject: Re: [PATCH] chomp to remove '\r' as well
-Message-Id: <3a7ae2f0bd260daa3d9498ac9b0c6db3@mail.n0rd.dk>
+From: "Magnus Naeslund(k)" <mag@kite.se>
+Date: Mon, 25 Sep 2006 14:23:01 +0000
+Subject: Moderator subscription
+Message-Id: <4517E645.7090904@kite.se>
 List-Id: <mlmmj.mlmmj.org>
-References: <20060911123559.GK1815@mmj.dk>
-In-Reply-To: <20060911123559.GK1815@mmj.dk>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
+How can a moderator subscribe a person to the list via the email 
+interface? The ezmlm way doesn't work, if i send a mail to 
+list-subscribe-email=host.com@listhost.com (yep - is the delimiter) it 
+doesn't seem to work...
+When we move to mlmmj from ezmlm we would need to handle this in some 
+way since some lists we host are all handled by the owner and moderator. 
+On these kinds of lists the subscribers themselves are often incapable 
+of using the email interface correctly themselves.
 
-Mads Martin Joergensen <mmj@mmj.dk> wrote:
-> * Morten K. Poulsen <morten@afdelingp.dk> [Sep 11. 2006 20:14]:
->> Was the guy using the twisted BSD variant from Apple Computer, which
->> uses \r and not \n?
->
-> No, his sysadmins based on windows added ^M's. BSD wouldn't even think
-> of such--albeit Apply have touched it :)
-
-Hehe, I see. I thought the Macintoshes still used only \r, but they stopped doing that in Mac OS X. Probably a wise decision :)
-
-Morten
-
---
-Morten K. Poulsen <morten@afdelingp.dk>
-http://www.afdelingp.dk/
-
+Regards,
+Magnus
