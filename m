@@ -1,82 +1,111 @@
 From: Morten K. Poulsen <morten@afdelingp.dk>
-Date: Mon, 25 Sep 2006 20:07:38 +0000
+Date: Mon, 25 Sep 2006 21:08:57 +0000
 Subject: Re: mlmmj on Solaris
-Message-Id: <977bf0eb5c4db442b2e7aeeecd3afec8@mail.n0rd.dk>
+Message-Id: <69db060ae9a401d0db1a8c4b08e2f60f@mail.n0rd.dk>
 List-Id: <mlmmj.mlmmj.org>
+References: <977bf0eb5c4db442b2e7aeeecd3afec8@mail.n0rd.dk>
+In-Reply-To: <977bf0eb5c4db442b2e7aeeecd3afec8@mail.n0rd.dk>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 To: mlmmj@mlmmj.org
 
 
 Hi Rob,
 
-I am sending the reply with CC to the list. I hope that's OK.
-
 Rob Shepherd <rob@techniumcast.com> wrote:
-> First, thanks for mlmmj. Neat.
+> Morten K. Poulsen wrote:
+>> Nice. I think you're the first to do that. Do you know if it is possible
+>> to get a shell account on a Solaris box anywhere, to test the next mlmmj
+>> release?
+>=20
+> Yes. I'll see what I can do.
 
-You're welcome :)
+Cool, thanks.
 
-> I have some notes regarding my recent experience with building mlmmj on
-> Solaris 10.
+>>> 1.
+>>> 	CFLAGS=3D"-D_POSIX_PTHREAD_SEMANTICS"
+>>>
+>>> 	...is required.
+>>
+>> That is very strange. Mlmmj does not use threads or any kind of pthread
+> library feature. What happens if you compile without?
+>=20
+> It's nothing to do with threads, rather Solaris compatability issues.
+>=20
+> log_oper.c: In function `log_oper':
+> log_oper.c:76: error: too few arguments to function `ctime_r'
 
-Nice. I think you're the first to do that. Do you know if it is possible to get a shell account on a Solaris box anywhere, to test the next mlmmj release?
+Ah, ok. We could change ctime_r to ctime, as we are not using threads. The =
+Solaris version of ctime_r requires a buflen paremeter - not POSIX complian=
+t.
 
-> 1.
-> 	CFLAGS="-D_POSIX_PTHREAD_SEMANTICS"
-> 
-> 	...is required.
+>>> 2.
+>>> 	/bin/sh in Solaris is Posix shell and is much more strict than /bin/sh
+>>> on linux (which i think is just bash). mlmmj-make-ml.sh needs..
+>>>
+>>> 	#!/bin/bash
+>>
+>> Which features of bash are needed in the script now? Would it be
+> possible to change it to not use those features?
+>=20
+> it fails first with 'let', don't know after that. I switched to bash.
 
-That is very strange. Mlmmj does not use threads or any kind of pthread library feature. What happens if you compile without?
+Ok, any shell scripting gurus on the list? :)
 
-> 2.
-> 	/bin/sh in Solaris is Posix shell and is much more strict than /bin/sh
-> on linux (which i think is just bash). mlmmj-make-ml.sh needs..
-> 
-> 	#!/bin/bash
+>>> 3.
+>>> 	If mlmmj-maintd is not in the path, which does something different to
+>>> what you might expect.
+[snip]
+>> Hmmm, I guess the binaries should be found via a autoconf(?) variable
+>> like @textlibdir@. Would that work? Henne?
+>=20
+> I'll let you figure that one out. :)
 
-Which features of bash are needed in the script now? Would it be possible to change it to not use those features?
+Ok, any autoconf gurus on the list? :)
 
-> 3.
-> 	If mlmmj-maintd is not in the path, which does something different to
-> what you might expect.
-> 
-> [08:58:18][root@zorch-mail:/usr/local/mlmmj/bin]$ which mlmmj-maintd
-> no mlmmj-maintd in /usr/sbin /usr/bin /opt/csw/bin /opt/csw/gcc3/bin
-> /usr/ccs/bin /opt/SUNWspro/bin
-> 
-> 	I added the ${prefix}/bin to the PATH at start of mlmmj-make-ml.sh
+>>> 4.
+>>> 	Aliases. I use a seperate aliases file /usr/local/mlmmj/etc/aliases.
+[snip]
+>> That is a nice feature. Perhaps the script could check the mailer, and
+>> write a seperate alias file if it is supported. A patch would be
+>> appreciated ;)
+[snip]
+> I dislike user scripts which attempt to guess the environment and do
+> what is best for the creator as opposed to the user.
+[snip]
+> I guess, the compile time options...
+>=20
+> --with-postfix-alias-file=3D%path/to/alias/file%
+>=20
+> will set the "lack of" ':' in the alias file, it's location and the fact
+> that the user wants the make script to write it for him/her.
+>=20
+> --with-postfix-alias-user=3D%uid%
+>=20
+> will set the uid to write and own the files as.
 
-Hmmm, I guess the binaries should be found via a autoconf(?) variable like @textlibdir@. Would that work? Henne?
+Will that work for the distros? S=C3=B8ren, Andrea, Henne, ...?
 
-> 4.
-> 	Aliases. I use a seperate aliases file /usr/local/mlmmj/etc/aliases.
-> The form for this alias file, when used with postfix at least, does not
-> use a ': ' seperator, rather just white space. I have adjusted my
-> make-mlmmj-ml.sh.  Another reason for using a seperate aliases file is
-> that postfix (2.2.10 at least) is able to perform the spooling or
-> command pipe with the uid of the aliases file.  On solaris the user
-> smmsp always exists, even if sendmail is not installed. I may then do...
-> 
-> chown smmsp:smmsp /usr/local/mlmmj/etc/aliases
-> chown -R smmsp:smmsp /var/spool/mlmmj
-> 
-> ...and it runs as smmsp.
+[snip]
+> Thinks outloud..... what needs to be done as this user... hmmm
+>=20
+> 1. creating the spool area.
+> 2. writing the alias file.
+> 3. running the maintd from cron.
+>=20
+> If we assume all operations are carried by root, then (1) can be done
+> with a chown, (2) can be done with an su in the right place and (3) can
+> be done with however one switches privs in c-code.
 
-That is a nice feature. Perhaps the script could check the mailer, and write a seperate alias file if it is supported. A patch would be appreciated ;)
-
-> Other than that, It's great. Keep up the good work.
-
-Thanks :)
-
-> Feel free to put my notes in a README.Solaris or whatever.
-
-I will, if we can't find good solutions for the (few) issues. The thing about Postfix and separate alias file - will that work on any operating system?
+1. mlmmj-make-ml.sh -c will do that chown.
+2. could also be a chown in mlmmj-make-ml.sh, I guess.
+3. mlmmj-maintd does a setuid() to the owner of the list directory, if run =
+as root.
 
 Morten
 
--- 
+--=20
 Morten K. Poulsen <morten@afdelingp.dk>
 http://www.afdelingp.dk/
 
