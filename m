@@ -1,67 +1,34 @@
-From: "Christophe GALLIENNE" <christophe.gallienne@free.fr>
-Date: Fri, 22 Sep 2006 10:49:49 +0000
+From: Morten K. Poulsen <morten@afdelingp.dk>
+Date: Mon, 25 Sep 2006 20:24:03 +0000
 Subject: RE: French text files
-Message-Id: <001401c6de34$dc6fadd0$0303a8c0@gaesi.com>
-MIME-Version: 1
-Content-Type: multipart/mixed; boundary="----=_NextPart_000_0015_01C6DE45.9FF87DD0"
+Message-Id: <c2c721a5e3604d440336d9f9cc9e3090@mail.n0rd.dk>
 List-Id: <mlmmj.mlmmj.org>
 References: <20060514163344.991A2497E2@smtp3-g19.free.fr>
 In-Reply-To: <20060514163344.991A2497E2@smtp3-g19.free.fr>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-This is a multi-part message in MIME format.
 
-------=_NextPart_000_0015_01C6DE45.9FF87DD0
-Content-Type: text/plain;
-	charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Hi Christophe,
 
------Message d'origine-----
-De : Morten K. Poulsen [mailto:morten@afdelingp.dk] Envoy=E9 : jeudi 31 =
-ao=FBt
-2006 00:08 =C0 : mlmmj@mmj.dk Objet : RE: French text files
+"Christophe GALLIENNE" <christophe.gallienne@free.fr> wrote:
+>> There was no unsub-confirm-digest. Could you also translate that one?
+>
+> Oh sorry for this default and for the late in answer...please find in this
+> mail the file "unsub-confirm-digest.txt".
 
+Thanks, I have committed it to CVS.
 
->Thanks a lot.
-Thanks for your and Joquin encouragement's ;)
+If you've got some time to spare, the following (new) files also need a French translation:
+- digest
+- submod-moderator
+- submod-requester
 
->There was no unsub-confirm-digest. Could you also translate that one?
-Oh sorry for this default and for the late in answer...please find in =
-this
-mail the file "unsub-confirm-digest.txt".
+Morten
 
-Regards.
-
-Christophe.
-
-------=_NextPart_000_0015_01C6DE45.9FF87DD0
-Content-Type: text/plain;
-	name="unsub-confirm-digest.txt"
-Content-Transfer-Encoding: quoted-printable
-Content-Disposition: attachment;
-	filename="unsub-confirm-digest.txt"
-
-Subject: Confirmation de votre d=E9sincription de la liste $listaddr$
-
-Bonjour, ceci est le programme mlmmj de gestion de la liste de diffusion
-$listaddr$
-
-Pour confirmer que vous souhaitez bien que votre adresse
-$subaddr$
-
-soit d=E9sinscrite du r=E9sum=E9 de la liste merci de r=E9pondre =E0 =
-cette adresse :
-$confaddr$
-
-Votre client de messagerie va certainement r=E9pondre =E0 l'adresse de =
-confirmation quand vous cliquerez sur le bouton r=E9pondre.
-
-Si vous n'=EAtes pas inscrit =E0 la list vous ne recevrez pas de =
-r=E9ponse.
-
-Vous pouvez voir dans l'enveloppe "Return-Path" de l'ent=EAte d'un =
-message de la liste avec quelle adresse vous vous =EAtes inscrit.
-
-------=_NextPart_000_0015_01C6DE45.9FF87DD0--
-
+-- 
+Morten K. Poulsen <morten@afdelingp.dk>
+http://www.afdelingp.dk/
 
