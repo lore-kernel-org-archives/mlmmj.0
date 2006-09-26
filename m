@@ -1,7 +1,7 @@
-From: Morten K. Poulsen <morten@afdelingp.dk>
-Date: Mon, 25 Sep 2006 20:32:27 +0000
+From: Fabio Busatto <fabio.busatto@programmazione.it>
+Date: Tue, 26 Sep 2006 13:25:37 +0000
 Subject: Re: qmail+vpopmail support
-Message-Id: <883e0e18078a43fb2bbca83d9acfe57a@mail.n0rd.dk>
+Message-Id: <20060926132537.GA1939@nachos.phaseit.com>
 List-Id: <mlmmj.mlmmj.org>
 References: <20060503134628.GG5327@nachos.phaseit.com>
 In-Reply-To: <20060503134628.GG5327@nachos.phaseit.com>
@@ -10,24 +10,13 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-
-Hi Fabio,
-
-Fabio Busatto <fabio.busatto@programmazione.it> wrote:
-> I just downloaded the last mlmmj release, and I noticed that it still
-> checks for EXT environment variable instead of DEFAULT (needed to 
-> support virtual domains in qmail).
+On Mon, Sep 25, 2006 at 10:32:27PM +0200, Morten K. Poulsen wrote:
+> Yes, I forgot all about that. I have just committed the following to CVS. That should fix the issue, right?
 > 
-> Patch missed?
+> -       if((envstr = getenv("EXT")) != NULL) {
+> +       if((envstr = getenv("DEFAULT")) != NULL) {
+> 
 
-Yes, I forgot all about that. I have just committed the following to CVS. That should fix the issue, right?
+Right :)
 
--       if((envstr = getenv("EXT")) != NULL) {
-+       if((envstr = getenv("DEFAULT")) != NULL) {
-
-Morten
-
--- 
-Morten K. Poulsen <morten@afdelingp.dk>
-http://www.afdelingp.dk/
-
+-fabio
