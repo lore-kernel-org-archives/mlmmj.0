@@ -1,7 +1,7 @@
-From: Morten K. Poulsen <morten@afdelingp.dk>
-Date: Mon, 02 Oct 2006 16:04:09 +0000
+From: Nico Meijer <lists@familiemeijer.org>
+Date: Wed, 11 Oct 2006 08:58:38 +0000
 Subject: Re: mlmmj-1.2.12-RC4 released
-Message-Id: <b7e431e3bdcd7663c6807d79e2e1b8a2@mail.n0rd.dk>
+Message-Id: <20061011105838.edcb44a8.lists@familiemeijer.org>
 List-Id: <mlmmj.mlmmj.org>
 References: <07000545535fd7f3f6fd56f93e19379f@mail.n0rd.dk>
 In-Reply-To: <07000545535fd7f3f6fd56f93e19379f@mail.n0rd.dk>
@@ -10,43 +10,27 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
+Hi Morten,
 
-On Fri, 29 Sep 2006 23:12:27 +0200, Morten K. Poulsen <morten@afdelingp.dk> wrote:
-> I have tested with Postfix on FreeBSD. I need a go on:
-> - sendmail
-> - exim
-> - qmail
-> - Linux
-> 
-> Please, please, pretty please.
+I'm sorry I wasn't able to test earlier. My apologies to Mads aswell, I'll
+be in touch soon.
 
-23:24 < Darkman> installed on two boxes, waiting for mail ;)
-Day changed to 30 Sep 2006
-11:21 < mortenp> Darkman: Got any mails via RC4 yet?
-22:39 < Darkman> mortenp: serval, no problems so far
-Day changed to 01 Oct 2006
-10:45 < mortenp> Darkman: what setup (os,mta) is it?
-Day changed to 02 Oct 2006
-02:54 < Darkman> mortenp: linux, postfix, the best you can get.. *hide* ;)
-17:59 < mortenp> Darkman: I agree, the FreeBSD box is mmj's ;)
+> I honestly believe this is ready for release. But please install it at
+> test it anyway.
 
-That's why I like IRC :)
+I have installed it on an OpenBSD 3.8 box with postfix. First testruns
+seem to go 100% correctly. Mind you, I am a *very* new user of mlmmj.
 
-So,
+One wee tiny thing with moderated subscription:
 
-FreeBSD is GO
-Linux is GO
-Postfix is GO
+--- submod-requester    Thu Feb  9 08:06:12 2006
++++ submod-requester.new        Wed Oct 11 10:52:42 2006
+@@ -4,6 +4,6 @@
+ 
+ $listaddr$
+ 
+-This list is configured to have moderated subscription, the request have
++This list is configured to have moderated subscription. The request has
+ been queued for approval.
 
-Has anyone tested with
-- sendmail
-- exim
-- qmail
-?
-
-Morten
-
--- 
-Morten K. Poulsen <morten@afdelingp.dk>
-http://www.afdelingp.dk/
-
+Thank you so much!... Nico
