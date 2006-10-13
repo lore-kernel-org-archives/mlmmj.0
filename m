@@ -1,7 +1,7 @@
-From: Morten K. Poulsen <morten@afdelingp.dk>
-Date: Thu, 12 Oct 2006 19:17:07 +0000
+From: Nico Meijer <lists@familiemeijer.org>
+Date: Fri, 13 Oct 2006 05:09:23 +0000
 Subject: Re: mlmmj-1.2.12-RC4 released
-Message-Id: <d940ad096cb85cb32d4008166406f24d@mail.n0rd.dk>
+Message-Id: <20061013070923.d238e382.lists@familiemeijer.org>
 List-Id: <mlmmj.mlmmj.org>
 References: <07000545535fd7f3f6fd56f93e19379f@mail.n0rd.dk>
 In-Reply-To: <07000545535fd7f3f6fd56f93e19379f@mail.n0rd.dk>
@@ -10,44 +10,16 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
+Hi Morten,
 
-Hi Nico,
+> Hehe. Is it obvious that English is not our native language?
 
-Nico Meijer <lists@familiemeijer.org> wrote:
-> I'm sorry I wasn't able to test earlier.
+Blah, who cares? As long as you accept diffs. ;-)
 
-Better late than never :-)
+Just to let you know: I'm working on translating listtexts into Dutch
+(currently about halfway) and will be getting some help next week. I'm
+swamped with work right now.
 
-> I have installed it on an OpenBSD 3.8 box with postfix.
-> First testruns seem to go 100% correctly.
+I'll post here, of course, once it's ready for peer review.
 
-Nice. That makes
-- Postfix GO
-- Linux GO
-- FreeBSD GO
-- OpenBSD GO
-
-and
-- exim UNKNOWN
-- qmail UNKNOWN
-- sendmail UNKNOWN
-
-> Mind you, I am a *very* new user of mlmmj.
-
-Ok. But if mlmmj compiles without a warning and the basic functionallity is working, then it is improbable that you will find a platform specific bug.
-
-> -This list is configured to have moderated subscription, the request have
-> +This list is configured to have moderated subscription. The request has
-
-Hehe. Is it obvious that English is not our native language?
-
-> Thank you so much!... Nico
-
-Our pleasure. We like happy users :-)
-
-Morten
-
--- 
-Morten K. Poulsen <morten@afdelingp.dk>
-http://www.afdelingp.dk/
-
+Bye and thanks... Nico
