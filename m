@@ -1,30 +1,26 @@
-From: Morten K. Poulsen <morten@afdelingp.dk>
-Date: Mon, 06 Nov 2006 20:06:24 +0000
-Subject: Re: Newbie w/ exim questions..
-Message-Id: <a176cd02bd6d01b22544277f952b4659@mail.n0rd.dk>
+From: "B. Cook" <bcook@poklib.org>
+Date: Mon, 06 Nov 2006 20:15:19 +0000
+Subject: why isn't it sending?..
+Message-Id: <454F97D7.9070200@poklib.org>
 List-Id: <mlmmj.mlmmj.org>
-References: <454F5425.3060900@poklib.org>
-In-Reply-To: <454F5425.3060900@poklib.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
 
-Hi,
+   PID USERNAME       THR PRI NICE   SIZE    RES STATE  C   TIME   WCPU 
+COMMAND
+  5399 mailnull         1 115    0  1308K   788K CPU1   1   4:29 99.02% 
+mlmmj-send
 
-"B. Cook" <bcook@poklib.org> wrote:
-> 2006-11-06 10:16:43 1Gh6DL-0009Pp-Qo unable to set gid19 or uid18
-> (euid&): local delivery to mlmmj-test
-> <mlmmj-test+help@lists.poklib.org> transport=mlmmj_transport
 
-I am not using Exim myself, but does this help?
+mailnull  5399 98.4  0.2  1308   788  ??  R     3:08PM   5:33.10 
+/usr/local/bin/mlmmj-send -L /var/spool/mlmmj/listname -m 
+/var/spool/mlmmj/newswire/moderation/5cf0db9911c1178c.sending
 
-http://www.tu-berlin.de/zrz/dienste/netz/mail/EXIM/FAQ_0.html#TOC41
+There are like 5k users in this testing set..
 
-Morten
+whats going on?
 
--- 
-Morten K. Poulsen <morten@afdelingp.dk>
-http://www.afdelingp.dk/
-
+it's like 'hung' at the b's ..
