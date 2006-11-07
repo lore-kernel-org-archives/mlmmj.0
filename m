@@ -1,7 +1,7 @@
-From: Morten K. Poulsen <morten@afdelingp.dk>
-Date: Mon, 06 Nov 2006 20:11:30 +0000
+From: Jakob Hirsch <jh@plonk.de>
+Date: Tue, 07 Nov 2006 00:33:29 +0000
 Subject: Re: mlmmj-1.2.12-RC4 released
-Message-Id: <c851574dc8072038de17f33ad21cc083@mail.n0rd.dk>
+Message-Id: <454FD459.4090706@plonk.de>
 List-Id: <mlmmj.mlmmj.org>
 References: <07000545535fd7f3f6fd56f93e19379f@mail.n0rd.dk>
 In-Reply-To: <07000545535fd7f3f6fd56f93e19379f@mail.n0rd.dk>
@@ -10,26 +10,15 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
+Quoting Morten K. Poulsen:
 
-Morten K. Poulsen <morten@afdelingp.dk> wrote:
-> Nice. That makes
-> - Postfix GO
-> - Linux GO
-> - FreeBSD GO
-> - OpenBSD GO
-> 
-> and
-> - exim UNKNOWN
-> - qmail UNKNOWN
-> - sendmail UNKNOWN
+> Has anyone tested on exim, qmail or sendmail?
 
-Has anyone tested on exim, qmail or sendmail?
+I wanted to test on Exim, but for some reason I could not figure out it
+dumps core when I run
 
-I can probably make a sendmail test environment myself, but I would appreciate if somebody running exim or qmail would give the RC a try.
+/usr/local/bin/mlmmj-recieve -L /var/spool/mlmmj/test -F <
+mlmmj-coredump.msg
 
-Morten
-
--- 
-Morten K. Poulsen <morten@afdelingp.dk>
-http://www.afdelingp.dk/
+(message availabe at http://ymmv.de/sw/mlmmj/mlmmj-coredump.msg)
 
