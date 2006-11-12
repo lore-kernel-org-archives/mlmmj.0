@@ -1,7 +1,7 @@
 From: Andrea Barisani <lcars@gentoo.org>
-Date: Sun, 12 Nov 2006 15:14:18 +0000
+Date: Sun, 12 Nov 2006 15:19:58 +0000
 Subject: Re: mlmmj-process dies with "free(): invalid next size"
-Message-Id: <20061112151418.GG28840@fuse.inversepath.com>
+Message-Id: <20061112151958.GH28840@fuse.inversepath.com>
 List-Id: <mlmmj.mlmmj.org>
 References: <3629.130.83.236.83.1163172510.squirrel@130.83.185.210>
 In-Reply-To: <3629.130.83.236.83.1163172510.squirrel@130.83.185.210>
@@ -25,18 +25,14 @@ On Sun, Nov 12, 2006 at 12:26:08PM +0100, Mads Martin Joergensen wrote:
 > There was this patch from Morten:
 > 
 > http://mlmmj.mmj.dk/~mortenp/patch-mlmmj-1.2.12_RC4-gethdrline.diff
->
-
-Applied, let's see what happens. Also today I found to mlmmj-process at 100%
-CPU battling with each other. I'll try to debug it if it happens again.
-
-Cheers
-
+> 
 > -- 
 > Mads Martin Joergensen, http://mmj.dk
 > "Why make things difficult, when it is possible to make them cryptic
 >  and totally illogical, with just a little bit more effort?"
 >                                  -- A. P. J.
+
+Ok I can confirm that with the patch we are still getting the error.
 
 -- 
 Andrea Barisani <lcars@gentoo.org>                            .*.
