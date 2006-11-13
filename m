@@ -1,37 +1,69 @@
-From: Mads Martin Joergensen <mmj@mmj.dk>
-Date: Mon, 06 Nov 2006 20:58:36 +0000
-Subject: Re: why isn't it sending?..
-Message-Id: <20061106205836.GR46106@mmj.dk>
+From: Morten K. Poulsen <morten@afdelingp.dk>
+Date: Mon, 13 Nov 2006 22:31:50 +0000
+Subject: mlmmj-1.2.12 released
+Message-Id: <4da75b692623c7712991b5643f389690@mail.n0rd.dk>
 List-Id: <mlmmj.mlmmj.org>
-References: <454F97D7.9070200@poklib.org>
-In-Reply-To: <454F97D7.9070200@poklib.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-* B. Cook <bcook@poklib.org> [Nov 06. 2006 21:15]:
-> 
->   PID USERNAME       THR PRI NICE   SIZE    RES STATE  C   TIME   WCPU 
-> COMMAND
->  5399 mailnull         1 115    0  1308K   788K CPU1   1   4:29 99.02% 
-> mlmmj-send
-> 
-> 
-> mailnull  5399 98.4  0.2  1308   788  ??  R     3:08PM   5:33.10 
-> /usr/local/bin/mlmmj-send -L /var/spool/mlmmj/listname -m 
-> /var/spool/mlmmj/newswire/moderation/5cf0db9911c1178c.sending
-> 
-> There are like 5k users in this testing set..
-> 
-> whats going on?
-> 
-> it's like 'hung' at the b's ..
 
-Can you try with 1.2.12-RC4?
+Hi list,
+
+mlmmj-1.2.12 has been released!
+
+
+It can be downloaded from:
+
+88e43c13a656c586d1f9149bd35ecce8
+http://mlmmj.mmj.dk/files/mlmmj-1.2.12.tar.bz2
+
+1fc93803fb705daa48d3408f50ad8986
+http://mlmmj.mmj.dk/files/mlmmj-1.2.12.tar.gz
+
+
+Two bugs have been fixed since mlmmj-1.2.12-RC4. One of the bugs
+involved memory corruption, and could be exploitable in combination
+with some malloc implementations. Please upgrade.
+
+
+This is the complete ChangeLog since mlmmj-1.2.11:
+
+1.2.12
+ o Fixed memory corruption in cleanquotedp()
+ o Fixed bug in gethdrline() introduced in 1.2.12-RC3
+1.2.12-RC4
+ o Fixed memory leak in checkwait_smtpreply()
+ o Changed mlmmj-process to look at environment variable DEFAULT instead
+   of EXT for qmail (Fabio Busatto)
+ o Added Frensh listtext unsub-confirm-digest (Christophe Gallienne)
+1.2.12-RC3
+ o Fixed EOF handling in checkwait_smtpreply()
+ o Fixed header unfolding in gethdrline()
+1.2.12-RC2
+ o Changed German listtexts (Stefan Reinauer, Christian Lackas)
+ o Changed English listtexts (Stefan Reinauer)
+ o Changed chomp() to also remove CR from CRLF sequences
+1.2.12-RC1
+ o Update web interface with new tunables
+ o Add support for qmail (envelope from address in environment variable)
+ o Add digest text part
+ o Add subscriber moderation
+ o Fix default subject in administrative mails
+ o Add French listtexts (Christophe Gallienne)
+ o Add search and pagination functionality to the perl-admin web interface
+ o Only add To: header when sending out actual list mail
+ o Close stdin, stdout and stderr in the child of mlmmj-receive after
+   forking. This is neccesary on FreeBSD.
+ o No need to check for subscribers in 0-sized files
+ o Make sure chomp works with empty strings (Frank Denis)
+
+
+Enjoy!
+ Morten
 
 -- 
-Mads Martin Joergensen, http://mmj.dk
-"Why make things difficult, when it is possible to make them cryptic
- and totally illogical, with just a little bit more effort?"
-                                 -- A. P. J.
+Morten K. Poulsen <morten@afdelingp.dk>
+http://www.afdelingp.dk/
+
