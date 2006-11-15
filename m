@@ -1,35 +1,34 @@
-From: Mads Martin Joergensen <mmj@mmj.dk>
-Date: Wed, 15 Nov 2006 15:35:32 +0000
+From: Morten K. Poulsen <morten@afdelingp.dk>
+Date: Wed, 15 Nov 2006 19:36:43 +0000
 Subject: Re: openSUSE lists migrated
-Message-Id: <20061115153532.GQ885@mmj.dk>
+Message-Id: <76576508a89e9a2c28cae73b71892faf@mail.n0rd.dk>
 List-Id: <mlmmj.mlmmj.org>
 References: <20061115132552.GC26298@suse.de>
 In-Reply-To: <20061115132552.GC26298@suse.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-* Henne Vogelsang <hvogel@opensuse.org> [Nov 15. 2006 14:26]:
-> ~14000 unique subscribers resulting in ~110k msg/month[2]
->=20
-> Everything mlm related did go very smooth. Thanks for this great piece
-> of software :)=20
 
-You're most welcome, glad you like it!
+Hi Henne,
 
-> Henne
->=20
-> [1] hacked together by Mr. J=F8rgensen and others 8)
-> [2] if i can trust mmj's mrtg setup ;)
+Henne Vogelsang <hvogel@opensuse.org> wrote:
+> just to let you guys know. Last friday i migrated nearly all lists from
+> an ezmlm/qmail setup on lists.suse.com [1] to an mlmmj/postfix system on
+> lists.opensuse.org.
+[snip]
+> Everything mlm related did go very smooth.
 
-That wasn't mine actually, that was Dr. Mahmoods. You might need to
-change it to Postfix?
+Nice :-)
 
-Chris?
+> Thanks for this great piece of software :)
 
---=20
-Mads Martin Joergensen, http://mmj.dk
-"Why make things difficult, when it is possible to make them cryptic
- and totally illogical, with just a little bit more effort?"
-                                 -- A. P. J.
+Thanks for testing and patches :-)
+
+Morten
+
+-- 
+Morten K. Poulsen <morten@afdelingp.dk>
+http://www.afdelingp.dk/
+
