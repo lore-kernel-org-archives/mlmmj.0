@@ -1,27 +1,28 @@
-From: "Morten K. Poulsen" <morten@afdelingp.dk>
-Date: Sun, 10 Dec 2006 14:48:12 +0000
-Subject: RE: translation of sub-deny-digest
-Message-Id: <XFMail.20061210154812.morten@afdelingp.dk>
+From: Raymond den Ouden <raymond@den-ouden.info>
+Date: Thu, 07 Dec 2006 11:39:51 +0000
+Subject: String full names with subscribers addresses
+Message-Id: <4577FD87.2040306@den-ouden.info>
 List-Id: <mlmmj.mlmmj.org>
-References: <XFMail.20061210152336.morten@afdelingp.dk>
-In-Reply-To: <XFMail.20061210152336.morten@afdelingp.dk>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-On 10-Dec-2006 Morten K. Poulsen wrote:
-> So, if you're maintaining a translation, please have a look at this file:
-> 
-> http://mlmmj.mmj.dk/~mortenp/sub-deny-digest
+Maybe this is a newbie question but I couldn't find anything on this
+subject.
 
-Oh, and:
+Since I use mlmmj for maintaining lists for a sports club only e-mail
+addresses isn't very useful for me.
 
-http://mlmmj.mmj.dk/~mortenp/sub-deny-nomail
+People can't subscribe since they are closed lists and people don't even
+know how to unsubscribe sinse I removed all the help messages, due to
+the fact they don't need to see it. And besides that I can't rely on
+them to unsubscribe. For example if someone leaves the board they
+shoulnd't recieve mails directed to the board.
 
+Now I have to maintain 2 lists, 1 with the names and addresses and the
+list itself.
 
-Morten
-
--- 
-Morten K. Poulsen <morten@afdelingp.dk>
-http://www.afdelingp.dk/
+Is there a way to store the names with the addresses within the list?
+If not are there plans to  do so or is it something that doesn't fit in
+the design or ideas of the developers?
