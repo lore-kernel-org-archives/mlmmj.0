@@ -1,7 +1,7 @@
-From: Morten K. Poulsen <morten@afdelingp.dk>
-Date: Thu, 07 Dec 2006 11:17:55 +0000
+From: Raymond den Ouden <raymond@den-ouden.info>
+Date: Thu, 07 Dec 2006 11:28:05 +0000
 Subject: Re: translation of default list FAQ
-Message-Id: <c0e41cffb17df243b5c8b40a18b7a7eb@mail.n0rd.dk>
+Message-Id: <4577FAC5.8020302@den-ouden.info>
 List-Id: <mlmmj.mlmmj.org>
 References: <33f3aaaa8b4347267f8c0c1b1e3d37dd@mail.n0rd.dk>
 In-Reply-To: <33f3aaaa8b4347267f8c0c1b1e3d37dd@mail.n0rd.dk>
@@ -10,26 +10,30 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
+Ok,
 
-Hi Raymond,
+I will finish translating the files,
+Don't expect them today, I think I can manage to finish them tomorrow.
 
-Raymond den Ouden <raymond@den-ouden.info> wrote:
-> Do you already have dutch translations, at least I
-> could not find them?
+Raymond
 
-No, nobody has translated the files yet.
-
-> If not I'm a native dutch speaker and have started
-> to translate all the files. If you like I'm willing
-> to maintain them.
-
-That would be very nice. If you mail me (preferably, a
-link to) your translation, I'll include it in the next
-release. Remember to translate listfaq ;-)
-
-Morten
-
--- 
-Morten K. Poulsen <morten@afdelingp.dk>
-http://www.afdelingp.dk/
+Morten K. Poulsen wrote:
+> Hi Raymond,
+> 
+> Raymond den Ouden <raymond@den-ouden.info> wrote:
+>> Do you already have dutch translations, at least I
+>> could not find them?
+> 
+> No, nobody has translated the files yet.
+> 
+>> If not I'm a native dutch speaker and have started
+>> to translate all the files. If you like I'm willing
+>> to maintain them.
+> 
+> That would be very nice. If you mail me (preferably, a
+> link to) your translation, I'll include it in the next
+> release. Remember to translate listfaq ;-)
+> 
+> Morten
+> 
 
