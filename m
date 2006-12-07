@@ -1,7 +1,7 @@
 From: Morten K. Poulsen <morten@afdelingp.dk>
-Date: Thu, 07 Dec 2006 09:52:53 +0000
+Date: Thu, 07 Dec 2006 11:17:55 +0000
 Subject: Re: translation of default list FAQ
-Message-Id: <d79a1ad3474c0381f9120d0b2ce14219@mail.n0rd.dk>
+Message-Id: <c0e41cffb17df243b5c8b40a18b7a7eb@mail.n0rd.dk>
 List-Id: <mlmmj.mlmmj.org>
 References: <33f3aaaa8b4347267f8c0c1b1e3d37dd@mail.n0rd.dk>
 In-Reply-To: <33f3aaaa8b4347267f8c0c1b1e3d37dd@mail.n0rd.dk>
@@ -11,16 +11,21 @@ Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
 
-Hi Marcelo,
+Hi Raymond,
 
-Marcelo <marcelo.magallon@gmail.com> wrote:
-> On 12/6/06, Morten K. Poulsen <morten@afdelingp.dk> wrote:
->> If you're maintaining a translation, please translate the default FAQ
-> ("there is no FAQ") and mail it back :-)
-> 
-> Here it is in Spanish (UTF-8).
+Raymond den Ouden <raymond@den-ouden.info> wrote:
+> Do you already have dutch translations, at least I
+> could not find them?
 
-Committed. Gracias.
+No, nobody has translated the files yet.
+
+> If not I'm a native dutch speaker and have started
+> to translate all the files. If you like I'm willing
+> to maintain them.
+
+That would be very nice. If you mail me (preferably, a
+link to) your translation, I'll include it in the next
+release. Remember to translate listfaq ;-)
 
 Morten
 
