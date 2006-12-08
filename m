@@ -1,7 +1,7 @@
-From: Mads Martin Joergensen <mmj@mmj.dk>
-Date: Thu, 07 Dec 2006 12:40:38 +0000
+From: Thomas Goirand <thomas@goirand.fr>
+Date: Fri, 08 Dec 2006 06:53:47 +0000
 Subject: Re: Website for mlmmj
-Message-Id: <20061207124038.GE28318@mmj.dk>
+Message-Id: <45790BFB.7080609@goirand.fr>
 List-Id: <mlmmj.mlmmj.org>
 References: <20061207113941.GC28318@mmj.dk>
 In-Reply-To: <20061207113941.GC28318@mmj.dk>
@@ -10,27 +10,47 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-* Kurt Lieber <klieber@gentoo.org> [Dec 07. 2006 13:36]:
-> > Quite some time ago people volunteered to do something about the mlmmj
-> > website, now we have mlmmj.org domain.
-> > 
-> > Nothing have happened (that I know of) however, so I was wondering what
-> > the status is?
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+Mads Martin Joergensen wrote:
 > 
-> If hosting is an issue, I can talk to some folks at the Open Source
-> Lab at Oregon State University (http://www.osuosl.org/)  They provide
-> a ton of free hosting for the likes of Debian, phpBB, apache,
-> openoffice, etc. (and, of course, gentoo :)
+> That sounds cool, but I think hosting is they one area where we're well
+> covered. A major ISP here in Denmark have bought the mlmmj.org domain
+> for us an will hosts is together with the list etc.
 
-That sounds cool, but I think hosting is they one area where we're well
-covered. A major ISP here in Denmark have bought the mlmmj.org domain
-for us an will hosts is together with the list etc.
+That sounds good, but germany is quite badly connected to Asia. If you
+need it, I can provide a ftp mirror (or even a full web mirror as well)
+for MLMMJ in Singapore. I'd just like to have a small link back to us if
+possible (but I would do it even without the link).
 
-Problem is to have someone make a simple, good navigatable, works in all
-browsers website.
+For the website, I'm sorry to say that I wouldn't have time to do it.
+But my company can pay for a small template for the graphics. It could
+be bought in sites like templatemonster.com or others.
 
--- 
-Mads Martin Joergensen, http://mmj.dk
-"Why make things difficult, when it is possible to make them cryptic
- and totally illogical, with just a little bit more effort?"
-                                 -- A. P. J.
+http://www.templatemonster.com/category.php?type=1&tid=+-+Any+-&search_words=+-+Any+-&from_=&to=&cat#&style=0&author=0&x'&y=5
+
+Just pickup one of them, and I put the company credit card to buy it.
+
+I personally like the #9317 template with the funny toaster...
+
+For the content itself, I think static HTML is best, I don't like silly
+CMS like joomla, drupal and so on, that are slow (and CPU eaters), and
+have many security flows.
+
+Best regards,
+
+    Thomas Goirand, GPLHost CEO
+- --
+Phone: +1-302-213-1611
+Web: http://www.gplhost.com
+GPLHost:>_ Open source hosing worldwide
+Web spaces featuring GPL control panel and Xen VPS
+Locations in Singapore, Sydney, Los Angeles, Florida, Paris and Israel
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.1 (GNU/Linux)
+Comment: Using GnuPG with Mozilla - http://enigmail.mozdev.org
+
+iD8DBQFFeQv5l4M9yZjvmkkRAtNAAJ4mn4IOZIk+Q9oZd6pkSZj428PLGgCgjwrw
+nh8dzMr0ZFF2vGij+MU97aQfg
+-----END PGP SIGNATURE-----
