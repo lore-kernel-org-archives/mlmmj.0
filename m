@@ -1,7 +1,7 @@
-From: Raymond den Ouden <raymond@den-ouden.info>
-Date: Sun, 10 Dec 2006 22:59:08 +0000
+From: "Morten K. Poulsen" <morten@afdelingp.dk>
+Date: Sun, 10 Dec 2006 23:05:37 +0000
 Subject: Re: mlmmj-1.2.13-RC1 released
-Message-Id: <457C913C.5040801@den-ouden.info>
+Message-Id: <XFMail.20061211000537.morten@afdelingp.dk>
 List-Id: <mlmmj.mlmmj.org>
 References: <XFMail.20061210171838.morten@afdelingp.dk>
 In-Reply-To: <XFMail.20061210171838.morten@afdelingp.dk>
@@ -10,35 +10,17 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Well,
+Hi Raymond,
 
-there are a few parts which I'm going to look over again.
-I tended to keep as close to the original texts as possible and frankly 
-said  I'm not happy with all the translations I made.
-So probably you'll get an update in a few days.
+On 10-Dec-2006 Raymond den Ouden wrote:
+> there are a few parts which I'm going to look over again.
+[snip]
+> So probably you'll get an update in a few days.
 
-Raymond
+Ok, just send it and I'll commit it to CVS.
 
-Morten K. Poulsen wrote:
 
->Hi Raymond,
->
->On 10-Dec-2006 Raymond den Ouden wrote:
->  
->
->>Ah, I have an addition for the next release.
->>
->>Here are the dutch translations
->>    
->>
->
->Thanks. I've committed your translation now.
->
->So, mlmmj has just become a mailinglijstbeheerder :-)
->
->
->Morten
->
->  
->
+Morten
 
+-- 
+Morten K. Poulsen <morten@afdelingp.dk>
