@@ -1,28 +1,24 @@
-From: Morten K. Poulsen <morten@afdelingp.dk>
-Date: Thu, 07 Dec 2006 11:35:59 +0000
-Subject: Re: translation of default list FAQ
-Message-Id: <c1774c93e6f34940e51cc3109d0bfa4d@mail.n0rd.dk>
+From: "Morten K. Poulsen" <morten@afdelingp.dk>
+Date: Sun, 10 Dec 2006 14:23:36 +0000
+Subject: translation of sub-deny-digest
+Message-Id: <XFMail.20061210152336.morten@afdelingp.dk>
 List-Id: <mlmmj.mlmmj.org>
-References: <33f3aaaa8b4347267f8c0c1b1e3d37dd@mail.n0rd.dk>
-In-Reply-To: <33f3aaaa8b4347267f8c0c1b1e3d37dd@mail.n0rd.dk>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
+Hi list
 
-Hi Raymond,
+I've just committed Henne Vogelsang's nodigestsub patch.
 
-Raymond den Ouden <raymond@den-ouden.info> wrote:
-> I will finish translating the files,
-> Don't expect them today, I think I can manage to
-> finish them tomorrow.
+So, if you're maintaining a translation, please have a look at this file:
 
-Fine, fine. I'm not known for being that fast myself... heh.
+http://mlmmj.mmj.dk/~mortenp/sub-deny-digest
+
 
 Morten
 
 -- 
 Morten K. Poulsen <morten@afdelingp.dk>
 http://www.afdelingp.dk/
-
