@@ -1,7 +1,7 @@
-From: "Morten K. Poulsen" <morten@afdelingp.dk>
-Date: Sun, 10 Dec 2006 23:05:37 +0000
+From: Morten K. Poulsen <morten@afdelingp.dk>
+Date: Sun, 24 Dec 2006 13:11:32 +0000
 Subject: Re: mlmmj-1.2.13-RC1 released
-Message-Id: <XFMail.20061211000537.morten@afdelingp.dk>
+Message-Id: <0f34b66a3cb940bc4928b4978e838a61@mail.n0rd.dk>
 List-Id: <mlmmj.mlmmj.org>
 References: <XFMail.20061210171838.morten@afdelingp.dk>
 In-Reply-To: <XFMail.20061210171838.morten@afdelingp.dk>
@@ -10,17 +10,17 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Hi Raymond,
 
-On 10-Dec-2006 Raymond den Ouden wrote:
-> there are a few parts which I'm going to look over again.
-[snip]
-> So probably you'll get an update in a few days.
+Hi list,
 
-Ok, just send it and I'll commit it to CVS.
+"Morten K. Poulsen" <morten@afdelingp.dk> wrote:
+> mlmmj-1.2.13-RC1 is available for download
 
+Has anybody tested it?
 
 Morten
 
 -- 
 Morten K. Poulsen <morten@afdelingp.dk>
+http://www.afdelingp.dk/
+
