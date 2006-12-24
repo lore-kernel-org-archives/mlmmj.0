@@ -1,7 +1,7 @@
-From: Christian Laursen <xi@borderworlds.dk>
-Date: Sun, 24 Dec 2006 13:19:25 +0000
+From: "Christoph Wilke" <chris@filmkreis.tu-darmstadt.de>
+Date: Sun, 24 Dec 2006 16:45:40 +0000
 Subject: Re: mlmmj-1.2.13-RC1 released
-Message-Id: <ygfac1dmnxe.fsf@dominion.borderworlds.dk>
+Message-Id: <32879.130.83.185.211.1166978740.squirrel@130.83.185.211>
 List-Id: <mlmmj.mlmmj.org>
 References: <XFMail.20061210171838.morten@afdelingp.dk>
 In-Reply-To: <XFMail.20061210171838.morten@afdelingp.dk>
@@ -10,14 +10,17 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Morten K. Poulsen <morten@afdelingp.dk> writes:
-
+On Sun, December 24, 2006 14:11, Morten K. Poulsen wrote:
+>
+> Hi list,
+>
 > "Morten K. Poulsen" <morten@afdelingp.dk> wrote:
 >> mlmmj-1.2.13-RC1 is available for download
 >
 > Has anybody tested it?
 
-I am running it without problems on a few postfix/FreeBSD boxes.
+Running it for over one weeks without problems on
+linux+postfix.
 
--- 
-Christian Laursen
+>
+> Morten
