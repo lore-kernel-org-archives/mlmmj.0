@@ -1,7 +1,7 @@
 From: Jesper Lund <jesper@ballbreaker.dk>
-Date: Wed, 10 Jan 2007 20:09:23 +0000
+Date: Wed, 10 Jan 2007 20:24:46 +0000
 Subject: Re: Round robin relayhost
-Message-Id: <20070110210923.333417aa.jesper@ballbreaker.dk>
+Message-Id: <20070110212446.30af0b98.jesper@ballbreaker.dk>
 List-Id: <mlmmj.mlmmj.org>
 References: <20070110195425.e60da9a4.jesper@ballbreaker.dk>
 In-Reply-To: <20070110195425.e60da9a4.jesper@ballbreaker.dk>
