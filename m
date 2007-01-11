@@ -1,7 +1,7 @@
-From: Jesper Lund <jesper@ballbreaker.dk>
-Date: Wed, 10 Jan 2007 20:54:34 +0000
+From: Mads Martin Joergensen <mmj@mmj.dk>
+Date: Thu, 11 Jan 2007 07:16:51 +0000
 Subject: Re: Round robin relayhost
-Message-Id: <20070110215434.5b92e1e4.jesper@ballbreaker.dk>
+Message-Id: <20070111071651.GC82161@mmj.dk>
 List-Id: <mlmmj.mlmmj.org>
 References: <20070110195425.e60da9a4.jesper@ballbreaker.dk>
 In-Reply-To: <20070110195425.e60da9a4.jesper@ballbreaker.dk>
@@ -10,37 +10,20 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
->  > Been there, done that. But when I do that, it seems that mlmmj
->  > uses
-> > the same relayhost to deliver all messages pr. posting, via the
-> > same relayhost. I believe that from posting to posting, it will
-> > use different relayhosts. 
+* Jesper Lund <jesper@ballbreaker.dk> [Jan 10. 2007 21:54]:
+> Maybe I could do some voodoo with a local postfix, to make it do the
+> round robin for mlmmj, which just relay to "localhost".
 > 
-> If the host ttl is low enough, this may be right. I guess that it
-> will use the "first" reply from dns as long as its valid. Then it
-> *may* switch...
+> What would you do, if your smtp server was "too slow" to relay the
+> mails fast enough ?
 
-The server which handles the mailinglist and runs mlmmj, i actually
-using the DNS, which i authoritative for the host I am using as
-relayhost. Posting by posting, it uses a different relayhost.
+Even with 25k mails, one single Postfix with VERP should do the job
+quickly. But if you cannot use VERP ...
 
-> > My goal is to share the load between relayhosts, as I might have
-> > about 25k subscribers. With a single relayhost it will take a long
-> > time to deliver mail to all subscribers.
-> 
-> Okay, but, maybe the better way to do this is with ipvs (linux
-> virtual server) or a tool like balance which enables you to share
-> the load between multiple servers.
-> Its imho better because its more robust and the job of tools like
-> balance is to balance the traffic, while mlmmjs job is beeing a
-> mailing list manager ;)
+How long does it take to deliver them with the current setup?
 
-Hmm..... I get your point :) The servers are all runnning FreeBSD.
-
-Maybe I could do some voodoo with a local postfix, to make it do the
-round robin for mlmmj, which just relay to "localhost".
-
-What would you do, if your smtp server was "too slow" to relay the
-mails fast enough ?
-
-Regards, Jesper
+-- 
+Mads Martin Joergensen, http://mmj.dk
+"Why make things difficult, when it is possible to make them cryptic
+ and totally illogical, with just a little bit more effort?"
+                                 -- A. P. J.
