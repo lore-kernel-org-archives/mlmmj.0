@@ -1,33 +1,29 @@
-From: Morten K. Poulsen <morten@afdelingp.dk>
-Date: Mon, 01 Jan 2007 20:27:35 +0000
-Subject: Re: mlmmj-1.2.13 released
-Message-Id: <be89b2637ad4c8e59e4a68f0884f2fce@mail.n0rd.dk>
+From: Christian Laursen <xi@borderworlds.dk>
+Date: Wed, 17 Jan 2007 15:31:41 +0000
+Subject: Recipient substitution in mail body
+Message-Id: <ygfzm8hpt42.fsf@dominion.borderworlds.dk>
 List-Id: <mlmmj.mlmmj.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
+We have a need for some lists to contain an unsubscribe link inside
+the mails sent to the list. This link is required to include the
+actual recipient address.
 
-Hi Andrea,
+I have implemented a tunable called "substrecipient" that will enable
+substitution of the string "$recipient$" inside the mail body with the
+actual recipient address in URL encoded form.
 
-Andrea Barisani <lcars@gentoo.org> wrote:
-> On Mon, Dec 25, 2006 at 12:36:43PM +0100, Morten K. Poulsen wrote:
-[snip]
->>  o Added support for default list text directory (Henne Vogelsang)
-> 
-> Archives of ml are outdated and I cannot find any documentation about
-> default list text feature, care to fwd me the relevant email and/or
-> instruction for it? By quickly looking at the digest code I can see that
-> it's still looking in listdir + /text though.
+This is the diff:
+http://borderworlds.dk/~xi/substrecipient.diff
 
-The change is in prepstdreply(). It will look in @textlibdir@ (which is /usr/local/share/mlmmj/text.skel by default) if a text file is not found in listdir/text/.
+Of course VERP will not be possible with this functionality enabled.
 
-I will fix the digest code, so it also uses the default, if no file is found.
+It still needs a little polishing before I go ahead and commit it.
 
-Morten
+Any comments are welcome.
 
 -- 
-Morten K. Poulsen <morten@afdelingp.dk>
-http://www.afdelingp.dk/
-
+Christian Laursen
