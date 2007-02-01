@@ -1,7 +1,7 @@
-From: Christian Laursen <xi@borderworlds.dk>
-Date: Thu, 01 Feb 2007 15:08:49 +0000
+From: Morten K. Poulsen <morten@afdelingp.dk>
+Date: Thu, 01 Feb 2007 22:18:43 +0000
 Subject: Re: Patch to ignore empty lines in files under /control/
-Message-Id: <ygffy9p530e.fsf@dominion.borderworlds.dk>
+Message-Id: <064b445d941c5ab98dffeefd8f12380c@mail.n0rd.dk>
 List-Id: <mlmmj.mlmmj.org>
 References: <ygfk5z23oyq.fsf@dominion.borderworlds.dk>
 In-Reply-To: <ygfk5z23oyq.fsf@dominion.borderworlds.dk>
@@ -10,16 +10,25 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Sven 'Darkman' Michels <sven@darkman.de> writes:
 
-> Christian Laursen wrote:
->> Unless there are any protests I will probably commit this change
->> sometime tomorrow.
->
-> What about the footer file? ;)
+Christian Laursen <xi@borderworlds.dk> wrote:
+> Sven 'Darkman' Michels <sven@darkman.de> writes:
+>> Christian Laursen wrote:
+>>> Unless there are any protests I will probably commit this
+>>> change sometime tomorrow.
+>>
+>> What about the footer file? ;)
+> 
+> As far as I can tell the footer file isn't read by ctrlvalues()
+> so it should remain unaffected.
 
-As far as I can tell the footer file isn't read by ctrlvalues() so it
-should remain unaffected.
+True. The footer is added with a call to dumpfd2fd().
+
+I think the patch is fine. You might want to add a comment like /* ignore empty lines */ or something :)
+
+Morten
 
 -- 
-Christian Laursen
+Morten K. Poulsen <morten@afdelingp.dk>
+http://www.afdelingp.dk/
+
