@@ -1,21 +1,31 @@
-From: Jakob Hirsch <jh@plonk.de>
-Date: Mon, 26 Feb 2007 12:53:56 +0000
-Subject: Re: [PATCH] mimestrip / mimereject
-Message-Id: <45E2D864.7010301@plonk.de>
+From: Morten K. Poulsen <morten@afdelingp.dk>
+Date: Thu, 01 Feb 2007 22:20:55 +0000
+Subject: Re: mlmmj maxmailsize patch
+Message-Id: <c90f7c215532dd482e3a51485f0d3742@mail.n0rd.dk>
 List-Id: <mlmmj.mlmmj.org>
-References: <200702261335.13954.ssommer@suse.de>
-In-Reply-To: <200702261335.13954.ssommer@suse.de>
+References: <6171a10dca36fac0233ac365eec3e560@mail.n0rd.dk>
+In-Reply-To: <6171a10dca36fac0233ac365eec3e560@mail.n0rd.dk>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Hi,
 
-> this is a first attempt to implement stripping and rejecting of multipart/mime 
-> messages for mlmmj.
+"Christoph Wilke" <chris@filmkreis.tu-darmstadt.de> wrote:
+> On Tue, January 23, 2007 12:06, Christoph Wilke wrote:
+>> Hopefully I can fix this this afternoon, and send a new
+>> patch tomorrow.
+> 
+> Sorry, I helped my girlfriend to TeX some work..
 
-Oh. Last time I made a patch that improved the MIME handling (for list
-footers in that case), I was told this stuff does not belong into the
-list software.
+Priorities! ;)
+
+No hurry. I don't plan on a 1.2.14 any time soon.
+
+
+Morten
+
+-- 
+Morten K. Poulsen <morten@afdelingp.dk>
+http://www.afdelingp.dk/
 
