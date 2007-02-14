@@ -1,7 +1,7 @@
-From: Sven 'Darkman' Michels <sven@darkman.de>
-Date: Wed, 14 Feb 2007 15:15:54 +0000
+From: Morten K. Poulsen <morten@afdelingp.dk>
+Date: Wed, 14 Feb 2007 22:23:47 +0000
 Subject: Re: mlmmj maxmailsize patch
-Message-Id: <45D327AA.5030305@darkman.de>
+Message-Id: <8714694497d2f275e9309f0db2bdaf3b@mail.n0rd.dk>
 List-Id: <mlmmj.mlmmj.org>
 References: <6171a10dca36fac0233ac365eec3e560@mail.n0rd.dk>
 In-Reply-To: <6171a10dca36fac0233ac365eec3e560@mail.n0rd.dk>
@@ -10,40 +10,27 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
------BEGIN PGP SIGNED MESSAGE-----
-Hash: SHA1
 
-Hi me, again ;-)
+Sven 'Darkman' Michels <sven@darkman.de> wrote:
+> I still get nothing in the logs, but that may some other problem...
+[snip]
+> Please, someone with more mlmmj knowhow or even more c code knowhow,
+> take a look if thats okay.
 
-Sven 'Darkman' Michels wrote:
-> 
-> Any ideas?
++           if((st.st_size > maxmailsize)) {
++#if 0
++               log_error(LOG_ARGS, "%s is %d bytes too big.\n",
++                       donemailname,
++                       (st.st_size - maxmailsize));
++#endif
 
-I got another timeslot to get this sorted. It seems now to work and
-i fixed the parse of $maxmailsize$, too. So if anyone is interested,
-here is a cleaned patch:
-http://www.darkman.de/~sven/mlmmj-1.2.13-maxmailsize-darkman.patch
+The missing log entry might be because of the "#if 0" ;-)
 
-I still get nothing in the logs, but that may some other problem...
+Otherwise, it looks ok. I will review it in depth and commit it "soon."
 
-What i changed:
+Morten
 
-- - char *maildata[4] = { "posteraddr", NULL, "maildata", NULL };
-+ char *maildata[4] = { "posteraddr", NULL, "maxmailsize", NULL };
+-- 
+Morten K. Poulsen <morten@afdelingp.dk>
+http://www.afdelingp.dk/
 
-and removed two free's:
-myfree(donemailname);
-myfree(mailfile);
-after the unlink and moved the free of maxmailsizestr befor the unlink.
-
-Please, someone with more mlmmj knowhow or even more c code knowhow,
-take a look if thats okay.
-
-Thanks and regards,
-Sven
------BEGIN PGP SIGNATURE-----
-Version: GnuPG v1.2.2 (GNU/Linux)
-
-iD8DBQFF0yepQoCguWUBzBwRAh+sAKCYaMdB2ZLZDvhZXQZ/Z91iZOiPWwCgkiLz
-wS9z2IxRd9jK6iha9/pAh5wJK
------END PGP SIGNATURE-----
