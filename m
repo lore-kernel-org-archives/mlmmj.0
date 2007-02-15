@@ -1,44 +1,60 @@
-From: Sven 'Darkman' Michels <sven@darkman.de>
-Date: Wed, 14 Feb 2007 23:09:20 +0000
+From: "Christoph Wilke" <chris@filmkreis.tu-darmstadt.de>
+Date: Thu, 15 Feb 2007 22:20:36 +0000
 Subject: Re: mlmmj maxmailsize patch
-Message-Id: <45D396A0.6020005@darkman.de>
+Message-Id: <1538.130.83.185.211.1171578036.squirrel@130.83.185.211>
 List-Id: <mlmmj.mlmmj.org>
 References: <6171a10dca36fac0233ac365eec3e560@mail.n0rd.dk>
 In-Reply-To: <6171a10dca36fac0233ac365eec3e560@mail.n0rd.dk>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
------BEGIN PGP SIGNED MESSAGE-----
-Hash: SHA1
+On Wed, February 14, 2007 16:15, Sven 'Darkman' Michels wrote:
+> -----BEGIN PGP SIGNED MESSAGE-----
+> Hash: SHA1
+>
+> Hi me, again ;-)
 
-Hej,
+Hej.
 
-Morten K. Poulsen wrote:
-> +           if((st.st_size > maxmailsize)) {
-> +#if 0
-> +               log_error(LOG_ARGS, "%s is %d bytes too big.\n",
-> +                       donemailname,
-> +                       (st.st_size - maxmailsize));
-> +#endif
->=20
-> The missing log entry might be because of the "#if 0" ;-)
+>
+> Sven 'Darkman' Michels wrote:
+>>
+>> Any ideas?
+>
+> I got another timeslot to get this sorted. It seems now to work and
+> i fixed the parse of $maxmailsize$, too. So if anyone is interested,
+> here is a cleaned patch:
+> http://www.darkman.de/~sven/mlmmj-1.2.13-maxmailsize-darkman.patch
+>
+> I still get nothing in the logs, but that may some other problem...
+>
+> What i changed:
+>
+> - - char *maildata[4] = { "posteraddr", NULL, "maildata", NULL };
+> + char *maildata[4] = { "posteraddr", NULL, "maxmailsize", NULL };
 
-DAMN! ;-) I can't belive i overlooked this for hours... ;)
+*doi*
+Sorry for this inconvenience.
 
-Thanks for the light...
+>
+> and removed two free's:
+> myfree(donemailname);
+> myfree(mailfile);
+> after the unlink and moved the free of maxmailsizestr befor the
+> unlink.
 
+Why do you free maxmailsizestr but mailfile and donemailname
+not?
+Did I miss something?
 
-> Otherwise, it looks ok. I will review it in depth and commit it "soon."
+>
+> Please, someone with more mlmmj knowhow or even more c code knowhow,
+> take a look if thats okay.
+>
+> Thanks and regards,
+> Sven
 
-Thanks again :)
-
-Regards,
-Sven
------BEGIN PGP SIGNATURE-----
-Version: GnuPG v1.2.2 (GNU/Linux)
-
-iD8DBQFF05agQoCguWUBzBwRAnoQAJ4g+V5VpIQPL8zeDxfHcwUDbkOc2QCfWu8V
-A12kjqCNsphwpu4eqYZVPXs=B63I
------END PGP SIGNATURE-----
+Ciao
+Chris
