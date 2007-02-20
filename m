@@ -1,7 +1,7 @@
-From: "Christoph Wilke" <chris@filmkreis.tu-darmstadt.de>
-Date: Sun, 18 Feb 2007 21:38:22 +0000
+From: Morten K. Poulsen <morten@afdelingp.dk>
+Date: Tue, 20 Feb 2007 23:01:15 +0000
 Subject: Re: mlmmj maxmailsize patch
-Message-Id: <1197.130.83.185.211.1171834702.squirrel@130.83.185.211>
+Message-Id: <798fb4667da8019097da0144d4b27f3e@mail.n0rd.dk>
 List-Id: <mlmmj.mlmmj.org>
 References: <6171a10dca36fac0233ac365eec3e560@mail.n0rd.dk>
 In-Reply-To: <6171a10dca36fac0233ac365eec3e560@mail.n0rd.dk>
@@ -10,32 +10,25 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-On Sun, February 18, 2007 13:20, Sven 'Darkman' Michels wrote:
-> Mads Martin Joergensen wrote:
->> * Christoph Wilke <chris@filmkreis.tu-darmstadt.de> [Feb 16. 2007
->> 20:21]:
->>> In my understanding prepstdreply() creates a real file and
->>> return its descriptor. Mlmmjsend() only operates on this
->>> existing fd (queuefilename) and shouldn't care about
->>> donemailname and mailfile.
->>
->> It doesn't return a fd, but a char* with the filename for sending.
->> Just
->> returning the fd, would leave the caller without knowing what the
->> filename is, and in many cases the user of prepstdreply() don't have
->> to
->> open the file again--just pass the filename on to mlmmj-send.
->>
->
-> so i was "right" with removing the two free's?
 
-You were. But I don't have an idea why.
-And if it is correct to have no myfree()s there.
-Maybe someone can clarify this, please?
+Hi,
 
->
-> Regards,
-> Sven
+"Christoph Wilke" <chris@filmkreis.tu-darmstadt.de> wrote:
+> On Sun, February 18, 2007 13:20, Sven 'Darkman' Michels wrote:
+>> so i was "right" with removing the two free's?
+> 
+> You were. But I don't have an idea why.
+> And if it is correct to have no myfree()s there.
+> Maybe someone can clarify this, please?
 
-Ciao
-Chris
+The myfree()s should be there. And having them there should not
+cause any kind of problems. If it does, could you try to debug
+it? We might have some other memory bug, which is triggered by
+the myfree()s.
+
+Morten
+
+-- 
+Morten K. Poulsen <morten@afdelingp.dk>
+http://www.afdelingp.dk/
+
