@@ -1,31 +1,32 @@
-From: Morten K. Poulsen <morten@afdelingp.dk>
-Date: Wed, 28 Mar 2007 16:26:42 +0000
-Subject: Re: mlmmj-1.2.14-RC1 released
-Message-Id: <9d554a0117afeb2089cdc667b9a935c4@mail.n0rd.dk>
+From: Ulrich Mueller <ulm@kph.uni-mainz.de>
+Date: Wed, 14 Mar 2007 18:50:34 +0000
+Subject: Digest format lacks line break before boundary lines
+Message-Id: <17912.17402.917135.795821@a1ihome1.kph.uni-mainz.de>
 List-Id: <mlmmj.mlmmj.org>
-References: <78d28b92a543192190943f1226818ae3@mail.n0rd.dk>
-In-Reply-To: <78d28b92a543192190943f1226818ae3@mail.n0rd.dk>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
+Hello,
 
-Hi Chris,
+the format of mailing list digests created by mlmmj seems to lack a
+line break before the boundary delimiter lines.
 
-"Christoph Wilke" <chris@filmkreis.tu-darmstadt.de> wrote:
-> On Tue, March 27, 2007 23:34, Morten K. Poulsen wrote:
->> Anybody else?
-> 
-> Runs without any problems so far.
-> 
-> On (debian-sparc) linux and postfix.
+There should be _two_ line breaks preceding the boundary lines,
+however, there is only one. I cite from RFC 2046, section 5.1.1.
+"Common Syntax":
 
-Cool, thanks :)
+# NOTE: The CRLF preceding the boundary delimiter line is conceptually
+# attached to the boundary so that it is possible to have a part that
+# does not end with a CRLF (line break). Body parts that must be
+# considered to end with line breaks, therefore, must have two CRLFs
+# preceding the boundary delimiter line, the first of which is part of
+# the preceding body part, and the second of which is part of the
+# encapsulation boundary.
 
-Morten
+This is a long-standing problem with the Gentoo mailing lists, see
+Gentoo bug #108286 <http://bugs.gentoo.org/show_bug.cgi?id8286>
+for further explanation and for examples.
 
--- 
-Morten K. Poulsen <morten@afdelingp.dk>
-http://www.afdelingp.dk/
-
+Ulrich
