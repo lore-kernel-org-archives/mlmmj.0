@@ -1,7 +1,7 @@
-From: Morten K. Poulsen <morten@afdelingp.dk>
-Date: Tue, 20 Mar 2007 18:17:59 +0000
+From: Mads Martin Joergensen <mmj@mmj.dk>
+Date: Tue, 20 Mar 2007 20:17:56 +0000
 Subject: Re: Address Parsing
-Message-Id: <8bac8e70306d54df620e69e74511bed5@mail.n0rd.dk>
+Message-Id: <20070320201756.GC32481@mmj.dk>
 List-Id: <mlmmj.mlmmj.org>
 References: <20070320140935.GP25058@suse.de>
 In-Reply-To: <20070320140935.GP25058@suse.de>
@@ -10,35 +10,19 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-
-Hi Henne,
-
-Henne Vogelsang <hvogel@opensuse.org> wrote:
-> i had a listmember that sent a mail that included brackets in the
-> address field. Something like that:
+* Morten K. Poulsen <morten@afdelingp.dk> [Mar 20. 2007 19:18]:
+> This patch fixes the issue:
+> http://mlmmj.mmj.dk/~mortenp/patch-mlmmj-1.2.13-find_email_adr.diff
 > 
-> To: mmj@mmj.dk
-> Cc: Heino Vogel <hvogel@hennevogel.de>, opensuse-test@opensuse.org, "Henne
-> (Work)" <hvogel@suse.de>
-> 
-> After some testing we found that the to/cc parsing goes wrong here
-> (maybe because () are illegal?). The 3. and 4. address never reach mlmmj
-> and thus it thinks that the listaddress (opensuse-test@opensuse.org) is
-> not in to or cc.
+> Neale, will you send this fix upstream to wherever-the-code-came-from? :-)
 
-The parsing failed at the quotes. The code looked for end-quote, and if the
-end-quote was after the comma, the comma was ignored. This should (obviously)
-only be done, if the begin-quote was before the comma.
+Morten you can log into panther and look in /usr/src/usr.bin/mail/aux.c
+:-))
 
-This patch fixes the issue:
-http://mlmmj.mmj.dk/~mortenp/patch-mlmmj-1.2.13-find_email_adr.diff
-
-Neale, will you send this fix upstream to wherever-the-code-came-from? :-)
-
-
-Morten
+FreeBSD 6.2 might have this bug as well.
 
 -- 
-Morten K. Poulsen <morten@afdelingp.dk>
-http://www.afdelingp.dk/
-
+Mads Martin Joergensen, http://mmj.dk
+"Why make things difficult, when it is possible to make them cryptic
+ and totally illogical, with just a little bit more effort?"
+                                 -- A. P. J.
