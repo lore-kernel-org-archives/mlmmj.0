@@ -1,7 +1,7 @@
-From: Mads Martin Joergensen <mmj@mmj.dk>
-Date: Tue, 20 Mar 2007 14:30:33 +0000
+From: Morten K. Poulsen <morten@afdelingp.dk>
+Date: Tue, 20 Mar 2007 18:17:59 +0000
 Subject: Re: Address Parsing
-Message-Id: <20070320143033.GB32481@mmj.dk>
+Message-Id: <8bac8e70306d54df620e69e74511bed5@mail.n0rd.dk>
 List-Id: <mlmmj.mlmmj.org>
 References: <20070320140935.GP25058@suse.de>
 In-Reply-To: <20070320140935.GP25058@suse.de>
@@ -10,29 +10,35 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-* Henne Vogelsang <hvogel@opensuse.org> [Mar 20. 2007 15:09]:
-> Hi,
-> 
+
+Hi Henne,
+
+Henne Vogelsang <hvogel@opensuse.org> wrote:
 > i had a listmember that sent a mail that included brackets in the
 > address field. Something like that:
 > 
 > To: mmj@mmj.dk
-> Cc: Heino Vogel <hvogel@hennevogel.de>, opensuse-test@opensuse.org,
-> "Henne (Work)" <hvogel@suse.de>
+> Cc: Heino Vogel <hvogel@hennevogel.de>, opensuse-test@opensuse.org, "Henne
+> (Work)" <hvogel@suse.de>
 > 
 > After some testing we found that the to/cc parsing goes wrong here
 > (maybe because () are illegal?). The 3. and 4. address never reach mlmmj
 > and thus it thinks that the listaddress (opensuse-test@opensuse.org) is
 > not in to or cc.
 
-I just looked through find_email_address.c, and it's the same in
-FreeBSD-6.2, so the error must be ours?
+The parsing failed at the quotes. The code looked for end-quote, and if the
+end-quote was after the comma, the comma was ignored. This should (obviously)
+only be done, if the begin-quote was before the comma.
 
-Neal, it's been a while, am I remembering incorrectly that you added
-this code (which was a HUGE improvement still)?
+This patch fixes the issue:
+http://mlmmj.mmj.dk/~mortenp/patch-mlmmj-1.2.13-find_email_adr.diff
+
+Neale, will you send this fix upstream to wherever-the-code-came-from? :-)
+
+
+Morten
 
 -- 
-Mads Martin Joergensen, http://mmj.dk
-"Why make things difficult, when it is possible to make them cryptic
- and totally illogical, with just a little bit more effort?"
-                                 -- A. P. J.
+Morten K. Poulsen <morten@afdelingp.dk>
+http://www.afdelingp.dk/
+
