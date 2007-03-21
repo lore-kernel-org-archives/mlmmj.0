@@ -1,7 +1,7 @@
-From: Henne Vogelsang <hvogel@opensuse.org>
-Date: Wed, 21 Mar 2007 14:13:50 +0000
+From: Morten K. Poulsen <morten@afdelingp.dk>
+Date: Wed, 21 Mar 2007 18:00:49 +0000
 Subject: Re: Address Parsing
-Message-Id: <20070321141350.GE25058@suse.de>
+Message-Id: <428f24780e3f6f722a403e9860c25bb7@mail.n0rd.dk>
 List-Id: <mlmmj.mlmmj.org>
 References: <20070320140935.GP25058@suse.de>
 In-Reply-To: <20070320140935.GP25058@suse.de>
@@ -10,22 +10,34 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
+
 Hi,
 
-On Tuesday, March 20, 2007 at 19:17:59, Morten K.Poulsen wrote:
-> Henne Vogelsang <hvogel@opensuse.org> wrote:
-> > i had a listmember that sent a mail that included brackets in the
-> > address field.
-> 
-> The parsing failed at the quotes.
->
-> This patch fixes the issue:
-> http://mlmmj.mmj.dk/~mortenp/patch-mlmmj-1.2.13-find_email_adr.diff
+Mads Martin Joergensen <mmj@mmj.dk> wrote:
+> * Neale Pickett <neale@woozle.org> [Mar 20. 2007 21:51]:
+>>> Morten you can log into panther and look in
+>>> /usr/src/usr.bin/mail/aux.c
+[snip]
+>> You guys are awesome, you found a bug with BSD mail?  Way to go!
 
-Verified. Running on lists.opensuse.org. Thanks for fixing :)
+We may be awsome ;-) But the bug I fixed is not in BSD mail. It is
+only in mlmmj. It was added as a part of a fix for mlmmj-1.2.10:
 
-Henne
+ o Fix nasty bug in the new 1.2.9 find_email_adr() making comma in
+   quoted text in From: being discarded as invalid
+
+> ... since you, Morten, have found and fixed a bug in FreeBSD mail
+> as Neale points out, you might want to send it yourself to get
+> proper credit :-)
+
+Well, no FreeBSD credit for me in this round  ;-)
+
+But the bug is out of mlmmj. That's the main issue.
+
+
+Morten
 
 -- 
-Henne Vogelsang, Teamlead Core Services
-http://www.opensuse.org
+Morten K. Poulsen <morten@afdelingp.dk>
+http://www.afdelingp.dk/
+
