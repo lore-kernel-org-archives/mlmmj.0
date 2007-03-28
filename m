@@ -1,7 +1,7 @@
-From: Morten K. Poulsen <morten@afdelingp.dk>
-Date: Tue, 27 Mar 2007 21:34:32 +0000
+From: "Christoph Wilke" <chris@filmkreis.tu-darmstadt.de>
+Date: Wed, 28 Mar 2007 09:05:04 +0000
 Subject: Re: mlmmj-1.2.14-RC1 released
-Message-Id: <21ba5448eee0ed92f6a115eafad0d92c@mail.n0rd.dk>
+Message-Id: <3002.130.83.185.211.1175072704.squirrel@130.83.185.211>
 List-Id: <mlmmj.mlmmj.org>
 References: <78d28b92a543192190943f1226818ae3@mail.n0rd.dk>
 In-Reply-To: <78d28b92a543192190943f1226818ae3@mail.n0rd.dk>
@@ -10,21 +10,33 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
+On Tue, March 27, 2007 23:34, Morten K. Poulsen wrote:
+>
+> Hey Jesper,
+>
+> Jesper Lund <jesper@ballbreaker.dk> wrote:
+>>>>> Has anybody tested it? GO or NO-GO?
+> [snip]
+>> It does its job as expected. Behaves as expected.
+>
+> Ok, thanks :)
+>
+> Anybody else?
 
-Hey Jesper,
+Runs without any problems so far.
 
-Jesper Lund <jesper@ballbreaker.dk> wrote:
->>>> Has anybody tested it? GO or NO-GO?
-[snip]
-> It does its job as expected. Behaves as expected.
+On (debian-sparc) linux and postfix.
 
-Ok, thanks :)
+>
+> Morten
 
-Anybody else?
+Ciao
+Chris
 
-Morten
-
--- 
-Morten K. Poulsen <morten@afdelingp.dk>
-http://www.afdelingp.dk/
+>
+> --
+> Morten K. Poulsen <morten@afdelingp.dk>
+> http://www.afdelingp.dk/
+>
+>
 
