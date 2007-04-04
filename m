@@ -1,51 +1,22 @@
-From: Morten K. Poulsen <morten@afdelingp.dk>
-Date: Tue, 03 Apr 2007 11:24:02 +0000
-Subject: mlmmj-1.2.14 released
-Message-Id: <d25849f3d489418b5c702854f637d518@mail.n0rd.dk>
+From: Franky Van Liedekerke <liedekef@telenet.be>
+Date: Wed, 04 Apr 2007 08:31:05 +0000
+Subject: web interface
+Message-Id: <46136249.9070607@telenet.be>
 List-Id: <mlmmj.mlmmj.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
+Hi,
 
-Hi list!
+I'm looking for a bit of an updated version of the web based interface:
+create a list, subscribe+unsub multiple users, change the texts, ...
+I would consider changing the ezmlm-web package for this purpose, but I
+would like to know if there already exists something like this? Since
+the web archive is not updated since 6 months or so, I can't look for an
+answer there ...
 
+with friendly regards,
 
-mlmmj-1.2.14 is available for download at:
-
-dfa478667a1fbce7af7835d885f76150
-http://mlmmj.mmj.dk/files/mlmmj-1.2.14.tar.bz2
-
-e61c09b54020fbcf38e54b21dc6d7ad7
-http://mlmmj.mmj.dk/files/mlmmj-1.2.14.tar.gz
-
-
-The only thing changed since RC1 is the Danish listtexts.
-
-This release contains a few bug fixes, a major clean up of
-access rule handling and some new features: mail size limit
-and a MIME processor.
-
-
-Changes since mlmmj-1.2.13:
-
-1.2.14
- o Updated Danish listtexts (Jesper Lund)
-1.2.14-RC1
- o Fixed a small memory leak in log_oper() log rotation
- o Fixed address parsing for cases with quotes and multiple addresses
- o Added contrib/recievestrip/ MIME processor (Sascha Sommer)
- o Fixed digest multipart boundary (Thanks to Ulrich Mueller)
- o Added support for mail size limit (Christoph Wilke)
- o Log the result of access rules in the operation log (Henne Vogelsang)
- o Ignore empty lines in control files
-
-
-Have fun!
- Morten
-
--- 
-Morten K. Poulsen <morten@afdelingp.dk>
-http://www.afdelingp.dk/
-
+Franky
