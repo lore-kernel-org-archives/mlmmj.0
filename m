@@ -1,43 +1,46 @@
-From: Morten K. Poulsen <morten@afdelingp.dk>
-Date: Wed, 21 Mar 2007 18:00:49 +0000
-Subject: Re: Address Parsing
-Message-Id: <428f24780e3f6f722a403e9860c25bb7@mail.n0rd.dk>
+From: "Nate Beaty" <natebeaty@gmail.com>
+Date: Wed, 11 Apr 2007 21:59:39 +0000
+Subject: multiple bounces being delivered?
+Message-Id: <ddf499d00704111459m62f4e46cu4f36fcd287c8bdf2@mail.gmail.com>
 List-Id: <mlmmj.mlmmj.org>
-References: <20070320140935.GP25058@suse.de>
-In-Reply-To: <20070320140935.GP25058@suse.de>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
+i imagine this is something simple, but i'm not sure i understand why
+it's happening.. i've had a few people over the last year tell me they
+keep getting bounce messages (10+) to an address that's on an mlmmj
+mailing list i run.
 
-Hi,
+looking at the .lastmsg for the address, i see qmail autoresponding:
 
-Mads Martin Joergensen <mmj@mmj.dk> wrote:
-> * Neale Pickett <neale@woozle.org> [Mar 20. 2007 21:51]:
->>> Morten you can log into panther and look in
->>> /usr/src/usr.bin/mail/aux.c
-[snip]
->> You guys are awesome, you found a bug with BSD mail?  Way to go!
+(headers chopped by me..)
 
-We may be awsome ;-) But the bug I fixed is not in BSD mail. It is
-only in mlmmj. It was added as a part of a fix for mlmmj-1.2.10:
+Hi. This is the qmail-send program at 66.33.34.80.
+I'm afraid I wasn't able to deliver your message to the following addresses.
+This is a permanent error; I've given up. Sorry it didn't work out.
 
- o Fix nasty bug in the new 1.2.9 find_email_adr() making comma in
-   quoted text in From: being discarded as invalid
+<xxx@xxx.com>:
+AUTORESPOND: Junk mail received.
 
-> ... since you, Morten, have found and fixed a bug in FreeBSD mail
-> as Neale points out, you might want to send it yourself to get
-> proper credit :-)
+--- Enclosed are the original headers of the message.
 
-Well, no FreeBSD credit for me in this round  ;-)
+--117609251766.33.34.8027541632
+Content-Type: message/rfc822
 
-But the bug is out of mlmmj. That's the main issue.
+Return-Path: <topshelf-newsletter-retailers+bounces-6-xxx=xxx.com@lists.clixel.com>
+Received: (qmail 17602 invoked by uid 399); 9 Apr 2007 00:21:52 -0400
+X-Spam-Checker-Version: SpamAssassin 3.1.8 (2007-02-13) on
 
+(Body supressed)
 
-Morten
+any suggestions? somehow mlmmj thinks a message is not delivered when
+it is (people are telling me they get all 10+ of these msgs) -- how
+could this be possible?
 
--- 
-Morten K. Poulsen <morten@afdelingp.dk>
-http://www.afdelingp.dk/
+i'm using mlmmj 1.2.13 on an ubuntu dapper box. (i've compiled 1.2.14,
+just haven't copied it over yet..)
 
+thanks in advance,
+nate.
