@@ -1,7 +1,7 @@
 From: Mads Martin Joergensen <mmj@mmj.dk>
-Date: Wed, 11 Apr 2007 22:09:23 +0000
+Date: Wed, 11 Apr 2007 22:11:38 +0000
 Subject: Re: multiple bounces being delivered?
-Message-Id: <20070411220923.GE69191@mmj.dk>
+Message-Id: <20070411221138.GF69191@mmj.dk>
 List-Id: <mlmmj.mlmmj.org>
 References: <ddf499d00704111459m62f4e46cu4f36fcd287c8bdf2@mail.gmail.com>
 In-Reply-To: <ddf499d00704111459m62f4e46cu4f36fcd287c8bdf2@mail.gmail.com>
@@ -11,18 +11,13 @@ Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
 * Nate Beaty <natebeaty@gmail.com> [Apr 11. 2007 23:59]:
-> any suggestions? somehow mlmmj thinks a message is not delivered when
-> it is (people are telling me they get all 10+ of these msgs) -- how
-> could this be possible?
-> 
-> i'm using mlmmj 1.2.13 on an ubuntu dapper box. (i've compiled 1.2.14,
-> just haven't copied it over yet..)
+> Hi. This is the qmail-send program at 66.33.34.80.
+> I'm afraid I wasn't able to deliver your message to the following addresses.
+> This is a permanent error; I've given up. Sorry it didn't work out.
 
-Well, their qmail box is replying to the Return-Path: address, which is
-what mlmmj uses for bounces. If it did the same and the list list was
-run by ezmlm it would also look like a bounce.
+This even suggests that it didn't get delivered.
 
-Is there a return code?
+What kind of setup is this anyway?
 
 -- 
 Mads Martin Joergensen, http://mmj.dk
