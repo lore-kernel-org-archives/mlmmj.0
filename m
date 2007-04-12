@@ -1,7 +1,7 @@
-From: "Nate Beaty" <natebeaty@gmail.com>
-Date: Thu, 12 Apr 2007 00:26:53 +0000
+From: Jakob Hirsch <jh@plonk.de>
+Date: Thu, 12 Apr 2007 08:34:49 +0000
 Subject: Re: multiple bounces being delivered?
-Message-Id: <ddf499d00704111726u6927bae2t11d5542bf3ed71dd@mail.gmail.com>
+Message-Id: <461DEF29.3080802@plonk.de>
 List-Id: <mlmmj.mlmmj.org>
 References: <ddf499d00704111459m62f4e46cu4f36fcd287c8bdf2@mail.gmail.com>
 In-Reply-To: <ddf499d00704111459m62f4e46cu4f36fcd287c8bdf2@mail.gmail.com>
@@ -10,20 +10,24 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-On 4/11/07, Mads Martin Joergensen <mmj@mmj.dk> wrote:
-> What kind of setup is this anyway?
+Quoting Nate Beaty:
 
-ubuntu dapper (basically debian edgy i believe), exim 4.6 (using
-jakob's excellent readme.exim), mlmmj 1.2.13 -- & also spamassassin &
-clamav. i haven't touched my box's email setup for some time, it's
-just been working great except for this specific problem every once in
-a while.
+> Hi. This is the qmail-send program at 66.33.34.80.
 
-> Is there a return code?
+This is the remote mta yours sent the list message to?
 
-i must need caffeine.. how do i find this? is it in the headers? or
-maybe the exim log? i feel weird posting the whole message, but i can
-email it to you directly if that would help.
+> <xxx@xxx.com>:
+> AUTORESPOND: Junk mail received.
+...
+> any suggestions? somehow mlmmj thinks a message is not delivered when
+> it is (people are telling me they get all 10+ of these msgs) -- how
+> could this be possible?
 
-thanks!
-nate
+Looks to me like some broken spam filter setup. For some reason it
+thinks the list message is spam, and sends back a bounce message (which
+is, in general, very bad, because it would produce collateral spam on
+real spam), but still delivers the message to the user's mailbox.
+
+
+
+
