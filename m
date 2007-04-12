@@ -1,7 +1,7 @@
-From: Mads Martin Joergensen <mmj@mmj.dk>
-Date: Wed, 11 Apr 2007 22:11:38 +0000
+From: "Nate Beaty" <natebeaty@gmail.com>
+Date: Thu, 12 Apr 2007 00:26:53 +0000
 Subject: Re: multiple bounces being delivered?
-Message-Id: <20070411221138.GF69191@mmj.dk>
+Message-Id: <ddf499d00704111726u6927bae2t11d5542bf3ed71dd@mail.gmail.com>
 List-Id: <mlmmj.mlmmj.org>
 References: <ddf499d00704111459m62f4e46cu4f36fcd287c8bdf2@mail.gmail.com>
 In-Reply-To: <ddf499d00704111459m62f4e46cu4f36fcd287c8bdf2@mail.gmail.com>
@@ -10,17 +10,20 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-* Nate Beaty <natebeaty@gmail.com> [Apr 11. 2007 23:59]:
-> Hi. This is the qmail-send program at 66.33.34.80.
-> I'm afraid I wasn't able to deliver your message to the following addresses.
-> This is a permanent error; I've given up. Sorry it didn't work out.
+On 4/11/07, Mads Martin Joergensen <mmj@mmj.dk> wrote:
+> What kind of setup is this anyway?
 
-This even suggests that it didn't get delivered.
+ubuntu dapper (basically debian edgy i believe), exim 4.6 (using
+jakob's excellent readme.exim), mlmmj 1.2.13 -- & also spamassassin &
+clamav. i haven't touched my box's email setup for some time, it's
+just been working great except for this specific problem every once in
+a while.
 
-What kind of setup is this anyway?
+> Is there a return code?
 
--- 
-Mads Martin Joergensen, http://mmj.dk
-"Why make things difficult, when it is possible to make them cryptic
- and totally illogical, with just a little bit more effort?"
-                                 -- A. P. J.
+i must need caffeine.. how do i find this? is it in the headers? or
+maybe the exim log? i feel weird posting the whole message, but i can
+email it to you directly if that would help.
+
+thanks!
+nate
