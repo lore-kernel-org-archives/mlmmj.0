@@ -1,39 +1,30 @@
-From: Henne Vogelsang <hvogel@opensuse.org>
-Date: Tue, 24 Apr 2007 09:40:51 +0000
-Subject: Verbosity (Was: maxmailsize text missing)
-Message-Id: <20070424094051.GA12856@suse.de>
+From: "Nate Beaty" <natebeaty@gmail.com>
+Date: Wed, 09 May 2007 17:56:18 +0000
+Subject: Re: multiple bounces being delivered?
+Message-Id: <ddf499d00705091056y66244db2p7f8d96748ea4e40d@mail.gmail.com>
 List-Id: <mlmmj.mlmmj.org>
+References: <ddf499d00704111459m62f4e46cu4f36fcd287c8bdf2@mail.gmail.com>
+In-Reply-To: <ddf499d00704111459m62f4e46cu4f36fcd287c8bdf2@mail.gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Hi,
+> 1) The broken spam filter sends its "bounce" to the address in the mail's
+> From: header. In that way, the original sender receives the "bounce"
+> message - and mlmmj doesn't know about it.
+>
+> 2) The broken spam filter sends its "bounce" to the address in the mail's
+> envelope from, but without the extra part - i.e. list@domain instead of
+> list+bounce-11223344@domain - making it impossible for mlmmj to tell
+> that it is a bounce.
+>
+> Could you send the headers?
 
-On Tuesday, April 24, 2007 at 11:11:22, Christoph Wilke wrote:
-> On Tue, April 24, 2007 10:35, Henne Vogelsang wrote:
-> >
-> > the text for the maxmailsize deny mail is missing in text.skel.
-> > Please add it for the next release.
-> 
-> Have a look at the attached patch.
-> It includes the english text and a little modification
-> in the correponding Makefile.in, so the existing maxmailsize
-> file(s) will be installed in the text.skel directory.
+Unfortunately, I don't have the original email. However, this has
+happened a few times before on our list (out of 20k subscribers, using
+mlmmj for the last year or two), so I assume it will happen again.
+When it does, I will attempt to get the original email w/ headers.
 
-Looks good. While we are at it... some general thing. At the moment i
-deal alone with all subscriber problems etc. for all opensuse lists
-(primarily to gain experience what the problems are and because im too
-lazy to setup a webinterface for owners) and one thing that does come up
-all the time is that deny/error mails are not exactly verbose. For
-instance this text could include the maxmailsize number and the size of
-the sent mail. For access rules or its the same. Logging is (mostly) fine
-but we could make this much more admin/owner friendly if deny/error
-mails would include as much usefull information as possible so users can
-act on it.
-
-Henne 
-
--- 
-Henne Vogelsang, Teamlead Core Services
-http://www.opensuse.org
+Thanks for your help guys,
+Nate.
