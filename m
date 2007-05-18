@@ -1,38 +1,29 @@
-From: Morten K. Poulsen <morten@afdelingp.dk>
-Date: Thu, 10 May 2007 20:11:08 +0000
-Subject: Re: http://mlmmj.mmj.dk/archive/
-Message-Id: <96ac870b16611cd5d11f475a48dec7f7@mail.n0rd.dk>
+From: "Mehul N. Sanghvi" <mehul.sanghvi@gmail.com>
+Date: Fri, 18 May 2007 13:51:08 +0000
+Subject: virtual domain support
+Message-Id: <464DAF4C.1030800@gmail.com>
 List-Id: <mlmmj.mlmmj.org>
-References: <200704271100.56465.ssommer@suse.de>
-In-Reply-To: <200704271100.56465.ssommer@suse.de>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
+'allo,
 
-Hi Sven,
+      I came across mlmmj while searching for something that would replace my 
+current mailman installation.  I use Postfix as my MTA and have several virtual 
+domains for which Postfix is the MTA.  With my current setup, I have mailing 
+lists spread out over the virtual domains, and things work just fine.
 
-Sven 'Darkman' Michels <sven@darkman.de> wrote:
-> to avoid problems, i created the new archive in "archives" instead of
-> "archive". We can move them, we can backup the old one and redirect to
-> the new one or we leave both alone and link only to the new one. This
-> will "keep" the old links to the archive active...
-> 
-> up to you, just tell me what you want ;)
-> 
-> Sorry for the confusion...
-
-Haha, ok :-)
-
-Whatever you like... I'm OK with just killing the old archive.
-
-By the way - thanks for fixing the archive.
+      How does mlmmj work with virtual domains ?   Is there a document that 
+someone can point me to that has guidelines for it ?
 
 
-Morten
+
+cheers,
+
+      mehul
 
 -- 
-Morten K. Poulsen <morten@afdelingp.dk>
-http://www.afdelingp.dk/
-
+Mehul N. Sanghvi
+email: mehul.sanghvi@gmail.com
