@@ -1,35 +1,55 @@
-From: Morten K. Poulsen <morten@afdelingp.dk>
-Date: Thu, 07 Jun 2007 19:29:41 +0000
-Subject: Re: several patches to mlmmj
-Message-Id: <09802e0f836fd52ff73a3c192a43d56d@mail.n0rd.dk>
+From: "Mehul N. Sanghvi" <mehul.sanghvi@gmail.com>
+Date: Fri, 08 Jun 2007 10:46:42 +0000
+Subject: Re: virtual domain support
+Message-Id: <46693392.5050006@gmail.com>
 List-Id: <mlmmj.mlmmj.org>
-References: <20070606214940.GB1460@jigoku.43-1.org>
-In-Reply-To: <20070606214940.GB1460@jigoku.43-1.org>
+References: <464DAF4C.1030800@gmail.com>
+In-Reply-To: <464DAF4C.1030800@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
+Morten K. Poulsen said the following on 5/31/2007 1:09 PM:
+> Hi Mehul,
+> 
+> "Mehul N. Sanghvi" <mehul.sanghvi@gmail.com> wrote:
+>> In trying to send a message to the list I get the following
+>> entries in the /var/log/mail.log file:
+> [snip]
+>> May 30 23:54:51 REAL_HOST postfix/smtpd[17679]: NOQUEUE: reject: RCPT from
+>> localhost.localdomain[127.0.0.1]: 504 5.5.2 <REAL_HOST>: Helo command
+>> rejected:
+>> need fully-qualified hostname; from=<mlmmj-test+bounces-help@VHOST.TLD>
+>> to=<USER@VHOST.TLD> proto=SMTP helo=<REAL_HOST>
+> [snip]
+>> Why is getting rejected ?
+> 
+> Because your host does not know its own FQHN.
+> 
 
-Hi Ansgar,
+I wonder how mailman does things then, because my mailing lists work fine in 
+Mailman on the same system.  But Mailman is overkill for what I want to do
 
-Ansgar Burchardt <ansgar@2007.43-1.org> wrote:
-> I started using mlmmj for two small mailinglists.  Because
-> some things bothered me I wrote several patches:
+>> I would like mlmmj to use the VHOST.TLD in the HELO rather then the
+>> REAL_HOST, is that possible ?
+> 
+> No, that is not possible.
+> 
+> Mlmmj asks the operating system - via gethostname() - what its hostname is.
+> Then it does a lookup - via gethostbyname() - to get the host's FQHN.
+> 
+> How does your /etc/hosts look?
 
-Oh, I love that kind of users. "This and that didn't work, so
-I fixed it." :-)
+127.0.0.1   localhost  localhost.localdomain
 
-[snip]
-> My changes are in my mercurial repository at http://hg.43-1.org/mlmmj.
-> It would be nice, if they can be included in mlmmj.
+192.168.x.x  REAL_HOST
 
-I will review your changes, and commit them ASAP. It will probably be
-in the weekend.
 
-Morten
 
+cheers,
+
+      mehul
 -- 
-Morten K. Poulsen <morten@afdelingp.dk>
-http://www.afdelingp.dk/
-
+Mehul N. Sanghvi
+email: mehul.sanghvi@gmail.com
