@@ -1,33 +1,26 @@
 From: Morten K. Poulsen <morten@afdelingp.dk>
-Date: Sun, 24 Jun 2007 20:03:41 +0000
-Subject: Re: mlmmj-1.2.15-RC1 released
-Message-Id: <9a0d9b7c9ec74f996de932a105414393@mail.n0rd.dk>
+Date: Tue, 12 Jun 2007 16:57:31 +0000
+Subject: Re: mlmmj-1.2.14 released
+Message-Id: <2f2d0ede04aebd63f00348f7bceea2cc@mail.n0rd.dk>
 List-Id: <mlmmj.mlmmj.org>
-References: <0eaaeca0580d3b98edaa72c7e0da0d10@mail.n0rd.dk>
-In-Reply-To: <0eaaeca0580d3b98edaa72c7e0da0d10@mail.n0rd.dk>
+References: <d25849f3d489418b5c702854f637d518@mail.n0rd.dk>
+In-Reply-To: <d25849f3d489418b5c702854f637d518@mail.n0rd.dk>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 To: mlmmj@mlmmj.org
 
 
-Morten K. Poulsen <morten@afdelingp.dk> wrote:
-> mlmmj-1.2.15-RC1 is available for download:
-[snip]
-> Please test and send feedback!
+Wolf Bergenheim <wolf+mlmmj@bergenheim.net> wrote:
+> Do you know if 1.2.14 will be available for Debian unstable for powerPC
+> and/or i32 anytime soon? The current version is 1.2.11...
 
-14:37 < xi> mortenp: maxmailsize seems to be missing from listtexts for cz, es, 
-            fr, it and nl
-14:37 < xi> In 1.2.15-RC1
+S=C3=B8ren, I guess you're the one to answer that question?
 
-So, if you are maintaining any of those translations (or are able to help
-anyway), please translate :-)
-
-Did anyone else test 1.2.15-RC1 ?
 
 Morten
 
--- 
+--=20
 Morten K. Poulsen <morten@afdelingp.dk>
 http://www.afdelingp.dk/
 
