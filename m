@@ -1,32 +1,53 @@
-From: Wolf Bergenheim <wolf+mlmmj@bergenheim.net>
-Date: Tue, 12 Jun 2007 20:39:28 +0000
-Subject: Re: mlmmj-1.2.14 released
-Message-Id: <466F0480.6050604@bergenheim.net>
+From: Morten K. Poulsen <morten@afdelingp.dk>
+Date: Wed, 13 Jun 2007 22:46:01 +0000
+Subject: mlmmj-1.2.14-cvs20070614 - now with unicode
+Message-Id: <4281ad3decdd0624cbd65d631c0a6595@mail.n0rd.dk>
 List-Id: <mlmmj.mlmmj.org>
-References: <d25849f3d489418b5c702854f637d518@mail.n0rd.dk>
-In-Reply-To: <d25849f3d489418b5c702854f637d518@mail.n0rd.dk>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="iso-8859-9"
+Content-Type: text/plain; charset="iso-8859-1"
 Content-Transfer-Encoding: quoted-printable
 To: mlmmj@mlmmj.org
 
-Ah.
 
-Thanks. I'll then just compile it from the sources :)
+Hi List,
 
---Wolf
+I've just uploaded yet another CVS snapshot:
 
-On 12.06.2007 20:25, Ansgar Burchardt wrote:
-> Morten K. Poulsen wrote:
->> Wolf Bergenheim <wolf+mlmmj@bergenheim.net> wrote:
->>> Do you know if 1.2.14 will be available for Debian unstable for powerPC
->>> and/or i32 anytime soon? The current version is 1.2.11...
->> S=F8ren, I guess you're the one to answer that question?
->=20
-> He orphaned the package in April, see http://bugs.debian.org/417827.
-> Daniel Walrond applied as a new maintainer, but I don't know how long it
-> will take until there will be new packages.
->=20
-> Ansgar
->=20
->=20
+a44a16243c8d2f64da0a5af92244ac4e
+http://mlmmj.mmj.dk/~mortenp/mlmmj-1.2.14-cvs20070614.tar.bz2
+
+6e1bd351d635d7933aa87d2e27e685d8
+http://mlmmj.mmj.dk/~mortenp/mlmmj-1.2.14-cvs20070614.tar.gz
+
+Tonight's feature: unicode support!
+
+I have changed the way listtexts are parsed. From now on, there
+will be no non-USASCII characters in the listtext files. If you
+need a character you simply put \uXXXX in its place, where XXXX
+is the unicode number (hexadecimal) for that glyph.
+
+--- the old way ---
+Subject: =3D?iso-8859-1?Q?Tilmeldingsforesp=F8rgsel?=3D for $listaddr$
+
+Der venter en tilmeldingsforesp=C3=B8rgsel fra
+--- end ---
+
+--- the new way ---
+Subject: Tilmeldingsforesp\u00F8rgsel for $listaddr$
+
+For at godkende denne foresp\u00F8rgsel, send et svar til
+--- end ---
+
+The subject is encoded (if needed) after keyword substitution. The
+mail body is transferred in 8bit as UTF-8.
+
+Anybody submitting (or committing) a patch with non-USASCII
+characters after today will have his most significant bit cleared,
+if you know what I mean ;-)
+
+Morten
+
+--=20
+Morten K. Poulsen <morten@afdelingp.dk>
+http://www.afdelingp.dk/
+
