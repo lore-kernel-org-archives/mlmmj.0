@@ -1,49 +1,57 @@
-From: Morten K. Poulsen <morten@afdelingp.dk>
-Date: Wed, 09 May 2007 17:11:08 +0000
-Subject: Re: multiple bounces being =?UTF-8?Q?delivered=3F?=
-Message-Id: <12576995b3652bc2280eb4a06d4872c1@mail.n0rd.dk>
+From: Ansgar Burchardt <ansgar@2007.43-1.org>
+Date: Sat, 16 Jun 2007 11:14:43 +0000
+Subject: [PATCH] configure option to build and install mlmmj-recieve-strip
+Message-Id: <20070616111443.GA18142@jigoku.43-1.org>
 List-Id: <mlmmj.mlmmj.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-
 Hi,
 
-Jakob Hirsch <jh@plonk.de> wrote:
-> Quoting Nate Beaty:
-...
->> <xxx@xxx.com>:
->> AUTORESPOND: Junk mail received.
-> ...
->> any suggestions? somehow mlmmj thinks a message is not delivered when
->> it is (people are telling me they get all 10+ of these msgs) -- how
->> could this be possible?
-> 
-> Looks to me like some broken spam filter setup. For some reason it
-> thinks the list message is spam, and sends back a bounce message
+I added an option to configure to build and install mlmmj-recieve-strip.
 
-I think you are right. One of the subscribers has a broken spam filter.
-When a mail is flagged by this subscribers filter, it sends back a
-(broken) bounce mail. Bounce mails must be delivered to the envelope
-from adress. If it does, mlmmj gets the bounce. I see two possible error
-scenarios:
+Ansgar
 
-1) The broken spam filter sends its "bounce" to the address in the mail's
-From: header. In that way, the original sender receives the "bounce"
-message - and mlmmj doesn't know about it.
-
-2) The broken spam filter sends its "bounce" to the address in the mail's
-envelope from, but without the extra part - i.e. list@domain instead of
-list+bounce-11223344@domain - making it impossible for mlmmj to tell
-that it is a bounce.
-
-Could you send the headers?
-
-Morten
-
--- 
-Morten K. Poulsen <morten@afdelingp.dk>
-http://www.afdelingp.dk/
+--- a/README
++++ b/README
+@@ -29,6 +29,10 @@ To use mlmmj, do the following:
+ 
+     $ ./configure && make && make install
+ 
++		If you want to filter multipart/mime messages, pass the option
++		--enable-recieve-strip to configure, and take a look at
++		contrib/recievestrip/README.
++
+  1) Configure a recipient delimiter. The default is to use '+', and in
+     Postfix it's done by adding
+ 
+--- a/configure.ac
++++ b/configure.ac
+@@ -33,6 +33,11 @@ exec_prefix=$savex
+ 
+ AC_SUBST(textlibdir)
+ 
++AC_ARG_ENABLE([recieve-strip],
++  AS_HELP_STRING([--enable-recieve-strip],
++                 [build mlmmj-recieve-strip (default is no)]))
++AM_CONDITIONAL(WANT_RECIEVESTRIP, test x"$enable_recieve_strip" = xyes)
++
+ # Checks for library functions.
+ AC_FUNC_MALLOC
+ AC_CHECK_FUNCS([ftruncate memset socket strerror strncasecmp snprintf fcntl])
+--- a/contrib/recievestrip/Makefile.am
++++ b/contrib/recievestrip/Makefile.am
+@@ -5,7 +5,9 @@ AUTOMAKE_OPTIONS = foreign
+ AM_CFLAGS = -g -Wall -pedantic -Wsign-compare -DDEFAULTTEXTDIR='"@textlibdir@"'
+ INCLUDES = -I$(srcdir)/../../include
+ 
+-noinst_PROGRAMS = mlmmj-recieve-strip
++if WANT_RECIEVESTRIP
++  bin_PROGRAMS = mlmmj-recieve-strip
++endif
+ 
+ mlmmj_recieve_strip_SOURCES = mlmmj-recieve-strip.c ../../src/mygetline.c ../../src/memory.c ../../src/readn.c  \
+ 				../../src/strgen.c ../../src/random-int.c  ../../src/log_error.c ../../src/print-version.c \
 
