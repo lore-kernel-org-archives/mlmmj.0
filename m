@@ -1,38 +1,51 @@
 From: Morten K. Poulsen <morten@afdelingp.dk>
-Date: Sun, 10 Jun 2007 12:55:28 +0000
-Subject: Re: virtual domain support
-Message-Id: <bc132c3e3fa3ce7eca1b3e01e386bd88@mail.n0rd.dk>
+Date: Sun, 17 Jun 2007 21:24:00 +0000
+Subject: mlmmj-1.2.15-RC1 released
+Message-Id: <0eaaeca0580d3b98edaa72c7e0da0d10@mail.n0rd.dk>
 List-Id: <mlmmj.mlmmj.org>
-References: <464DAF4C.1030800@gmail.com>
-In-Reply-To: <464DAF4C.1030800@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
 
-Hi Mehul,
+Hi list,
 
-"Mehul N. Sanghvi" <mehul.sanghvi@gmail.com> wrote:
-> Morten K. Poulsen said the following on 5/31/2007 1:09 PM:
->>> Why is getting rejected ?
->>
->> Because your host does not know its own FQHN.
->
-> I wonder how mailman does things then
 
-What does MailMan use as the domain in the HELO line?
+mlmmj-1.2.15-RC1 is available for download:
 
->> How does your /etc/hosts look?
->
-> 127.0.0.1   localhost  localhost.localdomain
->
-> 192.168.x.x  REAL_HOST
+035567e40129a7931c3e510d1271b9a4
+http://mlmmj.mmj.dk/files/mlmmj-1.2.15-RC1.tar.bz2
 
-This makes it difficult to diagnose your problems. Is "REAL_HOST"
-a short host name or is it fully qualified? I can't see that. If
-you wish to "anonymize" your /etc/hosts, please pretend that the
-host is in the .example or .example.com domain.
+ae075b07302f267e32e530a2a775125a
+http://mlmmj.mmj.dk/files/mlmmj-1.2.15-RC1.tar.gz
+
+
+The changes since 1.2.14:
+
+ o Added --enable-recieve-strip configure option (Ansgar Burchardt)
+ o Added unicode support to listtexts
+ o Fixed build outside the source directory (Ansgar Burchardt)
+ o Moved English listtexts and install all languages (Ansgar Burchardt)
+ o Fixed missing exit()s in case of failed execl() calls (Ansgar Burchardt)
+ o Changed Message-ID headers to include FQDN (Ansgar Burchardt)
+ o Added support for 'discard' keyword in access rules (Sascha Sommer)
+
+
+Please note that the format of listtexts have changed. So, if you have
+custom listtexts which contain non-USASCII characters, you should convert
+them. It is easily done with the following one-liner:
+
+perl -i -p -e 's/([\x80-\xff])/sprintf("\\u%04X",ord($1))/ge' /path/to/texts/*
+
+
+Also the search for listtexts is changed to the following:
+- LISTDIR/text/
+- PREFIX/share/text.skel/default/
+- PREFIX/share/text.skel/en/
+
+
+Please test and send feedback!
 
 Morten
 
