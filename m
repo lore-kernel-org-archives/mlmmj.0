@@ -1,7 +1,7 @@
-From: Mads Martin Joergensen <mmj@mmj.dk>
-Date: Fri, 15 Jun 2007 13:41:21 +0000
+From: Morten K. Poulsen <morten@afdelingp.dk>
+Date: Sun, 17 Jun 2007 20:40:25 +0000
 Subject: Re: mlmmj-1.2.14-cvs20070614 - now with unicode
-Message-Id: <20070615134121.GE16333@mmj.dk>
+Message-Id: <7b46946e9ca0d483712121481cf3b9b0@mail.n0rd.dk>
 List-Id: <mlmmj.mlmmj.org>
 References: <4281ad3decdd0624cbd65d631c0a6595@mail.n0rd.dk>
 In-Reply-To: <4281ad3decdd0624cbd65d631c0a6595@mail.n0rd.dk>
@@ -10,24 +10,19 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-* Morten K. Poulsen <morten@afdelingp.dk> [Jun 14. 2007 00:46]:
-> 
-> Hi List,
-> 
-> I've just uploaded yet another CVS snapshot:
-> 
-> a44a16243c8d2f64da0a5af92244ac4e
-> http://mlmmj.mmj.dk/~mortenp/mlmmj-1.2.14-cvs20070614.tar.bz2
-> 
-> 6e1bd351d635d7933aa87d2e27e685d8
-> http://mlmmj.mmj.dk/~mortenp/mlmmj-1.2.14-cvs20070614.tar.gz
-> 
-> Tonight's feature: unicode support!
 
-Why was it this is not 1.2.15-rc1?
+Mads Martin Joergensen <mmj@mmj.dk> wrote:
+> * Morten K. Poulsen <morten@afdelingp.dk> [Jun 14. 2007 00:46]:
+>> I've just uploaded yet another CVS snapshot:
+[snip]
+> Why was it this is not 1.2.15-rc1?
+
+I was holding it for Ansgar's configure patch. I will roll
+mlmmj-1.2.15-RC1 now.
+
+Morten
 
 -- 
-Mads Martin Joergensen, http://mmj.dk
-"Why make things difficult, when it is possible to make them cryptic
- and totally illogical, with just a little bit more effort?"
-                                 -- A. P. J.
+Morten K. Poulsen <morten@afdelingp.dk>
+http://www.afdelingp.dk/
+
