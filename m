@@ -1,7 +1,7 @@
-From: Daniel Walrond <mlmmj@djw.org.uk>
-Date: Sun, 24 Jun 2007 13:45:44 +0000
+From: Morten K. Poulsen <morten@afdelingp.dk>
+Date: Sun, 24 Jun 2007 14:19:40 +0000
 Subject: Re: mlmmj Debian package
-Message-Id: <20070624134544.GD29840@vixis.sumodave.com>
+Message-Id: <48f0d49c7c5b2d40a8afd5e4fd4b9e10@mail.n0rd.dk>
 List-Id: <mlmmj.mlmmj.org>
 References: <20070624121344.GC29840@vixis.sumodave.com>
 In-Reply-To: <20070624121344.GC29840@vixis.sumodave.com>
@@ -10,22 +10,24 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-On Sun, Jun 24, 2007 at 03:04:35PM +0200, Morten K. Poulsen wrote:
-> Daniel Walrond <mlmmj@djw.org.uk> wrote:
-> >
-> > Also Debian sid will be shortly dropping php4 in favour for php5.
+
+Hi Dan,
+
+Daniel Walrond <mlmmj@djw.org.uk> wrote:
+> On Sun, Jun 24, 2007 at 03:04:35PM +0200, Morten K. Poulsen wrote:
+>> Wow. I guess quite a lot of websites have to port their code now.
 > 
-> Wow. I guess quite a lot of websites have to port their code now.
+> Only if they're mad enough to run sid/unstable on a production server.
 
-Only if they're mad enough to run sid/unstable on a production server.
-Hard to tell how far off Lenny will be to become stable with Etch just
-being the new stable. I don't know the full plans of the php migration.
+Yeah, ok. It's just that your (very fine) distribution is not known
+as first movers ;-) And I know a lot of web sites still depending on
+php4. But it's probably the right move anyway.
 
-There's a wiki page about it:
+If you find any problems with mlmmj's web interfaces, please tell.
 
- http://wiki.debian.org/PHP4Removal
+Morten
 
-That's all I know about it.
+-- 
+Morten K. Poulsen <morten@afdelingp.dk>
+http://www.afdelingp.dk/
 
-
-Dan
