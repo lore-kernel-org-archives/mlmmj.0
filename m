@@ -1,7 +1,7 @@
-From: Morten K. Poulsen <morten@afdelingp.dk>
-Date: Sun, 24 Jun 2007 13:04:35 +0000
+From: Daniel Walrond <mlmmj@djw.org.uk>
+Date: Sun, 24 Jun 2007 13:45:44 +0000
 Subject: Re: mlmmj Debian package
-Message-Id: <2cc0ed9454b44f1f47d097e86e5ee259@mail.n0rd.dk>
+Message-Id: <20070624134544.GD29840@vixis.sumodave.com>
 List-Id: <mlmmj.mlmmj.org>
 References: <20070624121344.GC29840@vixis.sumodave.com>
 In-Reply-To: <20070624121344.GC29840@vixis.sumodave.com>
@@ -10,34 +10,22 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
+On Sun, Jun 24, 2007 at 03:04:35PM +0200, Morten K. Poulsen wrote:
+> Daniel Walrond <mlmmj@djw.org.uk> wrote:
+> >
+> > Also Debian sid will be shortly dropping php4 in favour for php5.
+> 
+> Wow. I guess quite a lot of websites have to port their code now.
 
-Hi Daniel,
+Only if they're mad enough to run sid/unstable on a production server.
+Hard to tell how far off Lenny will be to become stable with Etch just
+being the new stable. I don't know the full plans of the php migration.
 
-Daniel Walrond <mlmmj@djw.org.uk> wrote:
-> I am the new maintainer for the mlmmj package in Debian.
+There's a wiki page about it:
 
-Cool, thanks for adopting the package.
+ http://wiki.debian.org/PHP4Removal
 
-[snip]
-> Do people commonly use mlmmj with Exim and Postfix?
+That's all I know about it.
 
-Yes :)
 
-> Any other MTAs?
-
-Sendmail and a few on qmail.
-
-> Also Debian sid will be shortly dropping php4 in favour for php5.
-
-Wow. I guess quite a lot of websites have to port their code now.
-
-> Are the php web interfaces for mlmmj known to work with php5?
-
-I haven't tried that.
-
-Morten
-
--- 
-Morten K. Poulsen <morten@afdelingp.dk>
-http://www.afdelingp.dk/
-
+Dan
