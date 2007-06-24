@@ -1,32 +1,43 @@
-From: Daniel Walrond <mlmmj@djw.org.uk>
-Date: Sun, 24 Jun 2007 12:13:44 +0000
-Subject: mlmmj Debian package
-Message-Id: <20070624121344.GC29840@vixis.sumodave.com>
+From: Morten K. Poulsen <morten@afdelingp.dk>
+Date: Sun, 24 Jun 2007 13:04:35 +0000
+Subject: Re: mlmmj Debian package
+Message-Id: <2cc0ed9454b44f1f47d097e86e5ee259@mail.n0rd.dk>
 List-Id: <mlmmj.mlmmj.org>
+References: <20070624121344.GC29840@vixis.sumodave.com>
+In-Reply-To: <20070624121344.GC29840@vixis.sumodave.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
 
+Hi Daniel,
 
-Hello,
+Daniel Walrond <mlmmj@djw.org.uk> wrote:
+> I am the new maintainer for the mlmmj package in Debian.
 
-I am the new maintainer for the mlmmj package in Debian. Yesterday I
-uploaded 1.2.14-1 for sid which has started to appears on the mirrors.
+Cool, thanks for adopting the package.
 
-Sorry for the delay in getting it up. QA wanted to do some policy fixes
-to the package before I took it over. Their update was 1.2.11-8 which is
-now in lenny/testing. I should be more prompt with 1.2.15.
+[snip]
+> Do people commonly use mlmmj with Exim and Postfix?
 
-For my next upload I'm thinking about doing some work to mlmmj-make-ml
-which has had some "Debianisation" done to it. Do people commonly use
-mlmmj with Exim and Postfix? Any other MTAs?
+Yes :)
 
-Also Debian sid will be shortly dropping php4 in favour for php5. Are
-the php web interfaces for mlmmj known to work with php5?
+> Any other MTAs?
 
+Sendmail and a few on qmail.
 
-Thanks,
-Dan
+> Also Debian sid will be shortly dropping php4 in favour for php5.
+
+Wow. I guess quite a lot of websites have to port their code now.
+
+> Are the php web interfaces for mlmmj known to work with php5?
+
+I haven't tried that.
+
+Morten
+
+-- 
+Morten K. Poulsen <morten@afdelingp.dk>
+http://www.afdelingp.dk/
 
