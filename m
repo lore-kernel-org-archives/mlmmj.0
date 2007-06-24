@@ -1,28 +1,32 @@
-From: Morten K. Poulsen <morten@afdelingp.dk>
-Date: Sun, 17 Jun 2007 20:40:25 +0000
-Subject: Re: mlmmj-1.2.14-cvs20070614 - now with unicode
-Message-Id: <7b46946e9ca0d483712121481cf3b9b0@mail.n0rd.dk>
+From: Daniel Walrond <mlmmj@djw.org.uk>
+Date: Sun, 24 Jun 2007 12:13:44 +0000
+Subject: mlmmj Debian package
+Message-Id: <20070624121344.GC29840@vixis.sumodave.com>
 List-Id: <mlmmj.mlmmj.org>
-References: <4281ad3decdd0624cbd65d631c0a6595@mail.n0rd.dk>
-In-Reply-To: <4281ad3decdd0624cbd65d631c0a6595@mail.n0rd.dk>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
 
-Mads Martin Joergensen <mmj@mmj.dk> wrote:
-> * Morten K. Poulsen <morten@afdelingp.dk> [Jun 14. 2007 00:46]:
->> I've just uploaded yet another CVS snapshot:
-[snip]
-> Why was it this is not 1.2.15-rc1?
 
-I was holding it for Ansgar's configure patch. I will roll
-mlmmj-1.2.15-RC1 now.
+Hello,
 
-Morten
+I am the new maintainer for the mlmmj package in Debian. Yesterday I
+uploaded 1.2.14-1 for sid which has started to appears on the mirrors.
 
--- 
-Morten K. Poulsen <morten@afdelingp.dk>
-http://www.afdelingp.dk/
+Sorry for the delay in getting it up. QA wanted to do some policy fixes
+to the package before I took it over. Their update was 1.2.11-8 which is
+now in lenny/testing. I should be more prompt with 1.2.15.
+
+For my next upload I'm thinking about doing some work to mlmmj-make-ml
+which has had some "Debianisation" done to it. Do people commonly use
+mlmmj with Exim and Postfix? Any other MTAs?
+
+Also Debian sid will be shortly dropping php4 in favour for php5. Are
+the php web interfaces for mlmmj known to work with php5?
+
+
+Thanks,
+Dan
 
