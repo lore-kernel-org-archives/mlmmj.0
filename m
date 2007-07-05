@@ -1,7 +1,7 @@
-From: Mads Martin Joergensen <mmj@mmj.dk>
-Date: Thu, 05 Jul 2007 15:52:54 +0000
+From: Jakob Hirsch <jh@plonk.de>
+Date: Thu, 05 Jul 2007 17:47:42 +0000
 Subject: Re: Support for X-No-Archive planned?
-Message-Id: <20070705155254.GA1144@mmj.dk>
+Message-Id: <468D2EBE.3000001@plonk.de>
 List-Id: <mlmmj.mlmmj.org>
 References: <20070705144515.GC21671@ptaff.ca>
 In-Reply-To: <20070705144515.GC21671@ptaff.ca>
@@ -10,28 +10,21 @@ Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 To: mlmmj@mlmmj.org
 
-* Patrice Levesque <mlmmj.wayne@ptaff.ca> [Jul 05. 2007 16:47]:
-> Using mlmmj for a few years now, everything goes smoothly.  Thanks to
-> those who worked hard to build the best lightweight mailing list app.
+Quoting Patrice Levesque:
 
-Thanks for the kind words!
+> I know I can delete the file in spool/ml/archive/, but is there anything
+> else that can be done?  Is something like “X-No-Archive: yes” supported
+> or planned?
 
-> I have a question / feature request.
-> 
-> Suppose I have an active archived mailing list, but I want a
-> particular post not to be archived.  What are the possibilities I
-> have?
-> 
-> I know I can delete the file in spool/ml/archive/, but is there
-> anything else that can be done?  Is something like “X-No-Archive: yes”
-> supported or planned?
+Is this necessary inside the mlmmj itself? You could just grep over 
+recent files with find and grep. This would be no real-time solution, of 
+course, but more like Google's "remove after X days" feature (which I'd 
+say is a good thing).
 
-It's a good idea which I might take a stab at implementing--been a while
-since I touched mlmmj code, so this might be the one to do. My initial
-thought is that this wouldn't be too hard to do.
+Anyway, a simple approach to do it synchronously could be to use the 
+"noarchive" control flag, i.e. setting it to "2" would honour the 
+X-No-Archive header. But it would be probably better (more generic and 
+flexible) to create a new flag "archivewith", which would define an 
+external program to do the archiving (or not, depending on whatever 
+somebody wants, and also _where_ one wants, like an RDBMS or such, e.g.).
 
--- 
-Mads Martin Joergensen, http://mmj.dk
-"Why make things difficult, when it is possible to make them cryptic
- and totally illogical, with just a little bit more effort?"
-                                 -- A. P. J.
