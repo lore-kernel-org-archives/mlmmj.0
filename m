@@ -1,7 +1,7 @@
-From: Mads Martin Joergensen <mmj@mmj.dk>
-Date: Thu, 05 Jul 2007 21:39:18 +0000
+From: Jakob Hirsch <jh@plonk.de>
+Date: Fri, 06 Jul 2007 02:17:05 +0000
 Subject: Re: Support for X-No-Archive planned?
-Message-Id: <20070705213918.GB1144@mmj.dk>
+Message-Id: <468DA621.1010201@plonk.de>
 List-Id: <mlmmj.mlmmj.org>
 References: <20070705144515.GC21671@ptaff.ca>
 In-Reply-To: <20070705144515.GC21671@ptaff.ca>
@@ -10,31 +10,22 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-* Thomas Goirand <thomas@goirand.fr> [Jul 05. 2007 22:26]:
-> > Anyway, a simple approach to do it synchronously could be to use the
-> > "noarchive" control flag, i.e. setting it to "2" would honour the
-> > X-No-Archive header. But it would be probably better (more generic and
-> > flexible) to create a new flag "archivewith", which would define an
-> > external program to do the archiving (or not, depending on whatever
-> > somebody wants, and also _where_ one wants, like an RDBMS or such, e.g.).
-> 
+Thomas Goirand wrote:
+
+>> This would be no real-time solution, of
+>> course, but more like Google's "remove after X days" feature (which I'd
+>> say is a good thing).
+> I don't really like that solution. I run mhonarc using the MLMMJ folder,
+> and unless I force it to reprocess all the full archive each time, the
+> archived message WOULD be processed in my web archive.
+
+Well, that's a problem of your web archive software then. There's
+probably a way to purge message from that one, too.
+
 > It would be VERY nice to be able to launch a web archive program to
 > update the web archive in real time whenever a message arrives (mhonarc
-> in my case), so it doesn't have to wait for the next cron job to be
-> executed (and even removing the need of any cron job).
 
-I've long planned to have a 'postcommand' control file that then would
-get executed with the archive path appended so you could have something
-similar to:
+You could easily do that with Linux' inotifywait. But that's an
+additional background process running, and this is simple to do inside
+mlmmj.
 
- /usr/bin/hypermail -c /my/conffile -1 -m
-
-in the file which then would be executed after done delivery like
-
- /usr/bin/hypermail -c /my/conffile -1 -m /var/spool/mlmmj/list/archive/23
-
--- 
-Mads Martin Joergensen, http://mmj.dk
-"Why make things difficult, when it is possible to make them cryptic
- and totally illogical, with just a little bit more effort?"
-                                 -- A. P. J.
