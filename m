@@ -1,29 +1,37 @@
-From: Morten K. Poulsen <morten@afdelingp.dk>
-Date: Mon, 30 Jul 2007 22:04:47 +0000
-Subject: Re: mlmmj-1.2.15 released
-Message-Id: <5884d0d1939ba1e2c578e0abec9c8eee@mail.n0rd.dk>
+From: "Franky Van Liedekerke" <liedekef@telenet.be>
+Date: Thu, 19 Jul 2007 12:06:05 +0000
+Subject: update of perl-admin interface
+Message-Id: <60567dcc0707190506t3d8d6ca1lc9591470e32fe802@mail.gmail.com>
+MIME-Version: 1
+Content-Type: multipart/mixed; boundary="----=_Part_103158_26741484.1184846765270"
 List-Id: <mlmmj.mlmmj.org>
-References: <8dd4cf3c878f4796dc98c2099e2ce817@mail.n0rd.dk>
-In-Reply-To: <8dd4cf3c878f4796dc98c2099e2ce817@mail.n0rd.dk>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
+------=_Part_103158_26741484.1184846765270
+Content-Type: text/plain; charset=ISO-8859-1; format=flowed
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
-Morten K. Poulsen <morten@afdelingp.dk> wrote:
-> mlmmj-1.2.15 is available for download:
-[snip]
-> Have fun!
+Hi,
 
-Oh, I forgot to say: My plane for Las Vegas leaves in a few
-hours and I will be (very) offline for two weeks. Mads Martin
-will take care of things while I am away.
+I've updated the perl admin interface with the following features:
 
+- bulk (file) upload of subscribers
+- remove all subscribers (with double "are you sure" check)
+- possibility to edit all texts
 
-Morten
+I also changed the README a bit, because the info wasn't totally correct
 
--- 
-Morten K. Poulsen <morten@afdelingp.dk>
-http://www.afdelingp.dk/
+If anyone is interested in these changes ... ?
 
+Franky
+
+------=_Part_103158_26741484.1184846765270
+Content-Type: text/html; charset=ISO-8859-1
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+Hi,<br><br>I&#39;ve updated the perl admin interface with the following features:<br><br>- bulk (file) upload of subscribers<br>- remove all subscribers (with double &quot;are you sure&quot; check)<br>- possibility to edit all texts
+<br><br>I also changed the README a bit, because the info wasn&#39;t totally correct<br><br>If anyone is interested in these changes ... ?<br><br>Franky<br>
+
+------=_Part_103158_26741484.1184846765270--
