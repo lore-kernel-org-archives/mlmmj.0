@@ -1,40 +1,30 @@
-From: Beber <beber@meleeweb.net>
-Date: Fri, 17 Aug 2007 10:09:34 +0000
-Subject: Ldap integration
-Message-Id: <20070817100934.GB25647@toothrot.meleeweb.net>
-MIME-Version: 1
-Content-Type: multipart/mixed; boundary="ftEhullJWpWg/VHq"
+From: Christian Laursen <xi@borderworlds.dk>
+Date: Wed, 01 Aug 2007 18:28:36 +0000
+Subject: Re: update of perl-admin interface
+Message-Id: <ygfmyxbxg6j.fsf@dominion.borderworlds.dk>
 List-Id: <mlmmj.mlmmj.org>
-References: <46C573DA.2070407@afdelingp.dk>
-In-Reply-To: <46C573DA.2070407@afdelingp.dk>
+References: <60567dcc0707190506t3d8d6ca1lc9591470e32fe802@mail.gmail.com>
+In-Reply-To: <60567dcc0707190506t3d8d6ca1lc9591470e32fe802@mail.gmail.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
+"Franky Van Liedekerke" <liedekef@telenet.be> writes:
 
---ftEhullJWpWg/VHq
-Content-Type: text/plain; charset=utf8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+>    Here is the diff, I hope I'm still on time before the RC2 :-)
 
-Hi,
+Unfortunately I have been too busy for that to happen and 1.2.15 is
+now released.
 
-Is someone tryed to integrate mlmmj with ldap ? I would like to use it
-personnaly, and so if someone has started something, I can help.
-Overwise, i'll start something on my side.
+I have however merged your changes to CVS and they will be included in
+1.2.16. I made a few small fixes to get rid of warnings in the error
+log and added copyright lines with your name.
 
---=20
-Beber
-Jabber (+GMail) : beber@meleeweb.net
+To see the resulting version, fetch this file:
+http://borderworlds.dk/~xi/perl-admin.tar.bz2
 
---ftEhullJWpWg/VHq
-Content-Type: application/pgp-signature
-Content-Disposition: inline
+Thank you very much for contributing.
 
------BEGIN PGP SIGNATURE-----
-Version: GnuPG v1.4.7 (GNU/Linux)
-
-iD8DBQFGxXPdibjJUzm7jPQRArucAKC5lPmnW856AT2psc1ngkTQpIx9CQCgkRpD
-jtSTAKUStK3t1qCI9lQLtT4=
-=Pmg7
------END PGP SIGNATURE-----
-
---ftEhullJWpWg/VHq--
+-- 
+Christian Laursen
