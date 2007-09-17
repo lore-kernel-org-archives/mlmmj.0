@@ -1,32 +1,35 @@
 From: Neale Pickett <neale@woozle.org>
-Date: Mon, 17 Sep 2007 03:08:49 +0000
-Subject: theoretical automated attack against mlmmj
-Message-Id: <w537imqugxq.fsf@fozzie.woozle.org>
+Date: Mon, 17 Sep 2007 04:08:39 +0000
+Subject: Re: theoretical automated attack against mlmmj
+Message-Id: <w53r6kyszlk.fsf@fozzie.woozle.org>
 List-Id: <mlmmj.mlmmj.org>
+References: <w537imqugxq.fsf@fozzie.woozle.org>
+In-Reply-To: <w537imqugxq.fsf@fozzie.woozle.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-I just had to unsubscribe "service@paypal.com" from one of my mail
-lists.  Here's what I think happened:
+Neale Pickett <neale@woozle.org> writes:
 
-I have a web interface to subscribe/unsubscribe
-(http://woozle.org/lists).  It's nothing fancy, just does a glob of
-/var/spool/mlmmj/*/control/public and prints 'em out.  Well, and it
-looks through the list-id header for the description.  Anyway, it seems
-some joker (I have a lot of jokers on one list in particular) typed in
-"service@paypal.com" and clicked "subscribe".
+> Given that, it should be trivial to script up an automated attack
+> against mlmmj, subscribing service@paypal.com every day and causing a
+> big headache for list admins.
 
-"service@paypal.com" is an auto-responder, so the subscribe confirmation
-message got a response, and they got signed up.
+It might even be worse, what would happen if I spoofed mail from one
+list's "+subscribe" to another list's "+subscribe"?  It's too late in
+the day for me to work that out in my head.
 
-Obviously a captcha wouldn't fix this, since it was a malevolent
-attacker.  And they could just as easily have spoofed an email to
-achieve the same results.  Given that, it should be trivial to script up
-an automated attack against mlmmj, subscribing service@paypal.com every
-day and causing a big headache for list admins.
+> Any ideas?
 
-Any ideas?
+I just had one :) The "welcome to the list" message could have a From
+address that is the "unsubscribe confirmation" address.  So if an
+auto-responder were subscribed, it would immediately unsubscribe itself
+by responding to the welcome message.  It's not pretty but it would
+work, and if it worked there'd be no reason to script an attack.  Of
+course, the automated responder loses three times.
+
+Maybe I'll have a better idea tomorrow.
 
 Neale
+
