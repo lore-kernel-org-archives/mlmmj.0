@@ -1,7 +1,7 @@
-From: Neale Pickett <neale@woozle.org>
-Date: Mon, 17 Sep 2007 16:09:57 +0000
+From: Christian Laursen <xi@borderworlds.dk>
+Date: Mon, 17 Sep 2007 17:13:16 +0000
 Subject: Re: theoretical automated attack against mlmmj
-Message-Id: <w53myvltgru.fsf@fozzie.woozle.org>
+Message-Id: <ygfvea96wr7.fsf@dominion.borderworlds.dk>
 List-Id: <mlmmj.mlmmj.org>
 References: <w537imqugxq.fsf@fozzie.woozle.org>
 In-Reply-To: <w537imqugxq.fsf@fozzie.woozle.org>
@@ -16,20 +16,21 @@ Mads Martin Joergensen <mmj@mmj.dk> writes:
 >
 >> Obviously a captcha wouldn't fix this, since it was a malevolent
 >> attacker.  And they could just as easily have spoofed an email to
->> achieve the same results.  Given that, it should be trivial to script
->> up
->> an automated attack against mlmmj, subscribing service@paypal.com every
+>> achieve the same results.  Given that, it should be trivial to
+>> script up
+>> an automated attack against mlmmj, subscribing service@paypal.com
+>> every
 >> day and causing a big headache for list admins.
 >
 > AFAIK this problem exists with ezmlm as well, which uses the same
 > technique as mlmmj (oddly enough :-).
 
-Right, and that's the reason we're all using mlmmj and not ezmlm: so we
-can fix things like this and have it integrated upstream.
+Perhaps adding "Precedence: bulk" to the confirmation mails would take
+care of this problem. My guess would be, that the paypal
+auto-responder will then ignore the mails.
 
-Well, and not everybody runs qmail.
+Adding "Precedence: list" to regular mails sent to the list could also
+be a good idea.
 
-Neale
-
-(Maybe the cool name too.)
-
+-- 
+Christian Laursen
