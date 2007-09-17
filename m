@@ -1,7 +1,7 @@
-From: Neale Pickett <neale@woozle.org>
-Date: Mon, 17 Sep 2007 04:08:39 +0000
+From: Mads Martin Joergensen <mmj@mmj.dk>
+Date: Mon, 17 Sep 2007 08:03:21 +0000
 Subject: Re: theoretical automated attack against mlmmj
-Message-Id: <w53r6kyszlk.fsf@fozzie.woozle.org>
+Message-Id: <D4B78186-2673-4665-BC21-6F7BAC0365FE@mmj.dk>
 List-Id: <mlmmj.mlmmj.org>
 References: <w537imqugxq.fsf@fozzie.woozle.org>
 In-Reply-To: <w537imqugxq.fsf@fozzie.woozle.org>
@@ -10,26 +10,26 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Neale Pickett <neale@woozle.org> writes:
 
-> Given that, it should be trivial to script up an automated attack
-> against mlmmj, subscribing service@paypal.com every day and causing a
-> big headache for list admins.
+On 17/09/2007, at 5.08, Neale Pickett wrote:
 
-It might even be worse, what would happen if I spoofed mail from one
-list's "+subscribe" to another list's "+subscribe"?  It's too late in
-the day for me to work that out in my head.
+> Obviously a captcha wouldn't fix this, since it was a malevolent
+> attacker.  And they could just as easily have spoofed an email to
+> achieve the same results.  Given that, it should be trivial to  
+> script up
+> an automated attack against mlmmj, subscribing service@paypal.com  
+> every
+> day and causing a big headache for list admins.
 
-> Any ideas?
+AFAIK this problem exists with ezmlm as well, which uses the same  
+technique as mlmmj (oddly enough :-).
 
-I just had one :) The "welcome to the list" message could have a From
-address that is the "unsubscribe confirmation" address.  So if an
-auto-responder were subscribed, it would immediately unsubscribe itself
-by responding to the welcome message.  It's not pretty but it would
-work, and if it worked there'd be no reason to script an attack.  Of
-course, the automated responder loses three times.
+-- 
+Mads Martin Joergensen, http://mmj.dk
+"Why make things difficult, when it is possible to make them cryptic
+  and totally illogical, with just a little bit more effort?"
+                                  -- A. P. J.
 
-Maybe I'll have a better idea tomorrow.
 
-Neale
+
 
