@@ -1,7 +1,7 @@
-From: Mads Martin Joergensen <mmj@mmj.dk>
-Date: Mon, 17 Sep 2007 19:18:42 +0000
+From: Neale Pickett <neale@woozle.org>
+Date: Mon, 17 Sep 2007 21:01:49 +0000
 Subject: Re: theoretical automated attack against mlmmj
-Message-Id: <20070917191842.GA42438@mmj.dk>
+Message-Id: <w53myvlrooy.fsf@fozzie.woozle.org>
 List-Id: <mlmmj.mlmmj.org>
 References: <w537imqugxq.fsf@fozzie.woozle.org>
 In-Reply-To: <w537imqugxq.fsf@fozzie.woozle.org>
@@ -10,21 +10,14 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-* Christian Laursen <xi@borderworlds.dk> [Sep 17. 2007 19:13]:
-> > AFAIK this problem exists with ezmlm as well, which uses the same
-> > technique as mlmmj (oddly enough :-).
-> 
+Christian Laursen <xi@borderworlds.dk> writes:
+
 > Perhaps adding "Precedence: bulk" to the confirmation mails would take
 > care of this problem. My guess would be, that the paypal
 > auto-responder will then ignore the mails.
-> 
-> Adding "Precedence: list" to regular mails sent to the list could also
-> be a good idea.
 
-Very good idea. This is for mlmmj-send.c IIRC. Care to cook up a patch?
+This appears to be correct.  Nice solution, 2 points.
 
--- 
-Mads Martin Joergensen, http://mmj.dk
-"Why make things difficult, when it is possible to make them cryptic
- and totally illogical, with just a little bit more effort?"
-                                 -- A. P. J.
+I'll see if I can't patch that up, but don't hold your breath on it.
+
+Neale
