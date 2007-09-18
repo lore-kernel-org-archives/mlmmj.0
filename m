@@ -1,7 +1,7 @@
-From: Christian Laursen <xi@borderworlds.dk>
-Date: Tue, 18 Sep 2007 18:11:55 +0000
+From: Franky Van Liedekerke <liedekef@telenet.be>
+Date: Tue, 18 Sep 2007 19:01:51 +0000
 Subject: Re: Having individual receiver in To: field
-Message-Id: <ygfabrjj11w.fsf@dominion.borderworlds.dk>
+Message-Id: <20070918210151.24f158e8@franky>
 List-Id: <mlmmj.mlmmj.org>
 References: <1557ec740709171048y2b7c2e08g5c9fbfe40196087a@mail.gmail.com>
 In-Reply-To: <1557ec740709171048y2b7c2e08g5c9fbfe40196087a@mail.gmail.com>
@@ -10,27 +10,31 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Thomas Goirand <thomas@goirand.fr> writes:
+On Tue, 18 Sep 2007 11:24:19 -0600
+Neale Pickett <neale@woozle.org> wrote:
 
-> This makes me think that I would have like a way that only certain
-> person (like the list owners or the moderators) could send to the
-> moderated list without the hassle of having to approve the messages. On
-> a busy mail server it can take some time until we receive the moderation
-> message. I don't really know how this could be implemented, but what I
-> thought about would be something like a password in the subject that
-> would be removed, for example (this is not very nice, but that's the
-> only thing I can think of). I know that the From: checking is not enough
-> as this could be faked. Does anybody has a better idea for that one?
+> Thomas Goirand <thomas@goirand.fr> writes:
+> 
+> > This makes me think that I would have like a way that only certain
+> > person (like the list owners or the moderators) could send to the
+> > moderated list without the hassle of having to approve the messages.
+> 
+> I set up a club newsletter like so:
+> 
+>     fozzie /var/spool/mlmmj/lann.members/control$ cat access 
+>     allow ^From: .*@la-nn.org
+>     deny
+>     fozzie /var/spool/mlmmj/lann.members/control$ 
+> 
+> I don't know if it actually prevents others from mailing the list :)
+> 
+> Neale
+> 
+> 
 
-Make an access file containing something like this:
-allow ^Approved: yoursecretpasswordgoeshere
-moderate
+no, it does not prevent others from mailing: anybody can spoof the
+address ..., but if you combine it with a confirmation mail, limit it
+so only members can mail and drop all non-member mail, it's pretty
+safe :)
 
-and add "Approved:" to delheaders.
-
-Then it would just be a matter of including the correct
-Approved-header and if not, the message would be sent to the
-moderator(s).
-
--- 
-Christian Laursen
+Franky
