@@ -1,7 +1,7 @@
-From: Franky Van Liedekerke <liedekef@telenet.be>
-Date: Tue, 18 Sep 2007 19:01:51 +0000
+From: Mads Martin Joergensen <mmj@mmj.dk>
+Date: Tue, 18 Sep 2007 21:12:33 +0000
 Subject: Re: Having individual receiver in To: field
-Message-Id: <20070918210151.24f158e8@franky>
+Message-Id: <D55A3098-97A6-439F-ABAC-C1EE358CB9D8@mmj.dk>
 List-Id: <mlmmj.mlmmj.org>
 References: <1557ec740709171048y2b7c2e08g5c9fbfe40196087a@mail.gmail.com>
 In-Reply-To: <1557ec740709171048y2b7c2e08g5c9fbfe40196087a@mail.gmail.com>
@@ -10,31 +10,20 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-On Tue, 18 Sep 2007 11:24:19 -0600
-Neale Pickett <neale@woozle.org> wrote:
 
-> Thomas Goirand <thomas@goirand.fr> writes:
-> 
-> > This makes me think that I would have like a way that only certain
-> > person (like the list owners or the moderators) could send to the
-> > moderated list without the hassle of having to approve the messages.
-> 
-> I set up a club newsletter like so:
-> 
->     fozzie /var/spool/mlmmj/lann.members/control$ cat access 
->     allow ^From: .*@la-nn.org
->     deny
->     fozzie /var/spool/mlmmj/lann.members/control$ 
-> 
-> I don't know if it actually prevents others from mailing the list :)
-> 
-> Neale
-> 
-> 
+On 18/09/2007, at 21.01, Franky Van Liedekerke wrote:
 
-no, it does not prevent others from mailing: anybody can spoof the
-address ..., but if you combine it with a confirmation mail, limit it
-so only members can mail and drop all non-member mail, it's pretty
-safe :)
+> no, it does not prevent others from mailing: anybody can spoof the
+> address ..., but if you combine it with a confirmation mail, limit it
+> so only members can mail and drop all non-member mail, it's pretty
+> safe :)
 
-Franky
+See the mail Christian sent about adding a passwd in a header file.  
+That's pretty safe.
+
+-- 
+Mads Martin Joergensen, http://mmj.dk
+"Why make things difficult, when it is possible to make them cryptic
+  and totally illogical, with just a little bit more effort?"
+                                  -- A. P. J.
+
