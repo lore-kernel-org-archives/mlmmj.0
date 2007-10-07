@@ -1,36 +1,28 @@
-From: Mads Martin Joergensen <mmj@mmj.dk>
-Date: Tue, 09 Oct 2007 09:52:34 +0000
-Subject: Re: change hostname, messages in queue
-Message-Id: <60051E6F-5079-493D-A15A-62B3019F9DA6@mmj.dk>
+From: Adam Sherman <adam@sherman.ca>
+Date: Sun, 07 Oct 2007 16:54:07 +0000
+Subject: Why VERP?
+Message-Id: <D11FDD51-B671-42D2-A0AA-0C3989E5351B@sherman.ca>
 List-Id: <mlmmj.mlmmj.org>
-References: <20071008215435.GN7082@localhost>
-In-Reply-To: <20071008215435.GN7082@localhost>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
+Good Afternoon,
 
-On 09/10/2007, at 11.48, Lukáš Hlůže wrote:
+I'm trying to find a quick description of the benefits of VERP, and  
+what it actually does. Anyone have a decent URL? My googling hasn't  
+yielded much.
 
-> Yes, I am running mlmmj-maintd via cron. I try munual run, but doesn't
-> help.
->
-> Howto resend mails in queue dir manually? Any advice?
+Thanks,
 
-It's because it cannot deliver to the relayhost, probably. If you  
-tail the log from the mailserver while running mlmmj-maintd manually  
-you should see the reason. mlmmj should also log what happens.
+A.
 
-We have to see your log files to help you.
 
 -- 
-Mads Martin Joergensen, http://mmj.dk
-"Why make things difficult, when it is possible to make them cryptic
-  and totally illogical, with just a little bit more effort?"
-                                  -- A. P. J.
-
-
+Adam Sherman
+Technologist
++1 (613) 797-6819 | http://www.sherman.ca/ | sip:adam@sherman.ca
 
 
 
