@@ -1,7 +1,7 @@
-From: Adam Sherman <adam@sherman.ca>
-Date: Sun, 07 Oct 2007 17:03:33 +0000
+From: Mads Martin Joergensen <mmj@mmj.dk>
+Date: Sun, 07 Oct 2007 17:05:00 +0000
 Subject: Re: Preventing Message Being Sent to Sender
-Message-Id: <093FA1D7-6686-477E-A601-D56B14A7008F@sherman.ca>
+Message-Id: <56D2ED77-FF2E-440B-8FC2-232AAC872240@mmj.dk>
 List-Id: <mlmmj.mlmmj.org>
 References: <D2824A33-D2AB-453D-9EB6-FDB30162605D@sherman.ca>
 In-Reply-To: <D2824A33-D2AB-453D-9EB6-FDB30162605D@sherman.ca>
@@ -10,23 +10,25 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-On Oct 7, 2007, at 13:02, Mads Martin Joergensen wrote:
->> Is there a tunable parameter to prevent a copy of the message  
->> being sent to the original sender? I haven't been able to find any  
->> reference to this.
+
+On 07/10/2007, at 19.03, Adam Sherman wrote:
+
+>>> Is there a tunable parameter to prevent a copy of the message  
+>>> being sent to the original sender? I haven't been able to find  
+>>> any reference to this.
+>>
+>> Nope, no such tunable exists.
 >
-> Nope, no such tunable exists.
+> Thank you for the quick reply. I'd vote for that feature then! :-D
 
-Thank you for the quick reply. I'd vote for that feature then! :-D
-
-Thanks,
-
-A.
+Patches are always very welcome ;-)
 
 -- 
-Adam Sherman
-Technologist
-+1 (613) 797-6819 | http://www.sherman.ca/ | sip:adam@sherman.ca
+Mads Martin Joergensen, http://mmj.dk
+"Why make things difficult, when it is possible to make them cryptic
+  and totally illogical, with just a little bit more effort?"
+                                  -- A. P. J.
+
 
 
 
