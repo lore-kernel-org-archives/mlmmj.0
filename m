@@ -1,116 +1,38 @@
-From: =?utf-8?B?THVrw6HFoSBIbMWvxb5l?= <lukas@hluze.cz>
-Date: Mon, 08 Oct 2007 21:54:35 +0000
-Subject: change hostname, messages in queue
-Message-Id: <20071008215435.GN7082@localhost>
-MIME-Version: 1
-Content-Type: multipart/mixed; boundary="2+jOUFLb7N+7fooZ"
+From: "Morten K. Poulsen" <morten@afdelingp.dk>
+Date: Tue, 09 Oct 2007 07:55:15 +0000
+Subject: Re: change hostname, messages in queue
+Message-Id: <1191916515.5907.3.camel@mopo-laptop>
 List-Id: <mlmmj.mlmmj.org>
+References: <20071008215435.GN7082@localhost>
+In-Reply-To: <20071008215435.GN7082@localhost>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 To: mlmmj@mlmmj.org
 
 
---2+jOUFLb7N+7fooZ
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+On Mon, 2007-10-08 at 23:54 +0200, Lukáš Hlůže wrote:
+>   when I change hostname on my debian mail server. Mlmmj only recieve
+>   mail and save msg in queue directory and do nothig.
 
-Hi,=20
-  when I change hostname on my debian mail server. Mlmmj only recieve
-  mail and save msg in queue directory and do nothig. I use postfix and
-  procmail to delivery message to mlmmj. What should I do?
+That is strange.
 
-  So now I change my hostname back but I have some messages in queue
-  dir. What should I do to delivery them.=20
+>  I use postfix and procmail to delivery message to mlmmj.
 
-  Can you help me?
+Should be fine.
 
---=20
+>  What should I do?
 
-  Luk=C3=A1=C5=A1 Hl=C5=AF=C5=BEe
- =20
-  mobil  777 953 158
-  mail   lukas <at> hluze <dot> cz
-  www    hluze.cz
-  icq#   177715532
-  jabber nehoral@jabber.org
+Read the log files. Are there anything there, indicating why it is
+acting so strange?
 
---2+jOUFLb7N+7fooZ
-Content-Type: application/x-pkcs7-signature
-Content-Disposition: attachment; filename="smime.p7s"
-Content-Transfer-Encoding: base64
+>   So now I change my hostname back but I have some messages in queue
+>   dir. What should I do to delivery them. 
 
-MIIPYAYJKoZIhvcNAQcCoIIPUTCCD00CAQExCzAJBgUrDgMCGgUAMAsGCSqGSIb3DQEHAaCC
-DOkwgga3MIIFn6ADAgECAgMCBxIwDQYJKoZIhvcNAQEFBQAwXTELMAkGA1UEBhMCQ1oxLDAq
-BgNVBAoMI8SMZXNrw6EgcG/FoXRhLCBzLnAuIFtJxIwgNDcxMTQ5ODNdMSAwHgYDVQQDExdQ
-b3N0U2lnbnVtIFF1YWxpZmllZCBDQTAeFw0wNzAzMzAxMDQwMjBaFw0wODAzMjkxMDQwMjBa
-MFwxCzAJBgNVBAYTAkNaMScwJQYDVQQKDB5MdWvDocWhIEhsxa/FvmUgW0nEjCA3Mjc1ODY2
-MF0xCjAIBgNVBAsTATExGDAWBgNVBAMMD0x1a8OhxaEgSGzFr8W+ZTCCASIwDQYJKoZIhvcN
-AQEBBQADggEPADCCAQoCggEBAMf0EF6pnsIxjCo4ckqjnl/STnzPBdo+JoSlrbRRSVjvwSLi
-sJ+fWI3jaEV1Pm0UZ8cJkcsx9iiOGtY1Faw25HmeDetse4cLsN/e/PhofMEQSp1pf/XysHem
-D3otnl/ls4wtF9CKryH134sjaNpBSKm20Tt3JmfNO3YMoFrMrWfRDWSVVyOKa3FoVE+fj92j
-UWAiZmg5VRUFhAiD0LTnobD/lNOmW9L+HT2wQUaGSaDU62cEwL9o8L1QgoG1pms3351xwH74
-Ni7Cp1k7ilNjMCWgCTJL6CDw6d7D/Y9zSAhW7HKg8SGVDqf/bhpOY/4ddPq0YDlGkl5oRIP7
-MdhkIRcCAwEAAaOCA38wggN7MDQGA1UdEQQtMCuBDmx1a2FzQGhsdXplLmN6oBkGCSsGAQQB
-3BkCAaAMEwoxNzI0ODI5ODc2MAkGA1UdEwQCMAAwgcAGA1UdIASBuDCBtTCBsgYIZ4EGAQQB
-AXgwgaUwfQYIKwYBBQUHAgIwcRpvVGVudG8gY2VydGlmaWthdCBieWwgdnlkYW4gamFrbyBr
-dmFsaWZpa292YW55IGNlcnRpZmlrYXQgdmUgc215c2x1IHpha29uYSAyMjcvMjAwMCBTYi4g
-YSBuYXZhenVqaWNpY2ggcHJlZHBpc3UuMCQGCCsGAQUFBwIBFhhodHRwOi8vd3d3LnBvc3Rz
-aWdudW0uY3owGAYIKwYBBQUHAQMEDDAKMAgGBgQAjkYBATAJBgNVHQkEAjAAMA4GA1UdDwEB
-/wQEAwIF4DCBgQYDVR0jBHoweIAUp5+2jomTmmV2CZqV+ER+aYJq3guhXaRbMFkxCzAJBgNV
-BAYTAkNaMSwwKgYDVQQKDCPEjGVza8OhIHBvxaF0YSwgcy5wLiBbScSMIDQ3MTE0OTgzXTEc
-MBoGA1UEAxMTUG9zdFNpZ251bSBSb290IFFDQYIBHDCCAZsGA1UdHwSCAZIwggGOMDSgMqAw
-hi5odHRwOi8vd3d3LnBvc3RzaWdudW0uY3ovY3JsL3BzcXVhbGlmaWVkY2EuY3JsMDSgMqAw
-hi5odHRwOi8vcG9zdHNpZ251bS50dGMuY3ovY3JsL3BzcXVhbGlmaWVkY2EuY3JsMIGOoIGL
-oIGIhoGFbGRhcDovL3FjYS5wb3N0c2lnbnVtLmN6L2NuJTNkUG9zdFNpZ251bSUyMFF1YWxp
-ZmllZCUyMENBLG8lM2RDZXNrYSUyMHBvc3RhJTIwcy5wLiUyMFtJQyUyMDQ3MTE0OTgzXSxj
-JTNkQ1o/Y2VydGlmaWNhdGVSZXZvY2F0aW9uTGlzdDCBjqCBi6CBiIaBhWxkYXA6Ly9wb3N0
-c2lnbnVtLnR0Yy5jei9jbiUzZFBvc3RTaWdudW0lMjBRdWFsaWZpZWQlMjBDQSxvJTNkQ2Vz
-a2ElMjBwb3N0YSUyMHMucC4lMjBbSUMlMjA0NzExNDk4M10sYyUzZENaP2NlcnRpZmljYXRl
-UmV2b2NhdGlvbkxpc3QwHQYDVR0OBBYEFOQlHsvd09lhqrBXWoGoL1sbCRZqMA0GCSqGSIb3
-DQEBBQUAA4IBAQCDCZaV78ICegHuL0TjXveoX3jJHe4/j/7lwqQKFTQazX0MwwKDV2PlYRqJ
-AROntLbGyC8lXiRt6+03TY0yqUgjneNONq3M6mr6weQ8vckLpd6N84pr1rIU1eZGHgnLtZnf
-ZGN3MRGCv+E4H34DCp1PPxyucvcR2VuEbmJev1db6QvGk9+S69JSb7+miScScrR/7UZIF9lx
-QicgJClXb4MR0VaikE0wQxBYCYugVpUSVULJebaXyHBkll6eQiKMPOJ9c/ZSmS3amNxilsQr
-SQ+S905EJreBDJPPZHU9Tw4Fg2Og3MhZCWgZtzVoVjKBAgsjOfmAsP+FwxVkdlETJaXMMIIG
-KjCCBRKgAwIBAgIBATANBgkqhkiG9w0BAQUFADBZMQswCQYDVQQGEwJDWjEsMCoGA1UECgwj
-xIxlc2vDoSBwb8WhdGEsIHMucC4gW0nEjCA0NzExNDk4M10xHDAaBgNVBAMTE1Bvc3RTaWdu
-dW0gUm9vdCBRQ0EwHhcNMDUwNDA2MDk0NTExWhcNMzAwNDA2MDk0MjI3WjBZMQswCQYDVQQG
-EwJDWjEsMCoGA1UECgwjxIxlc2vDoSBwb8WhdGEsIHMucC4gW0nEjCA0NzExNDk4M10xHDAa
-BgNVBAMTE1Bvc3RTaWdudW0gUm9vdCBRQ0EwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEK
-AoIBAQC4OrLAx+0mAPpcfvUNrOic7u6DJcokEJLoWSv0ZurD5pXVZG+zN9pKX5P3iH7DZtuZ
-2qwzg4tHReCeu6SR+aAn962eG2ZEw1uv411QrZUgVkOe8Tvfr0Cv1HOzgZn0AFZNZ8TnHS67
-SMP/z//VyFLqSBm44QtJDeiAvzwLXFAp5HYeIBMXVMfp1aY2t8RN7B0WSgO8aU1UgRviKR4q
-CJao0iCuQV/4f0Exf1o4AyjXlTZ4wbKD5ZAwuI8a+aZKjtIW1Ucioa/0kyLx3DHLq0Lsll5O
-aVP2awfPkxXGyPOSYrEXxoNm32CfKeXjY1xTIwm0cIx5AEpNP8t7Ku5hPwY7AgMBAAGjggL7
-MIIC9zCCAYsGA1UdHwSCAYIwggF+MDCgLqAshipodHRwOi8vd3d3LnBvc3RzaWdudW0uY3ov
-Y3JsL3Bzcm9vdHFjYS5jcmwwMKAuoCyGKmh0dHA6Ly9wb3N0c2lnbnVtLnR0Yy5jei9jcmwv
-cHNyb290cWNhLmNybDCBiqCBh6CBhIaBgWxkYXA6Ly9xY2EucG9zdHNpZ251bS5jei9jbiUz
-ZFBvc3RTaWdudW0lMjBSb290JTIwUUNBLG8lM2RDZXNrYSUyMHBvc3RhJTIwcy5wLiUyMFtJ
-QyUyMDQ3MTE0OTgzXSxjJTNkQ1o/Y2VydGlmaWNhdGVSZXZvY2F0aW9uTGlzdDCBiqCBh6CB
-hIaBgWxkYXA6Ly9wb3N0c2lnbnVtLnR0Yy5jei9jbiUzZFBvc3RTaWdudW0lMjBSb290JTIw
-UUNBLG8lM2RDZXNrYSUyMHBvc3RhJTIwcy5wLiUyMFtJQyUyMDQ3MTE0OTgzXSxjJTNkQ1o/
-Y2VydGlmaWNhdGVSZXZvY2F0aW9uTGlzdDCBoQYDVR0gBIGZMIGWMIGTBgRVHSAAMIGKMIGH
-BggrBgEFBQcCAjB7GnlUZW50byBjZXJ0aWZpa2F0IGJ5bCB2eWRhbiBqYWtvIGt2YWxpZmlr
-b3Zhbnkgc3lzdGVtb3Z5IGNlcnRpZmlrYXQgdmUgc215c2x1IHpha29uYSAyMjcvMjAwMCBT
-Yi4gYSBuYXZhenVqaWNpY2ggcHJlZHBpc3UuMA8GA1UdEwQIMAYBAf8CAQEwDgYDVR0PAQH/
-BAQDAgEGMB0GA1UdDgQWBBQrHdGdefXVeB4CPIJK6N3uQ68pRDCBgQYDVR0jBHoweIAUKx3R
-nXn11XgeAjyCSujd7kOvKUShXaRbMFkxCzAJBgNVBAYTAkNaMSwwKgYDVQQKDCPEjGVza8Oh
-IHBvxaF0YSwgcy5wLiBbScSMIDQ3MTE0OTgzXTEcMBoGA1UEAxMTUG9zdFNpZ251bSBSb290
-IFFDQYIBATANBgkqhkiG9w0BAQUFAAOCAQEAsWkApNYzof7ZKmroU3aDOnR/2ObgD0SnE3N+
-/KYYSGCzLf4HQtGspMjUEDMULUqAWQF76ZbPRbv6FSVyk5YuAxkIDvNknsfTxz6mCnGNsL/q
-gTYaK2TLk8A1b6VEXMD0MjOXODm5ooa+sSNxzT3JBbTCAJbtJ6OrDmqVE9X+88M39L1z7YTH
-PaTt1i7HGrKfYf42TWp0oGD+o0lJQoqAwHOjASVmDEs4iUUi6y3jboBJtZSoUDkzK5mRlJEL
-WtdvANTpcrf/DLj7CbG9wKYIUH0DKQuvApdC79JbGojTzZiMOVBH9H+v/8suZgFdQqBwF82m
-wSZwxHmn149grQLkJjGCAj8wggI7AgEBMGQwXTELMAkGA1UEBhMCQ1oxLDAqBgNVBAoMI8SM
-ZXNrw6EgcG/FoXRhLCBzLnAuIFtJxIwgNDcxMTQ5ODNdMSAwHgYDVQQDExdQb3N0U2lnbnVt
-IFF1YWxpZmllZCBDQQIDAgcSMAkGBSsOAwIaBQCggbEwGAYJKoZIhvcNAQkDMQsGCSqGSIb3
-DQEHATAcBgkqhkiG9w0BCQUxDxcNMDcxMDA4MjE1NDM1WjAjBgkqhkiG9w0BCQQxFgQUll/N
-3AkqIUMbQr8FGxHJkfKzucMwUgYJKoZIhvcNAQkPMUUwQzAKBggqhkiG9w0DBzAOBggqhkiG
-9w0DAgICAIAwDQYIKoZIhvcNAwICAUAwBwYFKw4DAgcwDQYIKoZIhvcNAwICASgwDQYJKoZI
-hvcNAQEBBQAEggEAWQmtmHi2i46osZTyGSgkZX0BWxEnzTTFpF2OAV6oG0TfP11zt+xuUCZk
-oBbn+yR5OLfqABOMos2XHk5UWTsENW3YkOog8jteaYjk5KZEolJ91WPWVvTZFukrM99PqiPq
-8qGtr0qSX7EQBWS7bHdFskb5khnSuhjrTmO4S8U8Z7mPTqDbVqey2BF11V24NKQrpOrM+R4+
-DMHTAJ5dUpOXd8Uo/osRYGiMf5BG6M0Dg3tlkrqkrJg4ZcdxqY67hUIdElIeFSt6HEoyumID
-+E55vqMYYJ9uSVWgDg4oHain39uxcJSzjlrc9laCVUpelAh+tJ5UXXnss2RrjZgrtCJCdg==
+Do you run the mlmmj-maintd via cron? If not, you should do that. You
+can run it manually once, to see if that delivers your mails:
 
---2+jOUFLb7N+7fooZ--
+/usr/bin/mlmmj-maintd -F -L /var/spool/mlmmj/your-list-dir
+
+Morten
 
