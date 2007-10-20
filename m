@@ -1,23 +1,33 @@
-From: Neale Pickett <neale@woozle.org>
-Date: Mon, 17 Sep 2007 21:01:49 +0000
-Subject: Re: theoretical automated attack against mlmmj
-Message-Id: <w53myvlrooy.fsf@fozzie.woozle.org>
+From: "mattias" <mj@mattiasweb.net>
+Date: Sat, 20 Oct 2007 23:57:16 +0000
+Subject: SV: Creating lists
+Message-Id: <000201c81374$f3a6fb40$0500a8c0@liomk23cfxd68z>
 List-Id: <mlmmj.mlmmj.org>
-References: <w537imqugxq.fsf@fozzie.woozle.org>
-In-Reply-To: <w537imqugxq.fsf@fozzie.woozle.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 To: mlmmj@mlmmj.org
 
-Christian Laursen <xi@borderworlds.dk> writes:
+Yes but i use apt-get to install
 
-> Perhaps adding "Precedence: bulk" to the confirmation mails would take
-> care of this problem. My guess would be, that the paypal
-> auto-responder will then ignore the mails.
+-----Ursprungligt meddelande-----
+Fr=E5n: Morten K. Poulsen [mailto:morten@afdelingp.dk]=20
+Skickat: den 21 oktober 2007 00:56
+Till: mlmmj@mmj.dk
+=C4mne: Re: Creating lists
 
-This appears to be correct.  Nice solution, 2 points.
 
-I'll see if I can't patch that up, but don't hold your breath on it.
+mattias wrote:
+> How to create a list?
 
-Neale
+Read the README file in the distribution.
+
+Morten
+
+--=20
+Morten K. Poulsen <morten@afdelingp.dk> http://www.afdelingp.dk/
+
+
+
+
+
