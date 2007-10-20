@@ -1,42 +1,12 @@
-From: Wolf Bergenheim <wolf+mlmmj@bergenheim.net>
-Date: Sun, 21 Oct 2007 08:20:58 +0000
-Subject: Re: SV: Creating lists
-Message-Id: <471B0BEA.7090401@bergenheim.net>
+From: "mattias" <mj@mattiasweb.net>
+Date: Sat, 20 Oct 2007 20:32:03 +0000
+Subject: Creating lists
+Message-Id: <000601c81358$46a44680$0500a8c0@liomk23cfxd68z>
 List-Id: <mlmmj.mlmmj.org>
-References: <000201c81374$f3a6fb40$0500a8c0@liomk23cfxd68z>
-In-Reply-To: <000201c81374$f3a6fb40$0500a8c0@liomk23cfxd68z>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-On 21.10.2007 08:36, Thomas Goirand wrote:
-> That being said, what's the status of the mlmmj site that should have
-> been started? Did anybody start anything? I see mlmmj.org quite empty. I
-> would agree to say that a nice site would have help such beginner. Also,
-> the man page of mlmmj-make-ml is quite empty, and doesn't even say how
-> to configure the MTA or that MLMMJ binaries have to be called with full
-> path...
-
-My offer of both maintaining and providing a website based on Drupal CMS
-still stands. My demo at http://mlmmj.bergenheim.net/ is still
-functional, git might be a bit out of date (feel free to update it). I
-invite you all to go and test it. It is a bit old version of Drupal, but
-I can easily upgrade it, and the theme is easily changeable. Drupal
-comes with great benefits like the book module which I used to create a
-manual, and with comments the users can give advice on how they have
-configured thing, and even share configuration setups. Drupal is great
-for community building.
-
---Wolf
-
--- 
-
-Wolf Bergenheim (wolf@bergenheim.net)
-
-(__)
-~..~  |Use GNU! (http://www.gnu.org/)
- )(  /
- .._/
-
+How to create a list?
 
