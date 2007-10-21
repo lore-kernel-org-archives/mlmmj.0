@@ -1,33 +1,23 @@
-From: "mattias" <mj@mattiasweb.net>
-Date: Sat, 20 Oct 2007 23:57:16 +0000
-Subject: SV: Creating lists
-Message-Id: <000201c81374$f3a6fb40$0500a8c0@liomk23cfxd68z>
+From: "Benny Pedersen" <me@junc.org>
+Date: Sun, 21 Oct 2007 01:50:14 +0000
+Subject: Re: SV: Creating lists
+Message-Id: <55539.RkEUX0YQVF8=.1192931414.squirrel@mail.junc.org>
 List-Id: <mlmmj.mlmmj.org>
+References: <000201c81374$f3a6fb40$0500a8c0@liomk23cfxd68z>
+In-Reply-To: <000201c81374$f3a6fb40$0500a8c0@liomk23cfxd68z>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Yes but i use apt-get to install
 
------Ursprungligt meddelande-----
-Fr=E5n: Morten K. Poulsen [mailto:morten@afdelingp.dk]=20
-Skickat: den 21 oktober 2007 00:56
-Till: mlmmj@mmj.dk
-=C4mne: Re: Creating lists
+On Sun, October 21, 2007 01:57, mattias wrote:
+> Yes but i use apt-get to install
 
-
-mattias wrote:
-> How to create a list?
-
-Read the README file in the distribution.
-
-Morten
-
---=20
-Morten K. Poulsen <morten@afdelingp.dk> http://www.afdelingp.dk/
+ask a debian maintainer then :-)
 
 
 
-
+-- 
+This message was sent using 100% recycled spam mails.
 
