@@ -1,7 +1,7 @@
-From: "Nate Beaty" <natebeaty@gmail.com>
-Date: Sun, 21 Oct 2007 17:43:54 +0000
+From: Wolf Bergenheim <wolf+mlmmj@bergenheim.net>
+Date: Sun, 21 Oct 2007 18:04:05 +0000
 Subject: Re: mlmmj.org site
-Message-Id: <ddf499d00710211043w2ad3a069i269d157e4c5bf13c@mail.gmail.com>
+Message-Id: <471B9495.3000801@bergenheim.net>
 List-Id: <mlmmj.mlmmj.org>
 References: <ygf4pgkpl1p.fsf@dominion.borderworlds.dk>
 In-Reply-To: <ygf4pgkpl1p.fsf@dominion.borderworlds.dk>
@@ -10,13 +10,31 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-> Let me spend the next week upgrading to the newest Drupal version.
-> (which has a bunch of security updates, and new features) Hosting space
-> is no problem, I'll happily host the site on this server. I'll get back
-> in touch when I'm done and see what you think of the changes.
+On 21.10.2007 20:43, Nate Beaty wrote:
+> 
+> I'd be willing to help spruce up the design with some CSS love. I've
+> made good use of mlmmj and would like to help, but I don't have any C
+> programming skills!
+> 
+> Nate
+> 
 
-I'd be willing to help spruce up the design with some CSS love. I've
-made good use of mlmmj and would like to help, but I don't have any C
-programming skills!
+Cool!
 
-Nate
+I'll get back to you when I have finished the upgrade and we can work
+something out. In the mean time it would be cool if you'd get yourself
+acquainted with the Drupal theme system at http://www.drupal.org/
+
+
+--Wolf
+
+-- 
+
+Wolf Bergenheim (wolf@bergenheim.net)
+
+(__)
+~..~  |Use GNU! (http://www.gnu.org/)
+ )(  /
+ .._/
+
+
