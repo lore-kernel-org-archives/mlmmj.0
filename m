@@ -1,7 +1,7 @@
-From: Wolf Bergenheim <wolf+mlmmj@bergenheim.net>
-Date: Sun, 21 Oct 2007 17:32:50 +0000
+From: "Nate Beaty" <natebeaty@gmail.com>
+Date: Sun, 21 Oct 2007 17:43:54 +0000
 Subject: Re: mlmmj.org site
-Message-Id: <471B8D42.6080105@bergenheim.net>
+Message-Id: <ddf499d00710211043w2ad3a069i269d157e4c5bf13c@mail.gmail.com>
 List-Id: <mlmmj.mlmmj.org>
 References: <ygf4pgkpl1p.fsf@dominion.borderworlds.dk>
 In-Reply-To: <ygf4pgkpl1p.fsf@dominion.borderworlds.dk>
@@ -10,33 +10,13 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Wow, Cool,
+> Let me spend the next week upgrading to the newest Drupal version.
+> (which has a bunch of security updates, and new features) Hosting space
+> is no problem, I'll happily host the site on this server. I'll get back
+> in touch when I'm done and see what you think of the changes.
 
-Thanks for the positive feedback!
+I'd be willing to help spruce up the design with some CSS love. I've
+made good use of mlmmj and would like to help, but I don't have any C
+programming skills!
 
-Let me spend the next week upgrading to the newest Drupal version.
-(which has a bunch of security updates, and new features) Hosting space
-is no problem, I'll happily host the site on this server. I'll get back
-in touch when I'm done and see what you think of the changes.
-
---Wolf
-
-On 21.10.2007 19:11, Morten K. Poulsen wrote:
-> Christian Laursen wrote:
->> If there are no objections, I think it should just be changed.
-> 
-> I agree. Go ahead :-)
-> 
-> Morten
-> 
-
--- 
-
-Wolf Bergenheim (wolf@bergenheim.net)
-
-(__)
-~..~  |Use GNU! (http://www.gnu.org/)
- )(  /
- .._/
-
-
+Nate
