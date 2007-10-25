@@ -1,7 +1,7 @@
-From: Christian Laursen <xi@borderworlds.dk>
-Date: Mon, 22 Oct 2007 17:19:08 +0000
+From: Wolf Bergenheim <wolf+mlmmj@bergenheim.net>
+Date: Thu, 25 Oct 2007 12:51:12 +0000
 Subject: Re: mlmmj.org site
-Message-Id: <ygfsl43rrsj.fsf@dominion.borderworlds.dk>
+Message-Id: <47209140.9090408@bergenheim.net>
 List-Id: <mlmmj.mlmmj.org>
 References: <ygf4pgkpl1p.fsf@dominion.borderworlds.dk>
 In-Reply-To: <ygf4pgkpl1p.fsf@dominion.borderworlds.dk>
@@ -10,24 +10,31 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Wolf Bergenheim <wolf+mlmmj@bergenheim.net> writes:
+On 21.10.2007 21:22, Nate Beaty wrote:
+> 
+> Keep in touch, and if anyone has any thoughts on what design they'd
+> like, feel free to email me with ideas or sites you like.
 
-> On 21.10.2007 19:11, Morten K. Poulsen wrote:
->> Christian Laursen wrote:
->>> If there are no objections, I think it should just be changed.
->> 
->> I agree. Go ahead :-)
->
-> Wow, Cool,
->
-> Thanks for the positive feedback!
->
-> Let me spend the next week upgrading to the newest Drupal version.
-> (which has a bunch of security updates, and new features) Hosting space
-> is no problem, I'll happily host the site on this server. I'll get back
-> in touch when I'm done and see what you think of the changes.
+Ok, now go have a look, and explore the new site! I selected a green
+theme since green is my favorite color. Nate you can start working on
+the new theme. I'll install it when you are done. Do you need admin rights?
 
-Great. Just say when, and I'll make the change.
+To everyone: I'll give you more access rights once you join. With the
+mlmmj developer role, you get access to the issue tracker. This means
+that you can edit the state of bug reports and requests and it also
+allows you to make new releases. Please explore, and send me feedback if
+you would want to have more features added to the site. There are
+modules for almost anything.
+
+--Wolf
 
 -- 
-Christian Laursen
+
+Wolf Bergenheim (wolf@bergenheim.net)
+
+(__)
+~..~   |Use GNU! (http://www.gnu.org/)
+ )(   /
+ .. _/
+
+
