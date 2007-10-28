@@ -1,7 +1,7 @@
-From: Wolf Bergenheim <wolf+mlmmj@bergenheim.net>
-Date: Thu, 25 Oct 2007 20:23:49 +0000
+From: "Nate Beaty" <natebeaty@gmail.com>
+Date: Sun, 28 Oct 2007 02:49:49 +0000
 Subject: Re: mlmmj.org site
-Message-Id: <4720FB55.8060709@bergenheim.net>
+Message-Id: <ddf499d00710271949v44724b3agd5c68bb9294b0440@mail.gmail.com>
 List-Id: <mlmmj.mlmmj.org>
 References: <ygf4pgkpl1p.fsf@dominion.borderworlds.dk>
 In-Reply-To: <ygf4pgkpl1p.fsf@dominion.borderworlds.dk>
@@ -10,41 +10,31 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-On 25.10.2007 21:32, Nate Beaty wrote:
->> Ok, now go have a look, and explore the new site! I selected a green
->> theme since green is my favorite color. Nate you can start working on
->> the new theme. I'll install it when you are done. Do you need admin rights?
-> 
-> very nice, the newer drupal themes are pretty sexy. much much better
-> than what you had before. at this point, it seems like just a few
-> tweaks would personalize the site, mostly an mlmmj logo. i'll mockup
-> up some ideas when i can find the time.
+i put together a possible logo and first mockup of the site:
 
-Yeah, the new Drupal themes are very cool. As for the logo, I look
-forward to seeing some mockups. On additional change I'll probably make
-is to add a dash between the mlmmj and the expanded abbreviation, so it
-will read "mlmmj -- mailing list ...."
+http://urlx.org/photobucket.com/52bca
 
-> 
-> it would also be fantastic, tho i'm sure unlikely (at least
-> initially), to have the "files" and "archives" not link to outside
-> resources, but rather have them either mirrored or primarily hosted on
-> the new site.
+the logo is a paper boat w/ envelope -- cheesy? i like it, but maybe
+it's too much. hard to come up with an original mail-themed icon these
+days, haha.
 
-Yeah I was thinking about that, and you make a good point. I'll wget the
-files and redirect the links to the new place.
+i think the site should be simple to reflect mlmmj, there's no real
+need for three columns + search, , login fields, registration, who's
+online, etc. in fact, the nav options could be simplified more with
+some reorganization. primarily it should be a quick rundown of
+features, a howto for installation, and of course, links to source
+files.
 
-What do you guys think of making the CVS logs available through Drupal?
+Wolf, this would require some fussing with drupal, so if you'd rather
+just use what you have up and just put in the logo, i'm fine with that
+too (or even that as a first step). once we decide on a design i could
+just put this together on a local drupal install and send you the
+theme dir.
 
---Wolf
+feedback welcome of course.
 
--- 
+nate
 
-Wolf Bergenheim (wolf@bergenheim.net)
-
-(__)
-~..~   |Use GNU! (http://www.gnu.org/)
- )(   /
- .. _/
-
-
+--
+Clixel Design & Coding ~ http://clixel.com/
+Illustration & Comics ~ http://natebeaty.com/
