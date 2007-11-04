@@ -1,35 +1,47 @@
-From: Mads Martin Joergensen <mmj@mmj.dk>
-Date: Sat, 24 Nov 2007 22:23:53 +0000
-Subject: Re: Disabling delivery
-Message-Id: <20071124222353.GD17855@mmj.dk>
+From: "Morten K. Poulsen" <morten@afdelingp.dk>
+Date: Sun, 04 Nov 2007 18:01:13 +0000
+Subject: Re: [PATCH] mlmmj more verbose access denied mails
+Message-Id: <472E08E9.9080708@afdelingp.dk>
 List-Id: <mlmmj.mlmmj.org>
-References: <42c4a32b0711241313h6428a936h33c0bb4936983b30@mail.gmail.com>
-In-Reply-To: <42c4a32b0711241313h6428a936h33c0bb4936983b30@mail.gmail.com>
+References: <200710301653.46807.ssommer@suse.de>
+In-Reply-To: <200710301653.46807.ssommer@suse.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-[Sorry Kov�cs for the double post. I forgot to send to the list]
+Hi Sascha,
 
-* Kov�cs Istv�n <kovacs.it@gmail.com> [Nov 24. 2007 22:13]:
-> Hi,
-> 
-> I have some users who want to be able to send mail to the list, but
-> not receive others' posts. In mailman, there's an option to disable
-> delivery. I know it's also possible with ezmlm (don't know how, I only
-> used it via a custom web interface).
-> 
-> Can the access control rules override the "subonlypost" tunable? I
-> could then list those few antisocial users there :-)
+Sorry about the delay.
 
-Just have them subscribe to the -nomail version of the list. That one is
-meant for people to be subscribers to the list, but not recieve (sic! ;)
-any mails. Meant mainly for people being subscribed to a subonlypost
-list but also wanting to be able to post from another address.
+Sascha Sommer wrote:
+> the attached patch adds another parameter to the prepheader function. This 
+> parameter can be used to pass the filename of the mail that is going to be 
+> rejected.
+
+Thanks for the patch. I like the idea.
+
+Perhaps you could extend it a bit, with support for a keyword (or magic 
+line, to ease implementation) in the listtext files? Something like this:
+
+---
+Subject: Post to $listaddr$ denied due to size limit
+[...]
+Thanks.
+
+This mail was generated in response to the following mail:
+$original-mail$
+---
+
+As it is now, the original mail is just appended without any information 
+about what it is.
+
+I know that it is a bit more work, but I think it would add a lot of 
+value :-)
+
+
+Morten
 
 -- 
-Mads Martin Joergensen, http://mmj.dk
-"Why make things difficult, when it is possible to make them cryptic
- and totally illogical, with just a little bit more effort?"
-                                 -- A. P. J.
+Morten K. Poulsen <morten@afdelingp.dk>
+http://www.afdelingp.dk/
