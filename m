@@ -1,52 +1,38 @@
-From: Thomas Goirand <thomas@goirand.fr>
-Date: Thu, 08 Nov 2007 17:42:53 +0000
+From: Christian Laursen <xi@borderworlds.dk>
+Date: Thu, 08 Nov 2007 18:14:17 +0000
 Subject: Re: Autoresponders vs. reply-to list
-Message-Id: <47334A9D.4050902@goirand.fr>
+Message-Id: <ygf7iksehae.fsf@dominion.borderworlds.dk>
 List-Id: <mlmmj.mlmmj.org>
 References: <42c4a32b0711070948g1c748fd2u1d9b1bcad23f8f68@mail.gmail.com>
 In-Reply-To: <42c4a32b0711070948g1c748fd2u1d9b1bcad23f8f68@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 To: mlmmj@mlmmj.org
 
-Marcelo wrote:
-> On 11/8/07, Morten K. Poulsen <morten@afdelingp.dk> wrote:
-> RFC 2822 says: "When the "Reply-To:" field is present, it indicates
-> the mailbox(es) to which the author of the message suggests that
-> replies be sent."
+Neale Pickett <neale@woozle.org> writes:
 
-Wouldn't all the people writing to a list expect that the answer is sent
-to the list as well? I would, at least.
+> "Kov=E1cs Istv=E1n" <kovacs.it@gmail.com> writes:
+>
+>> I'd like to make my list's reply-to the mailing list address, not the
+>> sender address.
+>
+> Please don't do this.  It is in violation of RFC 2822 and will surprise
+> people, perhaps embarassingly.  Have a google search for "reply-to still
+> harmful" if you need further convincing.
 
-> Since mlmmj is not the author of the message, it should not "suggest"
-> where the replies should be sent.  In that sense, list software
-> (re)writing Reply-To headers is in fact a violation of the standard.
+Also read http://www.metasystema.net/essays/reply-to.mhtml which is in
+favour of setting Reply-To on mailing lists.
 
-Well, mlmmj is not the author, but the list can be considered as the
-originator of the mail...
+While it is a noble idea that everyone should just use the "reply to
+list" function in their MUA, more often than not people will just
+learn to use "reply to all" instead, causing a lot of mail in your
+inbox if you participated in some thread that grew longer afterwards.
 
-> The thing about Reply-To is once it's set, it's very hard to convince
-> some MUAs not to use it, which makes it very hard to send replies to
-> the author only.
+In that case, having the MLM set Reply-To is quite useful IMHO.
 
-What do you mean very hard? You just need to change the To: field, no? I
-don't see anything hard in that...
+In any case mlmmj lets you do whatever you like in this regard. :)
 
-> That said, I'm on some lists where the users' expectations are a bit
-> off with respect to how actual MUAs behave.  They get a list message,
-> hit reply and expect *that* to go back to the list (even if *their*
-> MUA doesn't do this).  Enter List-Post and Mail-Followup-To.  Some
-> MUAs, when they see either of these two fields, cause "reply" to go
-> back to the email address indicated in those fields.  These MUAs
-> provide some sort of mechanism to reply to the author only.  Mutt goes
-> a little bit further and has an explicit "reply to list" function (I
-> believe Thunderbird does, too) ...
+--=20
+Christian Laursen
 
-Ok, good to know: you advise List-Post and Mail-Followup-To instead.
-That seems to make sense. But what is the difference between
-Mail-Followup-To and Reply-To then? That confuses me. Also, I'd happily
-use it if Thunderbird supports it, but how about outlook, which might
-still be the most used MUA?
-
-Thomas
