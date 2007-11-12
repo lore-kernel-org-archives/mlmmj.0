@@ -1,7 +1,7 @@
 From: "Morten K. Poulsen" <morten@afdelingp.dk>
-Date: Mon, 12 Nov 2007 20:48:28 +0000
+Date: Mon, 12 Nov 2007 21:41:15 +0000
 Subject: Re: [RFC] misc moderation patches
-Message-Id: <1194900508.6200.36.camel@mopo-laptop>
+Message-Id: <1194903675.6200.55.camel@mopo-laptop>
 List-Id: <mlmmj.mlmmj.org>
 References: <20070705195719.GK5523@suse.de>
 In-Reply-To: <20070705195719.GK5523@suse.de>
@@ -10,24 +10,22 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Hi Steve,
+On Mon, 2007-11-12 at 23:34 +0300, Alexander Kardailsky wrote:
+>   Yes, you rejected small changes to if clauses. But later I sent the
+>   whole function that don't needed these changes. It doesn't affect
+>   old possibilities. It just adds new ones.
 
-On Mon, 2007-11-12 at 12:40 -0800, Steve Beattie wrote:
-> > No, not yet. MMJ reminded me about them a few weeks ago.
-> 
-> They weren't applied because there were some issues you raised that I
-> still need to address.
+And it breaks in some cases.
 
-Ah, ok. I had forgotten about that.
+>   Could you please give me an example with a problem? Thanks.
 
-> Despite being laid off from Novell
-
-I am sorry to hear that.
-
-> I haven't had time to get back to them, but I'll try to work on them
-> later this week. My apologies for not getting to it earlier.
-
-No problem. I will wait for your patches, before rolling a RC.
+$ echo 'Delivered-To: test-list+' >/tmp/mail
+$ ./mlmmj-process -L /home/mopo/mlmmj-test/ -m /tmp/mail
+$ echo $?
+1
+$ tail -n 1 /var/log/mail.err 
+Nov 12 22:38:34 mopo-laptop ./mlmmj-process[13111]: mlmmj-process.c:327:
+malloc(-134578623) failed! Bailing out!: Cannot allocate memory
 
 Morten
 
