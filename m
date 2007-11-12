@@ -1,7 +1,7 @@
-From: "Morten K. Poulsen" <morten@afdelingp.dk>
-Date: Sun, 11 Nov 2007 20:29:30 +0000
+From: Alexander Kardailsky <kardailsky@gmail.com>
+Date: Mon, 12 Nov 2007 10:00:53 +0000
 Subject: Re: [RFC] misc moderation patches
-Message-Id: <1194812970.6498.20.camel@mopo-laptop>
+Message-Id: <159113754.20071112130053@gmail.com>
 List-Id: <mlmmj.mlmmj.org>
 References: <20070705195719.GK5523@suse.de>
 In-Reply-To: <20070705195719.GK5523@suse.de>
@@ -10,31 +10,18 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Hi Christoph,
+Dear Morten,
 
-On Sun, 2007-11-11 at 20:26 +0100, Christoph Thiel wrote:
-> On Thu, Jul 05, 2007 at 11:13:10PM +0200, Morten K. Poulsen wrote:
-> [...]
-> 
-> > I've looked at your patches, and they look clean. I have a few
-> > comments. See below.
-> > 
-> > We're in the RC-period for 1.2.15 (feedback please!), so your
-> > patches will not be merged to CVS right now. Please remind me
-> > of them when 1.2.15 is out :)
-> 
-> Have those patches been applied yet?
+Sunday, November 11, 2007, 11:29:30 PM, you wrote:
 
-No, not yet. MMJ reminded me about them a few weeks ago.
+> Does anybody else have patches, which I've forgotten about?
 
-> Is there any chance of cutting a release any time soon?
+  I sent you several months ago improved function recipient_extra that
+  should work correct on any MTAs (especially with qmail) with any
+  maillist aliases and with any commands.
+  Would be good if you accept it.
 
-I just started a new job one month ago (Ad: PointZero Hosting), and I am
-currently commuting 5 hours a day, so probably not. But if there is a
-slow day at work any time soon, I will merge Steve's patches and roll a
-RC.
-
-Does anybody else have patches, which I've forgotten about?
-
-Morten
+-- 
+Best regards,
+ Alexander
 
