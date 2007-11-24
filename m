@@ -1,31 +1,25 @@
-From: "Morten K. Poulsen" <morten@afdelingp.dk>
-Date: Mon, 12 Nov 2007 21:41:15 +0000
-Subject: Re: [RFC] misc moderation patches
-Message-Id: <1194903675.6200.55.camel@mopo-laptop>
+From: "=?UTF-8?Q?Kov=C3=A1cs_Istv=C3=A1n?=" <kovacs.it@gmail.com>
+Date: Sat, 24 Nov 2007 21:13:19 +0000
+Subject: Disabling delivery
+Message-Id: <42c4a32b0711241313h6428a936h33c0bb4936983b30@mail.gmail.com>
 List-Id: <mlmmj.mlmmj.org>
-References: <20070705195719.GK5523@suse.de>
-In-Reply-To: <20070705195719.GK5523@suse.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 To: mlmmj@mlmmj.org
 
-On Mon, 2007-11-12 at 23:34 +0300, Alexander Kardailsky wrote:
->   Yes, you rejected small changes to if clauses. But later I sent the
->   whole function that don't needed these changes. It doesn't affect
->   old possibilities. It just adds new ones.
+Hi,
 
-And it breaks in some cases.
+I have some users who want to be able to send mail to the list, but
+not receive others' posts. In mailman, there's an option to disable
+delivery. I know it's also possible with ezmlm (don't know how, I only
+used it via a custom web interface).
 
->   Could you please give me an example with a problem? Thanks.
+Can the access control rules override the "subonlypost" tunable? I
+could then list those few antisocial users there :-)
 
-$ echo 'Delivered-To: test-list+' >/tmp/mail
-$ ./mlmmj-process -L /home/mopo/mlmmj-test/ -m /tmp/mail
-$ echo $?
-1
-$ tail -n 1 /var/log/mail.err 
-Nov 12 22:38:34 mopo-laptop ./mlmmj-process[13111]: mlmmj-process.c:327:
-malloc(-134578623) failed! Bailing out!: Cannot allocate memory
-
-Morten
-
+TIA,
+Kofa
+-- 
+Kovács & Telekes & Co. - http://kovacs-telekes.org/
+Könyvelés olcsón - http://www.accocomp.hu/
