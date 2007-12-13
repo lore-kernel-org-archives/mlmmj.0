@@ -1,42 +1,74 @@
-From: "Oliver Gading" <og-ml@gading.de>
-Date: Thu, 20 Dec 2007 21:11:37 +0000
-Subject: RE: php-admin based on perl-admin
-Message-Id: <20071220211123.5191310AC1B6@canopus.gading.de>
+From: Peter Volkov <pva@gentoo.org>
+Date: Thu, 13 Dec 2007 10:07:35 +0000
+Subject: MIME encodings when dealing with adding the footer
+Message-Id: <1197540455.6128.23.camel@camobap>
+MIME-Version: 1
+Content-Type: multipart/mixed; boundary="=-lZnK4amYzSL0IEvoaGxt"
 List-Id: <mlmmj.mlmmj.org>
-References: <019e01c84317$5eac2d30$4801a8c0@w2251702>
-In-Reply-To: <019e01c84317$5eac2d30$4801a8c0@w2251702>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
 
-Hi
+--=-lZnK4amYzSL0IEvoaGxt
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
 
-> I have converted the perl-admin source to php.
-> It's based on the version from Franky Van Liederkerke
-> which I found in following posting:
-> http://mlmmj.mmj.dk/archives/mlmmj/2007-08/1122.html
+Hello, list.
 
+There is a problem in the current version of mlmmj in handling footer
+which in combination of gmail effectively makes impossible usage of this
+feature. In short if you have mail mime encoded (which happens very
+often this days) footer like this:
 
-I forgot to mention that my new php-admin is also based on the latest
-version of php-admin (timestamp of May 2005).
-I added (almost, see below) all new stuff from the most current perl-admin
-(August 2007), plus:
- - "footer" config (was missing in tunables.pl)
- - listing differences after changes to text files
- - changes to subscriptions are shown with green and red colors
+[footer]
+--=20
+gentoo-doc-ru@gentoo.org mailing list
+[/footer]
 
-"Bulk add subscribers" is not yet implemented.
+will be displayed in evolution as=20
 
+&#0;=E2=94=82=D0=98=D0=9C=E2=95=92=E2=96=80=E2=95=9Bz=E2=95=A8=D0=9D=E2=94=
+=82=D0=98=D0=9C=E2=95=92=E2=94=BC+=E2=94=8Cf=E2=95=92=E2=88=9A)=D0=AE=E2=88=
+=9A+-
 
-> Unfortunately I am to busy to write a README.
+But the worst thing is that our Russian users reported that it
+completely impossible to read such messages in gmail. See bug
+bugs.gentoo.org/173159 for additional details. And quoting Robin Johnson
+for the mentioned bug:
 
-There is a README in the original mlmmj source in 
-  mlmmj-1.2.15/contrib/web/php-admin/README
-and one other in the perl-admin archive from August 2007.
-Both need to be merged somehow.
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+The best fix would be, if the body has a non-plaintext type, add the
+footer in another MIME block, rather than trying to add it to the
+existing block.
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
 
-Oliver
+This is still the issue with net-mail/mlmmj-1.2.14, but I do not see any
+flag in ChangeLog that this is fixed in 1.2.15. So the question is are
+there any plans to fix this issue?
 
+Thank you very much for your time,
+--=20
+Peter.
+
+--=-lZnK4amYzSL0IEvoaGxt
+Content-Type: application/pgp-signature; name=signature.asc
+Content-Description: =?UTF-8?Q?=D0=AD=D1=82=D0=B0?=
+	=?UTF-8?Q?_=D1=87=D0=B0=D1=81=D1=82=D1=8C?=
+	=?UTF-8?Q?_=D1=81=D0=BE=D0=BE=D0=B1=D1=89=D0=B5=D0=BD=D0=B8=D1=8F?=
+	=?UTF-8?Q?_=D0=BF=D0=BE=D0=B4=D0=BF=D0=B8=D1=81=D0=B0=D0=BD=D0=B0?=
+	=?UTF-8?Q?_=D1=86=D0=B8=D1=84=D1=80=D0=BE=D0=B2=D0=BE=D0=B9?=
+	=?UTF-8?Q?_=D0=BF=D0=BE=D0=B4=D0=BF=D0=B8=D1=81=D1=8C=D1=8E?=
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.7 (GNU/Linux)
+
+iD8DBQBHYQRmz6tlgEWSarMRAj+WAJ933+OkuAMwXWiUEZO34nn6800gowCeIPN/
+g3tOhEQYwipV0aFmIIcG3cc=
+=+ox3
+-----END PGP SIGNATURE-----
+
+--=-lZnK4amYzSL0IEvoaGxt--
 
