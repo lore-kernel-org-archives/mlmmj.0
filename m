@@ -1,45 +1,33 @@
 From: "Morten K. Poulsen" <morten@afdelingp.dk>
-Date: Sat, 29 Dec 2007 19:20:15 +0000
-Subject: Re: delimiter problem
-Message-Id: <47769DEF.1040506@afdelingp.dk>
+Date: Mon, 14 Jan 2008 11:12:11 +0000
+Subject: Re: Russian translations for mlmmj
+Message-Id: <1200309131.6509.12.camel@mopo-laptop>
 List-Id: <mlmmj.mlmmj.org>
-References: <20071221161243.8DC4F10AC1A4@canopus.gading.de>
-In-Reply-To: <20071221161243.8DC4F10AC1A4@canopus.gading.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="macroman"
+Content-Transfer-Encoding: base64
 To: mlmmj@mlmmj.org
 
-Hi Oliver,
-
-Sorry about the delay - I've been snow boarding.
-
-Oliver Gading wrote:
-> I wrote a small shell script which executes "env"
-...
-> USER=list-mylist
-> LOCAL=list-mylist_subscribe
-> EXTENSION=subscribe
-
-Ok. Then mlmmj will (or at least should) use the EXTENSION variable.
-
-> When changing postfix's recipient_delimiter to "-" and also the mlmmj lists
-> delimiter to "-" then following line appears in the mail.log file:
-> 
->  ---------------------------------------------------------
->  <DATE> <HOST> /usr/local/bin/mlmmj-process[13838]: listcontrol.c:740:
->  Unknown command "mylist". Ignoring mail: Success
-
-This means that mlmmj is using a part of the list name as the command. 
-It could be because there was no EXTENSION variable and mlmmj used the 
-fall-back (parsing the Delivered-To header).
-
-Could you test this (delimiter in the name and no extension) with your 
-env-script? If Postfix does not export the EXTENSION variable if there 
-is no extension, then you need to patch out the fall-back code.
-
-Morten
-
--- 
-Morten K. Poulsen <morten@afdelingp.dk>
-http://www.afdelingp.dk/
+SGkgTmlrb2xheSwKCk9uIE1vbiwgMjAwOC0wMS0xNCBhdCAxMzo0MSArMDMwMCwgTmlrb2xheSBE
+ZXJrYWNoIHdyb3RlOgo+IEkndmUgZG9uZSBtbG1taiB0cmFuc2xhdGlvbiBpbnRvIFJ1c3NpYW4u
+IFRoZSBhdHRhY2htZW50IGNvbnRhaW5zCj4gbGlzdHRleHRzL3J1IGRpcmVjdG9yeS4KClRoYW5r
+cywgdmVyeSBuaWNlLgoKSG93ZXZlciwgYmVmb3JlIEkgY2FuIGNvbW1pdCB0aGVtLCB5b3UgaGF2
+ZSB0byBjb252ZXJ0IHRoZSBmaWxlcyBhIGJpdDoKCk9uIFRodSwgMjAwNy0wNi0xNCBhdCAwMDo0
+NiArMDIwMCwgTW9ydGVuIEsuUG91bHNlbiB3cm90ZTogCj4gSSBoYXZlIGNoYW5nZWQgdGhlIHdh
+eSBsaXN0dGV4dHMgYXJlIHBhcnNlZC4gRnJvbSBub3cgb24sIHRoZXJlCj4gd2lsbCBiZSBubyBu
+b24tVVNBU0NJSSBjaGFyYWN0ZXJzIGluIHRoZSBsaXN0dGV4dCBmaWxlcy4gSWYgeW91Cj4gbmVl
+ZCBhIGNoYXJhY3RlciB5b3Ugc2ltcGx5IHB1dCBcdVhYWFggaW4gaXRzIHBsYWNlLCB3aGVyZSBY
+WFhYCj4gaXMgdGhlIHVuaWNvZGUgbnVtYmVyIChoZXhhZGVjaW1hbCkgZm9yIHRoYXQgZ2x5cGgu
+Cj4gCj4gLS0tIHRoZSBvbGQgd2F5IC0tLQo+IFN1YmplY3Q6ID0/aXNvLTg4NTktMT9RP1RpbG1l
+bGRpbmdzZm9yZXNw+HJnc2VsPz0gZm9yICRsaXN0YWRkciQKPiAKPiBEZXIgdmVudGVyIGVuIHRp
+bG1lbGRpbmdzZm9yZXNww7hyZ3NlbCBmcmEKPiAtLS0gZW5kIC0tLQo+IAo+IC0tLSB0aGUgbmV3
+IHdheSAtLS0KPiBTdWJqZWN0OiBUaWxtZWxkaW5nc2ZvcmVzcFx1MDBGOHJnc2VsIGZvciAkbGlz
+dGFkZHIkCj4gCj4gRm9yIGF0IGdvZGtlbmRlIGRlbm5lIGZvcmVzcFx1MDBGOHJnc2VsLCBzZW5k
+IGV0IHN2YXIgdGlsCj4gLS0tIGVuZCAtLS0KCkkgYW0gbm90IHN1cmUgaG93IHRoaXMgaXMgZG9u
+ZSBtb3N0IGVhc2lseSBmcm9tIGFueXRoaW5nIGJ1dApJU08tODg1OS0xLiBZb3UgaGF2ZSB0byBs
+b29rIGF0IHRoZSB1bmljb2RlIHZhbHVlIG9mIGVhY2ggY2hhcmFjdGVyIGFuZAp0aGVuIHByaW50
+IGl0IGFzIFx1WFhYWC4gSWYgeW91IHdyaXRlIGEgdG9vbCB0byBkbyBpdCAoY291bGQgYmUgdXNp
+bmcKdW5pY29kZS5jIGZyb20gbWxtbWopLCB3ZSBjb3VsZCBkaXN0cmlidXRlIGl0IHdpdGggbWxt
+bWouIEkgYW0gbm90IHN1cmUKd2hlbiBJIGNhbiBmaW5kIHRoZSB0aW1lIHRvIGRvIGl0LCBpZiB5
+b3UgZG9uJ3QuIFNvIHBsZWFzZSB3cml0ZSBhIG5pZnR5CnRvb2wgOi0pCgrQodC/0LDRgdC40LHQ
+viwKTW9ydGVuCgo=
