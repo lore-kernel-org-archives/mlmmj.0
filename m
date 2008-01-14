@@ -1,33 +1,20 @@
 From: "Morten K. Poulsen" <morten@afdelingp.dk>
-Date: Mon, 14 Jan 2008 11:12:11 +0000
+Date: Mon, 14 Jan 2008 11:16:20 +0000
 Subject: Re: Russian translations for mlmmj
-Message-Id: <1200309131.6509.12.camel@mopo-laptop>
+Message-Id: <1200309380.6509.14.camel@mopo-laptop>
 List-Id: <mlmmj.mlmmj.org>
+References: <1200309131.6509.12.camel@mopo-laptop>
+In-Reply-To: <1200309131.6509.12.camel@mopo-laptop>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="macroman"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-SGkgTmlrb2xheSwKCk9uIE1vbiwgMjAwOC0wMS0xNCBhdCAxMzo0MSArMDMwMCwgTmlrb2xheSBE
-ZXJrYWNoIHdyb3RlOgo+IEkndmUgZG9uZSBtbG1taiB0cmFuc2xhdGlvbiBpbnRvIFJ1c3NpYW4u
-IFRoZSBhdHRhY2htZW50IGNvbnRhaW5zCj4gbGlzdHRleHRzL3J1IGRpcmVjdG9yeS4KClRoYW5r
-cywgdmVyeSBuaWNlLgoKSG93ZXZlciwgYmVmb3JlIEkgY2FuIGNvbW1pdCB0aGVtLCB5b3UgaGF2
-ZSB0byBjb252ZXJ0IHRoZSBmaWxlcyBhIGJpdDoKCk9uIFRodSwgMjAwNy0wNi0xNCBhdCAwMDo0
-NiArMDIwMCwgTW9ydGVuIEsuUG91bHNlbiB3cm90ZTogCj4gSSBoYXZlIGNoYW5nZWQgdGhlIHdh
-eSBsaXN0dGV4dHMgYXJlIHBhcnNlZC4gRnJvbSBub3cgb24sIHRoZXJlCj4gd2lsbCBiZSBubyBu
-b24tVVNBU0NJSSBjaGFyYWN0ZXJzIGluIHRoZSBsaXN0dGV4dCBmaWxlcy4gSWYgeW91Cj4gbmVl
-ZCBhIGNoYXJhY3RlciB5b3Ugc2ltcGx5IHB1dCBcdVhYWFggaW4gaXRzIHBsYWNlLCB3aGVyZSBY
-WFhYCj4gaXMgdGhlIHVuaWNvZGUgbnVtYmVyIChoZXhhZGVjaW1hbCkgZm9yIHRoYXQgZ2x5cGgu
-Cj4gCj4gLS0tIHRoZSBvbGQgd2F5IC0tLQo+IFN1YmplY3Q6ID0/aXNvLTg4NTktMT9RP1RpbG1l
-bGRpbmdzZm9yZXNw+HJnc2VsPz0gZm9yICRsaXN0YWRkciQKPiAKPiBEZXIgdmVudGVyIGVuIHRp
-bG1lbGRpbmdzZm9yZXNww7hyZ3NlbCBmcmEKPiAtLS0gZW5kIC0tLQo+IAo+IC0tLSB0aGUgbmV3
-IHdheSAtLS0KPiBTdWJqZWN0OiBUaWxtZWxkaW5nc2ZvcmVzcFx1MDBGOHJnc2VsIGZvciAkbGlz
-dGFkZHIkCj4gCj4gRm9yIGF0IGdvZGtlbmRlIGRlbm5lIGZvcmVzcFx1MDBGOHJnc2VsLCBzZW5k
-IGV0IHN2YXIgdGlsCj4gLS0tIGVuZCAtLS0KCkkgYW0gbm90IHN1cmUgaG93IHRoaXMgaXMgZG9u
-ZSBtb3N0IGVhc2lseSBmcm9tIGFueXRoaW5nIGJ1dApJU08tODg1OS0xLiBZb3UgaGF2ZSB0byBs
-b29rIGF0IHRoZSB1bmljb2RlIHZhbHVlIG9mIGVhY2ggY2hhcmFjdGVyIGFuZAp0aGVuIHByaW50
-IGl0IGFzIFx1WFhYWC4gSWYgeW91IHdyaXRlIGEgdG9vbCB0byBkbyBpdCAoY291bGQgYmUgdXNp
-bmcKdW5pY29kZS5jIGZyb20gbWxtbWopLCB3ZSBjb3VsZCBkaXN0cmlidXRlIGl0IHdpdGggbWxt
-bWouIEkgYW0gbm90IHN1cmUKd2hlbiBJIGNhbiBmaW5kIHRoZSB0aW1lIHRvIGRvIGl0LCBpZiB5
-b3UgZG9uJ3QuIFNvIHBsZWFzZSB3cml0ZSBhIG5pZnR5CnRvb2wgOi0pCgrQodC/0LDRgdC40LHQ
-viwKTW9ydGVuCgo=
+
+On Mon, 2008-01-14 at 12:12 +0100, Morten K. Poulsen wrote:
+> If you write a tool to do it (could be using unicode.c from mlmmj),
+
+That would be unistr.c
+
+Morten
+
