@@ -1,28 +1,58 @@
-From: "Morten K. Poulsen" <morten@afdelingp.dk>
-Date: Fri, 25 Jan 2008 11:53:52 +0000
-Subject: Re: Thanks! & web diff
-Message-Id: <1201262032.6564.4.camel@mopo-laptop>
+From: "Robin H. Johnson" <robbat2@gentoo.org>
+Date: Mon, 14 Jan 2008 11:36:58 +0000
+Subject: Gentoo lists mailing loss solved, mlmmj bug patched
+Message-Id: <20080114113658.GF5504@curie-int.orbis-terrarum.net>
+MIME-Version: 1
+Content-Type: multipart/mixed; boundary="rz+pwK2yUstbofK6"
 List-Id: <mlmmj.mlmmj.org>
-References: <2d58d31e0801221902o15485dc3j5264a109389fde2@mail.gmail.com>
-In-Reply-To: <2d58d31e0801221902o15485dc3j5264a109389fde2@mail.gmail.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Hi Devin,
 
-Sorry about the delay. I've recently moved to Odense, and I don't have
-an internet connection at home.
+--rz+pwK2yUstbofK6
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-On Tue, 2008-01-22 at 22:02 -0500, Devin Ceartas wrote:
-> Thanks so much for mlmmj. Exactly what I was looking for, I look
-> forward to exploring it!
+So I see this was mentioned once before on the lists, but was dismissed
+as an issue at the time. Back in April I suspected an mlmmj bug, and was
+told to get off sendmail, but after all this time, I finally had time
+and managed to trace the issue.
 
-Thanks for the positive feed-back :-)
+If you run into this error:
+/usr/bin/mlmmj-send[9353]: getaddrsfromfd.c:27: Could not mmap fd: Invalid =
+argument
+and you seem to be losing mail, you should apply this patch:
+http://sources.gentoo.org/viewcvs.py/gentoo-x86/net-mail/mlmmj/files/mlmmj-=
+1.2.15_mmap_zero_byte.patch?rev=3D1.1
 
-I will apply your changes to the README.
+The linux manpage for mmap notes that since 2.6.12, mmap of a zero-byte
+file will fail. For mlmmj, this means that getaddrsfromfd returned -1,
+which triggered the termination condition in send_mail_many_fd.
 
-Best regards,
-Morten
+The 0-byte files must have arisen from earlier earlier versions of
+mlmmj, or somebody before me mucking with the subscriber files directly,
+as the present version does remove empty files.
 
+I didn't do a complete audit of the rest of mlmmj, but I suspect the
+same bug may exist in other places.
+
+--=20
+Robin Hugh Johnson
+Gentoo Linux Developer & Infra Guy
+E-Mail     : robbat2@gentoo.org
+GnuPG FP   : 11AC BA4F 4778 E3F6 E4ED  F38E B27B 944E 3488 4E85
+
+--rz+pwK2yUstbofK6
+Content-Type: application/pgp-signature
+Content-Disposition: inline
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v2.0.8 (GNU/Linux)
+Comment: Robbat2 @ Orbis-Terrarum Networks - The text below is a digital signature. If it doesn't make any sense to you, ignore it.
+
+iEYEARECAAYFAkeLSVoACgkQPpIsIjIzwiwP0gCgxf5CrvW+lr9M536HwEFWiHFh
+MEIAn1NVDZn21EsubcxNobVnZ9ZNGQG/
+=pbT5
+-----END PGP SIGNATURE-----
+
+--rz+pwK2yUstbofK6--
