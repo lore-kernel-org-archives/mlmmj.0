@@ -1,48 +1,32 @@
-From: "Robin H. Johnson" <robbat2@gentoo.org>
-Date: Mon, 21 Jan 2008 10:38:17 +0000
+From: "Morten K. Poulsen" <morten@afdelingp.dk>
+Date: Mon, 21 Jan 2008 11:05:25 +0000
 Subject: Re: feature request: archivedir setting - symlinks do not work
-Message-Id: <20080121103817.GH23511@curie-int.orbis-terrarum.net>
-MIME-Version: 1
-Content-Type: multipart/mixed; boundary="nqkreNcslJAfgyzk"
+Message-Id: <1200913525.6759.18.camel@mopo-laptop>
 List-Id: <mlmmj.mlmmj.org>
 References: <20080121014028.GC23511@curie-int.orbis-terrarum.net>
 In-Reply-To: <20080121014028.GC23511@curie-int.orbis-terrarum.net>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
+On Mon, 2008-01-21 at 02:38 -0800, Robin H. Johnson wrote:
+> On Mon, Jan 21, 2008 at 11:07:12AM +0100, Morten K. Poulsen wrote:
+> > $ ./mlmmj-recieve -F -L /home/mopo/mlmmj-test/ </tmp/mail.txt
+> ...
+> > Are you sure the permissions are set correctly? Is there anything in
+> > your maillog?
+> Captured it in testing now.
+> 
+> Jan 21 10:37:02 pigeon /usr/bin/mlmmj-send[31612]: mlmmj-send.c:1252:
+> Could not
+> rename(/var/lists/gentoo-test//queue/105c88835cb90bff,/var/lists/gentoo-test//archive/241);:
+> Invalid cross-device link
 
---nqkreNcslJAfgyzk
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Ah yes, a rename() is atomic, but that is not possible across
+partitions.
 
-On Mon, Jan 21, 2008 at 11:07:12AM +0100, Morten K. Poulsen wrote:
-> $ ./mlmmj-recieve -F -L /home/mopo/mlmmj-test/ </tmp/mail.txt
-=2E..
-> Are you sure the permissions are set correctly? Is there anything in
-> your maillog?
-Captured it in testing now.
+You could move queue/ to the same partition.
 
-Jan 21 10:37:02 pigeon /usr/bin/mlmmj-send[31612]: mlmmj-send.c:1252: Could=
- not rename(/var/lists/gentoo-test//queue/105c88835cb90bff,/var/lists/gento=
-o-test//archive/241);: Invalid cross-device link
+Morten
 
---=20
-Robin Hugh Johnson
-Gentoo Linux Developer & Infra Guy
-E-Mail     : robbat2@gentoo.org
-GnuPG FP   : 11AC BA4F 4778 E3F6 E4ED  F38E B27B 944E 3488 4E85
-
---nqkreNcslJAfgyzk
-Content-Type: application/pgp-signature
-Content-Disposition: inline
-
------BEGIN PGP SIGNATURE-----
-Version: GnuPG v2.0.8 (GNU/Linux)
-Comment: Robbat2 @ Orbis-Terrarum Networks - The text below is a digital signature. If it doesn't make any sense to you, ignore it.
-
-iEYEARECAAYFAkeUdhkACgkQPpIsIjIzwiwBoQCeOJY+J5x2je2D4kIRDMl8RWFq
-75wAn3YccAcIRtHwCmueKmBlsa/oTa+a
-=XuV5
------END PGP SIGNATURE-----
-
---nqkreNcslJAfgyzk--
