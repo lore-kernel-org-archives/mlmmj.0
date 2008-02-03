@@ -1,19 +1,34 @@
-From: Jesper Lund <jesper@ballbreaker.dk>
-Date: Mon, 25 Feb 2008 18:25:48 +0000
-Subject: Re: SV: SV: Postfix virtual users
-Message-Id: <47C3082C.1040400@ballbreaker.dk>
+From: Mads Martin Joergensen <mmj@mmj.dk>
+Date: Sun, 03 Feb 2008 10:39:53 +0000
+Subject: Re: ----- Original Message -----
+Message-Id: <20080203103952.GG84525@mmj.dk>
 List-Id: <mlmmj.mlmmj.org>
-References: <000001c877d6$aec74220$0500a8c0@liomk23cfxd68z>
-In-Reply-To: <000001c877d6$aec74220$0500a8c0@liomk23cfxd68z>
+References: <4f66c18fa8Richard@Torrens.org.uk>
+In-Reply-To: <4f66c18fa8Richard@Torrens.org.uk>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-mattias skrev:
-> So i must update the mysql tables?
->
->   
-Yup.
+This would unfortunately only catch people top posting from Outlook or
+another client with that way of setting up replies.
 
-/Jesper
+Some people even succeed in using Mutt for top postings :-)
+
+
+* Richard Torrens <Richard@Torrens.org.uk> [Jan 25. 2008 16:34]:
+> A suggestion:
+> 
+> Can the /access file rules be expanded to look for the dreaded 
+> ----- Original Message ----- 
+> 
+> We can then moderate top posting. Or is there already a way?
+
+This will be hard to do, I'm afraid. Have you tried educating the users
+or simply live with it?
+
+-- 
+Mads Martin Joergensen, http://mmj.dk
+"Why make things difficult, when it is possible to make them cryptic
+ and totally illogical, with just a little bit more effort?"
+                                 -- A. P. J.
