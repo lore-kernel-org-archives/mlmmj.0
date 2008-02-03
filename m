@@ -1,7 +1,7 @@
-From: Mads Martin Joergensen <mmj@mmj.dk>
-Date: Sun, 03 Feb 2008 10:39:53 +0000
+From: Richard Torrens <Richard@Torrens.org.uk>
+Date: Sun, 03 Feb 2008 11:25:41 +0000
 Subject: Re: ----- Original Message -----
-Message-Id: <20080203103952.GG84525@mmj.dk>
+Message-Id: <4f6b4dc0f5Richard@Torrens.org.uk>
 List-Id: <mlmmj.mlmmj.org>
 References: <4f66c18fa8Richard@Torrens.org.uk>
 In-Reply-To: <4f66c18fa8Richard@Torrens.org.uk>
@@ -10,25 +10,34 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-This would unfortunately only catch people top posting from Outlook or
-another client with that way of setting up replies.
+In article <20080203103952.GG84525@mmj.dk>,
+   Mads Martin Joergensen <mmj@mmj.dk> wrote:
+> This would unfortunately only catch people top posting from Outlook or
+> another client with that way of setting up replies.
 
-Some people even succeed in using Mutt for top postings :-)
+Catchhing some would be better than catching none, I think. Especially as
+it's the majority.
 
+> Some people even succeed in using Mutt for top postings :-)
 
-* Richard Torrens <Richard@Torrens.org.uk> [Jan 25. 2008 16:34]:
-> A suggestion:
-> 
-> Can the /access file rules be expanded to look for the dreaded 
-> ----- Original Message ----- 
-> 
-> We can then moderate top posting. Or is there already a way?
+> * Richard Torrens <Richard@Torrens.org.uk> [Jan 25. 2008 16:34]:
+> > A suggestion:
+> > 
+> > Can the /access file rules be expanded to look for the dreaded 
+> > ----- Original Message ----- 
+> > 
+> > We can then moderate top posting. Or is there already a way?
 
-This will be hard to do, I'm afraid. Have you tried educating the users
-or simply live with it?
+> This will be hard to do, I'm afraid. 
 
--- 
-Mads Martin Joergensen, http://mmj.dk
-"Why make things difficult, when it is possible to make them cryptic
- and totally illogical, with just a little bit more effort?"
-                                 -- A. P. J.
+Fairy nuff. Thought it worth asking.
+
+> Have you tried educating the users
+
+Ah - you have a very good sense of humour!
+
+> or simply live with it?
+
+Was living with it under Mailman. Not pleasant! Bad netiquettse screws up
+the archives, but good netiquette and Micro$oft are incompatible, it seems.
+
