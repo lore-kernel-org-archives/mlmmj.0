@@ -1,7 +1,7 @@
-From: Thomas Goirand <thomas@goirand.fr>
-Date: Sun, 03 Feb 2008 15:43:40 +0000
+From: Mads Martin Joergensen <mmj@mmj.dk>
+Date: Mon, 04 Feb 2008 10:40:03 +0000
 Subject: Re: Web archive scripts
-Message-Id: <47A5E12C.8060005@goirand.fr>
+Message-Id: <20080204104003.GN84525@mmj.dk>
 List-Id: <mlmmj.mlmmj.org>
 References: <20080203151301.GD16020@arachsys.com>
 In-Reply-To: <20080203151301.GD16020@arachsys.com>
@@ -10,32 +10,25 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Chris Webb wrote:
-> Hi. The scripts used to generate http://mlmmj.mmj.dk/archives/mlmmj/ from
-> the archives of the mlmmj@mmj.dk provide a very nice HTML interface. Are
-> they available for download from anywhere, for use with other mlmmj-driven
-> lists? I had a search through the archives but couldn't see any obvious
-> pointers.
+* Thomas Goirand <thomas@goirand.fr> [Feb 03. 2008 16:43]:
+> For our control panel, we choosed mhonarc that is available in Debian
+> (it was even there on Sarge). Here is the URL:
 > 
-> Best wishes,
+> http://www.mhonarc.org/
 > 
-> Chris.
+> It's not specific to lists, but works very well with it. If you want to
+> have a look, see this:
+> 
+> http://gplhost.sg/lists/dtcdev/threads.html
+> 
+> Truth, the one from the MLMMJ list looks better. I don't know what is
+> used there though.
 
-Hi Chris,
+That's a nice script from Sven 'Darkman' Michels, who promised he would
+get it into contrib/ directory. It's using hypermail.
 
-For our control panel, we choosed mhonarc that is available in Debian
-(it was even there on Sarge). Here is the URL:
-
-http://www.mhonarc.org/
-
-It's not specific to lists, but works very well with it. If you want to
-have a look, see this:
-
-http://gplhost.sg/lists/dtcdev/threads.html
-
-Truth, the one from the MLMMJ list looks better. I don't know what is
-used there though.
-
-I hope that helps,
-
-Thomas
+-- 
+Mads Martin Joergensen, http://mmj.dk
+"Why make things difficult, when it is possible to make them cryptic
+ and totally illogical, with just a little bit more effort?"
+                                 -- A. P. J.
