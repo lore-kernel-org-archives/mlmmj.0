@@ -1,45 +1,45 @@
-From: Chris Webb <chris@arachsys.com>
-Date: Sun, 03 Feb 2008 14:23:38 +0000
-Subject: [PATCH] mlmmj-receive-strip segfault
-Message-Id: <20080203142338.GO16020@arachsys.com>
+From: Mads Martin Joergensen <mmj@mmj.dk>
+Date: Mon, 04 Feb 2008 11:00:23 +0000
+Subject: Re: strange mail from the list..
+Message-Id: <20080204110023.GP84525@mmj.dk>
 List-Id: <mlmmj.mlmmj.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Hi. mlmmj-receive-strip segfaults if either control/mimedeny or
-control/mimestrip exist but contain no non-empty lines. (In this case,
-ctrlvalues() returns a non-NULL pointer to a strlist with a NULL strs, which
-gets passed to findit() and needs to be handled correctly.)
+* Petre Daniel <dani@delfix.ro> [Jan 25. 2008 14:25]:
+> so, i made a list with some subscribers, it has the following in the
+> LISTNAME/control :
+> 
+> closedlist     delheaders   owner   subonlyget
+> customheaders  listaddress  prefix  tocc
+> 
+> delheaders contains:
+> Reply-To
+> 
+> customheaders contains:
+> Reply-To:Listname <listname@domain.tld>
+> 
+> but the problem is at every mail i send to the list i receive it with a small
+> text in front, like:
+> 
+> --- body of message ---
+> 
+> "Mime-Version: 1.0
+> Content-Type: text/plain; charset="iso-8859-1"
+> Content-Transfer-Encoding: quoted-printable"
+> 
+> my message..
+> 
+> --- end of body ---
+> 
+> any ideas please?
 
-The following tiny patch against mlmmj-1.2.15 fixes this:
+You have an empty line in customheaders?
 
---- a/contrib/receivestrip/mlmmj-receive-strip.c	2008-02-01 09:24:06.000000000 +0000
-+++ b/contrib/receivestrip/mlmmj-receive-strip.c	2008-02-03 13:30:47.000000000 +0000
-@@ -81,6 +81,9 @@ static int findit(char *line, char **hea
-         int i = 0;
-         size_t len;
- 
-+	if(!headers)
-+		return 0;
-+
-         while(headers[i]) {
-                 len = strlen(headers[i]);
-                 if(strncasecmp(line, headers[i], len) = 0)
-
-One other note: the mlmmj-receive-strip README probably ought to mention
-that, if you're using mlmmj-receive-strip in place of mlmmj-receive,
-control/delheaders should contain X-ThisMailContainsUnwantedMimeParts: to
-prevent every message that goes out to the list having a spurious
-
-  X-ThisMailContainsUnwantedMimeParts: N
-
-header added to every message. This header is added regardless of whether or
-not the control/mimedeny feature is in use. It can safely be stripped as
-this happens after control/access has a chance to deny on the presence of a
-Y.
-
-Best wishes,
-
-Chris.
+-- 
+Mads Martin Joergensen, http://mmj.dk
+"Why make things difficult, when it is possible to make them cryptic
+ and totally illogical, with just a little bit more effort?"
+                                 -- A. P. J.
