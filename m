@@ -1,7 +1,7 @@
-From: Mads Martin Joergensen <mmj@mmj.dk>
-Date: Mon, 04 Feb 2008 10:59:15 +0000
+From: Richard Torrens <Richard@Torrens.org.uk>
+Date: Mon, 04 Feb 2008 15:10:18 +0000
 Subject: Re: FAQ and instructions?
-Message-Id: <20080204105915.GO84525@mmj.dk>
+Message-Id: <4f6be6277fRichard@Torrens.org.uk>
 List-Id: <mlmmj.mlmmj.org>
 References: <4f66334953Richard@Torrens.org.uk>
 In-Reply-To: <4f66334953Richard@Torrens.org.uk>
@@ -10,45 +10,49 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-* Richard Torrens <Richard@Torrens.org.uk> [Jan 25. 2008 16:17]:
-> > > I ask because currently there's a mail stuck in moderation - it has
-> > > .sending appended - but has not been sent!
-> 
-> We have traced what happened here. In experimenting with subscribers, I
-> added a subscriber's email address to one of the subscribers.d files.
-> however, the file then did not have a \n terminator. So mlmmj appended the
-> next email address, getting a concatenated line with two @ in it.
+In article <20080204105915.GO84525@mmj.dk>,
+   Mads Martin Joergensen <mmj@mmj.dk> wrote:
+> * Richard Torrens <Richard@Torrens.org.uk> [Jan 25. 2008 16:17]:
+> > > > I ask because currently there's a mail stuck in moderation - it has
+> > > > .sending appended - but has not been sent!
+> > 
+> > We have traced what happened here. In experimenting with subscribers,
+> > I added a subscriber's email address to one of the subscribers.d
+> > files. however, the file then did not have a \n terminator. So mlmmj
+> > appended the next email address, getting a concatenated line with two
+> > @ in it.
 
-Was there only \r, or was there one emailaddress in the file without a
-newline at the end?
+> Was there only \r, or was there one emailaddress in the file without a
+> newline at the end?
 
-> mlmmj promptly seized up! Including causing about 10 emails to evaporate.
+Several email adresses. Last line did not have \n character
 
-Yikes ...
+> > mlmmj promptly seized up! Including causing about 10 emails to
+> > evaporate.
 
-> Dunno whether you consider that a bug, or even worth fixing. It's fairly
-> nasty, but is anyone else likely to hit it?
+> Yikes ...
 
-It's definately worth fixing.
+> > Dunno whether you consider that a bug, or even worth fixing. It's
+> > fairly nasty, but is anyone else likely to hit it?
 
-> Problems with files with or without \n are vague in my memory: RISC OS
-> uses the same line terminators as Unix, and we used to have programs that
-> did funny things if \n was absent. But that's so long gone, I suppose I
-> had assumed Linux also would not need care taken here!
+> It's definately worth fixing.
 
-I never encountered it, I developed mlmmj mainly on FreeBSD with Linux
-testing as well.
+Then the check would be that the last char in the existing file is \n and
+not an alpha!
 
-> Thanks for some carefully conceived software, Morten and Mads.
+> > Problems with files with or without \n are vague in my memory: RISC OS
+> > uses the same line terminators as Unix, and we used to have programs
+> > that did funny things if \n was absent. But that's so long gone, I
+> > suppose I had assumed Linux also would not need care taken here!
 
-You're most welcome! Let's fix that bug though :)
+> I never encountered it, I developed mlmmj mainly on FreeBSD with Linux
+> testing as well.
 
-What version of mlmmj are you running on what version of RISC OS. I
-think you're our first report that it works on RISC OS.
+RISC OS is slightly irrelevant to this: the teminal I use runs RISC OS,
+connecting to the server via ssh or ftp. Server runs linux. Lots on the
+www about RISC OS.
 
-Regards,
--- 
-Mads Martin Joergensen, http://mmj.dk
-"Why make things difficult, when it is possible to make them cryptic
- and totally illogical, with just a little bit more effort?"
-                                 -- A. P. J.
+It's less mousing/keyboarding for me to download a subscriber file by ftp,
+drag and drop an email address into it and upload it again. In this case 
+it was only an email address, not a whole line, hence the problem!
+
