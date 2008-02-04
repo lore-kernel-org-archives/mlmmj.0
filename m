@@ -1,43 +1,54 @@
-From: Christian Laursen <xi@borderworlds.dk>
-Date: Mon, 25 Feb 2008 16:18:08 +0000
-Subject: Re: Postfix virtual users
-Message-Id: <ygfk5ktnh6n.fsf@dominion.borderworlds.dk>
+From: Mads Martin Joergensen <mmj@mmj.dk>
+Date: Mon, 04 Feb 2008 10:59:15 +0000
+Subject: Re: FAQ and instructions?
+Message-Id: <20080204105915.GO84525@mmj.dk>
 List-Id: <mlmmj.mlmmj.org>
-References: <000201c87732$34fa05d0$0500a8c0@liomk23cfxd68z>
-In-Reply-To: <000201c87732$34fa05d0$0500a8c0@liomk23cfxd68z>
+References: <4f66334953Richard@Torrens.org.uk>
+In-Reply-To: <4f66334953Richard@Torrens.org.uk>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-"mattias" <mj@mjw.se> writes:
+* Richard Torrens <Richard@Torrens.org.uk> [Jan 25. 2008 16:17]:
+> > > I ask because currently there's a mail stuck in moderation - it has
+> > > .sending appended - but has not been sent!
+> 
+> We have traced what happened here. In experimenting with subscribers, I
+> added a subscriber's email address to one of the subscribers.d files.
+> however, the file then did not have a \n terminator. So mlmmj appended the
+> next email address, getting a concatenated line with two @ in it.
 
-> I run my postfix with virtual users
-> How to run mlmmj with this?
+Was there only \r, or was there one emailaddress in the file without a
+newline at the end?
 
-For each list you want, you need to add an entry to your virtual table
-as well as an alias that invokes mlmmj-recieve.
+> mlmmj promptly seized up! Including causing about 10 emails to evaporate.
 
-Let's assume that you are using the domian example.com and want to add
-a list called mlmmj-testexample.com.
+Yikes ...
 
+> Dunno whether you consider that a bug, or even worth fixing. It's fairly
+> nasty, but is anyone else likely to hit it?
 
-Put something like this in your virtual file:
+It's definately worth fixing.
 
-example.com                -----
-mlmmj-test@example.com     mlmmj-example.com-mlmmj-test
+> Problems with files with or without \n are vague in my memory: RISC OS
+> uses the same line terminators as Unix, and we used to have programs that
+> did funny things if \n was absent. But that's so long gone, I suppose I
+> had assumed Linux also would not need care taken here!
 
+I never encountered it, I developed mlmmj mainly on FreeBSD with Linux
+testing as well.
 
-Then put the following in your aliases file:
+> Thanks for some carefully conceived software, Morten and Mads.
 
-mlmmj-example.com-mlmmj-test   "|/usr/local/bin/mlmmj-recieve -L /var/spool/mlmmj/example.com/mlmmj-test/"
+You're most welcome! Let's fix that bug though :)
 
+What version of mlmmj are you running on what version of RISC OS. I
+think you're our first report that it works on RISC OS.
 
-And then setup the list in the usual way using
-/var/spool/mlmmj/example.com/mlmmj-test/ as its list directory.
-
-This way you can have multiple lists with the same name on different
-domains without much effort.
-
+Regards,
 -- 
-Christian Laursen
+Mads Martin Joergensen, http://mmj.dk
+"Why make things difficult, when it is possible to make them cryptic
+ and totally illogical, with just a little bit more effort?"
+                                 -- A. P. J.
