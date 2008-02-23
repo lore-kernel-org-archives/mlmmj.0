@@ -1,15 +1,17 @@
 From: Thomas Jarosch <thomas.jarosch@intra2net.com>
-Date: Sat, 23 Feb 2008 01:19:59 +0000
+Date: Sat, 23 Feb 2008 01:20:00 +0000
 Subject: [patch] Static bounce address
-Message-Id: <20080223021959.85x4a8e6sick48gk@intranator.m.i2n>
+Message-Id: <20080223022000.1e59n3wxys74wk4w@intranator.m.i2n>
 MIME-Version: 1
-Content-Type: multipart/mixed; boundary="=_loxractih8g"
+Content-Type: multipart/mixed; boundary="=_2o3bqj0up8e8"
 List-Id: <mlmmj.mlmmj.org>
+References: <20080223021959.85x4a8e6sick48gk@intranator.m.i2n>
+In-Reply-To: <20080223021959.85x4a8e6sick48gk@intranator.m.i2n>
 To: mlmmj@mlmmj.org
 
 This message is in MIME format.
 
---=_loxractih8g
+--=_2o3bqj0up8e8
 Content-Type: text/plain;
 	charset=ISO-8859-1;
 	DelSp="Yes";
@@ -36,7 +38,7 @@ Cheers,
 Thomas
 
 
---=_loxractih8g
+--=_2o3bqj0up8e8
 Content-Type: text/x-diff;
 	charset=ISO-8859-1;
 	name="mlmmj-staticbounceaddr.patch"
@@ -101,4 +103,4 @@ c
  =09default: /* normal list mail -- now handled when forking */
  =09=09addtohdr =3D statctrl(listdir, "addtohdr");
 
---=_loxractih8g--
+--=_2o3bqj0up8e8--
