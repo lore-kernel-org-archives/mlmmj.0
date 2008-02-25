@@ -1,7 +1,7 @@
-From: "Morten K. Poulsen" <morten@afdelingp.dk>
-Date: Mon, 25 Feb 2008 10:25:04 +0000
+From: Christian Laursen <xi@borderworlds.dk>
+Date: Mon, 25 Feb 2008 16:18:08 +0000
 Subject: Re: Postfix virtual users
-Message-Id: <1203935104.6560.5.camel@mopo-laptop>
+Message-Id: <ygfk5ktnh6n.fsf@dominion.borderworlds.dk>
 List-Id: <mlmmj.mlmmj.org>
 References: <000201c87732$34fa05d0$0500a8c0@liomk23cfxd68z>
 In-Reply-To: <000201c87732$34fa05d0$0500a8c0@liomk23cfxd68z>
@@ -10,14 +10,34 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-On Sun, 2008-02-24 at 23:11 +0100, mattias wrote:
+"mattias" <mj@mjw.se> writes:
+
 > I run my postfix with virtual users
 > How to run mlmmj with this?
 
-I think you will find all the information you need in the following
-thread:
+For each list you want, you need to add an entry to your virtual table
+as well as an alias that invokes mlmmj-recieve.
 
-http://mlmmj.mmj.dk/archives/mlmmj/2005-10/0500.html
+Let's assume that you are using the domian example.com and want to add
+a list called mlmmj-testexample.com.
 
-Morten
 
+Put something like this in your virtual file:
+
+example.com                -----
+mlmmj-test@example.com     mlmmj-example.com-mlmmj-test
+
+
+Then put the following in your aliases file:
+
+mlmmj-example.com-mlmmj-test   "|/usr/local/bin/mlmmj-recieve -L /var/spool/mlmmj/example.com/mlmmj-test/"
+
+
+And then setup the list in the usual way using
+/var/spool/mlmmj/example.com/mlmmj-test/ as its list directory.
+
+This way you can have multiple lists with the same name on different
+domains without much effort.
+
+-- 
+Christian Laursen
