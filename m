@@ -1,81 +1,36 @@
-From: "James Scott" <jlscott@clear.net.nz>
-Date: Sun, 27 Apr 2008 09:47:53 +0000
-Subject: RE: Some Questions
-Message-Id: <008201c8a84b$c46201b0$be90a8c0@mainspring.co.nz>
+From: Mads Martin Joergensen <mmj@mmj.dk>
+Date: Sat, 26 Apr 2008 20:52:59 +0000
+Subject: Re: "All mlmmj binaries have to be invoked with full path"
+Message-Id: <20080426205259.GK7446@mmj.dk>
 List-Id: <mlmmj.mlmmj.org>
-References: <002c01c8a6b3$95995570$be90a8c0@mainspring.co.nz>
-In-Reply-To: <002c01c8a6b3$95995570$be90a8c0@mainspring.co.nz>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Thanks Morten.
+* Vegard Svanberg <vegard@svanberg.no> [Apr 26. 2008 22:30]:
+> $ mlmmj-sub 
+> All mlmmj binaries have to be invoked with full path,
+> e.g. /usr/bin/mlmmj-sub
+> 
+> What's the point? :)
 
-Your answer has pointed me in the right direction :)
+The point is that we don't want to parse any environment variables for
+path etc., since this is a potential security problem. By invoking with
+full path, you give the path to the other binaries needed to run the
+list. When mlmmj-sub subscribes it has the possibility to send
+confirmation mails etc., and must thus know where to find the
+mlmmj-send.
 
-Regards,
+This also means you need to have all mlmmj binaries in the same
+directory.
 
-James
- 
+Another advantage is when upgrading etc. you can have several installs,
+e.g /usr/local/mlmmj-1.2.13/bin/mlmmj-* and
+/usr/local/mlmmj-1.2.14/bin/mlmmj-* which will work perfectly fine.
 
-> -----Original Message-----
-> From: Morten K. Poulsen [mailto:morten@afdelingp.dk] 
-> Sent: Saturday, 26 April 2008 7:49 p.m.
-> To: James Scott
-> Cc: mlmmj@mmj.dk
-> Subject: Re: Some Questions
-> 
-> Hi James,
-> 
-> On Fri, 2008-04-25 at 21:06 +1200, James Scott wrote:
-> > 1.  Configuring a mail list to allow subscribers only to post
-> 
-> >From the TUNABLES documentation:
-> 
-> . subonlypost          (boolean)
-> 
-> When this file is present, only people who are subscribed to the list,
-> are allowed to post to it. The check is made against the 
-> "From:" header.
->  
-> > 2.  Auxiliary address that may post but not receive 
-> messages (just put
-> > addresses in "nomailsubs.d"?)
-> 
-> Yes.
->  
-> > 3. Procedure for moderators to approve messages posted by
-> > non-subscribers
-> 
-> >From the TUNABLES documentation:
-> 
-> . modnonsubposts       (boolean)
-> 
-> When this file is present and subonlypost is enabled, all 
-> postings from
-> people who are not subscribed to the list will be moderated.
->  
-> > 4 Web interfaces for: admin, archives, user subscription management.
-> 
-> See the contrib/web/ directory.
-> 
-> > 5. Custom footers (the file 'control/footers" seems to be ignored).
-> 
-> >From the README documentation:
-> 
-> 7) If you want every mail to have something like:
->    --
->    To unsubscribe send a mail to coollist+unsubscribe@lists.domain.net
-> 
->    Just add what you want to a file named "footer" in the same dir as
->    "customheader" (listdir/control/).
-> 
-> Hint: "footer" not "footers"
-> 
-> 
-> I hope this answered your questions.
-> 
-> 
-> Morten
-
+-- 
+Mads Martin Joergensen, http://mmj.dk
+"Why make things difficult, when it is possible to make them cryptic
+ and totally illogical, with just a little bit more effort?"
+                                 -- A. P. J.
