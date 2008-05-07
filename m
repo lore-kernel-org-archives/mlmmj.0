@@ -1,52 +1,27 @@
-From: "mattias jonsson" <mj@mjw.se>
-Date: Tue, 06 May 2008 19:40:09 +0000
-Subject: list archvie
-Message-Id: <000601c8afb0$fe51ae90$9216e255@jonsson>
-MIME-Version: 1
-Content-Type: multipart/mixed; boundary="----=_NextPart_000_0007_01C8AFC1.C1DA7E90"
+From: "Morten K. Poulsen" <morten@afdelingp.dk>
+Date: Wed, 07 May 2008 12:06:49 +0000
+Subject: Re: list archvie
+Message-Id: <1210162009.6730.11.camel@mopo-laptop>
 List-Id: <mlmmj.mlmmj.org>
+References: <000601c8afb0$fe51ae90$9216e255@jonsson>
+In-Reply-To: <000601c8afb0$fe51ae90$9216e255@jonsson>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-This is a multi-part message in MIME format.
+On Tue, 2008-05-06 at 21:40 +0200, mattias jonsson wrote:
+> i have mlmmj installed on debian etch
+> but how to access list archive?
 
-------=_NextPart_000_0007_01C8AFC1.C1DA7E90
-Content-Type: text/plain;
-	charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+The list archive is in LISTDIR/archive/.
 
-i have mlmmj installed on debian etch
-but how to access list archive?
- 
+You have to use an external program to generate HTML pages, if you want
+your list archive to be accessible via HTTP.
 
------
-mattias
-mobil 0763396420
-www.mjw.se 
+Martin Leopold has a good description here:
+http://www.leopold.dk/~martin/mlmmj-scripts.html
 
- 
 
-------=_NextPart_000_0007_01C8AFC1.C1DA7E90
-Content-Type: text/html;
-	charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+Morten
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<HTML><HEAD>
-<META HTTP-EQUIV=3D"Content-Type" CONTENT=3D"text/html; =
-charset=3Dus-ascii">
-<TITLE>Message</TITLE>
-
-<META content=3D"MSHTML 6.00.2900.3243" name=3DGENERATOR></HEAD>
-<BODY>
-<DIV><SPAN class=3D656473919-06052008><FONT face=3DArial size=3D2>i have =
-mlmmj=20
-installed on debian etch</FONT></SPAN></DIV>
-<DIV><SPAN class=3D656473919-06052008><FONT face=3DArial size=3D2>but =
-how to access=20
-list archive?</FONT></SPAN></DIV>
-<DIV>&nbsp;</DIV><!-- Converted from text/plain format -->
-<P><FONT size=3D2>-----<BR>mattias<BR>mobil 0763396420<BR>www.mjw.se =
-</FONT></P>
-<DIV>&nbsp;</DIV></BODY></HTML>
-
-------=_NextPart_000_0007_01C8AFC1.C1DA7E90--
