@@ -1,36 +1,34 @@
-From: Mads Martin Joergensen <mmj@mmj.dk>
-Date: Sat, 26 Apr 2008 20:52:59 +0000
-Subject: Re: "All mlmmj binaries have to be invoked with full path"
-Message-Id: <20080426205259.GK7446@mmj.dk>
+From: "Torrens (lists)" <Lists@torrens.org.uk>
+Date: Sat, 17 May 2008 15:32:44 +0000
+Subject: Bugs
+Message-Id: <4fa0f34d76Lists@torrens.org.uk>
 List-Id: <mlmmj.mlmmj.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-* Vegard Svanberg <vegard@svanberg.no> [Apr 26. 2008 22:30]:
-> $ mlmmj-sub 
-> All mlmmj binaries have to be invoked with full path,
-> e.g. /usr/bin/mlmmj-sub
-> 
-> What's the point? :)
+Sorry, I do not know which version of mlmmj is in use (should there be a
+header line added with this info?).
 
-The point is that we don't want to parse any environment variables for
-path etc., since this is a potential security problem. By invoking with
-full path, you give the path to the other binaries needed to run the
-list. When mlmmj-sub subscribes it has the possibility to send
-confirmation mails etc., and must thus know where to find the
-mlmmj-send.
+I think I have found two bugs
 
-This also means you need to have all mlmmj binaries in the same
-directory.
+1: mlmmj is over-sensitive to files not ending in a newline character. I
+had a footer file that was like this - as a result about 65 zero bytes get
+appended to the end of every outgoing email.
 
-Another advantage is when upgrading etc. you can have several installs,
-e.g /usr/local/mlmmj-1.2.13/bin/mlmmj-* and
-/usr/local/mlmmj-1.2.14/bin/mlmmj-* which will work perfectly fine.
+The copy in the archive is however correct.
 
--- 
-Mads Martin Joergensen, http://mmj.dk
-"Why make things difficult, when it is possible to make them cryptic
- and totally illogical, with just a little bit more effort?"
-                                 -- A. P. J.
+
+
+2: Just had an email with three Content-type lines. mlmmj acted on the
+third one - even though only the first was truly in the headers. Two and
+three were separated from the headers by a blank line.
+
+The third one was
+Content-Type: text/plain; charset=iso-8859-1
+so the message got passed as plain text, even though it contained a 2MB
+jpeg and an html attachment.
+
+
+
