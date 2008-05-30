@@ -1,54 +1,56 @@
-From: Thomas Goirand <thomas@goirand.fr>
-Date: Fri, 30 May 2008 18:29:42 +0000
+From: "Robin H. Johnson" <robbat2@gentoo.org>
+Date: Fri, 30 May 2008 19:47:48 +0000
 Subject: Re: Changing mailing list subscription process
-Message-Id: <48404796.8090706@goirand.fr>
+Message-Id: <20080530194748.GS16364@curie-int.orbis-terrarum.net>
+MIME-Version: 1
+Content-Type: multipart/mixed; boundary="nRwNdQxTdQ7rZk9A"
 List-Id: <mlmmj.mlmmj.org>
 References: <20080529230903.GJ16364@curie-int.orbis-terrarum.net>
 In-Reply-To: <20080529230903.GJ16364@curie-int.orbis-terrarum.net>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Robin H. Johnson wrote:
-> Presently, we have been suffering some spam attacks against some of the
-> Gentoo mailing lists, because of spammers using auto-responders.
-> 
-> Here's how they are conducting the attack:
-> 
-> 1. Spammer forges a mail from $LIST+subscibe@gentoo.org, sending it to
->    an auto-responder.
-> 2. Lists sends a confirmation mail to the auto-responder.
-> 3. Auto-responder sends mail, with intact confirmation data back to the
->    confirmation address (in Reply-To).
 
-IMHO, your auto-responder is broken. Any good auto-responder should
-detect a mailing list and should ignore every message from it. With
-courier-maildrop, it's done like this:
+--nRwNdQxTdQ7rZk9A
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-if ( ! /^Precedence: (bulk|list|junk)/ && \
-     ! /^List-Id:/ && \
-     ! /^List-Unsubscribe:/ && \
-     ! /^Return-Path:.*<#@\[\]>/ && \
-     ! /^Return-Path:.*<>/ && \
-     ! /^From:.*MAILER-DAEMON/ && \
-     ! /^X-ClamAV-Notice-Flag: *YES/ && \
-     ! /^Content-Type:.*message\/delivery-status/ && \
-     ! /^Subject:.*Delivery Status Notification/ && \
-     ! /^Subject:.*Undelivered Mail Returned to Sender/ && \
-     ! /^Subject:.*Delivery failure/ && \
-     ! /^Subject:.*Message delay/ && \
-     ! /^Subject:.*Mail Delivery Subsystem/ && \
-     ! /^Subject:.*Mail System Error.*Returned Mail/ && \
-     ! /^X-Spam-Flag: YES/ )
-{
-   [... autoresponder code ...]
+On Sat, May 31, 2008 at 02:29:42AM +0800, Thomas Goirand wrote:
+> > 3. Auto-responder sends mail, with intact confirmation data back to the
+> >    confirmation address (in Reply-To).
+> IMHO, your auto-responder is broken. Any good auto-responder should
+> detect a mailing list and should ignore every message from it. With
+> courier-maildrop, it's done like this:
+The auto-responder isn't mine. It's any auto-responder on the internet
+that a spammer cares to use. Until I specifically blocked them, the most
+abused ones were the Google AdWords and the PayPal addresses. Now they
+are finding other auto-responders, including those that don't respect
+'Precedence: bulk'.
 
-> I tried adding a specific Reply-To address in the header of the list
-> text/ file, but it's made to part of the mail body instead of the
-> header.
+> > I tried adding a specific Reply-To address in the header of the list
+> > text/ file, but it's made to part of the mail body instead of the
+> > header.
+> You should have tuned "customheaders", is it what you did? Because this
+> always worked for me, when dealing with the Reply-To: header...
+customheaders is NOT added to administrative emails by mlmmj.
 
-You should have tuned "customheaders", is it what you did? Because this
-always worked for me, when dealing with the Reply-To: header...
+--=20
+Robin Hugh Johnson
+Gentoo Linux Developer & Infra Guy
+E-Mail     : robbat2@gentoo.org
+GnuPG FP   : 11AC BA4F 4778 E3F6 E4ED  F38E B27B 944E 3488 4E85
 
-Thomas
+--nRwNdQxTdQ7rZk9A
+Content-Type: application/pgp-signature
+Content-Disposition: inline
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v2.0.9 (GNU/Linux)
+Comment: Robbat2 @ Orbis-Terrarum Networks - The text below is a digital signature. If it doesn't make any sense to you, ignore it.
+
+iEYEARECAAYFAkhAWeQACgkQPpIsIjIzwizxlgCeK5a74fnSfFGueaVRT34kzHmC
+VyMAoOwfeXZ7Dt1HvowQEWUwrghjnjs7
+=+Mrl
+-----END PGP SIGNATURE-----
+
+--nRwNdQxTdQ7rZk9A--
