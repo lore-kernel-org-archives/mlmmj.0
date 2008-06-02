@@ -1,7 +1,7 @@
-From: Chris Webb <chris@arachsys.com>
-Date: Mon, 02 Jun 2008 21:33:34 +0000
+From: Mads Martin Joergensen <mmj@mmj.dk>
+Date: Mon, 02 Jun 2008 21:55:33 +0000
 Subject: Re: Changing mailing list subscription process
-Message-Id: <20080602213334.GA4730@arachsys.com>
+Message-Id: <20080602215533.GF86724@mmj.dk>
 List-Id: <mlmmj.mlmmj.org>
 References: <20080529230903.GJ16364@curie-int.orbis-terrarum.net>
 In-Reply-To: <20080529230903.GJ16364@curie-int.orbis-terrarum.net>
@@ -10,52 +10,30 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-"Robin H. Johnson" <robbat2@gentoo.org> writes:
+* Robin H. Johnson <robbat2@gentoo.org> [May 30. 2008 01:09]:
+> Here's how they are conducting the attack:
+> 
+> 1. Spammer forges a mail from $LIST+subscibe@gentoo.org, sending it to
+>    an auto-responder.
+> 2. Lists sends a confirmation mail to the auto-responder.
+> 3. Auto-responder sends mail, with intact confirmation data back to the
+>    confirmation address (in Reply-To).
+> 4. Auto-responder is now subscribed to the mailing list.
+> 5. Spammer forges a mail from the auto-responder, to the normal mailing
+>    list address.
+> 
+> I tried adding a specific Reply-To address in the header of the list
+> text/ file, but it's made to part of the mail body instead of the
+> header.
 
-> I've played with a variety of addresses for routing to /dev/null, when
-> we started putting Reply-To on emails that the Gentoo Bugzilla sends
-> out. Amongst the bits tried: '/dev/null@localhost',
-> 'noreply@localhost'. Having the '.invalid' on the end turned out to be
-> important because there are some MTAs that simply reject the mail for
-> not having at least one dot in the host side of the email string.
+So what exactly would help you--I would be glad to cook up a patch to
+test some things for you, but I need to know exactly what you want (yes,
+I'm getting old and lazy--too lazy to figure it out myself :)
 
-Sure, I can believe that. In fact, I am certain there are also MTAs out
-there that will reject if the Reply-To: domain isn't valid with either an MX
-record or an A record---I've encountered them.
+BTW, wouldn't ezmlm be prone to the same attacks?
 
-Our own MTA is configured to do this with From: although it ignores
-Reply-To: at present. Users at these sites will be completely unable to
-subscribe to or unsubscribe from your lists if you go ahead and start
-emitting confirmation emails with invalid Reply-To addresses.
-
-I think the only correct configuration here that won't break things for some
-of your users is to use the (genuinely routeable)
-
-  blackhole@gentoo.org
-
-and bin to /dev/null when they're delivered to you.
-
-> The point of using an invalid domain, is to have any response NOT
-> traverse the entire internet and cause backscatter.
-
-There's no backscatter in the configuration I described. The autoreplies
-would be directed to an (auto-processed) address in your own domain not to
-random third parties, unlike what happens with spam backscatter from MTAs
-that bounce after accepting a message.
-
-> Using an unsub address in the Reply-To part would also be bad I think,
-> as that may allow some attacks to unsubscribe people.
-
-Yes, an unsub address as Reply-To: isn't a good idea but a 'cancel
-outstanding confirmation request' address is fine. This just answers 'no' to
-the 'do you want to subscribe?' question without changing the membership
-list at all.
-
-> In either case, mlmmj doesn't let you set a Reply-To header at the
-> moment for the sub/unsub mails.
-
-True.
-
-Cheers,
-
-Chris.
+-- 
+Mads Martin Joergensen, http://mmj.dk
+"Why make things difficult, when it is possible to make them cryptic
+ and totally illogical, with just a little bit more effort?"
+                                 -- A. P. J.
