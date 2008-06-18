@@ -1,62 +1,37 @@
-From: Thomas Jarosch <thomas.jarosch@intra2net.com>
-Date: Fri, 13 Jun 2008 08:06:17 +0000
-Subject: [patch] silence error message in mlmmj-maintd
-Message-Id: <200806131006.17639.thomas.jarosch@intra2net.com>
-MIME-Version: 1
-Content-Type: multipart/mixed; boundary="Boundary-00=_5piUIxVT9inEtvy"
+From: "Morten K. Poulsen" <morten@afdelingp.dk>
+Date: Wed, 18 Jun 2008 22:27:12 +0000
+Subject: Re: [patch] silence error message in mlmmj-maintd
+Message-Id: <48598BC0.4010203@afdelingp.dk>
 List-Id: <mlmmj.mlmmj.org>
+References: <200806131006.17639.thomas.jarosch@intra2net.com>
+In-Reply-To: <200806131006.17639.thomas.jarosch@intra2net.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
---Boundary-00=_5piUIxVT9inEtvy
-Content-Type: text/plain;
-  charset="us-ascii"
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Thomas Jarosch wrote:
+> attached patch silences the following error message in
+> mlmmj-maintd if archiving is disabled:
 
-Hello together,
+Cool, thanks.
 
-attached patch silences the following error message in
-mlmmj-maintd if archiving is disabled:
+> Are there any plans to release a new version
+> including the two patches I sent earlier?
 
------------------------------
-Jun 13 02:02:37 intranator /usr/bin/mlmmj-maintd[22978]: mlmmj-maintd.c:838: 
-Could not open '/var/spool/mlmmj/test/index': No such file or directory
------------------------------
+Yes, I am full of plans ;)
 
-Are there any plans to release a new version
-including the two patches I sent earlier?
+I've been working almost around the clock the last many weeks, so mlmmj 
+has been down-prioritized. I am on vacation now (but my room has an 
+Internet connection... though I'm not addicted), so I will probably not 
+work on it for another month. Mads Martin talked about doing a release. 
+I don't know if he still want to do it.
 
-Cheers,
-Thomas
+Mads Martin - if you have the time, could you commit all the good 
+patches, and roll a release candidate?
 
---Boundary-00=_5piUIxVT9inEtvy
-Content-Type: text/x-diff;
-  charset="us-ascii";
-  name="mlmmj-silence-maintd-warning.patch"
-Content-Transfer-Encoding: 7bit
-Content-Disposition: attachment;
-	filename="mlmmj-silence-maintd-warning.patch"
+Morten
 
-diff -u -r -p mlmmj.orig/src/mlmmj-maintd.c mlmmj-1.2.15/src/mlmmj-maintd.c
---- mlmmj.orig/src/mlmmj-maintd.c	Fri Jun 13 09:35:23 2008
-+++ mlmmj-1.2.15/src/mlmmj-maintd.c	Fri Jun 13 09:53:21 2008
-@@ -44,6 +44,7 @@
- #include "ctrlvalue.h"
- #include "send_digest.h"
- #include "mylocking.h"
-+#include "statctrl.h"
- #include "log_oper.h"
- 
- static void print_help(const char *prg)
-@@ -771,6 +772,9 @@ int run_digests(const char *listdir, con
- 	int fd, indexfd, lock;
- 	size_t lenbuf, lenstr;
- 	
-+	if (statctrl(listdir, "noarchive") == 1)
-+	    return 0;
-+
- 	digestintervalstr = ctrlvalue(listdir, "digestinterval");
- 	if (digestintervalstr) {
- 		digestinterval = (time_t)atol(digestintervalstr);
-
---Boundary-00=_5piUIxVT9inEtvy--
+-- 
+Morten K. Poulsen <morten@afdelingp.dk>
+http://www.afdelingp.dk/
