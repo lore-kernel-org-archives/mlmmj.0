@@ -1,46 +1,44 @@
-From: "Morten K. Poulsen" <morten@afdelingp.dk>
-Date: Wed, 25 Jun 2008 01:51:28 +0000
-Subject: Re: New install
-Message-Id: <4861A4A0.8010609@afdelingp.dk>
+From: Wolf Bergenheim <wolf+mlmmj@bergenheim.net>
+Date: Wed, 18 Jun 2008 08:35:41 +0000
+Subject: Re: New website
+Message-Id: <4858C8DD.7020904@bergenheim.net>
 List-Id: <mlmmj.mlmmj.org>
-References: <308082.1660.qm@web52410.mail.re2.yahoo.com>
-In-Reply-To: <308082.1660.qm@web52410.mail.re2.yahoo.com>
+References: <20080414210301.GG16855@mmj.dk>
+In-Reply-To: <20080414210301.GG16855@mmj.dk>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Hi Kenny,
+Hi!
 
-Kenny Patenaude wrote:
-> Just wondering if there is an HOW-TO on setting up mlmmj?
+Sorry for being slow to respond, I've been too busy (things are slowing 
+down now). The site is still running [1] (could maybe be updated to the 
+newest and greatest Drupal, but that is not really necessary). However 
+the content could be updated to reflect changes in the main site.
 
-Most of the basics are in the README file, and the more specific topics 
-are in the README.* files. The list of options and the documentation for 
-them is in the TUNABLES file.
+I've been waiting for some sort of an "official" word, and missed yours.. :|
 
-> I am having problems figuring out the permissions
-> for the list directories
+--Wolf
 
-The list directories should be owned by the user which the binaries are 
-run as. It depends on your mail server. Usually it is "nobody" or 
-something similar. Try setting up an alias which executes /usr/bin/id or 
-similar to find out which user that is for your setup.
+[1] http://mlmmj.bergenheim.net/
 
-> and how to run the programs as root.
-
-Well, don't run them as root. They should be run as a non-privileged 
-user for security reasons.
-
-I hope it helped you....
-
-Best regards,
-Morten
-
-Totally off topic: Is there anybody from New York City on this list? Me 
-and a couple of friends are looking for a place to celebrate 
-Independence Day - more info at http://www.afdelingp.dk/fourth-of-july/
+On 15.04.2008 00:03, Mads Martin Joergensen wrote:
+> Hey all,
+> 
+> IIRC there was a much nicer crispier website at bergenheim for mlmmj
+> that should become the new mlmmj.org?
+> 
+> What happened to that one?
+> 
 
 -- 
-Morten K. Poulsen <morten@afdelingp.dk>
-http://www.afdelingp.dk/
+
+Wolf Bergenheim (wolf@bergenheim.net)
+
+(__)
+~..~  |Use GNU! (http://www.gnu.org/)
+  )(  /
+  .._/
+
+
