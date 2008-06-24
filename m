@@ -1,29 +1,27 @@
-From: Mads Martin Joergensen <mmj@mmj.dk>
-Date: Wed, 25 Jun 2008 10:39:33 +0000
-Subject: Re: latest version
-Message-Id: <20080625103932.GF94923@mmj.dk>
+From: Kenny Patenaude <kenny_patenaude@yahoo.com>
+Date: Tue, 24 Jun 2008 16:10:35 +0000
+Subject: New install
+Message-Id: <308082.1660.qm@web52410.mail.re2.yahoo.com>
+MIME-Version: 1
+Content-Type: multipart/mixed; boundary="0-106500220-1214323835=:1660"
 List-Id: <mlmmj.mlmmj.org>
-References: <20080625121639.503a7d86@franky>
-In-Reply-To: <20080625121639.503a7d86@franky>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-* Franky Van Liedekerke <liedekef@telenet.be> [Jun 25. 2008 12:16]:
-> Hi,
-> 
-> I hope I don't get bashed over this one, but I need to know: when is
-> the next version comming out? I've seen already quite some patches and
-> accepted changes pass by on the list (as well as a web archive
-> contribution), but it would be cool to see these bundled in a new
-> release.
+--0-106500220-1214323835=:1660
+Content-Type: text/plain; charset=iso-8859-1
+Content-Transfer-Encoding: quoted-printable
 
-When I stop being swamped in work reorg/being lazy or Morten returns
-from vacation :)
+Just wondering if there is an HOW-TO on setting up mlmmj?=A0 I am having pr=
+oblems figuring out the permissions for the list directories and how to run=
+ the programs as root.
 
--- 
-Mads Martin Joergensen, http://mmj.dk
-"Why make things difficult, when it is possible to make them cryptic
- and totally illogical, with just a little bit more effort?"
-                                 -- A. P. J.
+Thanks,
+Kenny
+=0A=0A=0A      
+--0-106500220-1214323835=:1660
+Content-Type: text/html; charset=us-ascii
+
+<table cellspacing='0' cellpadding='0' border='0' ><tr><td valign='top' style='font: inherit;'>Just wondering if there is an HOW-TO on setting up mlmmj?&nbsp; I am having problems figuring out the permissions for the list directories and how to run the programs as root.<br><br>Thanks,<br>Kenny<br></td></tr></table><br>
+
+      
+--0-106500220-1214323835=:1660--
