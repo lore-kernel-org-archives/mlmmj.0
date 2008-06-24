@@ -1,56 +1,37 @@
-From: "Robin H. Johnson" <robbat2@gentoo.org>
-Date: Fri, 30 May 2008 19:47:48 +0000
-Subject: Re: Changing mailing list subscription process
-Message-Id: <20080530194748.GS16364@curie-int.orbis-terrarum.net>
-MIME-Version: 1
-Content-Type: multipart/mixed; boundary="nRwNdQxTdQ7rZk9A"
+From: Thomas Jarosch <thomas.jarosch@intra2net.com>
+Date: Tue, 24 Jun 2008 08:46:51 +0000
+Subject: Discarded mail: Bad file descriptor
+Message-Id: <200806241046.51759.thomas.jarosch@intra2net.com>
 List-Id: <mlmmj.mlmmj.org>
-References: <20080529230903.GJ16364@curie-int.orbis-terrarum.net>
-In-Reply-To: <20080529230903.GJ16364@curie-int.orbis-terrarum.net>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
+Hello together,
 
---nRwNdQxTdQ7rZk9A
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+I just checked my logs and noticed an error message from mlmmj
+that caught my attention. One spam message contained a more
+than malformed "From:" line:
 
-On Sat, May 31, 2008 at 02:29:42AM +0800, Thomas Goirand wrote:
-> > 3. Auto-responder sends mail, with intact confirmation data back to the
-> >    confirmation address (in Reply-To).
-> IMHO, your auto-responder is broken. Any good auto-responder should
-> detect a mailing list and should ignore every message from it. With
-> courier-maildrop, it's done like this:
-The auto-responder isn't mine. It's any auto-responder on the internet
-that a spammer cares to use. Until I specifically blocked them, the most
-abused ones were the Google AdWords and the PayPal addresses. Now they
-are finding other auto-responders, including those that don't respect
-'Precedence: bulk'.
+-----------------------------------------------------------
+From: "Servidor de e-mail - Tecmicro Sistemas"@Servidor,
+        de@intranator.m.i2n, e-mail@intranator.m.i2n, -@intranator.m.i2n,
+        Tecmicro@intranator.m.i2n, Sistemas@intranator.m.i2n
+-----------------------------------------------------------
 
-> > I tried adding a specific Reply-To address in the header of the list
-> > text/ file, but it's made to part of the mail body instead of the
-> > header.
-> You should have tuned "customheaders", is it what you did? Because this
-> always worked for me, when dealing with the Reply-To: header...
-customheaders is NOT added to administrative emails by mlmmj.
+This will lead to the following error message:
 
---=20
-Robin Hugh Johnson
-Gentoo Linux Developer & Infra Guy
-E-Mail     : robbat2@gentoo.org
-GnuPG FP   : 11AC BA4F 4778 E3F6 E4ED  F38E B27B 944E 3488 4E85
+Jun 24 06:13:51 intranator /usr/bin/mlmmj-process[9274]: mlmmj-process.c:688: Discarding /var/spool/mlmmj/intra2net-tech/incoming/291e75865c83d9cf due to invalid From:: Bad file descriptor
+Jun 24 06:13:51 intranator /usr/bin/mlmmj-process[9274]: mlmmj-process.c:691: fromemails.emaillist[0] = Servidor de e-mail - Tecmicro Sistemas@Servidor : Bad file descriptor
+Jun 24 06:13:51 intranator /usr/bin/mlmmj-process[9274]: mlmmj-process.c:691: fromemails.emaillist[1] = de@intranator.m.i2n : Bad file descriptor
+Jun 24 06:13:51 intranator /usr/bin/mlmmj-process[9274]: mlmmj-process.c:691: fromemails.emaillist[2] = e-mail@intranator.m.i2n : Bad file descriptor
+Jun 24 06:13:51 intranator /usr/bin/mlmmj-process[9274]: mlmmj-process.c:691: fromemails.emaillist[3] = -@intranator.m.i2n : Bad file descriptor
+Jun 24 06:13:51 intranator /usr/bin/mlmmj-process[9274]: mlmmj-process.c:691: fromemails.emaillist[4] = Tecmicro@intranator.m.i2n : Bad file descriptor
+Jun 24 06:13:51 intranator /usr/bin/mlmmj-process[9274]: mlmmj-process.c:691: fromemails.emaillist[5] = Sistemas@intranator.m.i2n : Bad file descriptor
 
---nRwNdQxTdQ7rZk9A
-Content-Type: application/pgp-signature
-Content-Disposition: inline
+I'm surprised by the "Bad file descriptor" entry. The size is 3487 bytes,
+so the message should be processed in memory. Any idea what that could be?
 
------BEGIN PGP SIGNATURE-----
-Version: GnuPG v2.0.9 (GNU/Linux)
-Comment: Robbat2 @ Orbis-Terrarum Networks - The text below is a digital signature. If it doesn't make any sense to you, ignore it.
-
-iEYEARECAAYFAkhAWeQACgkQPpIsIjIzwizxlgCeK5a74fnSfFGueaVRT34kzHmC
-VyMAoOwfeXZ7Dt1HvowQEWUwrghjnjs7
-=+Mrl
------END PGP SIGNATURE-----
-
---nRwNdQxTdQ7rZk9A--
+Cheers,
+Thomas
