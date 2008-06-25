@@ -1,27 +1,46 @@
-From: Kenny Patenaude <kenny_patenaude@yahoo.com>
-Date: Tue, 24 Jun 2008 16:10:35 +0000
-Subject: New install
-Message-Id: <308082.1660.qm@web52410.mail.re2.yahoo.com>
-MIME-Version: 1
-Content-Type: multipart/mixed; boundary="0-106500220-1214323835=:1660"
+From: "Morten K. Poulsen" <morten@afdelingp.dk>
+Date: Wed, 25 Jun 2008 01:51:28 +0000
+Subject: Re: New install
+Message-Id: <4861A4A0.8010609@afdelingp.dk>
 List-Id: <mlmmj.mlmmj.org>
+References: <308082.1660.qm@web52410.mail.re2.yahoo.com>
+In-Reply-To: <308082.1660.qm@web52410.mail.re2.yahoo.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
---0-106500220-1214323835=:1660
-Content-Type: text/plain; charset=iso-8859-1
-Content-Transfer-Encoding: quoted-printable
+Hi Kenny,
 
-Just wondering if there is an HOW-TO on setting up mlmmj?=A0 I am having pr=
-oblems figuring out the permissions for the list directories and how to run=
- the programs as root.
+Kenny Patenaude wrote:
+> Just wondering if there is an HOW-TO on setting up mlmmj?
 
-Thanks,
-Kenny
-=0A=0A=0A      
---0-106500220-1214323835=:1660
-Content-Type: text/html; charset=us-ascii
+Most of the basics are in the README file, and the more specific topics 
+are in the README.* files. The list of options and the documentation for 
+them is in the TUNABLES file.
 
-<table cellspacing='0' cellpadding='0' border='0' ><tr><td valign='top' style='font: inherit;'>Just wondering if there is an HOW-TO on setting up mlmmj?&nbsp; I am having problems figuring out the permissions for the list directories and how to run the programs as root.<br><br>Thanks,<br>Kenny<br></td></tr></table><br>
+> I am having problems figuring out the permissions
+> for the list directories
 
-      
---0-106500220-1214323835=:1660--
+The list directories should be owned by the user which the binaries are 
+run as. It depends on your mail server. Usually it is "nobody" or 
+something similar. Try setting up an alias which executes /usr/bin/id or 
+similar to find out which user that is for your setup.
+
+> and how to run the programs as root.
+
+Well, don't run them as root. They should be run as a non-privileged 
+user for security reasons.
+
+I hope it helped you....
+
+Best regards,
+Morten
+
+Totally off topic: Is there anybody from New York City on this list? Me 
+and a couple of friends are looking for a place to celebrate 
+Independence Day - more info at http://www.afdelingp.dk/fourth-of-july/
+
+-- 
+Morten K. Poulsen <morten@afdelingp.dk>
+http://www.afdelingp.dk/
