@@ -1,42 +1,32 @@
-From: Wolf Bergenheim <wolf+mlmmj@bergenheim.net>
-Date: Wed, 30 Jul 2008 09:23:45 +0000
-Subject: Re: Repository
-Message-Id: <48903321.80304@bergenheim.net>
+From: "Franky Van Liedekerke" <liedekef@telenet.be>
+Date: Wed, 02 Jul 2008 08:40:20 +0000
+Subject: limit post to moderators
+Message-Id: <60567dcc0807020140u46488453n9a4fd25e46df6c09@mail.gmail.com>
+MIME-Version: 1
+Content-Type: multipart/mixed; boundary="----=_Part_5421_17923996.1214988020147"
 List-Id: <mlmmj.mlmmj.org>
-References: <20080719114556.GD3398@baldr.the>
-In-Reply-To: <20080719114556.GD3398@baldr.the>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-On 30.07.2008 06:03, Thomas Goirand wrote:
-> Mads Martin Joergensen wrote:
->> * Premysl Hruby <dfenze@gmail.com> [Jul 19. 2008 13:46]:
->>> Is here some SCM (svn/hg/git/whatever) repository of mlmmj? I find
->>> no-one.
->> Not yet.
->>
->> I hope to get it moved to mlmmj.org when Morten is back from vacation.
->> He is the primary maintainer :)
-> 
-> If I may... Don't use such retardated thing like CVS or SVN, and setup
-> something modern like Git (or mercurial but I like it less).
-> 
+------=_Part_5421_17923996.1214988020147
+Content-Type: text/plain; charset=ISO-8859-1
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
-Yes git is very nice indeed. I don't have a lot of experience with it, 
-so I'll have to read some docs on how to set up a GIT repository so that 
-  it can be written to without giving a shell access.
+Hi,
 
---Wolf
+is there a config option (or patch) to limit the posting possibility to
+moderators only (without them needing to be subscribers if possible)?
+For now every subscriber can post (using moderation), but I want a kind of
+newsletter functionality ...
 
--- 
+Franky
 
-Wolf Bergenheim (wolf@bergenheim.net)
+------=_Part_5421_17923996.1214988020147
+Content-Type: text/html; charset=ISO-8859-1
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
-(__)
-~..~  |Use GNU! (http://www.gnu.org/)
-  )(  /
-  .._/
+Hi,<br><br>is there a config option (or patch) to limit the posting possibility to moderators only (without them needing to be subscribers if possible)?<br>For now every subscriber can post (using moderation), but I want a kind of newsletter functionality ...<br>
+<br>Franky<br>
 
-
+------=_Part_5421_17923996.1214988020147--
