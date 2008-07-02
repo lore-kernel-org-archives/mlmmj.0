@@ -1,7 +1,7 @@
-From: Claudio Prono <claudio.prono@atpss.net>
-Date: Wed, 02 Jul 2008 09:12:21 +0000
+From: "Christoph Wilke" <chris@filmkreis.tu-darmstadt.de>
+Date: Wed, 02 Jul 2008 09:24:13 +0000
 Subject: Re: Maxmailsize don't work?
-Message-Id: <486B4675.2010006@atpss.net>
+Message-Id: <47272.172.16.32.1.1214990653.squirrel@130.83.185.211>
 List-Id: <mlmmj.mlmmj.org>
 References: <486B3895.3010804@atpss.net>
 In-Reply-To: <486B3895.3010804@atpss.net>
@@ -10,48 +10,25 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-The value of 20000000000 bytes is just an example, i have tried to set 
-it to a smaller value, but the problem persist. Seems like the control 
-of  the maxmailsize have something wrong. If i remove the maxmailsize, 
-it's all ok, but is just  a work-around. Can be a bug of mlmmj ?
+Hej!
 
-Thank u,
+On Wed, July 2, 2008 10:13, Claudio Prono wrote:
+> Hello all,
+>
+> I have a problem with my mlmmj version 1.2.15-17.1. When i try to send a
+> mail (in that case of 28.357 byte) i recieve a message like this:
+>
+> Hi, this is the mlmmj program managing the mailinglist
+>
+> xxxxx@domain.com
+>
+> I'm sorry to inform you that your message could not be delivered to the
+> list. Your mail was rejected due to the size limit of 20000000000 bytes.
 
-Claudio.
+I'm not sure about my guess, but can you try it again with one order
+of magnitude less (2000000000).
+It could be limited by integer???
 
-Christian Laursen ha scritto:
-> Claudio Prono <claudio.prono@atpss.net> writes:
->
->   
->> I'm sorry to inform you that your message could not be delivered to the
->> list. Your mail was rejected due to the size limit of 20000000000 bytes.
->>     
->
-> <snip>
->
->   
->> What is the problem? The size is not more than 20000000000 bytes, so what's wrong?
->>     
->
-> You have set the maxmailsize value to 20 gigabytes. If you are on a 32
-> bit platform this is too big for the integer in which the value is
-> stored.
->
-> Unless this really is the limit you want to enforce (Sounds like
-> insanely big mails), try removing a 0 or two to get a smaller value.
->
-> I don't know if this is the problem but it is the most likely
-> explanation.
->
->   
-
--- 
-------------
-Claudio Prono
-Systems Development @ Atpss.net Srl, Divisione Implementazione Sistemi
-Via San Bernardino, 17 - 10137 Torino (TO) - IT
-Tel +39-011.32.72.100  Fax +39-011.32.46.497
-PGP Fingerprint: 75C2 4049 E23D 2FBF A65F  40DB EA5C 11AC C2B0 3647
-Disclaimer: http://atpss.net/disclaimer
------------- 
+Ciao
+Chris
 
