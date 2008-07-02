@@ -1,7 +1,7 @@
-From: "Christoph Wilke" <chris@filmkreis.tu-darmstadt.de>
-Date: Wed, 02 Jul 2008 09:41:15 +0000
+From: Thomas Jarosch <thomas.jarosch@intra2net.com>
+Date: Wed, 02 Jul 2008 09:42:33 +0000
 Subject: Re: Maxmailsize don't work?
-Message-Id: <41329.172.16.32.1.1214991675.squirrel@130.83.185.211>
+Message-Id: <200807021142.33688.thomas.jarosch@intra2net.com>
 List-Id: <mlmmj.mlmmj.org>
 References: <486B3895.3010804@atpss.net>
 In-Reply-To: <486B3895.3010804@atpss.net>
@@ -10,21 +10,16 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Hej!
+On Wednesday, 2. July 2008 11:41:15 Christoph Wilke wrote:
+> On Wed, July 2, 2008 11:12, Claudio Prono wrote:
+> > The value of 20000000000 bytes is just an example, i have tried to set
+> > it to a smaller value, but the problem persist. Seems like the control
+> > of  the maxmailsize have something wrong. If i remove the maxmailsize,
+> > it's all ok, but is just  a work-around. Can be a bug of mlmmj ?
 
-On Wed, July 2, 2008 11:12, Claudio Prono wrote:
-> The value of 20000000000 bytes is just an example, i have tried to set
-> it to a smaller value, but the problem persist. Seems like the control
-> of  the maxmailsize have something wrong. If i remove the maxmailsize,
-> it's all ok, but is just  a work-around. Can be a bug of mlmmj ?
+Have you tested various sizes like 32000, 65000 etc?
 
-I'm using it without any problems, but with an older version
-of mlmmj (1.2.14).
+I have the same feeling as Chris that maybe
+a too-small integer variable is overflowing.
 
-My limit is set to 1258291 bytes (~1.2mb).
-
-Ciao
-Chris
-
-[...]
-
+Thomas
