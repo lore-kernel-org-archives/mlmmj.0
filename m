@@ -1,7 +1,7 @@
-From: Mads Martin Joergensen <mmj@mmj.dk>
-Date: Sat, 19 Jul 2008 12:04:17 +0000
+From: Thomas Goirand <thomas@goirand.fr>
+Date: Wed, 30 Jul 2008 03:03:21 +0000
 Subject: Re: Repository
-Message-Id: <20080719120417.GN30951@mmj.dk>
+Message-Id: <488FD9F9.8050004@goirand.fr>
 List-Id: <mlmmj.mlmmj.org>
 References: <20080719114556.GD3398@baldr.the>
 In-Reply-To: <20080719114556.GD3398@baldr.the>
@@ -10,17 +10,19 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-* Premysl Hruby <dfenze@gmail.com> [Jul 19. 2008 13:46]:
-> Is here some SCM (svn/hg/git/whatever) repository of mlmmj? I find
-> no-one.
+Mads Martin Joergensen wrote:
+> * Premysl Hruby <dfenze@gmail.com> [Jul 19. 2008 13:46]:
+>> Is here some SCM (svn/hg/git/whatever) repository of mlmmj? I find
+>> no-one.
+> 
+> Not yet.
+> 
+> I hope to get it moved to mlmmj.org when Morten is back from vacation.
+> He is the primary maintainer :)
 
-Not yet.
+If I may... Don't use such retardated thing like CVS or SVN, and setup
+something modern like Git (or mercurial but I like it less).
 
-I hope to get it moved to mlmmj.org when Morten is back from vacation.
-He is the primary maintainer :)
+Thomas
 
--- 
-Mads Martin Joergensen, http://mmj.dk
-"Why make things difficult, when it is possible to make them cryptic
- and totally illogical, with just a little bit more effort?"
-                                 -- A. P. J.
+
