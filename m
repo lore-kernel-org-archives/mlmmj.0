@@ -1,43 +1,48 @@
-From: "Piers Beckley" <piers.beckley@bbc.co.uk>
-Date: Mon, 04 Aug 2008 11:24:04 +0000
-Subject: Problem with submod tunable
-Message-Id: <D6D17A6ADBC9114CBCCF2F3EE4859AC905D2DCFA@bbcxue218.national.core.bbc.co.uk>
+From: "Morten K. Poulsen" <morten@afdelingp.dk>
+Date: Mon, 04 Aug 2008 11:51:35 +0000
+Subject: Re: Problem with submod tunable
+Message-Id: <1217850695.7016.18.camel@mopo-laptop>
 List-Id: <mlmmj.mlmmj.org>
+References: <D6D17A6ADBC9114CBCCF2F3EE4859AC905D2DCFA@bbcxue218.national.core.bbc.co.uk>
+In-Reply-To: <D6D17A6ADBC9114CBCCF2F3EE4859AC905D2DCFA@bbcxue218.national.core.bbc.co.uk>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Hi 
+Hi Piers,
 
-I'm trying to set up a mailing list at the moment, and would like to
-moderate subscription. Unfortunately putting submod into the control
-directory doesn't work, either as a blank file or with a moderator's
-email address inside.
+Wow, does the BBC use mlmmj? :-)
 
-The subscriber gets the confirmation email and the
-queued-for-subscription-moderation email, but after they confirm, the
-moderator or owner never receives the email to confirm subscription.
+On Mon, 2008-08-04 at 12:24 +0100, Piers Beckley wrote:
+> I'm trying to set up a mailing list at the moment, and would like to
+> moderate subscription. Unfortunately putting submod into the control
+> directory doesn't work, either as a blank file or with a moderator's
+> email address inside.
 
-Digging in the archive pulls up this thread with the exact same problem:
-http://mlmmj.mmj.dk/archive/mlmmj/2006-09/0827.html
+This is not part of the code that I've personally written, and I find
+the code quite... strange...
 
-Like the original poster I'm using Exim as the MTA - did the issue ever
-get resolved?
+The following is from mlmmj-1.2.15/src/mlmmj-sub.c
 
-Exim version 4.69 #0 (FreeBSD 7.0) built 27-Jul-2008 09:19:05
-mlmmj version 1.2.15
+670  subbed = is_subbed_in(subddirname, address);
+...
+675  if(subbed) {
+676      if(subconfirm) {
+...
+681          generate_subconfirm(listdir, listaddr, listdelim,
+682                      address, mlmmjsend, typesub);
+683      } else {
+684          if(submod) {
+...
+689              moderate_sub(listdir, listaddr, listdelim,
+690                  address, mlmmjsend, typesub);
+691          }  
 
-As with the OP, mlmmj works fine if subscription moderation is turned
-off.
+As far as I can see, the moderation is only done if the address is
+already subscribed to the list, which makes no sense.
 
-Piers
+Has submod ever worked for anybody? Is someone here using it?
 
-http://www.bbc.co.uk/
-This e-mail (and any attachments) is confidential and may contain personal views which are not the views of the BBC unless specifically stated.
-If you have received it in error, please delete it from your system.
-Do not use, copy or disclose the information in any way nor act in reliance on it and notify the sender immediately.
-Please note that the BBC monitors e-mails sent or received.
-Further communication will signify your consent to this.
-					
+Morten
 
