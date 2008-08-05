@@ -1,92 +1,85 @@
-From: gilles@free-mail.fr
-Date: Thu, 14 Aug 2008 22:05:42 +0000
-Subject: Re: mlmmj put message into queue/discarded
-Message-Id: <20080815000542.2nb1o9t3c4gsww8o@webmail.free-mail.fr>
+From: "Fabio Busatto" <fabio.busatto@programmazione.it>
+Date: Tue, 05 Aug 2008 10:09:38 +0000
+Subject: New it (Italian) language files
+Message-Id: <9efe479e0808050309t4054e266y3a846fc76c3aba4a@mail.gmail.com>
+MIME-Version: 1
+Content-Type: multipart/mixed; boundary="----=_Part_2460_29116776.1217930978279"
 List-Id: <mlmmj.mlmmj.org>
-References: <20080813230513.5f0e9lxt4wo04wos@webmail.free-mail.fr>
-In-Reply-To: <20080813230513.5f0e9lxt4wo04wos@webmail.free-mail.fr>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
 To: mlmmj@mlmmj.org
 
-Just for information , it's normal this command doesn't subscribe =20
-email adress?
-/usr/local/bin/mlmmj-sub -L /var/spool/mlmmj/mailing/ -a =20
-xxxxxxxx@aol.com -c -d
-it send confirmation about the digest but nothing about subscription
+------=_Part_2460_29116776.1217930978279
+Content-Type: text/plain; charset=ISO-8859-1
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
+Hi, I just rewrote the Italian translation for listtext files.
+Now the Subject bug is fixed, there is unicode support and all files
+are translated.
+Let me know if something is wrong.
 
-I have only success subscribe email adress by this command.
-/usr/local/bin/mlmmj-sub -L /var/spool/mlmmj/mailing/ -a xxxxxxxx@aol.com
+Bye
+Fabio
 
+------=_Part_2460_29116776.1217930978279
+Content-Type: application/x-gzip; name=mlmmj-lang-it.tar.gz
+Content-Transfer-Encoding: base64
+X-Attachment-Id: f_fjicmkbq0
+Content-Disposition: attachment; filename=mlmmj-lang-it.tar.gz
 
-Thanks,
-
-++ Gilles.
-
-gilles@free-mail.fr a =C3=A9crit=C2=A0:
-
-> Hi,
->
-> thanks sven, i'll update my mlmmj version tonight and i tell you if it's =
-ok.
->
-> ++ Gilles
->
-> Sven 'Darkman' Michels <sven@darkman.de> a =C3=A9crit=C2 :
->
->> -----BEGIN PGP SIGNED MESSAGE-----
->> Hash: SHA1
->>
->> Hi,
->>
->> i'd try a more recent version. 1.2.9 is quite old and i remember a few c=
-ases
->> where mails like outlook created ones are discarded in some cases.
->>
->> Regards,
->> Sven
->>
->> gilles@free-mail.fr wrote:
->>> Hi all,
->>>
->>> I have set up a mlmmj 1.2.9 with qmail/vpopmail and
->>> when I try to send a message to the mailing list, it gets moved to
->>> queue/discarded.
->>>
->>> in another thread on the mailing archive, i can solve this problem to
->>> add Reply-To in the header but doesnt work...
->>>
->>> any idea ?
->>>
->>> thanks!!
->>> ++
->>> Gilles
->>>
->>> ---------------------------------------------------------
->>> Free-mail.fr , creez votre EMAIL et votre BLOG gratuitement.
->>>
->>>
->>>
->> -----BEGIN PGP SIGNATURE-----
->> Version: GnuPG v1.4.6 (GNU/Linux)
->>
->> iD8DBQFIo2DJQoCguWUBzBwRAszBAJwOjYZT/x+yCQeIRmz1mlrpUrPPTwCgrLGB
->> eWORWIaP2DLzgTWavGrQZYk>> =3DiFYj
->> -----END PGP SIGNATURE-----
->>
->>
->
->
->
-> ---------------------------------------------------------
-> Free-mail.fr , creez votre EMAIL et votre BLOG gratuitement.
-
-
-
----------------------------------------------------------
-Free-mail.fr , creez votre EMAIL et votre BLOG gratuitement.
-
-
-
+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
+IBAIBALheeB/bzpkhgDIAAA=
+------=_Part_2460_29116776.1217930978279--
