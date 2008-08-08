@@ -1,34 +1,30 @@
-From: Thomas Goirand <thomas@goirand.fr>
-Date: Sun, 31 Aug 2008 18:01:00 +0000
-Subject: Re: Russian translations for mlmmj
-Message-Id: <48BADC5C.2040401@goirand.fr>
+From: Dave Taylor <ddt@davetaylor.name>
+Date: Fri, 08 Aug 2008 02:03:59 +0000
+Subject: plain text filter?
+Message-Id: <23FCE469-408F-4929-BE24-B71318DD5CA7@davetaylor.name>
 List-Id: <mlmmj.mlmmj.org>
-References: <1200309131.6509.12.camel@mopo-laptop>
-In-Reply-To: <1200309131.6509.12.camel@mopo-laptop>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Morten K. Poulsen wrote:
-> On Sun, 2008-08-31 at 03:34 +0800, Thomas Goirand wrote:
->> Every software should use gettext(), that's for sure!
-> 
-> I am looking forward to a patch.
-> 
-> Best regards,
-> Morten
+I need to filter out all MIME components except for the text/plain  
+component of emails that are outbound to the mailing list, so that  
+it's just a text/plain email (no multipart/alternative content either).
 
-Sorry, I wont have the time to do a patch for it, I'm too busy for my
-own programming myself for our control panel. I'm following the
-development of MLMMJ because it's fully supported in it. I guess you
-know already, no?
+Is there a good way to do this that happens after mlmmj has already  
+filtered for spam and confirmed that the email is from a valid user,  
+but before it goes to the moderation queue?
 
-But if you want, I can help you guys to know how works gettext(), it's a
-wonderful piece of software. I once used to do silly hacks, and now I'm
-so happy of the move. With it, you have one file per language, and each
-of them can use whatever encoding the translator decides. I'm not sure,
-however, if anything else than UTF-8 should be used...
+Turns out the lack of ability to do this is causing a great deal of  
+grief on a 500-user mailing list of mostly entertainment professionals  
+who are proving difficult to train at the fine art of sending plain  
+text emails.  Indeed, it seems that hotmail does not even allow you to  
+send a plain text email, making all users of hotmail either unable to  
+post or (as it is now) getting an unfair advantage to post rich text  
+emails.
 
-Thomas
+Thanks for your help!
+
+	=-ddt->
 
