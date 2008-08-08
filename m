@@ -1,7 +1,7 @@
-From: Gareth Fiford <gareth@phporaclehosting.com>
-Date: Thu, 07 Aug 2008 20:01:44 +0000
+From: Thomas Goirand <thomas@goirand.fr>
+Date: Fri, 08 Aug 2008 10:33:40 +0000
 Subject: Re: Quick hack to get mlmmj to work in PHP 5
-Message-Id: <236FD4AC-C9FA-49B2-B1A9-545C9DA6D22E@phporaclehosting.com>
+Message-Id: <489C2104.5010904@goirand.fr>
 List-Id: <mlmmj.mlmmj.org>
 References: <45CB89DA-8EDA-4BB9-B500-967D0245BB71@phporaclehosting.com>
 In-Reply-To: <45CB89DA-8EDA-4BB9-B500-967D0245BB71@phporaclehosting.com>
@@ -10,41 +10,19 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Ps you do seem like an angry bunch, do you give this much of a hard  
-time to everyone who wants to help your project?
+Gareth Fiford wrote:
+> Ps you do seem like an angry bunch, do you give this much of a hard time
+> to everyone who wants to help your project?
 
-Sent from my iPhone
+Do people that disagree with you always seems angry to your eyes? Thanks
+for commenting the way I communicate on my project, even though I never
+saw your posts in our forums or mailing lists. I didn't mean to be
+aggressive, I just disagree and try to tell you my point about it, which
+is the very point of such list.
 
-On 7 Aug 2008, at 20:08, Thomas Goirand <thomas@goirand.fr> wrote:
+If that's the way you see open source collaboration, I don't think you
+got the vibe/spirit: relax! :)
 
-> Gareth Fiford wrote:
->> Register globals is a security no no
->>
->> You don't need to disable globals for this to work
->>
->> No one is going to enable globals on any of my servers
->
-> I would rather add a very small .htaccess or a directive in
-> /etc/apache2, with the proper php directive to enable register  
-> globals.
-> That is much much better than modifying files of a package that will  
-> be
-> overwritten at the next upgrade. I don't see why using "Register
-> globals" only for the faulty script is less safer than your hack (in
-> fact, your hack is even more dangerous, as it's badly written, it
-> forgets about things in sessions for example, so it's not fully
-> compatible with enabling register globals).
->
->> Http_post_vars depricated on favour of _POST
->>
->> Same for get
->
-> And both are to be avoided, it's been YEARS that I recommend using
-> $_REQUEST instead so you don't need to bother if the variables are
-> coming from GET, POST, or even the cookies.
->
->> Sent from my iPhone
->
-> No one is going to enable an iPhone on any of my servers :)
->
-> Thomas
+Thomas
+
+P.S: Please, shall we keep such useless message in private please
