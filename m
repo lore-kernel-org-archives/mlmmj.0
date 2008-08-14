@@ -1,30 +1,33 @@
 From: gilles@free-mail.fr
-Date: Thu, 14 Aug 2008 07:11:05 +0000
+Date: Thu, 14 Aug 2008 20:59:28 +0000
 Subject: Re: mlmmj put message into queue/discarded
-Message-Id: <20080814091105.km8b0a3xckw8owog@webmail.free-mail.fr>
+Message-Id: <20080814225928.xtqtox0twc84gwc4@webmail.free-mail.fr>
 List-Id: <mlmmj.mlmmj.org>
 References: <20080813230513.5f0e9lxt4wo04wos@webmail.free-mail.fr>
 In-Reply-To: <20080813230513.5f0e9lxt4wo04wos@webmail.free-mail.fr>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 To: mlmmj@mlmmj.org
 
 Hi,
 
-thanks sven, i'll update my mlmmj version tonight and i tell you if it's ok.
+great it's work now with last version :)
+thanks for your help sven.
 
-++ Gilles
+mlmmj seems to work very well... need custom it now.
 
-Sven 'Darkman' Michels <sven@darkman.de> a =C3=A9crit=C2 :
+best regards
+++ Gilles.
+
+Sven 'Darkman' Michels <sven@darkman.de> a écrit :
 
 > -----BEGIN PGP SIGNED MESSAGE-----
 > Hash: SHA1
 >
 > Hi,
 >
-> i'd try a more recent version. 1.2.9 is quite old and i remember a few ca=
-ses
+> i'd try a more recent version. 1.2.9 is quite old and i remember a few cases
 > where mails like outlook created ones are discarded in some cases.
 >
 > Regards,
@@ -55,7 +58,7 @@ ses
 > Version: GnuPG v1.4.6 (GNU/Linux)
 >
 > iD8DBQFIo2DJQoCguWUBzBwRAszBAJwOjYZT/x+yCQeIRmz1mlrpUrPPTwCgrLGB
-> eWORWIaP2DLzgTWavGrQZYk> =3DiFYj
+> eWORWIaP2DLzgTWavGrQZYk> =iFYj
 > -----END PGP SIGNATURE-----
 >
 >
