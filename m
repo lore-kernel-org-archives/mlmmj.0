@@ -1,34 +1,101 @@
-From: Christian Laursen <xi@borderworlds.dk>
-Date: Thu, 03 Jul 2008 11:29:37 +0000
-Subject: Re: bounce-probe text being sent to non-owners
-Message-Id: <ygfy74jxl26.fsf@dominion.borderworlds.dk>
+From: "Nikolay Derkach" <nderkach@gmail.com>
+Date: Sat, 30 Aug 2008 15:25:55 +0000
+Subject: Re: Russian translations for mlmmj
+Message-Id: <f276b80f0808300825h2a0141ebo9a447b495f27e9a1@mail.gmail.com>
+MIME-Version: 1
+Content-Type: multipart/mixed; boundary="----=_Part_27316_1849508.1220109955949"
 List-Id: <mlmmj.mlmmj.org>
-References: <486CB110.9080206@monsternett.no>
-In-Reply-To: <486CB110.9080206@monsternett.no>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+References: <1200309131.6509.12.camel@mopo-laptop>
+In-Reply-To: <1200309131.6509.12.camel@mopo-laptop>
 To: mlmmj@mlmmj.org
 
-Helge Milde <helge@monsternett.no> writes:
+------=_Part_27316_1849508.1220109955949
+Content-Type: text/plain; charset=ISO-8859-1
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
-> I'm using mlmmj to run a newsletter to 500ish destinations, and
-> everything has been working great so far, except one odd problem; the
-> message contained in text/bounce-probe is sometimes (well.. once) sent
-> to arbitrary subscribers (non-owners).
+Hi,
 
-That is expected behaviour. It happens when mail to the subscriber
-bounces back and mlmmj needs to determine if it is a permanent problem
-or just temporary.
+Cool... I wasn't subscribed to this mailing list, just sent a mail to
+Mads Martin Joergensen. Thanks to Pavel Piatruk, who pointed me to a
+discussion about Russian translation.
 
-If the bounce probe mail doesn't bounce, the subscriber will keep
-being subscribed. Otherwise bounce probes will be sent until no nounce
-is received back or the time spcified by the "bouncelife" tunable has
-elapsed. In the latter case the address in question will be
-unsubscribed from the list.
+I attached converted translations, for those who interested how to
+make those, here is the trick:
 
-Proper bounce handling is an essential part of any modern mailing list
-manager. :)
+cat file | uni2ascii -a U > file.ascii
+
+uni2ascii can be found at http://billposer.org/Software/uni2ascii.html
+
+PS: In my opinion, localizations in ascii is a nonsense, really it's a
+step back.
 
 -- 
-Christian Laursen
+Regards, Nikolay Derkach
+
+------=_Part_27316_1849508.1220109955949
+Content-Type: application/x-bzip2; name=ru-ascii.tar.bz2
+Content-Transfer-Encoding: base64
+X-Attachment-Id: f_fkidr7r60
+Content-Disposition: attachment; filename=ru-ascii.tar.bz2
+
+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
+------=_Part_27316_1849508.1220109955949--
