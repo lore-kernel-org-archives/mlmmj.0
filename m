@@ -1,7 +1,7 @@
-From: "Nikolay Derkach" <nderkach@gmail.com>
-Date: Sat, 30 Aug 2008 20:01:34 +0000
+From: "Morten K. Poulsen" <morten@afdelingp.dk>
+Date: Sun, 31 Aug 2008 17:18:57 +0000
 Subject: Re: Russian translations for mlmmj
-Message-Id: <f276b80f0808301301s77225944j19c405505197e227@mail.gmail.com>
+Message-Id: <1220203137.6955.25.camel@mopo-laptop>
 List-Id: <mlmmj.mlmmj.org>
 References: <1200309131.6509.12.camel@mopo-laptop>
 In-Reply-To: <1200309131.6509.12.camel@mopo-laptop>
@@ -10,24 +10,26 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-On Sat, Aug 30, 2008 at 11:34 PM, Thomas Goirand <thomas@goirand.fr> wrote:
-> Nikolay Derkach wrote:
->> cat file | uni2ascii -a U > file.ascii
->>
->> uni2ascii can be found at http://billposer.org/Software/uni2ascii.html
->
-> What's the advantage of uni2ascii compared to iconv that is a standard
-> tool shipped with all libc6 setup?
+On Sat, 2008-08-30 at 19:25 +0400, Nikolay Derkach wrote:
+> I attached converted translations,
 
-Maybe, but I took a quick look at iconv and didn't succeed with it
-(tried -f utf8 -t ascii).
+Cool, thanks. I will commit it as soon as I get some Internet access at
+home (yes, I am the *master* of excuses).
 
->> PS: In my opinion, localizations in ascii is a nonsense, really it's a
->> step back.
->
-> Every software should use gettext(), that's for sure!
+> for those who interested how to make those, here is the trick:
+> 
+> cat file | uni2ascii -a U > file.ascii
+> 
+> uni2ascii can be found at http://billposer.org/Software/uni2ascii.html
 
-That doesn't contradict my statement.
+Nice tool.
 
--- 
-Regards, Nikolay Derkach
+> PS: In my opinion, localizations in ascii is a nonsense, really it's a
+> step back.
+
+What is your alternative (which must not depend on a given character
+encoding of the files)?
+
+Best regards,
+Morten
+
