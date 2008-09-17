@@ -1,85 +1,407 @@
-From: "Fabio Busatto" <fabio.busatto@programmazione.it>
-Date: Tue, 05 Aug 2008 10:09:38 +0000
-Subject: New it (Italian) language files
-Message-Id: <9efe479e0808050309t4054e266y3a846fc76c3aba4a@mail.gmail.com>
+From: "Rocco Siegrist" <sier@itsolution.ch>
+Date: Wed, 17 Sep 2008 22:05:34 +0000
+Subject: Discarding valid mails?
+Message-Id: <70E5D1092BCB6440A517A778C1D6E5B437F158@aathal01.aathal.itsolution.local>
 MIME-Version: 1
-Content-Type: multipart/mixed; boundary="----=_Part_2460_29116776.1217930978279"
+Content-Type: multipart/mixed; boundary="----_=_NextPart_001_01C91911.82852FE1"
 List-Id: <mlmmj.mlmmj.org>
 To: mlmmj@mlmmj.org
 
-------=_Part_2460_29116776.1217930978279
-Content-Type: text/plain; charset=ISO-8859-1
+This is a multi-part message in MIME format.
+
+------_=_NextPart_001_01C91911.82852FE1
+Content-Type: text/plain;
+	charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+
+Hi=20
+
+=20
+
+I have a problem. mljmm is discarding all mails complaining that the
+FROM: is missing in the mail header. But the there is a FROM: Field.
+What is going wrong?
+
+=20
+
+thnx
+
+=20
+
+Error log:
+
+/usr/bin/mlmmj-process[26679]: mlmmj-process.c:710: Discarding
+/var/spool/mlmmj/devel/incoming/63bd52cc7df57266 due to missing envelope
+from address: Success
+
+=20
+
+=20
+
+Mail:
+
+From sier@itsolution.ch Thu Sep 11 17:59:36 2008
+
+Received: from aathal01.aathal.itsolution.local
+(62-2-168-186.static.cablecom.ch [62.2.168.186])
+
+        by tuna.pm3.ch (8.14.2/8.14.2) with ESMTP id m8BFxC8t026838
+
+        for <devel@pm3.ch>; Thu, 11 Sep 2008 17:59:36 +0200
+
+X-MimeOLE: Produced By Microsoft MimeOLE V6.00.3790.4133
+
+Content-class: urn:content-classes:message
+
+Subject: Hallo
+
+MIME-Version: 1.0
+
+Content-Type: multipart/alternative;
+
+        boundary=3D"----_=3D_NextPart_001_01C91427.15493995"
+
 Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
-Hi, I just rewrote the Italian translation for listtext files.
-Now the Subject bug is fixed, there is unicode support and all files
-are translated.
-Let me know if something is wrong.
+Date: Thu, 11 Sep 2008 17:57:24 +0200
 
-Bye
-Fabio
+Message-ID:
+<70E5D1092BCB6440A517A778C1D6E5B437EF9C@aathal01.aathal.itsolution.local
+>
 
-------=_Part_2460_29116776.1217930978279
-Content-Type: application/x-gzip; name=mlmmj-lang-it.tar.gz
-Content-Transfer-Encoding: base64
-X-Attachment-Id: f_fjicmkbq0
-Content-Disposition: attachment; filename=mlmmj-lang-it.tar.gz
+X-MS-Has-Attach:
 
-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
-IBAIBALheeB/bzpkhgDIAAA=
-------=_Part_2460_29116776.1217930978279--
+X-MS-TNEF-Correlator:
+
+Thread-Topic: Hallo
+
+Importance: normal
+
+Priority: normal
+
+Thread-Index: AckUJxTYNAGMZ2QuSEizD09RSXS1BQ=3D=3D
+
+From: "Rocco Siegrist" <sier@itsolution.ch>
+
+To: <devel@pm3.ch>
+
+X-Greylist: Default is to whitelist mail, not delayed by
+milter-greylist-4.0rc1 (tuna.pm3.ch [82.195.239.162]); Thu, 11 Sep 2008
+17:59:36 +0200 (CEST)
+
+=20
+
+This is a multi-part message in MIME format.
+
+=20
+
+------_=3D_NextPart_001_01C91427.15493995
+
+Content-Type: text/plain;
+
+        charset=3D"us-ascii"
+
+Content-Transfer-Encoding: quoted-printable
+
+=20
+
+Hallo zusammen
+
+=20
+
+=20
+
+=3D20
+
+------------------------------------------------------------------------
+-=3D
+
+-
+
+rocco siegrist
+
+=3D20
+
+it solution gmbh
+
+zurichstrasse 63
+
+:
+
+=20
+
+
+=20
+-------------------------------------------------------------------------=
+-
+rocco siegrist
+=20
+it solution gmbh
+zurichstrasse 63
+ch-8607 aathal
+=20
+fon         +41 (44) 972 26 45
+
+fax         +41 (44) 972 19 34
+=20
+sier@itsolution.ch
+http://www.itsolution.ch/
+=20
+
+
+=20
+=20
+=20
+=20
+
+------_=_NextPart_001_01C91911.82852FE1
+Content-Type: text/html;
+	charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+
+<HTML xmlns=3D"http://www.w3.org/TR/REC-html40" =
+xmlns:m=3D"http://schemas.microsoft.com/office/2004/12/omml" =
+xmlns:o=3D"urn:schemas-microsoft-com:office:office" =
+xmlns:v=3D"urn:schemas-microsoft-com:vml" =
+xmlns:w=3D"urn:schemas-microsoft-com:office:word"><head><META =
+content=3D"text/html; charset=3Dus-ascii" http-equiv=3D"Content-Type">
+
+<META content=3D"text/html; charset=3Dus-ascii" =
+HTTP-EQUIV=3D"Content-Type">
+<meta content=3D"Microsoft Word 12 (filtered medium)" name=3DGenerator>
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Arial","sans-serif";}
+a:link, span.MsoHyperlink
+	{mso-style-priority:99;
+	color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{mso-style-priority:99;
+	color:purple;
+	text-decoration:underline;}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+	{mso-style-priority:99;
+	mso-style-link:"Sprechblasentext Zchn";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:8.0pt;
+	font-family:"Tahoma","sans-serif";}
+span.E-MailFormatvorlage17
+	{mso-style-type:personal-compose;
+	font-family:"Arial","sans-serif";
+	color:windowtext;}
+span.SprechblasentextZchn
+	{mso-style-name:"Sprechblasentext Zchn";
+	mso-style-priority:99;
+	mso-style-link:Sprechblasentext;
+	font-family:"Tahoma","sans-serif";}
+.MsoChpDefault
+	{mso-style-type:export-only;}
+@page Section1
+	{size:612.0pt 792.0pt;
+	margin:70.85pt 70.85pt 2.0cm 70.85pt;}
+div.Section1
+	{page:Section1;}
+-->
+</style>
+<!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext=3D"edit" spidmax=3D"1026" />
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext=3D"edit">
+  <o:idmap v:ext=3D"edit" data=3D"1" />
+ </o:shapelayout></xml><![endif]-->
+</head><BODY>
+<DIV>
+
+<div class=3DSection1>
+
+<p class=3DMsoNormal><span lang=3DEN-GB>Hi <o:p></o:p></span></p>
+
+<p class=3DMsoNormal><span lang=3DEN-GB><o:p>&nbsp;</o:p></span></p>
+
+<p class=3DMsoNormal><span lang=3DEN-GB>I have a problem. mljmm is =
+discarding all
+mails complaining that the FROM: is missing in the mail header. But the =
+there
+is a FROM: Field. What is going wrong?<o:p></o:p></span></p>
+
+<p class=3DMsoNormal><span lang=3DEN-GB><o:p>&nbsp;</o:p></span></p>
+
+<p class=3DMsoNormal><span lang=3DEN-GB>thnx<o:p></o:p></span></p>
+
+<p class=3DMsoNormal><span lang=3DEN-GB><o:p>&nbsp;</o:p></span></p>
+
+<p class=3DMsoNormal><span lang=3DEN-GB>Error log:<o:p></o:p></span></p>
+
+<p class=3DMsoNormal>/usr/bin/mlmmj-process[26679]: mlmmj-process.c:710:
+Discarding /var/spool/mlmmj/devel/incoming/63bd52cc7df57266 due to =
+missing
+envelope from address: Success<o:p></o:p></p>
+
+<p class=3DMsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=3DMsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=3DMsoNormal>Mail:<o:p></o:p></p>
+
+<p class=3DMsoNormal>From <a =
+href=3D"mailto:sier@itsolution.ch">sier@itsolution.ch</a>
+Thu Sep 11 17:59:36 2008<o:p></o:p></p>
+
+<p class=3DMsoNormal>Received: from aathal01.aathal.itsolution.local
+(62-2-168-186.static.cablecom.ch [62.2.168.186])<o:p></o:p></p>
+
+<p class=3DMsoNormal>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; by =
+tuna.pm3.ch
+(8.14.2/8.14.2) with ESMTP id m8BFxC8t026838<o:p></o:p></p>
+
+<p class=3DMsoNormal>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for =
+&lt;<a href=3D"mailto:devel@pm3.ch">devel@pm3.ch</a>&gt;; Thu, 11 Sep =
+2008 17:59:36
++0200<o:p></o:p></p>
+
+<p class=3DMsoNormal>X-MimeOLE: Produced By Microsoft MimeOLE =
+V6.00.3790.4133<o:p></o:p></p>
+
+<p class=3DMsoNormal>Content-class: =
+urn:content-classes:message<o:p></o:p></p>
+
+<p class=3DMsoNormal>Subject: Hallo<o:p></o:p></p>
+
+<p class=3DMsoNormal>MIME-Version: 1.0<o:p></o:p></p>
+
+<p class=3DMsoNormal>Content-Type: multipart/alternative;<o:p></o:p></p>
+
+<p class=3DMsoNormal>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+boundary=3D&quot;----_=3D_NextPart_001_01C91427.15493995&quot;<o:p></o:p>=
+</p>
+
+<p class=3DMsoNormal>Content-Transfer-Encoding: 7bit<o:p></o:p></p>
+
+<p class=3DMsoNormal>Date: Thu, 11 Sep 2008 17:57:24 =
++0200<o:p></o:p></p>
+
+<p class=3DMsoNormal>Message-ID: &lt;<a =
+href=3D"mailto:70E5D1092BCB6440A517A778C1D6E5B437EF9C@aathal01.aathal.its=
+olution.local">70E5D1092BCB6440A517A778C1D6E5B437EF9C@aathal01.aathal.its=
+olution.local</a>&gt;<o:p></o:p></p>
+
+<p class=3DMsoNormal>X-MS-Has-Attach:<o:p></o:p></p>
+
+<p class=3DMsoNormal>X-MS-TNEF-Correlator:<o:p></o:p></p>
+
+<p class=3DMsoNormal>Thread-Topic: Hallo<o:p></o:p></p>
+
+<p class=3DMsoNormal>Importance: normal<o:p></o:p></p>
+
+<p class=3DMsoNormal>Priority: normal<o:p></o:p></p>
+
+<p class=3DMsoNormal>Thread-Index: =
+AckUJxTYNAGMZ2QuSEizD09RSXS1BQ=3D=3D<o:p></o:p></p>
+
+<p class=3DMsoNormal>From: &quot;Rocco Siegrist&quot; =
+&lt;sier@itsolution.ch&gt;<o:p></o:p></p>
+
+<p class=3DMsoNormal>To: &lt;devel@pm3.ch&gt;<o:p></o:p></p>
+
+<p class=3DMsoNormal>X-Greylist: Default is to whitelist mail, not =
+delayed by
+milter-greylist-4.0rc1 (tuna.pm3.ch [82.195.239.162]); Thu, 11 Sep 2008
+17:59:36 +0200 (CEST)<o:p></o:p></p>
+
+<p class=3DMsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=3DMsoNormal>This is a multi-part message in MIME =
+format.<o:p></o:p></p>
+
+<p class=3DMsoNormal><o:p>&nbsp;</o:p></p>
+
+<p =
+class=3DMsoNormal>------_=3D_NextPart_001_01C91427.15493995<o:p></o:p></p=
+>
+
+<p class=3DMsoNormal>Content-Type: text/plain;<o:p></o:p></p>
+
+<p class=3DMsoNormal>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+charset=3D&quot;us-ascii&quot;<o:p></o:p></p>
+
+<p class=3DMsoNormal>Content-Transfer-Encoding: =
+quoted-printable<o:p></o:p></p>
+
+<p class=3DMsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=3DMsoNormal>Hallo zusammen<o:p></o:p></p>
+
+<p class=3DMsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=3DMsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=3DMsoNormal>=3D20<o:p></o:p></p>
+
+<p =
+class=3DMsoNormal>-------------------------------------------------------=
+------------------=3D<o:p></o:p></p>
+
+<p class=3DMsoNormal>-<o:p></o:p></p>
+
+<p class=3DMsoNormal>rocco siegrist<o:p></o:p></p>
+
+<p class=3DMsoNormal>=3D20<o:p></o:p></p>
+
+<p class=3DMsoNormal>it solution gmbh<o:p></o:p></p>
+
+<p class=3DMsoNormal>zurichstrasse 63<o:p></o:p></p>
+
+<p class=3DMsoNormal>:<o:p></o:p></p>
+
+<p class=3DMsoNormal><o:p>&nbsp;</o:p></p>
+
+</div>
+
+ </DIV>
+<DIV>&nbsp;</DIV>
+<DIV>
+<HR>
+</DIV>
+<DIV><FONT FACE=3D"Arial" SIZE=3D"2">rocco siegrist</FONT></DIV>
+<DIV><FONT FACE=3D"Arial" SIZE=3D"2">&nbsp;</FONT></DIV>
+<DIV><FONT FACE=3D"Arial" =
+SIZE=3D"2">it&nbsp;solution&nbsp;gmbh</FONT></DIV>
+<DIV><FONT FACE=3D"Arial" SIZE=3D"2">z&#252;richstrasse 63</FONT></DIV>
+<DIV><FONT FACE=3D"Arial" SIZE=3D"2">ch-8607 aathal</FONT></DIV>
+<DIV><FONT FACE=3D"Arial" SIZE=3D"2">&nbsp;</FONT></DIV>
+<DIV><FONT FACE=3D"Arial" =
+SIZE=3D"2">fon&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; +41 =
+(44) 972 26 45</FONT></DIV>
+<DIV><FONT FACE=3D"Arial" =
+SIZE=3D"2">fax&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; +41 =
+(44) 972 19 34</FONT></DIV>
+<DIV><FONT FACE=3D"Arial" SIZE=3D"2">&nbsp;</FONT></DIV>
+<DIV><FONT FACE=3D"Arial" SIZE=3D"2">sier@itsolution.ch</FONT></DIV>
+<DIV><A HREF=3D"http://www.itsolution.ch/"><FONT FACE=3D"Arial" =
+SIZE=3D"2">www.itsolution.ch</FONT></A></DIV>
+<DIV>&nbsp;</DIV>
+<DIV></DIV>
+<DIV></DIV>
+<DIV>&nbsp;</DIV>
+<DIV>&nbsp;</DIV>
+<DIV>&nbsp;</DIV>
+<DIV>&nbsp;</DIV></BODY></HTML>
+
+------_=_NextPart_001_01C91911.82852FE1--
