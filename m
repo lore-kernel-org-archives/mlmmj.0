@@ -1,23 +1,36 @@
-From: =?gb2312?Q?=CE=BA=C1=C1?= <davidwei@newbread.tj.cn>
-Date: Fri, 17 Oct 2008 02:08:35 +0000
-Subject: Problem with loop subject prefix and receiver list
-Message-Id: <8084eb8e7d34559538831d3ebbaa84cb.squirrel@mail.newbread.tj.cn>
+From: "Christoph Wilke" <chris@filmkreis.tu-darmstadt.de>
+Date: Fri, 17 Oct 2008 17:24:30 +0000
+Subject: Re: Problem with loop subject prefix and receiver list
+Message-Id: <42187.172.16.32.1.1224264270.squirrel@130.83.185.211>
 List-Id: <mlmmj.mlmmj.org>
+References: <8084eb8e7d34559538831d3ebbaa84cb.squirrel@mail.newbread.tj.cn>
+In-Reply-To: <8084eb8e7d34559538831d3ebbaa84cb.squirrel@mail.newbread.tj.cn>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="gb2312"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="iso-8859-9"
+Content-Transfer-Encoding: quoted-printable
 To: mlmmj@mlmmj.org
 
-SGksCkkgYW0gcXVpZXQgYSBuZXdiaWUgb2YgbWxtbWosaG93ZXZlcixJIHN1Y2Nlc3NmdWxseSBn
-ZXQgbWxtbWogcnVubmluZyBvbgpteSBzZXJ2ZXIuIEkgaGF2ZSAyIHNpbXBsZSBxdWVzdGlvbnMs
-IHBsZWFzZSBoZWxwIG1lIQoxLEkgaGF2ZSAiW21haWxsaXN0IG5hbWVdIiBpbiB0aGUgcHJlZml4
-IGZpbGUsYW5kIGkgY2FuIGdldCBpdCBpbiB0aGUKc3ViamVjdCxidXQgZXZlcnl0aW1lIGxpc3Qg
-bWVtYmVyIHJlcGx5IHRoaXMgbWFpbCx0aGUgcHJlZml4IGp1c3QgY29tZXMKb3V0IGFnYWluLGxp
-a2UgYSBsb29wLiBJJ3ZlIHNlZW4gb3RoZXIgbGlzdCB1c2luZyBtbG1taiB3aXRob3V0IHRoaXMK
-cHJvYmxlbSxob3cgY2FuIGkgZG8gdGhlIHNhbWU/CjIsRXZlcnkgdGltZSBJIHNlbmQgdG8gdGhl
-IGxpc3Qgd2hpY2ggaW5jbHVkZSBteSBlbWFpbCxJIHdpbGwgZ2V0IG15IG1haWwKYWdhaW4uaXMg
-dGhlcmUgYW55IGlkZWEgdG8gZGVsZXRlIHRoZSBzZW5kZXIgZnJvbSB0aGUgcmVjZWl2ZXIgbGlz
-dD8KCkkgaG9wZSBJIGp1c3QgbWFkZSBteXNlbGYgY2xlYXIsIFRoYW5rIHlvdSB2ZXJ5bXVjaCBp
-biBhZHZhbmNlLgoKLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQrE+r/J0tTNqLn9z8LD
-5rXEt73KvbrNztLBqs+1o7oKTVNOOiBpbmFkYXZpZEBob3RtYWlsLmNvbQpHdGFsazogaW5hZGF2
-aWRAZ21haWwuY29tCkVtYWlsOiBkYXZpZHdlaUBuZXdicmVhZC50ai5jbgoKCg==
+On Fri, October 17, 2008 04:08, =CE=BA=C1=C1 wrote:
+Hej,
+
+> Hi,
+> I am quiet a newbie of mlmmj,however,I successfully get mlmmj running on
+> my server. I have 2 simple questions, please help me!
+
+I'll try, but only the second one... ;)
+
+> 1,I have "[maillist name]" in the prefix file,and i can get it in the
+> subject,but everytime list member reply this mail,the prefix just comes
+> out again,like a loop. I've seen other list using mlmmj without this
+> problem,how can i do the same?
+
+I'm just guessing, but is the subject being converted or something?
+Maybe utf or so?
+
+> 2,Every time I send to the list which include my email,I will get my mail
+> again.is there any idea to delete the sender from the receiver list?
+
+No, there is no such tunable.
+
+Bye
+Chris
