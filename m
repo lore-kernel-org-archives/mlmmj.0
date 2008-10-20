@@ -1,25 +1,36 @@
-From: "James Scott" <jlscott@clear.net.nz>
-Date: Sat, 18 Oct 2008 01:52:34 +0000
-Subject: RE: Problem with loop subject prefix and receiver list
-Message-Id: <ACEDF67C2D4B4F8595076231D7D1DD90@mainspring.co.nz>
+From: =?gb2312?Q?=CE=BA=C1=C1?= <davidwei@newbread.tj.cn>
+Date: Mon, 20 Oct 2008 10:35:27 +0000
+Subject: Re: Problem with loop subject prefix and receiver list
+Message-Id: <71772bbdbfe9626780f83667a733d0ee.squirrel@mail.newbread.tj.cn>
 List-Id: <mlmmj.mlmmj.org>
 References: <8084eb8e7d34559538831d3ebbaa84cb.squirrel@mail.newbread.tj.cn>
 In-Reply-To: <8084eb8e7d34559538831d3ebbaa84cb.squirrel@mail.newbread.tj.cn>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="gb2312"
+Content-Transfer-Encoding: base64
 To: mlmmj@mlmmj.org
 
-Christoph Wilke wrote:
-
-> > 2,Every time I send to the list which include my email,I 
-> will get my mail
-> > again.is there any idea to delete the sender from the receiver list?
-> 
-> No, there is no such tunable.
-
-Note that you can subscribe an address to the "nomail" version of the list.
-This allows that person to post to restricted lists, but they will not then
-receive any posted messages ("man mlmmj-sub" for details).
-
-
+SGkgQ2hyaXMsCiAgSSBjaGVja2VkIHRoZSB0aXRsZSBhbmQgSSBhbSBzdXJlIG15ICJwcmVmaXgi
+IHdvcmQgaXMgbm90IGVuY29kZWQsanVzdAp3ZW50IHNvbWVib2R5IG9mIHRoZSBsaXN0IHJlcGxp
+ZWQgbXkgc3ViamVjdCAiW091ckxpc3RdIEhpIGV2ZXJ5Ym9keSIsSQpyZWNlaXZlZCB0aGUgdGl0
+bGUgIltPdXJMaXN0XSBSZTpbT3VyTGlzdF0gSGkgZXZlcnlib2R5Ii4gSXMgdGhpcwpjb21tb24/
+IEkgbWVhbiBjYW4gSSBwcmV2ZW50IHRoaXMgYW5kIG9ubHkgcmVjZWl2ZSAiUmU6W091ckxpc3Rd
+IEhpCmV2ZXJ5Ym9keSI/CiAgVGhhbmtzIGEgbG90LgoKLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLQrE+r/J0tTNqLn9z8LD5rXEt73KvbrNztLBqs+1o7oKTVNOOiBpbmFkYXZpZEBob3Rt
+YWlsLmNvbQpHdGFsazogaW5hZGF2aWRAZ21haWwuY29tCkVtYWlsOiBkYXZpZHdlaUBuZXdicmVh
+ZC50ai5jbgoKT24gU2F0LCDKrtTCIDE4LCAyMDA4IDAyOjI0LCBDaHJpc3RvcGggV2lsa2Ugd3Jv
+dGU6Cj4gT24gRnJpLCBPY3RvYmVyIDE3LCAyMDA4IDA0OjA4LCA/Pz8/IHdyb3RlOgo+IEhlaiwK
+Pgo+PiBIaSwKPj4gSSBhbSBxdWlldCBhIG5ld2JpZSBvZiBtbG1taixob3dldmVyLEkgc3VjY2Vz
+c2Z1bGx5IGdldCBtbG1taiBydW5uaW5nIG9uCj4+IG15IHNlcnZlci4gSSBoYXZlIDIgc2ltcGxl
+IHF1ZXN0aW9ucywgcGxlYXNlIGhlbHAgbWUhCj4KPiBJJ2xsIHRyeSwgYnV0IG9ubHkgdGhlIHNl
+Y29uZCBvbmUuLi4gOykKPgo+PiAxLEkgaGF2ZSAiW21haWxsaXN0IG5hbWVdIiBpbiB0aGUgcHJl
+Zml4IGZpbGUsYW5kIGkgY2FuIGdldCBpdCBpbiB0aGUKPj4gc3ViamVjdCxidXQgZXZlcnl0aW1l
+IGxpc3QgbWVtYmVyIHJlcGx5IHRoaXMgbWFpbCx0aGUgcHJlZml4IGp1c3QgY29tZXMKPj4gb3V0
+IGFnYWluLGxpa2UgYSBsb29wLiBJJ3ZlIHNlZW4gb3RoZXIgbGlzdCB1c2luZyBtbG1taiB3aXRo
+b3V0IHRoaXMKPj4gcHJvYmxlbSxob3cgY2FuIGkgZG8gdGhlIHNhbWU/Cj4KPiBJJ20ganVzdCBn
+dWVzc2luZywgYnV0IGlzIHRoZSBzdWJqZWN0IGJlaW5nIGNvbnZlcnRlZCBvciBzb21ldGhpbmc/
+Cj4gTWF5YmUgdXRmIG9yIHNvPwo+Cj4+IDIsRXZlcnkgdGltZSBJIHNlbmQgdG8gdGhlIGxpc3Qg
+d2hpY2ggaW5jbHVkZSBteSBlbWFpbCxJIHdpbGwgZ2V0IG15Cj4+IG1haWwKPj4gYWdhaW4uaXMg
+dGhlcmUgYW55IGlkZWEgdG8gZGVsZXRlIHRoZSBzZW5kZXIgZnJvbSB0aGUgcmVjZWl2ZXIgbGlz
+dD8KPgo+IE5vLCB0aGVyZSBpcyBubyBzdWNoIHR1bmFibGUuCj4KPiBCeWUKPiBDaHJpcwo+Cj4K
+Cg==
