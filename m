@@ -1,26 +1,27 @@
-From: "Morten K. Poulsen" <morten@afdelingp.dk>
-Date: Thu, 30 Oct 2008 08:18:20 +0000
+From: =?gb2312?Q?=CE=BA=C1=C1_DavidWei?= <davidwei@newbread.tj.cn>
+Date: Thu, 30 Oct 2008 10:12:09 +0000
 Subject: Re: any software to display the mail archive on web?
-Message-Id: <1225354700.6913.5.camel@mopo-laptop>
+Message-Id: <1d6637ee13a4b351c72cacd12096b80a.squirrel@mail.newbread.tj.cn>
 List-Id: <mlmmj.mlmmj.org>
 References: <32aeee10775e11b682ad20081bd301fa.squirrel@mail.newbread.tj.cn>
 In-Reply-To: <32aeee10775e11b682ad20081bd301fa.squirrel@mail.newbread.tj.cn>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="gb2312"
+Content-Transfer-Encoding: base64
 To: mlmmj@mlmmj.org
 
-Hi 魏,
-
-On Thu, 2008-10-30 at 17:05 +0900, 魏亮 wrote:
-> my web server supports php and perl,is there any software can show the
-> mail archive of the list?
-
-We're using Sven "Darkman" Michels' Hypermail scripts. The latest
-version can be downloaded here:
-
-http://mlmmj.mmj.dk/~darkman/mlmmj-webarchiver-0.72.tar.gz
-
-Best regards,
-Morten
-
+SGkgTW9ydGVuLAogIFRoYW5rcyBhIGxvdCxJIHRyeSB0aGF0IHNvZnR3YXJlLGJ1dCBpIGNhbm5v
+dCBnZXQgaXQgd29ya2VkLm1heWJlIHRoZXJlCmlzIHNvbWUgbWlzdGFrZSB3aXRoIG15IGNvbmZp
+ZyBmaWxlcy4KICBCdXQgLCBJIGZpbmQgdGhpcyBzaGVsbCBzY3JpcHQgaW5zdGVhZDoKaHR0cDov
+L3d3dy5sZW9wb2xkLmRrL35tYXJ0aW4vbWxtbWotc2NyaXB0cy5odG1sICx0aGF0IG9uZSBpcyBz
+aG9ydGVyCmFuZCB5ZXQgaXQgd29ya2VkIHdlbGwuCiAgdGhhbmtzLgotLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tCsT6v8nS1M2ouf3PwsPmtcS3vcq9us3O0sGqz7WjugpNU046IGluYWRh
+dmlkQGhvdG1haWwuY29tCkd0YWxrOiBpbmFkYXZpZEBnbWFpbC5jb20KRW1haWw6IGRhdmlkd2Vp
+QG5ld2JyZWFkLnRqLmNuCgpPbiBUaHUsIMqu1MIgMzAsIDIwMDggMTc6MTgsIE1vcnRlbiBLLiBQ
+b3Vsc2VuIHdyb3RlOgo+IEhpID8sCj4KPiBPbiBUaHUsIDIwMDgtMTAtMzAgYXQgMTc6MDUgKzA5
+MDAsID8/IHdyb3RlOgo+PiBteSB3ZWIgc2VydmVyIHN1cHBvcnRzIHBocCBhbmQgcGVybCxpcyB0
+aGVyZSBhbnkgc29mdHdhcmUgY2FuIHNob3cgdGhlCj4+IG1haWwgYXJjaGl2ZSBvZiB0aGUgbGlz
+dD8KPgo+IFdlJ3JlIHVzaW5nIFN2ZW4gIkRhcmttYW4iIE1pY2hlbHMnIEh5cGVybWFpbCBzY3Jp
+cHRzLiBUaGUgbGF0ZXN0Cj4gdmVyc2lvbiBjYW4gYmUgZG93bmxvYWRlZCBoZXJlOgo+Cj4gaHR0
+cDovL21sbW1qLm1tai5kay9+ZGFya21hbi9tbG1tai13ZWJhcmNoaXZlci0wLjcyLnRhci5nego+
+Cj4gQmVzdCByZWdhcmRzLAo+IE1vcnRlbgo+Cj4KPgoK
