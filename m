@@ -1,15 +1,26 @@
-From: =?gb2312?Q?=CE=BA=C1=C1?= <davidwei@newbread.tj.cn>
-Date: Thu, 30 Oct 2008 08:05:07 +0000
-Subject: any software to display the mail archive on web?
-Message-Id: <32aeee10775e11b682ad20081bd301fa.squirrel@mail.newbread.tj.cn>
+From: "Morten K. Poulsen" <morten@afdelingp.dk>
+Date: Thu, 30 Oct 2008 08:18:20 +0000
+Subject: Re: any software to display the mail archive on web?
+Message-Id: <1225354700.6913.5.camel@mopo-laptop>
 List-Id: <mlmmj.mlmmj.org>
+References: <32aeee10775e11b682ad20081bd301fa.squirrel@mail.newbread.tj.cn>
+In-Reply-To: <32aeee10775e11b682ad20081bd301fa.squirrel@mail.newbread.tj.cn>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="gb2312"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 To: mlmmj@mlmmj.org
 
-bXkgd2ViIHNlcnZlciBzdXBwb3J0cyBwaHAgYW5kIHBlcmwsaXMgdGhlcmUgYW55IHNvZnR3YXJl
-IGNhbiBzaG93IHRoZQptYWlsIGFyY2hpdmUgb2YgdGhlIGxpc3Q/CnRoYW5rcyEKLS0tLS0tLS0t
-LS0tLS0tLS0tLS0tLS0tLS0tLS0tLQrE+r/J0tTNqLn9z8LD5rXEt73KvbrNztLBqs+1o7oKTVNO
-OiBpbmFkYXZpZEBob3RtYWlsLmNvbQpHdGFsazogaW5hZGF2aWRAZ21haWwuY29tCkVtYWlsOiBk
-YXZpZHdlaUBuZXdicmVhZC50ai5jbgoKCg==
+Hi 魏,
+
+On Thu, 2008-10-30 at 17:05 +0900, 魏亮 wrote:
+> my web server supports php and perl,is there any software can show the
+> mail archive of the list?
+
+We're using Sven "Darkman" Michels' Hypermail scripts. The latest
+version can be downloaded here:
+
+http://mlmmj.mmj.dk/~darkman/mlmmj-webarchiver-0.72.tar.gz
+
+Best regards,
+Morten
+
