@@ -1,7 +1,7 @@
 From: "Morten K. Poulsen" <mopo@fabletech.com>
-Date: Sun, 02 Nov 2008 21:53:52 +0000
+Date: Sun, 02 Nov 2008 22:37:15 +0000
 Subject: Re: mlmmj-1.2.16-PRE1 released
-Message-Id: <1225662832.14901.26.camel@mopo-laptop>
+Message-Id: <1225665435.14901.35.camel@mopo-laptop>
 List-Id: <mlmmj.mlmmj.org>
 References: <1225491347.7486.22.camel@mopo-laptop>
 In-Reply-To: <1225491347.7486.22.camel@mopo-laptop>
@@ -10,58 +10,28 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Hi Dave,
+Hi Fabio,
 
-On Sat, 2008-11-01 at 12:50 -0700, Dave Taylor wrote:
-> Not sure if this is the appropriate place to mention this
+On Sun, 2008-11-02 at 22:50 +0100, Fabio Busatto wrote:
+> Hi, I posted IT files on this list some time ago.
 
-It is.
+Sorry, I forgot about them. Good thing I have my development environment
+up and running again, so I won't have to make another catch-up round
+like this one.
 
-> One is that it doesn't build when you say "make".  You need to say  
-> "make mlmmj-recieve-strip".
+> The current ones are incorrect (break headers) and incomplete (based
+> on a previous version).
 
-Did you configure with --enable-recieve-strip ?
+Yeah, I can see that. The headers have been broken in the Italian
+translation for three years.
 
-> The other is that what I'm really dying for is not a list of mime  
-> types to disallow, but a list of mime types to allow.  Specifically, I  
-> only want to allow text/plain.
+Thanks for fixing it, and bringing the translation up to date.
 
-That part is easy, if you don't need to strip anything else. Just put
-the following in control/access
+> Please check my post and feel free to ask me for changes.
 
-allow Content-Type: text/plain
-
-> But here's the last, annoying part.  :)
-
-Damn, I knew it :)
-
-> I want one user in particular to be able to bypass this stripping  
-> stage, because she attaches the valuable NUEA/UTA job list to her  
-> emails, and we're all agreed that it's worth an exception.
-
-allow From: user@example.org
-allow Content-Type: text/plain
-
-> I have a mailing list of about 500 people, mostly entertainment  
-> industry people (producers, directors, writers, actors), and I use  
-> mlmmj for it.  One of the biggest headaches, besides moderation, a  
-> necessary evil to improve the signal-to-noise ratio, is dealing with  
-> users who don't know how to send plain text emails.
-
-You probably need the support in mlmmj-recieve-strip. Thet program is
-written by Sascha Sommer. Perhaps he can help you? It sounds like a very
-useful feature.
-
-...
-> Is there a better way to handle this?
-
-Perhaps you could pipe the mail through something like this, before
-delivering it to mlmmj?
-
-http://www.polarhome.com:793/~gustedt/normail.html
-
-You will have to do some tricks to allow your super user to send
-multipart mails, though.
+How do you say "Below this line are the first 100 lines of the denied
+message" in Italian? It is needed for Sascha Sommer's better (more
+verbose) rejection mails.
 
 Morten
 
