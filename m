@@ -1,7 +1,7 @@
 From: "Morten K. Poulsen" <mopo@fabletech.com>
-Date: Sun, 02 Nov 2008 17:35:11 +0000
+Date: Sun, 02 Nov 2008 21:19:00 +0000
 Subject: Re: mlmmj-1.2.16-PRE1 released
-Message-Id: <1225647311.14901.1.camel@mopo-laptop>
+Message-Id: <1225660740.14901.9.camel@mopo-laptop>
 List-Id: <mlmmj.mlmmj.org>
 References: <1225491347.7486.22.camel@mopo-laptop>
 In-Reply-To: <1225491347.7486.22.camel@mopo-laptop>
@@ -10,16 +10,23 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Hi Franky,
+Hi Niki,
 
-On Sat, 2008-11-01 at 11:01 +0100, Franky Van Liedekerke wrote:
-> The approximate translation for this line in NL:
-> 
-> "Hieronder vindt u de eerste 100 lijnen van het geweigerd bericht"
-> 
-> In attach some NL listtext files.
+On Sat, 2008-11-01 at 17:45 +0100, Niki Guldbrand wrote:
+> I send two patches to the list on Oct. 14th, would it be possible to get
+> these included ?
 
-Thanks! I've committed your texts.
+Sorry, I totally forgot about them.
+
+Christian Laursen reviewed (against his will... It's not Perl) and
+committed the php-web-admin patch.
+
+I have reviewed and committed the Postfix pipe backend support patch.
+
+> I'm willing to write some documentation on setting postfix up to use
+> this in the mlmmj documentation.
+
+That would be great, please do.
 
 Morten
 
