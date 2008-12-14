@@ -1,90 +1,256 @@
-From: "Morten K. Poulsen" <mopo@fabletech.com>
-Date: Thu, 13 Nov 2008 16:36:16 +0000
-Subject: mlmmj-1.2.16-RC1 released
-Message-Id: <1226594176.16974.7.camel@mopo-laptop>
+From: "Gerd v. Egidy" <lists@egidy.de>
+Date: Sun, 14 Dec 2008 00:23:12 +0000
+Subject: [PATCH] add MIME-aware footers
+Message-Id: <200812140123.13634.lists@egidy.de>
+MIME-Version: 1
+Content-Type: multipart/mixed; boundary="Boundary-00=_xHFRJHCWaMOPtGS"
 List-Id: <mlmmj.mlmmj.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Hi list,
+--Boundary-00=_xHFRJHCWaMOPtGS
+Content-Type: text/plain;
+  charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+Hi,
+
+I've been bitten by the footer-function not being MIME-aware. I've read up the 
+topic on the list-archive and found out that I'm not the only one and that a 
+solution has to be separatable from the core mlmmj.
+
+I found the altermime program (http://www.pldaniels.com/altermime/) which 
+seems to be a perfect match for the MIME-munging required. So I wrote a small 
+shell script to integrate altermime and mlmmj.
+
+How to use it:
+
+- install altermime to /usr/bin/altermime
+- copy the attached mlmmj-amime-receive into /usr/bin
+- put the footer-text for the different MIME-types into 
+control/amime-footer-text
+control/amime-footer-html
+control/amime-footer-base64
+- replace mlmmj-recieve with mlmmj-amime-receive in /etc/aliases, e.g.
+myml:   "|/usr/bin/mlmmj-amime-receive -L /var/spool/mlmmj/myml/"
+watch out for recieve vs. receive...
+- newaliases
+
+Morten, I hope this solution is acceptable for inclusion into mlmmj. I 
+attached mlmmj-amime.patch too, this is intended for you and adds mlmmj-amime-
+receive into contrib.
+
+Kind regards,
+
+Gerd
 
 
-I've just uploaded the first release candidate of mlmmj-1.2.16. There
-hasn't been much noise since PRE2, and I don't expect any issues in
-this RC, but please test it on different platforms, and send feedback.
-The sooner I get feedback, the sooner I will roll the final release.
+--Boundary-00=_xHFRJHCWaMOPtGS
+Content-Type: application/x-shellscript;
+  name="mlmmj-amime-receive"
+Content-Transfer-Encoding: 7bit
+Content-Disposition: attachment;
+	filename="mlmmj-amime-receive"
 
+#!/bin/bash
+# 
+# mlmmj-amime-receive
+#
+# Take mail from stdin, pipe it through altermime and then to mlmmj-recieve
+# needed to add footers in a MIME-aware way
+#
+# requires altermime, see http://www.pldaniels.com/altermime/
+#
+# just replace mlmmj-recieve (sic) with mlmmj-amime-receive, e.g. in /etc/aliases:
+# myml:   "|/usr/bin/mlmmj-amime-receive -L /var/spool/mlmmj/myml/"
+#
+# put the footer-text for the different MIME-types into 
+# control/amime-footer-text
+# control/amime-footer-html
+# control/amime-footer-base64
+#
+# Copyright 2008 by Gerd v. Egidy, <gerd@egidy.de>
+#
+# Licensed under MIT License, see LICENSE file coming with mlmmj
+#
 
-http://mlmmj.mmj.dk/~mortenp/mlmmj-1.2.16-RC1.tar.bz2
-515affe924bf626b9a019192e213bbc9
+MLMMJRECIEVE=/usr/bin/mlmmj-recieve
+ALTERMIME=/usr/bin/altermime
 
-http://mlmmj.mmj.dk/~mortenp/mlmmj-1.2.16-RC1.tar.gz
-c9cd2fa94f2973049a3e801ee743f5e2
+# check executables
+if ! [ -x $MLMMJRECIEVE ]; then
+    echo "can't find $MLMMJRECIEVE executable, aborting"
+    exit 1
+fi
 
+if ! [ -x $ALTERMIME ]; then
+    echo "can't find $ALTERMIME executable, aborting"
+    exit 1
+fi
 
-The following changes have been made since mlmmj-1.2.15:
+# read parameters
+I=1
+PARAM_L=0
+while [ $I -le $# ] && [ $PARAM_L == 0 ]; do
+    if [ "${!I}" == "-L" ]; then
+        PARAM_L=1
+    fi
+    I=$[$I+1]
+done
 
- o Updated Dutch listtexts (Franky Van Liedekerke)
- o Updated Italian listtexts (Fabio Busatto)
- o Added Postfix pipe backend support (Niki Guldbrand)
- o PHP admin interface bugfix (Niki Guldbrand)
- o Added support for static bounce addresses (Thomas Jarosch)
- o Added a sanity check in mlmmj-receive-strip (Chris Webb)
- o Added miscellaneous sanity checks (Thomas Jarosch)
- o Disabled digest mails when 'noarchive' is set (Thomas Jarosch)
- o Added Russian listtexts (Nikolay Derkach)
- o Fixed mmap()ing of zero-sized files (Robin H. Johnson)
- o Fixed mlmmj-recieve [sic] for architectures where
-   sizeof(int) and sizeof(char *) differ
- o Added support for the 'originalmail' keyword (Sascha Sommer)
- o Merged various changes to the web interface from Franky Van Liedekerke
+if [ $PARAM_L == 1 ] && [ $I -le $# ]; then
+    MLPATH="${!I}"
+else
+    echo "parameter -L /path/to/listdir missing, aborting"
+    exit 1
+fi
 
+if ! [ -d "${MLPATH}" ]; then
+    echo "${MLPATH} is not existing or no directory, aborting"
+    exit 1
+fi
 
-The following listtext files are missing. This isn't a show-stopper,
-but it would be nice to have them. Can somebody translate them?
+CONTROLD="${MLPATH}/control"
 
-cz/listfaq
-cz/maxmailsize
-cz/sub-deny-digest
-cz/sub-deny-nomail
-cz/submod-moderator
-cz/submod-requester
-cz/sub-subscribed
-cz/unsub-notsubscribed
+if ! [ -d "${CONTROLD}" ]; then
+    echo "${CONTROLD} is not existing or no directory, aborting"
+    exit 1
+fi
 
-de/listfaq
-de/sub-deny-digest
-de/sub-deny-nomail
+# look for footer-files and build parameters
 
-es/maxmailsize
-es/sub-deny-digest
-es/sub-deny-nomail
-es/submod-moderator
-es/submod-requester
+if ! [ -f "${CONTROLD}/amime-footer-text" ]; then
+    echo "${CONTROLD}/amime-footer-text is not existing or no regular file, aborting"
+    exit 1
+fi
 
-fr/listfaq
-fr/maxmailsize
-fr/sub-deny-digest
-fr/sub-deny-nomail
-fr/submod-moderator
-fr/submod-requester
+PARAM="--disclaimer=${CONTROLD}/amime-footer-text"
 
+if [ -f "${CONTROLD}/amime-footer-html" ]; then
+    PARAM="${PARAM} --disclaimer-html=${CONTROLD}/amime-footer-html --htmltoo --force-for-bad-html"
+fi
 
-In addition, the following is missing in the RU translation: "Below this
-line are the first 100 lines of the message up for moderation"
+if [ -f "${CONTROLD}/amime-footer-base64" ]; then
+    PARAM="${PARAM} --disclaimer-b64=${CONTROLD}/amime-footer-base64"
+fi
 
-And this is missing in ES, FR and RU: "Below this line are the first
-100 lines of the denied message"
+PARAM="${PARAM} --altersigned --log-syslog"
 
-Can somebody translate it?
+# go to a dir where altermime can write it's tmp-files safely
+cd $MLPATH
 
+# pipe the calls
+$ALTERMIME --input=- ${PARAM} | $MLMMJRECIEVE "$@"
 
-Morten
+--Boundary-00=_xHFRJHCWaMOPtGS
+Content-Type: text/x-patch;
+  charset="utf-8";
+  name="mlmmj-amime.patch"
+Content-Transfer-Encoding: 7bit
+Content-Disposition: attachment;
+	filename="mlmmj-amime.patch"
 
--- 
-Morten K. Poulsen <mopo@fabletech.com>
-CTO, FableTech
-http://fabletech.com/
+diff -r -u -N mlmmj-1.2.16-RC1.orig/contrib/Makefile.am mlmmj-1.2.16-RC1/contrib/Makefile.am
+--- mlmmj-1.2.16-RC1.orig/contrib/Makefile.am	2008-10-30 21:06:16.000000000 +0100
++++ mlmmj-1.2.16-RC1/contrib/Makefile.am	2008-12-13 23:39:33.000000000 +0100
+@@ -2,3 +2,5 @@
+ 
+ EXTRA_DIST = web
+ SUBDIRS = recievestrip
++
++bin_SCRIPTS = mlmmj-amime-receive
+diff -r -u -N mlmmj-1.2.16-RC1.orig/contrib/mlmmj-amime-receive mlmmj-1.2.16-RC1/contrib/mlmmj-amime-receive
+--- mlmmj-1.2.16-RC1.orig/contrib/mlmmj-amime-receive	1970-01-01 01:00:00.000000000 +0100
++++ mlmmj-1.2.16-RC1/contrib/mlmmj-amime-receive	2008-12-13 23:23:23.000000000 +0100
+@@ -0,0 +1,89 @@
++#!/bin/bash
++# 
++# mlmmj-amime-receive
++#
++# Take mail from stdin, pipe it through altermime and then to mlmmj-recieve
++# needed to add footers in a MIME-aware way
++#
++# requires altermime, see http://www.pldaniels.com/altermime/
++#
++# just replace mlmmj-recieve (sic) with mlmmj-amime-receive, e.g. in /etc/aliases:
++# myml:   "|/usr/bin/mlmmj-amime-receive -L /var/spool/mlmmj/myml/"
++#
++# put the footer-text for the different MIME-types into 
++# control/amime-footer-text
++# control/amime-footer-html
++# control/amime-footer-base64
++#
++# Copyright 2008 by Gerd v. Egidy, <gerd@egidy.de>
++#
++# Licensed under MIT License, see LICENSE file coming with mlmmj
++#
++
++MLMMJRECIEVE=/usr/bin/mlmmj-recieve
++ALTERMIME=/usr/bin/altermime
++
++# check executables
++if ! [ -x $MLMMJRECIEVE ]; then
++    echo "can't find $MLMMJRECIEVE executable, aborting"
++    exit 1
++fi
++
++if ! [ -x $ALTERMIME ]; then
++    echo "can't find $ALTERMIME executable, aborting"
++    exit 1
++fi
++
++# read parameters
++I=1
++PARAM_L=0
++while [ $I -le $# ] && [ $PARAM_L == 0 ]; do
++    if [ "${!I}" == "-L" ]; then
++        PARAM_L=1
++    fi
++    I=$[$I+1]
++done
++
++if [ $PARAM_L == 1 ] && [ $I -le $# ]; then
++    MLPATH="${!I}"
++else
++    echo "parameter -L /path/to/listdir missing, aborting"
++    exit 1
++fi
++
++if ! [ -d "${MLPATH}" ]; then
++    echo "${MLPATH} is not existing or no directory, aborting"
++    exit 1
++fi
++
++CONTROLD="${MLPATH}/control"
++
++if ! [ -d "${CONTROLD}" ]; then
++    echo "${CONTROLD} is not existing or no directory, aborting"
++    exit 1
++fi
++
++# look for footer-files and build parameters
++
++if ! [ -f "${CONTROLD}/amime-footer-text" ]; then
++    echo "${CONTROLD}/amime-footer-text is not existing or no regular file, aborting"
++    exit 1
++fi
++
++PARAM="--disclaimer=${CONTROLD}/amime-footer-text"
++
++if [ -f "${CONTROLD}/amime-footer-html" ]; then
++    PARAM="${PARAM} --disclaimer-html=${CONTROLD}/amime-footer-html --htmltoo --force-for-bad-html"
++fi
++
++if [ -f "${CONTROLD}/amime-footer-base64" ]; then
++    PARAM="${PARAM} --disclaimer-b64=${CONTROLD}/amime-footer-base64"
++fi
++
++PARAM="${PARAM} --altersigned --log-syslog"
++
++# go to a dir where altermime can write it's tmp-files safely
++cd $MLPATH
++
++# pipe the calls
++$ALTERMIME --input=- ${PARAM} | $MLMMJRECIEVE "$@"
 
+--Boundary-00=_xHFRJHCWaMOPtGS--
