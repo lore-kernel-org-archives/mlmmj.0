@@ -1,62 +1,95 @@
-From: Franky Van Liedekerke <liedekef@telenet.be>
-Date: Sun, 14 Dec 2008 17:25:24 +0000
-Subject: Re: [PATCH] add MIME-aware footers
-Message-Id: <20081214182524.30f964a1@franky>
+From: "Morten K. Poulsen" <mopo@fabletech.com>
+Date: Sun, 28 Dec 2008 23:27:12 +0000
+Subject: mlmmj-1.2.16 released
+Message-Id: <1230506832.4226.46.camel@mopo-laptop>
 List-Id: <mlmmj.mlmmj.org>
-References: <200812140123.13634.lists@egidy.de>
-In-Reply-To: <200812140123.13634.lists@egidy.de>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-On Sun, 14 Dec 2008 01:23:12 +0100
-"Gerd v. Egidy" <lists@egidy.de> wrote:
+Hi list,
 
-> Hi,
-> 
-> I've been bitten by the footer-function not being MIME-aware. I've
-> read up the topic on the list-archive and found out that I'm not the
-> only one and that a solution has to be separatable from the core
-> mlmmj.
-> 
-> I found the altermime program (http://www.pldaniels.com/altermime/)
-> which seems to be a perfect match for the MIME-munging required. So I
-> wrote a small shell script to integrate altermime and mlmmj.
-> 
-> How to use it:
-> 
-> - install altermime to /usr/bin/altermime
-> - copy the attached mlmmj-amime-receive into /usr/bin
-> - put the footer-text for the different MIME-types into 
-> control/amime-footer-text
-> control/amime-footer-html
-> control/amime-footer-base64
-> - replace mlmmj-recieve with mlmmj-amime-receive in /etc/aliases, e.g.
-> myml:   "|/usr/bin/mlmmj-amime-receive -L /var/spool/mlmmj/myml/"
-> watch out for recieve vs. receive...
-> - newaliases
-> 
-> Morten, I hope this solution is acceptable for inclusion into mlmmj.
-> I attached mlmmj-amime.patch too, this is intended for you and adds
-> mlmmj-amime- receive into contrib.
-> 
-> Kind regards,
-> 
-> Gerd
-> 
 
-Nice! This seems totally non-intrusive and changes nothing for existing
-users, so I vote for this inclusion into contrib (together with a
-readme). A small remark: since the paths for /usr/bin/altermime and
-mlmmj-amime-receive can be different than the ones mentioned above, you
-should probably say :
-"- install altermime to /usr/bin/altermime or change the path in the
-file contrib/mlmmj-amime-receive"
-"- check the path of mlmmj-recieve at the top of the file
-contrib/mlmmj-amime-receive"
+I've just uploaded the mlmmj-1.2.16 release. There is only one change
+since mlmmj-1.2.16-RC1, which is a fix for a vulnerability in
+contrib/web/perl-user discovered by Gerd von Egidy. Exploitation allows
+an attacker to control headers and the body of mails sent by mlmmj.cgi,
+enabling him to deliver spam. Thanks for the fix.
 
-(since the shell script already has these as parameters, you might as
-well advertise it :-) )
+http://mlmmj.mmj.dk/files/mlmmj-1.2.16.tar.bz2
+9ea7ba91ccb55b9edf3e5148537364e3
 
-Franky
+http://mlmmj.mmj.dk/files/mlmmj-1.2.16.tar.gz
+2e113f5571c6f00de18b8dc1777abc4e
+
+
+The following changes have been made since mlmmj-1.2.15:
+
+ o Fixed injection in contrib/web/perl-user (Gerd von Egidy)
+ o Updated Dutch listtexts (Franky Van Liedekerke)
+ o Updated Italian listtexts (Fabio Busatto)
+ o Added Postfix pipe backend support (Niki Guldbrand)
+ o PHP admin interface bugfix (Niki Guldbrand)
+ o Added support for static bounce addresses (Thomas Jarosch)
+ o Added a sanity check in mlmmj-receive-strip (Chris Webb)
+ o Added miscellaneous sanity checks (Thomas Jarosch)
+ o Disabled digest mails when 'noarchive' is set (Thomas Jarosch)
+ o Added Russian listtexts (Nikolay Derkach)
+ o Fixed mmap()ing of zero-sized files (Robin H. Johnson)
+ o Fixed mlmmj-recieve [sic] for architectures where
+   sizeof(int) and sizeof(char *) differ
+ o Added support for the 'originalmail' keyword (Sascha Sommer)
+ o Merged various changes to the web interface from Franky Van Liedekerke
+
+
+The following listtext files are missing. Can somebody translate them?
+
+cz/listfaq
+cz/maxmailsize
+cz/sub-deny-digest
+cz/sub-deny-nomail
+cz/submod-moderator
+cz/submod-requester
+cz/sub-subscribed
+cz/unsub-notsubscribed
+
+de/listfaq
+de/sub-deny-digest
+de/sub-deny-nomail
+
+es/maxmailsize
+es/sub-deny-digest
+es/sub-deny-nomail
+es/submod-moderator
+es/submod-requester
+
+fr/listfaq
+fr/maxmailsize
+fr/sub-deny-digest
+fr/sub-deny-nomail
+fr/submod-moderator
+fr/submod-requester
+
+
+In addition, the following is missing in the RU translation: "Below this
+line are the first 100 lines of the message up for moderation"
+
+And this is missing in ES, FR and RU: "Below this line are the first
+100 lines of the denied message"
+
+Can somebody translate it?
+
+
+I hope that I can manage to speed up the release cycle, so mlmmj-1.2.17
+will be out in about half a year.
+
+
+Have fun,
+Morten
+
+-- 
+Morten K. Poulsen <mopo@fabletech.com>
+CTO, FableTech
+http://fabletech.com/
+
