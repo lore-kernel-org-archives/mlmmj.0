@@ -1,31 +1,114 @@
-From: "Morten K. Poulsen" <mopo@fabletech.com>
-Date: Mon, 29 Dec 2008 07:54:06 +0000
-Subject: Re: mlmmj-1.2.16 released
-Message-Id: <1230537246.18271.2.camel@mopo-laptop>
+From: Niki Guldbrand <niki@guldbrand.net>
+Date: Sun, 04 Jan 2009 15:54:32 +0000
+Subject: Readme for postfix.
+Message-Id: <1231084473.25198.150.camel@niki-laptop>
+MIME-Version: 1
+Content-Type: multipart/mixed; boundary="=-O4ZClYfu0VgdoQXTQGS7"
 List-Id: <mlmmj.mlmmj.org>
-References: <1230506832.4226.46.camel@mopo-laptop>
-In-Reply-To: <1230506832.4226.46.camel@mopo-laptop>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Hi Devin,
 
-On Sun, 2008-12-28 at 19:17 -0500, Devin Ceartas wrote:
-> Great, thanks!
-> 
-> I just got a RC1 version up and running the other day -- is there a 
-> patch for that one change available?
+--=-O4ZClYfu0VgdoQXTQGS7
+Content-Type: multipart/mixed; boundary="=-imjiP0qCxzwaFrfjBu2F"
 
-Gerd's patch is split in two files. You can download them here:
-http://mlmmj.mmj.dk/~mortenp/patch-mlmmj-1.2.16-RC1-websecurity.diff
-http://mlmmj.mmj.dk/~mortenp/patch-mlmmj-1.2.16-RC1-improve.diff
 
-Morten
+--=-imjiP0qCxzwaFrfjBu2F
+Content-Type: text/plain
+Content-Transfer-Encoding: quoted-printable
 
--- 
-Morten K. Poulsen <mopo@fabletech.com>
-CTO, FableTech
-http://fabletech.com/
+Hi folks.
+
+I promised to write a howto on setting up postfix via it's pipe backend,
+and here it is.
+
+Any comments on it ?
+
+And btw. 1.2.5 is still the version provided on the website for
+download.
+
+--=-imjiP0qCxzwaFrfjBu2F
+Content-Disposition: attachment; filename="README.postfix"
+Content-Type: text/x-readme; name="README.postfix"; charset="UTF-8"
+Content-Transfer-Encoding: base64
+
+VGhpcyBpcyBhIG1pbmktSE9XVE8gb24gaG93IHRvIHNldHVwIGEgbWxtbWogbWFpbGxpc3Qgd2l0
+aCBwb3N0Zml4DQphbmQgaXQncyBwaXBlIGJhY2tlbmQuDQoNCkluIHRoaXMgaG93dG8gSSdsbCBk
+ZXNjcmliZSBteSBwb3N0Zml4IHNldHVwIHJlbGF0ZWQgdG8gbWxtbWosDQp3aGljaCBJIGhhdmUg
+cnVubmluZyBhdCAyIHNpdGVzIGF0bS4NCg0KTk9URTogVGhpcyBzZXR1cCBpcyBiYXNlZCBvbiBt
+eSBwYXRjaCB0byBtbG1taiAoYWRkZWQgdGhlIC1lIG9wdGlvbiksDQogICAgICB3aGljaCBpcyBp
+bmNsdWRlZCBpbiBtbG1tai0xLjIuMTYgYW5kIGxhdGVyLg0KDQpCYXNpY2FsbHkgd2hhdCBuZWVk
+cyB0byBiZSBkb25lIGlzIHRoYXQgd2UgaGF2ZSB0byBtYWtlIGEgdHJhbnNwb3J0IGZvcg0KdGhl
+IHRyYWZmaWMgZ29pbmcgdG8gdGhlIGxpc3QuDQpUaGVuIHdlIG11c3QgZGVmaW5lIHRoaXMgdHJh
+bnNwb3J0LCBzbyB0aGF0IHBvc3RmaXgga25vd3Mgd2hlcmUgdG8gc2VuZCBpdCwNCmFuZCBmaW5h
+bGx5IHdlIG5lZWQgdG8gbWFrZSBwb3N0Zml4IGFjY2VwdCBtYWlscyBmb3IgdGhlIG1haWxsaXN0
+LA0Ka2VlcCBpbiBtaW5kIHRoYXQgbXkgc2V0dXAgaXMgZnVsbHkgdmlydHVhbCwgc28gdGhlIGV4
+YW1wbGVzIGhlcmUgaXMNCmJhc2VkIG9uIHRoYXQgc2V0dXAuDQoNCkZpcnN0IGluIHBvc3RmaXgn
+cyBtYXN0ZXIuY2YgSSBoYXZlIGRlZmluZWQgdGhlIHRyYW5zcG9ydCBsaWtlIHRoaXM6DQoNCm1s
+bW1qICAgICB1bml4ICAtICAgICAgIG4gICAgICAgbiAgICAgICAtICAgICAgIDEgICAgICAgcGlw
+ZQ0KICAgICAgICBmbGFncz1CRlhodQ0KICAgICAgICB1c2VyPW5vYm9keTpub2dyb3VwDQogICAg
+ICAgIGFyZ3Y9L3Vzci9iaW4vbWxtbWotcmVjaWV2ZSAtTCAvdmFyL3Nwb29sL21sbW1qLyR7ZG9t
+YWlufS8ke3VzZXJ9IC1zICR7c2VuZGVyfSAtZSAke2V4dGVuc2lvbn0NCg0KVGhpcyB0cmFuc3Bv
+cnQgbWlnaHQgbm90IHdvcmsgZm9yIHlvdSBpZiB5b3UgaGF2ZSBhIHBvc3RmaXggb2xkZXIgdGhh
+dA0Kd2hhdCBpJ20gY3VycmVudGx5IHJ1bm5pbmcgKDIuNS41KSBmb3IgZXhhbXBsZSBvbiBteSBz
+ZWNvbmQgc2l0ZSBJIGhhdmUNCmEgcG9zdGZpeCAyLjMuOCBydW5uaW5nLCBhbmQgaXQgZG9uJ3Qg
+a25vdyBhbGwgdGhlIGZsYWdzIEkgdXNlIHRoZXJlLA0Kc28geW91IG1pZ2h0IHdhbnQgdG8gdHJp
+bSBpdCBkb3duIHRvIG9ubHk6DQoNCglmbGFncz1CRg0KDQpJZiB5b3UgZG9uJ3Qgd2FudCB0byBy
+dW4gbWxtbWogaW4gYSBtdWx0aSBkb21haW4gc2V0dXAgbGlrZSBJIGhhdmUgaGF2ZQ0KYWJvdmUs
+IHRoZW4geW91IGNhbiBjaGFuZ2UgdGhlIGFyZ3YgbGlrZSBvZiB0aGUgdHJhbnNwb3J0IHRvIHdo
+YXQgaXMNCnNob3duIGJlbG93LCB3aGljaCBtYWtlcyBpdCBydW4gaW4gbGluZSB3aXRoIG1sbW1q
+IGRlZmF1bHRzIHNldHVwOg0KDQoJYXJndj0vdXNyL2Jpbi9tbG1tai1yZWNpZXZlIC1MIC92YXIv
+c3Bvb2wvbWxtbWovJHt1c2VyfSAtcyAke3NlbmRlcn0gLWUgJHtleHRlbnNpb259DQoNClRoaXMg
+ZmluaXNoZXMgdGhlIHRyYW5zcG9ydCBzZXR1cCwgYW5kIG5vdyB3ZSBhcmUgZ29pbmcgdG8gcHV0
+IG91cg0KYXR0ZW50aW9uIG9uIHNldHRpbmcgdXAgdGhlIHVzZSBvZiB0aGlzIHRyYW5zcG9ydC4N
+Cg0KRmlyc3Qgd2UgbmVlZCB0byBhZGQgYSB0cmFuc3BvcnQgdG8gb3VyIHBvc3RmaXggdHJhbnNw
+b3J0IGZpbGUNCih1c3VhbGx5IC9ldGMvcG9zdGZpeC90cmFuc3BvcnQpLCBpZiB3ZSBzYXkgdGhh
+dCB5b3UgaGF2ZSBhIG1haWxsaXN0DQpjYWxsZWQgbWFpbGxpc3RAZXhhbXBsZS5jb20gdGhlbiB5
+b3UgaGF2ZSB0byBhZGQgdGhpczoNCg0KbWFpbGxpc3RAZXhhbXBsZS5jb20gIG1sbW1qOg0KDQpS
+ZW1lbWJlciB0byBydW4gcG9zdG1hcCBvbiB0aGUgZmlsZSwgdGhlbiB3ZSBuZWVkIGEgZmlsZSB3
+aGljaCB0ZWxscw0KcG9zdGZpeCB0byBhY2NlcHQgbWFpbHMgZm9yIHRoaXMgbWFpbGxpc3QsIGhl
+cmUgSSBoYXZlIGFkZGVkIGEgbmV3DQpmaWxlIGNhbGxlZCAvZXRjL3Bvc3RmaXgvbWxtbWpfbWFp
+bGxpc3RzIHdoaWNoIGNvbnRhaW5zIHRoZSBhZGRyZXNzDQpvZiB0aGUgbGlzdCwgbGlrZSB0aGlz
+Og0KDQptYWlsbGlzdEBleGFtcGxlLmNvbQlBQ0NFUFQNCg0KUmVtZW1iZXIgdG8gcnVuIHBvc3Rt
+YXAgb24gdGhpcyBmaWxlIHRvbywgbm93IHlvdSBoYXZlIHRvIGVkaXQgbWFpbi5jZg0KKHVzdWFs
+bHkgL2V0Yy9wb3N0Zml4L21haW4uY2YpIGFuZCBhZGQvZWRpdCAxIGxpbmUsIHVzdWFsbHkgdGhl
+IHRyYW5zcG9ydA0KZmlsZSBpcyBhbHJlYWR5IGNvbmZpZ3VyZWQgaW4gcG9zdGZpeCwgcmVtZW1i
+ZXIgdGhhdCBteSBzZXR1cCBpcyB2aXJ0dWFsLA0Kc28gdGhpcyBpcyBoZXJlIHdoZXJlIHRoZSBk
+aWZmZXJlbmNlIGlzLCBmaW5kIGEgbGluZSB3aGVyZSB5b3UgaGF2ZQ0KdmlydHVhbF9tYWlsYm94
+X21hcHMgb3IgYWRkIGl0IHNvIHlvdSBnZXQgc29tZSB0aGluZyBsaWtlIHRoaXMgZXhhbXBsZToN
+Cg0KdmlydHVhbF9tYWlsYm94X21hcHMgPQ0KICAgICAgICBwZ3NxbDovZXRjL3Bvc3RmaXgvcGdz
+cWwvdmlydHVhbC1tYWlsYm94LW1hcHMuY2YNCiAgICAgICAgaGFzaDovZXRjL3Bvc3RmaXgvbWxt
+bWpfbWFpbGxpc3RzDQoNCldoZW4geW91IGhhdmUgZG9uZSB0aGlzIGp1c3QgcmVsb2FkIHBvc3Rm
+aXgncyBjb25maWcgYW5kIHlvdXIgcmVhZHkgZm9yDQphY3Rpb24uDQoNCkkgaG9wZSB0aGlzIGV4
+cGxhaW5zIGl0IGdvb2QgZW5vdWdoLCBJIG1pZ2h0IGhhdmUgZ29uZSBpbiB0b28gbXVjaA0KZGV0
+YWlsIHNvbWUgcGxhY2VzLCBvciB0b28gbGl0dGxlLCBpZiB5b3UgaGF2ZSBjb21tZW50cyBvbiB0
+aGUgY29udGVudA0Kb2YgdGhpcyBmaWxlLCB0aGUgeW91IGFyZSBtb3JlIHRoYW4gd2VsY29tZSB0
+byB3cml0ZSBtZS4NCg0KQmVzdCBvZiBsdWNrIHRvIHlvdS4NCg0KTmlraSBHdWxkYnJhbmQgLSBu
+aWtpQGd1bGRicmFuZC5uZXQNCg==
+
+
+--=-imjiP0qCxzwaFrfjBu2F--
+
+--=-O4ZClYfu0VgdoQXTQGS7
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (GNU/Linux)
+
+iQIcBAABAgAGBQJJYNuzAAoJEAPdccyjg/+FQVEP/j2HiKe7iyDRuYa6+gPmd4rV
+KcItjnVOk6/QiFCGFYScA/RskQbwSdNH9PtW8Xm0jqSfBXHTLQSSbFoEW/wkZ1Lr
+sHrpoNCge8sFM9We48B+scyiifpFmat2HAkt0jhTURvm/S+QXUc0JLUarM/3Gd3P
+fMc59kuu8nWeNBhHv/fKByjemwtJeyiqD0qA3Gomunzri0GdHNmc4nbfhf+nq4JT
+Xr8YKymeH8dS2MqskFEE2EhUanh6QUvUXJ8oTH4ezfBgR2yS/1n4m40RXgLRUt9t
+6LEccbiP3fvS9SfLc+th4ZuI4LCkgJz0uJSO6eGXLNzZskDnfpJCnaJf4x8Qoszb
+wIHJF8OJXgO7kyEjAB+t2mn8Zx4tt0vX33dsXvg6g4FT9rvYybSg4q6v4mRW2/lS
+c32X1J0A9bieSxPQxELUKBzwI+pc3qmPZkmBl6Zxxi0pYLjwqWQYnhwcWIpeYo8D
+CTg8kx198pB3Sd2fv0umlMUFppVziIU/ZTZpF1GlN++yWEErTAy0Z23GgfE0MfYK
+VnqExeN4cAFpmVSlqsK6vjFzGRHqX+auotS+E+JtH8SrpJIx8CSgrhDwSaTAAe4P
+DRuhg9HLM6OSVN9AJvBeVc9nppl/pu1oApdD0/xDWNskMT8IwpMGQNIwPdV9b63b
+4qblT2jzoh+EcCIz2zPw
+=7zmB
+-----END PGP SIGNATURE-----
+
+--=-O4ZClYfu0VgdoQXTQGS7--
 
