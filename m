@@ -1,39 +1,21 @@
 From: Thomas Goirand <thomas@goirand.fr>
-Date: Fri, 20 Feb 2009 21:49:22 +0000
-Subject: Re: Autoresponders/autoreply replies are marked as bounces
-Message-Id: <499F2562.1000208@goirand.fr>
+Date: Fri, 06 Feb 2009 13:51:39 +0000
+Subject: Web based moderation system for MLMMJ
+Message-Id: <498C406B.9070200@goirand.fr>
 List-Id: <mlmmj.mlmmj.org>
-References: <BAY104-W266C7128CDB3A9284333E8F3B30@phx.gbl>
-In-Reply-To: <BAY104-W266C7128CDB3A9284333E8F3B30@phx.gbl>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Dan Andersen wrote:
-> So what you'r saying is that im not missing any headers/settings, some
-> mailserveres are just stupid and reply to the wrong email ?
+Hi,
 
-Correct. There are so many broken auto-responder out there...
+I have somebody that uses our open source control panel (DTC) that has
+complained that there is no moderation interface using web (and not
+using the reply thing on a moderation message). He needs it for a big
+number of high traffic lists.
 
-> What are
-> some RFCxxx says about it, what are the right email to reply to ?
-
-That is more or less what I was asking to the list. The list of header
-we are checking in our auto-responder implementation might be
-wrong/incomplete...
-
-> The
-> problem is also with Notes server, wich I asume is quite a large/big one.. ?
-
-Who said "the bigger the better" (Burger King apart...)?
-
-> Im not caple of finding any rfc there describe wich email the mail
-> server should reply to, can anyone help wich that?
->  
-> Dan
-
-I'd be happy to find it too.
+So here is my question: is there a way to do such web-based moderation
+with MLMMJ? If yes how? If no, how could I write/contribute it?
 
 Thomas
-
