@@ -1,7 +1,7 @@
-From: Thomas Goirand <thomas@goirand.fr>
-Date: Sat, 07 Feb 2009 13:10:02 +0000
+From: Mads Martin Joergensen <mmj@mmj.dk>
+Date: Sat, 07 Feb 2009 13:34:04 +0000
 Subject: Re: Web based moderation system for MLMMJ
-Message-Id: <498D882A.6040703@goirand.fr>
+Message-Id: <20090207133404.GK4240@mmj.dk>
 List-Id: <mlmmj.mlmmj.org>
 References: <498C406B.9070200@goirand.fr>
 In-Reply-To: <498C406B.9070200@goirand.fr>
@@ -10,35 +10,39 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Mads Martin Joergensen wrote:
-> * Thomas Goirand <thomas@goirand.fr> [Feb 07. 2009 10:17]:
->> Just one thing: what is in execlp() that is not in the system exec()
->> function?
+* Thomas Goirand <thomas@goirand.fr> [Feb 07. 2009 14:10]:
+> Anyway, my question remains... Is the procedure like this:
 > 
-> Have a look at exec(3):
+> - rename moderated with:
+> mv hash hash.sending
+
+That mv is done by mlmmj-send while sending, you should never have to do
+that.
+
+I would suggest you send a mail to a moderated list, go to the LISTDIR
+and see what it looks like while it's waiting for the moderator to
+reply.
+
+You need exectly the same, but just not send a mail to moderators, but
+leave the moderation action for the webinterface...
+
+> - call the following:
+> mlmmjsend -L listdir -m hash.sending
 > 
-> DESCRIPTION
->    The  exec()  family  of functions replaces the current process
->    image with a new process image.  The functions described in this
->    manual page are front-ends for execve(2).  (See the manual page
->    for execve(2) for further details about the replacement of the
->    current process image.)
-> 
-> There actually exist no exec() call. You might be thinking of system()?
+> Also, pops to my mind: why should I rename the moderated message? Is it
+> mandatory? Should the moderation web interface delete the moderated
+> message with unlink after the call to mlmmjsend?
 
-Forget it, I thought execlp() was internal to MLMMJ, but I have found my
-answer, it's documented.
+... and when the webinterface clicks moderate you do the same as if the
+moderator replied to the mail. Just send a mail to the reply-to address
+from your webserver. You know how to construct the correct reply-to when
+you have access to the moderation/ directory.
 
-Anyway, my question remains... Is the procedure like this:
+And if you send the mail, then you don't have to do anything else, since
+that's not needed with mail moderation either.
 
-- rename moderated with:
-mv hash hash.sending
-
-- call the following:
-mlmmjsend -L listdir -m hash.sending
-
-Also, pops to my mind: why should I rename the moderated message? Is it
-mandatory? Should the moderation web interface delete the moderated
-message with unlink after the call to mlmmjsend?
-
-Thomas
+-- 
+Mads Martin Joergensen, http://mmj.dk
+"Why make things difficult, when it is possible to make them cryptic
+ and totally illogical, with just a little bit more effort?"
+                                 -- A. P. J.
