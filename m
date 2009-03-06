@@ -1,73 +1,69 @@
-From: Sebastian Harl <sh@tokkee.org>
-Date: Mon, 16 Mar 2009 16:46:11 +0000
-Subject: Re: mlmmj: sends welcome E-mail when 'submod' is enabled
-Message-Id: <20090316164610.GG17745@albany.tokkee.org>
-MIME-Version: 1
-Content-Type: multipart/mixed; boundary="SWTRyWv/ijrBap1m"
+From: Thomas Goirand <thomas@goirand.fr>
+Date: Fri, 06 Mar 2009 19:47:19 +0000
+Subject: Version control systems
+Message-Id: <49B17DC7.7070600@goirand.fr>
 List-Id: <mlmmj.mlmmj.org>
-References: <20090316092139.GA17355@albany.tokkee.org>
-In-Reply-To: <20090316092139.GA17355@albany.tokkee.org>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
+I have opened another thread, as I think that otherwise it's a mess.
 
---SWTRyWv/ijrBap1m
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+>> To me, it would be wise to switch to Git. You would never regret
+>> it!!!
+>
+> Git is just the RCS flavor of the month. I don't see any compelling
+> arguments in favor of switching. Subversion might be an alternative to
+> CVS, but what do we gain by switching away from a tried and tested
+> revision control system which does a perfect job of keeping track of the
+> source code?
 
-Hi Morten,
+No, Git is NOT yet-another-RCS, and for sure not only the flavor of the
+month. If you were comparing Git to let's say bitkeeper (commercial) or
+mercurial (open source), then that would make sense. But Git and HG have
+NOTHING to do with CVS or SVN. The work flow is totally different.
 
-On Mon, Mar 16, 2009 at 04:55:53PM +0100, Morten K. Poulsen wrote:
-> On Mon, 2009-03-16 at 10:21 +0100, Sebastian Harl wrote:
-> > Imho, it's not even desired that moderation should take place when
-> > adding a user from the command line.
->=20
-> I agree, but there should be a flag to enable moderation even if the
-> command line tool is used.
+By switching to a distributed system like Git you will gain:
+- safety (you wont give any write access, updates are done with ssh)
+- help when merging patches will be possible (you can delegate this to
+somebody else that you trust and simply pull from him ...)
+- no network access when you are doing commits
+- ease of branching (Git branching is really wonderful and inexpensive)
+- a wonderful git-web interface to see the work of everyone
+- Unix access rights support (sic! I can't bare that fact in CVS)
+- and many more ...
 
-Yep - fully agreed. To not break backward-compatibility (if that's
-desired), a flag could be added to _disable_ moderation while the
-default behavior would still be to have moderation enabled.
+There is no "write access" to the centralized server with Git. Everybody
+has read access to all public repository, and write access to only it's
+OWN public repository. Then when you want to take a patch from someone,
+you just "git pull http://www.example.com/contrib-mlmmj/mlmmj.git", see
+if you like the patch, then just "push public" so it goes to another
+public repository. If it's you, the "main" author of the project, then
+we declare that public repository as the master MLMMJ server. But that's
+only truth because we say so.
 
-> > In any case, it would be nice if the user does not get any E-mails
-> > unless -c is used.
->=20
-> Yes, although this is difficult (with the current design) if
-> subscription moderation is in use.
+These are just few general sayings about distributed control version
+system, if you want to know why Git is better (or mercurial if you want
+to use that one), then you can read this video:
 
-I have to admit that I did not yet look at the mlmmj internals at all,
-but, I suppose, the current state of a subscription (before it has been
-approved by the moderator) needs to be stored somewhere. So, possibly,
-that place could be used to store additional flags as well.
+http://video.google.com/videosearch?q=linus+gig&emb=0&aq=-1&oq=linus+gi#q=linus+git&emb=0
 
-> It would be great if you (or someone else) would write the code, and
-> send us a patch :)
+You see, I didn't even talk about the fact that this stupid CVS doesn't
+even understand what is a Unix file write, or that it's patches are
+stored at file level instead as per commit. I could have, but this is
+not even the important part. The important part is THE WORK FLOW, and
+the fact that it's distributed (eg: anybody can merge changes from anybody).
 
-Sure. I might get to that later this week.
+We spent a long time learning the new concepts. This is really
+different, and confusing at start. But I really don't want to go back to
+that CVS crap. On the SVN site, we could read "CVS done right". As Linus
+said on that video, there is NO WAY to make CVS right, the concept is
+bad and that's it.
 
-Thanks for the fast reply!
+I hope it was not too boring to read and that I made my point. :)
 
-Cheers,
-Sebastian
+Thomas
 
---=20
-Sebastian "tokkee" Harl +++ GnuPG-ID: 0x8501C7FC +++ http://tokkee.org/
-
-Those who would give up Essential Liberty to purchase a little Temporary
-Safety, deserve neither Liberty nor Safety.         -- Benjamin Franklin
-
-
---SWTRyWv/ijrBap1m
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: Digital signature
-Content-Disposition: inline
-
------BEGIN PGP SIGNATURE-----
-Version: GnuPG v1.4.6 (GNU/Linux)
-
-iD8DBQFJvoJSEFEKc4UBx/wRAjZcAKCCUanuyUEquDGA+llDur56CwdSlQCfT+Sr
-s3mneItaSM6tKxoubpR75zY=
-=YtcT
------END PGP SIGNATURE-----
-
---SWTRyWv/ijrBap1m--
+P.S: There are some tools to convert your CVS repo to Git if you don't
+want to loose the history.
