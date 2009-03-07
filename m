@@ -1,69 +1,125 @@
-From: Thomas Goirand <thomas@goirand.fr>
-Date: Fri, 06 Mar 2009 19:47:19 +0000
-Subject: Version control systems
-Message-Id: <49B17DC7.7070600@goirand.fr>
+From: "Morten K. Poulsen" <mopo@fabletech.com>
+Date: Sat, 07 Mar 2009 13:53:14 +0000
+Subject: Re: Version control systems
+Message-Id: <1236433994.6496.54.camel@mopo-laptop>
 List-Id: <mlmmj.mlmmj.org>
+References: <49B17DC7.7070600@goirand.fr>
+In-Reply-To: <49B17DC7.7070600@goirand.fr>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-I have opened another thread, as I think that otherwise it's a mess.
+On Sat, 2009-03-07 at 03:47 +0800, Thomas Goirand wrote:
+> I have opened another thread, as I think that otherwise it's a mess.
 
->> To me, it would be wise to switch to Git. You would never regret
->> it!!!
->
-> Git is just the RCS flavor of the month. I don't see any compelling
-> arguments in favor of switching. Subversion might be an alternative to
-> CVS, but what do we gain by switching away from a tried and tested
-> revision control system which does a perfect job of keeping track of the
-> source code?
+Wise decision. This thread will probably end up as a flame war, but
+let's try anyway.
 
-No, Git is NOT yet-another-RCS, and for sure not only the flavor of the
-month. If you were comparing Git to let's say bitkeeper (commercial) or
-mercurial (open source), then that would make sense. But Git and HG have
-NOTHING to do with CVS or SVN. The work flow is totally different.
+First of all, I want to make it clear that this is not personal in any
+way. It's not me vs. you; It's CVS vs. Git.
 
-By switching to a distributed system like Git you will gain:
-- safety (you wont give any write access, updates are done with ssh)
-- help when merging patches will be possible (you can delegate this to
-somebody else that you trust and simply pull from him ...)
-- no network access when you are doing commits
-- ease of branching (Git branching is really wonderful and inexpensive)
-- a wonderful git-web interface to see the work of everyone
-- Unix access rights support (sic! I can't bare that fact in CVS)
-- and many more ...
+> Git and HG have NOTHING to do with CVS or SVN. The work flow is totally
+> different.
 
-There is no "write access" to the centralized server with Git. Everybody
-has read access to all public repository, and write access to only it's
-OWN public repository. Then when you want to take a patch from someone,
-you just "git pull http://www.example.com/contrib-mlmmj/mlmmj.git", see
-if you like the patch, then just "push public" so it goes to another
-public repository. If it's you, the "main" author of the project, then
-we declare that public repository as the master MLMMJ server. But that's
-only truth because we say so.
+It is, however, still just a system for keeping track of your revisions.
 
-These are just few general sayings about distributed control version
-system, if you want to know why Git is better (or mercurial if you want
-to use that one), then you can read this video:
+> By switching to a distributed system like Git you will gain:
+> - safety (you wont give any write access, updates are done with ssh)
 
-http://video.google.com/videosearch?q=linus+gig&emb=0&aq=-1&oq=linus+gi#q=linus+git&emb=0
+Few people have write access today, so that's not an issue.
 
-You see, I didn't even talk about the fact that this stupid CVS doesn't
-even understand what is a Unix file write, or that it's patches are
-stored at file level instead as per commit. I could have, but this is
-not even the important part. The important part is THE WORK FLOW, and
-the fact that it's distributed (eg: anybody can merge changes from anybody).
+> - help when merging patches will be possible (you can delegate this to
+> somebody else that you trust and simply pull from him ...)
 
-We spent a long time learning the new concepts. This is really
-different, and confusing at start. But I really don't want to go back to
-that CVS crap. On the SVN site, we could read "CVS done right". As Linus
-said on that video, there is NO WAY to make CVS right, the concept is
-bad and that's it.
+I can't remember ever having a merge conflict in mlmmj.
 
-I hope it was not too boring to read and that I made my point. :)
+> - no network access when you are doing commits
 
-Thomas
+True, this is a good thing, but I don't keep you from using Git - as
+long as you send me unified diffs.
 
-P.S: There are some tools to convert your CVS repo to Git if you don't
-want to loose the history.
+> - ease of branching (Git branching is really wonderful and inexpensive)
+
+cvs tag -b BRANCH_WHATEVER
+
+> - a wonderful git-web interface to see the work of everyone
+
+We can install viewcvs or something similar, if people want a web
+interface.
+
+> - Unix access rights support (sic! I can't bare that fact in CVS)
+
+Is Unix access rights a pro or a con? CVS has it, and it works.
+
+> There is no "write access" to the centralized server with Git.
+
+Christian has write access, and does a very fine job of maintaining the
+web interfaces. Why would I give that up?
+
+> Everybody has read access to all public repository
+
+Read access can be arranged, but nobody has requested it.
+
+> when you want to take a patch from someone, you just "git pull
+> http://www.example.com/contrib-mlmmj/mlmmj.git", see if you like the
+> patch, then just "push public" so it goes to another public
+> repository.
+
+As opposed to this?
+
+patch -p1 <~/patch-mlmmj-1.2.16-whatever.diff
+cvs ci -m 'added whatever (Whoever)'
+
+> if you want to know why Git is better (or mercurial if you want to use
+> that one), then you can read this video:
+> 
+> http://video.google.com/videosearch?q=linus+gig&emb=0&aq=-1&oq=linus+gi#q=linus+git&emb=0
+
+Thank you. It was interesting, though it didn't convince me.
+
+> You see, I didn't even talk about the fact that this stupid CVS doesn't
+> even understand what is a Unix file write
+
+What?
+
+> or that it's patches are stored at file level instead as per commit.
+
+This is a valid argument. It makes file renaming a bit difficult, but I
+have spent less time doing this - in my entire life - than I have spent
+on writing this e-mail. Subversion does this, so that is an argument in
+favor of Subversion.
+
+> The important part is THE WORK FLOW, and the fact that it's distributed
+> (eg: anybody can merge changes from anybody).
+
+You make it sound like mlmmj is a huge project with thousands of
+developers end as many branches. It is not.
+
+You had access to all the patches that I merged into mlmmj-1.2.16 at the
+same time as I had access. They were sent to the mailing list. You could
+have applied them to your local Git repository. You could have arranged
+Git access with the other contributers. I am not stopping you.
+
+> We spent a long time learning the new concepts. This is really
+> different, and confusing at start. But I really don't want to go back
+> to that CVS crap. On the SVN site, we could read "CVS done right". As
+> Linus said on that video, there is NO WAY to make CVS right, the
+> concept is bad and that's it.
+
+Linus Torvalds is a great developer (some claim that he is almost as
+great as Theo de Raadt), but "Linus told me that CVS is bad and Git is
+good" is not a valid argument.
+
+If the distributions start carrying versions of mlmmj which are branched
+so far away from the main repository that merging them is not a simple
+matter of applying a small patch set, then yes, I might consider using
+Git. Until then, no....
+
+Morten
+
+-- 
+Morten K. Poulsen <mopo@fabletech.com>
+CTO, FableTech
+http://fabletech.com/
+
