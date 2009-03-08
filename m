@@ -1,7 +1,7 @@
-From: Christian Laursen <xi@borderworlds.dk>
-Date: Sat, 07 Mar 2009 23:05:12 +0000
+From: Thomas Goirand <thomas@goirand.fr>
+Date: Sun, 08 Mar 2009 08:49:31 +0000
 Subject: Re: Version control systems
-Message-Id: <49B2FDA8.9000003@borderworlds.dk>
+Message-Id: <49B3869B.2080400@goirand.fr>
 List-Id: <mlmmj.mlmmj.org>
 References: <49B17DC7.7070600@goirand.fr>
 In-Reply-To: <49B17DC7.7070600@goirand.fr>
@@ -11,22 +11,13 @@ Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
 Mads Martin Joergensen wrote:
-> 
-> On 07/03/2009, at 21.21, Thomas Goirand wrote:
-> 
->> So, the smallest the project, the more stupid the tools should be?
->> That's how the above can be read...
-> 
-> Thomas,
-> 
-> Let me elaborate on who we are; we're grumpy old men who are to lazy to 
-> switch, and thus defend our choices like old men sitting on a bench in a 
-> park, waving our cane against all by-passers, while cursing the modern 
+> Let me elaborate on who we are; we're grumpy old men who are to lazy to
+> switch, and thus defend our choices like old men sitting on a bench in a
+> park, waving our cane against all by-passers, while cursing the modern
 > world.
 
-If it might make people happy, I can take a look at making a git mirror 
-of the CVS repository. That way the grumpy old developers won't have to 
-change their ways. :)
+That was my exact reaction as well when we had to switch to Git, so I
+understand it perfectly. However, I do not regret the invested time.
 
--- 
-Christian Laursen
+Thomas
+
