@@ -1,7 +1,7 @@
-From: Thomas Goirand <thomas@goirand.fr>
-Date: Sun, 08 Mar 2009 08:49:31 +0000
+From: Mads Martin Joergensen <mmj@mmj.dk>
+Date: Sun, 08 Mar 2009 08:58:02 +0000
 Subject: Re: Version control systems
-Message-Id: <49B3869B.2080400@goirand.fr>
+Message-Id: <128CD375-6D8B-4E54-B755-04F81B6B98B3@mmj.dk>
 List-Id: <mlmmj.mlmmj.org>
 References: <49B17DC7.7070600@goirand.fr>
 In-Reply-To: <49B17DC7.7070600@goirand.fr>
@@ -10,14 +10,24 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Mads Martin Joergensen wrote:
-> Let me elaborate on who we are; we're grumpy old men who are to lazy to
-> switch, and thus defend our choices like old men sitting on a bench in a
-> park, waving our cane against all by-passers, while cursing the modern
-> world.
 
-That was my exact reaction as well when we had to switch to Git, so I
-understand it perfectly. However, I do not regret the invested time.
+On 08/03/2009, at 00.05, Christian Laursen wrote:
 
-Thomas
+>> Let me elaborate on who we are; we're grumpy old men who are to  
+>> lazy to switch, and thus defend our choices like old men sitting on  
+>> a bench in a park, waving our cane against all by-passers, while  
+>> cursing the modern world.
+>
+> If it might make people happy, I can take a look at making a git  
+> mirror of the CVS repository. That way the grumpy old developers  
+> won't have to change their ways. :)
+
+
+Sounds excellent.
+
+-- 
+Mads Martin Joergensen, http://mmj.dk
+"Why make things difficult, when it is possible to make them cryptic
+  and totally illogical, with just a little bit more effort?"
+                                  -- A. P. J.
 
