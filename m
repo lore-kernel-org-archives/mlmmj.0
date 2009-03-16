@@ -1,38 +1,59 @@
-From: Dave Taylor <ddt@davetaylor.name>
-Date: Fri, 20 Feb 2009 00:05:01 +0000
-Subject: variables & .forward support
-Message-Id: <B97FEC31-B455-4420-8583-4A1582222E57@davetaylor.name>
+From: Sebastian Harl <sh@tokkee.org>
+Date: Mon, 16 Mar 2009 09:21:53 +0000
+Subject: mlmmj: sends welcome E-mail when 'submod' is enabled
+Message-Id: <20090316092139.GA17355@albany.tokkee.org>
+MIME-Version: 1
+Content-Type: multipart/mixed; boundary="1yeeQ81UyVL57Vl7"
 List-Id: <mlmmj.mlmmj.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Where can I find a list of legal $variables$ that I can use inside of  
-the files listed in the "text" subdirectory?
 
-In particular, I would like to be able to add a "Reply-To: $poster$"  
-field at the top of the "moderation" file.
+--1yeeQ81UyVL57Vl7
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-I've learned the hard way that the black-and-white moderation approach  
-of either approving a post or ignoring it pisses people off.  A  
-handful a groaners will start whining and create a lot of grief.
+Package: mlmmj
+Version: 1.2.15-1.1
+Severity: normal
 
-Instead, I've started replying to people to ask them to modify their  
-post to remove/alter the offending bits.  However, this is a giant  
-pain in the butt with the current system, because I have to scroll  
-down to the user's email addr, click it, and then cut-and-paste the  
-content of the message that I'm commenting on.
+Hi,
 
-This is already an immense amount of work on a list of 500.  It would  
-be a lot easier on me if I could simply reply to the message and  
-delete the top w/ the moderation link.
+(Cc'ing the mlmmj mailinglist - a comment would be appreciated.)
 
-Also, can mlmmj be run as a user program using the .forward file?   
-Because it seems to need installing, this rules out its use on any  
-hosting service that doesn't allow root access, which has the effect  
-of increasing the hosting rates from $7/mo for an account to $50/mo or  
-more for a virtual system.
+When using mlmmj-sub without -c (i.e. subscription is supposed to happen
+silently), mlmmj sends a welcome E-mail to the newly added user after
+approving her when 'submod' is enabled. The user also gets a
+notification that her subscription is waiting for approval by the
+moderator.
 
-	=-ddt->
+Imho, it's not even desired that moderation should take place when
+adding a user from the command line.
 
+In any case, it would be nice if the user does not get any E-mails
+unless -c is used.
+
+TIA,
+Sebastian
+
+--=20
+Sebastian "tokkee" Harl +++ GnuPG-ID: 0x8501C7FC +++ http://tokkee.org/
+
+Those who would give up Essential Liberty to purchase a little Temporary
+Safety, deserve neither Liberty nor Safety.         -- Benjamin Franklin
+
+
+--1yeeQ81UyVL57Vl7
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: Digital signature
+Content-Disposition: inline
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.6 (GNU/Linux)
+
+iD8DBQFJvhojEFEKc4UBx/wRAgRGAJ4xePkwlcgDYeNEtdTTH85mMJciPgCghb0y
+9CwU3IXDXakbEM6R4jYdcQU=
+=g3/d
+-----END PGP SIGNATURE-----
+
+--1yeeQ81UyVL57Vl7--
