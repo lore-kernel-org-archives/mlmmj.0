@@ -1,38 +1,44 @@
 From: Mads Martin Joergensen <mmj@mmj.dk>
-Date: Sat, 11 Apr 2009 08:28:40 +0000
-Subject: Re: listcontrol.c
-Message-Id: <63CC2045-74B3-4115-9B32-CABCBE5D6097@mmj.dk>
+Date: Fri, 10 Apr 2009 09:21:55 +0000
+Subject: Re: looking for mlmmj.org..
+Message-Id: <DF400A85-5EB2-40BC-A8B6-F6BE54D3E971@mmj.dk>
 List-Id: <mlmmj.mlmmj.org>
-References: <20090411101122.fd24714d.kolar@fzu.cz>
-In-Reply-To: <20090411101122.fd24714d.kolar@fzu.cz>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-
-On 11/04/2009, at 10.11, Pavel Kolář wrote:
-
-> The line 719 in listcontrol.c (version 1.2.16) contains strcmp.
-> Is it really the author intention (security?)? Otherwise, I would
-> suggest to use strcasecmp instead. (i.e. to allow the mixed case
-> in the owner addresss for the message to listname+list@...)
+Good question below, anyone on the list knows?
 
 
-It's a safe strcmp, yes.
+On 08/04/2009, at 16.53, B. Cook wrote:
 
-fromemails->emaillist[0] cannot not exist if we get this far, and
-owners->strs was just populated right before the for-loop:
-
-owners = ctrlvalues(listdir, "owner");
-
-So it's ok to use strcasecmp instead, and I've just done so and com-
-mitted to CVS. Thanks for spotting!
+> Hello,
+>
+> I was going to the site to read about somethings.. and it seems the  
+> site is down/gone?..
+>
+> curl -v -I http://mlmmj.org
+> * gethostbyname_r(2) failed for mlmmj.org
+> * Couldn't resolve host 'mlmmj.org'
+> * Closing connection #0
+> curl: (6) Couldn't resolve host 'mlmmj.org'
+>
+> host -t ns mlmmj.org
+> Host mlmmj.org not found: 3(NXDOMAIN)
+>
+> Is everything ok?
+>
+>
+> -- 
+> B. Cook
+> Network Analyst
+> Poughkeepsie City School District
+> Mobile: 845.264.5827 | Desk: 845.451.4791
 
 -- 
 Mads Martin Joergensen, http://mmj.dk
 "Why make things difficult, when it is possible to make them cryptic
   and totally illogical, with just a little bit more effort?"
                                   -- A. P. J.
-
 
