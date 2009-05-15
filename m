@@ -1,38 +1,26 @@
-From: "Morten K. Poulsen" <mopo@fabletech.com>
-Date: Mon, 18 May 2009 15:35:39 +0000
-Subject: Re: Responsed to moderation
-Message-Id: <1242660939.4230.3.camel@mopo-laptop>
+From: "Christoph Wilke" <chris@filmkreis.tu-darmstadt.de>
+Date: Fri, 15 May 2009 12:14:28 +0000
+Subject: Bug in mlmmj-maintd: notice on non-existing digests
+Message-Id: <34372.172.16.32.1.1242389668.squirrel@130.83.185.211>
 List-Id: <mlmmj.mlmmj.org>
-References: <505cc59ce7Lists@Torrens.org.uk>
-In-Reply-To: <505cc59ce7Lists@Torrens.org.uk>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-On Mon, 2009-05-18 at 05:31 +0800, Thomas Goirand wrote:
-> Morten K. Poulsen wrote:
-> > Such a notification is sent if a person tries to subscribe to a list
-> > with subscription moderation, and something similar would be useful for
-> > regular moderation as well. If you could make a patch, I will be happy
-> > to include it in mlmmj.
-> 
-> If that is to be added, then a tunable should enable/disable it, and it
-> should be disabled by default.
+Hej,
 
-Yes, definitely disabled by default.
+after some time-eating server updating I stumbled over the fact, that
+mlmmj-maintd doesn't honour the nodigestsub tunable. It tries to
+resend digests even if there aren't any at all, omitting a notice
+for every existing non-digestive list.
 
-> I know this is quite obvious, but better be safe than sorry. I am
-> already seeing the danger of backscraters sending to moderated lists
-> with that option... I would NEVER enable this. This is a way too
-> dangerous to me.
+Mlmmj-maintd skips run_digests() only if noarchive is present. Can this
+check extended to include nodigestsub as well?
 
-I wouldn't use it either, but I don't mind having the option.
+Ciao
+Chris
 
-Morten
-
--- 
-Morten K. Poulsen <mopo@fabletech.com>
-CTO, FableTech
-http://fabletech.com/
-
+ps. Is it possible that nodigestsub is set and there is a static list
+of digesters? If yes, then my easy solution described above will break
+this case.
