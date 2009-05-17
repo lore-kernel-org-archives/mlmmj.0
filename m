@@ -1,27 +1,33 @@
-From: "Torrens (lists)" <Lists@Torrens.org.uk>
-Date: Sun, 17 May 2009 08:39:43 +0000
-Subject: Responsed to moderation
-Message-Id: <505cc59ce7Lists@Torrens.org.uk>
+From: "Morten K. Poulsen" <mopo@fabletech.com>
+Date: Sun, 17 May 2009 19:56:01 +0000
+Subject: Re: Responsed to moderation
+Message-Id: <1242590161.4426.16.camel@mopo-laptop>
 List-Id: <mlmmj.mlmmj.org>
+References: <505cc59ce7Lists@Torrens.org.uk>
+In-Reply-To: <505cc59ce7Lists@Torrens.org.uk>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Is is possible to make MLMMJ send an ack to any email referred for
-moderation?
+Hi Richard,
 
-Ideally I would like to tell the sender why the email has been held - but
-I expect that's not easy.
+On Sun, 2009-05-17 at 09:39 +0100, Torrens (lists) wrote:
+> Is is possible to make MLMMJ send an ack to any email referred for
+> moderation?
 
-ATM, if the sender has broken rules, it's not at all simple to send them
-an email pointing this out.
+No, there is currently no support for notifying a sender about the fact
+that his mail is awaiting moderation.
 
-The lists I run don't get a lot of spam, so responding to that is not a
-problem.
+Such a notification is sent if a person tries to subscribe to a list
+with subscription moderation, and something similar would be useful for
+regular moderation as well. If you could make a patch, I will be happy
+to include it in mlmmj.
+
+Morten
 
 -- 
-Richard Torrens.
-http://www.Torrens.org.uk for genealogy, natural history, wild food, walks, cats
-and more!
+Morten K. Poulsen <mopo@fabletech.com>
+CTO, FableTech
+http://fabletech.com/
 
