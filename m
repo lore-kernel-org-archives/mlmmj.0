@@ -1,25 +1,27 @@
-From: Thomas Goirand <thomas@goirand.fr>
-Date: Sat, 23 May 2009 02:44:34 +0000
-Subject: Re: List archives
-Message-Id: <4A176312.5010902@goirand.fr>
+From: "Torrens (lists)" <Lists@Torrens.org.uk>
+Date: Sun, 17 May 2009 08:39:43 +0000
+Subject: Responsed to moderation
+Message-Id: <505cc59ce7Lists@Torrens.org.uk>
 List-Id: <mlmmj.mlmmj.org>
-References: <4A16F841.6090907@bergenheim.net>
-In-Reply-To: <4A16F841.6090907@bergenheim.net>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Wolf Bergenheim wrote:
-> What was the decision on SVN? My offer still stands to host it if we
-> want it.
+Is is possible to make MLMMJ send an ack to any email referred for
+moderation?
 
-PLEASE, NO tool from the medieval age here. Use directly a distributed
-tool like Git or mercurial (Git has my personal preferences, with it's
-wonderful Gitweb), there's no reason to use a broken concept such as SVN
-that doesn't even know how to handle Unix rights correctly (to only list
-the most obvious flaw...).
+Ideally I would like to tell the sender why the email has been held - but
+I expect that's not easy.
 
-Thomas
+ATM, if the sender has broken rules, it's not at all simple to send them
+an email pointing this out.
 
+The lists I run don't get a lot of spam, so responding to that is not a
+problem.
+
+-- 
+Richard Torrens.
+http://www.Torrens.org.uk for genealogy, natural history, wild food, walks, cats
+and more!
 
