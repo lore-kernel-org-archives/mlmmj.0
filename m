@@ -1,25 +1,25 @@
-From: "Benny Pedersen" <me@junc.org>
-Date: Wed, 20 May 2009 16:39:24 +0000
-Subject: Re: Test
-Message-Id: <58339.RkEUX0YQVF0=.1242837564.squirrel@mail.junc.org>
+From: Mads Martin Joergensen <mmj@mmj.dk>
+Date: Mon, 18 May 2009 09:09:59 +0000
+Subject: mlmmj@mmj.dk mailinglist move (to mlmmj.org?)
+Message-Id: <2E9E9877-D08B-4C78-B098-D7ABE026FF75@mmj.dk>
 List-Id: <mlmmj.mlmmj.org>
-References: <4A13D7FF.8060104@bergenheim.net>
-In-Reply-To: <4A13D7FF.8060104@bergenheim.net>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
+Hello all,
 
-On Wed, May 20, 2009 12:14, Wolf Bergenheim wrote:
-> Please ignore this test
+I would like to move the mailinglist away from the mmj.dk domain  
+hosting it now, since this might go away. Anyone capable of hosting  
+this somewhere?
 
-if maillist have spf then it will bypass greylist
-
-atleast here, and since envelope sender is the maillist why not do it ?
+Would be a chance to also move the list over to the mlmmj.org domain  
+where it belongs.
 
 -- 
-http://localhost/ 100% uptime and 100% mirrored :)
-
-
+Mads Martin Joergensen, http://mmj.dk
+"Why make things difficult, when it is possible to make them cryptic
+  and totally illogical, with just a little bit more effort?"
+                                  -- A. P. J.
 
