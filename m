@@ -1,37 +1,34 @@
-From: "Morten K. Poulsen" <mopo@fabletech.com>
-Date: Mon, 18 May 2009 15:43:29 +0000
-Subject: Re: Bug in mlmmj-maintd: notice on non-existing digests
-Message-Id: <1242661409.4230.9.camel@mopo-laptop>
+From: Mads Martin Joergensen <mmj@mmj.dk>
+Date: Wed, 20 May 2009 10:27:28 +0000
+Subject: mailinglist now moved to mlmmj@mlmmj.org
+Message-Id: <E9E970FD-4F16-4815-A859-A11DFBBD2D58@mmj.dk>
 List-Id: <mlmmj.mlmmj.org>
-References: <34372.172.16.32.1.1242389668.squirrel@130.83.185.211>
-In-Reply-To: <34372.172.16.32.1.1242389668.squirrel@130.83.185.211>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Hi Chris,
+Hello everyone,
 
-On Mon, 2009-05-18 at 12:46 +0200, Christoph Wilke wrote:
-> On Sun, May 17, 2009 21:09, Morten K. Poulsen wrote:
-> > That indicates that your listtexts are out of sync with your mlmmj
-> > binaries.
-> 
-> The ability to read helps... You are perfectly right.
+We've now moved the mlmmj mailinglist to where it rightfully belongs.  
+At mlmmj@mlmmj.org. Thanks to Wolf who also hosts mlmmj.org, the list  
+is now sitting with him, right next to it :)
 
-:-)
+Also let me thank for all the hosting offers!
 
-> I did 1 and 3 and everything works fine now.
-> Thank you very much for your quick help!
-> And forgive me my hasty bug yelling...
+mlmmj@mmj.dk should work for a little while yet, but will cease to do  
+so in the future.
 
-Kein Problem.
+Wolf, will you change the website to the new address? Then I'll change  
+the README.
 
-
-Morten
+Have a nice day,
+Mads Martin
 
 -- 
-Morten K. Poulsen <mopo@fabletech.com>
-CTO, FableTech
-http://fabletech.com/
+Mads Martin Joergensen, http://mmj.dk
+"Why make things difficult, when it is possible to make them cryptic
+and totally illogical, with just a little bit more effort?"
+                                -- A. P. J.
+
 
