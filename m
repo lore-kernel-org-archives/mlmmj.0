@@ -1,44 +1,145 @@
-From: "Torrens (lists)" <Lists@Torrens.org.uk>
-Date: Mon, 18 May 2009 07:31:17 +0000
-Subject: Re: Responses to moderation
-Message-Id: <505d432f07Lists@Torrens.org.uk>
+From: "Christoph Wilke" <chris@filmkreis.tu-darmstadt.de>
+Date: Mon, 01 Jun 2009 18:50:44 +0000
+Subject: Patch to extend list command
+Message-Id: <46320.172.16.32.1.1243882244.squirrel@130.83.185.211>
+MIME-Version: 1
+Content-Type: multipart/mixed; boundary="----=_20090601205044_33475"
 List-Id: <mlmmj.mlmmj.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-In article <1242590161.4426.16.camel@mopo-laptop>,
-   Morten K. Poulsen <mopo@fabletech.com> wrote:
-> Hi Richard,
+------=_20090601205044_33475
+Content-Type: text/plain; charset="iso-8859-15"
+Content-Transfer-Encoding: 8bit
 
-> On Sun, 2009-05-17 at 09:39 +0100, Torrens (lists) wrote:
-> > Is is possible to make MLMMJ send an ack to any email referred for
-> > moderation?
+Hej,
 
-> No, there is currently no support for notifying a sender about the fact
-> that his mail is awaiting moderation.
+I noticed recently that the list command supports only subscribers but
+not digesters and nomailers.
+So I plugged together a simple patch to support this.
+It's fairly straightforward, but I don't have a test system so if
+someone might have a look at it and does some tests would be really
+nice.
 
-> Such a notification is sent if a person tries to subscribe to a list
-> with subscription moderation, and something similar would be useful for
-> regular moderation as well. If you could make a patch, I will be happy
-> to include it in mlmmj.
+Best regards,
+Chris
+------=_20090601205044_33475
+Content-Type: text/x-diff; name="all_subs-send_list.diff"
+Content-Transfer-Encoding: 8bit
+Content-Disposition: attachment; filename="all_subs-send_list.diff"
 
-> Morten
+--- listtexts/de/listsubs.orig    2009-05-18 13:52:21.000000000 +0200
++++ listtexts/de/listsubs 2009-05-18 13:51:15.000000000 +0200
+@@ -7,5 +7,6 @@
+ 
+ verwaltet.
+ 
+-Dies ist die Liste der Abonnenten:
++Dies ist die Liste der Abonnenten, Nomail-Abonnennten, und
++Digest-Abonnenten:
+ 
+--- listtexts/en/listsubs.orig       2009-05-18 13:51:58.000000000 +0200
++++ listtexts/en/listsubs    2009-05-18 13:49:38.000000000 +0200
+@@ -4,5 +4,5 @@
+ 
+ $listaddr$
+ 
+-Following is the list of subscribers:
++Following is the list of subscribers, nomailers and digesters:
+ 
+--- src/send_list.c.orig	2009-05-18 13:05:07.000000000 +0200
++++ src/send_list.c	2009-05-18 13:15:33.000000000 +0200
+@@ -46,7 +46,7 @@
+ 	       const char *mlmmjsend)
+ {
+ 	char *queuefilename, *listaddr, *listdelim, *listname, *listfqdn;
+-	char *fromaddr, *subdir, *fileiter;
++	char *fromaddr, *subdir, *nomaildir, *digestdir, *fileiter;
+ 	DIR *dirp;
+ 	struct dirent *dp;
+ 	int fd, subfd;
+@@ -56,6 +56,8 @@
+ 	listname = genlistname(listaddr);
+ 	listfqdn = genlistfqdn(listaddr);
+ 	subdir = concatstr(2, listdir, "/subscribers.d/");
++	nomaildir = concatstr(2, listdir, "/nomailsubs.d/");
++	digestdir = concatstr(2, listdir, "/digesters.d/");
+ 
+ 	fromaddr = concatstr(4, listname, listdelim, "bounces-help@", listfqdn);
+ 	myfree(listdelim);
+@@ -78,6 +80,8 @@
+ 		exit(EXIT_FAILURE);
+ 	}
+ 
++
++	/* normal subscriptions*/
+ 	dirp = opendir(subdir);
+ 	if(dirp == NULL) {
+ 		fprintf(stderr, "Could not opendir(%s);\n", subdir);
+@@ -104,6 +108,64 @@
+ 		myfree(fileiter);
+ 	}
+ 
++	writen(fd, "\n--\n", 5);
++
++	/* nomail subscriptions */
++	dirp = opendir(nomaildir);
++	if(dirp == NULL) {
++		fprintf(stderr, "Could not opendir(%s);\n", nomaildir);
++		exit(EXIT_FAILURE);
++	}
++	while((dp = readdir(dirp)) != NULL) {
++		if((strcmp(dp->d_name, "..") == 0) ||
++		   (strcmp(dp->d_name, ".") == 0))
++			continue;
++
++		fileiter = concatstr(2, nomaildir, dp->d_name);
++		subfd = open(fileiter, O_RDONLY);
++		if(subfd < 0) {
++			log_error(LOG_ARGS, "Could not open %s for reading",
++					fileiter);
++			myfree(fileiter);
++			continue;
++		}
++		if(dumpfd2fd(subfd, fd) < 0)
++			log_error(LOG_ARGS, "Error dumping nomail-subfile"
++					"content to sub list mail");
++
++		close(subfd);
++		myfree(fileiter);
++	}
++
++	writen(fd, "\n--\n", 5);
++
++	/* digest subscriptions*/
++	dirp = opendir(digestdir);
++	if(dirp == NULL) {
++		fprintf(stderr, "Could not opendir(%s);\n", digestdir);
++		exit(EXIT_FAILURE);
++	}
++	while((dp = readdir(dirp)) != NULL) {
++		if((strcmp(dp->d_name, "..") == 0) ||
++		   (strcmp(dp->d_name, ".") == 0))
++			continue;
++
++		fileiter = concatstr(2, digestdir, dp->d_name);
++		subfd = open(fileiter, O_RDONLY);
++		if(subfd < 0) {
++			log_error(LOG_ARGS, "Could not open %s for reading",
++					fileiter);
++			myfree(fileiter);
++			continue;
++		}
++		if(dumpfd2fd(subfd, fd) < 0)
++			log_error(LOG_ARGS, "Error dumping digest-subfile "
++					"content to sub list mail");
++
++		close(subfd);
++		myfree(fileiter);
++	}
++
+ 	writen(fd, "\n-- \nend of output\n", 19);
+ 
+ 	close(fd);
+------=_20090601205044_33475--
 
-> Morten
 
-> Morten
-
-If I were a programmer...
-
-But at my age I'm not going to start to learn much programming, certainly
-not on Linux. And I've far too many other things to do with the remainder
-of my life.
-
-Patching another's program does not seem like a beginner's thing.
-
--- 
-Richard Torrens.
-http://www.Torrens.org.uk for genealogy, natural history, wild food, walks, cats
-and more!
