@@ -1,40 +1,45 @@
-From: Henk Cortier <henk@melimato.com>
-Date: Fri, 03 Jul 2009 20:33:51 +0000
-Subject: moderation only by sender
-Message-Id: <5e77c93d0907031333q4cba6335ib8f8622a40518edf@mail.gmail.com>
-MIME-Version: 1
-Content-Type: multipart/mixed; boundary="000e0cd249ee0682b8046dd3136e"
+From: =?ISO-8859-1?Q?Mads_Martin_J=F8rgensen?= <mmj@mmj.dk>
+Date: Fri, 03 Jul 2009 21:29:18 +0000
+Subject: Re: moderation only by sender
+Message-Id: <231D537E-B3C5-4390-9FED-D9C429B21AEF@mmj.dk>
 List-Id: <mlmmj.mlmmj.org>
+References: <5e77c93d0907031333q4cba6335ib8f8622a40518edf@mail.gmail.com>
+In-Reply-To: <5e77c93d0907031333q4cba6335ib8f8622a40518edf@mail.gmail.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
---000e0cd249ee0682b8046dd3136e
-Content-Type: text/plain; charset=ISO-8859-1
-Content-Transfer-Encoding: 7bit
 
-hi there, I'm new to mlmmj
-We are using mlmmj as a newsletter tool for cultural events.
+On 03/07/2009, at 22.33, Henk Cortier wrote:
 
-One mailing list has 14 moderators who all wish to be able to send and
-moderate the mails they send out.
+> hi there, I'm new to mlmmj
 
-What we would like to avoid is that moderation mails are sent to all
-moderators, ideally only the sender of the message should receive the
-moderate mail and be able to reply to it.
+Glad you're trying it :)
 
-Any ideas?
+> We are using mlmmj as a newsletter tool for cultural events.
 
-many thanks
+Not to be nosy, just out of pure interest; what kind of events?
 
-Henk
-melimato.com
+> One mailing list has 14 moderators who all wish to be able to send  
+> and moderate the mails they send out.
+>
+> What we would like to avoid is that moderation mails are sent to all  
+> moderators, ideally only the sender of the message should receive  
+> the moderate mail and be able to reply to it.
+>
+> Any ideas?
 
---000e0cd249ee0682b8046dd3136e
-Content-Type: text/html; charset=ISO-8859-1
-Content-Transfer-Encoding: 7bit
 
-hi there, I&#39;m new to mlmmj<div><br></div><div>We are using mlmmj as a newsletter tool for cultural events.</div><div><br></div><div>One mailing list has 14 moderators who all wish to be able to send and moderate the mails they send out.</div>
-<div><br></div><div>What we would like to avoid is that moderation mails are sent to all moderators, ideally only the sender of the message should receive the moderate mail and be able to reply to it.</div><div><br></div>
-<div>Any ideas?</div><div><br></div><div>many thanks</div><div><br></div><div>Henk</div><div><a href="http://melimato.com">melimato.com</a></div>
+This functionality doesn't exist in mlmmj right now. BUT;
 
---000e0cd249ee0682b8046dd3136e--
+It would be quite easy to implement and if noone else cooks up a  
+patch, I'll personally make one before Friday.
+
+-- 
+Mads Martin Joergensen, http://mmj.dk
+"Why make things difficult, when it is possible to make them cryptic
+  and totally illogical, with just a little bit more effort?"
+                                  -- A. P. J.
+
 
