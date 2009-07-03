@@ -1,27 +1,40 @@
-From: Wolf Bergenheim <wolf+mlmmj@bergenheim.net>
-Date: Sun, 26 Jul 2009 22:30:31 +0000
-Subject: Server moving
-Message-Id: <fbc3c81f0907261530v144a7145t71da879698a9cf6c@mail.gmail.com>
+From: Henk Cortier <henk@melimato.com>
+Date: Fri, 03 Jul 2009 20:33:51 +0000
+Subject: moderation only by sender
+Message-Id: <5e77c93d0907031333q4cba6335ib8f8622a40518edf@mail.gmail.com>
+MIME-Version: 1
+Content-Type: multipart/mixed; boundary="000e0cd249ee0682b8046dd3136e"
 List-Id: <mlmmj.mlmmj.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="iso-8859-9"
-Content-Transfer-Encoding: quoted-printable
 To: mlmmj@mlmmj.org
 
-Hi,
+--000e0cd249ee0682b8046dd3136e
+Content-Type: text/plain; charset=ISO-8859-1
+Content-Transfer-Encoding: 7bit
 
-This is just a warning.
+hi there, I'm new to mlmmj
+We are using mlmmj as a newsletter tool for cultural events.
 
-The server will be moving to new home in germany some time before August 1s=
-t.
+One mailing list has 14 moderators who all wish to be able to send and
+moderate the mails they send out.
 
-Once I get the new server up and running I will report the new IP
-addresses so that we get the site moved. In the mean while the old
-server will serve on. So the transition should be transparent.
+What we would like to avoid is that moderation mails are sent to all
+moderators, ideally only the sender of the message should receive the
+moderate mail and be able to reply to it.
 
---Wolf
+Any ideas?
 
---
-~~( =C2=A03> Wolf Bergenheim <8 =C2=A0)~~
+many thanks
 
+Henk
+melimato.com
+
+--000e0cd249ee0682b8046dd3136e
+Content-Type: text/html; charset=ISO-8859-1
+Content-Transfer-Encoding: 7bit
+
+hi there, I&#39;m new to mlmmj<div><br></div><div>We are using mlmmj as a newsletter tool for cultural events.</div><div><br></div><div>One mailing list has 14 moderators who all wish to be able to send and moderate the mails they send out.</div>
+<div><br></div><div>What we would like to avoid is that moderation mails are sent to all moderators, ideally only the sender of the message should receive the moderate mail and be able to reply to it.</div><div><br></div>
+<div>Any ideas?</div><div><br></div><div>many thanks</div><div><br></div><div>Henk</div><div><a href="http://melimato.com">melimato.com</a></div>
+
+--000e0cd249ee0682b8046dd3136e--
 
