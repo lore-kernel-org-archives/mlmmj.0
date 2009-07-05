@@ -1,47 +1,43 @@
-From: "Morten K. Poulsen" <mopo@fabletech.com>
-Date: Wed, 08 Jul 2009 23:00:51 +0000
-Subject: Re: moderation only by sender
-Message-Id: <1247094051.12326.59.camel@mopo-laptop>
+From: Thomas Goirand <thomas@goirand.fr>
+Date: Sun, 05 Jul 2009 02:39:32 +0000
+Subject: Subscribing a big amount of users (and moderation only by sender
+Message-Id: <4A501264.4060106@goirand.fr>
 List-Id: <mlmmj.mlmmj.org>
-References: <5e77c93d0907031333q4cba6335ib8f8622a40518edf@mail.gmail.com>
-In-Reply-To: <5e77c93d0907031333q4cba6335ib8f8622a40518edf@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 To: mlmmj@mlmmj.org
 
-On Wed, 2009-07-08 at 12:49 +0800, Thomas Goirand wrote:
-> Morten K. Poulsen wrote:
-> > You probably don't send automated newsletters from your phone.
-> 
-> I do, when doing server maintenance with putty, I might need to warn all
-> customers of this server, which I do using an MLMMJ moderated list.
+Mads Martin J=F8rgensen wrote:
+> This functionality doesn't exist in mlmmj right now. BUT;
+>=20
+> It would be quite easy to implement and if noone else cooks up a patch,
+> I'll personally make one before Friday.
 
-That does not sound very "automated" to me. Anyway, you can just use the
-standard moderation feature.
++1:
 
-> To me, if you guys want to add such flag, this would be to keep
-> compatibility with the old behavior where MLMMJ is sending the
-> moderation to all moderators. The default should be to bounce ONLY to
-> the moderator sending to the list.
+I'd love to have this functionality. We do regularly inform all of the
+customers of a given Xen server using MLMMJ lists with subscribers list
+auto managed by our panel. When one of the administrator wishes to send
+a message to all customers, he's going to confirm the sending by
+himself, just right after the sending, and it's a bit useless that other
+moderators receive the moderation request.
 
-No. This is not really a problem, and I don't like to change the default
-behavior "just because."
+Also, just a quick question. When we have thousands of customers, using
+mlmmj-subscribe thousands of times just doesn't make sense and is too
+slow (maybe just because of the process forks)... Because I wanted to
+avoid doing so many fork, I do rebuild the subscribers.d content myself,
+using our internal data in MySQL, and writing the folder content myself
+with PHP. Is that an issue? If yes, would it be possible to have some
+kind of API (like a binary shell tool) so I could give a config file to
+use as a (new) subscriber list? Or even better, have a new option in
+mlmmj-subscribe like:
 
-> Another thing, when I add myself as moderator, then use the "subscriber
-> only post" flag, I can't send to the list unless I also subscribe. This
-> doesn't make sense. All moderator should be considered as able to write
-> to the list, even if they are not subscribed and the flag "subscriber
-> only post" is set. Can this behavior be changed as well???
+--subscriber-list /tmp/all-customers-WX2OIA5Q
 
-Sure. Patches are welcome.
+Obviously, I'd use a tmp file created using mktemp here, to avoid
+symlink attacks.
 
-
-Morten
-
--- 
-Morten K. Poulsen <mopo@fabletech.com>
-CTO, FableTech
-http://fabletech.com/
+Thomas
 
 
