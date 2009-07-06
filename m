@@ -1,7 +1,7 @@
-From: Marco S Hyman <marc@snafu.org>
-Date: Mon, 06 Jul 2009 19:57:43 +0000
+From: Henk Cortier <henk@melimato.com>
+Date: Mon, 06 Jul 2009 20:04:41 +0000
 Subject: Re: moderation only by sender
-Message-Id: <AA6B2A9F-6D18-48DB-8C7D-57630B576CA6@snafu.org>
+Message-Id: <9A015E87-8668-44F2-A588-A90DE85A143D@melimato.com>
 List-Id: <mlmmj.mlmmj.org>
 References: <5e77c93d0907031333q4cba6335ib8f8622a40518edf@mail.gmail.com>
 In-Reply-To: <5e77c93d0907031333q4cba6335ib8f8622a40518edf@mail.gmail.com>
@@ -10,23 +10,13 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-On Jul 6, 2009, at 12:48 PM, Henk Cortier wrote:
+>  I think I'll
+> try changing one of my moderated lists to doing everything
+> in the access file.
 
-> What is a "moderated control file"?
 
-http://mlmmj.org/man/new_list says:
+My guess is, if you do that and leave the "modators" list empty, then  
+no moderation mail will be sent to no-one.
 
-   "For having a moderated list, simply create a file called
-   'moderated' in the control/ directory. Moderators are added
-    to a file called 'moderators' in the control/ dir as well.
-
-With that control file present "allow" seems to mean "allow
-the message to be sent to the moderators".   I think I'll
-try changing one of my moderated lists to doing everything
-in the access file.
-
-Thanks,
-
-/\/\arc
-
+Henk
 
