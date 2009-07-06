@@ -1,7 +1,7 @@
-From: Henk Cortier <henk@melimato.com>
-Date: Mon, 06 Jul 2009 19:56:46 +0000
+From: Marco S Hyman <marc@snafu.org>
+Date: Mon, 06 Jul 2009 19:57:43 +0000
 Subject: Re: moderation only by sender
-Message-Id: <FF3E9D35-9C0A-48A6-B24A-9EC4443DCCEE@melimato.com>
+Message-Id: <AA6B2A9F-6D18-48DB-8C7D-57630B576CA6@snafu.org>
 List-Id: <mlmmj.mlmmj.org>
 References: <5e77c93d0907031333q4cba6335ib8f8622a40518edf@mail.gmail.com>
 In-Reply-To: <5e77c93d0907031333q4cba6335ib8f8622a40518edf@mail.gmail.com>
@@ -10,24 +10,23 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Hi Mads,
+On Jul 6, 2009, at 12:48 PM, Henk Cortier wrote:
 
-thanks
+> What is a "moderated control file"?
 
-> http://mlmmj.org/archive/mlmmj/2008-07/1364.html
->
-> Might be what youo want to use.
+http://mlmmj.org/man/new_list says:
 
+   "For having a moderated list, simply create a file called
+   'moderated' in the control/ directory. Moderators are added
+    to a file called 'moderators' in the control/ dir as well.
 
-sorry for my ignorance but how do add a Header to a mail?
+With that control file present "allow" seems to mean "allow
+the message to be sent to the moderators".   I think I'll
+try changing one of my moderated lists to doing everything
+in the access file.
 
-I'm afraid the people using the list are even less aware of how these  
-things work than I am so I can't really ask much of them.  The simpler  
-the better, for now (and for them) that means: send mail, wait for  
-mail, reply to mail, done.
+Thanks,
 
-ciao
+/\/\arc
 
-Henk
-henkcortier.com
 
