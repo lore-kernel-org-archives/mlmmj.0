@@ -1,7 +1,7 @@
-From: Thomas Goirand <thomas@goirand.fr>
-Date: Tue, 07 Jul 2009 10:17:52 +0000
+From: "Morten K. Poulsen" <mopo@fabletech.com>
+Date: Tue, 07 Jul 2009 17:00:47 +0000
 Subject: Re: moderation only by sender
-Message-Id: <4A5320D0.4040603@goirand.fr>
+Message-Id: <1246986047.4080.20.camel@mopo-laptop>
 List-Id: <mlmmj.mlmmj.org>
 References: <5e77c93d0907031333q4cba6335ib8f8622a40518edf@mail.gmail.com>
 In-Reply-To: <5e77c93d0907031333q4cba6335ib8f8622a40518edf@mail.gmail.com>
@@ -10,35 +10,35 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Sebastian Harl wrote:
-> Hi,
-> 
-> On Fri, Jul 03, 2009 at 10:33:51PM +0200, Henk Cortier wrote:
->> One mailing list has 14 moderators who all wish to be able to send and
->> moderate the mails they send out.
->>
->> What we would like to avoid is that moderation mails are sent to all
->> moderators, ideally only the sender of the message should receive the
->> moderate mail and be able to reply to it.
-> 
-> Hrm ... what about introducing some tunable to define a list of E-mail
-> addresses which are not moderated instead (or additionally)? Imho, it
-> does not make a lot of sense to moderate yourself - especially, if
-> you're the only one to even "know" about that.
-> 
-> Cheers,
-> Sebastian
+On Tue, 2009-07-07 at 18:17 +0800, Thomas Goirand wrote:
+> The bounce message does the perfect captcha work...
 
-But if you "know" about it, and especially if OTHER THAT ARE NOT
-MODERATOR know about it, you want a protection so nobody else but you
-can send to the list. The bounce message does the perfect captcha work...
+No, the moderation message can not tell a computer from a human. It can
+only authenticate "whatever sent the mail" as "something in control of
+that specific mail account."
 
-I don't like the:
+> I don't like the:
+> allow X-MySecret: a6e043b3786d6d19bc141e7d194b6517
+> 
+> It's not always easy to add such headers. Like explain to me how I can
+> do this with the standard mail client of my Nokia phone...
+
+You probably don't send automated newsletters from your phone. The point
+of using a mail header with a key, was to allow automated newsletter
+dispatching, without having to handle the moderation mail. If you have a
+human involved, who does not know how to add headers, moderation is
+probably the easiest approach.
+
+You can even have both:
+
 allow X-MySecret: a6e043b3786d6d19bc141e7d194b6517
+moderate
 
-It's not always easy to add such headers. Like explain to me how I can
-do this with the standard mail client of my Nokia phone...
+Morten
 
-Thomas
+-- 
+Morten K. Poulsen <mopo@fabletech.com>
+CTO, FableTech
+http://fabletech.com/
 
 
