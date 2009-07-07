@@ -1,56 +1,38 @@
-From: "Morten K. Poulsen" <mopo@fabletech.com>
-Date: Tue, 07 Jul 2009 17:13:38 +0000
+From: Marcelo <marcelo.magallon@gmail.com>
+Date: Tue, 07 Jul 2009 17:41:59 +0000
 Subject: Re: Patch to extend list command
-Message-Id: <1246986818.4080.28.camel@mopo-laptop>
+Message-Id: <937117890907071041m7a5e8762heb2e9de7ccd4fc2c@mail.gmail.com>
+MIME-Version: 1
+Content-Type: multipart/mixed; boundary="001636c5b27cc37018046e2123ee"
 List-Id: <mlmmj.mlmmj.org>
 References: <46320.172.16.32.1.1243882244.squirrel@130.83.185.211>
 In-Reply-To: <46320.172.16.32.1.1243882244.squirrel@130.83.185.211>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Hi Chris,
+--001636c5b27cc37018046e2123ee
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-On Tue, 2009-06-23 at 17:36 +0200, Christoph Wilke wrote:
-> maybe you have already discovered it, I forgot a semicolon in
-> the patch (in send_list.h).
+On Tue, Jul 7, 2009 at 11:13, Morten K. Poulsen<mopo@fabletech.com> wrote:
 
-The header file was not included in your
-all_subs-send_list_part-rev2.diff so I didn't notice ;-)
+> es
 
-I marked the function as static, as it is not used outside of
-send_list.c. Isn't that the way to do it? We can always change it, if
-someone wants to call it from someplace else.
+Here's a Spanish translation patch.
 
-> See the attached revised patch.
+Marcelo
 
-I've committed your updated listtexts and added a Danish translation.
+--001636c5b27cc37018046e2123ee
+Content-Type: text/x-patch; charset=US-ASCII; name="mlmmj-listsubs-es.patch"
+Content-Disposition: attachment; filename="mlmmj-listsubs-es.patch"
+Content-Transfer-Encoding: base64
+X-Attachment-Id: f_fwuwqv5z0
 
-Would all the translation contributers change the following in their
-"listsubs" file and send me a patch?
-
--Following is the list of subscribers:
-+Following is the list of subscribers, nomailers and digesters:
-
-We need the translation for:
-cz
-es
-fr
-it
-nl
-ru
-
-> Regards and sorry for inconvenience,
-
-No inconvenience. Once again, thanks for your patches.
-
-Best regards,
-Morten
-
--- 
-Morten K. Poulsen <mopo@fabletech.com>
-CTO, FableTech
-http://fabletech.com/
-
+ZGlmZiAtLWdpdCBhL2xpc3R0ZXh0cy9lcy9saXN0c3VicyBiL2xpc3R0ZXh0cy9lcy9saXN0c3Vi
+cwppbmRleCBjOTczNTIxLi4yYTJlZjk4IDEwMDY0NAotLS0gYS9saXN0dGV4dHMvZXMvbGlzdHN1
+YnMKKysrIGIvbGlzdHRleHRzL2VzL2xpc3RzdWJzCkBAIC01LDUgKzUsNyBAQCBIb2xhLAogCiAk
+bGlzdGFkZHIkCiAKLUEgY29udGludWFjaVx1MDBGM24gc2UgZW5jdWVudHJhIGxhIGxpc3RhIGRl
+IHN1c2NyaXB0b3JlczoKK0EgY29udGludWFjaVx1MDBGM24gc2UgZW5jdWVudHJhIGxhIGxpc3Rh
+IGRlIHN1c2NyaXB0b3JlcywKK3N1c2NyaXB0b3JlcyBxdWUgbm8gcmVjaWJlbiBjb3JyZW8gKG5v
+bWFpbGVycykgeSBzdXNjcmlwdG9yZXMgZW4KK21vZG8gZGUgY29tcGlsYWNpXHUwMEYzbjoKIAo=
+--001636c5b27cc37018046e2123ee--
 
