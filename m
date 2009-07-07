@@ -1,44 +1,35 @@
-From: "Morten K. Poulsen" <mopo@fabletech.com>
-Date: Tue, 07 Jul 2009 17:00:47 +0000
+From: =?ISO-8859-1?Q?Mads_Martin_J=F8rgensen?= <mmj@mmj.dk>
+Date: Tue, 07 Jul 2009 18:32:39 +0000
 Subject: Re: moderation only by sender
-Message-Id: <1246986047.4080.20.camel@mopo-laptop>
+Message-Id: <349786DD-BD1B-4796-B1B3-A5BC64237625@mmj.dk>
 List-Id: <mlmmj.mlmmj.org>
 References: <5e77c93d0907031333q4cba6335ib8f8622a40518edf@mail.gmail.com>
 In-Reply-To: <5e77c93d0907031333q4cba6335ib8f8622a40518edf@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 To: mlmmj@mlmmj.org
 
-On Tue, 2009-07-07 at 18:17 +0800, Thomas Goirand wrote:
-> The bounce message does the perfect captcha work...
 
-No, the moderation message can not tell a computer from a human. It can
-only authenticate "whatever sent the mail" as "something in control of
-that specific mail account."
+On 03/07/2009, at 23.29, Mads Martin J=F8rgensen wrote:
 
-> I don't like the:
-> allow X-MySecret: a6e043b3786d6d19bc141e7d194b6517
-> 
-> It's not always easy to add such headers. Like explain to me how I can
-> do this with the standard mail client of my Nokia phone...
+> It would be quite easy to implement and if noone else cooks up a =20
+> patch, I'll personally make one before Friday.
 
-You probably don't send automated newsletters from your phone. The point
-of using a mail header with a key, was to allow automated newsletter
-dispatching, without having to handle the moderation mail. If you have a
-human involved, who does not know how to add headers, moderation is
-probably the easiest approach.
+http://mmj.dk/~mmj/ifmodsendonlymodmoderate.diff
 
-You can even have both:
+It's totally untested and needs someone to try it out, look at it, =20
+etc. Yes, yes, I'm damn lazy, but this is a team effort, you know :)
 
-allow X-MySecret: a6e043b3786d6d19bc141e7d194b6517
-moderate
+(What the above really means is: Moooorteeeen. Would you pretty please =20
+with sugar on top, tell me what I forgot? You know I cannot code =20
+anymore...)
 
-Morten
+--=20
+Mads Martin Joergensen, http://mmj.dk
+"Why make things difficult, when it is possible to make them cryptic
+  and totally illogical, with just a little bit more effort?"
+                                  -- A. P. J.
 
--- 
-Morten K. Poulsen <mopo@fabletech.com>
-CTO, FableTech
-http://fabletech.com/
 
 
