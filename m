@@ -1,7 +1,7 @@
-From: Mads Martin Joergensen <mmj@mmj.dk>
-Date: Wed, 08 Jul 2009 05:06:13 +0000
+From: "Morten K. Poulsen" <mopo@fabletech.com>
+Date: Wed, 08 Jul 2009 23:00:51 +0000
 Subject: Re: moderation only by sender
-Message-Id: <20090708050613.GA730@mmj.dk>
+Message-Id: <1247094051.12326.59.camel@mopo-laptop>
 List-Id: <mlmmj.mlmmj.org>
 References: <5e77c93d0907031333q4cba6335ib8f8622a40518edf@mail.gmail.com>
 In-Reply-To: <5e77c93d0907031333q4cba6335ib8f8622a40518edf@mail.gmail.com>
@@ -10,22 +10,23 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-* Thomas Goirand <thomas@goirand.fr> [Jul 08. 2009 06:53]:
+On Wed, 2009-07-08 at 12:49 +0800, Thomas Goirand wrote:
 > Morten K. Poulsen wrote:
 > > You probably don't send automated newsletters from your phone.
 > 
 > I do, when doing server maintenance with putty, I might need to warn all
 > customers of this server, which I do using an MLMMJ moderated list.
-> 
+
+That does not sound very "automated" to me. Anyway, you can just use the
+standard moderation feature.
+
 > To me, if you guys want to add such flag, this would be to keep
 > compatibility with the old behavior where MLMMJ is sending the
 > moderation to all moderators. The default should be to bounce ONLY to
-> the moderator sending to the list. IMHO mlmmj-make-ml should create new
-> list with the tunable in by default.
+> the moderator sending to the list.
 
-I really wouldn't like changing default behaviour, ever. It's not like
-they make "-s" the default for "ln" even though that's what most people
-use all the time.
+No. This is not really a problem, and I don't like to change the default
+behavior "just because."
 
 > Another thing, when I add myself as moderator, then use the "subscriber
 > only post" flag, I can't send to the list unless I also subscribe. This
@@ -33,11 +34,14 @@ use all the time.
 > to the list, even if they are not subscribed and the flag "subscriber
 > only post" is set. Can this behavior be changed as well???
 
-Should be, I agree. Owners as well.
+Sure. Patches are welcome.
+
+
+Morten
 
 -- 
-Mads Martin Joergensen, http://mmj.dk
-"Why make things difficult, when it is possible to make them cryptic
- and totally illogical, with just a little bit more effort?"
-                                 -- A. P. J.
+Morten K. Poulsen <mopo@fabletech.com>
+CTO, FableTech
+http://fabletech.com/
+
 
