@@ -1,48 +1,63 @@
-From: Andreas Schneider <mail@cynapses.org>
-Date: Wed, 30 Sep 2009 10:39:03 +0000
-Subject: mlmmj-webarchiver
-Message-Id: <200909301239.04347.mail@cynapses.org>
-MIME-Version: 1
-Content-Type: multipart/mixed; boundary="nextPart1564604.4At5OcSqOT"
+From: martines <wimbaster@gmail.com>
+Date: Thu, 17 Sep 2009 07:30:24 +0000
+Subject: mlmmj and Postfix virtual
+Message-Id: <927bf3190909170030v353aa33dx1c8ae5081fa38297@mail.gmail.com>
 List-Id: <mlmmj.mlmmj.org>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
---nextPart1564604.4At5OcSqOT
-Content-Type: text/plain;
-  charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
+Hello, I have a problem setting mlmmj un Postfix virtual domain
+(Debian Lenny). The best I have got is "unknown user"...
+I followed the http://mlmmj.org/archive/mlmmj/att-0511/README.postfix manual.
 
-Hi,
+Here are the details:
 
-I've improved the mlmmj-webarchiver and changed it to use mhonarc.
+/var/spool/mlmmj/transport:
+/^(mltest).*$/          mlmmj:$1
 
-You can see the result here:
+/var/spool/mlmmj/virtual.regexp:
+/^(mltest.*)@domain.com$/   $1
 
-http://www.libssh.org/archive/
-http://www.csync.org/archive/
+/etc/postfix/main.cf:
+# mlmmj
+transport_maps = regexp:/var/spool/mlmmj/transport
+mlmmj_destination_recipient_limit = 1
+alias_maps = hash:/etc/aliases
+alias_database = hash:/etc/aliases
+myorigin = /etc/mailname
+mydestination = localhost
+virtual_mailbox_domains = domain.com
+virtual_uid_maps = static:105
+virtual_gid_maps = static:106
+virtual_alias_maps = hash:/etc/postfix/virtual,
+regexp:/var/spool/mlmmj/virtual.regexp
 
-I=E2=80=99ve created a git repository for the mlmmj-webarchiver:
+/etc/postfix/master.cf:
+mlmmj   unix  -       n       n       -       -       pipe
+  flags=DORhu user=mlmmj argv=/usr/bin/mlmmj-recieve -F -L
+/var/spool/mlmmj/$nexthop/
 
-git clone git://git.cynapses.org/users/gladiac/mlmmj-webarchiver.git
+/etc/passwd:
+mlmmj:x:1004:1005::/var/spool/mlmmj:/bin/sh
 
-I hope you like it, patches are welcome ;)
-
-
-	-- andreas
-
---nextPart1564604.4At5OcSqOT
-Content-Type: application/pgp-signature; name=signature.asc 
-Content-Description: This is a digitally signed message part.
-
------BEGIN PGP SIGNATURE-----
-Version: GnuPG v2.0.9 (GNU/Linux)
-
-iEYEABECAAYFAkrDNUgACgkQf94+j/M+P8bHNACgqM0s+GRoVo0dCb2jcXZEuaJa
-2wUAoIpP4EhxR4wj8HuYQ5LbDKOwbztK
-=zHe3
------END PGP SIGNATURE-----
-
---nextPart1564604.4At5OcSqOT--
+--
+# id postfix
+uid5(postfix) gid6(postfix) groups6(postfix)
 
 
+
+When sending a test message, i receive:
+
+                   The mail system
+
+<mltest@domain.com>: unknown user: "mltest@domain.com"
+
+
+Have to chown the /var/spool/mlmmj/ to mlmmj, postfix, nobody, root,
+nothing helped. Any iedea?
+
+Thank's in advance,
+Martines
 
