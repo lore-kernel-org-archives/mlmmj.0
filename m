@@ -1,23 +1,48 @@
-From: James Scott <jlscott@clear.net.nz>
-Date: Thu, 22 Oct 2009 22:11:14 +0000
-Subject: RE: Howto for using mlmmj
-Message-Id: <5C43D9CB89F1438AB90D3675AA1A3E39@mainspring.co.nz>
+From: "Morten K. Poulsen" <morten@afdelingp.dk>
+Date: Sun, 04 Oct 2009 09:14:25 +0000
+Subject: Re: mlmmj-webarchiver
+Message-Id: <1254647666.30301.19.camel@mopo-laptop>
 List-Id: <mlmmj.mlmmj.org>
-References: <A47BAB0B49FD934EA28A3A21B943AB9001194240@eusex01.sweden.ecsoft>
-In-Reply-To: <A47BAB0B49FD934EA28A3A21B943AB9001194240@eusex01.sweden.ecsoft>
+References: <200909301239.04347.mail@cynapses.org>
+In-Reply-To: <200909301239.04347.mail@cynapses.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="iso-8859-1"
+Content-Type: text/plain; charset="windows-1252"
 Content-Transfer-Encoding: quoted-printable
 To: mlmmj@mlmmj.org
 
-On Friday, 23 October 2009 10:04 a.m., Mads Martin J=F8rgensen wrote:
+Hi Andreas,
 
-> That would be majordomo.=20
+On Wed, 2009-09-30 at 12:39 +0200, Andreas Schneider wrote:
+> I've improved the mlmmj-webarchiver and changed it to use mhonarc.
 
-Note that the Mercury Mail Server (www.pmail.gen.nz) also supports mail list
-configuration via email commands.
+Is that based on Sven "Darkman" Michels' or Martin Leopold's scripts, or
+have you created ones yourself?
 
-James
+> You can see the result here:
+>=20
+> http://www.libssh.org/archive/
+> http://www.csync.org/archive/
+
+Looks nice.
+
+> I=E2=80=99ve created a git repository for the mlmmj-webarchiver:
+>=20
+> git clone git://git.cynapses.org/users/gladiac/mlmmj-webarchiver.git
+
+bash: git: command not found
+
+;-)
+
+> I hope you like it, patches are welcome ;)
+
+:-)
+
+Happy hacking,
+Morten
+
+--=20
+Morten K. Poulsen <morten@afdelingp.dk>
+http://www.afdelingp.dk/
 
 
 
