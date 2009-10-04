@@ -1,48 +1,53 @@
-From: "Morten K. Poulsen" <morten@afdelingp.dk>
-Date: Sun, 04 Oct 2009 09:14:25 +0000
+From: Andreas Schneider <mail@cynapses.org>
+Date: Sun, 04 Oct 2009 09:35:24 +0000
 Subject: Re: mlmmj-webarchiver
-Message-Id: <1254647666.30301.19.camel@mopo-laptop>
+Message-Id: <200910041135.24916.mail@cynapses.org>
+MIME-Version: 1
+Content-Type: multipart/mixed; boundary="nextPart1254655011.PGeyDgBYP5"
 List-Id: <mlmmj.mlmmj.org>
 References: <200909301239.04347.mail@cynapses.org>
 In-Reply-To: <200909301239.04347.mail@cynapses.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="windows-1252"
-Content-Transfer-Encoding: quoted-printable
 To: mlmmj@mlmmj.org
 
-Hi Andreas,
+--nextPart1254655011.PGeyDgBYP5
+Content-Type: Text/Plain;
+  charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 
-On Wed, 2009-09-30 at 12:39 +0200, Andreas Schneider wrote:
-> I've improved the mlmmj-webarchiver and changed it to use mhonarc.
-
-Is that based on Sven "Darkman" Michels' or Martin Leopold's scripts, or
-have you created ones yourself?
-
-> You can see the result here:
+On Sunday 04 October 2009 11:14:25 Morten K. Poulsen wrote:
+> Hi Andreas,
 >=20
-> http://www.libssh.org/archive/
-> http://www.csync.org/archive/
 
-Looks nice.
+Hi Morten,
 
-> I=E2=80=99ve created a git repository for the mlmmj-webarchiver:
+> Is that based on Sven "Darkman" Michels' or Martin Leopold's scripts, or
+> have you created ones yourself?
+
+it is based on Sven "Darkman" Michels his work.
+
+> > git clone git://git.cynapses.org/users/gladiac/mlmmj-webarchiver.git
 >=20
-> git clone git://git.cynapses.org/users/gladiac/mlmmj-webarchiver.git
+> bash: git: command not found
+>=20
 
-bash: git: command not found
+That can be fixed :)
 
-;-)
 
-> I hope you like it, patches are welcome ;)
+	-- andreas
 
-:-)
+--nextPart1254655011.PGeyDgBYP5
+Content-Type: application/pgp-signature; name=signature.asc 
+Content-Description: This is a digitally signed message part.
 
-Happy hacking,
-Morten
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v2.0.9 (GNU/Linux)
 
---=20
-Morten K. Poulsen <morten@afdelingp.dk>
-http://www.afdelingp.dk/
+iEYEABECAAYFAkrIbFwACgkQf94+j/M+P8arhACfWIX4vwAonaqhjRjHudZZZYqJ
+slkAmwSZoQYVPqRb7Zt4qJFsPZhkpoRw
+=DrdE
+-----END PGP SIGNATURE-----
+
+--nextPart1254655011.PGeyDgBYP5--
 
 
 
