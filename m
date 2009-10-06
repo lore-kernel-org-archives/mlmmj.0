@@ -1,53 +1,43 @@
-From: Andreas Schneider <mail@cynapses.org>
-Date: Sun, 04 Oct 2009 09:35:24 +0000
+From: Thomas Goirand <thomas@goirand.fr>
+Date: Tue, 06 Oct 2009 06:04:02 +0000
 Subject: Re: mlmmj-webarchiver
-Message-Id: <200910041135.24916.mail@cynapses.org>
-MIME-Version: 1
-Content-Type: multipart/mixed; boundary="nextPart1254655011.PGeyDgBYP5"
+Message-Id: <4ACADDD2.1040304@goirand.fr>
 List-Id: <mlmmj.mlmmj.org>
 References: <200909301239.04347.mail@cynapses.org>
 In-Reply-To: <200909301239.04347.mail@cynapses.org>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="windows-1252"
+Content-Transfer-Encoding: quoted-printable
 To: mlmmj@mlmmj.org
 
---nextPart1254655011.PGeyDgBYP5
-Content-Type: Text/Plain;
-  charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
-
-On Sunday 04 October 2009 11:14:25 Morten K. Poulsen wrote:
-> Hi Andreas,
+Andreas Schneider wrote:
+> Hi,
 >=20
-
-Hi Morten,
-
-> Is that based on Sven "Darkman" Michels' or Martin Leopold's scripts, or
-> have you created ones yourself?
-
-it is based on Sven "Darkman" Michels his work.
-
-> > git clone git://git.cynapses.org/users/gladiac/mlmmj-webarchiver.git
+> I've improved the mlmmj-webarchiver and changed it to use mhonarc.
 >=20
-> bash: git: command not found
+> You can see the result here:
 >=20
+> http://www.libssh.org/archive/
+> http://www.csync.org/archive/
+>=20
+> I=E2=80=99ve created a git repository for the mlmmj-webarchiver:
+>=20
+> git clone git://git.cynapses.org/users/gladiac/mlmmj-webarchiver.git
+>=20
+> I hope you like it, patches are welcome ;)
 
-That can be fixed :)
+Hi,
 
+We also use mhonarc to archive our lists (our control panel does that),
+but the result is rather poor compared to yours: no month to month
+separation, and graphics are more ugly. See here, for an example:
 
-	-- andreas
+http://gplhost.sg/lists/dtcdev/threads.html
 
---nextPart1254655011.PGeyDgBYP5
-Content-Type: application/pgp-signature; name=signature.asc 
-Content-Description: This is a digitally signed message part.
+so, how did you make it so you have one archive per month, and the nicer
+output? Is there some mhonarc parameters that I missed? Or maybe a newer
+version?
 
------BEGIN PGP SIGNATURE-----
-Version: GnuPG v2.0.9 (GNU/Linux)
-
-iEYEABECAAYFAkrIbFwACgkQf94+j/M+P8arhACfWIX4vwAonaqhjRjHudZZZYqJ
-slkAmwSZoQYVPqRb7Zt4qJFsPZhkpoRw
-=DrdE
------END PGP SIGNATURE-----
-
---nextPart1254655011.PGeyDgBYP5--
-
+Thomas
 
 
