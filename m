@@ -1,7 +1,7 @@
-From: Marco S Hyman <marc@snafu.org>
-Date: Thu, 22 Oct 2009 15:53:12 +0000
-Subject: Re: Howto for using mlmmj
-Message-Id: <CA7E5E23-B6B9-43CC-A92D-2978FEA6D984@snafu.org>
+From: "Jesper Lund Stocholm" <jesper.stocholm@ciber.dk>
+Date: Thu, 22 Oct 2009 20:35:27 +0000
+Subject: RE: Howto for using mlmmj
+Message-Id: <A47BAB0B49FD934EA28A3A21B943AB900119436C@eusex01.sweden.ecsoft>
 List-Id: <mlmmj.mlmmj.org>
 References: <A47BAB0B49FD934EA28A3A21B943AB9001194240@eusex01.sweden.ecsoft>
 In-Reply-To: <A47BAB0B49FD934EA28A3A21B943AB9001194240@eusex01.sweden.ecsoft>
@@ -10,54 +10,64 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-> Can you tell me where I can find answers to questions like:
+Hello,
 
-By reading the doc, specifically the section on Tunables
+> -----Original Message-----
+> From: Marco S Hyman [mailto:marc@snafu.org]
+> Sent: Thursday, October 22, 2009 5:53 PM
+> To: Jesper Lund Stocholm
+> Cc: mlmmj@mlmmj.org
+> Subject: Re: Howto for using mlmmj
+> 
+[snip]
+> 
+> Note that all of these commands are run on the machine that
+> hosts the list.  I'm not aware of any way of doing these functions
+> remotely through email, but then I've never looked, either.
 
-    http://mlmmj.org/man/tunables
+Ok - is /any/ of it available thru email commands? A few years back I
+used another mail list mgr (I can't remember which) and I was able to do
+a good part of day-to-day configuration via email.
 
-and Access Rules
+The "email commands" could be
 
-    http://mlmmj.org/man/access
+Add moderator to list:
 
-> How do I add a moderator to a list?
+To: mylist@dom.tld
+Subject: add mod myemail@example.com
 
-Add their address to control/moderators
+Remove moderator from list:
 
-> How do I remove a moderator from a list?
+To: mylist@dom.tld
+Subject: rm mod myemail@example.com
 
-Remove their address from control/moderators
+Add email to list:
 
-> How do I remove moderation from a list?
+Subject: add youremail@example.com
 
-Remove the file control/moderated and/or remove moderate
-commands in control/access.
+Remove email from list:
 
-> How do I add moderation to a list?
+Subject: rm youremail@example.com
 
-Create the file control/moderated or add a moderate rule
-to the control/access file.
+Get list of all recipients:
 
-> How do I get a list of all recipients of a list?
+Subject: list
 
-normal users: /usr/local/bin/mlmmj-list -L /var/spool/mlmmj/<list> -s
-digest users: /usr/local/bin/mlmmj-list -L /var/spool/mlmmj/<list> -d
+Bulk-add emails to list:
 
-> How do I remove a user from a list?
+Subject: bulkinsert
+Body:
+Email1
+Email2
+Email3
+...
 
-/usr/local/bin/mlmmj-unsub -L /var/spool/mlmmj/<list> -a <addr>
+The above are just examples of what I would like to be able to do. The
+commands were naturally only available to people (email addresses)
+registered as either admins or moderators.
 
-> How do I add a user from a list?
+Thanks for your time,
 
-/usr/local/bin/mlmmj-sub -L /var/spool/mlmmj/<list> -a <addr>
+/Jesper
 
-> How do I delete a message from the archive?
-
-This I've never done.   Guess: rm /path/to/archive/message
-
-Note that all of these commands are run on the machine that
-hosts the list.  I'm not aware of any way of doing these functions
-remotely through email, but then I've never looked, either.
-
-/\/\arc
 
