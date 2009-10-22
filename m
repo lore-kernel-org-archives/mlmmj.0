@@ -1,59 +1,82 @@
-From: Andreas Schneider <mail@cynapses.org>
-Date: Tue, 06 Oct 2009 06:36:50 +0000
-Subject: Re: mlmmj-webarchiver
-Message-Id: <200910060836.54523.mail@cynapses.org>
-MIME-Version: 1
-Content-Type: multipart/mixed; boundary="nextPart2972725.WyFAkaCAG4"
+From: =?iso-8859-1?Q?Mads_Martin_J=F8rgensen?= <mmj@mmj.dk>
+Date: Thu, 22 Oct 2009 20:10:26 +0000
+Subject: mlmmj FAQ
+Message-Id: <EF4CBA12-57AE-48CD-96EE-837A4841C475@mmj.dk>
 List-Id: <mlmmj.mlmmj.org>
-References: <200909301239.04347.mail@cynapses.org>
-In-Reply-To: <200909301239.04347.mail@cynapses.org>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
---nextPart2972725.WyFAkaCAG4
-Content-Type: Text/Plain;
-  charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+I think we just got a great basis for a FAQ on mlmmj.org :)
 
-On Tuesday 06 October 2009 08:04:02 Thomas Goirand wrote:
-> Hi,
->=20
+Thanks Marco
 
-Hi,
+Begin forwarded message:
 
-> We also use mhonarc to archive our lists (our control panel does that),
-> but the result is rather poor compared to yours: no month to month
-> separation, and graphics are more ugly. See here, for an example:
->=20
-> http://gplhost.sg/lists/dtcdev/threads.html
->=20
-> so, how did you make it so you have one archive per month, and the nicer
-> output? Is there some mhonarc parameters that I missed? Or maybe a newer
-> version?
->=20
+> From: Marco S Hyman <marc@snafu.org>
+> Date: 22. okt 2009 17.53.12 CEST
+> To: Jesper Lund Stocholm <jesper.stocholm@ciber.dk>
+> Cc: <mlmmj@mlmmj.org>
+> Subject: Re: Howto for using mlmmj
+>
+>> Can you tell me where I can find answers to questions like:
+>
+> By reading the doc, specifically the section on Tunables
+>
+>   http://mlmmj.org/man/tunables
+>
+> and Access Rules
+>
+>   http://mlmmj.org/man/access
+>
+>> How do I add a moderator to a list?
+>
+> Add their address to control/moderators
+>
+>> How do I remove a moderator from a list?
+>
+> Remove their address from control/moderators
+>
+>> How do I remove moderation from a list?
+>
+> Remove the file control/moderated and/or remove moderate
+> commands in control/access.
+>
+>> How do I add moderation to a list?
+>
+> Create the file control/moderated or add a moderate rule
+> to the control/access file.
+>
+>> How do I get a list of all recipients of a list?
+>
+> normal users: /usr/local/bin/mlmmj-list -L /var/spool/mlmmj/<list> -s
+> digest users: /usr/local/bin/mlmmj-list -L /var/spool/mlmmj/<list> -d
+>
+>> How do I remove a user from a list?
+>
+> /usr/local/bin/mlmmj-unsub -L /var/spool/mlmmj/<list> -a <addr>
+>
+>> How do I add a user from a list?
+>
+> /usr/local/bin/mlmmj-sub -L /var/spool/mlmmj/<list> -a <addr>
+>
+>> How do I delete a message from the archive?
+>
+> This I've never done.   Guess: rm /path/to/archive/message
+>
+> Note that all of these commands are run on the machine that
+> hosts the list.  I'm not aware of any way of doing these functions
+> remotely through email, but then I've never looked, either.
+>
+> /\/\arc
+>
+>
 
-I've written some new layouts and simple php scripts. Download mlmmj-
-webarchiver and use it, then you get the same nice html pages...
-
-> Thomas
->=20
-
-Cheers,
-
-	-- andreas
-
---nextPart2972725.WyFAkaCAG4
-Content-Type: application/pgp-signature; name=signature.asc 
-Content-Description: This is a digitally signed message part.
-
------BEGIN PGP SIGNATURE-----
-Version: GnuPG v2.0.9 (GNU/Linux)
-
-iEYEABECAAYFAkrK5YYACgkQf94+j/M+P8ZNRwCgsqgEonfoffBpIoCpwOX3WFrD
-0RsAniCDVja5OMBmQrCZsfTSVOLnCdE9
-=vq9H
------END PGP SIGNATURE-----
-
---nextPart2972725.WyFAkaCAG4--
-
+-- 
+Mads Martin Joergensen, http://mmj.dk
+"Why make things difficult, when it is possible to make them cryptic
+  and totally illogical, with just a little bit more effort?"
+                                  -- A. P. J.
 
 
