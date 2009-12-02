@@ -1,31 +1,22 @@
-From: Morten Kirkegaard Poulsen <mopo@fabletech.com>
-Date: Mon, 21 Dec 2009 06:42:24 +0000
-Subject: Re: [PATCH] Re: requeued mail files going missing from archive/
-Message-Id: <1261377744.2091.10.camel@mopo-laptop>
+From: brush <brush@tryonfarm.org>
+Date: Wed, 02 Dec 2009 00:35:01 +0000
+Subject: mlmmj and dtc: where's the archive?
+Message-Id: <20091202003501.GJ25506@refresco.dreamhost.com>
 List-Id: <mlmmj.mlmmj.org>
-References: <robbat2-20091216T025726-844574632Z@orbis-terrarum.net>
-In-Reply-To: <robbat2-20091216T025726-844574632Z@orbis-terrarum.net>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-On Sun, 2009-12-20 at 23:47 +0100, Morten Kirkegaard Poulsen wrote:
-> > > > If the maintd visited more than one mail in the /requeue/ directory, and the
-> > > > FIRST one set the fromrequeuedir flag to unlink the mail file, the flag was NOT
-> > > > cleared and caused mail in the real archive to be erronously removed.
-> 
-> I haven't forgotten your patches. I will look at them, and commit them,
-> Very Soon Now(tm). I promise.
+hi folks,
 
-I have now committed it (and the listhelp et al. patch) to CVS, and I
-will roll a RC based on that.
+i'm using the client interface of a DTC server with mlmmj installed.
+i'm trying to find the web archive for our mailing lists, and while the
+settings are there in the mailing list setup, i can't find a link to the
+archive itself.
 
-Morten
+ideas?  is there a specific url that should get me there?
 
--- 
-Morten Kirkegaard Poulsen <mopo@fabletech.com>
-CTO, FableTech
-http://fabletech.com/
-
+thanks!
+.b
 
