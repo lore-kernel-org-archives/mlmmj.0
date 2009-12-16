@@ -1,36 +1,69 @@
-From: Morten Kirkegaard Poulsen <mopo@fabletech.com>
-Date: Mon, 21 Dec 2009 06:25:13 +0000
-Subject: Re: README.postfix
-Message-Id: <1261376713.2091.2.camel@mopo-laptop>
+From: "Robin H. Johnson" <robbat2@gentoo.org>
+Date: Wed, 16 Dec 2009 02:04:35 +0000
+Subject: requeued mail files going missing from archive/
+Message-Id: <20091216020435.GE29609@orbis-terrarum.net>
 List-Id: <mlmmj.mlmmj.org>
-References: <200912171013.45750.mail@cynapses.org>
-In-Reply-To: <200912171013.45750.mail@cynapses.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-On Mon, 2009-12-21 at 01:18 +0100, Andreas Schneider wrote:
-> Yes, it is based on the README from 2005. It still has to be improved but it 
-> will work for most things.
+Lately I've had a lot of mail be requeued, and I'm running into some of the
+requeue subdirectories existing, but the original mail that goes with them
+going missing after being delivered only to some users.
 
-Okay. I've committed it to CVS now, so it will be in the next release of
-mlmmj.
+mlmmj-maintd runs every 2 hours per the README doc.
+This is with Postfix, and maxverprecip00.
 
-> Example:
-> 
-> You have a mailing list: sv@example.com and setup the rules following to the 
-> howto. If you now have mailboxes for normal users there too, then and you 
-> write a mail to sven@somedomain.com and it will and up in mlmmj.
+# ls -lad */requeue/[0-9]*
+drwx------ 2 mail mail 80 Dec 16 01:03 gentoo-dev-announce/requeue/798
+drwx------ 2 mail mail 80 Nov 29 22:11 gentoo-dev/requeue/38621
+drwx------ 2 mail mail 80 Dec 15 08:07 gentoo-dev/requeue/38754
+drwx------ 2 mail mail 80 Dec  9 16:01 gentoo-hardened/requeue/2794
+drwx------ 2 mail mail 80 Nov 14 08:16 gentoo-pr/requeue/194
+drwx------ 2 mail mail 80 Nov 16 08:08 gentoo-user-ru/requeue/7742
+drwx------ 2 mail mail 80 Nov 18 10:02 gentoo-user/requeue/104073
+drwx------ 2 mail mail 80 Nov 20 00:04 gentoo-user/requeue/104170
+drwx------ 2 mail mail 80 Nov 20 22:04 gentoo-user/requeue/104216
+drwx------ 2 mail mail 80 Nov 28 12:01 gentoo-user/requeue/104460
+drwx------ 2 mail mail 80 Nov 30 00:02 gentoo-user/requeue/104539
+drwx------ 2 mail mail 80 Dec  2 20:06 gentoo-user/requeue/104699
+drwx------ 2 mail mail 80 Dec 16 01:01 gentoo-user/requeue/105222
 
-If you find the time to clarify it in the text, or a way to solve it,
-please send a patch :-)
+# wc -l */requeue/[0-9]*/sub*
+   484 gentoo-dev-announce/requeue/798/subscribers
+  1000 gentoo-dev/requeue/38621/subscribers
+  1000 gentoo-dev/requeue/38754/subscribers
+   997 gentoo-hardened/requeue/2794/subscribers
+   147 gentoo-pr/requeue/194/subscribers
+   401 gentoo-user-ru/requeue/7742/subscribers
+  1000 gentoo-user/requeue/104073/subscribers
+  1000 gentoo-user/requeue/104170/subscribers
+  1000 gentoo-user/requeue/104216/subscribers
+  1000 gentoo-user/requeue/104460/subscribers
+  1000 gentoo-user/requeue/104539/subscribers
+  1170 gentoo-user/requeue/104699/subscribers
+  2000 gentoo-user/requeue/105222/subscribers
+ 12199 total
 
-Morten
+# for i in */requeue/[0-9]* ; do b=$(basename $i) d=${i//\/*}; ls -la $d/archive/$b  ; done ;
+-rw------- 1 mail mail 2923 Dec 16 00:57 gentoo-dev-announce/archive/798
+ls: cannot access gentoo-dev/archive/38621: No such file or directory
+ls: cannot access gentoo-dev/archive/38754: No such file or directory
+ls: cannot access gentoo-hardened/archive/2794: No such file or directory
+ls: cannot access gentoo-pr/archive/194: No such file or directory
+ls: cannot access gentoo-user-ru/archive/7742: No such file or directory
+ls: cannot access gentoo-user/archive/104073: No such file or directory
+ls: cannot access gentoo-user/archive/104170: No such file or directory
+ls: cannot access gentoo-user/archive/104216: No such file or directory
+ls: cannot access gentoo-user/archive/104460: No such file or directory
+ls: cannot access gentoo-user/archive/104539: No such file or directory
+ls: cannot access gentoo-user/archive/104699: No such file or directory
+-rw------- 1 mail mail 4283 Dec 16 01:00 gentoo-user/archive/105222
 
 -- 
-Morten Kirkegaard Poulsen <mopo@fabletech.com>
-CTO, FableTech
-http://fabletech.com/
-
+Robin Hugh Johnson
+Gentoo Linux: Developer, Trustee & Infrastructure Lead
+E-Mail     : robbat2@gentoo.org
+GnuPG FP   : 11AC BA4F 4778 E3F6 E4ED  F38E B27B 944E 3488 4E85
 
