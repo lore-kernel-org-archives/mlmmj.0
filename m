@@ -1,20 +1,68 @@
-From: "Morten K. Poulsen" <mopo@fabletech.com>
-Date: Thu, 12 Nov 2009 21:20:51 +0000
-Subject: Re: mlmmj fix
-Message-Id: <1258060851.5543.37.camel@mopo-laptop>
+From: "Robin H. Johnson" <robbat2@gentoo.org>
+Date: Wed, 16 Dec 2009 02:58:17 +0000
+Subject: [PATCH] Re: requeued mail files going missing from archive/
+Message-Id: <robbat2-20091216T025726-844574632Z@orbis-terrarum.net>
+MIME-Version: 1
+Content-Type: multipart/mixed; boundary="mYYhpFXgKVw71fwr"
 List-Id: <mlmmj.mlmmj.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="johab"
-Content-Transfer-Encoding: base64
 To: mlmmj@mlmmj.org
 
-SGkgWsOhbWLDsywKCk9uIFdlZCwgMjAwOS0xMS0xMSBhdCAxMjo1NCArMDEwMCwgWsOhbWLDsyBN
-YXJjZWxsIHdyb3RlOgo+IEhlcmUgaXMgc29tZSBwYXRjaCBmb3IgbWxtbWouCgpUaGFua3MhIEl0
-J3MgYWx3YXlzIG5pY2UgdG8gc2VlIHNvbWUgbW9yZSBlcnJvciBjaGVja2luZy4KClRoZSBjaGFu
-Z2UgaW4gY2hlY2t3YWl0X3NtdHByZXBseSgpIGNvdWxkIGJlIGEgbG90IHNpbXBsZXIsIHRob3Vn
-aC4KU29tZXRoaW5nIGxpa2UgdGhpcyB3b3VsZCBkbyBleGFjdGx5IHRoZSBzYW1lOgoKaWYgKCFz
-bXRwcmVwbHkgfHwgKHN0cmxlbihzbXRwcmVwbHkpIDwgMyApKSB7CglyZXR1cm4gbXlzdHJkdXAo
-IkVSUiIpOwp9Cgo+IFRoZSBwYXRjaCB3cml0ZXIgaXMgb25lIG9mIG15IGNvbGxhZ2VzLCBidXQg
-SGUgaXMgZGlmZmlkZW50IDopCgpXaG8gbWF5IEkgY3JlZGl0IGZvciB0aGlzPyA6KQoKSGFwcHkg
-aGFja2luZywKTW9ydGVuCgotLSAKTW9ydGVuIEsuIFBvdWxzZW4gPG1vcG9AZmFibGV0ZWNoLmNv
-bT4KQ1RPLCBGYWJsZVRlY2gKaHR0cDovL2ZhYmxldGVjaC5jb20vCgoKCgo=
+
+--mYYhpFXgKVw71fwr
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+
+On Wed, Dec 16, 2009 at 02:04:35AM +0000, Robin H. Johnson wrote:
+> Lately I've had a lot of mail be requeued, and I'm running into some of the
+> requeue subdirectories existing, but the original mail that goes with them
+> going missing after being delivered only to some users.
+Patch that fixes it attached.
+
+If the maintd visited more than one mail in the /requeue/ directory, and the
+FIRST one set the fromrequeuedir flag to unlink the mail file, the flag was NOT
+cleared and caused mail in the real archive to be erronously removed.
+
+Signed-off-by: Robin H. Johnson <robbat2@gentoo.org>
+
+-- 
+Robin Hugh Johnson
+Gentoo Linux: Developer, Trustee & Infrastructure Lead
+E-Mail     : robbat2@gentoo.org
+GnuPG FP   : 11AC BA4F 4778 E3F6 E4ED  F38E B27B 944E 3488 4E85
+
+--mYYhpFXgKVw71fwr
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: attachment; filename="mlmmj-1.2.16-requeue-unlink-fix.patch"
+
+If the maintd visited more than one mail in the /requeue/ directory, and the
+FIRST one set the fromrequeuedir flag to unlink the mail file, the flag was NOT
+cleared and caused mail in the real archive to be erronously removed.
+
+Signed-off-by: Robin H. Johnson <robbat2@gentoo.org>
+
+diff -Nuar --exclude mlmmj-make-ml.sh mlmmj-1.2.16.orig/src/mlmmj-maintd.c mlmmj-1.2.16/src/mlmmj-maintd.c
+--- mlmmj-1.2.16.orig/src/mlmmj-maintd.c	2008-10-31 14:20:51.000000000 +0000
++++ mlmmj-1.2.16/src/mlmmj-maintd.c	2009-12-16 02:11:16.848146214 +0000
+@@ -373,7 +373,7 @@
+ 	struct stat st;
+ 	pid_t childpid, pid;
+ 	time_t t;
+-	int status, fromrequeuedir = 0;
++	int status, fromrequeuedir;
+ 
+ 	if(chdir(dirname) < 0) {
+ 		log_error(LOG_ARGS, "Could not chdir(%s)", dirname);
+@@ -408,6 +408,10 @@
+ 
+ 		archivefilename = concatstr(3, listdir, "/archive/",
+ 						dp->d_name);
++
++		/* Explicitly initialize for each mail we examine */
++		fromrequeuedir = 0;
++
+ 		if(stat(archivefilename, &st) < 0) {
+ 			/* Might be it's just not moved to the archive
+ 			 * yet because it's still getting sent, so just
+
+--mYYhpFXgKVw71fwr--
+
