@@ -1,7 +1,7 @@
-From: Morten Kirkegaard Poulsen <mopo@fabletech.com>
-Date: Thu, 17 Dec 2009 11:51:51 +0000
+From: =?iso-8859-1?Q?Mads_Martin_J=F8rgensen?= <mmj@mmj.dk>
+Date: Thu, 17 Dec 2009 11:53:35 +0000
 Subject: Re: README.postfix
-Message-Id: <1261050711.25648.23.camel@mopo-laptop>
+Message-Id: <DF7AB3B0-7D39-4826-8567-A312766A2A43@mmj.dk>
 List-Id: <mlmmj.mlmmj.org>
 References: <200912171013.45750.mail@cynapses.org>
 In-Reply-To: <200912171013.45750.mail@cynapses.org>
@@ -10,17 +10,27 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-On Thu, 2009-12-17 at 10:13 +0100, Andreas Schneider wrote:
+
+On 17/12/2009, at 10.13, Andreas Schneider wrote:
+
 > I've updated README.postfix as it doesn't work with latest postfix.
 
-Thanks Andreas. Does the updated README.postfix still apply to older
-versions of Postfix?
 
-Morten
+Thanks a lot. Would the previous Postfix work with the new one? In case it doesn't, it would be great if you would add both things in the file. Something like:
 
+For Postfix <= 5.2.9
+
+For Postfix > 5.2.9 
+
+Where each section has what works.
+
+Regards,
+Mads Martin
 -- 
-Morten Kirkegaard Poulsen <mopo@fabletech.com>
-CTO, FableTech
-http://fabletech.com/
+Mads Martin Joergensen, http://mmj.dk
+"Why make things difficult, when it is possible to make them cryptic
+ and totally illogical, with just a little bit more effort?"
+                                 -- A. P. J.
+
 
 
