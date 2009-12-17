@@ -1,27 +1,54 @@
-From: =?iso-8859-1?Q?Mads_Martin_J=F8rgensen?= <mmj@mmj.dk>
-Date: Thu, 17 Dec 2009 12:14:46 +0000
+From: Michael Rasmussen <mir@datanom.net>
+Date: Thu, 17 Dec 2009 12:28:13 +0000
 Subject: Re: README.postfix
-Message-Id: <516CCB87-068C-41F3-9FE6-432B12F0E995@mmj.dk>
+Message-Id: <20091217132813.20ac1b10@sleipner.datanom.net>
+MIME-Version: 1
+Content-Type: multipart/mixed; boundary="Sig_/6L/rAC.hKUHxQbRFl92=M8E"
 List-Id: <mlmmj.mlmmj.org>
 References: <200912171013.45750.mail@cynapses.org>
 In-Reply-To: <200912171013.45750.mail@cynapses.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
+--Sig_/6L/rAC.hKUHxQbRFl92=M8E
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: quoted-printable
 
-On 17/12/2009, at 13.13, Andreas Schneider wrote:
+On Thu, 17 Dec 2009 13:13:46 +0100
+Andreas Schneider <mail@cynapses.org> wrote:
 
-> So this will work with old and new versions of postfix.
+>=20
+> The new postfix is just more strict. You are not allowed to do mlmmj:$1=20
+> anymore. You have to specify the destination like mlmmj:my-list.
+>=20
+More strict is not the precise explanation:-) The correct term would be
+to say that never versions of Postfix does not allow variable
+substitution via $n variables anymore in transport maps.
 
+--=20
+Hilsen/Regards
+Michael Rasmussen
 
-Wunderbar! Thanks again.
+Get my public GnuPG keys:
+michael <at> rasmussen <dot> cc
+http://pgp.mit.edu:11371/pks/lookup?op=3Dget&search=3D0xD3C9A00E
+mir <at> datanom <dot> net
+http://pgp.mit.edu:11371/pks/lookup?op=3Dget&search=3D0xE501F51C
+mir <at> miras <dot> org
+http://pgp.mit.edu:11371/pks/lookup?op=3Dget&search=3D0xE3E80917
+--------------------------------------------------------------
+You teach best what you most need to learn.
 
--- 
-Mads Martin Joergensen, http://mmj.dk
-"Why make things difficult, when it is possible to make them cryptic
- and totally illogical, with just a little bit more effort?"
-                                 -- A. P. J.
+--Sig_/6L/rAC.hKUHxQbRFl92=M8E
+Content-Type: application/pgp-signature; name=signature.asc
+Content-Disposition: attachment; filename=signature.asc
 
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.10 (GNU/Linux)
+
+iEYEARECAAYFAksqI90ACgkQQQOPluUB9RzhXACfbFulaVTFqNSCzRBg5g8zEWas
+VYMAoMM5494qC3BLo37AjUyjLVUfWERs
+=a/W6
+-----END PGP SIGNATURE-----
+
+--Sig_/6L/rAC.hKUHxQbRFl92=M8E--
 
