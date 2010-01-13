@@ -1,30 +1,37 @@
-From: Morten Shearman Kirkegaard <moki@fabletech.com>
-Date: Thu, 21 Jan 2010 16:44:02 +0000
-Subject: Re: Archive templates into contrib?
-Message-Id: <1264092242.3123.114.camel@mopo-laptop>
+From: Ben Schmidt <mail_ben_schmidt@yahoo.com.au>
+Date: Wed, 13 Jan 2010 14:00:41 +0000
+Subject: ***SPAM*** Footer in MIME messages
+Message-Id: <4B4DD209.3020003@yahoo.com.au>
 List-Id: <mlmmj.mlmmj.org>
-References: <4B4DDAA9.3070808@yahoo.com.au>
-In-Reply-To: <4B4DDAA9.3070808@yahoo.com.au>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Hi Ben,
+Hi!
 
-On Thu, 2010-01-14 at 01:37 +1100, Ben Schmidt wrote:
-> the templates by Sven 'Darkman' Michels
-...
-> Perhaps they could be added in the next release if they are complete
-> enough?
+I can see from the mailing list archives that the subject of mlmmj handling 
+footers correctly for MIME messages was discussed back in 2005/2006. A patch was 
+made, the latest version of which is, I believe, here:
 
-Sure, if Darkman is ready, I'll happily add his stuff.
+http://plonk.de/sw/mlmmj/mlmmj-footer-mime6.patch
 
-Morten
+and it was indicated that this would be included in 1.2.10. Four years down the 
+track and we're up to 1.2.16 and it seems this patch hasn't actually made it in. I 
+couldn't find anything in the archives suggesting a change of plan or explaining 
+why it hadn't been included.
 
--- 
-Morten Shearman Kirkegaard <moki@fabletech.com>
-CTO, FableTech
-http://fabletech.com/
+I just tried applying the patch to 1.2.16 and with a small amount of manual work 
+it still applies just fine and mlmmj compiles. I haven't tested it yet.
+
+However, I would love to see this feature make it into the official mlmmj. Is that 
+possible? Likely? Is there something holding it back that I can help with?
+
+Cheers,
+
+Ben.
+
+
+
 
 
