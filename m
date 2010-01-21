@@ -1,28 +1,30 @@
-From: Ben Schmidt <mail_ben_schmidt@yahoo.com.au>
-Date: Wed, 13 Jan 2010 14:37:29 +0000
-Subject: Archive templates into contrib?
-Message-Id: <4B4DDAA9.3070808@yahoo.com.au>
+From: Morten Shearman Kirkegaard <moki@fabletech.com>
+Date: Thu, 21 Jan 2010 16:44:02 +0000
+Subject: Re: Archive templates into contrib?
+Message-Id: <1264092242.3123.114.camel@mopo-laptop>
 List-Id: <mlmmj.mlmmj.org>
+References: <4B4DDAA9.3070808@yahoo.com.au>
+In-Reply-To: <4B4DDAA9.3070808@yahoo.com.au>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-All my mail looks like it's going to be marked as spam because it's miles in the 
-future, being written after 2000... Looks like some spam filter is badly configured...
+Hi Ben,
 
-Again digging through the mailing list I found something else I was after...that 
-hypermail works nicely with mlmmj and the templates by Sven 'Darkman' Michels 
-which are at
+On Thu, 2010-01-14 at 01:37 +1100, Ben Schmidt wrote:
+> the templates by Sven 'Darkman' Michels
+...
+> Perhaps they could be added in the next release if they are complete
+> enough?
 
-http://mlmmj.mmj.dk/~darkman/mlmmj-webarchiver-0.72.tar.gz
+Sure, if Darkman is ready, I'll happily add his stuff.
 
-and were planned to go into contrib in the distribution but never made it.
+Morten
 
-Perhaps they could be added in the next release if they are complete enough?
-
-Ben.
-
-
+-- 
+Morten Shearman Kirkegaard <moki@fabletech.com>
+CTO, FableTech
+http://fabletech.com/
 
 
