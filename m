@@ -1,83 +1,104 @@
-From: Ben Schmidt <mail_ben_schmidt@yahoo.com.au>
-Date: Mon, 25 Jan 2010 13:41:34 +0000
-Subject: Re: PATCH: Access priority
-Message-Id: <4B5D9F8E.5030506@yahoo.com.au>
-MIME-Version: 1
-Content-Type: multipart/mixed; boundary="------------040302090708090103000204"
+From: Morten Shearman Kirkegaard <moki@fabletech.com>
+Date: Sat, 23 Jan 2010 19:42:12 +0000
+Subject: mlmmj-1.2.17 released
+Message-Id: <1264275732.3123.220.camel@mopo-laptop>
 List-Id: <mlmmj.mlmmj.org>
-References: <4B5D7A55.4090302@yahoo.com.au>
-In-Reply-To: <4B5D7A55.4090302@yahoo.com.au>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-This is a multi-part message in MIME format.
---------------040302090708090103000204
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-
-Here is an updated version of this patch that applies on top of the revised 
-notmetoo patch I just emailed.
-
-Ben.
+Hi list,
 
 
+I've just uploaded mlmmj-1-2-17. Thanks for all the patches and other
+contributions. You guys make this happen.
 
-On 25/01/10 10:02 PM, Ben Schmidt wrote:
-> This patch fixes something that I got bitten by last week, and since I
-> spotted the place in the code while I was working on the other stuff, I
-> did this too! It applies over 1.2.17.
->
-> The problem is that if you have a list that is 'moderated' or
-> 'modnonsubposts', the 'allow' access keyword is ineffective, but behaves
-> like 'moderate'. This patch fixes that so that access rules have
-> priority, and do what they say.
->
-> I think this is more intuitive.
->
-> Do others agree? Or could this change cause problems? If not, or the
-> perceived problems are minor enough, could this be included in mlmmj?
->
-> I have tested it, and it works for me.
->
-> Ben.
->
 
---------------040302090708090103000204
-Content-Type: text/x-patch;
- name="mlmmj-access-2.patch"
-Content-Transfer-Encoding: 7bit
-Content-Disposition: attachment;
- filename="mlmmj-access-2.patch"
+http://mlmmj.mmj.dk/files/mlmmj-1.2.17.tar.bz2
+bff8050f14f2084d661421135be685ad
 
-diff -ru mlmmj-1.2.17/src/mlmmj-process.c mlmmj-1.2.17-mod/src/mlmmj-process.c
---- mlmmj-1.2.17/src/mlmmj-process.c	2010-01-26 00:13:49.000000000 +1100
-+++ mlmmj-1.2.17-mod/src/mlmmj-process.c	2010-01-26 00:15:26.000000000 +1100
-@@ -852,6 +854,9 @@
- 	}
- 
- startaccess:
-+	if(!moderated)
-+		moderated = statctrl(listdir, "moderated");
+http://mlmmj.mmj.dk/files/mlmmj-1.2.17.tar.gz
+46af062a4249bcfbeb43be4485ebc7c3
+
+
+The following changes have been made since 1.2.16:
+ o Added ifmodsendonlymodmoderate tunable
+ o Replaced class.FastTemplate.php with class.rFastTemplate.php in
+   contrib/web/php-admin (Christoph Thiel)
+ o Added information about digest and nomail to listhelp
+   (Robin H. Johnson)
+ o Fixed bug in mlmmj-maintd which caused loss of archive files in
+   some requeue cases (Robin H. Johnson)
+ o Added README.postfix (Jeremy Hinegardner, Andreas Schneider)
+ o Added support for digest and nomail to +list (Christoph Wilke)
+ o Caseinsensitive string compare for owner addr when +list is
+   invoked. Spotted by Pavel Kolar.
+ o Added contrib/web/php-moderation (Thomas Goirand)
+
+
+The following listtexts are missing. Could somebody translate them?
+
+cz/listfaq
+cz/maxmailsize
+cz/sub-deny-digest
+cz/sub-deny-nomail
+cz/submod-moderator
+cz/submod-requester
+cz/sub-subscribed
+cz/unsub-notsubscribed
+
+de/listfaq
+de/sub-deny-digest
+de/sub-deny-nomail
+
+es/maxmailsize
+es/sub-deny-digest
+es/sub-deny-nomail
+es/submod-moderator
+es/submod-requester
+
+fr/listfaq
+fr/maxmailsize
+fr/sub-deny-digest
+fr/sub-deny-nomail
+fr/submod-moderator
+fr/submod-requester
+
+
+Also, the following changes were made to the English texts. Could you
+translate them to all the other languages?
+
+listtexts/en/listhelp
++To unsubscribe from the digest of this list send a message to:
 +
- 	noaccessdenymails = statctrl(listdir, "noaccessdenymails");
- 
- 	access_rules = ctrlvalues(listdir, "access");
-@@ -918,13 +923,13 @@
- 			myfree(donemailname);
- 			myfree(discardname);
-                 	exit(EXIT_SUCCESS);
-+		} else if (accret == ALLOW) {
-+			moderated = 0;
- 		}
- 	}
- 
- 	notmetoo = statctrl(listdir, "notmetoo");
- 
--	if(!moderated)
--		moderated = statctrl(listdir, "moderated");
- 	if(moderated) {
- 		mqueuename = concatstr(3, listdir, "/moderation/",
- 				       randomstr);
++$digestunsubaddr$
++
++To unsubscribe from the "nomail" version this list send a message to:
++
++$nomailunsubaddr$
 
---------------040302090708090103000204--
+listtexts/en/sub-subscribed     
++To unsubscribe from the digest of this list send a message to:
++
++$digestunsubaddr$
++
++To unsubscribe from the "nomail" version this list send a message to:
++
++$nomailunsubaddr$
+
+listtexts/en/unsub-notsubscribed        
++To unsubscribe from the digest of this list send a message to:
++
++$digestunsubaddr$
+
+
+Happy hacking,
+Morten
+
+-- 
+Morten Kirkegaard Poulsen <mopo@fabletech.com>
+CTO, FableTech
+http://fabletech.com/
 
 
