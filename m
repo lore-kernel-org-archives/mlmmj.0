@@ -1,46 +1,59 @@
 From: Ben Schmidt <mail_ben_schmidt@yahoo.com.au>
-Date: Tue, 26 Jan 2010 10:15:57 +0000
-Subject: PATCH: silent subscription
-Message-Id: <4B5EC0DD.1020106@yahoo.com.au>
+Date: Tue, 26 Jan 2010 11:58:43 +0000
+Subject: Re: PATCH: silent subscription
+Message-Id: <4B5ED8F3.8070404@yahoo.com.au>
 MIME-Version: 1
-Content-Type: multipart/mixed; boundary="------------060901070202090501040609"
+Content-Type: multipart/mixed; boundary="------------070300020004000801040103"
 List-Id: <mlmmj.mlmmj.org>
+References: <4B5EC0DD.1020106@yahoo.com.au>
+In-Reply-To: <4B5EC0DD.1020106@yahoo.com.au>
 To: mlmmj@mlmmj.org
 
 This is a multi-part message in MIME format.
---------------060901070202090501040609
+--------------070300020004000801040103
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 
-Got bitten by this one, too! The documentation for mlmmj-sub has an interesting 
-use of the word 'silent'. I've changed the documentation and added an option to 
-actually allow silent subscription even when moderation is turned on.
+This is a better version of the patch. As I was implementing the notification of 
+moderation, I realised this forking behaviour was far from ideal and could be 
+better. Now it does the forking similarly to how it is done for confirming 
+subscriptions while notifying the list owner. It, too, makes sending the 
+notification the lower priority, with the exit status representing whether it 
+succeeded in sending the mail to moderators.
 
-I also added a tunable to disable the message to the requester. Mail moderation 
-doesn't spam the requester each time they send a mail, so why should subscription 
-requests? (Though notifying posters that their mail is awaiting moderation is a 
-feature I will need, too, and will send a patch shortly for that as it should be 
-fairly straightforward.)
+The comments below still apply.
 
-Patch attached. Could it be included in mlmmj?
+On 26/01/10 9:15 PM, Ben Schmidt wrote:
+> Got bitten by this one, too! The documentation for mlmmj-sub has an
+> interesting use of the word 'silent'. I've changed the documentation and
+> added an option to actually allow silent subscription even when
+> moderation is turned on.
+>
+> I also added a tunable to disable the message to the requester. Mail
+> moderation doesn't spam the requester each time they send a mail, so why
+> should subscription requests? (Though notifying posters that their mail
+> is awaiting moderation is a feature I will need, too, and will send a
+> patch shortly for that as it should be fairly straightforward.)
+>
+> Patch attached. Could it be included in mlmmj?
+>
+> Cheers,
+>
+> Ben.
 
-Cheers,
-
-Ben.
 
 
 
-
---------------060901070202090501040609
+--------------070300020004000801040103
 Content-Type: text/x-patch;
  name="mlmmj-sub-silent.patch"
 Content-Transfer-Encoding: 8bit
 Content-Disposition: attachment;
  filename="mlmmj-sub-silent.patch"
 
-diff -r 99ec9f826d35 TUNABLES
---- a/TUNABLES	Tue Jan 26 18:25:03 2010 +1100
-+++ b/TUNABLES	Tue Jan 26 21:11:41 2010 +1100
+diff -r 5ede2d9142c2 TUNABLES
+--- a/TUNABLES	Tue Jan 26 22:19:31 2010 +1100
++++ b/TUNABLES	Tue Jan 26 22:19:57 2010 +1100
 @@ -158,6 +158,12 @@
     when it was rejected due to an access rule (see 'access') or whether it's a
     subscribers only posting list (see 'subonlypost').
@@ -54,9 +67,9 @@ diff -r 99ec9f826d35 TUNABLES
   ��� smtpport			(normal)
  
     In this file a port other than port 25 for connecting to the relayhost
-diff -r 99ec9f826d35 contrib/web/perl-admin/conf/tunables.pl
---- a/contrib/web/perl-admin/conf/tunables.pl	Tue Jan 26 18:25:03 2010 +1100
-+++ b/contrib/web/perl-admin/conf/tunables.pl	Tue Jan 26 21:11:41 2010 +1100
+diff -r 5ede2d9142c2 contrib/web/perl-admin/conf/tunables.pl
+--- a/contrib/web/perl-admin/conf/tunables.pl	Tue Jan 26 22:19:31 2010 +1100
++++ b/contrib/web/perl-admin/conf/tunables.pl	Tue Jan 26 22:19:57 2010 +1100
 @@ -156,6 +156,12 @@
  			  "This switch turns off whether mlmmj sends out notification about postings ".
  			  "being rejected due to a subscribers only posting list (see 'subonlypost').");
@@ -70,9 +83,9 @@ diff -r 99ec9f826d35 contrib/web/perl-admin/conf/tunables.pl
  mlmmj_boolean("nodigesttext",
  			  "No digest text summary",
  			  "This switch turns off whether digest mails will have a text part with a thread ".
-diff -r 99ec9f826d35 contrib/web/php-admin/conf/tunables.pl
---- a/contrib/web/php-admin/conf/tunables.pl	Tue Jan 26 18:25:03 2010 +1100
-+++ b/contrib/web/php-admin/conf/tunables.pl	Tue Jan 26 21:11:41 2010 +1100
+diff -r 5ede2d9142c2 contrib/web/php-admin/conf/tunables.pl
+--- a/contrib/web/php-admin/conf/tunables.pl	Tue Jan 26 22:19:31 2010 +1100
++++ b/contrib/web/php-admin/conf/tunables.pl	Tue Jan 26 22:19:57 2010 +1100
 @@ -156,6 +156,12 @@
  			  "This switch turns off whether mlmmj sends out notification about postings ".
  			  "being rejected due to a subscribers only posting list (see 'subonlypost').");
@@ -86,9 +99,9 @@ diff -r 99ec9f826d35 contrib/web/php-admin/conf/tunables.pl
  mlmmj_boolean("nodigesttext",
  			  "No digest text summary",
  			  "This switch turns off whether digest mails will have a text part with a thread ".
-diff -r 99ec9f826d35 man/mlmmj-sub.1
---- a/man/mlmmj-sub.1	Tue Jan 26 18:25:03 2010 +1100
-+++ b/man/mlmmj-sub.1	Tue Jan 26 21:11:41 2010 +1100
+diff -r 5ede2d9142c2 man/mlmmj-sub.1
+--- a/man/mlmmj-sub.1	Tue Jan 26 22:19:31 2010 +1100
++++ b/man/mlmmj-sub.1	Tue Jan 26 22:19:57 2010 +1100
 @@ -1,18 +1,20 @@
 -.TH mlmmj-sub "1" "September 2004" mlmmj-sub
 +.TH mlmmj-sub "1" "January 2010" mlmmj-sub
@@ -127,10 +140,58 @@ diff -r 99ec9f826d35 man/mlmmj-sub.1
  .SH "SEE ALSO"
  mlmmj-unsub(1), setuid(2)
  .SH AUTHORS
-diff -r 99ec9f826d35 src/mlmmj-sub.c
---- a/src/mlmmj-sub.c	Tue Jan 26 18:25:03 2010 +1100
-+++ b/src/mlmmj-sub.c	Tue Jan 26 21:11:41 2010 +1100
-@@ -172,13 +172,19 @@
+diff -r 5ede2d9142c2 src/mlmmj-sub.c
+--- a/src/mlmmj-sub.c	Tue Jan 26 22:19:31 2010 +1100
++++ b/src/mlmmj-sub.c	Tue Jan 26 22:19:57 2010 +1100
+@@ -54,12 +54,12 @@
+ 		const char *listdelim, const char *subaddr,
+ 		const char *mlmmjsend, enum subtype typesub)
+ {
+-	int i, fd;
++	int i, fd, status, nosubmodmails = 0;
+ 	char *a = NULL, *queuefilename, *from, *listname, *listfqdn, *str;
+ 	char *modfilename, *randomstr, *mods, *to, *replyto, *moderators = NULL;
+ 	char *modfilebase;
+ 	struct strlist *submods;
+-	pid_t pid;
++	pid_t childpid, pid;
+ 	char *maildata[6] = { "subaddr", NULL, "moderateaddr", NULL,
+ 				"moderators", NULL };
+ 
+@@ -151,16 +151,24 @@
+ 	
+ 	myfree(maildata[1]);
+ 	
+-	/* we need to exec more than one mlmmj-send */
++	/* we might need to exec more than one mlmmj-send */
+ 	
+-	pid = fork();
++	nosubmodmails = statctrl(listdir,"nosubmodmails");
++	
++	if (nosubmodmails)
++		childpid = -1;
++	else {
++		childpid = fork();
++		if(childpid < 0)
++			log_error(LOG_ARGS, "Could not fork; requester not notified");
++	}
+ 
+-	if(pid < 0) {
+-		log_error(LOG_ARGS, "Could not fork for mlmmj-send"
+-				"Request in %s not served", modfilename);
+-		exit(EXIT_FAILURE);
+-	}
+-	if(pid == 0) {
++	if(childpid != 0) {
++		if(childpid > 0) {
++			do /* Parent waits for the child */
++				pid = waitpid(childpid, &status, 0);
++			while(pid == -1 && errno == EINTR);
++		}
+ 		execl(mlmmjsend, mlmmjsend,
+ 				"-a",
+ 				"-l", "4",
+@@ -172,7 +180,7 @@
  		log_error(LOG_ARGS, "execl() of '%s' failed", mlmmjsend);
  		exit(EXIT_FAILURE);
  	}
@@ -139,19 +200,7 @@ diff -r 99ec9f826d35 src/mlmmj-sub.c
  	myfree(to);
  	myfree(replyto);
  	myfree(moderators);
- 	
- 	/* send mail to requester that the list is submod'ed */
- 
-+	if (statctrl(listdir,"nosubmodmails")) {
-+		myfree(listname);
-+		myfree(listfqdn);
-+		exit(EXIT_SUCCESS);
-+	}
-+	
- 	from = concatstr(4, listname, listdelim, "bounces-help@", listfqdn);
- 	queuefilename = prepstdreply(listdir, "submod-requester", "$listowner$",
- 					subaddr, NULL, 0, NULL, NULL, NULL);
-@@ -429,11 +435,12 @@
+@@ -429,11 +437,12 @@
  static void print_help(const char *prg)
  {
  	printf("Usage: %s -L /path/to/list [-a john@doe.org | -m str]"
@@ -165,7 +214,7 @@ diff -r 99ec9f826d35 src/mlmmj-sub.c
  	       " -h: This help\n"
  	       " -L: Full path to list directory\n"
  	       " -m: moderation string\n"
-@@ -441,8 +448,8 @@
+@@ -441,8 +450,8 @@
  	printf(" -s: Don't send a mail to subscriber if already subscribed\n"
  	       " -U: Don't switch to the user id of the listdir owner\n"
  	       " -V: Print version\n"
@@ -176,7 +225,7 @@ diff -r 99ec9f826d35 src/mlmmj-sub.c
  	exit(EXIT_SUCCESS);
  }
  
-@@ -487,6 +494,7 @@
+@@ -487,6 +496,7 @@
  	int subconfirm = 0, confirmsub = 0, opt, subfilefd, lock, notifysub;
  	int changeuid = 1, status, digest = 0, nomail = 0, i = 0, submod = 0;
  	int groupwritable = 0, sublock, sublockfd, nogensubscribed = 0, subbed;
@@ -184,7 +233,7 @@ diff -r 99ec9f826d35 src/mlmmj-sub.c
  	size_t len;
  	struct stat st;
  	pid_t pid, childpid;
-@@ -501,7 +509,7 @@
+@@ -501,7 +511,7 @@
  	mlmmjsend = concatstr(2, bindir, "/mlmmj-send");
  	myfree(bindir);
  
@@ -193,7 +242,7 @@ diff -r 99ec9f826d35 src/mlmmj-sub.c
  		switch(opt) {
  		case 'a':
  			address = optarg;
-@@ -515,6 +523,9 @@
+@@ -515,6 +525,9 @@
  		case 'd':
  			digest = 1;
  			break;
@@ -203,7 +252,7 @@ diff -r 99ec9f826d35 src/mlmmj-sub.c
  		case 'h':
  			print_help(argv[0]);
  			break;
-@@ -670,7 +681,7 @@
+@@ -670,7 +683,7 @@
  	subbed = is_subbed_in(subddirname, address);
  	listdelim = getlistdelim(listdir);
  	if(modstr == NULL)
@@ -212,7 +261,16 @@ diff -r 99ec9f826d35 src/mlmmj-sub.c
  	
  	if(subbed) {
  		if(subconfirm) {
+@@ -719,7 +732,7 @@
+ 		childpid = fork();
+ 
+ 		if(childpid < 0) {
+-			log_error(LOG_ARGS, "Could not fork");
++			log_error(LOG_ARGS, "Could not fork; owner not notified");
+ 			confirm_sub(listdir, listaddr, listdelim, address,
+ 					mlmmjsend, typesub);
+ 		}
 
---------------060901070202090501040609--
+--------------070300020004000801040103--
 
 
