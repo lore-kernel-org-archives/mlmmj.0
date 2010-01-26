@@ -1,92 +1,194 @@
-From: "Robin H. Johnson" <robbat2@gentoo.org>
-Date: Wed, 16 Dec 2009 21:04:32 +0000
-Subject: [PATCH] Unsubscribe hints in texts
-Message-Id: <robbat2-20091216T210003-314874232Z@orbis-terrarum.net>
+From: Ben Schmidt <mail_ben_schmidt@yahoo.com.au>
+Date: Tue, 26 Jan 2010 12:13:38 +0000
+Subject: PATCH: Notify moderation
+Message-Id: <4B5EDC72.7040104@yahoo.com.au>
 MIME-Version: 1
-Content-Type: multipart/mixed; boundary="rmUrFcWP4LYae1gV"
+Content-Type: multipart/mixed; boundary="------------070307030700000508040703"
 List-Id: <mlmmj.mlmmj.org>
 To: mlmmj@mlmmj.org
 
+This is a multi-part message in MIME format.
+--------------070307030700000508040703
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
---rmUrFcWP4LYae1gV
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+This patch allows posters to be sent notification when their posts are held for 
+moderation. Requires new listtext.
 
-This is possibly not 1.2.17 material.
+Tests fine for me (as have all the patches I have sent, though I neglected to 
+mention once or twice).
 
-Provide more hints to the users on how to unsubscribe from the nomail
-and digest forms. Frequently seen where users try to unsubscribe from
-the normal version of the list when they are really subscribed to the
-digest form.
+Could this be included in mlmmj?
 
-Signed-off-by: "Robin H. Johnson" <robbat2@gentoo.org>
+I realise I'm sending quite a few patches for consideration here! I believe these 
+are all useful additions, though. They are features that are present in other 
+mailing list programs, and which I need and use.
 
--- 
-Robin Hugh Johnson
-Gentoo Linux: Developer, Trustee & Infrastructure Lead
-E-Mail     : robbat2@gentoo.org
-GnuPG FP   : 11AC BA4F 4778 E3F6 E4ED  F38E B27B 944E 3488 4E85
+This will be all for a little while, too. The few other things I'm interested in 
+are lower priority. I'm keen to have these patches I've already sent included in 
+mlmmj (after discussion and modification as appropriate)!
 
---rmUrFcWP4LYae1gV
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: attachment; filename="mlmmj-1.2.16-unsub-digest-text.patch"
+Ben.
 
-Provide more hints to the users on how to unsubscribe from the nomail
-and digest forms. Frequently seen where users try to unsubscribe from
-the normal version of the list when they are really subscribed to the
-digest form.
 
-Signed-off-by: "Robin H. Johnson" <robbat2@gentoo.org>
 
-diff -Nuar mlmmj-1.2.16.orig/listtexts/en/listhelp mlmmj-1.2.16/listtexts/en/listhelp
---- mlmmj-1.2.16.orig/listtexts/en/listhelp	2008-10-30 20:06:29.000000000 +0000
-+++ mlmmj-1.2.16/listtexts/en/listhelp	2009-12-16 20:58:30.864716161 +0000
-@@ -8,6 +8,14 @@
+--------------070307030700000508040703
+Content-Type: text/x-patch;
+ name="mlmmj-notifymod.patch"
+Content-Transfer-Encoding: 8bit
+Content-Disposition: attachment;
+ filename="mlmmj-notifymod.patch"
+
+diff -r 2918436fa450 TUNABLES
+--- a/TUNABLES	Tue Jan 26 22:19:57 2010 +1100
++++ b/TUNABLES	Tue Jan 26 22:45:06 2010 +1100
+@@ -103,6 +103,11 @@
+    If this file is present, the owner(s) will get a mail with the address of
+    someone sub/unsubscribing to a mailinglist.
  
- $listunsubaddr$
- 
-+To unsubscribe from the digest of this list send a message to:
++ ��� notifymod			(boolean)
 +
-+$digestunsubaddr$
++   If this file is present, the poster (based on the envelope from) will
++   get a mail when their post is being moderation.
 +
-+To unsubscribe from the "nomail" version this list send a message to:
-+
-+$nomailunsubaddr$
-+
- To subscribe to the digest of this list send a message to:
+  ��� digestinterval		(normal)
  
- $digestsubaddr$
-diff -Nuar mlmmj-1.2.16.orig/listtexts/en/sub-subscribed mlmmj-1.2.16/listtexts/en/sub-subscribed
---- mlmmj-1.2.16.orig/listtexts/en/sub-subscribed	2008-10-30 20:06:30.000000000 +0000
-+++ mlmmj-1.2.16/listtexts/en/sub-subscribed	2009-12-16 20:59:21.504710982 +0000
-@@ -11,6 +11,14 @@
+    This file specifies how many seconds will pass before the next digest is
+diff -r 2918436fa450 contrib/web/perl-admin/conf/tunables.pl
+--- a/contrib/web/perl-admin/conf/tunables.pl	Tue Jan 26 22:19:57 2010 +1100
++++ b/contrib/web/perl-admin/conf/tunables.pl	Tue Jan 26 22:45:06 2010 +1100
+@@ -100,6 +100,11 @@
+ 			  "Notify subscribers",
+ 			  "If this option is set, the owner(s) will get a mail with the address of someone sub/unsubscribing to a mailinglist.");
  
- $listunsubaddr$
- 
-+To unsubscribe from the digest of this list send a message to:
++mlmmj_boolean("notifymod",
++			  "Notify moderation",
++			  "If this option is set, the poster (based on the envelope from) will ".
++			  "get a mail when their post is being moderation.");
 +
-+$digestunsubaddr$
-+
-+To unsubscribe from the "nomail" version this list send a message to:
-+
-+$nomailunsubaddr$
-+
- And for help send a message to:
+ mlmmj_string("digestinterval",
+ 			 "Digest interval",
+ 			 "This option specifies how many seconds will pass before the ".
+diff -r 2918436fa450 contrib/web/php-admin/conf/tunables.pl
+--- a/contrib/web/php-admin/conf/tunables.pl	Tue Jan 26 22:19:57 2010 +1100
++++ b/contrib/web/php-admin/conf/tunables.pl	Tue Jan 26 22:45:06 2010 +1100
+@@ -100,6 +100,11 @@
+ 			  "Notify subscribers",
+ 			  "If this option is set, the owner(s) will get a mail with the address of someone sub/unsubscribing to a mailinglist.");
  
- $helpaddr$
-diff -Nuar mlmmj-1.2.16.orig/listtexts/en/unsub-notsubscribed mlmmj-1.2.16/listtexts/en/unsub-notsubscribed
---- mlmmj-1.2.16.orig/listtexts/en/unsub-notsubscribed	2008-10-30 20:06:30.000000000 +0000
-+++ mlmmj-1.2.16/listtexts/en/unsub-notsubscribed	2009-12-16 20:59:00.624713133 +0000
-@@ -6,6 +6,9 @@
- 
- You are not subscribed to this list, so you cannot unsubscribe.
- 
-+To unsubscribe from the digest of this list send a message to:
++mlmmj_boolean("notifymod",
++			  "Notify moderation",
++			  "If this option is set, the poster (based on the envelope from) will ".
++			  "get a mail when their post is being moderation.");
 +
-+$digestunsubaddr$
+ mlmmj_string("digestinterval",
+ 			 "Digest interval",
+ 			 "This option specifies how many seconds will pass before the ".
+diff -r 2918436fa450 listtexts/en/moderation-poster
+--- /dev/null	Thu Jan 01 00:00:00 1970 +0000
++++ b/listtexts/en/moderation-poster	Tue Jan 26 22:45:06 2010 +1100
+@@ -0,0 +1,11 @@
++Subject: Post waiting for approval
++
++Hi, this is the mlmmj program managing the mailinglist
++
++$listaddr$
++
++This list is configured to have moderated posts, the post has been queued
++for approval.
++
++--- Below this line are the first 100 lines of the message up for moderation --->
++$originalmail$
+diff -r 2918436fa450 src/mlmmj-process.c
+--- a/src/mlmmj-process.c	Tue Jan 26 22:19:57 2010 +1100
++++ b/src/mlmmj-process.c	Tue Jan 26 22:45:06 2010 +1100
+@@ -76,8 +76,9 @@
+ 	char *buf, *replyto, *listaddr = getlistaddr(listdir), *listdelim;
+ 	char *queuefilename = NULL, *moderatorsfilename, *efromismod = NULL;
+ 	char *mailbasename = mybasename(mailfilename), *tmp, *to;
+-	int moderatorsfd, foundaddr = 0;
++	int moderatorsfd, foundaddr = 0, notifymod = 0, status;
+ 	char *maildata[4] = { "moderateaddr", NULL, "moderators", NULL };
++	pid_t childpid, pid;
+ #if 0
+ 	printf("mailfilename = [%s], mailbasename = [%s]\n", mailfilename,
+ 			                                     mailbasename);
+@@ -131,24 +132,59 @@
+ 	myfree(listfqdn);
  
- To subscribe send a message to:
+ 	queuefilename = prepstdreply(listdir, "moderation", "$listowner$",
+-				     to, replyto, 2, maildata, NULL, mailfilename);
++				     to, replyto, 2, maildata, NULL,
++				     mailfilename);
+ 
+-	if(efromismod)
+-		execlp(mlmmjsend, mlmmjsend,
+-				"-l", "1",
+-				"-L", listdir,
+-				"-F", from,
+-				"-m", queuefilename,
+-				"-T", efromsender, (char *)NULL);
+-	else
+-		execlp(mlmmjsend, mlmmjsend,
+-				"-l", "2",
+-				"-L", listdir,
+-				"-F", from,
+-				"-m", queuefilename, (char *)NULL);
++	/* we might need to exec more than one mlmmj-send */
++	
++	notifymod = !efromismod && statctrl(listdir,"notifymod");
++	
++	if (notifymod) {
++		childpid = fork();
++		if(childpid < 0)
++			log_error(LOG_ARGS, "Could not fork; poster not notified");
++	} else
++		childpid = -1;
++
++	if(childpid != 0) {
++		if(childpid > 0) {
++			do /* Parent waits for the child */
++				pid = waitpid(childpid, &status, 0);
++			while(pid == -1 && errno == EINTR);
++		}
++		if(efromismod)
++			execlp(mlmmjsend, mlmmjsend,
++					"-l", "1",
++					"-L", listdir,
++					"-F", from,
++					"-m", queuefilename,
++					"-T", efromsender, (char *)NULL);
++		else
++			execlp(mlmmjsend, mlmmjsend,
++					"-l", "2",
++					"-L", listdir,
++					"-F", from,
++					"-m", queuefilename, (char *)NULL);
++		log_error(LOG_ARGS, "execlp() of '%s' failed", mlmmjsend);
++		exit(EXIT_FAILURE);
++	}
++
++	myfree(queuefilename);
++
++	/* send mail to poster that the list is moderated */
++
++	queuefilename = prepstdreply(listdir, "moderation-poster",
++				     "$listowner$", efromsender,
++				     NULL, 1, maildata+2, NULL, mailfilename);
++
++	execlp(mlmmjsend, mlmmjsend,
++			"-l", "1",
++			"-L", listdir,
++			"-F", from,
++			"-m", queuefilename,
++			"-T", efromsender, (char *)NULL);
+ 
+ 	log_error(LOG_ARGS, "execlp() of '%s' failed", mlmmjsend);
+-
+ 	exit(EXIT_FAILURE);
+ }
  
 
---rmUrFcWP4LYae1gV--
+--------------070307030700000508040703--
+
 
