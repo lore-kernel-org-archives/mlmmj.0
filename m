@@ -1,52 +1,39 @@
 From: Ben Schmidt <mail_ben_schmidt@yahoo.com.au>
-Date: Tue, 26 Jan 2010 12:17:10 +0000
-Subject: PATCH: Bugfix for subjectless listtext
-Message-Id: <4B5EDD46.6050706@yahoo.com.au>
-MIME-Version: 1
-Content-Type: multipart/mixed; boundary="------------090601020606000202080307"
+Date: Tue, 26 Jan 2010 13:27:24 +0000
+Subject: Implementing moderation of new members
+Message-Id: <4B5EEDBC.9070605@yahoo.com.au>
 List-Id: <mlmmj.mlmmj.org>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-This is a multi-part message in MIME format.
---------------090601020606000202080307
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Hi, once again,
 
-I noticed this bug while perusing the code with the view to a future feature 
-implementation. If a listtext has no subject, the first line is taken to be part 
-of the listtext, but does not undergo substitution as it should. Probably rare for 
-it to be needed, but I think it's a bug that it isn't treated properly.
+And here's the final thing on my wish list for now!
 
-I have *NOT* tested this one. I have neither confirmed the bug is there, nor that 
-the patch fixes it. This is more a 'heads up' that you may like to review this 
-part of the code.
+A feature that can be handy is having new members moderated until they are 
+approved to post. This can be used to cut down spam, as basically new members are 
+either approved once their first post is moderated and they are seen to be real 
+people without evil intent :-), or they are unsubscribed (and possibly banned) 
+when they are discovered to be spammers, without polluting the list with the spam.
+
+One way I thought of for implementing this could be to have a mode where new 
+members automatically add a rule to control/access that causes them to be 
+moderated. Another, probably better way, would be to have a tunable which is a 
+list of moderated members, to which new members can be automatically added if desired.
+
+An access list for subscriptions is also a desirable feature, and would work 
+nicely with this other one: members upon their first post would, as a matter of 
+course, either be added to the ban list or removed from the moderated list by an 
+owner/moderator.
+
+How does this idea sound? Does the moderated list seem like an OK way to do it? Or 
+should the existing access list be used? What about a subaccess mechanism? An OK idea?
 
 Ben.
 
 
 
---------------090601020606000202080307
-Content-Type: text/x-patch;
- name="mlmmj-fix-subjectless-listtext.patch"
-Content-Transfer-Encoding: 7bit
-Content-Disposition: attachment;
- filename="mlmmj-fix-subjectless-listtext.patch"
-
-diff -r f4d710c7dc54 -r c9510eaa0130 src/prepstdreply.c
---- a/src/prepstdreply.c	Tue Jan 26 22:45:06 2010 +1100
-+++ b/src/prepstdreply.c	Tue Jan 26 23:14:28 2010 +1100
-@@ -250,6 +250,10 @@
- 	if (line) {
- 		utfline = unistr_escaped_to_utf8(line);
- 		myfree(line);
-+		tmp = utfline;
-+		str = substitute(utfline, listaddr, listdelim, tokencount, data, mailname);
-+		myfree(tmp);
-+		utfline = str;
- 	} else {
- 		utfline = NULL;
- 	}
-
---------------090601020606000202080307--
 
 
