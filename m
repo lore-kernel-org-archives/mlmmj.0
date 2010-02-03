@@ -1,83 +1,54 @@
 From: Ben Schmidt <mail_ben_schmidt@yahoo.com.au>
-Date: Wed, 03 Feb 2010 01:41:37 +0000
-Subject: Re: Proposal for richer list text
-Message-Id: <4B68D451.4030803@yahoo.com.au>
+Date: Wed, 03 Feb 2010 04:02:09 +0000
+Subject: Re: PATCH: Memory leak appending original mail
+Message-Id: <4B68F541.9090009@yahoo.com.au>
+MIME-Version: 1
+Content-Type: multipart/mixed; boundary="------------020302060404090101050108"
 List-Id: <mlmmj.mlmmj.org>
-References: <4B5EE8BD.2050205@yahoo.com.au>
-In-Reply-To: <4B5EE8BD.2050205@yahoo.com.au>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+References: <4B5EBDA6.7070501@yahoo.com.au>
+In-Reply-To: <4B5EBDA6.7070501@yahoo.com.au>
 To: mlmmj@mlmmj.org
 
-On 3/02/10 9:36 AM, Robin H. Johnson wrote:
-> On Wed, Jan 27, 2010 at 12:06:05AM +1100, Ben Schmidt wrote:
->> I'm wondering if this sounds acceptable. I'll go ahead and have a
->> shot implementing it, if so.
->>
->> I'm thinking of extending the listtext/prepstdreply mechanism to,
->> rather than just expect and include a subject header, to allow other
->> headers at the top of listtexts, that would/could replace the
->> default headers, and to allow greater amounts of the original mail
->> to be included, and random and subject substitutions.
->>
->> The first part would involve representing the default headers (To,
->> From, Reply-To, MIME-Version, Content-Type, etc.) in a
->> list/structure, then parsing each header line of the listtext,
->> removing existing headers from the structure if they match the new
->> one, and then adding the new one. Then the structure would be
->> reduced to a single string and output.
-> Heavily in favour of supporting custom headers in listtexts.
->
-> I just found out the hard way that subconf mails do NOT have any of the
-> customheaders on them, and thus ended up getting us in a blacklist for a
-> while.
->
-> Can we get that first part implemented ASAP? One thing I am concerned
-> about with it, is the ability to append vs. replace headers.
->
-> For the moment, I say we just append, not replace.
+This is a multi-part message in MIME format.
+--------------020302060404090101050108
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-Replacement is necessary to be able to change the content type which is
-one of my main goals.
+How tremendously embarrassing...
 
-I can see it could be a problem if wanting to add multiple headers of
-one kind, though.
+Note to self: The correct way to fix a memory leak is not to introduce a double free.
 
-How about it removes an mlmmj default header if it finds one, but
-ensures it never replaces headers in the listtext with each other, i.e.
-all the headers in the listtext will definitely end up in the mail?
-
-For reference, the default headers mlmmj generates are:
-
-From: for moderation emails, list+owner@...
-To: for moderation emails, list-moderators@...
-Reply-To: for moderation emails, list+moderate-blahblahblah@...
-Date: ...
-Message-ID: ...
-Subject: from listtext
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Encoding: 8bit
-
-Actually, this last one is a bug...that should be
-'Content-Transfer-Encoding:'; there is no such MIME header as
-'Content-Encoding:'. The same bug is there when digests are constructed.
-That bugfix will be included in the patch when I've made it. As well as
-another one I just spotted where the listtext file isn't closed if
-digests don't have a thread summary.
-
-At any rate, these are the only headers that mlmmj adds, so the only
-candidates for replacement, and I can imagine it being useful to be able
-to replace all of them except 'Date', 'Message-ID' and possibly
-'Reply-To'. Simply appending wouldn't work, particularly for what I want
-to achieve.
-
-Does this slight modification sound OK to you?
+Revised patch attached.
 
 Ben.
 
 
 
+On 26/01/10 9:02 PM, Ben Schmidt wrote:
+> I found a memory leak. Patch attached.
+> Ben.
+>
+
+--------------020302060404090101050108
+Content-Type: text/x-patch;
+ name="mlmmj-origmail-memleak.patch"
+Content-Transfer-Encoding: 7bit
+Content-Disposition: attachment;
+ filename="mlmmj-origmail-memleak.patch"
+
+diff -r f48f18a405ee src/prepstdreply.c
+--- a/src/prepstdreply.c	Wed Feb 03 14:57:37 2010 +1100
++++ b/src/prepstdreply.c	Wed Feb 03 14:59:45 2010 +1100
+@@ -145,6 +145,8 @@
+ 				value = concatstr(3, value, " ", str);
+ 				if(tmp)
+ 					myfree(tmp);
++				myfree(str);
++				str = NULL;
+ 				count++;
+ 			}
+ 			if(str)
+
+--------------020302060404090101050108--
 
 
