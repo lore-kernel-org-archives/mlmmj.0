@@ -1,54 +1,67 @@
-From: Ben Schmidt <mail_ben_schmidt@yahoo.com.au>
-Date: Wed, 03 Feb 2010 04:02:09 +0000
+From: Morten Shearman Kirkegaard <moki@fabletech.com>
+Date: Tue, 16 Feb 2010 06:15:54 +0000
 Subject: Re: PATCH: Memory leak appending original mail
-Message-Id: <4B68F541.9090009@yahoo.com.au>
+Message-Id: <1266300954.9646.67.camel@mopo-laptop>
 MIME-Version: 1
-Content-Type: multipart/mixed; boundary="------------020302060404090101050108"
+Content-Type: multipart/mixed; boundary="=-tFartbFgwsQ7aViTtYb7"
 List-Id: <mlmmj.mlmmj.org>
 References: <4B5EBDA6.7070501@yahoo.com.au>
 In-Reply-To: <4B5EBDA6.7070501@yahoo.com.au>
 To: mlmmj@mlmmj.org
 
-This is a multi-part message in MIME format.
---------------020302060404090101050108
-Content-Type: text/plain; charset=UTF-8; format=flowed
+
+--=-tFartbFgwsQ7aViTtYb7
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 7bit
 
-How tremendously embarrassing...
+On Wed, 2010-02-03 at 15:02 +1100, Ben Schmidt wrote:
+> How tremendously embarrassing...
+> 
+> Note to self: The correct way to fix a memory leak is not to introduce
+> a double free.
 
-Note to self: The correct way to fix a memory leak is not to introduce a double free.
+True :-)
 
-Revised patch attached.
+> Revised patch attached.
 
-Ben.
+I looked at the code, and got thinking. Since the loop is only entered
+if str is not NULL, and str is only used inside the loop, couldn't we
+just free str inside the loop?
 
+Proposed patch attached.
 
+Morten
 
-On 26/01/10 9:02 PM, Ben Schmidt wrote:
-> I found a memory leak. Patch attached.
-> Ben.
->
+-- 
+Morten Shearman Kirkegaard <moki@fabletech.com>
+CTO, FableTech
+http://fabletech.com/
 
---------------020302060404090101050108
-Content-Type: text/x-patch;
- name="mlmmj-origmail-memleak.patch"
+--=-tFartbFgwsQ7aViTtYb7
+Content-Disposition: attachment; filename="patch-mlmmj-1.2.17-origmail.diff"
+Content-Type: text/x-patch; name="patch-mlmmj-1.2.17-origmail.diff"; charset="UTF-8"
 Content-Transfer-Encoding: 7bit
-Content-Disposition: attachment;
- filename="mlmmj-origmail-memleak.patch"
 
-diff -r f48f18a405ee src/prepstdreply.c
---- a/src/prepstdreply.c	Wed Feb 03 14:57:37 2010 +1100
-+++ b/src/prepstdreply.c	Wed Feb 03 14:59:45 2010 +1100
-@@ -145,6 +145,8 @@
+Index: src/prepstdreply.c
+===================================================================
+RCS file: /home/mmj/MMJCVS/mlmmj/src/prepstdreply.c,v
+retrieving revision 1.28
+diff -u -r1.28 prepstdreply.c
+--- src/prepstdreply.c	5 Nov 2007 21:23:37 -0000	1.28
++++ src/prepstdreply.c	16 Feb 2010 06:13:27 -0000
+@@ -145,10 +145,9 @@
  				value = concatstr(3, value, " ", str);
  				if(tmp)
  					myfree(tmp);
 +				myfree(str);
-+				str = NULL;
  				count++;
  			}
- 			if(str)
+-			if(str)
+-				myfree(str);
+ 			close(mailfd);
+ 		}else{
+ 			log_error(LOG_ARGS, "Could not substitute $originalmail$ (mailname == %s)",mailname);
 
---------------020302060404090101050108--
+--=-tFartbFgwsQ7aViTtYb7--
 
 
