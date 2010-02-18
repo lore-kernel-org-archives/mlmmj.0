@@ -1,7 +1,7 @@
-From: Franky Van Liedekerke <liedekef@telenet.be>
-Date: Wed, 17 Feb 2010 22:56:40 +0000
+From: Morten Shearman Kirkegaard <moki@fabletech.com>
+Date: Thu, 18 Feb 2010 10:39:05 +0000
 Subject: Re: PATCH: Access priority
-Message-Id: <20100217235640.10f04938@telenet.be>
+Message-Id: <1266489545.22451.42.camel@mopo-laptop>
 List-Id: <mlmmj.mlmmj.org>
 References: <4B5D7A55.4090302@yahoo.com.au>
 In-Reply-To: <4B5D7A55.4090302@yahoo.com.au>
@@ -10,23 +10,24 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-On Wed, 17 Feb 2010 22:40:57 +0100
-Morten Shearman Kirkegaard <moki@fabletech.com> wrote:
-
-> > - if the third flow is choosen, don't call the new keyword plain
-> >   "send", call it eg. "force-send" or "bypass-mod" or so. People
-> > tend to like descriptive keywords :-)
+On Wed, 2010-02-17 at 23:56 +0100, Franky Van Liedekerke wrote:
+> On Wed, 17 Feb 2010 22:40:57 +0100
+> Morten Shearman Kirkegaard <moki@fabletech.com> wrote:
+> > > - whatever flow is choosen, I find it very nicely explained and want
+> > >  this ASCII art in a README :-)
+> > 
+> > Patch attached. Will that do?
 > 
-> Why break a tradition og choosing ambiguous keywords? ;-)
+> yup, it describes the current workflow just fine.
 
-hehheh ... try walking on the dark side of life once :-)
- 
-> > - whatever flow is choosen, I find it very nicely explained and want
-> >  this ASCII art in a README :-)
-> 
-> Patch attached. Will that do?
+Committed to CVS.
 
-yup, it describes the current workflow just fine.
 
-Franky
+Morten
+
+-- 
+Morten Shearman Kirkegaard <moki@fabletech.com>
+CTO, FableTech
+http://fabletech.com/
+
 
