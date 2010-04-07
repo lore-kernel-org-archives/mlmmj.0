@@ -1,38 +1,93 @@
-From: Morten Shearman Kirkegaard <moki@fabletech.com>
-Date: Sat, 10 Apr 2010 19:52:33 +0000
-Subject: Re: [mlmmj] Re: PATCH: Access priority
-Message-Id: <1270929153.12545.10.camel@mopo-laptop>
+From: Sabahattin Gucukoglu <mail@sabahattin-gucukoglu.com>
+Date: Wed, 07 Apr 2010 01:08:02 +0000
+Subject: ***SPAM*** [mlmmj] subonlypost + Access Control
+Message-Id: <FEF71DB1-28FB-4C06-BA85-D257FE8D35C9@sabahattin-gucukoglu.com>
+MIME-Version: 1
+Content-Type: multipart/mixed; boundary="Apple-Mail-241-237506388"
 List-Id: <mlmmj.mlmmj.org>
-References: <4B5D7A55.4090302@yahoo.com.au>
-In-Reply-To: <4B5D7A55.4090302@yahoo.com.au>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Hi Ben,
 
-On Wed, 2010-03-10 at 09:32 +1100, Ben Schmidt wrote:
-> >> The patch has not been tested yet, though it builds OK. But definitely
-> >> don't commit it until at least someone has tested it. I will try to give
-> >> it a whirl early next week.
-> >
-> > It looks very clean. Please let me know when you've tested it, and I
-> > will commit it.
-> 
-> I have done some testing now; it seems to work.
-> 
-> Can it be committed now, Morten?
+--Apple-Mail-241-237506388
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain;
+	charset=us-ascii
 
-I have committed it to CVS now. Thanks for the patch.
+Hi all,
+
+The problem: I want to run a list where subscribers can communicate =
+between each other but where non-subscribers can't get in.  This is =
+fine, subonlypost.
+
+But the list is actually a reflector for messages received by netnews.  =
+Oops!  I can't set subonlypost now.  Even if I add a secret header to =
+the gateway script stripped by delheaders and allowed by access control, =
+I cannot arrange it so that the authenticated netnews postings make it =
+while only non-subscribers can post.
+
+Have I missed anything at all?  If not, a feature request: access =
+control should add another action, "Really-Allow", which does exactly =
+that, no further progress through subonlypost/other testing just =
+straight allowed.
+
+Cheers,
+Sabahattin
 
 
-Best regards,
-Morten
+--Apple-Mail-241-237506388
+Content-Disposition: attachment;
+	filename=smime.p7s
+Content-Type: application/pkcs7-signature;
+	name=smime.p7s
+Content-Transfer-Encoding: base64
 
--- 
-Morten Shearman Kirkegaard <moki@fabletech.com>
-CTO, FableTech
-http://fabletech.com/
+MIAGCSqGSIb3DQEHAqCAMIACAQExCzAJBgUrDgMCGgUAMIAGCSqGSIb3DQEHAQAAoIIGsjCCBq4w
+ggWWoAMCAQICAwEBkDANBgkqhkiG9w0BAQUFADCBjDELMAkGA1UEBhMCSUwxFjAUBgNVBAoTDVN0
+YXJ0Q29tIEx0ZC4xKzApBgNVBAsTIlNlY3VyZSBEaWdpdGFsIENlcnRpZmljYXRlIFNpZ25pbmcx
+ODA2BgNVBAMTL1N0YXJ0Q29tIENsYXNzIDEgUHJpbWFyeSBJbnRlcm1lZGlhdGUgQ2xpZW50IENB
+MB4XDTEwMDIxNDE5MTgwM1oXDTExMDIxNjA5MTA1N1owgZsxIDAeBgNVBA0TFzE0Nzg0Ni1TclB0
+b1dHUVJMYTExRVREMR4wHAYDVQQKExVQZXJzb25hIE5vdCBWYWxpZGF0ZWQxKTAnBgNVBAMTIFN0
+YXJ0Q29tIEZyZWUgQ2VydGlmaWNhdGUgTWVtYmVyMSwwKgYJKoZIhvcNAQkBFh1tYWlsQHNhYmFo
+YXR0aW4tZ3VjdWtvZ2x1LmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBALSmrng+
+PdhwKkjj3VZZLbF5aiVOUe7Cbui+Z5/BntaojcZYaVk5BKMcKh8aW4InSLZ5Da698zFHUFFbBgSv
+PI8tTFwBM5Uq5eSlrs6pGsvGuYyAOMCeN2VvWZbcbFy5RKSUT9V9eRKu3/vDTXzquYuTaWaSDLrQ
+cNQXjHNcmSKI5VDIOk/oYCDHvsQDBRG5R85HKe74zYZbgFPsasRPfloDSjWAfldkSPqVBvShefhl
+tT5uvgCWf616cBFoqHtZe9/NUX3pLBiXdU9lQ4zN2dE7Ml6+3AobHLB/RSCxBWtb8YDln4X1JjZE
+0swEDvyD0GEskAcyA2/bnRjvV9HOcY8CAwEAAaOCAwYwggMCMAkGA1UdEwQCMAAwCwYDVR0PBAQD
+AgSwMB0GA1UdJQQWMBQGCCsGAQUFBwMCBggrBgEFBQcDBDAdBgNVHQ4EFgQU9rx1cJmSaz5fmKyy
+///im4m/gOIwHwYDVR0jBBgwFoAUU3Ltkpzg2ssBXHx+ljVO8tS4UYIwKAYDVR0RBCEwH4EdbWFp
+bEBzYWJhaGF0dGluLWd1Y3Vrb2dsdS5jb20wggFCBgNVHSAEggE5MIIBNTCCATEGCysGAQQBgbU3
+AQIBMIIBIDAuBggrBgEFBQcCARYiaHR0cDovL3d3dy5zdGFydHNzbC5jb20vcG9saWN5LnBkZjA0
+BggrBgEFBQcCARYoaHR0cDovL3d3dy5zdGFydHNzbC5jb20vaW50ZXJtZWRpYXRlLnBkZjCBtwYI
+KwYBBQUHAgIwgaowFBYNU3RhcnRDb20gTHRkLjADAgEBGoGRTGltaXRlZCBMaWFiaWxpdHksIHNl
+ZSBzZWN0aW9uICpMZWdhbCBMaW1pdGF0aW9ucyogb2YgdGhlIFN0YXJ0Q29tIENlcnRpZmljYXRp
+b24gQXV0aG9yaXR5IFBvbGljeSBhdmFpbGFibGUgYXQgaHR0cDovL3d3dy5zdGFydHNzbC5jb20v
+cG9saWN5LnBkZjBjBgNVHR8EXDBaMCugKaAnhiVodHRwOi8vd3d3LnN0YXJ0c3NsLmNvbS9jcnR1
+MS1jcmwuY3JsMCugKaAnhiVodHRwOi8vY3JsLnN0YXJ0c3NsLmNvbS9jcnR1MS1jcmwuY3JsMIGO
+BggrBgEFBQcBAQSBgTB/MDkGCCsGAQUFBzABhi1odHRwOi8vb2NzcC5zdGFydHNzbC5jb20vc3Vi
+L2NsYXNzMS9jbGllbnQvY2EwQgYIKwYBBQUHMAKGNmh0dHA6Ly93d3cuc3RhcnRzc2wuY29tL2Nl
+cnRzL3N1Yi5jbGFzczEuY2xpZW50LmNhLmNydDAjBgNVHRIEHDAahhhodHRwOi8vd3d3LnN0YXJ0
+c3NsLmNvbS8wDQYJKoZIhvcNAQEFBQADggEBABfpkTQK6G6ZAdRpaGvgcQmxjQ1odHcV2LwyCQWv
+ZwksY68aN7YhG2Y3qAhixQFGPWmoJu9R1Tfl80RCzXzFPERkAvl62b0RSJeZa40q9E0EHc8wYcsQ
+ak5KVDxbknfQzIknnL3ZLsc33Ropca7FzudPXYO72tXF0oz+QQvUMS7qRpTJb/jLQ4LTsGM1muSg
+IICcR1dDxf6nCKm0Gu4sS6RmrvDJ/UmCo/3Xz/LBV9TQ7n/j0+aiulOBZ6Rh6utDCWNb9XLZD40l
+0xJ09mimXKmVoc5c+MzMkUJX4LWDoFOJmD8ON208++Of8hDF8lSY39HYubSgpkTqJnWcicylg1Ux
+ggNvMIIDawIBATCBlDCBjDELMAkGA1UEBhMCSUwxFjAUBgNVBAoTDVN0YXJ0Q29tIEx0ZC4xKzAp
+BgNVBAsTIlNlY3VyZSBEaWdpdGFsIENlcnRpZmljYXRlIFNpZ25pbmcxODA2BgNVBAMTL1N0YXJ0
+Q29tIENsYXNzIDEgUHJpbWFyeSBJbnRlcm1lZGlhdGUgQ2xpZW50IENBAgMBAZAwCQYFKw4DAhoF
+AKCCAa8wGAYJKoZIhvcNAQkDMQsGCSqGSIb3DQEHATAcBgkqhkiG9w0BCQUxDxcNMTAwNDA3MDEw
+ODAyWjAjBgkqhkiG9w0BCQQxFgQUgYeXeVWYk4yiIwjHq2vD09trja8wgaUGCSsGAQQBgjcQBDGB
+lzCBlDCBjDELMAkGA1UEBhMCSUwxFjAUBgNVBAoTDVN0YXJ0Q29tIEx0ZC4xKzApBgNVBAsTIlNl
+Y3VyZSBEaWdpdGFsIENlcnRpZmljYXRlIFNpZ25pbmcxODA2BgNVBAMTL1N0YXJ0Q29tIENsYXNz
+IDEgUHJpbWFyeSBJbnRlcm1lZGlhdGUgQ2xpZW50IENBAgMBAZAwgacGCyqGSIb3DQEJEAILMYGX
+oIGUMIGMMQswCQYDVQQGEwJJTDEWMBQGA1UEChMNU3RhcnRDb20gTHRkLjErMCkGA1UECxMiU2Vj
+dXJlIERpZ2l0YWwgQ2VydGlmaWNhdGUgU2lnbmluZzE4MDYGA1UEAxMvU3RhcnRDb20gQ2xhc3Mg
+MSBQcmltYXJ5IEludGVybWVkaWF0ZSBDbGllbnQgQ0ECAwEBkDANBgkqhkiG9w0BAQEFAASCAQBD
+v+BUjBA4ykAwHCAUxFV3lv4JtIpZx5I6SP2ntNMiNB3UiXW1R0jshSSuQ546tHlxcoLPd5clfmM/
+X4xr25Gat+BPKVlxSxguh1rTi2lIXL78521BpKcSiTE2+VIQ43CW9kqFKCgzo0VtE4YMuSybOCAT
+9rKmjUoMbjb8ju2OaVNC9z0IyFDJhc/64SYrB0pYj2fmKsImvrZ8g/+z7LJqMoHt7eOmtfNmM4Sp
+3VnOXA4c4KwTZLFlF58sEK+bVv+JNF28FMV8EmLPO9ywLx+t85NwWNXtFoRcAoxwOTzir7znc6C/
+hJUhduE4sVlpPbhLpvBvoz4AvMWU9uw6yDu0AAAAAAAA
 
+--Apple-Mail-241-237506388--
 
