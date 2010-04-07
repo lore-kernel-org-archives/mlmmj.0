@@ -1,62 +1,24 @@
-From: Ben Schmidt <mail_ben_schmidt@yahoo.com.au>
-Date: Thu, 29 Apr 2010 00:48:00 +0000
-Subject: Re: [mlmmj] New mlmmj maintainer: Ben Schmidt
-Message-Id: <4BD8D740.7030504@yahoo.com.au>
+From: Sabahattin Gucukoglu <mail@sabahattin-gucukoglu.com>
+Date: Wed, 07 Apr 2010 23:07:02 +0000
+Subject: [mlmmj] Resent-From + subonlypost
+Message-Id: <D3B4DC71-9D58-4DC3-86F9-C08C14A106BC@sabahattin-gucukoglu.com>
 List-Id: <mlmmj.mlmmj.org>
-References: <1271920611.15827.0.camel@mopo-laptop>
-In-Reply-To: <1271920611.15827.0.camel@mopo-laptop>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Thanks for the welcome, guys. I look forward to being the new bottleneck. :=
--O
+Hi all,
 
-A big thanks from me to the previous maintainers, too. The project is only =
-in such=20
-a good place now, and such a pleasure to hack on, because of your excellent=
- work.
+One of my lists is a news update list for friends.  Sometimes I "Redirect" (RFC 5322 Resent-* fields) directly to my list.  The From: header thus is the original From:.  You might guess the problem: I'll redirect, then because subonlypost is set, a bounce will confuse the original sender.
 
-It is somewhat of an honour to be trusted enough to be maintainer after suc=
-h a=20
-short time in the community. I feel like I barely know anyone here yet.
+Please can mlmmj support the Resent-From for the checks requiring a check against the original sender prior to the From: field?
 
-I look forward to getting to know people better, though. To speed the proce=
-ss, I'd=20
-really love it if people would write me a brief message to introduce themse=
-lves,=20
-and let me know what role they play in the mlmmj community.
+As an aside, I'm using TMDA; many TMDA users will be using From as I do, to hold the original address.  So mlmmj works well for action required by or posts received from a TMDA user, such as this one.
 
-As for me, I'm Ben, the newly appointed upstream maintainer, still discover=
-ing and=20
-defining what precisely my role will be. I'm trained in Computer Engineerin=
-g,=20
-Mathematical Physics and Secondary Teaching, and after doing some Education=
-al=20
-Research this year, am embarking on a teaching career.
+BTW: would it be possible to implement nomail subscription automatically using a response to an initial post?  This would allow non-members to easily CC a list when reply-all'ing on a thread containing that list.  I saw discussion from 2004 about that, only nothing seems to have come of it.
 
-Smiles,
-
-Ben.
-
-
-
-On 22/04/10 10:39 PM, Mads Martin J=F8rgensen wrote:
-> On Thu, Apr 22, 2010 at 9:16 AM, Morten Shearman Kirkegaard
-> <moki@fabletech.com>  wrote:
->> It has become increasingly clear that I am a bottle neck for the
->> development of mlmmj. In the project's best interest, I have passed on
->> the maintainer token.
->
-> But what a pretty bottleneck :) Thank You very much Morten, for an
-> excellent job!
->
->> Please welcome the new maintainer: Ben Schmidt.
->
-> A heartfelt welcome from me as well :)
-
-
-
+Cheers,
+Sabahattin
 
 
