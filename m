@@ -1,54 +1,23 @@
-From: Ben Schmidt <mail_ben_schmidt@yahoo.com.au>
-Date: Fri, 14 May 2010 01:09:40 +0000
-Subject: Re: [mlmmj] tunables missing
-Message-Id: <4BECA2D4.402@yahoo.com.au>
+From: Franky Van Liedekerke <liedekef@telenet.be>
+Date: Thu, 13 May 2010 17:31:19 +0000
+Subject: [mlmmj] new tunable request: modonlypost
+Message-Id: <20100513193119.41ccf832@telenet.be>
 List-Id: <mlmmj.mlmmj.org>
-References: <20100513192154.708f8e4a@telenet.be>
-In-Reply-To: <20100513192154.708f8e4a@telenet.be>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-As far as the source goes, I fixed this in January, and Morten committed it, so it 
-should be taken care of:
+Hi,
 
-http://mlmmj.org/archive/mlmmj/2010-01/1611.html
+I've a request to make:
 
-As far as the website goes, I am still waiting to make meaningful contact with the 
-relevant people to be able to move ahead with that, so I do anticipate fixing all 
-that, but it may not be so quick.
+there's a tunable called subonlypost, allowing only subscribers to
+post. But I want to limit this to just the moderators.
+For now I do this by adding every moderator to the file
+control/moderators and also to the control/access file.
+Meaning I always need to change 2 files when changing the list of
+moderators, and believe me: the access file is often forgotten ...
 
-Cheers,
-
-Ben.
-
-
-
-On 14/05/10 3:21 AM, Franky Van Liedekerke wrote:
-> Hi,
->
-> I'm using mlmmj for quite some time, but just noticed that some
-> tunables are missing in different places:
->
-> - on the website (and in the distro),file:
->    http://mlmmj.mmj.dk/files/TUNABLES
->    =>  no mentioning of the tunable "footer"
->
-> - in the files tunables.pl (for php and perl interfaces):
->    =>  no mentioning of the tunables "footer","verp",
->    "ifmodsendonlymodmoderate" and maybe others.
->
-> Maybe this can be corrected in the next version? I mean, tunables are
-> nice, but if they're not documented or mentioned in the web itf ... :-)
->
-> Also the website http://mlmmj.org still points to a version released in
-> 2007:
-> http://mlmmj.org/project/mlmmj
->
-> Franky
->
->
->
-
+Franky  
 
