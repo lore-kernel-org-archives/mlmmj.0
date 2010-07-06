@@ -1,212 +1,88 @@
-From: Ben Schmidt <mail_ben_schmidt@yahoo.com.au>
-Date: Tue, 06 Jul 2010 12:54:10 +0000
+From: Franky Van Liedekerke <liedekef@telenet.be>
+Date: Tue, 06 Jul 2010 13:36:54 +0000
 Subject: Re: [mlmmj] Please comment on this potential logo
-Message-Id: <4C332772.9060703@yahoo.com.au>
+Message-Id: <AANLkTimIBTUhX2L8BMjNfIqIhYRgmiZPtZnMK5V61LDb@mail.gmail.com>
 MIME-Version: 1
-Content-Type: multipart/mixed; boundary="------------080608020907060107090003"
+Content-Type: multipart/mixed; boundary="001636c5b0d9910117048ab825e4"
 List-Id: <mlmmj.mlmmj.org>
 References: <4C331C12.70704@yahoo.com.au>
 In-Reply-To: <4C331C12.70704@yahoo.com.au>
 To: mlmmj@mlmmj.org
 
-This is a multi-part message in MIME format.
---------------080608020907060107090003
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+--001636c5b0d9910117048ab825e4
+Content-Type: text/plain; charset=ISO-8859-1
 
-On 6/07/10 10:35 PM, Wolf Bergenheim wrote:
-> I like the feel of the logo, but I'm wondering where the colors come
-> from? Are they just picked on random or what?
+On Tue, Jul 6, 2010 at 2:05 PM, Ben Schmidt
+<mail_ben_schmidt@yahoo.com.au>wrote:
 
-Yep! I think I associate 'simple' with 'children' so I just did what I
-imagine a child would do, and 'picked any and every nearby pen'.
+> Hi, everyone,
+>
+> I'm working on revamping the mlmmj website in an attempt to raise the
+> profile of the project, improve the development process, and attract more
+> users and developers. Shortly we should have more current documentation on
+> the web, along with a publicly accessible source code repository, and a new
+> bug and enhancement tracker.
+>
+> To get us beyond the dullness of pure text, I'd like to have a logo.
+> Ideally, it would remain largely unchanged for a long period, so it would be
+> good to 'get it right' to start with. A good logo should represent what
+> mlmmj is (a mailing list manager) and its style (simple, slim, joyful!).
+>
+> So could you please look at the attached potential logo, whack reply, and
+> let me know what you think of it?
+>
+> Thanks a lot!
+>
+> Ben.
+>
+> P.S. If you're keen to help with this, or anything else mlmmj-related,
+> please speak up.
+>
+>
+I like it! I would also like to help out with anything else related to mlmmj
+(site, reviewing changes, bug report thingies, maybe some small development
+by myself)
 
-> This logo convey to me simple and joyful :)
+Franky
 
-Great!
+--001636c5b0d9910117048ab825e4
+Content-Type: text/html; charset=ISO-8859-1
+Content-Transfer-Encoding: quoted-printable
 
-> I can see however that a stack of mail could be seen as stacking up
-> and thus slow...
+<div class=3D"gmail_quote">On Tue, Jul 6, 2010 at 2:05 PM, Ben Schmidt <spa=
+n dir=3D"ltr">&lt;<a href=3D"mailto:mail_ben_schmidt@yahoo.com.au">mail_ben=
+_schmidt@yahoo.com.au</a>&gt;</span> wrote:<br><blockquote class=3D"gmail_q=
+uote" style=3D"margin: 0pt 0pt 0pt 0.8ex; border-left: 1px solid rgb(204, 2=
+04, 204); padding-left: 1ex;">
+Hi, everyone,<br>
+<br>
+I&#39;m working on revamping the mlmmj website in an attempt to raise the p=
+rofile of the project, improve the development process, and attract more us=
+ers and developers. Shortly we should have more current documentation on th=
+e web, along with a publicly accessible source code repository, and a new b=
+ug and enhancement tracker.<br>
 
-Mmm. Maybe just one envelope would be better. I thought perhaps having
-more than one would give the feel of a mailing *list*, rather than just
-an MTA or MUA. Or something completely different.
+<br>
+To get us beyond the dullness of pure text, I&#39;d like to have a logo. Id=
+eally, it would remain largely unchanged for a long period, so it would be =
+good to &#39;get it right&#39; to start with. A good logo should represent =
+what mlmmj is (a mailing list manager) and its style (simple, slim, joyful!=
+).<br>
 
-> I'll see if I can come up with a
-> counter-proposal just to keep things interesting ;)
+<br>
+So could you please look at the attached potential logo, whack reply, and l=
+et me know what you think of it?<br>
+<br>
+Thanks a lot!<br><font color=3D"#888888">
+<br>
+Ben.<br>
+</font><br>
+P.S. If you&#39;re keen to help with this, or anything else mlmmj-related, =
+please speak up.<br>
+<br></blockquote><div><br>I like it! I would also like to help out with any=
+thing else related to mlmmj (site, reviewing changes, bug report thingies, =
+maybe some small development by myself)<br><br>Franky <br></div></div>
+<br>
 
-Sounds good! The Inkscape .svg source is attached if you (or anyone
-else) want to mess with that.
-
-Ben.
-
-
-
-
---------------080608020907060107090003
-Content-Type: image/svg+xml;
- name="mlmmj.svg"
-Content-Transfer-Encoding: base64
-Content-Disposition: attachment;
- filename="mlmmj.svg"
-
-PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+
-CjwhLS0gQ3JlYXRlZCB3aXRoIElua3NjYXBlIChodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy8p
-IC0tPgoKPHN2ZwogICB4bWxuczpkYz0iaHR0cDovL3B1cmwub3JnL2RjL2VsZW1lbnRzLzEu
-MS8iCiAgIHhtbG5zOmNjPSJodHRwOi8vY3JlYXRpdmVjb21tb25zLm9yZy9ucyMiCiAgIHht
-bG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyIK
-ICAgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICAgeG1sbnM9Imh0
-dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIgogICB4bWxuczpzb2RpcG9kaT0iaHR0cDovL3Nv
-ZGlwb2RpLnNvdXJjZWZvcmdlLm5ldC9EVEQvc29kaXBvZGktMC5kdGQiCiAgIHhtbG5zOmlu
-a3NjYXBlPSJodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy9uYW1lc3BhY2VzL2lua3NjYXBlIgog
-ICB3aWR0aD0iNDM3LjUiCiAgIGhlaWdodD0iNDM3LjUiCiAgIGlkPSJzdmcyIgogICB2ZXJz
-aW9uPSIxLjEiCiAgIGlua3NjYXBlOnZlcnNpb249IjAuNDcgcjIyNTgzIgogICBzb2RpcG9k
-aTpkb2NuYW1lPSJtbG1tai5zdmciCiAgIGlua3NjYXBlOmV4cG9ydC1maWxlbmFtZT0iL1Vz
-ZXJzL2Jlbi9EZXNrdG9wL21sbW1qX3NtYWxsLnBuZyIKICAgaW5rc2NhcGU6ZXhwb3J0LXhk
-cGk9IjM2IgogICBpbmtzY2FwZTpleHBvcnQteWRwaT0iMzYiPgogIDxkZWZzCiAgICAgaWQ9
-ImRlZnM0Ij4KICAgIDxpbmtzY2FwZTpwZXJzcGVjdGl2ZQogICAgICAgc29kaXBvZGk6dHlw
-ZT0iaW5rc2NhcGU6cGVyc3AzZCIKICAgICAgIGlua3NjYXBlOnZwX3g9IjAgOiA1MjYuMTgx
-MDkgOiAxIgogICAgICAgaW5rc2NhcGU6dnBfeT0iMCA6IDEwMDAgOiAwIgogICAgICAgaW5r
-c2NhcGU6dnBfej0iNzQ0LjA5NDQ4IDogNTI2LjE4MTA5IDogMSIKICAgICAgIGlua3NjYXBl
-OnBlcnNwM2Qtb3JpZ2luPSIzNzIuMDQ3MjQgOiAzNTAuNzg3MzkgOiAxIgogICAgICAgaWQ9
-InBlcnNwZWN0aXZlMTAiIC8+CiAgPC9kZWZzPgogIDxzb2RpcG9kaTpuYW1lZHZpZXcKICAg
-ICBpZD0iYmFzZSIKICAgICBwYWdlY29sb3I9IiNmZmZmZmYiCiAgICAgYm9yZGVyY29sb3I9
-IiM2NjY2NjYiCiAgICAgYm9yZGVyb3BhY2l0eT0iMS4wIgogICAgIGlua3NjYXBlOnBhZ2Vv
-cGFjaXR5PSIwIgogICAgIGlua3NjYXBlOnBhZ2VzaGFkb3c9IjIiCiAgICAgaW5rc2NhcGU6
-em9vbT0iMSIKICAgICBpbmtzY2FwZTpjeD0iMjIyLjg1NjY0IgogICAgIGlua3NjYXBlOmN5
-PSIyMTEuODQ2MzYiCiAgICAgaW5rc2NhcGU6ZG9jdW1lbnQtdW5pdHM9InB4IgogICAgIGlu
-a3NjYXBlOmN1cnJlbnQtbGF5ZXI9ImxheWVyMSIKICAgICBzaG93Z3JpZD0iZmFsc2UiCiAg
-ICAgdW5pdHM9InB0IgogICAgIGlua3NjYXBlOm9iamVjdC1wYXRocz0iZmFsc2UiCiAgICAg
-aW5rc2NhcGU6c25hcC1wYWdlPSJmYWxzZSIKICAgICBpbmtzY2FwZTpzbmFwLWJib3g9InRy
-dWUiCiAgICAgaW5rc2NhcGU6YmJveC1wYXRocz0idHJ1ZSIKICAgICBpbmtzY2FwZTpiYm94
-LW5vZGVzPSJ0cnVlIgogICAgIGlua3NjYXBlOm9iamVjdC1ub2Rlcz0idHJ1ZSIKICAgICBp
-bmtzY2FwZTpzbmFwLWJib3gtbWlkcG9pbnRzPSJmYWxzZSIKICAgICBpbmtzY2FwZTpzbmFw
-LW9iamVjdC1taWRwb2ludHM9InRydWUiCiAgICAgc2hvd2d1aWRlcz0idHJ1ZSIKICAgICBp
-bmtzY2FwZTpndWlkZS1iYm94PSJ0cnVlIgogICAgIGlua3NjYXBlOndpbmRvdy13aWR0aD0i
-MTE4MyIKICAgICBpbmtzY2FwZTp3aW5kb3ctaGVpZ2h0PSI3MzMiCiAgICAgaW5rc2NhcGU6
-d2luZG93LXg9IjkiCiAgICAgaW5rc2NhcGU6d2luZG93LXk9IjgiCiAgICAgaW5rc2NhcGU6
-d2luZG93LW1heGltaXplZD0iMCIKICAgICBpbmtzY2FwZTpzbmFwLWdsb2JhbD0idHJ1ZSIg
-Lz4KICA8bWV0YWRhdGEKICAgICBpZD0ibWV0YWRhdGE3Ij4KICAgIDxyZGY6UkRGPgogICAg
-ICA8Y2M6V29yawogICAgICAgICByZGY6YWJvdXQ9IiI+CiAgICAgICAgPGRjOmZvcm1hdD5p
-bWFnZS9zdmcreG1sPC9kYzpmb3JtYXQ+CiAgICAgICAgPGRjOnR5cGUKICAgICAgICAgICBy
-ZGY6cmVzb3VyY2U9Imh0dHA6Ly9wdXJsLm9yZy9kYy9kY21pdHlwZS9TdGlsbEltYWdlIiAv
-PgogICAgICAgIDxkYzp0aXRsZT48L2RjOnRpdGxlPgogICAgICA8L2NjOldvcms+CiAgICA8
-L3JkZjpSREY+CiAgPC9tZXRhZGF0YT4KICA8ZwogICAgIGlua3NjYXBlOmxhYmVsPSJMYXll
-ciAxIgogICAgIGlua3NjYXBlOmdyb3VwbW9kZT0ibGF5ZXIiCiAgICAgaWQ9ImxheWVyMSIK
-ICAgICB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwLC02MTQuODYyMjYpIj4KICAgIDxnCiAgICAg
-ICBpZD0iZzQwMjkiCiAgICAgICB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMjAsLTYwKSI+CiAg
-ICAgIDxyZWN0CiAgICAgICAgIHRyYW5zZm9ybT0ibWF0cml4KDAuOTk4MzExOCwwLjA1ODA4
-MjMxLC0wLjA1ODA4MjMxLDAuOTk4MzExOCwwLDApIgogICAgICAgICB5PSI4MDcuOTQzNjYi
-CiAgICAgICAgIHg9IjEwOS4yMTA3MiIKICAgICAgICAgaGVpZ2h0PSIxOTUiCiAgICAgICAg
-IHdpZHRoPSIzNjciCiAgICAgICAgIGlkPSJyZWN0MzY2NSIKICAgICAgICAgc3R5bGU9ImZp
-bGw6I2Y3ZjhlOTtmaWxsLW9wYWNpdHk6MTtzdHJva2U6IzAwMDAwMDtzdHJva2Utd2lkdGg6
-MjtzdHJva2UtbWl0ZXJsaW1pdDo0O3N0cm9rZS1vcGFjaXR5OjE7c3Ryb2tlLWRhc2hhcnJh
-eTpub25lIiAvPgogICAgICA8cGF0aAogICAgICAgICBzdHlsZT0iZmlsbDojZjdmOGU5O2Zp
-bGwtb3BhY2l0eToxO3N0cm9rZTojYTBhMGEwO3N0cm9rZS13aWR0aDoyO3N0cm9rZS1saW5l
-Y2FwOmJ1dHQ7c3Ryb2tlLWxpbmVqb2luOm1pdGVyO3N0cm9rZS1taXRlcmxpbWl0OjQ7c3Ry
-b2tlLW9wYWNpdHk6MTtzdHJva2UtZGFzaGFycmF5Om5vbmUiCiAgICAgICAgIGQ9Ik0gNTAu
-ODU0NDAzLDEwMDcuNTIxMyAyNDUuMjg0ODUsODIzLjY1Nzg5IDQxNy4wODEwOSwxMDI4Ljgy
-ODYiCiAgICAgICAgIGlkPSJwYXRoMzY2NyIKICAgICAgICAgc29kaXBvZGk6bm9kZXR5cGVz
-PSJjY2MiIC8+CiAgICAgIDxwYXRoCiAgICAgICAgIHN0eWxlPSJmaWxsOiNmN2Y4ZTk7Zmls
-bC1vcGFjaXR5OjE7c3Ryb2tlOiMwMDAwMDA7c3Ryb2tlLXdpZHRoOjI7c3Ryb2tlLWxpbmVj
-YXA6YnV0dDtzdHJva2UtbGluZWpvaW46bWl0ZXI7c3Ryb2tlLW1pdGVybGltaXQ6NDtzdHJv
-a2Utb3BhY2l0eToxO3N0cm9rZS1kYXNoYXJyYXk6bm9uZSIKICAgICAgICAgZD0iTSA2Mi4w
-OTkxMTEsODEyLjkyMjkxIDIzOS42MjYzLDkyMC45MTY0MiA0MjguNDc5NTQsODM0LjIzOTEy
-IDYyLjA5OTExMSw4MTIuOTIyOTEgeiIKICAgICAgICAgaWQ9InBhdGgzNjY5IgogICAgICAg
-ICBzb2RpcG9kaTpub2RldHlwZXM9ImNjY2MiIC8+CiAgICA8L2c+CiAgICA8cmVjdAogICAg
-ICAgeT0iNzQ5LjIwNTkzIgogICAgICAgeD0iODUuNzU5NTUyIgogICAgICAgaGVpZ2h0PSIx
-OTUiCiAgICAgICB3aWR0aD0iMzY3IgogICAgICAgaWQ9InJlY3QzNjcxIgogICAgICAgc3R5
-bGU9ImZpbGw6bm9uZTtzdHJva2U6IzAwMDAwMDtzdHJva2Utd2lkdGg6MjtzdHJva2UtbWl0
-ZXJsaW1pdDo0O3N0cm9rZS1vcGFjaXR5OjE7c3Ryb2tlLWRhc2hhcnJheTpub25lIgogICAg
-ICAgdHJhbnNmb3JtPSJtYXRyaXgoMC45OTgzMTE4LDAuMDU4MDgyMzEsLTAuMDU4MDgyMzEs
-MC45OTgzMTE4LDAsMCkiIC8+CiAgICA8ZwogICAgICAgaWQ9Imc0MDM4IgogICAgICAgdHJh
-bnNmb3JtPSJ0cmFuc2xhdGUoLTIwLC02MCkiPgogICAgICA8cmVjdAogICAgICAgICB0cmFu
-c2Zvcm09Im1hdHJpeCgwLjgyODM4MTI0LC0wLjU2MDE2NDczLDAuNTYwMTY0NzMsMC44Mjgz
-ODEyNCwwLDApIgogICAgICAgICB5PSI3NTAuNzg0IgogICAgICAgICB4PSItNDczLjA4ODIz
-IgogICAgICAgICBoZWlnaHQ9IjE5NSIKICAgICAgICAgd2lkdGg9IjM2NyIKICAgICAgICAg
-aWQ9InJlY3QzNjU1IgogICAgICAgICBzdHlsZT0iZmlsbDojZGFkYmNmO2ZpbGwtb3BhY2l0
-eToxO3N0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDoyO3N0cm9rZS1taXRlcmxpbWl0OjQ7
-c3Ryb2tlLW9wYWNpdHk6MTtzdHJva2UtZGFzaGFycmF5Om5vbmUiIC8+CiAgICAgIDxwYXRo
-CiAgICAgICAgIHN0eWxlPSJmaWxsOiNkYWRiY2Y7ZmlsbC1vcGFjaXR5OjE7c3Ryb2tlOiNh
-MGEwYTA7c3Ryb2tlLXdpZHRoOjI7c3Ryb2tlLWxpbmVjYXA6YnV0dDtzdHJva2UtbGluZWpv
-aW46bWl0ZXI7c3Ryb2tlLW1pdGVybGltaXQ6NDtzdHJva2Utb3BhY2l0eToxO3N0cm9rZS1k
-YXNoYXJyYXk6bm9uZSIKICAgICAgICAgZD0iTSAxMzcuOTE4MDgsMTA0OC4zNzAxIDE4MC43
-MTY0LDc4NC4yMTYyOCA0NDEuODA2NDMsODQyLjg3NTk1IgogICAgICAgICBpZD0icGF0aDM2
-NTciCiAgICAgICAgIHNvZGlwb2RpOm5vZGV0eXBlcz0iY2NjIiAvPgogICAgICA8cGF0aAog
-ICAgICAgICBzdHlsZT0iZmlsbDojZGFkYmNmO2ZpbGwtb3BhY2l0eToxO3N0cm9rZTojMDAw
-MDAwO3N0cm9rZS13aWR0aDoyO3N0cm9rZS1saW5lY2FwOmJ1dHQ7c3Ryb2tlLWxpbmVqb2lu
-Om1pdGVyO3N0cm9rZS1taXRlcmxpbWl0OjQ7c3Ryb2tlLW9wYWNpdHk6MTtzdHJva2UtZGFz
-aGFycmF5Om5vbmUiCiAgICAgICAgIGQ9Ik0gMjguNjY1MzA2LDg4Ni45NDI3MiAyMzUuMjg5
-MzMsODY0LjkxOTY2IDMzMi42ODEyMiw2ODEuMzYyMjYgMjguNjY1MzA2LDg4Ni45NDI3MiB6
-IgogICAgICAgICBpZD0icGF0aDM2NTkiCiAgICAgICAgIHNvZGlwb2RpOm5vZGV0eXBlcz0i
-Y2NjYyIgLz4KICAgICAgPHJlY3QKICAgICAgICAgdHJhbnNmb3JtPSJtYXRyaXgoMC44Mjgz
-ODEyNCwtMC41NjAxNjQ3MywwLjU2MDE2NDczLDAuODI4MzgxMjQsMCwwKSIKICAgICAgICAg
-c3R5bGU9ImZpbGw6bm9uZTtzdHJva2U6IzAwMDAwMDtzdHJva2Utd2lkdGg6MjtzdHJva2Ut
-bWl0ZXJsaW1pdDo0O3N0cm9rZS1vcGFjaXR5OjE7c3Ryb2tlLWRhc2hhcnJheTpub25lIgog
-ICAgICAgICBpZD0icmVjdDM2NjEiCiAgICAgICAgIHdpZHRoPSIzNjciCiAgICAgICAgIGhl
-aWdodD0iMTk1IgogICAgICAgICB4PSItNDczLjA4ODIzIgogICAgICAgICB5PSI3NTAuNzg0
-IiAvPgogICAgPC9nPgogICAgPGcKICAgICAgIGlkPSJnMzY0NyIKICAgICAgIHRyYW5zZm9y
-bT0ibWF0cml4KDAuOTUzMzg2MDYsLTAuMzAxNzUzMjUsMC4zMDE3NTMyNSwwLjk1MzM4NjA2
-LC0zMTUuOTgzOTQsMTIxLjg5NTY1KSIKICAgICAgIHN0eWxlPSJzdHJva2Utd2lkdGg6Mjtz
-dHJva2UtbWl0ZXJsaW1pdDo0O3N0cm9rZS1kYXNoYXJyYXk6bm9uZSI+CiAgICAgIDxyZWN0
-CiAgICAgICAgIHN0eWxlPSJmaWxsOiNmZmZmZmY7ZmlsbC1vcGFjaXR5OjE7c3Ryb2tlOiMw
-MDAwMDA7c3Ryb2tlLXdpZHRoOjI7c3Ryb2tlLW1pdGVybGltaXQ6NDtzdHJva2Utb3BhY2l0
-eToxO3N0cm9rZS1kYXNoYXJyYXk6bm9uZSIKICAgICAgICAgaWQ9InJlY3QzNjQ1IgogICAg
-ICAgICB3aWR0aD0iMzY3IgogICAgICAgICBoZWlnaHQ9IjE5NSIKICAgICAgICAgeD0iMTE4
-LjUiCiAgICAgICAgIHk9IjczOS4zNjIyNCIgLz4KICAgICAgPHBhdGgKICAgICAgICAgc29k
-aXBvZGk6bm9kZXR5cGVzPSJjY2MiCiAgICAgICAgIGlkPSJwYXRoMzYxNCIKICAgICAgICAg
-ZD0iTSAxMTguNTc3LDkzNC4yODUyNCAzMDIsNzM5LjQzOTI0IGwgMTgzLjQyMywxOTQuODQ2
-IgogICAgICAgICBzdHlsZT0iZmlsbDpub25lO3N0cm9rZTojYTBhMGEwO3N0cm9rZS13aWR0
-aDoyO3N0cm9rZS1saW5lY2FwOmJ1dHQ7c3Ryb2tlLWxpbmVqb2luOm1pdGVyO3N0cm9rZS1t
-aXRlcmxpbWl0OjQ7c3Ryb2tlLW9wYWNpdHk6MTtzdHJva2UtZGFzaGFycmF5Om5vbmUiIC8+
-CiAgICAgIDxwYXRoCiAgICAgICAgIHNvZGlwb2RpOm5vZGV0eXBlcz0iY2NjYyIKICAgICAg
-ICAgaWQ9InBhdGgzNjEwIgogICAgICAgICBkPSJtIDExOC41LDczOS4zNjIyNCAxODMuNSw5
-Ny41IDE4My41LC05Ny41IC0zNjcsMCB6IgogICAgICAgICBzdHlsZT0iZmlsbDojZmZmZmZm
-O2ZpbGwtb3BhY2l0eToxO3N0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDoyO3N0cm9rZS1s
-aW5lY2FwOmJ1dHQ7c3Ryb2tlLWxpbmVqb2luOm1pdGVyO3N0cm9rZS1taXRlcmxpbWl0OjQ7
-c3Ryb2tlLW9wYWNpdHk6MTtzdHJva2UtZGFzaGFycmF5Om5vbmUiIC8+CiAgICAgIDxyZWN0
-CiAgICAgICAgIHk9IjczOS4zNjIyNCIKICAgICAgICAgeD0iMTE4LjUiCiAgICAgICAgIGhl
-aWdodD0iMTk1IgogICAgICAgICB3aWR0aD0iMzY3IgogICAgICAgICBpZD0icmVjdDI4MTYi
-CiAgICAgICAgIHN0eWxlPSJmaWxsOm5vbmU7c3Ryb2tlOiMwMDAwMDA7c3Ryb2tlLXdpZHRo
-OjI7c3Ryb2tlLW1pdGVybGltaXQ6NDtzdHJva2Utb3BhY2l0eToxO3N0cm9rZS1kYXNoYXJy
-YXk6bm9uZSIgLz4KICAgIDwvZz4KICAgIDxwYXRoCiAgICAgICBzdHlsZT0iZmlsbDojZmYy
-MTIxO2ZpbGwtb3BhY2l0eToxO3N0cm9rZTpub25lIgogICAgICAgZD0ibSAyMzguNTE2NjMs
-NzQ2LjM0MDU3IGMgLTMuMDU0MTQsLTAuNzM2ODQgLTguNjM3ODcsMC41MDk1NCAtMTAuMTAz
-MDYsMy43NTU0MiAtNy4xNTQxOCw0LjYwOTY5IC05LjI1NTQ2LDE2LjM1NDAzIC00LjIxNzI1
-LDIzLjU4NjkxIDMuNjQ2NDksNS4zNDIyNSAxMS41MTQ4LDYuMjYwNzUgMTYuMDkzOCwxLjg1
-OTcxIDUuMzQwOTMsLTQuMTMwMDMgMTUuMTQzNjUsLTEyLjY4Njg0IDkuNTAxODEsLTIwLjQ1
-MzEzIC0xLjk2MjA0LC0zLjkwMjIgLTYuODY0MzQsLTkuNDY3NTEgLTExLjI3NTMsLTguNzQ4
-OTEgeiIKICAgICAgIGlkPSJwYXRoMzY4NSIKICAgICAgIHNvZGlwb2RpOm5vZGV0eXBlcz0i
-Y2NjY2NjIiAvPgogICAgPHBhdGgKICAgICAgIHN0eWxlPSJmaWxsOiNmZmRkNGQ7ZmlsbC1v
-cGFjaXR5OjE7c3Ryb2tlOm5vbmUiCiAgICAgICBkPSJtIDE1Mi41ODA2MSw3NjguMTc1NTMg
-YyAtMS42NTI0Myw0LjQwNDc3IC01LjQ4NTQzLDguMzczMjUgLTUuMzE3ODcsMTMuMTQyNzEg
-LTAuMTQ4ODYsMi4wNDU0IDAuNjg0NjgsNC4wMjYzNSAxLjU3ODI5LDUuOTEzMjUgLTAuMjgw
-NzEsMi45MTI0NiAyLjYxNzc0LDUuMDgxNzYgMy44Njk2LDcuNjI1NDIgMS4wNTg0MywxLjU5
-NTU3IDIuMTg1NTEsMy40MTE1IDQuMzIxMDQsNC4yMjIzNyAzLjE5MzE4LDAuNzQ3ODQgNi41
-Mjk3OSwxLjAzNDQ1IDkuODI1NzYsMS4zMjE1IDMuMDUzMDEsMC4wOTk0IDYuMTI1NjgsMC4x
-MjM2MSA5LjE3MDc2LC0wLjA2MiAyLjQxNTg2LC0wLjE5MjUzIDQuMTMyODYsLTEuODE5OTMg
-NC4zMDc1OCwtMy42OTM2MyAxLjAwOTE2LC0zLjgzMzU5IC0wLjI3MTA1LC04LjAxNDMzIC0z
-LjQyMTU4LC0xMS4wMjUwMyAtMi4xNzM2MywtMy4yNDg3NSAtMy43MzIyNiwtNi45NTQ5OCAt
-Ny4zODgwMywtOS4zODYyIC0yLjc2MTA0LC0yLjg2NDE5IC0zLjk2NzI0LC02LjgyNDUyIC04
-LjExMzUsLTguNzI2ODMgLTIuNTY5LC0xLjY5OTI1IC02LjU4NTU0LC0xLjEzMzc3IC04Ljgz
-MjA1LDAuNjY4NCB6IgogICAgICAgaWQ9InBhdGgzODUzIiAvPgogICAgPHBhdGgKICAgICAg
-IHN0eWxlPSJmaWxsOiMwMDI0ZWU7ZmlsbC1vcGFjaXR5OjE7c3Ryb2tlOm5vbmUiCiAgICAg
-ICBkPSJtIDE5Mi40MTMyNCw4NTYuMDE2MjUgYyAxMC4xNDIzNSw5LjYyNTM1IDIyLjI3Mjcs
-MjYuOTM3IDM0LjUzODEyLDI1LjcyMTI5IDExLjI4NDU1LDEuNDkwOTUgMjAuNzgzOTEsLTku
-NDUzODQgMjMuMDE0MzUsLTE2LjI5MzkxIDMuMjcwMzksLTguOTI0NTIgNC4yNTEzNiwtMTYu
-NzA4NDYgNC4zNTM5MiwtMjUuODQyMTUgMS42Mzc5LC05LjczOTUgMi4wNzcwMSwtMjAuNTc0
-OTcgOC40NDM4LC0yOC42MTI1NSA1LjM5NDczLC01LjAxNzU4IDE1LjE3MDUzLC0xLjg4NzYz
-IDE2Ljk4MTk0LDUuMTc1MDggNC4xMzQyMiwxMC4xODE3NCAxLjgxNDQyLDIxLjM4MjE4IDIu
-Mjg2MjUsMzIuMDM5NTMgMC4zMTQxMywxMi4wMDMwNiAxLjQ3NjI1LDI0Ljk0MjQ4IC01LjEx
-NTMxLDM1LjY1NzEgLTQuOTczODIsOS4xMzA4NCAtMTMuOTA4NCwxNS4wNDU1MyAtMjMuMTE5
-OTEsMTkuMjg5NTggLTguMDA2NywzLjkyMTQ4IC0xNi4xNjMwMyw4LjM5NzczIC0yNS4xMjAy
-NCw5LjQ5MDUzIC0xNC41NDYwMywwLjc5NzY0IC0yNy4yODIxMSwtNy44MDc1OCAtMzguMjMw
-MDMsLTE2LjM3NzUyIC0xNS42MTM3MywtMTEuNzQzMTEgLTI5LjM0NTczLC0yNy45NzkxMiAt
-MzIuODM5ODcsLTQ3LjcwNDkxIC0xLjI0MTM1LC02Ljc2MjIgMy4wNTYyNSwtMTYuMTA5ODgg
-MTAuOTg0MzcsLTE1LjE2MDg0IDYuODg0MjUsMS43Nzk1MiA5LjYwNjE4LDkuNTk5MDggMTUu
-MjA5NSwxMy41MDk0NyAyLjkzMzIzLDIuOTc1NDkgNS44NjU3NCw1Ljk1OTUgOC42MTMxMSw5
-LjEwOTMgeiIKICAgICAgIGlkPSJwYXRoMzk4OCIKICAgICAgIHNvZGlwb2RpOm5vZGV0eXBl
-cz0iY2NjY2NjY2NjY2NjY2NjIiAvPgogIDwvZz4KPC9zdmc+Cg==
---------------080608020907060107090003--
-
+--001636c5b0d9910117048ab825e4--
 
