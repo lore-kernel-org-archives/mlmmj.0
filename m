@@ -1,24 +1,23 @@
-From: Wolf Bergenheim <wolf+mlmmj@bergenheim.net>
-Date: Thu, 29 Jul 2010 15:33:19 +0000
-Subject: [mlmmj] Mailing list woes
-Message-Id: <AANLkTimy2MqTd=P+hVHns_WtXfy0_UCV9Z0y-0c_LuAw@mail.gmail.com>
+From: Alexei Babich <a.babich@rez.ru>
+Date: Wed, 18 Aug 2010 15:40:37 +0000
+Subject: [mlmmj] replacing the address
+Message-Id: <201008182140.37607.a.babich@rez.ru>
 List-Id: <mlmmj.mlmmj.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Hello list,
+Hello all,
+I'm trying to organize a mailing list based on mlmmj+postfix.
+And required functionality of the mlmmj+postfix: requires that recipients of letters from mailing list not seen the real address of the sender, but the mailing list address instead. 
+For example, in this letter, in my case, everything would have seen not Alexei Babich <a.babich@rez.ru>, but Alexei Babich <mlmmj@mlmmj.org>.
+Is it possible to do such a thing?
 
-There was a small missconfiguration at the mailinglist server which
-led to no mail being delivered to the list. This has now been fixed,
-so the mail traffic should return to normal now.
-
-Thanks for your patience,
-Wolf Bergenheim
-mlmmj.org postmaster
-
+Thank you.
 -- 
-<8  )---- Wolf Bergenheim ----(  3>
-
+Regards,
+Alexei Babich, circuit design engineer, Rezonans plc., Chelyabinsk, Russia
+http://www.rez.ru
+Jabber ID: impatt@jabber.ru
 
