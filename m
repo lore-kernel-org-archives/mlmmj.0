@@ -1,79 +1,58 @@
-From: Wolf Bergenheim <wolf+mlmmj@bergenheim.net>
-Date: Wed, 18 Aug 2010 12:06:03 +0000
-Subject: Re: [mlmmj] List archive howto?
-Message-Id: <AANLkTinwvTcMqaKd7MDjAswD6M4SVhz7=Er+oL-EgbHn@mail.gmail.com>
-MIME-Version: 1
-Content-Type: multipart/mixed; boundary="e0cb4e887811f33239048e17e448"
+From: Ben Schmidt <mail_ben_schmidt@yahoo.com.au>
+Date: Tue, 24 Aug 2010 12:35:14 +0000
+Subject: [mlmmj] mlmmj 1.2.17.1 released
+Message-Id: <4C73BC82.2020906@yahoo.com.au>
 List-Id: <mlmmj.mlmmj.org>
-References: <4C6B3882.6070904@gmail.com>
-In-Reply-To: <4C6B3882.6070904@gmail.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
---e0cb4e887811f33239048e17e448
-Content-Type: text/plain; charset=UTF-8
+Hi, everybody!
 
-On Wed, Aug 18, 2010 at 04:33, Morgan Gangwere <0.fractalus@gmail.com> wrote:
-> Howdy y'all
->
-> I'm kinda curious as to what is used for the archiving of the mailing list?
+As we have had a few important patches recently, I have released
+mlmmj 1.2.17.1.
 
-We're using hypermail to create the webarchive. I have also made my
-own script to control the use of hypermail.
+This release contains security-related bugfixes, other minor
+bugfixes, and updates to listtexts and documentation.
 
-> I've got my own list set up and I'm pouring through the documentation
-> looking for what actually generates the html. Any help?
->
+Most importantly, everyone using the web admin interfaces is
+advised to update.
 
-I've attached my script, it is a cli php script
+It includes these changes:
 
-I also have a script to use it which is cleaning up after hypermail:
-#!/bin/bash
-/usr/local/bin/wwwmmm
-find /var/www/mlmmj.org/archive -type d -exec chmod ug=rwx,o=x {} \;
-find /var/www/mlmmj.org/archive -type f -exec chmod ug=rw,o=r {} \;
+- Check return status in mlmmj-perl-admin when adding subscribers
+   (Florian Streibelt, Bitmand)
+- Better validation of input in php-admin (Thomas Goirand)
+- Added Turkish translation (Samed Beyribey)
+- Fixed security bug in mlmmj-php-admin (Florian Streibelt,
+   Morten Shearman Kirkegaard)
+- Added README.postfix to distribution tarball
+- Added contrib/amime-receive (Gerd v. Egidy)
+- Fixed memory leak in substitute_one() (Ben Schmidt)
+- Updated German listtexts (Christoph Wilke)
+- Updated TUNABLES file (Ben Schmidt)
 
---Wolf
+This is an interim release which won't be represented by any
+revision in version control. Rather, it is 1.2.17 with a
+collection of recent patches that were felt important or
+unobtrusive enough to release quickly, rather than waiting for a
+full test-and-release cycle.
 
---e0cb4e887811f33239048e17e448
-Content-Type: application/octet-stream; name=wwwmmm
-Content-Disposition: attachment; filename=wwwmmm
-Content-Transfer-Encoding: base64
-X-Attachment-Id: f_gd04ro410
+It is, of course, available on the downloads page.
+http://mlmmj.org/downloads/
 
-IyEvdXNyL2Jpbi9waHAKPD9waHAKLy8gLSotIHBocCAtKi0KJHByZWZpeCA9ICcvdmFyL3Nwb29s
-L21sbW1qLyc7CiRzdGFydGRpciA9IGdldGN3ZCgpOwokaG0gPSAnL3Vzci9iaW4vaHlwZXJtYWls
-JzsKLy9jaGRpcignJyk7CgpwdXRlbnYoJ0xDX1RJTUU9ZW5fR0InKTsKJGxpc3RzID0gYXJyYXko
-KTsKJGRvbWFpbnMgPSBhcnJheSgpOwoKZWNobyAibG9va2luZyBmb3IgZG9tYWlucyBpbiAiLiRw
-cmVmaXguIlxuIjsKLy8gYWxsIGxpc3RzIHdpdGggdGhlIHdlYmFyY2hpdmUgdHVuYWJsZSB3aWxs
-IGJlIHByb2Nlc3NlZAoKJHRtcCA9IHNjYW5kaXIoJHByZWZpeCk7CmZvcmVhY2goJHRtcCBhcyAk
-dCkgewogICAgaWYoaXNfZGlyKCRwcmVmaXguJHQpICYmICFpc19saW5rKCRwcmVmaXguJHQpICYm
-IChzdWJzdHJfY29tcGFyZSgkdCwgJy4nLCAwLCAxKSAhPSAwKSkgewoJZWNobyAiYWRkaW5nICIu
-JHQuIiBhcyBhIGRvbWFpblxuIjsKCSRkb21haW5zW10gPSAkdDsKICAgIH0KfQpmb3JlYWNoKCRk
-b21haW5zIGFzICRkb21haW4pIHsKICAgIGVjaG8gImxvb2tpbmcgZm9yIGxpc3RzIGZvciAiLiRk
-b21haW4uIlxuIjsKICAgICR0bXAgPSBzY2FuZGlyKCRwcmVmaXguJGRvbWFpbik7CiAgICBmb3Jl
-YWNoKCR0bXAgYXMgJGxpc3QpIHsKCWlmKGZpbGVfZXhpc3RzKCRwcmVmaXguJGRvbWFpbi4nLycu
-JGxpc3QuJy9jb250cm9sL3dlYmFyY2hpdmUnKSkgewoJICAgIGVjaG8gImFkZGluZyAiLiRsaXN0
-LiIgYXMgYSBsaXN0XG4iOwoJICAgICRsaXN0c1skZG9tYWluXVtdID0gJGxpc3Q7Cgl9CiAgICB9
-Cn0KCmZvcmVhY2goJGxpc3RzIGFzICRkb21haW4gPT4gJGxpc3RzKSB7CiAgICBmb3JlYWNoKCRs
-aXN0cyBhcyAkbGlzdCkgewoKCSRsaXN0cGF0aCA9ICRwcmVmaXguJGRvbWFpbi4nLycuJGxpc3Q7
-CglpZiAoZmlsZV9leGlzdHMoJGxpc3RwYXRoLicvY29udHJvbC93ZWJhcmNoaXZlaW5kZXgnKSkg
-ewoJICAgICRsYXN0aW5kZXggPSB0cmltKGZpbGVfZ2V0X2NvbnRlbnRzKCRsaXN0cGF0aC4nL2Nv
-bnRyb2wvd2ViYXJjaGl2ZWluZGV4JykpOwoJfQoJZWxzZSB7CgkgICAgJGxhc3RpbmRleCA9IDE7
-Cgl9CgkkbGFzdG1lc3NhZ2UgPSAwOwoJJHRtcCA9IHNjYW5kaXIoJGxpc3RwYXRoLicvYXJjaGl2
-ZScpOwoJZm9yZWFjaCgkdG1wIGFzICR0KSB7CgkgICAgaWYoKCR0ICE9ICcuJykgJiYgKCR0ICE9
-ICcuLicpICYmICgkdCA+ICRsYXN0bWVzc2FnZSkpIHsKCQkkbGFzdG1lc3NhZ2UgPSAkdDsKCSAg
-ICB9Cgl9CglpZigkbGFzdGluZGV4ID49ICRsYXN0bWVzc2FnZSkgewoJICAgIHByaW50KCJcdE5v
-IG5ldyBtZXNzYWdlcyB0byBwcm9jZXNzLiAoJGxhc3RpbmRleC8kbGFzdG1lc3NhZ2UpXG4iKTsK
-CSAgICBicmVhazsKCX0KCXByaW50KCJcdFByb2Nlc3NpbmcgbWVzc2FnZXMgIi4kbGFzdGluZGV4
-LicgLSAnLiRsYXN0bWVzc2FnZS4nIGZvciAnLiRsaXN0LidAJy4kZG9tYWluLiJcbiIpOwoJZm9y
-KCRtc2c9JGxhc3RpbmRleCsxOyAkbXNnPD0kbGFzdG1lc3NhZ2U7JG1zZysrKSB7CgkgICAgaWYo
-ZmlsZV9leGlzdHMoJGxpc3RwYXRoLicvYXJjaGl2ZS8nLiRtc2cpKSB7CgkJcHJpbnQoIlx0XHRB
-cmNoaXZpbmcgbWVzc2FnZSAiLiRtc2cuJyBvZiAnLiRsaXN0LidAJy4kZG9tYWluLiJcbiIpOwoJ
-CSRjb21tYW5kID0gJGhtLicgLXUgLU0gLWwgJy4kbGlzdC4nIC1MIGVuIC1jICcuJGxpc3RwYXRo
-LicvY29udHJvbC93ZWJhcmNoaXZlIC1pIDwnLiRsaXN0cGF0aC4nL2FyY2hpdmUvJy4kbXNnOwoJ
-CWV4ZWMoJGNvbW1hbmQpOwoJCSRsYXN0aW5kZXggPSAkbXNnOwoJICAgIH0KCSAgICBlbHNlIHsK
-CQlwcmludCgiXHRcdE5vIG1lc3NhZ2UgIi4kbXNnLicgaW4gYXJjaGl2ZSBvZiAnLiRsaXN0LidA
-Jy4kZG9tYWluLiJcbiIpOwoJICAgIH0KCX0KCWZpbGVfcHV0X2NvbnRlbnRzKCRsaXN0cGF0aC4n
-L2NvbnRyb2wvd2ViYXJjaGl2ZWluZGV4JywgJGxhc3RpbmRleCk7CiAgICB9Cn0KPz4K
---e0cb4e887811f33239048e17e448--
+We will do a full test-and-release cycle for mlmmj 1.2.18
+shortly.
+
+In the meantime, enjoy 1.2.17.1, and, of course, let me know of
+any problems you encounter.
+
+Smiles,
+
+Ben.
+
+
+
+
 
