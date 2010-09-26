@@ -1,65 +1,37 @@
-From: Ben Schmidt <mail_ben_schmidt@yahoo.com.au>
-Date: Sat, 25 Sep 2010 15:25:23 +0000
+From: Florian Effenberger <floeff@gmail.com>
+Date: Sun, 26 Sep 2010 14:01:32 +0000
 Subject: Re: [mlmmj] transport maps and virtual domains
-Message-Id: <4C9E1463.2020108@yahoo.com.au>
+Message-Id: <AANLkTi=_C_Z-Ktut9BxtdAOdSX+v1KhGAaUr6punqGxy@mail.gmail.com>
 List-Id: <mlmmj.mlmmj.org>
 References: <AANLkTinTwTDb9=Ok_vTxO6fatc3zAan1gy3CeTQNCskC@mail.gmail.com>
 In-Reply-To: <AANLkTinTwTDb9=Ok_vTxO6fatc3zAan1gy3CeTQNCskC@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 To: mlmmj@mlmmj.org
 
-It should be a piece of cake. Follow the instructions that you
-referenced at http://mlmmj.org/docs/readme-postfix/ but in
-virtual.regexp use a formula something like
+Hi Ben,
 
-/^(list-name.*)@(domain\.com)$/    domain--${1}
+2010/9/25 Ben Schmidt <mail_ben_schmidt@yahoo.com.au>:
 
-and in transport use a formula something like
+> It should be a piece of cake. Follow the instructions that you
+> referenced at http://mlmmj.org/docs/readme-postfix/ but in
+> virtual.regexp use a formula something like
+>
+> /^(list-name.*)@(domain\.com)$/ =A0 =A0domain--${1}
+>
+> and in transport use a formula something like
+>
+> /^(domain--list-name).*$/ =A0 =A0 =A0 =A0 =A0mlmmj:domain/list-name
+>
+> Then you put listdir in /var/spool/mlmmj/domain/list-name
+>
+> Does that make sense?
 
-/^(domain--list-name).*$/          mlmmj:domain/list-name
+you're the man, thanks a lot! Works like a charm! Has an ugly
+Delivered-To header, but these are cosmetics. :)
 
-Then you put listdir in /var/spool/mlmmj/domain/list-name
-
-Does that make sense?
-
-Disclaimer: I haven't actually done this, though I've tried similarish
-things. I think it'll work from what I know of Postfix, but could always
-be wrong!
-
-Ben.
-
-
-
-On 25/09/10 10:31 PM, Florian Effenberger wrote:
-> Hi,
->
-> at the moment, I use a little workaround to have several virtual list
-> domains with similar list names in Postfix. It's like that:
->
-> mlmmj-make-ml -s /var/spool/mlmmj/site1.org -L announce
-> mlmmj-make-ml -s /var/spool/mlmmj/site2.org -L announce
->
-> Alias: ml-site1-announce:        "|/usr/bin/mlmmj-recieve -L
-> /var/spool/mlmmj/site1/announce/"
-> Alias: ml-site2-announce:        "|/usr/bin/mlmmj-recieve -L
-> /var/spool/mlmmj/site2/announce/"
->
-> Virtual Alias Domain: announe@site1 ml-site1-announce
-> Virtual Alias Domain: announe@site2 ml-site2-announce
->
-> It works like a charm. Now I wanted to switch over to Postfix
-> transport maps as described in http://mlmmj.org/docs/readme-postfix/,
-> however, I can't find a way to achieve something similar as what I do,
-> having same list names on multiple domains.
->
-> Is there an easy solution?
->
-> Thanks,
-> Florian
->
->
->
+Thanks!
+Florian
 
 
