@@ -1,80 +1,76 @@
-From: "Robin H. Johnson" <robbat2@gentoo.org>
-Date: Mon, 27 Sep 2010 01:36:02 +0000
+From: Ben Schmidt <mail_ben_schmidt@yahoo.com.au>
+Date: Mon, 27 Sep 2010 01:59:17 +0000
 Subject: Re: [mlmmj] undesired help emails
-Message-Id: <robbat2-20100927T012640-443590075Z@orbis-terrarum.net>
-MIME-Version: 1
-Content-Type: multipart/mixed; boundary="1UWUbFP1cBYEclgG"
+Message-Id: <4C9FFA75.1060703@yahoo.com.au>
 List-Id: <mlmmj.mlmmj.org>
 References: <4C960847.7000102@yahoo.com.au>
 In-Reply-To: <4C960847.7000102@yahoo.com.au>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
+On 27/09/10 11:36 AM, Robin H. Johnson wrote:
+> On Mon, Sep 27, 2010 at 11:19:30AM +1000, Ben Schmidt wrote:
+>> http://mlmmj.org/hg/mlmmj/file/32d3f7e3b523/README.listtexts
+>>
+>> Note that $whatever$ substitutions are supported in the headers. I think
+>> this means you should be able to code pretty much whatever you want in a
+>> list-independent way and continue to use shared listtexts.
+> I'm wondering if we added existing customheaders to administrative mails maybe,
+> since we can have the other per-listtext headers.
+>
+> However, it would require an override order of:
+> mlmmj default
+> customheader
+> listtext
+>
+> Which might introduce other bugs.
 
---1UWUbFP1cBYEclgG
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Yeah, I think it probably would cause hassles, and it's particularly
+awkward as there are occasionally supposed to be multiple headers of a
+single type.
 
-On Mon, Sep 27, 2010 at 11:19:30AM +1000, Ben Schmidt wrote:
-> http://mlmmj.org/hg/mlmmj/file/32d3f7e3b523/README.listtexts
->=20
-> Note that $whatever$ substitutions are supported in the headers. I think
-> this means you should be able to code pretty much whatever you want in a
-> list-independent way and continue to use shared listtexts.
-I'm wondering if we added existing customheaders to administrative mails ma=
-ybe,
-since we can have the other per-listtext headers.
+Don't throw the idea away, though.
 
-However, it would require an override order of:
-mlmmj default
-customheader
-listtext
+Perhaps a variation where a postheaders tunable contained headers to be
+added to list posts would be sensible. Then customheaders would be added
+to all mails, but listtexts and postheaders would define headers at a
+finer grain. The override order and behaviour would still have to be
+carefully considered.
 
-Which might introduce other bugs.
+Any of these changes would be a behaviour disruption, and potentially
+break compatibility, so would wait until a fairly major release to come
+through.
 
-> Is there something I'm missing?
-Reviewing that README.listtexts, the only header not covered by the above is
-List-Id. All the rest are covered nicely by the new header functionality.
+>> Is there something I'm missing?
+> Reviewing that README.listtexts, the only header not covered by the above is
+> List-Id. All the rest are covered nicely by the new header functionality.
+>
+> Examples from the Gentoo lists:
+> List-Id: Gentoo development announcement list<gentoo-dev-announce.gentoo.org>
 
-Examples from the Gentoo lists:
-List-Id: Gentoo development announcement list <gentoo-dev-announce.gentoo.o=
-rg>
-List-Id: Gentoo Development-related help <gentoo-devhelp.gentoo.org>
-List-Id: Gentoo Foundation Official Announcements <gentoo-foundation-announ=
-ce.gentoo.org>
-List-Id: Gentoo Graphical User Interfaces Project <gentoo-guis.gentoo.org>
-List-Id: Gentoo Lisp mail <gentoo-lisp.gentoo.org>
-List-Id: Gentoo Package Manager Specification discussions <gentoo-pms.gento=
-o.org>
-List-Id: Gentoo Project discussion list <gentoo-project.gentoo.org>
-List-Id: Gentoo SCM discussions <gentoo-scm.gentoo.org>
-List-Id: Gentoo Greek Users <gentoo-user-el.gentoo.org>
-List-Id: Gentoo Dutch Users <gentoo-user-nl.gentoo.org>
-List-Id: Gentoo Turkish Users <gentoo-user-tr.gentoo.org>
-List-Id: Gentoo VDR list <gentoo-vdr.gentoo.org>
+Hmm. Yeah, OK.
 
-> I'll look at your specific examples in more detail later. Thanks for
-> forwarding them.
-The bulk header should cut a lot of them.
+I guess adding a listid tunable isn't out of the question, though if we
+went down that road I'd want to carefully consider how to best structure
+it for possible future use by mlmmj itself.
 
---=20
-Robin Hugh Johnson
-Gentoo Linux: Developer, Trustee & Infrastructure Lead
-E-Mail     : robbat2@gentoo.org
-GnuPG FP   : 11AC BA4F 4778 E3F6 E4ED  F38E B27B 944E 3488 4E85
+Another thought...What about a generic $tunableX$ substitution that
+pulls the text out of the given tunable X? That would enable you to do
+as much list-specific stuff as you wanted, and although it seems pretty
+powerful and a candidate for exploitation, I don't think it would open
+any security holes.
 
---1UWUbFP1cBYEclgG
-Content-Type: application/pgp-signature
-Content-Disposition: inline
+>> I'll look at your specific examples in more detail later. Thanks for
+>> forwarding them.
+> The bulk header should cut a lot of them.
 
------BEGIN PGP SIGNATURE-----
-Version: GnuPG v2.0.16 (GNU/Linux)
-Comment: Robbat2 @ Orbis-Terrarum Networks - The text below is a digital signature. If it doesn't make any sense to you, ignore it.
+Cool.
 
-iEYEARECAAYFAkyf9QIACgkQPpIsIjIzwiykCQCgjwcQvoS31E9cvak5VCVb54Rp
-rPgAoJns0A7FYsPIfN9w10pW5K+rbMdJ
-=jixT
------END PGP SIGNATURE-----
+Ben.
 
---1UWUbFP1cBYEclgG--
+
+
+
 
