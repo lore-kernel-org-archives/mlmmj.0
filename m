@@ -1,33 +1,68 @@
-From: Florian Effenberger <floeff@gmail.com>
-Date: Mon, 11 Oct 2010 10:41:46 +0000
-Subject: Re: [mlmmj] List archive howto?
-Message-Id: <AANLkTikdSHjyMwSyMLKpZcyzOYnK_CHONHyEjjYoN0E=@mail.gmail.com>
+From: Ben Schmidt <mail_ben_schmidt@yahoo.com.au>
+Date: Fri, 01 Oct 2010 05:14:37 +0000
+Subject: Re: [mlmmj] more than 100 lines for moderation
+Message-Id: <4CA56E3D.3020705@yahoo.com.au>
 List-Id: <mlmmj.mlmmj.org>
-References: <4C6B3882.6070904@gmail.com>
-In-Reply-To: <4C6B3882.6070904@gmail.com>
+References: <AANLkTimcx6HcKrOwargzPTzzYdtdNq_-6CNxHYZR1ty0@mail.gmail.com>
+In-Reply-To: <AANLkTimcx6HcKrOwargzPTzzYdtdNq_-6CNxHYZR1ty0@mail.gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Hi Robin,
+That should have been
 
-2010/10/3 Robin H. Johnson <robbat2@gentoo.org>:
+$ hg clone http://mlmmj.org/hg/mlmmj
 
-> On Tue, Aug 17, 2010 at 07:33:54PM -0600, Morgan Gangwere wrote:
-> For Gentoo, we use mhonarc, with some minor modifications.
+I accidentally omitted the /hg before.
+
+Ben.
+
+
+
+On 1/10/10 9:50 AM, Ben Schmidt wrote:
+> On 1/10/10 12:31 AM, Florian Effenberger wrote:
+>> Hi,
+>>
+>> 2010/9/30 Ben Schmidt<mail_ben_schmidt@yahoo.com.au>:
+>>
+>>> This has been implemented in version control and I've been using it for
+>>> about 6 months so I am confident it is fairly solid. If you would like
+>>> download the current sources and help test it, I would certainly welcome
+>>> the help.
+>>
+>> happy to test it out, of course. Any patch available for the Ubuntu
+>> 10.04 version of mlmmj?
 >
-> One of the key modifications was ultimately caused by the message
-> numbering issue in threads.
+> I doubt it, Florian. The changes have got into Mlmmj's version control,
+> but I don't expect they've got anywhere else yet (they haven't even made
+> it into an Mlmmj release yet).
 >
-> Specifically, what URL should exist if a message arrives out of sequence
-> due to a delay. Some archive tools renumber the urls, others keep an
-> index based on some part of the mail. Both of these caused some degree
-> of problems for us, and we had to come up with an alternative.
+> Would you be able to download and compile it yourself? You'll need
+> Mercurial and general development stuff installed (compiler, C library
+> development headers, GNU autotools), but it should be pretty easy. It
+> should go something like this (it will create a directory mlmmj in the
+> current directory):
+>
+> $ hg clone http://mlmmj.org/mlmmj
+> $ cd mlmmj
+> $ autoreconf -if
+> $ ./configure
+> $ make
+> $ make install
+>
+> You might need/want to give a --prefix argument to configure.
+>
+> And/or you might prefer to copy the binaries into place manually rather
+> than using make install, for added control.
+>
+> The most likely thing to be different in your distro's Mlmmj package to
+> the official sources is the mlmmj-make-ml.sh script. You might like to
+> omit that from your installation.
+>
+> Ben.
 
-can you share how you did thas? Would be interested to deploy
-something similar on our machines as well. ;)
 
-Thanks,
-Florian
+
+
 
