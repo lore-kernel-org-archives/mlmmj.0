@@ -1,37 +1,49 @@
-From: Ben Schmidt <mail_ben_schmidt@yahoo.com.au>
-Date: Fri, 29 Oct 2010 23:19:23 +0000
-Subject: Re: [mlmmj] Re: Permission trouble
-Message-Id: <4CCB567B.5050807@yahoo.com.au>
+From: Christian Gleerup <christian.gleerup@swn.nu>
+Date: Sat, 02 Oct 2010 08:14:54 +0000
+Subject: Re: [mlmmj] Cannot remove mail adress
+Message-Id: <1286007294.1785.1.camel@cg-desktop>
 List-Id: <mlmmj.mlmmj.org>
-References: <A6F4BBD6-0B74-48A4-B0D5-4400CF089CF0@925.dk>
-In-Reply-To: <A6F4BBD6-0B74-48A4-B0D5-4400CF089CF0@925.dk>
+References: <1285524372.2905.16.camel@cg-desktop>
+In-Reply-To: <1285524372.2905.16.camel@cg-desktop>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-> This is getting far afield from mlmmj.  I'll drop it now.
+I just checked the file, and it indeed contained a whitespace character
+(\r)
 
-I will say one thing on the subject, though.
+this must have been an error when I made the mass subscribe system, I
+will look out for this, but it would be nice if the system was a bit
+more robust, and automatically removed trailing whitespaces :)
 
-The README.postfix file and transport solution therein have been
-designed to get around this problem. It seems that perhaps if you use
-NFS you would be particularly wise to follow its advice. It's here:
+I wasn't able to remove the adress by sending a mail either, it said
+that I was not a member.
 
-http://mlmmj.org/docs/readme-postfix/
+after removing the \r, i was able to unsubscribe
 
-Or the current version with more about multi-domain support is here:
+many thanks
 
-http://mlmmj.org/hg/mlmmj/file/tip/README.postfix
-
-It will shortly be updated to incorporate more accurate pattern matching
-in line with the discussion here:
-
-http://mlmmj.org/bugs/bug.php?id=1
-
-Ben.
+Christian.
 
 
+> Also, have you tried unsubscribing through the mail system (assuming
+> it's not a closed list), i.e. by sending mail to
+> nyhedsbrev+unsubscribe@... from the problematic address?
+> 
+> Finally...I should say if it's just this one address, not a recurring
+> problem that you need to fix, it wouldn't hurt to find the line in the
+> subscribers.d/c file and just remove it with a text editor.
+> 
+> It would be good to know if that illusive extra whitespace is there
+> though, regardless, particularly if you know how the address was
+> subscribed, because there may be a bug in Mlmmj we can track down, or
+an
+> improvement we can make to avoid it happening again.
+> 
+> Smiles,
+> 
+> Ben.
 
 
 
