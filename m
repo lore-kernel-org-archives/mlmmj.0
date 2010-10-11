@@ -1,7 +1,7 @@
-From: Thomas Goirand <thomas@goirand.fr>
-Date: Mon, 11 Oct 2010 13:59:14 +0000
+From: Ben Schmidt <mail_ben_schmidt@yahoo.com.au>
+Date: Mon, 11 Oct 2010 22:13:35 +0000
 Subject: Re: [mlmmj] mlmmj-maintd recursively
-Message-Id: <4CB31832.5020006@goirand.fr>
+Message-Id: <4CB38C0F.6080909@yahoo.com.au>
 List-Id: <mlmmj.mlmmj.org>
 References: <AANLkTi=7mc394VyH4j19zW_+jzpiCH7UXShb3supRJS9@mail.gmail.com>
 In-Reply-To: <AANLkTi=7mc394VyH4j19zW_+jzpiCH7UXShb3supRJS9@mail.gmail.com>
@@ -10,47 +10,45 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Ben Schmidt wrote:
-> On 11/10/10 9:35 PM, Florian Effenberger wrote:
->> Hi,
->>
->> 2010/10/6 Ben Schmidt<mail_ben_schmidt@yahoo.com.au>:
->>
->>>> Use the -maxdepth option then!
->>>>
->>>> find /var/spool/mlmmj/ -mindepth 1 -maxdepth 1 -type d \
->>>>         /usr/bin/mlmmj-maintd -F -d {} \;
->>>>
->>>> the -mindepth 1 will remove /var/spool/mlmmj/ itself that would be
->>>> otherwise listed...
+On 12/10/10 12:59 AM, Thomas Goirand wrote:
+>>> at least on Ubuntu, it has to read
 >>>
->>> Wonderful! I should work on my find(1) voodoo.
+>>> find /var/spool/mlmmj/ -mindepth 1 -maxdepth 1 -type d -exec
+>>> /usr/bin/mlmmj-maintd -F -d {} \;
 >>>
->>> I have integrated this into the README for future releases. It will show
->>> up in version control once I get around to pushing it.
+>>> (you were missing the -exec)
 >>
->> at least on Ubuntu, it has to read
+>> Oops! Thanks. Fixed.
 >>
->> find /var/spool/mlmmj/ -mindepth 1 -maxdepth 1 -type d -exec
->> /usr/bin/mlmmj-maintd -F -d {} \;
->>
->> (you were missing the -exec)
-> 
-> Oops! Thanks. Fixed.
-> 
-> Ben.
+>> Ben.
+>
+> When I wrote "hint", in meant:
+>
+> "I'm using something unchecked from the top of my head, please test
+> anything before writing a doc, or using it in production"
+>
+> :)
 
-When I wrote "hint", in meant:
+Yeah, I did try it out; you actually got it right the first time anyway,
+IIRC. The -exec just got lost when the -m..depth options were added and
+I didn't notice. So it tested fine, but when I copy/pasted for the docs,
+it wasn't. My oops, not yours!
 
-"I'm using something unchecked from the top of my head, please test
-anything before writing a doc, or using it in production"
+:-)
 
-:)
+> So yes, the correct way was:
+>
+> find /var/spool/mlmmj/ -mindepth 1 -maxdepth 1 -type d \
+> 	-exec /usr/bin/mlmmj-maintd -F -d {} \;
 
-So yes, the correct way was:
+Actually, on my system it looks like the trailing slash should be
+omitted, too, or there is a double slash in the argument passed to
+mlmmj-maintd. Probably doesn't matter, but is a little unconventional,
+so I'll take the slash out of the docs.
 
-find /var/spool/mlmmj/ -mindepth 1 -maxdepth 1 -type d \
-	-exec /usr/bin/mlmmj-maintd -F -d {} \;
+Ben.
 
-Thomas
+
+
+
 
