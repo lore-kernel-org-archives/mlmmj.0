@@ -1,28 +1,37 @@
-From: Florian Effenberger <floeff@gmail.com>
-Date: Fri, 15 Oct 2010 10:07:00 +0000
-Subject: [mlmmj] marking moderated messages
-Message-Id: <AANLkTik=YgW7SySj17=86=wJ3ESH+1mwVN1tmSUUSFC-@mail.gmail.com>
+From: Ben Schmidt <mail_ben_schmidt@yahoo.com.au>
+Date: Mon, 11 Oct 2010 23:31:15 +0000
+Subject: [mlmmj] Auto wrapping in list texts
+Message-Id: <4CB39E43.80406@yahoo.com.au>
 List-Id: <mlmmj.mlmmj.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Hi,
+I myself have a feature request related to list texts!
 
-sorry for throwing in so many ideas and requests, even without using
-BugZilla, but at the moment I'm just swamped by the work on my desk.
-:-) As said, The Document Foundation has chosen mlmmj for it's mailing
-list system, and here is another idea raised by an user:
+I would like an auto-wrapping ability, so that $whatever$ substitutions can be 
+made, including of post subject lines and so on, without the need to put the 
+$whatever$ on a line of its own for fear that it might become too long. List texts 
+could be made more compact and readable, then.
 
-=
-Is it possible to add an indication that a message has been passed by
-the moderators to the subject line, or as a secondary header in the
-message itself?  This way those answering the OP will know that they
-need to add his/her personal address to the reply.  Additionally, the
-OP will know that tthe message has come from an email address which is
-not registered, which can happen by accident.
-=
+My suggested mechanism is to have a 'substitution' $wrapN$ that must appear first 
+on a line, optionally after whitespace (like $originalmailN$). It would have 
+effect until the next line in the listtext that is empty or only contains 
+whitespace, and would wrap the text to N columns, prefixing each line with the 
+indent that the $wrapN$ directive had. N would default to 72 if omitted. So you 
+could do
 
-Florian
+$wrap$The subject line of the post was "$subject$".
+
+Or indented:
+     $wrap64$The subject line of the post was "$subject$".
+
+Or first-line-only indent:
+$wrap$    The subject line of the post was "$subject$".
+
+Ben.
+
+
+
 
