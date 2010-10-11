@@ -1,7 +1,7 @@
-From: Ben Schmidt <mail_ben_schmidt@yahoo.com.au>
-Date: Wed, 06 Oct 2010 22:19:30 +0000
+From: Florian Effenberger <floeff@gmail.com>
+Date: Mon, 11 Oct 2010 10:41:46 +0000
 Subject: Re: [mlmmj] List archive howto?
-Message-Id: <4CACF5F2.6050007@yahoo.com.au>
+Message-Id: <AANLkTikdSHjyMwSyMLKpZcyzOYnK_CHONHyEjjYoN0E=@mail.gmail.com>
 List-Id: <mlmmj.mlmmj.org>
 References: <4C6B3882.6070904@gmail.com>
 In-Reply-To: <4C6B3882.6070904@gmail.com>
@@ -10,30 +10,24 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-On 7/10/10 6:57 AM, Robin H. Johnson wrote:
-> On Wed, Oct 06, 2010 at 07:03:31PM +1100, Ben Schmidt wrote:
->> I'm afraid you've completely lost me there, Robin, possibly because I
->> know basically nothing about mhonarc. The concepts sound great, though.
->>
->> A question, though.... Is there anything specific and useful in your
->> stuff reply that I should be working into the documentation about
->> archive solutions? Or is this a complex solution, or not detailed
->> enough, and best left out and revealed if someone finds the other
->> solutions aren't adequate for them?
-> Mhonarc itself is fairly simple to setup.
+Hi Robin,
+
+2010/10/3 Robin H. Johnson <robbat2@gentoo.org>:
+
+> On Tue, Aug 17, 2010 at 07:33:54PM -0600, Morgan Gangwere wrote:
+> For Gentoo, we use mhonarc, with some minor modifications.
 >
-> The URLs based on SHA1 help with larger lists in case you have to
-> rebuild the archive only.
+> One of the key modifications was ultimately caused by the message
+> numbering issue in threads.
+>
+> Specifically, what URL should exist if a message arrives out of sequence
+> due to a delay. Some archive tools renumber the urls, others keep an
+> index based on some part of the mail. Both of these caused some degree
+> of problems for us, and we had to come up with an alternative.
 
-Is this something that if I mention it in the docs a mhonarc user would
-know what to do to make it happen? If not, are you able to flesh it out
-a bit for me so I can include it?
+can you share how you did thas? Would be interested to deploy
+something similar on our machines as well. ;)
 
-Cheers,
-
-Ben.
-
-
-
-
+Thanks,
+Florian
 
