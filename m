@@ -1,7 +1,7 @@
-From: Ben Schmidt <mail_ben_schmidt@yahoo.com.au>
-Date: Sun, 10 Oct 2010 22:31:01 +0000
+From: Florian Effenberger <floeff@gmail.com>
+Date: Mon, 11 Oct 2010 10:30:51 +0000
 Subject: Re: [mlmmj] text template bug in Ubuntu package
-Message-Id: <4CB23EA5.7000907@yahoo.com.au>
+Message-Id: <AANLkTi=0AtOadODZ_Va9zUmHOf508o4=tC3Lc9N+fopb@mail.gmail.com>
 List-Id: <mlmmj.mlmmj.org>
 References: <AANLkTikk5ZKs3C=y2GOabbeRf2=WTApsNdauTaxHPYR-@mail.gmail.com>
 In-Reply-To: <AANLkTikk5ZKs3C=y2GOabbeRf2=WTApsNdauTaxHPYR-@mail.gmail.com>
@@ -10,30 +10,27 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Thanks for the report, Florian,
+Hi Ben,
 
-I found the bug in the German list text. I presume that was the language you were 
-referring to?
+2010/10/11 Ben Schmidt <mail_ben_schmidt@yahoo.com.au>:
+> Thanks for the report, Florian,
 
-I have fixed it locally and will push the change out to version control shortly.
+you're welcome.
 
-It is up to Debian/Ubuntu/Thomas, I think, when/how to get the change into the 
-distro's package.
+> I found the bug in the German list text. I presume that was the language you
+> were referring to?
 
-Ben.
+Exactly!
 
+> I have fixed it locally and will push the change out to version control
+> shortly.
 
+Thanks a lot!
 
-On 11/10/10 3:12 AM, Florian Effenberger wrote:
-> Hi,
->
-> I found out about a text template bug in the Ubuntu (10.04) package.
-> It says "$orignalmail" instead of "$originalmail", which renders
-> moderation message quite useless. Anyone working that?
->
-> Florian
+> It is up to Debian/Ubuntu/Thomas, I think, when/how to get the change into
+> the distro's package.
 
+Ok, I just gave them a ping.
 
-
-
+Florian
 
