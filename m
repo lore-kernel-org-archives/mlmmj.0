@@ -1,28 +1,28 @@
 From: Florian Effenberger <floeff@gmail.com>
-Date: Sat, 16 Oct 2010 12:41:55 +0000
-Subject: Re: [mlmmj] moderated twice
-Message-Id: <AANLkTimNftDrPW2SS5VJyKxV1RDHrpbw2wgdfjLmu_6j@mail.gmail.com>
+Date: Fri, 15 Oct 2010 10:07:00 +0000
+Subject: [mlmmj] marking moderated messages
+Message-Id: <AANLkTik=YgW7SySj17=86=wJ3ESH+1mwVN1tmSUUSFC-@mail.gmail.com>
 List-Id: <mlmmj.mlmmj.org>
-References: <AANLkTik6nrxYv+Yj+boWqEuJVPLN9OakMYYc=uauR7e_@mail.gmail.com>
-In-Reply-To: <AANLkTik6nrxYv+Yj+boWqEuJVPLN9OakMYYc=uauR7e_@mail.gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Hi Ben,
+Hi,
 
-2010/10/16 Ben Schmidt <mail_ben_schmidt@yahoo.com.au>:
+sorry for throwing in so many ideas and requests, even without using
+BugZilla, but at the moment I'm just swamped by the work on my desk.
+:-) As said, The Document Foundation has chosen mlmmj for it's mailing
+list system, and here is another idea raised by an user:
 
-> This shouldn't happen. Mlmmj takes steps to ensure mail isn't moderated
-> twice. You should see a message in your syslog for later attempts:
->
-> "A moderate request was sent with a mismatching cookie. Ignoring mail"
->
-> It'll probably have a meaningless error code as well. (Fixing the error
-> messages is a to-do item....)
-
-thanks a lot - then it seems the sender sent it twice. ;)
+=
+Is it possible to add an indication that a message has been passed by
+the moderators to the subject line, or as a secondary header in the
+message itself?  This way those answering the OP will know that they
+need to add his/her personal address to the reply.  Additionally, the
+OP will know that tthe message has come from an email address which is
+not registered, which can happen by accident.
+=
 
 Florian
 
