@@ -1,7 +1,7 @@
-From: Ben Schmidt <mail_ben_schmidt@yahoo.com.au>
-Date: Tue, 05 Oct 2010 23:43:13 +0000
+From: Thomas Goirand <thomas@goirand.fr>
+Date: Sun, 17 Oct 2010 15:39:09 +0000
 Subject: Re: [mlmmj] Is using the include path for php-admin a good idea?
-Message-Id: <4CABB811.8040803@yahoo.com.au>
+Message-Id: <4CBB189D.7080803@goirand.fr>
 List-Id: <mlmmj.mlmmj.org>
 References: <4CA87D1F.6030009@yahoo.com.au>
 In-Reply-To: <4CA87D1F.6030009@yahoo.com.au>
@@ -10,21 +10,44 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-> Somebody has sent a bug report on the MLMMJ package in Debian, about
-> this issue, I guess he was reading the list. I guess I'll have to apply
-> this patch to the SID/Squeeze package before the release.
+Ben Schmidt wrote:
+>>>> As a longtime php-coder, here's my opinion:
+>>>> - Putting it in the include path is a bad idea
+>>>> - hardcoding the path also
+>>>> So best of all: figure out the current filepath, put it in a variable
+>>>> and start from there (don't put this in a config file, it can be
+>>>> determined automatically), something like "dirname(__FILE__);" or to
+>>>> have the parent dir "basename(dirname(__FILE__));"
+>>
+>> I agree that here, there's absolutely no point in adding the include
+>> path. That one is to use ... include, not at all for opening files
+>> like the php-admin would need. It makes no sense in this context.
+> 
+> Have a look at my attached proposed patch. The interface was already
+> updated since the bug report was filed, but looking for tunables.pl
+> relative to $templatedir seems senseless to me, so I've added another
+> variable, $confdir. I've removed hard-coded paths and used paths
+> relative to __FILE__ instead. Finding config.php in the first place
+> could still be difficult, but at least the require directive for it is
+> at the top of each file, so it's easy to find what to change.
+> 
+> What do you think?
+> 
+> Ben.
 
-I would have thought it was close to irrelevant on Debian, since you
-distribute binary packages that 'just work', so people would only come
-across the problem of the files not being found if they messed with it.
-(That's the history behind the bug report, which I didn't bother noting
-when I transferred it to the new system.)
+Hi Ben,
 
-BTW, git is probably about 3-5 weeks away, but on the agenda.
+Has this patch been applied? I think it would fix this:
 
-Ben.
+http://bugs.debian.org/cgi-bin/bugreport.cgi?bugY9183
 
+As this would almost certainly fix this bug which is "release critical"
+in Debian, I would like to know if you have tested it and applied it to
+your HG repo. I didn't find it in the log on the web. I'd happily apply
+it if I have confirmations that it fixes the issue (if nobody tests it,
+I might be able to, but not right now, as I'm busy with other stuff).
 
+Cheers,
 
-
+Thomas
 
