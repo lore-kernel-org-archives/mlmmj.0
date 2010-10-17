@@ -1,7 +1,7 @@
-From: Thomas Goirand <thomas@goirand.fr>
-Date: Sun, 17 Oct 2010 15:39:09 +0000
+From: Ben Schmidt <mail_ben_schmidt@yahoo.com.au>
+Date: Sun, 17 Oct 2010 23:16:08 +0000
 Subject: Re: [mlmmj] Is using the include path for php-admin a good idea?
-Message-Id: <4CBB189D.7080803@goirand.fr>
+Message-Id: <4CBB83B8.9090707@yahoo.com.au>
 List-Id: <mlmmj.mlmmj.org>
 References: <4CA87D1F.6030009@yahoo.com.au>
 In-Reply-To: <4CA87D1F.6030009@yahoo.com.au>
@@ -10,44 +10,30 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Ben Schmidt wrote:
->>>> As a longtime php-coder, here's my opinion:
->>>> - Putting it in the include path is a bad idea
->>>> - hardcoding the path also
->>>> So best of all: figure out the current filepath, put it in a variable
->>>> and start from there (don't put this in a config file, it can be
->>>> determined automatically), something like "dirname(__FILE__);" or to
->>>> have the parent dir "basename(dirname(__FILE__));"
->>
->> I agree that here, there's absolutely no point in adding the include
->> path. That one is to use ... include, not at all for opening files
->> like the php-admin would need. It makes no sense in this context.
-> 
-> Have a look at my attached proposed patch. The interface was already
-> updated since the bug report was filed, but looking for tunables.pl
-> relative to $templatedir seems senseless to me, so I've added another
-> variable, $confdir. I've removed hard-coded paths and used paths
-> relative to __FILE__ instead. Finding config.php in the first place
-> could still be difficult, but at least the require directive for it is
-> at the top of each file, so it's easy to find what to change.
-> 
-> What do you think?
-> 
-> Ben.
+>> Have a look at my attached proposed patch. The interface was already
+>> updated since the bug report was filed, but looking for tunables.pl
+>> relative to $templatedir seems senseless to me, so I've added another
+>> variable, $confdir. I've removed hard-coded paths and used paths
+>> relative to __FILE__ instead. Finding config.php in the first place
+>> could still be difficult, but at least the require directive for it is
+>> at the top of each file, so it's easy to find what to change.
+>
+> Has this patch been applied?
 
-Hi Ben,
+I've just given it a quick test, merged and pushed it, along with
+another little bug fix related to the earlier security fix, that is
+particularly for the Mac.
 
-Has this patch been applied? I think it would fix this:
+> I think it would fix this:
+>
+> http://bugs.debian.org/cgi-bin/bugreport.cgi?bugY9183
 
-http://bugs.debian.org/cgi-bin/bugreport.cgi?bugY9183
+I think it will probably fix it, too, but haven't explicitly tested
+that. Somebody else will need to do that.
 
-As this would almost certainly fix this bug which is "release critical"
-in Debian, I would like to know if you have tested it and applied it to
-your HG repo. I didn't find it in the log on the web. I'd happily apply
-it if I have confirmations that it fixes the issue (if nobody tests it,
-I might be able to, but not right now, as I'm busy with other stuff).
+Ben.
 
-Cheers,
 
-Thomas
+
+
 
