@@ -1,17 +1,16 @@
-From: =?ISO-8859-1?Q?Mads_Martin_J=F8rgensen?= <mmj@mmj.dk>
-Date: Tue, 19 Oct 2010 09:36:44 +0000
+From: Ben Schmidt <mail_ben_schmidt@yahoo.com.au>
+Date: Tue, 19 Oct 2010 13:38:54 +0000
 Subject: Re: [mlmmj] unsubscription woes
-Message-Id: <AANLkTinnS_xU-QcFFXB235S8jXuwypWeOfu-Fwe+WPr9@mail.gmail.com>
+Message-Id: <4CBD9F6E.5010109@yahoo.com.au>
 List-Id: <mlmmj.mlmmj.org>
 References: <AANLkTinXkNC9QmLn1PoN8LiHBHSHhqDdpnQx=8wnANiq@mail.gmail.com>
 In-Reply-To: <AANLkTinXkNC9QmLn1PoN8LiHBHSHhqDdpnQx=8wnANiq@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-On Tue, Oct 19, 2010 at 11:27 AM, Florian Effenberger <floeff@gmail.com> wr=
-ote:
+On 19/10/10 8:27 PM, Florian Effenberger wrote:
 > Hi,
 >
 > I receive several complaints from people who seem to be unable to
@@ -22,17 +21,25 @@ ote:
 > like a charm for me, others used GMX and had issues...
 >
 > Is there any chance of nailing down that problem, any detailed log?
+>
+> Thanks,
+> Florian
 
-It's all contained in the email address they're sending to, so grep
-for mlmmj in your smtpd log, and you should be able to find it. I
-forget what the mlmmj own log in the list directory is called, but
-that might have something as well.
+Mads has given you where to look for logs. One of my priorities after
+getting out a 1.2.18 release is to revisit all the logging code, too, as
+there are a number of things which aren't logged, or aren't logged
+correctly at present.
 
---=20
-Mads Martin Joergensen, http://mmj.dk
-"Why make things difficult, when it is possible to make them cryptic
-=A0and totally illogical, with just a little bit more effort?"
-=A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0=A0 -- A. P.=
- J.
+Regarding the problem, though, check the permissions of the files in the
+$listdir/subscribers.d directory. They are categorised by email address
+first letter (so that may be the pattern!), and if not writable by the
+user mlmmj runs as when invoked by the MTA you will see that behaviour
+(confirmation email sent and accepted, but the address not actually
+removed).
+
+Ben.
+
+
+
 
 
