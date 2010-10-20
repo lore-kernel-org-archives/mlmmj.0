@@ -1,43 +1,23 @@
-From: Thomas Goirand <thomas@goirand.fr>
-Date: Tue, 12 Oct 2010 11:24:31 +0000
-Subject: Re: [mlmmj] text template bug in Ubuntu package
-Message-Id: <4CB4456F.60002@goirand.fr>
+From: Florian Effenberger <floeff@gmail.com>
+Date: Wed, 20 Oct 2010 10:20:09 +0000
+Subject: [mlmmj] mlmmj and GMANE posting
+Message-Id: <AANLkTik-oBQtEUfMXR3LxYRrrDz4ay_9uvF+gwrPujx9@mail.gmail.com>
 List-Id: <mlmmj.mlmmj.org>
-References: <AANLkTikk5ZKs3C=y2GOabbeRf2=WTApsNdauTaxHPYR-@mail.gmail.com>
-In-Reply-To: <AANLkTikk5ZKs3C=y2GOabbeRf2=WTApsNdauTaxHPYR-@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="macroman"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-RmxvcmlhbiBFZmZlbmJlcmdlciB3cm90ZToKPiBIaSwKPiAKPiAyMDEwLzEwLzExIFRob21hcyBH
-b2lyYW5kIDx0aG9tYXNAZ29pcmFuZC5mcj46Cj4gCj4+IFdoYXQgd291bGQgaGVscCBpcyB0byBq
-b2luIHRoZSBhbGlvdGggcHJvamVjdCwgYW5kCj4+IHVzZSB0aGUgZ2l0IHJlcG9zaXRvcnkgdGhh
-dCBJIHNldHVwIHRoZXJlIHRvIGRvIHRoZQo+PiBwYWNrYWdpbmcuIFRoZXJlJ3MgYWxzbyBhIG1h
-aWxpbmcgbGlzdCB0aGVyZSwgc28KPj4gcGxlYXNlIGpvaW4gaXQgdG9vLiBUaGVuIHdlIGNhbiBk
-byB0aGUgcGFja2FnaW5nCj4+IHRvZ2V0aGVyIChJIGRvbid0IHRoaW5rIGl0J3MgcmVsZXZhbnQg
-dG8gaGF2ZSBhCj4+IHNpbmdsZSBwZXJzb24gcmVzcG9uc2libGUgZm9yIHRoZSBNTE1NSiBwYWNr
-YWdlCj4+IGFueW1vcmUpLgo+IAo+IHN1cmUuIEhvdyBkbyBJIGRvIHRoYXQ/Cj4gCj4gVGhhbmtz
-LAo+IEZsb3JpYW4KCkdvIHRvIGh0dHA6Ly9hbGlvdGguZGViaWFuLm9yZywgdGhlbiBnZXQgYSBu
-ZXcgYWNjb3VudC4gSWYgeW91IGNob29zZQoidXNlcm5hbWUiLCB0aGVuIHlvdSB3aWxsIGJlIGdy
-YW50ZWQgYWNjZXNzIHdpdGggInVzZXJuYW1lLWd1ZXN0Ii4gVGhlbgpyZXF1ZXN0IHRvIGpvaW4g
-dGhlIHByb2plY3QgcGtnLW1sbW1qLCBhbmQgdGVsbCBtZSB0aGF0IHlvdSBkbyBzbywgc28KdGhh
-dCBJIGNhbiBhcHByb3ZlIHlvdSBpbiBpdC4gVGhlbiB5b3Ugc2hvdWxkIHNlbmQgYSBtYWlsIHRv
-CnBrZy1tbG1tai1kZXZlbC1yZXF1ZXN0c0AgdG8gcmVnaXN0ZXIgdG8gdGhlIGxpc3QuIFlvdSBj
-YW4gYWxzbyBjbG9uZQp0aGUgcHJvamVjdDoKCmdpdCBjbG9uZSBodHRwOi8vZ2l0LmRlYmlhbi5v
-cmcvcGtnLW1sbW1qL21sbW1qLmdpdAoKVGhlcmUncyBjdXJyZW50bHkgNCBicmFuY2hlczogZGVi
-aWFuLWxlbm55LCBkZWJpYW4tc2lkLCB1cHN0cmVhbS1sZW5ueSwKIHVwc3RyZWFtLXNpZC4gRWFj
-aCBkZWJpYW4tKiBicmFuY2ggY29udGFpbnMgb25seSB0aGUgZGViaWFuIGZvbGRlci4gSQpkb24n
-dCBoYXZlIGEgYnJhbmNoIGZvciBsZW5ueSB5ZXQsIGJ1dCBJIHNob3VsZCBoYXZlLiBUaGVuIHlv
-dSBjYW4gdXNlCmdpdC1idWlsZHBhY2thZ2UgdG8gYnVpbGQgaXQuIFNvbWV0aGluZyBsaWtlIHRo
-YXQgd291bGQgZG86CgpnaXQtYnVpbGRwYWNrYWdlIC0tZ2l0LXVwc3RyZWFtLWJyYW5jaD11cHN0
-cmVhbS1zaWQgXAoJLS1naXQtZGViaWFuLWJyYW5jaN5iaWFuLXNpZAoKTm90ZSB0aGF0IGN1cnJl
-bnRseSwgd2UgY2FuJ3Qgc2VuZCBhbnl0aGluZyB0byBTSUQsIGFzIFNxdWVlemUgaXMKZnJvemVu
-LiBPbmx5IHVwZGF0ZXMgKGVnOiBidWdmaXhlcykgZm9yIFNxdWVlemUgaGFzIHRvIGJlIHNlbnQg
-dG8gdGhlCkdpdCwgb3RoZXJ3aXNlLCB3ZSBjYW4gdXBsb2FkIHRvIEV4cGVyaW1lbnRhbC4KCldo
-ZW4geW91IGhhdmUgYSBwYXRjaCwgYmVzdCBpcyB0byB1c2UgImdpdCBmb3JtYXQtcGF0Y2giIGFu
-ZCBzZW5kIGl0IHRvCnRoZSBsaXN0LCBzbyB0aGF0IEkgY2FuIHJldmlldyBhbmQgYWNjZXB0IHRo
-ZSBwYXRjaC4KCkxldCBtZSBrbm93IHdoZW4geW91IGhhdmUgbW9yZSBxdWVzdGlvbnMsIEknZCBi
-ZSBoYXBweSB0byBhbnN3ZXIgdGhlbS4KTWF5YmUgYmVzdCB3b3VsZCBiZSB0byBkaXNjdXNzIGFi
-b3V0IERlYmlhbiBwYWNrYWdpbmcgaW4gdGhlCnBrZy1tbG1tai1kZXZlbCBsaXN0Li4uCgpUaG9t
-YXMKCg==
+Hi,
+
+some people are complaining that posting from GMANE does not work, and
+that they have to subscribe to the nomail version before. Anyone has a
+practical idea on how to make sure it works, without being open to
+spammers? I guess it's something in the access file, allowing posting
+from GMANE servers, even when not subscribed.
+
+Anyone ever did this and has a code snippet to share? ;)
+
+Thanks
+Florian
+
