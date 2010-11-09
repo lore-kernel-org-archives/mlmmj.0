@@ -1,43 +1,35 @@
-From: Thomas Goirand <thomas@goirand.fr>
-Date: Thu, 25 Nov 2010 16:17:07 +0000
-Subject: Re: [mlmmj] Version 1.2.17-2 reached Debian Squeeze
-Message-Id: <1290701827.3014.2.camel@Nokia-N900-42-11>
+From: Martin Koch Andersen <martin@925.dk>
+Date: Tue, 09 Nov 2010 10:17:21 +0000
+Subject: [mlmmj] Mail delivery issues and requeue
+Message-Id: <D5B431D8-D13A-468D-BE78-81FB9FAFB10D@925.dk>
 List-Id: <mlmmj.mlmmj.org>
-References: <4CE38D4E.2070707@goirand.fr>
-In-Reply-To: <4CE38D4E.2070707@goirand.fr>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
+Hi,
 
------ Original message -----
-> Hi Thomas,
-> 
-> 2010/11/17 Thomas Goirand <thomas@goirand.fr>:
-> 
-> > Version 1.2.17-2 in Squeeze has the German listtext issue fixed, and
-> > the php-admin path fix. Please test at least the php-admin if you use
-> > it, I didn't have time to do so (and I don't use it myself, I use our
-> > control panel DTC to manage MLMMJ).
-> 
-> excellent news! ;-) Do you know if it will be backported to Ubuntu, or
-> only available in the new release?
-> 
-> Thanks,
-> Florian
+Today I had a user contacting me, that is a normal subscriber to one of our mlmmj mailinglists.
+He was not getting any mails he said.
 
-Sorry, I'm not in charge of Ubuntu maintenance, and
-honestly, since I read that there will be an app
-store in Ubuntu, I lost all interest in it. I don't
-think this is right to use all the work from Debian
-and monetise it!
-But anyway it seems they just take the packages
-that we do in Debian and put them as-is in Ubuntu.
-So I guess it will be in Ubuntu 11.04...
+I confirmed that he was indeed subscribed to the list, and other users are getting their mails.
+There is not a trace of his email addresses i the postfix maillog.
 
-Has anyone tried the new php-admin Debian package?
+But I found his address in requeue/x/subscribers.
 
-Thomas
+Can anyone explain to me what excatly requeue is?
+I don't understand why I can't find a delivery attempt in the maillog, but there is an entry in requeue?
 
+Is this normal? And why is the user not getting any mail (ending up in requeue)?
+
+I grep'ed on other addresses found in requeue/x/subscribers files, some of them were in maillog, but others, as the case mentioned above, were not.
+
+Maintenance job is of course running.
+
+Thanks in advance for any help regarding this issue.
+
+-- 
+Martin Koch Andersen
+http://925.dk
 
