@@ -1,7 +1,7 @@
 From: Martin Koch Andersen <martin@925.dk>
-Date: Tue, 09 Nov 2010 10:34:02 +0000
+Date: Tue, 09 Nov 2010 10:59:18 +0000
 Subject: [mlmmj] Re: Mail delivery issues and requeue
-Message-Id: <FE1B10C8-1847-49AE-A149-0820B0B86712@925.dk>
+Message-Id: <57F9CAD7-18A3-463F-B314-53CB209B6A5F@925.dk>
 List-Id: <mlmmj.mlmmj.org>
 References: <D5B431D8-D13A-468D-BE78-81FB9FAFB10D@925.dk>
 In-Reply-To: <D5B431D8-D13A-468D-BE78-81FB9FAFB10D@925.dk>
@@ -11,31 +11,13 @@ Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
 
-On 09/11/2010 11.17, Martin Koch Andersen wrote:
-> Hi,
+On 09/11/2010 11.34, Martin Koch Andersen wrote:
 > 
-> Today I had a user contacting me, that is a normal subscriber to one of our mlmmj mailinglists.
-> He was not getting any mails he said.
-> 
-> I confirmed that he was indeed subscribed to the list, and other users are getting their mails.
-> There is not a trace of his email addresses i the postfix maillog.
-> 
-> But I found his address in requeue/x/subscribers.
-> 
-> Can anyone explain to me what excatly requeue is?
-> I don't understand why I can't find a delivery attempt in the maillog, but there is an entry in requeue?
-> 
-> Is this normal? And why is the user not getting any mail (ending up in requeue)?
-> 
-> I grep'ed on other addresses found in requeue/x/subscribers files, some of them were in maillog, but others, as the case mentioned above, were not.
-> 
-> Maintenance job is of course running.
+> One more information. I have "noarchive" enabled for all lists. So what happens to the subscribers ending up in requeue? How can mails be re-sent, when the original mail is not stored anywhere? So how can requeue be processed when noarchive is enabled?
 
-One more information. I have "noarchive" enabled for all lists. So what happens to the subscribers ending up in requeue? How can mails be re-sent, when the original mail is not stored anywhere? So how can requeue be processed when noarchive is enabled?
+Sorry about the spamming. But I just looked through the mlmmj src/, and apparently with "noarchive", there is supposed to be a mailfile in "%s/requeue/%d/mailfile".
 
-And still, I don't get why subscribers end up in requeue in the first place - without a delivery attempt.
-
-Thanks again.
+For this list, there is no much mailfile (for any index)! For the other lists we have, the mailfile is there. All the lists are configured exactly the same way, and permissions are the same etc. So it's a bit weird why "%s/requeue/%d/mailfile"'s are missing for the list in question. 
 
 -- 
 Martin Koch Andersen
