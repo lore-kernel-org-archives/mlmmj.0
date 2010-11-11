@@ -1,7 +1,7 @@
-From: Ben Schmidt <mail_ben_schmidt@yahoo.com.au>
-Date: Thu, 11 Nov 2010 12:33:35 +0000
+From: Martin Koch Andersen <martin@925.dk>
+Date: Thu, 11 Nov 2010 13:05:35 +0000
 Subject: Re: [mlmmj] Re: Mail delivery issues and requeue
-Message-Id: <4CDBE29F.9090304@yahoo.com.au>
+Message-Id: <F5DDAB49-9EA6-401D-A4B4-98CB76808A76@925.dk>
 List-Id: <mlmmj.mlmmj.org>
 References: <D5B431D8-D13A-468D-BE78-81FB9FAFB10D@925.dk>
 In-Reply-To: <D5B431D8-D13A-468D-BE78-81FB9FAFB10D@925.dk>
@@ -10,86 +10,64 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
->> There isn't a followup error message after the Error in RCPT TO, is
->> there? I don't expect one, but it's worth checking!
->
-> Nope there is not. Today the same thing happened. No mailfile for that
-> list in requeue/x/. Only thing in error log was:
->
-> Nov 11 09:52:22 goulding /usr/local/bin/mlmmj-send[89349]: mlmmj-send.c:267: Error in MAIL FROM. Reply = [501 5.1.7 Bad sender address syntax^M ]: No such file or directory
->
-> Again because of a bad address. But I don't think the bad address
-> itself is the problem? I mean, thats what requeue is there for in the
-> first place. There must be some other reason while the mailfile is
-> never being created for this list on requeue. As I've mentioned, the
-> other lists on the same server, gets their mailfile's created just
-> fine. And all lists have same setup/config (I triple checked that!).
+Hi,
 
-Yeah, exactly. Something very strange is going on. I doubt it's getting
-to the relevant point in mlmmj-send where the mail is moved to mailfile.
-It might be exit()ing for some undesired reason prior to that point
-(like the potential init_sockfd() problem I just wrote about and found
-while investigating this issue), or it might be segfaulting or
-something.
+On 11/11/2010 13.33, Ben Schmidt wrote:
+> Yeah, exactly. Something very strange is going on. I doubt it's getting
+> to the relevant point in mlmmj-send where the mail is moved to mailfile.
+> It might be exit()ing for some undesired reason prior to that point
+> (like the potential init_sockfd() problem I just wrote about and found
+> while investigating this issue), or it might be segfaulting or
+> something.
+> 
+> Do you have a verp control file at all? What's in it if so?
 
-Do you have a verp control file at all? What's in it if so?
+Nope I don't.
 
-Also, these are normal posts, not digests, aren't they?
+> Also, these are normal posts, not digests, aren't they?
 
-> I'm using mlmmj-1.2.17.1 from the FreeBSD ports.
->
-> I don't know what is going, but it is a problem, because the
-> subscribers in requeue will never get their mails, because of the
-> missing mailfile.
->
-> Would it be possible to at least add a log_error() in the relevant
-> place where the mailfile is supposed to be created? I think it's in
-> mlmmj-send.c at the bottom of main():
->
-> ...
-> if (rename(mailfilename, requeuefilename)<  0)
->    unlink(mailfilename);
->
-> - in the "noarchive" branch. The list is "noarchive".
->
-> I also wonder why, when rename() fails, the if(!ctrlarchive) { branch
-> does not unlink the mailfilename, whereas with noarchive it is
-> unlinked.
+Normal yes.
 
-Because rename() isn't just being used to rename. It's also being used
-to check for the existence of the directory. If it fails, the idea is
-that nothing was requeued, and since we're not archiving, we don't need
-the file. It's not an error but a "we don't need this" condition. It
-should have something more like this:
+> Because rename() isn't just being used to rename. It's also being used
+> to check for the existence of the directory. If it fails, the idea is
+> that nothing was requeued, and since we're not archiving, we don't need
+> the file. It's not an error but a "we don't need this" condition. It
+> should have something more like this:
 
-len = strlen(listdir) + 9 + 20 + 9;
-requeuefilename = mymalloc(len);
-snprintf(requeuefilename, len, "%s/requeue/%d",
-	listdir, mindex);
-if(stat(requeuefilename, &st) < 0) {
-	/* Nothing was requeued and we don't keep
-	 * mail for a noarchive list. */
-	unlink(mailfilename);
-} else {
-	snprintf(requeuefilename, len,
-		"%s/requeue/%d/mailfile",
-		listdir, mindex);
-	if (rename(mailfilename, requeuefilename) < 0) {
-		log_error(LOG_ARGS,
-				"Could not rename(%s,%s);",
-				mailfilename,
-				requeuefilename);
-	}
-}
-myfree(requeuefilename);
+I see.
 
-I've given it only a quick and superficial test, but it seems to work,
-and it can't fail much worse for you than it already is anyway, so if
-you're in a position to compile a patched mlmmj yourself, please do give
-it a shot!
+> len = strlen(listdir) + 9 + 20 + 9;
+> requeuefilename = mymalloc(len);
+> snprintf(requeuefilename, len, "%s/requeue/%d",
+> 	listdir, mindex);
+> if(stat(requeuefilename, &st) < 0) {
+> 	/* Nothing was requeued and we don't keep
+> 	 * mail for a noarchive list. */
+> 	unlink(mailfilename);
+> } else {
+> 	snprintf(requeuefilename, len,
+> 		"%s/requeue/%d/mailfile",
+> 		listdir, mindex);
+> 	if (rename(mailfilename, requeuefilename) < 0) {
+> 		log_error(LOG_ARGS,
+> 				"Could not rename(%s,%s);",
+> 				mailfilename,
+> 				requeuefilename);
+> 	}
+> }
+> myfree(requeuefilename);
+> 
+> I've given it only a quick and superficial test, but it seems to work,
+> and it can't fail much worse for you than it already is anyway, so if
+> you're in a position to compile a patched mlmmj yourself, please do give
+> it a shot!
 
-Ben.
+Patch makes sense. I don't have a chance right now to test it though. But looks fine, and will help us exclude rename() failing. Will try it when new release is out. Until then I just have to keep an eye of the requeue I guess :(
 
+Would it perhaps make sense, and not be too difficult to write the mailfile before sending out the mails - rather than after all is done?
+E.g. before anything takes place (and then delete it, when all is done, if not needed) or on first requeue. That way, if things go bad (for reasons still unknown...), at least there is a mailfile for the subscribers that have already been requeued?
 
-
+-- 
+Martin Koch Andersen
+http://925.dk
 
