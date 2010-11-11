@@ -1,7 +1,7 @@
-From: Martin Koch Andersen <martin@925.dk>
-Date: Wed, 10 Nov 2010 09:46:09 +0000
+From: Ben Schmidt <mail_ben_schmidt@yahoo.com.au>
+Date: Thu, 11 Nov 2010 00:36:00 +0000
 Subject: Re: [mlmmj] Re: Mail delivery issues and requeue
-Message-Id: <3241B811-15E7-4D3E-9940-1A2EF336E99F@925.dk>
+Message-Id: <4CDB3A70.5050506@yahoo.com.au>
 List-Id: <mlmmj.mlmmj.org>
 References: <D5B431D8-D13A-468D-BE78-81FB9FAFB10D@925.dk>
 In-Reply-To: <D5B431D8-D13A-468D-BE78-81FB9FAFB10D@925.dk>
@@ -10,41 +10,45 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
+> The last address in the requeue/subscribers file did look a bit weird.
+> And maillog had this:
+>
+> Nov 10 09:34:30 goulding postfix/smtpd[57926]: warning: Illegal address syntax from localhost[127.0.0.1] in RCPT command:<xxx@hotmail.cp?>
+> Nov 10 09:34:30 goulding /usr/local/bin/mlmmj-send[58016]: mlmmj-send.c:289: Error in RCPT TO. Reply = [501 5.1.3 Bad recipient address syntax^M ]: No such file or directory
 
-On 09/11/2010 14.01, Ben Schmidt wrote:
-> Hmmm.
-> 
-> /requeue/ will be used whenever delivery fails. I think what will happen
-> is that if delivery to any recipient fails, it and all remaining
-> recipients will be requeued. So if you are getting a lot of requeues, it
-> may well be that there is a bad address on the list that is failing
-> every time and causing all later recipients to be requeued. Maybe check
-> your mail logs and see if there is any error, or at least have a look at
-> what the last address delivered in the first 'batch' for a post is, then
-> see in the mlmmj subscribers file what address comes next. Or perhaps
-> the first address in the /requeue/x/subscribers file is the one causing
-> the problem. Is there anything suspicious about it?
+Thank you. The "No such file or directory" message is bogus; fixing this
+is on the to do list; the rest is relevant.
 
-The last address in the requeue/subscribers file did look a bit weird.
-And maillog had this:
+Any idea how the address got there? I suspect it's come through
+mlmmj-sub via a web interface or something? I know mlmmj-sub doesn't
+have particularly adequate validation at present.
 
-Nov 10 09:34:30 goulding postfix/smtpd[57926]: warning: Illegal address syntax from localhost[127.0.0.1] in RCPT command: <xxx@hotmail.cp?>
-Nov 10 09:34:30 goulding /usr/local/bin/mlmmj-send[58016]: mlmmj-send.c:289: Error in RCPT TO. Reply = [501 5.1.3 Bad recipient address syntax^M ]: No such file or directory
+> I've unsubscribed this address, and other syntax error ones, from the list now.
+>
+>> There should always be a /requeue/x/mailfile, though. If that doesn't
+>> exist, perhaps mlmmj is even crashing.
+>
+> Could this be a bug in mlmmj? The mailfile was not created today either for the list in question.
+> I'll perhaps see tomorrow, with the invalid addresses removed, if it is.
 
-I've unsubscribed this address, and other syntax error ones, from the list now.
+It most certainly could be. I've had a look at the relevant code and
+can't quickly spot a bug, though.
 
-> There should always be a /requeue/x/mailfile, though. If that doesn't
-> exist, perhaps mlmmj is even crashing.
+There isn't a followup error message after the Error in RCPT TO, is there? I don't 
+expect one, but it's worth checking!
 
-Could this be a bug in mlmmj? The mailfile was not created today either for the list in question.
-I'll perhaps see tomorrow, with the invalid addresses removed, if it is.
+The person is a regular subscriber, not digest, right?
 
-> What OS are you using, and what filesystem is your mlmmj listdir on?
-> Maybe something system-dependent is coming up if rename() is failing.
+>> What OS are you using, and what filesystem is your mlmmj listdir on?
+>> Maybe something system-dependent is coming up if rename() is failing.
+>
+> FreeBSD and UFS.
 
-FreeBSD and UFS.
+OK. Good to know. Once we're closer to finding what's going on, this
+might make a difference.
 
--- 
-Martin Koch Andersen
-http://925.dk
+Ben.
+
+
+
 
