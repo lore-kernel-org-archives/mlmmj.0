@@ -1,60 +1,37 @@
-From: "Robin H. Johnson" <robbat2@gentoo.org>
-Date: Thu, 11 Nov 2010 21:13:41 +0000
-Subject: Re: [mlmmj] Potential mail loss in postfix?
-Message-Id: <20101111211341.GA14847@orbis-terrarum.net>
-MIME-Version: 1
-Content-Type: multipart/mixed; boundary="2/5bycvrmDh4d1IB"
+From: Ben Schmidt <mail_ben_schmidt@yahoo.com.au>
+Date: Mon, 22 Nov 2010 09:39:37 +0000
+Subject: [mlmmj] Conditionals in list texts
+Message-Id: <4CEA3A59.7050007@yahoo.com.au>
 List-Id: <mlmmj.mlmmj.org>
-References: <robbat2-20100928T230341-934503680Z@orbis-terrarum.net>
-In-Reply-To: <robbat2-20100928T230341-934503680Z@orbis-terrarum.net>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
+Hi, everyone,
 
---2/5bycvrmDh4d1IB
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+As I mentioned earlier, I am planning to implement a feature or few that affect 
+list texts before producing a 1.2.18 release candidate. This probably includes the 
+ability to reject held posts, simultaneous subscription and moderation (which I 
+will email about shortly), and auto wrapping in list texts. These have all been 
+raised on the list before.
 
-On Thu, Nov 11, 2010 at 11:15:06PM +1100, Ben Schmidt wrote:
-> On 11/11/10 4:12 PM, Robin H. Johnson wrote:
-> > (No need to CC me, just send to the list)
->=20
-> I'll try to remember that.
->=20
-> > I don't find it in the last month of syslog or mlmmj logfiles
-> > (incidently, would be really nice to have them go to syslog...).
->=20
-> Yes. That'll be one of my highest priorities after getting 1.2.18 out.
->=20
-> > I've left a much larger trawl of syslog data for that box running, I'll
-> > check for any hits in the morning (~120GiB worth of logs takes a
-> > while...).
-Confirmed, here's a line from around when I sent the first email in this
-thread:
+Another feature I would like to implement, in order to simplify list texts, 
+particularly so we can have fewer of them, is conditional sections. These would be 
+much like the C preprocessor's #if #else #endif directives, and could be used to 
+include or exclude parts of listtexts dependent upon various list parameters (e.g. 
+whether subscription is enabled, which version of the list is being subscribed to, 
+etc.). It would use some variant of the $whatever$ syntax, and I expect at first 
+that it will be very simple, probably not supporting any boolean operations or 
+nesting or anything.
 
-Sep 28 21:35:38 pigeon /usr/bin/mlmmj-send[6681]: init_sockfd.c:55: Could n=
-ot connect to 127.0.0.1, exiting ... : Connection refused
+It would reduce the number of listtexts, making a number of them more generic, but 
+to aid transition, at first I would look for the more specific ones as a priority, 
+and fall back to the new generic ones, so people's old texts continue to work.
 
-It happened 1333 times, in the span of 21:35:31 to 21:35:38 (all UTC)
-that day.
+Any comments on this before I dive in?
 
---=20
-Robin Hugh Johnson
-Gentoo Linux: Developer, Trustee & Infrastructure Lead
-E-Mail     : robbat2@gentoo.org
-GnuPG FP   : 11AC BA4F 4778 E3F6 E4ED  F38E B27B 944E 3488 4E85
+Ben.
 
---2/5bycvrmDh4d1IB
-Content-Type: application/pgp-signature
 
------BEGIN PGP SIGNATURE-----
-Version: GnuPG v2.0.16 (GNU/Linux)
-Comment: Robbat2 @ Orbis-Terrarum Networks - The text below is a digital signature. If it doesn't make any sense to you, ignore it.
-
-iEYEARECAAYFAkzcXIUACgkQPpIsIjIzwixSRgCguq4JFIzwZQpgMYWJu3XcHMMv
-CH0AnRihU22ekuUEaR5h6W9/UZ8z9tbR
-=gbCr
------END PGP SIGNATURE-----
-
---2/5bycvrmDh4d1IB--
 
