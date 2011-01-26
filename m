@@ -1,58 +1,63 @@
-From: Mark Alan <varia@e-healthexpert.org>
-Date: Fri, 28 Jan 2011 08:59:48 +0000
-Subject: Re: [mlmmj] ezmlm-like single command to subscribe an user?
-Message-Id: <4d428589.6686d80a.3d41.44ae@mx.google.com>
+From: Richard Mortimer <richm@oldelvet.org.uk>
+Date: Wed, 26 Jan 2011 14:32:21 +0000
+Subject: Re: [mlmmj] New mlmmj website and development
+Message-Id: <4D403075.6070105@oldelvet.org.uk>
 List-Id: <mlmmj.mlmmj.org>
-References: <4d39f5ea.47f3d80a.0fcc.fffff1c2@mx.google.com>
-In-Reply-To: <4d39f5ea.47f3d80a.0fcc.fffff1c2@mx.google.com>
+References: <4C680191.506@yahoo.com.au>
+In-Reply-To: <4C680191.506@yahoo.com.au>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-On Fri, 28 Jan 2011 06:13:50 +0100, Mads Martin J=F8rgensen <mmj@mmj.dk>
-wrote:
+On 15/08/2010 16:02, Ben Schmidt wrote:
+> Hi, everybody,
+>
+> I'm pleased to announce that the new mlmmj website is up and running! I
+> encourage you to have a look at it. Anyone interested in having an
+> account to be able to help maintain it, please let me know! It's where
+> it's always been: http://mlmmj.org/
+>
+> This includes a bug tracker. I will be adding bugs and feature requests
+> that I know about over the next few days, and I encourage others to do
+> so also. My next priority is working towards a release that includes
+> recently-implemented features as well as minor bug fixes, so I'm
+> interested in hearing about as many bugs as we know about. The tracker
+> is here: http://mlmmj.org/bugs
 
-> Why all the commandline stuff? I still fail to see what the problem
-> with sending an empty mail through the system mail server, where the
-> envelope from is set to any.user@example.com.
->=20
-> mlmmj uses the envelope from to determine who sent the subscription
-> request.
+Hi Ben,
 
-Changing the envelope, that's what we need to do now in order to make
-it work. But that is fundamentally wrong. It is hardly good practice to
-let the system itself act as a spammer, i.e., faking 'From:' envelopes.
+Thanks for your efforts. I've been using mlmmj for a while now and it 
+works pretty well. I have noticed a few little annoyances that I haven't 
+really followed up until now but I'd like to change that and help where 
+I can.
 
-In the Drupal CMS code that I mentioned in the first post, at the file
-sites/all/modules/ezmlm/ezmlm.module,
+For instance yesterday I was trying to find an issue where I was not 
+getting notified of unsubscriptions due to bouncing. In the end it 
+turned out to be me having the wrong list control directory settings for 
+one of my lists. I'll try to take a look through my notebook and see if 
+I can come up with a list of these "annoyances".
 
-we REPLACE the original:
-  // subscribe address for list formatted below
-  $to =3D trim($list_name) . '-subscribe-' . trim($user_name) .
-'=3D' . trim($user_domain) . '@' . trim($list_domain);
-  $lang =3D language_default();
-  drupal_mail('ezmlm', 'subscribe', $to, $lang);
+However whilst I was looking for the cause of my problem I spent a bit 
+of time looking through mlmmj-maintd.c to trace what it was supposed to 
+be doing at each step. Whilst doing this I spotted a number of minor 
+issues in the mlmmj-maintd.c code.
 
-FOR this code:
-  // subscribe address for list formatted below
-  $to =3D trim($list_name) . '+subscribe' .'@' . trim($list_domain);
-  $from =3D trim($user_name) . '@' . trim($user_domain);
-  $lang =3D language_default();
-  drupal_mail('ezmlm', 'subscribe', $to, $lang, '', $from);
+With that in mind I would be grateful if you could let me know your 
+preferred way of working/review. I could just post the patches to the 
+mailing list (in hg email format). I'm a little concerned that testing 
+some of these changes is going to be difficult because they do involve a 
+number of corner cases that shouldn't happen in normal operation. Most 
+changes are fairly small however and IMHO they will add value to the 
+long term stability of mlmmj.
 
-I am not talking of quick fixes "to just make it working for now", I am
-talking of fundamentally sound decisions involving best practices.
+If patches are of interest and do prove useful I'll see if I can find 
+some time to review other parts of mlmmj over the next month or two.
 
-Why should we have to fake envelopes or, for that matter, have users
-that own a mailing list and at the same time need to members of the
-web server group and of the mail server group,
-if we could have the much simpler and system/application agnostic:
-listname+subscribe-some.user=3Dexample.com@domain.tld
+Let me know your preferred way of working because I'm wary of sending a 
+chunk of patches to a mailing list unannounced.
 
+Regards
 
-Regards,
-
-M.
-
+Richard
 
