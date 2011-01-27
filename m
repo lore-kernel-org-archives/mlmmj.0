@@ -1,37 +1,64 @@
-From: Florian Effenberger <floeff@gmail.com>
-Date: Fri, 21 Jan 2011 10:21:52 +0000
-Subject: Re: [mlmmj] Subscribe and moderate
-Message-Id: <AANLkTi=pJA_JoJhDZTANZt-5LQ+UW9sNGBv4RRE5ZctM@mail.gmail.com>
+From: Richard Mortimer <richm@oldelvet.org.uk>
+Date: Thu, 27 Jan 2011 22:59:19 +0000
+Subject: [mlmmj] [PATCH 01 of 10] Ensure that child processes exit if the execlp call
+Message-Id: <ceda2c7e58db6611f80b.1296169159@duncow>
 List-Id: <mlmmj.mlmmj.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Hi Ben,
+# HG changeset patch
+# User Richard Mortimer <richm@oldelvet.org.uk>
+# Date 1295968900 0
+# Node ID ceda2c7e58db6611f80b5cb80f2f96cf53501db8
+# Parent  e05f92db6857d67fa5a240fab614e2cfbdd14cab
+Ensure that child processes exit if the execlp call fails and returns
+control back to mlmmj-maint.
 
-yes, I'm late with e-mail at the moment. :-)
-
-2010/11/22 Ben Schmidt <mail_ben_schmidt@yahoo.com.au>:
-
-> A while ago, someone requested a feature to allow people to simultaneously
-> subscribe to a list (particularly to the nomail version) and moderate a
-> post. The idea is that when non-subscriber posts to a subonlypost list, they
-> receive a rejection notice. If they're not a spammer, they may then like to
-> subscribe. It would be convenient if they could simply reply to the
-> rejection notice to be subscribed, and moderate the original post that was
-> denied.
-
-I like that feature, but I would like to see it configurable. In my
-configuration, I have disabled notices to non-subscribed users, as
-this opens a big backscatter hole for some hosts, so I prefer
-moderation by a moderator.
-
-What could be done, however, is that the moderator himself can decide to
-
-1. moderate, not subscribing
-2. rejecting
-3. moderate, subscribing as normal/nomail/digest user
-
-Florian
+diff -r e05f92db6857 -r ceda2c7e58db src/mlmmj-maintd.c
+--- a/src/mlmmj-maintd.c	Sun Nov 21 01:00:59 2010 +1100
++++ b/src/mlmmj-maintd.c	Tue Jan 25 15:21:40 2011 +0000
+@@ -356,6 +356,10 @@
+ 						"-T", to,
+ 						"-a", (char *)NULL);
+ 			}
++			log_error(LOG_ARGS, "Could not execlp %s",
++						mlmmjsend);
++			/* This is the child. Exit on failure. */
++			exit(EXIT_FAILURE);
+ 		}
+ 	}
+ 
+@@ -474,6 +478,10 @@
+ 					"-s", subnewname,
+ 					"-a",
+ 					"-D", (char *)NULL);
++			log_error(LOG_ARGS, "Could not execlp %s",
++						mlmmjsend);
++			/* This is the child. Exit on failure. */
++			exit(EXIT_FAILURE);
+ 		}
+ 	}
+ 
+@@ -618,7 +626,8 @@
+ 					"-p", (char *)NULL);
+ 			log_error(LOG_ARGS, "Could not execlp %s",
+ 						mlmmjbounce);
+-			return 1;
++			/* This is the child. Exit on failure. */
++			exit(EXIT_FAILURE);
+ 		}
+ 	}
+ 	closedir(bouncedir);
+@@ -757,7 +766,8 @@
+ 					"-a", address, (char *)NULL);
+ 			log_error(LOG_ARGS, "Could not execlp %s",
+ 						mlmmjunsub);
+-			return 1;
++			/* This is the child. Exit on failure. */
++			exit(EXIT_FAILURE);
+ 		}
+ 	}
+ 	closedir(bouncedir);
 
