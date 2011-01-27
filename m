@@ -1,29 +1,52 @@
-From: Richard Mortimer <richm@oldelvet.org.uk>
-Date: Thu, 27 Jan 2011 22:59:24 +0000
-Subject: [mlmmj] [PATCH 06 of 10] Add comment to make it clear what string
-Message-Id: <b380028a2c36091bd1d4.1296169164@duncow>
+From: Thomas Goirand <thomas@goirand.fr>
+Date: Thu, 27 Jan 2011 20:04:44 +0000
+Subject: [mlmmj] New features idea: mlmmj-make-ml enhancement and listownersonlypost
+Message-Id: <4D41CFDC.7060704@goirand.fr>
 List-Id: <mlmmj.mlmmj.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-# HG changeset patch
-# User Richard Mortimer <richm@oldelvet.org.uk>
-# Date 1295974069 0
-# Node ID b380028a2c36091bd1d4f9077024432abf4cfefe
-# Parent  b0e22772a1c784ad07b4431d7542b68a46d3990f
-Add comment to make it clear what string manipulations achieve
+Quite often, I create a list, only so that I can send to a bunch of
+users using MLMMJ, in a one way only, the following tunables activated:
 
-diff -r b0e22772a1c7 -r b380028a2c36 src/mlmmj-maintd.c
---- a/src/mlmmj-maintd.c	Tue Jan 25 16:46:52 2011 +0000
-+++ b/src/mlmmj-maintd.c	Tue Jan 25 16:47:49 2011 +0000
-@@ -565,6 +565,7 @@
- 			t = time(NULL);
- 			if(t - probetime > WAITPROBE) {
- 				unlink(filename);
-+				/* remove -probe onwards from filename */
- 				*s = '\0';
- 				unlink(filename);
- 				s = concatstr(2, filename, ".lastmsg");
+- subonlypost
+- moderated
+- noarchive
+
+This leads me to believe that it would be cool to allow to set
+parameters for the tunables in mlmmj-make-ml. Something like:
+
+mlmmj -subonlypost \
+	+moderated \
+	-moderators=mail@example.com,ceo@example.net \
+	+archive
+
+so that we could change the defaults directly at mailing list creation.
++ would create the boolean tunable, - removes it. In a list tunable, we
+could list items after the = sign (see the -moderators parameter above).
+
+The above is only an example, we could imagine another implementation.
+Like -t, as in tunable, the followed by the tunable name, then
+eventually a parameter. Something like this:
+
+mlmmj -t subonlypost on \
+	-t moderated on \
+	-t moderators mail@example.com,ceo@example.net \
+	-t archive on
+
+As mlmmj-make-ml is written in sh, I don't think it would be hard to
+implement the above, but I would like to know what others think of it
+before I try to do it.
+
+Also, tt would be cool also to have an option to allow only list owners
+to send (self)moderated messages to the list. This tunable could be
+called "listownersonlypost" for example. That would be awesome too. But
+I don't know the internal C code of MLMMJ. Where would that be
+implemented? Is there a way to do this already that I missed?
+
+Just my 2 cents of idea...
+
+Thomas
 
