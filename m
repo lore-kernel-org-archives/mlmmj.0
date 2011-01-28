@@ -1,7 +1,7 @@
 From: =?ISO-8859-1?Q?Mads_Martin_J=F8rgensen?= <mmj@mmj.dk>
-Date: Thu, 27 Jan 2011 17:22:27 +0000
+Date: Fri, 28 Jan 2011 05:13:50 +0000
 Subject: Re: [mlmmj] ezmlm-like single command to subscribe an user?
-Message-Id: <AANLkTi=_+4JEC-BZr=Sb7dU8ZcRNgmEsJ_kV2FBYJ5f_@mail.gmail.com>
+Message-Id: <AANLkTi=TE99JX9aq_x71L4_J2RuyZLEntUHZaTLFD3Yq@mail.gmail.com>
 List-Id: <mlmmj.mlmmj.org>
 References: <4d39f5ea.47f3d80a.0fcc.fffff1c2@mx.google.com>
 In-Reply-To: <4d39f5ea.47f3d80a.0fcc.fffff1c2@mx.google.com>
@@ -10,33 +10,20 @@ Content-Type: text/plain; charset="iso-8859-1"
 Content-Transfer-Encoding: quoted-printable
 To: mlmmj@mlmmj.org
 
-On Thu, Jan 27, 2011 at 6:14 PM, Thomas Goirand <thomas@goirand.fr> wrote:
->>> I am not being able to find info about the proper command to
->>> subscribe an user like ezmlm does:
->>> listname+subscribe-some.user=3Dexample.com@domain.tld
->>>
->>> Meaning: subscribe user some.user@example.com to list
->>> listname@domain.tld
->>
->> I'm fairly new to Mlmmj myself, so I'm not sure about this...but...I
->> don't think Mlmmj does this. Can somebody else confirm it?
->>
->> I wouldn't mind adding this functionality, though it would probably not
->> make it into the next release but only the one after.
+On Fri, Jan 28, 2011 at 12:28 AM, Ben Schmidt
+<mail_ben_schmidt@yahoo.com.au> wrote:
+>> Those risks simply do not exist if one forwards an empty email to
+>> some_list+subscribe-any.user=3Dexample.com@domain.tld , using the
+>> system's mail server.
 >
-> I see this as a way to get spams... Let's say somebody that doesn't like
-> me sends 1000 messages to this address, then I might receive 1000
-> requests to register to the list.
->
-> I don't want this feature on my servers. Only the legitimate owner of
-> example.com@domain.tld should be able to register, and the others should
-> be filtered with something like DKIM or spf, or whatever you like that
-> can provide a kind of auth. So if you want to add such a dangerous
-> feature, make sure it's disabled by default.
+> Some of the web interfaces bundled with Mlmmj make use of similar
+> workarounds already, too.
 
-And systems wanting to automate this can just send a mail with the
-envelope from being email in question. It's dead simple, actually. If
-you don't know what I mean, let me know and I'll explain.
+Why all the commandline stuff? I still fail to see what the problem
+with sending an empty mail through the system mail server, where the
+envelope from is set to any.user@example.com.
+
+mlmmj uses the envelope from to determine who sent the subscription request.
 
 --=20
 Mads Martin Joergensen, http://mmj.dk
