@@ -1,44 +1,26 @@
-From: Ben Schmidt <mail_ben_schmidt@yahoo.com.au>
-Date: Thu, 03 Feb 2011 01:40:58 +0000
-Subject: Re: [mlmmj] disabling delivery notifications
-Message-Id: <4D4A07AA.9080906@yahoo.com.au>
+From: Florian Effenberger <floeff@gmail.com>
+Date: Thu, 03 Feb 2011 09:13:27 +0000
+Subject: Re: [mlmmj] private lists with mlmmj
+Message-Id: <AANLkTim5_DLd5P0bR-Fuw2R5cbTPr6p4DhzJiszUW0WG@mail.gmail.com>
 List-Id: <mlmmj.mlmmj.org>
-References: <AANLkTi=BzihGTn08x2oJo1NUX3UHMzJ5wLUYT7yi2XVF@mail.gmail.com>
-In-Reply-To: <AANLkTi=BzihGTn08x2oJo1NUX3UHMzJ5wLUYT7yi2XVF@mail.gmail.com>
+References: <AANLkTikNkR-mQiMo2f3MVOStmn2VSgOat+O3Pbe0iAdO@mail.gmail.com>
+In-Reply-To: <AANLkTikNkR-mQiMo2f3MVOStmn2VSgOat+O3Pbe0iAdO@mail.gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-You'll need to add them to delheaders.
+Hi all,
 
-I do hope to at some stage distribute Mlmmj with more sensible defaults,
-but this will probably come by way of a default delheaders file rather
-than being completely 'built in', so the user retains control and as
-little of this kind of logic as possible is in the Mlmmj binaries.
+thanks for the information, that really helped. Indeed, extending some
+features might make sense. Storing passwords and realnames is a good
+choice, and maybe even the type of subscription -- lots of users are
+confused with the +subscribe-digest address, and GMail seems to even
+cut it off. With some more properties and hooks, even distributed
+maintenance could be possible, where list owners can add users or
+unsubscribe them. Right now, they need shell access as mlmmj user.
 
-Ben.
+That being sad, I am sorry I can only provide input, but I am no developer :(
 
-
-
-On 2/02/11 2:18 AM, Florian Effenberger wrote:
-> Hello,
->
-> can mlmmj already disable delivery notifications out of the box, or
-> would I have to add this to delheaders?
->
-> If the latter one, may I suggest that removing delivery notification
-> headers gets built in as default? :-) IMHO, the following headers
-> should be relevant (shamelessly stolen from Mailman):
->
-> * return-receipt-to
-> * disposition-notification-to
-> * x-confirm-reading-to
-> * x-pmrqc
->
-> Thanks,
-> Florian
-
-
-
+Florian
 
