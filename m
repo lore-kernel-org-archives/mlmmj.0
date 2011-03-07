@@ -1,7 +1,7 @@
-From: Thomas Goirand <thomas@goirand.fr>
-Date: Mon, 07 Mar 2011 11:49:38 +0000
+From: Moritz Wilhelmy <ml+mmj@wzff.de>
+Date: Mon, 07 Mar 2011 13:00:16 +0000
 Subject: Re: [mlmmj] Encouraging
-Message-Id: <4D74C652.1010306@goirand.fr>
+Message-Id: <20110307130015.GA9694@barfooze.de>
 List-Id: <mlmmj.mlmmj.org>
 References: <4D74AE5F.1030708@yahoo.com.au>
 In-Reply-To: <4D74AE5F.1030708@yahoo.com.au>
@@ -10,23 +10,21 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-On 03/07/2011 06:07 PM, Ben Schmidt wrote:
-> Hi, guys,
-> 
-> As an aside to our recent discussions, and the general flavour of our
-> little community here: I'm not sure the project will move forward very
-> effectively if we just pick holes in things. And that seems to be our
-> pattern, more often than not. Someone raises an idea or asks for
-> feedback, and most replies are negative or just dismissive. (And I do
-> realise I am an offender, too.)
+Hi,
 
-Man, have a round into the Debian mailing lists and see what negative or
-dismissive mean. The tone in this list is really great, and we exchange
-ideas very nicely. Just don't get things too badly, everyone has its own
-opinion. Generally, we all love MLMMJ which is great, we all appreciate
-a lot your work, the new site and so on. But when it comes to new
-features and such things, we got to make sure we are going on the right
-direction, and that can only be made by wrong ones!
+Well, I've also been to mailing lists that are far worse than this one, and I
+agree that all of us are subscribed to help making mlmmj a better MLM than it
+already is.
 
-Thomas
+I appreciate your work, this is the best (in terms of ease of use for me as an
+administrator, as it was really easy to set up and configure, but also as user,
+and user, mailman is horrible with it's cumbersome web settings and monthly
+reminders) MLM I've seen so far, thanks a lot, and the new listtexts look
+really, really great, so please keep up the good work ;)
+
+Just my 2 cents.
+
+Best regards,
+
+Moritz
 
