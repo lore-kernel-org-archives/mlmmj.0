@@ -1,7 +1,7 @@
-From: Thomas Goirand <thomas@goirand.fr>
-Date: Wed, 16 Mar 2011 04:03:36 +0000
+From: Moritz Wilhelmy <ml+mmj@wzff.de>
+Date: Wed, 16 Mar 2011 15:18:51 +0000
 Subject: Re: [mlmmj] proposal: sending list-archive as mbox?
-Message-Id: <1300248216.6391.2.camel@Nokia-N900-42-11>
+Message-Id: <20110316151851.GI23268@barfooze.de>
 List-Id: <mlmmj.mlmmj.org>
 References: <20110315205427.GD23268@barfooze.de>
 In-Reply-To: <20110315205427.GD23268@barfooze.de>
@@ -10,19 +10,21 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
+Hi,
 
------ Original message -----
-> Even in these days of massive mailbox sizes, isn't this going to quickly
-> exceed maximum message sizes that many servers will deliver or accept?
-> 
-> Ben.
+Well, I guess you're right, which inspired me to hack a little shellscript that
+does this kind of archive creation.
 
-The problem might be individual message size, not
-the overall mailbox size. My servers are set to
-a limit of max 2MB per msg. So a nice configurable
-message limit would solve it (send as multiple msg
-if it exeed the limit).
+I didn't implement the tar archiver (yet) because I don't need it.
 
-Thomas
+http://paste.xinu.at/gcIq5/
+consider it public domain.
 
+It's actually quite hacky, but it works. The formail part is for From-escaping.
+I'm going to run it via cronjob.
+
+
+Best regards,
+
+Moritz
 
