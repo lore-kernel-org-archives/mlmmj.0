@@ -1,42 +1,31 @@
-From: Ben Schmidt <mail_ben_schmidt@yahoo.com.au>
-Date: Thu, 10 Mar 2011 11:42:06 +0000
-Subject: [mlmmj] Re: Encouraging
-Message-Id: <4D78B90E.6030001@yahoo.com.au>
+From: Florian Effenberger <floeff@gmail.com>
+Date: Tue, 29 Mar 2011 07:13:17 +0000
+Subject: Re: [mlmmj] Drafts of new listtexts
+Message-Id: <AANLkTimPsZHiUe80OcGu3MdWAdXbdJdNOe1X3vs-+KQW@mail.gmail.com>
 List-Id: <mlmmj.mlmmj.org>
-References: <4D74AE5F.1030708@yahoo.com.au>
-In-Reply-To: <4D74AE5F.1030708@yahoo.com.au>
+References: <4D62570E.9050007@yahoo.com.au>
+In-Reply-To: <4D62570E.9050007@yahoo.com.au>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Thanks to those who replied to this thread. The replies themselves were
-encouraging, I think!
+Hi Ben,
 
-On 7/03/11 10:49 PM, Thomas Goirand wrote:
-> But when it comes to new features and such things, we got to make sure
-> we are going on the right direction, and that can only be made by
-> wrong ones!
+2011/2/21 Ben Schmidt <mail_ben_schmidt@yahoo.com.au>:
+> OK! I finally did it! I've drafted new English listtexts!
+[...]
+> My work can be viewed here:
+> http://mlmmj.org/hg/listtexts/file/master/en
 
-Absolutely. We shouldn't stop the fruitful debate, we should just add a
-few more positive comments in with it.
+thanks a lot! I've just forwarded this to our Document Foundation
+moderator mailing list, so people can give feedback. I guess we all
+can benefit from improvements in mlmmj. :-) I will forward any
+comments I receive.
 
-On 8/03/11 12:00 AM, Moritz Wilhelmy wrote:
-> and the new listtexts look really, really great, so please keep up the
-> good work ;)
+When you have "frozen" the texts, let me know, I then happily forward
+them to our local teams for translation. :)
 
-This was really helpful to hear, as there's been silence on that issue,
-which is even worse than a negative comment, as you just don't know what
-anybody thinks!
-
-On 8/03/11 12:21 AM, Mark Alan wrote:
-> what about seeing the fellow developers explaining better why they
-> think that a change or a new feature is better.
-
-Good point. Let's all try to do that, too.
-
-Ben.
-
-
-
+Thanks a lot for your work!
+Florian
 
