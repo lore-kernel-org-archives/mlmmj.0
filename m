@@ -1,19 +1,28 @@
-From: Mark Alan <varia@e-healthexpert.org>
-Date: Sun, 06 Mar 2011 18:19:01 +0000
-Subject: [mlmmj] bug in README.postfix
-Message-Id: <20110306181901.46363f48@desk.localhost.localdomain>
+From: Kovacs Albert <albibacsi@gmail.com>
+Date: Mon, 04 Apr 2011 14:54:49 +0000
+Subject: [mlmmj] bounces from a closed list back to spoofed email addresses
+Message-Id: <BANLkTi=DTJ6pFmLUF3sc_Lf2heGpWXdxRg@mail.gmail.com>
 List-Id: <mlmmj.mlmmj.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
+Hello,
 
-The following line in README.postfix references the expression
-mlmmj:$1 that can't be found elsewhere in that file:
-...
-Now we setup the 'mlmmj' transport.  The 'mlmmj' in mlmmj:$1 above indicates a transport listed in the Postfix master.cf file.  We are
-...
+I have a problem with one of my closed lists. Whenever a spammer tries
+to send an email, of course mlmmj bounces back a message that it's a
+closed list for subscribers only. So far, it's fine.
 
-M.
+However most of the time spammers enter a fake email address, and
+mlmmj tries to send back the bounces to the spoofed email addresses,
+which is of course impossible, so my postfix queue is filling with
+undeliverable mlmmj messages.
+
+My question is how to get rid of these messages? It would be nice if
+mlmmj could be set on a per list base to discard (ie. not to send) any
+bounce messages.
+
+Best regards,
+Bela
 
