@@ -1,51 +1,58 @@
-From: James Scott <jlscott@clear.net.nz>
-Date: Mon, 04 Apr 2011 20:02:39 +0000
-Subject: RE: [mlmmj] bounces from a closed list back to spoofed email addresses
-Message-Id: <F16D597A55F34BE793AF227F912A4844@mainspring.co.nz>
+From: Benoit Chesneau <benoitc@metavers.net>
+Date: Fri, 22 Apr 2011 08:03:48 +0000
+Subject: [mlmmj] issue in configuration
+Message-Id: <25A2786F-D0AD-42D1-A5B3-534F60D1FEA6@metavers.net>
 List-Id: <mlmmj.mlmmj.org>
-References: <BANLkTi=DTJ6pFmLUF3sc_Lf2heGpWXdxRg@mail.gmail.com>
-In-Reply-To: <BANLkTi=DTJ6pFmLUF3sc_Lf2heGpWXdxRg@mail.gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Hi. I recommend that you implement spam filtering prior to the message
-reaching the list software.  Then you can just discard all messages that
-have a sufficiently high probability of being spam, without there being any
-need to undertake bounce processing. SpamAssassin in your mail path is good
-for this.
+Hi all,
 
-Regards,
+I'm trying to configure mlmmj with postfix+dovecot, and virtual hosting handled in mysql and I get this error in log:
 
-James
+Apr 22 09:59:06 node0 postfix/qmgr[7734]: A180D15E640D: from=<benoitc@metavers.net>, sizeR9, nrcpt=1 (queue active)
+Apr 22 09:59:06 node0 /usr/local/bin/mlmmj-process[7894]: mlmmj-process.c:702: Found To: rcouch@refuge.io: No such file or directory
+Apr 22 09:59:06 node0 postfix/pipe[7893]: A180D15E640D: to=<rcouch@node0.couchdbhub.com>, orig_to=<rcouch@refuge.io>, relay=mlmmj, delay=0.27, delays=0.17/0/0/0.1, dsn=2.0.0, status=sent (delivered via mlmmj service)
+Apr 22 09:59:06 node0 postfix/qmgr[7734]: A180D15E640D: removed
 
-> -----Original Message-----
-> From: mlmmj@mlmmj.org [mailto:mlmmj@mlmmj.org] On Behalf Of 
-> Kovacs Albert
-> Sent: Tuesday, 5 April 2011 2:55 a.m.
-> To: mlmmj@mlmmj.org
-> Subject: [mlmmj] bounces from a closed list back to spoofed 
-> email addresses
-> 
-> Hello,
-> 
-> I have a problem with one of my closed lists. Whenever a spammer tries
-> to send an email, of course mlmmj bounces back a message that it's a
-> closed list for subscribers only. So far, it's fine.
-> 
-> However most of the time spammers enter a fake email address, and
-> mlmmj tries to send back the bounces to the spoofed email addresses,
-> which is of course impossible, so my postfix queue is filling with
-> undeliverable mlmmj messages.
-> 
-> My question is how to get rid of these messages? It would be nice if
-> mlmmj could be set on a per list base to discard (ie. not to send) any
-> bounce messages.
-> 
-> Best regards,
-> Bela
-> 
-> 
+What could be the problem?
+
+- benoit
+
+snippet of main.cf:
+
+virtual_mailbox_domains         = proxy:mysql:$config_directory/mysql_virtual_domains_maps.cf
+virtual_mailbox_base            = /var/vmail
+virtual_mailbox_maps            = proxy:mysql:$config_directory/mysql_virtual_mailbox_maps.cf
+virtual_alias_maps              = regexp:/var/spool/mlmmj/virtual.regexp,
+                                  proxy:mysql:$config_directory/mysql_virtual_alias_maps.cf
+
+virtual_minimum_uid             = 101
+virtual_uid_maps                = static:101
+virtual_gid_maps                = static:101
+        
+transport_maps                  = regexp:/var/spool/mlmmj/transport
+        
+virtual_transport               = dovecot
+
+mlmmj_destination_recipient_limit = 1
+
+
+master.cf:
+
+mlmmj     unix  -       n       n       -       -       pipe
+   flags=DORhu user=mlmmj argv=/usr/local/bin/mlmmj-recieve -F -L /var/spool/mlmmj/$nexthop/
+
+/var/spool/mlmmj/transport:
+
+/^(rcouch).*$/          mlmmj:rcouch
+
+
+/var/spool/mlmmj/virtual.regexp :
+/^(rcouch.*)@refuge.io$/        ${1}
+
+
 
 
