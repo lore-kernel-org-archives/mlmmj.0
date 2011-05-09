@@ -1,7 +1,7 @@
-From: Dave Taylor <ddt@davetaylor.name>
-Date: Sun, 08 May 2011 18:03:26 +0000
+From: Mark Alan <varia@e-healthexpert.org>
+Date: Mon, 09 May 2011 10:45:09 +0000
 Subject: Re: [mlmmj] How to recover subscribers?
-Message-Id: <AA2E8DE6-7A95-4D2E-9A5C-D47F75BEE915@davetaylor.name>
+Message-Id: <20110509114509.37874a64@e-healthexpert.org>
 List-Id: <mlmmj.mlmmj.org>
 References: <3FC8EB83-700A-42CE-9D89-2968ACAE158B@davetaylor.name>
 In-Reply-To: <3FC8EB83-700A-42CE-9D89-2968ACAE158B@davetaylor.name>
@@ -10,25 +10,19 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Thanks so much!
+On Sun, 8 May 2011 10:00:36 -0700, Dave Taylor <ddt@davetaylor.name>
+wrote:
+> Is there any way to recover the email addresses were removed from the
+> subscriber list?
 
-	=-ddt->
+Would executing this as root help?
 
-On May 8, 2011, at 10:44 AM, Martin Koch Andersen wrote:
+sed '/ bouncing/!d;s/.*: \(.*\)
+un.*/\1/' /var/spool/mlmmj/LISTNAME/mlmmj.operation.log
 
-> 
-> On 08/05/2011 19.00, Dave Taylor wrote:
->> Unfortunately, last week, my server got listed on the Spamhaus PBL, and it went unnoticed for too long.  As a result, mlmmj decided to unsubscribe 250 users because of excessive bounces.
->> 
->> Is there any way to recover the email addresses were removed from the subscriber list?
-> 
-> Besides from the obvious, restoring from backup, mlmmj writes to a operation.log file in the list directory the addresses that were "unsubscribed due to bouncing". So you can scan this log file, and resubscribe the addresses that were automatically removed.
-> 
-> Kind regards,
-> 
-> -- 
-> Martin Koch Andersen
-> http://925.dk
+(NB replace LISTNAME by the name of the list that you wish to process)
 
+
+M.
 
 
