@@ -1,26 +1,32 @@
-From: Benoit Chesneau <benoitc@metavers.net>
-Date: Fri, 22 Apr 2011 09:41:26 +0000
-Subject: Re: [mlmmj] issue in configuration
-Message-Id: <BE80059C-010F-4A1A-913F-5AB92C5A3D94@metavers.net>
+From: Thomas Jarosch <thomas.jarosch@intra2net.com>
+Date: Fri, 13 May 2011 13:19:27 +0000
+Subject: [mlmmj] Mail loss on failed mmap
+Message-Id: <201105131519.27505.thomas.jarosch@intra2net.com>
 List-Id: <mlmmj.mlmmj.org>
-References: <25A2786F-D0AD-42D1-A5B3-534F60D1FEA6@metavers.net>
-In-Reply-To: <25A2786F-D0AD-42D1-A5B3-534F60D1FEA6@metavers.net>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
+Hello,
 
-On Apr 22, 2011, at 10:59 AM, Ben Schmidt wrote:
+I recently had lost "big" emails containing attachments
+while running them through mlmmj 1.2.15. Here's the relevant log output:
 
-> Believe it or not, despite the 'error message', that actually looks correct. The 'No file or directory' message is just because Mlmmj checks for tunables and reports the status when it shouldn't (fixing this is on the to-do list).
-> 
-> Have you subscribed people to your mailing list yet?
-> 
-> Ben.
-> 
-> 
-I hadn't suscribed anyone to the list until now. It seems to work now. Thanks  for the help anyway.
+-------------------------
+ May 2 14:33:55 /usr/bin/mlmmj-send[13098]: mlmmj-send.c:891: Not preparing 
+in memory. Mail is 6428395 bytes: Success
+ May 2 14:33:55 /usr/bin/mlmmj-send[13098]: getaddrsfromfd.c:27: Could not 
+mmap fd: Invalid argument
+-------------------------
 
-- benoit
+Do I guess correctly that getaddrsfromfd() returns -1 and then
+the mail is silently discarded?
+
+mlmmj 1.2.16+ contains Robin's fix for a mmap() call of zero bytes.
+I'm wondering if that might be an issue but the file size
+shouldn't be zero bytes anyway.
+
+Cheers,
+Thomas
 
