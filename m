@@ -1,7 +1,7 @@
-From: =?ISO-8859-1?Q?Mads_Martin_J=F8rgensen?= <mmj@mmj.dk>
-Date: Fri, 13 May 2011 17:31:17 +0000
+From: Thomas Jarosch <thomas.jarosch@intra2net.com>
+Date: Fri, 20 May 2011 09:24:37 +0000
 Subject: Re: [mlmmj] Mail loss on failed mmap
-Message-Id: <4DCD6AE5.4050104@mmj.dk>
+Message-Id: <201105201124.38181.thomas.jarosch@intra2net.com>
 List-Id: <mlmmj.mlmmj.org>
 References: <201105131519.27505.thomas.jarosch@intra2net.com>
 In-Reply-To: <201105131519.27505.thomas.jarosch@intra2net.com>
@@ -10,63 +10,49 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-On 13/05/11 15.19, Thomas Jarosch wrote:
+Hello Mads,
 
-> I recently had lost "big" emails containing attachments
-> while running them through mlmmj 1.2.15. Here's the relevant log output:
->
-> -------------------------
->   May 2 14:33:55 /usr/bin/mlmmj-send[13098]: mlmmj-send.c:891: Not preparing
-> in memory. Mail is 6428395 bytes: Success
->   May 2 14:33:55 /usr/bin/mlmmj-send[13098]: getaddrsfromfd.c:27: Could not
-> mmap fd: Invalid argument
-> -------------------------
->
-> Do I guess correctly that getaddrsfromfd() returns -1 and then
-> the mail is silently discarded?
+On Friday, 13. May 2011 19:31:17 you wrote:
+> > Do I guess correctly that getaddrsfromfd() returns -1 and then
+> > the mail is silently discarded?
+> 
+> No, it's wrong.
 
-No, it's wrong.
+Thanks for your reply.
 
-> mlmmj 1.2.16+ contains Robin's fix for a mmap() call of zero bytes.
-> I'm wondering if that might be an issue but the file size
-> shouldn't be zero bytes anyway.
+I tested some more things:
+- Torture mlmmj with valgrind -> No errors found. Perfect :)
 
-Actually it's mlmmj not preparing the reply in memory, because it's so 
-big, that we don't want it to be a way to DoS the server through mlmmj.
+  Hint: If you ever want to run mlmmj inside valgrind,
+        you have to use the "-F (no fork)" option of mlmmj-receieve.
 
-If you look at the messages one by one:
+- Pipe a big email through it -> Works fine
 
-First one is mlmmj-send, making an informal message - it says "success". 
-It says it wont prepare it in memory, due to previously mentioned risk 
-of DoS. Instead, it prepares on disk where it's probably still sitting, 
-but the recipient wouldn't accept it due to size. You can tune this 
-through a tunable (but that wont fix it if the recipient rejects it). 
-Quote from TUNABLES:
+- Modify getaddrsfromfd() to always return -1
+  like when the mmap call fails -> Mail is discarded
 
-- memorymailsize		(normal)
+The "subscribers" file gets written/updated in our environment by an 
+automatic system that first writes to a temporary file and then 
+atomically replaces the target with a rename() on the same partition.
 
-Here is specified in bytes how big a mail can be and still be prepared 
-for sending in memory. It's greatly reducing the amount of write system 
-calls to prepare it in memory before sending it, but can also lead to 
-denial of service attacks. Default is 16k (16384 bytes).
+While writing this email, it occurred to me what happened:
+mlmmj was perfectly configured, there just weren't any recipients
+in the subscribers file yet (=empty mailing list). That would
+also explain the mmap() error message from mlmmj 1.2.15.
 
-Second one is getaddrsfromfd() in mlmmj-send, where there's probably a 
-zero-sized file within subscribers.d/. It's a harmless error which I 
-partly fixed quite some time ago. Reason for it is, that before 
-linux-2.6.9 it was legal to mmap a zero-sized file, as well on FreeBSD-5 
-where I did most development.
+I can catch this users error on my side by not redirecting
+email to mlmmj until at least one recipient is configured.
 
 
-I believe you should go hunting for that loss of mail somewhere else. 
-Might be it's a bug in mlmmj, but it's not related to those 
-errormessages you posted here.
+Postfix reacts to exit codes from /usr/include/sysexits.h
+when passing email to external programs.
 
-Have a great weekend :)
+How about returning "EX_TEMPFAIL" in mlmmj-send
+if no recipients were found?
 
-/mmj
--- 
-Mads Martin Joergensen, http://mmj.dk
-"Why make things difficult, when it is possible to make them cryptic
-  and totally illogical, with just a little bit more effort?"
-                                  -- A. P. J.
+That would also protect us from mail loss
+if the mmap() call should ever fail.
+
+Cheers,
+Thomas
 
