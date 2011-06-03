@@ -1,28 +1,22 @@
-From: Mark Alan <varia@e-healthexpert.org>
-Date: Mon, 09 May 2011 10:45:09 +0000
-Subject: Re: [mlmmj] How to recover subscribers?
-Message-Id: <20110509114509.37874a64@e-healthexpert.org>
+From: Christian Gleerup <christian.gleerup@swn.nu>
+Date: Fri, 03 Jun 2011 09:09:32 +0000
+Subject: [mlmmj] make mlmmj silent about delivery problems
+Message-Id: <1307092172.2639.5.camel@cg-desktop>
 List-Id: <mlmmj.mlmmj.org>
-References: <3FC8EB83-700A-42CE-9D89-2968ACAE158B@davetaylor.name>
-In-Reply-To: <3FC8EB83-700A-42CE-9D89-2968ACAE158B@davetaylor.name>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-On Sun, 8 May 2011 10:00:36 -0700, Dave Taylor <ddt@davetaylor.name>
-wrote:
-> Is there any way to recover the email addresses were removed from the
-> subscriber list?
+Hi list.
 
-Would executing this as root help?
+I have some customers complaining that  they get a lot of mails 40+ pr
+day, the reason for this is that there has ben some kind of delivery
+problem, the message saying something like: "some messaged could not be
+delivered. If you see this things are back to normal."
 
-sed '/ bouncing/!d;s/.*: \(.*\)
-un.*/\1/' /var/spool/mlmmj/LISTNAME/mlmmj.operation.log
+how can i make mlmmj be silent about these delivery problems?
 
-(NB replace LISTNAME by the name of the list that you wish to process)
-
-
-M.
+/Christian
 
 
