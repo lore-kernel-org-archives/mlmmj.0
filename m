@@ -1,38 +1,166 @@
-From: Ben Schmidt <mail_ben_schmidt@yahoo.com.au>
-Date: Thu, 07 Jul 2011 12:45:52 +0000
-Subject: Re: [mlmmj] help needed: mails are not sent from remote clients
-Message-Id: <4E15AA80.5030206@yahoo.com.au>
+From: Thomas Jarosch <thomas.jarosch@intra2net.com>
+Date: Fri, 26 Aug 2011 08:40:02 +0000
+Subject: [mlmmj] [patch] Fix various resouce leaks on error
+Message-Id: <201108261040.02638.thomas.jarosch@intra2net.com>
+MIME-Version: 1
+Content-Type: multipart/mixed; boundary="Boundary-00=_iv1VOklUOE7RZvr"
 List-Id: <mlmmj.mlmmj.org>
-References: <324F4CE41849CF4DB056C3C8DC696548DFF76F1240@ERRA.netrtlsrv.com>
-In-Reply-To: <324F4CE41849CF4DB056C3C8DC696548DFF76F1240@ERRA.netrtlsrv.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="windows-1252"
-Content-Transfer-Encoding: quoted-printable
 To: mlmmj@mlmmj.org
 
-> If I send a mail from a different host to the mailing list it is not
-> forwarded to the recipient, although it gets stored in the archive
-> directory. That again is what maillog says:
-...
-> Jul 7 09:00:42 glenfiddich.netrtl.com postfix/qmgr[2734]: 0D171E80D3:
-> from=3D<saw-filing3+bounces-16-axel.weber=CBc.de@cbc.de>, size=829, nrcpt=
-=3D1 (queue
-> active)
-...
-> Jul 7 09:00:42 glenfiddich.netrtl.com postfix/smtp[7502]: 0D171E80D3:
-> to=3D<axel.weber@cbc.de>, relay=3Dmailhostsrv.netrtl.com[10.98.248.151]:2=
-5,
-> delay=3D0.32, delays=3D0.11/0.01/0.01/0.2, dsn=3D2.6.0, status=3Dsent (25=
-0 2.6.0
-> <20110707065257.DC87A1C804B@bowmore.netrtl.com> Queued mail for delivery)
+--Boundary-00=_iv1VOklUOE7RZvr
+Content-Type: Text/Plain;
+  charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 
-This seems to indicate the message was indeed delivered successfully
-(accepted by the remote server). Maybe it has been classified as spam or
-junk or something by the recipient server, after accepting it, or by a
-mail client?
+Hello,
 
-Ben.
+attached patch fixes various resource leaks on error.
+Found by code audit with "cppcheck".
 
+Please consider for inclusion.
 
+Cheers,
+Thomas
 
+--Boundary-00=_iv1VOklUOE7RZvr
+Content-Type: text/x-patch;
+  charset="UTF-8";
+  name="mlmmj-fix-resource-leaks-on-error.patch"
+Content-Transfer-Encoding: 7bit
+Content-Disposition: attachment;
+	filename="mlmmj-fix-resource-leaks-on-error.patch"
+
+Fix various resource leaks on error
+
+Found by code audit with "cppcheck".
+
+Signed-off-by: Thomas Jarosch <thomas.jarosch@intra2net.com>
+diff -u -r -p mlmmj-1.2.17.1/contrib/recievestrip/mlmmj-recieve-strip.c mlmmj.patched/contrib/recievestrip/mlmmj-recieve-strip.c
+--- mlmmj-1.2.17.1/contrib/recievestrip/mlmmj-recieve-strip.c	2010-08-24 13:27:02.000000000 +0200
++++ mlmmj.patched/contrib/recievestrip/mlmmj-recieve-strip.c	2011-08-26 10:31:01.000000000 +0200
+@@ -464,6 +464,7 @@ int main(int argc, char **argv)
+ 	myfree(randomstr);
+ 	fd = open(infilename, O_RDWR|O_CREAT|O_EXCL, S_IRUSR|S_IWUSR);
+ 	while(fd < 0 && errno == EEXIST) {
++		close(fd);
+ 		myfree(infilename);
+ 		randomstr = random_str();
+ 		infilename = concatstr(3, listdir, "/incoming/", randomstr);
+diff -u -r -p mlmmj-1.2.17.1/src/mlmmj-bounce.c mlmmj.patched/src/mlmmj-bounce.c
+--- mlmmj-1.2.17.1/src/mlmmj-bounce.c	2010-08-24 13:27:04.000000000 +0200
++++ mlmmj.patched/src/mlmmj-bounce.c	2011-08-26 10:26:07.000000000 +0200
+@@ -64,18 +64,20 @@ char *fetchindexes(const char *bouncefil
+ 	}
+ 
+ 	if(fstat(fd, &st) < 0) {
+-		log_error(LOG_ARGS, "Could not open bounceindexfile %s",
++		log_error(LOG_ARGS, "Could not stat bounceindexfile %s",
+ 					bouncefile);
+ 	}
+ 
+ 	if(st.st_size == 0) {
+ 		log_error(LOG_ARGS, "Bounceindexfile %s is size 0",
+ 					bouncefile);
++		close(fd);
+ 		return NULL;
+ 	}
+ 
+ 	start = mmap(0, st.st_size, PROT_READ, MAP_SHARED, fd, 0);
+ 	if(start == MAP_FAILED) {
++		close(fd);
+ 		log_error(LOG_ARGS, "Could not mmap bounceindexfile");
+ 		return NULL;
+ 	}
+diff -u -r -p mlmmj-1.2.17.1/src/mlmmj-list.c mlmmj.patched/src/mlmmj-list.c
+--- mlmmj-1.2.17.1/src/mlmmj-list.c	2010-08-24 13:27:04.000000000 +0200
++++ mlmmj.patched/src/mlmmj-list.c	2011-08-26 10:33:14.000000000 +0200
+@@ -59,24 +59,26 @@ int dumpcount(const char *filename, int 
+ 	char *start, *next, *cur;
+ 	struct stat st;
+ 	size_t len;
++	int ret = -1;
+ 	
+ 	if((fd = open(filename, O_RDONLY)) < 0)
+-		return -1;
++		goto err_out;
+ 
+ 	if(stat(filename, &st) < 0)
+-		return -1;
++		goto err_out;
+ 	
+ 	if(!S_ISREG(st.st_mode))
+-		return -1;
++		goto err_out;
+ 	
+ 	/* Nobody there */
+ 	if(st.st_size == 0) {
+-		return 0;
++		ret = 0;
++		goto err_out;
+ 	}
+ 
+ 	start = mmap(0, st.st_size, PROT_READ, MAP_SHARED, fd, 0);
+ 	if(start == MAP_FAILED)
+-		return -1;
++		goto err_out;
+ 
+ 	for(next = cur = start; next < start + st.st_size; next++) {
+ 		if(*next == '\n' || next == start + st.st_size - 1) {
+@@ -93,9 +95,11 @@ int dumpcount(const char *filename, int 
+ 		}
+ 	}
+ 	munmap(start, st.st_size);
+-	close(fd);
++	ret = 0;
+ 
+-	return 0;
++err_out:
++	close(fd);
++	return ret;
+ }
+ 
+ int main(int argc, char **argv)
+diff -u -r -p mlmmj-1.2.17.1/src/mlmmj-maintd.c mlmmj.patched/src/mlmmj-maintd.c
+--- mlmmj-1.2.17.1/src/mlmmj-maintd.c	2010-08-24 13:27:04.000000000 +0200
++++ mlmmj.patched/src/mlmmj-maintd.c	2011-08-26 10:22:22.000000000 +0200
+@@ -618,6 +618,7 @@ int probe_bouncers(const char *listdir, 
+ 					"-p", (char *)NULL);
+ 			log_error(LOG_ARGS, "Could not execlp %s",
+ 						mlmmjbounce);
++			closedir(bouncedir);
+ 			return 1;
+ 		}
+ 	}
+@@ -757,6 +758,7 @@ int unsub_bouncers(const char *listdir, 
+ 					"-a", address, (char *)NULL);
+ 			log_error(LOG_ARGS, "Could not execlp %s",
+ 						mlmmjunsub);
++			closedir(bouncedir);
+ 			return 1;
+ 		}
+ 	}
+diff -u -r -p mlmmj-1.2.17.1/src/mlmmj-recieve.c mlmmj.patched/src/mlmmj-recieve.c
+--- mlmmj-1.2.17.1/src/mlmmj-recieve.c	2010-08-24 13:27:04.000000000 +0200
++++ mlmmj.patched/src/mlmmj-recieve.c	2011-08-26 10:22:22.000000000 +0200
+@@ -127,6 +127,7 @@ int main(int argc, char **argv)
+ 	myfree(randomstr);
+ 	fd = open(infilename, O_RDWR|O_CREAT|O_EXCL, S_IRUSR|S_IWUSR);
+ 	while(fd < 0 && errno == EEXIST) {
++		close(fd);
+ 		myfree(infilename);
+ 		randomstr = random_str();
+ 		infilename = concatstr(3, listdir, "/incoming/", randomstr);
+diff -u -r -p mlmmj-1.2.17.1/src/mlmmj-sub.c mlmmj.patched/src/mlmmj-sub.c
+--- mlmmj-1.2.17.1/src/mlmmj-sub.c	2010-08-24 13:32:20.000000000 +0200
++++ mlmmj.patched/src/mlmmj-sub.c	2011-08-26 10:22:22.000000000 +0200
+@@ -84,6 +84,7 @@ void moderate_sub(const char *listdir, c
+ 
+ 	fd = open(modfilename, O_RDWR|O_CREAT|O_EXCL, S_IRUSR|S_IWUSR);
+ 	while(fd < 0 && errno == EEXIST) {
++		close(fd);
+ 		myfree(modfilename);
+ 		randomstr = random_str();
+ 		modfilename = concatstr(3, listdir, "/moderation/subscribe",
+
+--Boundary-00=_iv1VOklUOE7RZvr--
 
