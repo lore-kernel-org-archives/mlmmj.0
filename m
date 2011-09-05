@@ -1,31 +1,52 @@
-From: "Yuri D'Elia" <wavexx@thregr.org>
-Date: Tue, 20 Sep 2011 22:06:09 +0000
-Subject: Re: [mlmmj] subonlypost, mlmmj-process and Envelope-from.
-Message-Id: <c9867303771473c55b7d3df3e7b63fb2@thregr.org>
+From: Ben Schmidt <mail_ben_schmidt@yahoo.com.au>
+Date: Mon, 05 Sep 2011 08:09:47 +0000
+Subject: Re: [mlmmj] Drafts of new listtexts
+Message-Id: <4E6483CB.9050503@yahoo.com.au>
 List-Id: <mlmmj.mlmmj.org>
-References: <b378a388cb0bd163819e87fb371a22eb@thregr.org>
-In-Reply-To: <b378a388cb0bd163819e87fb371a22eb@thregr.org>
+References: <4D62570E.9050007@yahoo.com.au>
+In-Reply-To: <4D62570E.9050007@yahoo.com.au>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
- On Mon, 12 Sep 2011 14:33:51 +0200, Yuri D'Elia wrote:
-> I patched mlmmj so that Envelope-from: is used for
-> processing/subonlypost and access control. From: is used only when
-> generating the body of help messages.
+On 30/06/11 7:01 PM, Florian Effenberger wrote:
+> Hi,
 >
-> This fixed gmane for me.
+>> You are wonderfully patient, Florian.
 >
-> I also shuffled mlmmj-process.c so that address validation checks are
-> performed before using the addresses themselves. listprocess.c could
-> also use some extra-cleanup (efrom is validated in 10 different
-> places, but could probably be done just once in mlmmj-process.c when
-> efrom is extracted).
+> :) you're welcome!
+>
+>> Everyone: I have just updated the texts in line with the new
+>> subscribe/unsubscribe behaviour that was discussed in another thread.
+>> Have a look at them at the URL above and give feedback.
+>>
+>> I hope to freeze them in the next fortnight or so.
+>
+> Thanks a lot! Ping me when they are frozen, then I'll see if I can get
+> some translators. :)
 
- Was anyone able to look at this? I've been using this patch on 
- production since then without [noticing] problems.
+"Famous last words." A week or so later some unexpected situations arose
+for me so I wasn't able to work on this as planned.
 
- Thanks.
+I have just looked at the texts again and made a couple of minor changes
+and think they are now good enough. So I am happy to consider them
+frozen and for people to begin translation.
+
+So go for it, team! Please just use UTF-8 encoding. I don't want the mess that the 
+previous ones were with \u escapes everywhere. If UTF-8 encoding doesn't already 
+work out of the box, we'll fix it.
+
+English ones are here:
+
+http://mlmmj.org/hg/listtexts/file/master/en
+
+Localised ones will be added to the repository as I receive them.
+
+Thanks so much.
+
+Ben.
+
+
 
 
