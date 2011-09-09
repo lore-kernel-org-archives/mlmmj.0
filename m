@@ -1,26 +1,25 @@
-From: Mark Alan <varia@e-healthexpert.org>
-Date: Fri, 26 Aug 2011 09:18:50 +0000
-Subject: Re: [mlmmj] [patch] Fix various resouce leaks on error
-Message-Id: <20110826101850.5aa64d38@e-healthexpert.org>
+From: Moritz Wilhelmy <ml+mmj@wzff.de>
+Date: Fri, 09 Sep 2011 20:31:18 +0000
+Subject: [mlmmj] Moderated subscription and list-owner approval
+Message-Id: <20110909203118.GV22957@barfooze.de>
 List-Id: <mlmmj.mlmmj.org>
-References: <201108261040.02638.thomas.jarosch@intra2net.com>
-In-Reply-To: <201108261040.02638.thomas.jarosch@intra2net.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-On Fri, 26 Aug 2011 10:40:02 +0200, Thomas Jarosch
-<thomas.jarosch@intra2net.com> wrote:
+Hello,
 
-> attached patch fixes various resource leaks on error.
-> Found by code audit with "cppcheck".
+If subscription is moderated, and users are being subscribed via
+mlmmj-sub, a subscription is sent to the owner/moderators. Given that
+root can do anything to the files subscribers.d, it is not reasonable to
+also require a confirmation mail in this case. Would you mind changing
+mlmmj to not send a confirmation-request mail to the list
+owner/moderators in case someone is subscribed to list where
+control/submod is set, but rather silently subscribe the particular
+users, the way it does it when the flag is not set?
 
-Thank you Thomas,
+Best regards,
 
-The patch looks good.
-We will give it a try in the next week.
-
-
-M.
+Moritz
 
