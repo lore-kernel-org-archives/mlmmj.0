@@ -1,49 +1,82 @@
-From: Lukas Fleischer <mlmmj@cryptocrack.de>
-Date: Fri, 16 Sep 2011 22:37:32 +0000
-Subject: Re: [mlmmj] Stale moderation/*.sending files | mlmmj-send
-Message-Id: <20110916223732.GA24084@blizzard>
+From: Ben Schmidt <mail_ben_schmidt@yahoo.com.au>
+Date: Sat, 10 Sep 2011 03:26:46 +0000
+Subject: [mlmmj] Fwd: [mlmmj commits] Implement new list text naming scheme
+Message-Id: <4E6AD8F6.2070408@yahoo.com.au>
 List-Id: <mlmmj.mlmmj.org>
-References: <20110916203956.GA20431@kki.org>
-In-Reply-To: <20110916203956.GA20431@kki.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-On Fri, Sep 16, 2011 at 10:39:56PM +0200, Christoph Thiel wrote:
-> Hi everyone,
-> 
-> using mlmmj mlmmj-1.2.17.1 (on SLES 11 SP1 with postfix) to run about 2000
-> mailing lists (most of them are moderated), I figured that I had some 200 files
-> in the moderation folder ending in .sending, without any mlmmj-send process
-> running. mlmmj-maintd doesn't seem to take care of those files?
-> 
-> Has anyone seen this? What is causing this?
-> 
-> 
-> Maybe unrelated to this, I was digging through the logs and found:
-> 
-> Sep 11 15:46:18 kenny kernel: [801524.917887] mlmmj-send[25966]: segfault at 0 ip 00000000004060fa sp 00007fffe88d13a0 error 4 in mlmmj-send[400000+a000]
-> Sep 12 13:48:04 kenny kernel: [880821.691820] mlmmj-send[12206]: segfault at 0 ip 00000000004060fa sp 00007ffffee6ad70 error 4 in mlmmj-send[400000+a000]
-> Sep 12 15:58:18 kenny kernel: [888634.712623] mlmmj-send[1540]: segfault at 0 ip 00000000004060fa sp 00007fff38c7fc50 error 4 in mlmmj-send[400000+a000]
-> Sep 13 15:59:20 kenny kernel: [975087.015259] mlmmj-send[20332]: segfault at 0 ip 00000000004060fa sp 00007fff46439d80 error 4 in mlmmj-send[400000+a000]
-> Sep 14 14:11:32 kenny kernel: [1055009.528910] mlmmj-send[10202]: segfault at 0 ip 00000000004060fa sp 00007fffc39ee140 error 4 in mlmmj-send[400000+a000]
-> Sep 14 14:40:24 kenny kernel: [1056741.004651] mlmmj-send[13020]: segfault at 0 ip 00000000004060fa sp 00007fff6cedb950 error 4 in mlmmj-send[400000+a000]
-> Sep 16 15:11:00 kenny kernel: [1231356.973574] mlmmj-send[31009]: segfault at 0 ip 00000000004060fa sp 00007fff649c0e30 error 4 in mlmmj-send[400000+a000]
+Could a C coder please review this changeset for me? There's nothing too
+technical in it so any proficient C coder should be able to review it
+adequately. It's only had a very small amount of testing so far, but
+seems to work.
 
-That definitely is a bug and probably related to the dangling files in
-your moderation directory. Those are renamed to ".sending" to mark them
-as being processed and then passed on to mlmmj-send which seems to
-segfault. You could try to pick any file, invoke mlmmj-send manually and
-get a backtrace so that we might get an idea of what happens here. `gdb
-mlmmj-send` and then type `run -L <listdir> -m <sendfilename>` (where
-"listdir" is your list directory and "sendfilename" the ".sending" file
-you would like to resend).
+http://mlmmj.org/hg/mlmmj/rev/c3ee2bfaeb02
 
-You might need to recompile mlmmj with debugging symbols (and with
-stripping disabled) in case the package you use doesn't provide these
-already.
+(After this, the substitution mechanism needs to be reworked, which will
+need a code review, and then the new list texts can be tested. Then I
+will just fix a few easy and high priority bugs before releasing a beta.
+Other bug fixes and enhancements can wait for another release which I
+expect will follow much more quickly.)
 
-Cheers,
-Lukas
+Ben.
+
+
+
+-------- Original Message --------
+Subject: [mlmmj commits] Implement new list text naming scheme
+Date: Sat, 10 Sep 2011 06:03:15 +0300
+From: mlmmj hg <noreply@mlmmj.org>
+Reply-To: <noreply@mlmmj.org>
+To: commits@mlmmj.org
+
+o  changeset:   http://mlmmj.org/hg/mlmmj/rev/c3ee2bfaeb02
+|  tag:         tip
+|  user:        Ben Schmidt
+|  date:        Sat Sep 10 12:23:40 2011 +1000
+|  description:
+|  Implement new list text naming scheme
+|
+|  Also fix a bug where the normal list text would be sent when unsubscribing
+|  from the nomail version of the list
+|
+|  Also fix some minor documentation bugs
+|
+|
+o  changeset:   http://mlmmj.org/hg/mlmmj/rev/9f503b69a55d
+|  user:        Ben Schmidt
+|  date:        Mon Mar 07 01:30:02 2011 +1100
+|  description:
+|  Update documentation to reflect intended changes to list text naming
+|
+|
+o  changeset:   http://mlmmj.org/hg/mlmmj/rev/8c4064ce228e
+|  user:        Ben Schmidt
+|  date:        Tue Feb 22 10:16:40 2011 +1100
+|  description:
+|  Mark a bunch of stuff as deprecated.
+|
+|  Replacing some generic stuff with even more generic stuff, looking forward to
+|  the day when we will do things like http://$www$.$domain$/$list$/archive.
+|
+|
+o  changeset:   http://mlmmj.org/hg/mlmmj/rev/6f8df4842d91
+|  user:        Ben Schmidt
+|  date:        Tue Feb 22 10:12:42 2011 +1100
+|  description:
+|  Add a space to $controlN$ substitution and improve documentation.
+|
+|
+o  changeset:   http://mlmmj.org/hg/mlmmj/rev/21265d660d19
+|  user:        Ben Schmidt
+|  date:        Mon Mar 07 00:30:58 2011 +1100
+|  description:
+|  Added forgotten ChangeLog entry
+|
+|
+
+
+
 
