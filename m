@@ -1,42 +1,34 @@
-From: Ben Schmidt <mail_ben_schmidt@yahoo.com.au>
-Date: Sat, 10 Sep 2011 21:41:17 +0000
-Subject: Re: [mlmmj] Fwd: [mlmmj commits] Implement new list text naming scheme
-Message-Id: <4E6BD97D.2070704@yahoo.com.au>
+From: Florian Effenberger <floeff@gmail.com>
+Date: Thu, 06 Oct 2011 12:39:03 +0000
+Subject: Re: [mlmmj] Drafts of new listtexts
+Message-Id: <CADNNayqQZYhW10_dNLHPZ=iEuqE9SmwAWm5K+vgC8wafvMDCDQ@mail.gmail.com>
 List-Id: <mlmmj.mlmmj.org>
-References: <4E6AD8F6.2070408@yahoo.com.au>
-In-Reply-To: <4E6AD8F6.2070408@yahoo.com.au>
+References: <4D62570E.9050007@yahoo.com.au>
+In-Reply-To: <4D62570E.9050007@yahoo.com.au>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Thank you, Thomas. That was a very quick reply.
-Ben.
+Hi Ben,
 
+2011/9/5 Ben Schmidt <mail_ben_schmidt@yahoo.com.au>:
 
+> So go for it, team! Please just use UTF-8 encoding. I don't want the mess
+> that the previous ones were with \u escapes everywhere. If UTF-8 encoding
+> doesn't already work out of the box, we'll fix it.
+>
+> English ones are here:
+>
+> http://mlmmj.org/hg/listtexts/file/master/en
+>
+> Localised ones will be added to the repository as I receive them.
 
-On 11/09/11 2:10 AM, Thomas Goirand wrote:
-> On 09/10/2011 11:26 AM, Ben Schmidt wrote:
->> Could a C coder please review this changeset for me? There's nothing too
->> technical in it so any proficient C coder should be able to review it
->> adequately. It's only had a very small amount of testing so far, but
->> seems to work.
->>
->> http://mlmmj.org/hg/mlmmj/rev/c3ee2bfaeb02
->>
->> (After this, the substitution mechanism needs to be reworked, which will
->> need a code review, and then the new list texts can be tested. Then I
->> will just fix a few easy and high priority bugs before releasing a beta.
->> Other bug fixes and enhancements can wait for another release which I
->> expect will follow much more quickly.)
->>
->> Ben.
->
-> I had a quick look, and as you said, there's not much in this patch that
-> could be seen as suspicious. Few functional tests should be enough.
->
-> Thomas
->
->
->
+perfect - I've forwarded this to the LibreOffice mailing lists, and if
+I get any translations back, I will ping you. :) BTW, in the upcoming
+release of Linux New Media's admin magazine, there will be an artice
+about mlmmj by me. :)
+
+Florian
+
 
