@@ -1,45 +1,45 @@
-From: Thomas Goirand <thomas@goirand.fr>
-Date: Mon, 09 Jan 2012 11:40:23 +0000
-Subject: [mlmmj] Re: [mlmmj bugs] Req #32 [NEW]: moderate from command line
-Message-Id: <4F0AD227.1060401@goirand.fr>
+From: Ben Schmidt <mail_ben_schmidt@yahoo.com.au>
+Date: Tue, 17 Jan 2012 03:51:35 +0000
+Subject: [mlmmj] More code to review
+Message-Id: <4F14F047.1030009@yahoo.com.au>
 List-Id: <mlmmj.mlmmj.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
+Hi, everyone,
 
-On 01/09/2012 01:43 AM, floeff at gmail dot com wrote:
-> ATTENTION! Do NOT reply to this email!
-> 
-> From:             floeff at gmail dot com
-> Mlmmj Version:    1.2.17
-> Operating system: 
-> MTA:              
-> MTA Version:      
-> Package:          Generic
-> Type:             Feature/Change Request
-> Summary:          moderate from command line
-> 
-> Description:
-> ------------
-> It would be good to have a feature to moderate from within the command
-> line. Sometimes it occurs that a message needs moderation, but while I am
-> postmaster, I am not moderator of the specific list. Invoking something
-> like mlmmj-moderate -L /path/to/list -i ID of message would be good.
+I have just pushed the implementation of the new list text mechanism
+along with a few minor but related changes. The changesets are:
 
-Can't you simply write a mail from the command line?
+- http://mlmmj.org/hg/mlmmj/rev/99fb6ba7a76e
+- http://mlmmj.org/hg/mlmmj/rev/8ddfc2d59a3f
+- http://mlmmj.org/hg/mlmmj/rev/262752ddbbf5
+- http://mlmmj.org/hg/mlmmj/rev/58a2cba0be3e
+- http://mlmmj.org/hg/mlmmj/rev/74d5ebb67b34
+- http://mlmmj.org/hg/mlmmj/rev/757225257ef3
+- http://mlmmj.org/hg/mlmmj/rev/fdd43713fb52
+- http://mlmmj.org/hg/mlmmj/rev/ed446ead03bd
+- http://mlmmj.org/hg/mlmmj/rev/9caf15c6ae31
+- http://mlmmj.org/hg/mlmmj/rev/24bf028aa8a0
 
-apt-get install bsd-mailx
-Mail -s "none" listname-moderate-<ID-OF-MODERATION>@example.com
+(These are in addition to the six changesets that I mentioned earlier,
+which were paving the way for this work.)
 
-I do this very often, and it works very well!
+A number of these changes contain some quite subtle and complicated
+code, and could definitely do with review. Please help if you can! See
+my earlier email for comments regarding the review process.
 
-Now, if you really need a script to do this on the shell, there must be
-half a million way to do it and to write a script for it. Do you really
-think something that easy to do should be added to MLMMJ?
+Apart from this, the only other features to be included in the next
+release are rejection of posts and obstruction of subscriptions.
 
-Thomas
+Thanks again, everyone. I'm greatly looking forward to the new release!
 
-P.S: I don't know how to reply to a bug entry, if I knew, I would have.
+Smiles,
+
+Ben.
+
+
+
 
