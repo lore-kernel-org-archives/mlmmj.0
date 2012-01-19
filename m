@@ -1,7 +1,7 @@
-From: Mark Alan <varia@e-healthexpert.org>
-Date: Wed, 18 Jan 2012 09:26:24 +0000
+From: Ben Schmidt <mail_ben_schmidt@yahoo.com.au>
+Date: Thu, 19 Jan 2012 06:03:38 +0000
 Subject: Re: [mlmmj] Add Suscribers
-Message-Id: <20120118092624.068db445@e-healthexpert.org>
+Message-Id: <4F17B23A.2090502@yahoo.com.au>
 List-Id: <mlmmj.mlmmj.org>
 References: <D176E0C7E42DA44992D7811C809C30844E4963@redbull.leachman.com>
 In-Reply-To: <D176E0C7E42DA44992D7811C809C30844E4963@redbull.leachman.com>
@@ -10,62 +10,33 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-On Tue, 17 Jan 2012 13:47:39 -0700, "Cody Moreshead"
-<cody@leachman.com> wrote:
+On 18/01/12 7:47 AM, Cody Moreshead wrote:
+> Please can someone help. I may be using mimmj in the near future and have osme
+> questions. I need to be able to subscribe/unsubscribe users vie email. For example
+> set an email to
+>
+> Mlmmj+subscribe@mlmmj.org <mailto:Mlmmj+subscribe@mlmmj.org>
+>
+> With a body that has a bunch of emails to add.
+>
+> Can this be done?
 
-> Please can someone help.  I may be using mimmj in the near future and
-> have some questions.  I need to be able to subscribe/unsubscribe users
-> via email.
+Mlmmj doesn't have any functionality like this at the moment. I'm not
+sure it's very likely to be added, either, because email is so easily
+forged. Your mail server would effectively become an open relay for a
+spammer if they could simply forge an email from an administrator to
+subscribe a huge number of people to a mailing list and then send a
+message to it for delivery.
+
+Is there a particular reason you want or need to do this by email?
+Perhaps if you explain your problem to us in more detail we could
+suggest an alternative solution. Using the commandline or a web
+interface behind some kind of authentication are strong possibilities.
+
+Cheers,
+
+Ben.
 
 
-A year ago I asked, in this mailing list, for the equivalent command to
-what was being done by ezmlm (which was the main inspiration for the
-mlmmj project). Which goes more or less like this:
 
-1) An authorized sender (i.e. an email sent from an email address listed
-in the subscription moderators file) would send an email to an
-address like:
-To:  some_list+subscribe-john.doe=example.com@domain.tld
-
-2) And that would be the same as executing, at the @domain.tld mailing
-list server console, this command:
- /usr/bin/mlmmj-sub -L /var/spool/mlmmj/some_list -a
-some.user@example.com
-
-3) The subscription moderator(s) would then receive the usual
-subscription aproval email:
-=======================From: some_list-owner@domain.tld
-To: some_list-moderators@domain.tld
-Reply-To: some_list+moderate-subscribe2d381ca04db6edd3@domain.tld
-
-Hi, this is the mlmmj mailer managing the mailinglist
-
-some_list@domain.tld
-
-There is a subscription request from
-
-some.user@example.com
-
-waiting. To approve this request, please send a reply to
-
-some_list+moderate-subscribe2d381ca04db6edd3@domain.tld
-
-Your mailer probably automatically replies to this address, when you hit
-the reply button. If you don't want to approve the request, simply
-ignore this message.
-
-The following subscription moderators have received this mail:
-
-some.admin1@domain.tld
-some.admin2@domain.tld
-=======================
-
-At that time nobody was able to tell me how to do it.
-
-At that time it seemed that the current developer(s) tend to
-favor a much insecure way of mailing list administration (at least
-for internet sitting servers), namely, some king of rudimentary
-script to support a web interface.
-
-M.
 
