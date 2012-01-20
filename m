@@ -1,7 +1,7 @@
-From: "Gerd v. Egidy" <lists@egidy.de>
-Date: Fri, 20 Jan 2012 09:00:56 +0000
+From: Mark Alan <varia@e-healthexpert.org>
+Date: Fri, 20 Jan 2012 10:48:35 +0000
 Subject: Re: [mlmmj] Add Suscribers
-Message-Id: <201201201000.56043.lists@egidy.de>
+Message-Id: <20120120104835.53a3ee10@e-healthexpert.org>
 List-Id: <mlmmj.mlmmj.org>
 References: <D176E0C7E42DA44992D7811C809C30844E4963@redbull.leachman.com>
 In-Reply-To: <D176E0C7E42DA44992D7811C809C30844E4963@redbull.leachman.com>
@@ -10,37 +10,44 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Hi,
+On Thu, 19 Jan 2012 08:24:55 -0700, "Cody Moreshead"
+<cody@leachman.com> wrote:
 
-> We
-> have a mail list of ~12,000 people that get a weekly newsletter.  We
-> currently have a way to track subscribes and unsubscribes in our
-> business program that is based on SQL.  The mailist will be hosted on
-> our ISP's server.  What I was hoping is that at the end of each day I
-> could send two emails from the SQL server (easily done) to our ISP that
-> would automatically add and remove people from the list.
+> What I was hoping is that at the end of each day I
+> could send two emails from the SQL server (easily done) to our ISP
+> that would automatically add and remove people from the list.  For
+> various reasons the person that does the newsletter does not want to
+> relinquish control of the additions/subtractions to the list.
 
-we had exactly the same problem two years ago. We came to the conclusion that 
-a mailinglist software like mlmmj is not the best solution for a newsletter 
-scenario.
+If you have root access to the servers, try this:
 
-We now have a software that is dedicated for sending newsletters. It has 
-several advantages like database imports from our crm software, personalized 
-mails, true formatting for multipart/alternative (you can control the html and 
-text part individually) and several more.
+I. create a SQL script to export the 2 lists as 2 text files:
+/tmp/subs.txt (will have the emails to be susbcribed)
+  newuser1@example.com
+  newuser2@example.tld
+/tmp/unsubs.txt  (will have the emails to be unsusbcribed).
+  byebyeuser1@example.com
+  byebyeuser2@example.com
 
-We have defined a view in our database which shows all recipients. Every time 
-we send a newsletter, I export this and import it on the newsletter server. 
-This is just two clicks.
+II. create cron jobs to run a shell command for each list:
+05 23 * * * root /usr/bin/test -x /tmp/subs.txt
+    && /bin/cat /tmp/subs.txt | /usr/bin/xargs -rn1 /usr/bin/mlmmj-sub 
+-L /var/spool/mlmmj/YOURLIST1 -a;
 
-We use http://www.superwebmailer.de/ but this seems to be available in German 
-only. But I guess there is similar software available in English too.
+20 23 * * * root /usr/bin/test -x /tmp/unsubs.txt
+  && /bin/cat /tmp/subs.txt | /usr/bin/xargs -rn1 /usr/bin/mlmmj-unsub
+  -L /var/spool/mlmmj/YOURLIST1 -a;
 
-Kind regards,
+From then on,
+at 23h05 you will be subscribing the new users,
+and at 23h20 you will be unsubscribing those that should not be with you
+anymore.
+And if you use 20 * * * * , instead of  20 23 * * * , you will be doing
+that every 20 minutes.
 
-Gerd
+Please note that shell commands inside cron jobs do like to use full
+paths.
 
--- 
-Address (better: trap) for people I really don't want to get mail from:
-jonas@cactusamerica.com
+
+M.
 
