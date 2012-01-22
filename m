@@ -1,52 +1,36 @@
 From: Mark Alan <varia@e-healthexpert.org>
-Date: Fri, 20 Jan 2012 10:48:35 +0000
-Subject: Re: [mlmmj] Add Suscribers
-Message-Id: <20120120104835.53a3ee10@e-healthexpert.org>
+Date: Sun, 22 Jan 2012 12:45:26 +0000
+Subject: Re: [mlmmj] decoding base64 moderation messages
+Message-Id: <20120122124526.7197b85c@e-healthexpert.org>
 List-Id: <mlmmj.mlmmj.org>
-References: <D176E0C7E42DA44992D7811C809C30844E4963@redbull.leachman.com>
-In-Reply-To: <D176E0C7E42DA44992D7811C809C30844E4963@redbull.leachman.com>
+References: <AANLkTikyTra-+1+sEFp4mw1i51rb02PgK5A_kWc=nqw8@mail.gmail.com>
+In-Reply-To: <AANLkTikyTra-+1+sEFp4mw1i51rb02PgK5A_kWc=nqw8@mail.gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-On Thu, 19 Jan 2012 08:24:55 -0700, "Cody Moreshead"
-<cody@leachman.com> wrote:
+On Wed, 19 Jan 2011 12:44:11 +0100, Florian Effenberger
+<floeff@gmail.com> wrote:
 
-> What I was hoping is that at the end of each day I
-> could send two emails from the SQL server (easily done) to our ISP
-> that would automatically add and remove people from the list.  For
-> various reasons the person that does the newsletter does not want to
-> relinquish control of the additions/subtractions to the list.
+> last weeks. :-) One questions: Do newer mlmmj versions support
+> decoding base64 moderation messages? I often receive messages like
+> Content-Transfer-Encoding: base64
 
-If you have root access to the servers, try this:
+Hello Florian,
 
-I. create a SQL script to export the 2 lists as 2 text files:
-/tmp/subs.txt (will have the emails to be susbcribed)
-  newuser1@example.com
-  newuser2@example.tld
-/tmp/unsubs.txt  (will have the emails to be unsusbcribed).
-  byebyeuser1@example.com
-  byebyeuser2@example.com
+Were you ever able to solve this issue?
+It is very annoying to have to manually decode those messages:
 
-II. create cron jobs to run a shell command for each list:
-05 23 * * * root /usr/bin/test -x /tmp/subs.txt
-    && /bin/cat /tmp/subs.txt | /usr/bin/xargs -rn1 /usr/bin/mlmmj-sub 
--L /var/spool/mlmmj/YOURLIST1 -a;
+1. Search for the message number (lets assume that its base64 starts
+with TXVpdG and ends with 0KDQo=):
+grep -r 'TXVpdG' /path/to/Mail/Local/*
 
-20 23 * * * root /usr/bin/test -x /tmp/unsubs.txt
-  && /bin/cat /tmp/subs.txt | /usr/bin/xargs -rn1 /usr/bin/mlmmj-unsub
-  -L /var/spool/mlmmj/YOURLIST1 -a;
+2. and then decode it
+sed -n '/TXVpdG/,/0KDQo=/p;s/^[ ]*//' /path/to/Mail/Local/mail-list-path/436
+| openssl enc -d -base64
 
-From then on,
-at 23h05 you will be subscribing the new users,
-and at 23h20 you will be unsubscribing those that should not be with you
-anymore.
-And if you use 20 * * * * , instead of  20 23 * * * , you will be doing
-that every 20 minutes.
-
-Please note that shell commands inside cron jobs do like to use full
-paths.
+It would be nice to have it properly done by mlmmj.
 
 
 M.
