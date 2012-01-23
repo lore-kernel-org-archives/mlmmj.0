@@ -1,7 +1,7 @@
-From: Lukas Fleischer <mlmmj@cryptocrack.de>
-Date: Sun, 22 Jan 2012 19:26:43 +0000
+From: Ben Schmidt <mail_ben_schmidt@yahoo.com.au>
+Date: Mon, 23 Jan 2012 00:13:17 +0000
 Subject: Re: [mlmmj] mlmmj-recieve -> mlmmj-receive
-Message-Id: <20120122192643.GB7918@blizzard>
+Message-Id: <4F1CA61D.2080402@yahoo.com.au>
 List-Id: <mlmmj.mlmmj.org>
 References: <4F1C5CAB.1050702@goirand.fr>
 In-Reply-To: <4F1C5CAB.1050702@goirand.fr>
@@ -10,27 +10,28 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-On Sun, Jan 22, 2012 at 08:24:59PM +0100, Lukas Fleischer wrote:
-> On Mon, Jan 23, 2012 at 02:59:55AM +0800, Thomas Goirand wrote:
-> > Hi,
-> > 
-> > Is there a plan to rename mlmmj-recieve as mlmmj-receive, as it should?
-> > IMHO, that'd be a good thing to fix this typo. There's many way to have
-> > a transition, one of them would be to have a symlink for few years, then
-> > remove the old one later on, once everyone had enough time to fix their
-> > setup (or keep the old one forever, I don't mind that, I just mind that
-> > someone would type it without the spelling mistake and fail to
-> > understand what happens...).
-> > 
-> > Thoughts?
-> 
-> +1. Rename that script, add a backwards compatibility symlink and
+> Is there a plan to rename mlmmj-recieve as mlmmj-receive, as it
+> should? IMHO, that'd be a good thing to fix this typo.
 
-s/script/binary/ :)
+This has already been done in version control
+(http://mlmmj.org/hg/mlmmj/rev/dfc9ab125fd4).
 
-> mention the renaming in the ChangeLog and/or in the next release
-> announcement.
-> 
-> > 
-> > Thomas
+This (and a LOT of other changes, big and small) are reflected in the
+current changelog (http://mlmmj.org/hg/mlmmj/file/master/ChangeLog)
+which is well worth a read.
+
+We are pretty overdue for a release.
+
+> There's many way to have a transition, one of them would be to have a
+> symlink for few years, then remove the old one later on, once everyone
+> had enough time to fix their setup
+
+That's my current intention.
+
+Smiles,
+
+Ben.
+
+
+
 
