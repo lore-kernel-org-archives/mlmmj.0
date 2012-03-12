@@ -1,60 +1,59 @@
 From: Ben Schmidt <mail_ben_schmidt@yahoo.com.au>
-Date: Mon, 26 Mar 2012 13:53:20 +0000
-Subject: Re: [mlmmj] How to disable bounce probes
-Message-Id: <4F7074D0.1060700@yahoo.com.au>
+Date: Mon, 12 Mar 2012 17:30:33 +0000
+Subject: [mlmmj] Mlmmj 1.2.18a1 released
+Message-Id: <4F5E32B9.6090908@yahoo.com.au>
 List-Id: <mlmmj.mlmmj.org>
-References: <4F625B33.4000802@pub.positon.org>
-In-Reply-To: <4F625B33.4000802@pub.positon.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-On 27/03/12 12:29 AM, Marc MAURICE wrote:
-> Hello,
->
-> Thanks for your response.
->> One way to do it is to set 'staticbounceaddr' (see TUNABLES) to send the
->> bounces to a black-hole, rather than having Mlmmj process them. Mlmmj
->> will then think nothing is bouncing, so will not try to probe.
-> But if I do that it will disable all bounces. I want to get bounces, but I don't
-> want mlmmj to check for bounces.
-> I want to do it manually.
+An alpha release for the upcoming Mlmmj 1.2.18 has been published. Find
+it on the downloads page[1]. Please help test it if you can and report
+bugs using our bug tracker[2] or here on the discussion mailing list.
+Also please report successes to help gain confidence in the quality of
+the code. Please also contact me (the maintainer, Ben Schmidt) if you
+can help with code review.
 
-Well, you could always send them to a mailbox instead of back to Mlmmj,
-if you wanted to.
+This version contains a number of important new features:
 
->> I think removing the text/probe or text/bounce-probe list text would
->> also turn off the messages, but log an error to syslog when Mlmmj tries
->> to send one. You'd have a record of which address are bouncing that way,
->> though, which may or may not be a benefit.
-> In mlmmj 1.2.17 (debian stable version) it is not sufficient because mlmmj will
-> fallback on /usr/share/mlmmj/text.skel/en/.
-> I had to remove read access to it too :
->
-> rm -vf /var/spool/mlmmj/*/text/bounce-probe
-> chmod o-r /usr/share/mlmmj/text.skel/*/bounce-probe
->
-> and to prevent package upgrades to reset it (ext fs only) :
-> chattr +i /usr/share/mlmmj/text.skel/*/bounce-probe
+- Richer list texts (including a new naming scheme, conditionals,
+   automatic wrapping and true UTF-8 support).
+- Notifying posters when their posts are being moderated.
+- Not-me-too feature to avoid having the poster receiving their own
+   messages.
+- Ability to explicitly reject posts.
+- Ability to explicitly obstruct subscriptions.
+- Unsubscribe from all versions of a list at once.
+- Ability to switch between different versions of a list by using
+   +subscribe[-{digest|nomail|both}] ('both' means normal and digest, and
+   is a 'hidden feature').
+- A number of bug fixes (including fixing some bugs which could cause
+   mail to be lost).
+- Improved documentation.
 
-Ah, yes. I forgot about that. I wonder if that's properly documented. I
-perhaps need to fix it.
+(See the ChangeLog[3] for a more detailed list of changes.)
 
-> Is it different in mlmmj 1.2.18 ??
+It is almost entirely backward-compatible. For instance, old list texts
+should continue to work. The main backward-incompatible change is that
+unsubscribe will now remove a user from all versions of the list, not
+just one (no matter which unsubscribe address is used).
 
-No, it is the same.
+It has only been minimally tested and not all changes have been reviewed
+yet, so there will probably be some bugs, possibly some nasty ones,
+waiting to be found. Any and all help with code review and testing will
+be greatly appreciated.
 
->> Beware, though, that if a lot of spam emails are being sent from your
->> mail server, you may end up with your IP blacklisted or something like
->> that. It's probably more worth your while to try to filter out the spam
->> and avoid it going out at all. Ignoring the problem by turning the
->> bounces off will just let the problem grow, unnoticed and unrestrained.
-> You're right. I will install a spamassassin if I find the time one day.
-
-Smiles,
+Following further code review and testing, a beta version and/or release
+candidate will be published.
 
 Ben.
+
+
+
+[1] http://mlmmj.org/downloads
+[2] http://mlmmj.org/bugs
+[3] mlmmj.org/hg/mlmmj/file/RELEASE_1_2_18a1/ChangeLog
 
 
 
