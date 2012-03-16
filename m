@@ -1,26 +1,29 @@
-From: Ben Schmidt <mail_ben_schmidt@yahoo.com.au>
-Date: Fri, 16 Mar 2012 12:05:09 +0000
+From: =?ISO-8859-1?Q?Mads_Martin_J=F8rgensen?= <mmj@mmj.dk>
+Date: Fri, 16 Mar 2012 12:07:21 +0000
 Subject: Re: [mlmmj] How to disable bounce probes
-Message-Id: <4F632C75.6090904@yahoo.com.au>
+Message-Id: <4F632CF9.1010306@mmj.dk>
 List-Id: <mlmmj.mlmmj.org>
 References: <4F625B33.4000802@pub.positon.org>
 In-Reply-To: <4F625B33.4000802@pub.positon.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-On 16/03/12 8:49 AM, Mads Martin J=F8rgensen wrote:
-> Another option is to not run mlmmj-maintd.
+On 16/03/12 13.05, Ben Schmidt wrote:
+>> Another option is to not run mlmmj-maintd.
+>
+> Off the top of my head I can't remember exactly what mlmmj-maintd does,
+> but doesn't it do other things that shouldn't be disabled, like
+> requeuing mail on temporary SMTP failures and sending digests and stuff?
 
-Off the top of my head I can't remember exactly what mlmmj-maintd does, but=
-=20
-doesn't it do other things that shouldn't be disabled, like requeuing mail =
-on=20
-temporary SMTP failures and sending digests and stuff?
+Absolutely. But in the use cases that I know of, where bounces are 
+uninteresting due to spam, public lists, etc. people have realized that 
+all the mlmmj-maintd functionality is something that is good to disable.
 
-Ben.
-
-
-
+-- 
+Mads Martin Joergensen, http://mmj.dk
+"Why make things difficult, when it is possible to make them cryptic
+  and totally illogical, with just a little bit more effort?"
+                                  -- A. P. J.
 
