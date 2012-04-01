@@ -1,27 +1,39 @@
-From: Ben Schmidt <mail_ben_schmidt@yahoo.com.au>
-Date: Sat, 17 Mar 2012 15:52:40 +0000
-Subject: Re: [mlmmj] Mlmmj 1.2.18a1 released
-Message-Id: <4F64B348.9010800@yahoo.com.au>
+From: Dave Taylor <ddt@davetaylor.name>
+Date: Sun, 01 Apr 2012 23:41:07 +0000
+Subject: [mlmmj] upgrade woes
+Message-Id: <DC64AAAA-8FD5-4479-B1C8-8CF117922EE5@davetaylor.name>
 List-Id: <mlmmj.mlmmj.org>
-References: <4F5E32B9.6090908@yahoo.com.au>
-In-Reply-To: <4F5E32B9.6090908@yahoo.com.au>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
->> $ dpkg --compare-versions 1.2.18a1 lt 1.2.18.0 && echo YES || echo NO
->> YES
+Hi folks,
 
->      $ vercmp 1.2.18a1 1.2.18.0
->      -1
+I run two mlmmj mailing lists.  One of them called "table" is moderated, one isn't.  In upgrading my Debian Linux box, I forgot that upgrading mlmmj would happen automatically, and it upgraded to Debian package 1.2.17-2 (on squeeze).  Whoops.  Whatever happened in the upgrade, the unmoderated list still seems to work, but the moderated "table" list now sends emails to the moderator with blank payloads:
 
-OK. This scheme wins.
+> From: table_owner@thetable.biz
+> To: table-moderators@thetable.biz
+> ReplyTo: table_moderate-40f76e2c40f76e2c@thetable.biz
+> Subject: mlmmj administrativa
+> Sent: Mar 30, 2012 10:48 AM
+> 
+> 
+> To accept, send a message to:
+> table_moderate-40f76e2c40f76e2c@thetable.biz
+> 
+> The following moderators have received this mail:
+> geoffreybryan@gmail.com
+> 
+> 
+> --- below this line the first 100 lines of the message up for moderation --->
 
-Thanks for raising and clarifying the issue, guys.
+If the moderator approves the post as a test, then the unmolested email will go out to the mailing list, but he can't see what he's moderating.
 
-Ben.
+Any thoughts on what it might be?  I searched for subjects with "blank" and "empty" in them in the mailing list, but I couldn't find any likely hits.
 
+Thanks so much for your help!
 
+	=-ddt->
 
 
