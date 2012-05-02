@@ -1,45 +1,33 @@
-From: Ben Schmidt <mail_ben_schmidt@yahoo.com.au>
-Date: Fri, 11 May 2012 14:56:39 +0000
-Subject: Re: [mlmmj] mlmmj and spf
-Message-Id: <4FAD28A7.1030209@yahoo.com.au>
+From: Quentin Heath <dawan@melix.net>
+Date: Wed, 02 May 2012 16:41:44 +0000
+Subject: Re: [mlmmj] Mlmmj 1.2.18a1 released
+Message-Id: <CAFSJjVnP2M82ROTWMR+vZwJ_ECLqKSy=kB9NyG8BM=n3rEXHUA@mail.gmail.com>
 List-Id: <mlmmj.mlmmj.org>
-References: <4FACFAE7.60904@borm.org>
-In-Reply-To: <4FACFAE7.60904@borm.org>
+References: <4F5E32B9.6090908@yahoo.com.au>
+In-Reply-To: <4F5E32B9.6090908@yahoo.com.au>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-On 12/05/12 12:04 AM, theo borm wrote:
-> On 05/11/2012 03:20 PM, Ben Schmidt wrote:
->>
->> I think it's pretty unlikely I would accept a change to Mlmmj to work
->> around a buggy SPF implementation.
->
-> I would be the last to suggest a patch to work around a Sender-Id
-> misconfiguration. ;-)
->
-> However, a patch allowing slightly more advanced header manipulations
-> (say regexp match/replace, between delheader and customheader), would
-> /that/ be welcomed?
+Hi everyone,
 
-Hi, Theo,
+I know this comes a little late, and I don't really ave the time to
+introduce myself right now, but I would like to back on the 1.2.18-a1
+/ 1.2.18 proposal. It seems to me that it is the most intuitive and
+widely used.
+If your only concern is to be compatible with debian's scheme, the
+tilde was introduced for this reason: it is the only character smaller
+than the empty string, meaning that
+  1.2.18~ < 1.2.18 < 1.2.18-
+and therefore that
+  1.2.18~a3 < 1.2.18~b2 < 1.2.18~rc1 < 1.2.18 < 1.2.18-p1
 
-Yes, I'd quite probably accept such a change, provided it is kept
-simple, and particularly if some specifics are floated past the mailing
-list prior to preparing a patch, so people have a chance to raise any
-issues.
+You can even formally call the package 1.2.18-a1 and give the deb the
+number 1.2.18~a1, I don't think anyone would get confused.
 
-There are also some pending changes to header stuff in the bug tracker,
-so it would be good to at least keep those in mind, or even implement
-them along with the new code (probably in separate patches, but
-nonetheless, the work is related and might be good to be implemented
-together).
+As soon as I have more time I will try to do more fundamental contributions.
 
-Cheers,
-
-Ben.
-
-
-
+-- 
+Quentin
 
