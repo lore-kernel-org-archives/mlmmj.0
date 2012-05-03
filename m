@@ -1,55 +1,58 @@
 From: Ben Schmidt <mail_ben_schmidt@yahoo.com.au>
-Date: Mon, 14 May 2012 00:27:04 +0000
-Subject: Re: [mlmmj] make mlmmj silent about delivery problems
-Message-Id: <4FB05158.60801@yahoo.com.au>
+Date: Thu, 03 May 2012 00:37:23 +0000
+Subject: [mlmmj] Mlmmj 1.2.18rc1 published
+Message-Id: <4FA1D343.9080001@yahoo.com.au>
 List-Id: <mlmmj.mlmmj.org>
-References: <1307092172.2639.5.camel@cg-desktop>
-In-Reply-To: <1307092172.2639.5.camel@cg-desktop>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Hi, Christian,
+Hi, everybody!
 
-Have a look at this thread:
+A release candidate for Mlmmj 1.2.18.0 has been published. Find it on
+the downloads page[1]. Please test it as much and as soon as possible
+and report bugs using our bug tracker[2] or here on the discussion
+mailing list. Also please report successes to help gain confidence in
+the quality of the code. I anticipate publishing a release in a couple
+of weeks if no major bugs are found.
 
-http://mlmmj.org/archive/mlmmj/2012-03/2096.html
+This version contains a number of important new features:
 
-The question was asked for a different reason, but I think the answers will apply 
-to you.
+- Richer list texts (including a new naming scheme, conditionals,
+   automatic wrapping and true UTF-8 support).
+- Notifying posters when their posts are being moderated.
+- Not-me-too feature to avoid having the poster receiving their own
+   messages.
+- Ability to explicitly reject posts.
+- Ability to explicitly obstruct subscriptions.
+- Unsubscribe from all versions of a list at once.
+- Ability to switch between different versions of a list by using
+   +subscribe[-{digest|nomail|both}] ('both' means normal and digest, and
+   is a 'hidden feature').
+- A number of bug fixes (including fixing some bugs which could cause
+   mail to be lost).
+- Improved documentation.
 
-Smiles,
+(See the ChangeLog[3] for a more detailed list of changes.)
+
+It is almost entirely backward-compatible. For instance, old list texts
+should continue to work. The main backward-incompatible change is that
+unsubscribe will now remove a user from all versions of the list, not
+just one (no matter which unsubscribe address is used). Users of the
+php-admin interface will also need to modify their configuration files
+to define $confdir.
+
+All code changes have been reviewed and undergone a fair amount of
+testing, however the program could do with some more testing before
+release. Any help with this, and all reports of success or failure, will
+be greatly appreciated.
 
 Ben.
 
 
 
-On 14/05/12 8:33 AM, Christian wrote:
-> Hello list
->
-> I asked this question some time ago, but never concluded anything (And i don't
-> know how to reply to the old thread since it is not in my inbox anymore, I will
-> just add a link to the archive, hope thats ok:) )
-> http://mlmmj.org/archive/mlmmj/2011-06/1993.html
->
-> Anyways.
->
-> We are using mlmmj as for sending newsletters, lots of users, more than 10k.
->
-> sometimes the are problems delivering messages to some user. of course this is
-> bad. However, we would prefer that the users users does not get any "some messaged
-> could not be delivered. If you see this things are back to normal." mails.
->
-> Last time, ben asked be to look into the last bounce something, I did that, and
-> apparently there had ben some problems at the users ISP end...
->
-> I would prefer, that mlmmj didn't inform the users that there are problems, the
-> mails are not so important that skipping a few will do any harm, where as
-> informing the user that there was technical problems that they otherwise wouldn't
-> know about, makes them sad and or angry...
->
-> In other words, the illusion that everything works must be kept for our subscribers.
->
-> /Christian
+[1] http://mlmmj.org/downloads
+[2] http://mlmmj.org/bugs
+[3] http://mlmmj.org/hg/mlmmj/file/RELEASE_1_2_18rc1/ChangeLog
 
