@@ -1,7 +1,7 @@
-From: theo borm <theo_mlmmj@borm.org>
-Date: Fri, 11 May 2012 12:42:38 +0000
+From: Christian Laursen <xi@borderworlds.dk>
+Date: Fri, 11 May 2012 12:43:02 +0000
 Subject: Re: [mlmmj] mlmmj and spf
-Message-Id: <4FAD093E.8010207@borm.org>
+Message-Id: <4FAD0956.3040705@borderworlds.dk>
 List-Id: <mlmmj.mlmmj.org>
 References: <4FACFAE7.60904@borm.org>
 In-Reply-To: <4FACFAE7.60904@borm.org>
@@ -10,77 +10,34 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Thanks
+On 05/11/12 13:41, theo borm wrote:
+ >
+> We operate a small, closed, moderated mailing list that recently stopped
+> working for a large part of its subscribers. The organization of which
+> these subscribers are a member maintains an SPF record which denies
+> access to all servers except a named few, which seems to be the cause of
+> these problems.
 
-I already contacted the organization and they replied: your server is 
-not under our control, so therefore we will not put it in our SPF 
-records (...). Check of the actual spf records reveals that microsoft, 2 
-/16 subnets, a few ISPs and a couple of others are already in there. 
-Must be a very powerful organization to control all these.
+It sounds like their SPF implementation is broken.
 
-Mlmmj as-is doesn't appear to have a way to *rewrite* headers. I can 
-delete and insert headers no problem, but nothing in the way of 
-rewriting or variable substitution on headers.
+> As a work-around I set mlmmj to use a different from address in the
+> "From:" header. This solution is, however, plainly bad as it removes the
+> original sender from the headers. I have seen other lists use "Sender:"
+> header, but results are a mixed bag. With strict SPF checking of the
+> "From:" header in place these mails also don't pass.
 
-I just had a look at the sources. Hacking support for this into 
-mlmmj-process.c/do_all_the_voodoo_here.c looks doable.
+SPF checking should be done on the enevelope FROM address, not the From: 
+header contained inside the mail.
 
-regards, Theo
+When mlmmj send out mails to the list subscribers the envelope from 
+looks something like this:
+listname+bounces-XXXX-recipient=example.com@listowner.tld
 
+So the SPF checking is done against the domain that the list is running on.
 
+The correct cause of action would be to get the organization with broken 
+SPF checking to fix that.
 
-do_all_the_voodoo_here
-
-On 05/11/2012 01:46 PM, Marc MAURICE wrote:
-> Hello Theo,
->
-> The facts that the organization put this SPF means that the 
-> organization doesn't want to allow mail comming from @organization.org 
-> to be sent by external, non whitelisted servers.
->
-> Either ask the organization to add your server to the SPF, if possible.
-> Or install the mlmmj on a server already whitelisted (probably not 
-> possible).
->
-> Otherwise the only solution I see is rewriting the From header as you 
-> said. You can always add the original sender in a header, or in the 
-> mail body (is it possible to add the sender in the body with mlmmj?)
->
-> From my little knowledge...
->
-> Regards,
-> Marc
->
->
->
->
->
-> On 11/05/2012 13:41, theo borm wrote:
->> Dear list members,
->>
->> We operate a small, closed, moderated mailing list that recently 
->> stopped working for a large part of its subscribers. The organization 
->> of which these subscribers are a member maintains an SPF record which 
->> denies access to all servers except a named few, which seems to be 
->> the cause of these problems.
->>
->> As a work-around I set mlmmj to use a different from address in the 
->> "From:" header. This solution is, however, plainly bad as it removes 
->> the original sender from the headers. I have seen other lists use 
->> "Sender:" header, but results are a mixed bag. With strict SPF 
->> checking of the "From:" header in place these mails also don't pass.
->>
->> What would be the correct solution?
->>
->> any help, pointers greatly appreciated.
->>
->> regards, Theo
->>
->>
->>
->>
->
-
-
-
+-- 
+Christian Laursen
 
