@@ -1,7 +1,7 @@
-From: theo borm <theo_mlmmj@borm.org>
-Date: Fri, 11 May 2012 14:33:13 +0000
+From: Ben Schmidt <mail_ben_schmidt@yahoo.com.au>
+Date: Fri, 11 May 2012 14:50:42 +0000
 Subject: Re: [mlmmj] mlmmj and spf
-Message-Id: <4FAD2329.6070702@borm.org>
+Message-Id: <4FAD2742.80709@yahoo.com.au>
 List-Id: <mlmmj.mlmmj.org>
 References: <4FACFAE7.60904@borm.org>
 In-Reply-To: <4FACFAE7.60904@borm.org>
@@ -10,61 +10,45 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-On 05/11/2012 03:56 PM, Franky Van Liedekerke wrote:
-> On 2012-05-11 15:55, theo borm wrote:
+> http://www.openspf.org/SPF_vs_Sender_ID summarizes this nicely:
 >
->>> It sounds like their SPF implementation is broken.
+> <quote>
+> How will /Sender ID/ implementations violating the /SPF/ specification
+> affect me?
 >
->> microsoft?
+> If you have published an |v=spf1| policy to protect the use of your
+> domain in the MAIL FROM and HELO addresses, /Sender ID/
+> implementations that apply your policy to /PRA/ (per RFC 4406) will
+> reject your mail if you use your domain in the "|From|" (or generally
+> /PRA/) header field while sending from (MAIL FROM) another system.
+> </quote>
 >
-> Well, you mentioned SPF in your original mail, but MS indeed uses 
-> Sender ID :-)
-
-sorry for the confusion.
-
+> organization has an |v=spf1| policy in place. Mail is outsourced to
+> microsoft, which uses sender ID.
 >
->> organization has an v=spf1 policy in place. Mail is outsourced to
->> microsoft, which uses sender ID.
->>
->> It's the receiving server which has to implement spf/sender-ID, so
->> delivery is erratic to say the least.
+> It's the receiving server which has to implement spf/sender-ID, so
+> delivery is erratic to say the least.
+
+Yeah. This kind of stuff is a PITA.
+
+As well as the solution by publishing an spf2.0 record, the document you
+referenced suggests using the "Sender:" header. I can't really remember,
+but did you say you already tried that and it didn't help?
+
+>> When mlmmj send out mails to the list subscribers the envelope from
+>> looks something like this:
+>> listname+bounces-XXXX-recipient=example.com@listowner.tld
 >
-> Well, not the receiving end, but the one doing the DNS records. So try 
-> to convince the DNS owners for those domains to change their 
-> "spf2.0/mfrom,pra" to just "spf2.0/mfrom"
-
-It's microsoft who recommends using v=spf1 record as-if it is a 
-spf2.0/mfrom,pra record. It is the receiving end (microsioft) using a 
-sender ID implementation that is configured to interpret it this way. It 
-is the DNS owner who *might* be able to circumvent this stupidity by 
-using a spf2.0/mfrom record instead. But it may even be reasonable for 
-the DNS owner to refuse this on the fundamental grounds that they 
-shouldn't be fixing other peoples' problem.
-
+> listowner.tld doesn't have an spf record.
 >
->>
->> I (and others) have told them a few times to no avail.
->>
->> regards, Theo
->
-> Of course MS won't listen :-) But if the DNS owners are reasonable ...
+> this is not the problem. problem is the "From" field/
 
-I have warned the DNS owners ~ 2 years ago. Their response was that 
-"they would discuss this with the "software vendor" (Wietse Venema), but 
-that I should not expect a resolution". Until recently they operated 
-their own mail servers, which applied the spf record correctly. Recently 
-they have outsourced their mail to microsoft (externally their only MX 
-is mail.messaging.microsoft.com), and that is when the trouble started.
+Hmm. Well, when an implementation is broken, who knows how broken? Maybe
+the combination of a "Sender:" header and a published SPF record for
+that domain (which will also be the domain of the envelope-from) will
+help...if it can be done without too much hassle....
 
-Of course there has been trouble before, but these were "fringe users" 
-on providers that used sender id, and the problem was simply solved by 
-instructing them to use gmail or whatever. Now I have to tell the 
-majority of list users to go to gmail because their IT department is what?.
-
-well. It's a nuisance.
-
-cheers, Theo
-
+Ben.
 
 
 
