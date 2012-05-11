@@ -1,7 +1,7 @@
 From: Ben Schmidt <mail_ben_schmidt@yahoo.com.au>
-Date: Fri, 11 May 2012 14:50:42 +0000
+Date: Fri, 11 May 2012 14:56:39 +0000
 Subject: Re: [mlmmj] mlmmj and spf
-Message-Id: <4FAD2742.80709@yahoo.com.au>
+Message-Id: <4FAD28A7.1030209@yahoo.com.au>
 List-Id: <mlmmj.mlmmj.org>
 References: <4FACFAE7.60904@borm.org>
 In-Reply-To: <4FACFAE7.60904@borm.org>
@@ -10,43 +10,33 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-> http://www.openspf.org/SPF_vs_Sender_ID summarizes this nicely:
+On 12/05/12 12:04 AM, theo borm wrote:
+> On 05/11/2012 03:20 PM, Ben Schmidt wrote:
+>>
+>> I think it's pretty unlikely I would accept a change to Mlmmj to work
+>> around a buggy SPF implementation.
 >
-> <quote>
-> How will /Sender ID/ implementations violating the /SPF/ specification
-> affect me?
+> I would be the last to suggest a patch to work around a Sender-Id
+> misconfiguration. ;-)
 >
-> If you have published an |v=spf1| policy to protect the use of your
-> domain in the MAIL FROM and HELO addresses, /Sender ID/
-> implementations that apply your policy to /PRA/ (per RFC 4406) will
-> reject your mail if you use your domain in the "|From|" (or generally
-> /PRA/) header field while sending from (MAIL FROM) another system.
-> </quote>
->
-> organization has an |v=spf1| policy in place. Mail is outsourced to
-> microsoft, which uses sender ID.
->
-> It's the receiving server which has to implement spf/sender-ID, so
-> delivery is erratic to say the least.
+> However, a patch allowing slightly more advanced header manipulations
+> (say regexp match/replace, between delheader and customheader), would
+> /that/ be welcomed?
 
-Yeah. This kind of stuff is a PITA.
+Hi, Theo,
 
-As well as the solution by publishing an spf2.0 record, the document you
-referenced suggests using the "Sender:" header. I can't really remember,
-but did you say you already tried that and it didn't help?
+Yes, I'd quite probably accept such a change, provided it is kept
+simple, and particularly if some specifics are floated past the mailing
+list prior to preparing a patch, so people have a chance to raise any
+issues.
 
->> When mlmmj send out mails to the list subscribers the envelope from
->> looks something like this:
->> listname+bounces-XXXX-recipient=example.com@listowner.tld
->
-> listowner.tld doesn't have an spf record.
->
-> this is not the problem. problem is the "From" field/
+There are also some pending changes to header stuff in the bug tracker,
+so it would be good to at least keep those in mind, or even implement
+them along with the new code (probably in separate patches, but
+nonetheless, the work is related and might be good to be implemented
+together).
 
-Hmm. Well, when an implementation is broken, who knows how broken? Maybe
-the combination of a "Sender:" header and a published SPF record for
-that domain (which will also be the domain of the envelope-from) will
-help...if it can be done without too much hassle....
+Cheers,
 
 Ben.
 
