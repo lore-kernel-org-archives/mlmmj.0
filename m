@@ -1,63 +1,62 @@
-From: Ben Schmidt <mail_ben_schmidt@yahoo.com.au>
-Date: Tue, 29 May 2012 14:14:38 +0000
-Subject: [mlmmj] Mlmmj 1.2.18.0 released
-Message-Id: <4FC4D9CE.3010906@yahoo.com.au>
+From: Thomas Goirand <thomas@goirand.fr>
+Date: Wed, 30 May 2012 13:30:56 +0000
+Subject: Re: [mlmmj] Mlmmj 1.2.18.0 released
+Message-Id: <4FC62110.1090006@goirand.fr>
 List-Id: <mlmmj.mlmmj.org>
+References: <4FC4D9CE.3010906@yahoo.com.au>
+In-Reply-To: <4FC4D9CE.3010906@yahoo.com.au>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Hi, everybody!
+On 05/29/2012 10:14 PM, Ben Schmidt wrote:
+> Hi, everybody!
+> 
+> I am pleased to announce that Mlmmj 1.2.18.0 has been released. Find it
+> on the downloads page[1].
 
-I am pleased to announce that Mlmmj 1.2.18.0 has been released. Find it
-on the downloads page[1].
+Hey, that's just on time for Debian 7 (code name: Wheezy)! Thanks for
+that. I've updated the Debian packages today, and uploaded to SID, if
+everything goes well, it's going to be in Wheezy.
 
-This version contains a number of important new features:
+I'm quite happy to see that I had to remove most of the Debian specific
+patches, as they were incorporated upstream (eg: on mlmmj original
+sources). Still, there are 2 patches remaining. I believe that this one
+could be somehow avoided:
 
-- Richer list texts (including a new naming scheme, conditionals,
-   automatic wrapping and true UTF-8 support). See README.listtexts for
-   more details.
-- Notifying posters when their posts are being moderated (notifymod
-   tunable).
-- Not-me-too feature to avoid having the poster receiving their own
-   messages (notmetoo tunable).
-- Ability to explicitly reject posts (exposed in new list texts).
-- Ability to explicitly obstruct subscriptions (exposed in new list
-   texts).
-- Unsubscribe from all versions of a list at once (changed behaviour of
-   +unsubscribe[-{digest|nomail}]; they now all remove the subscriber
-   from all versions of the list).
-- Ability to switch between different versions of a list by using
-   +subscribe[-{digest|nomail|both}] ('both' means normal and digest, and
-   is a 'hidden feature' not mentioned in the supplied list texts).
-- Subscription ability in php-admin.
+--- a/include/mlmmj.h	2012-01-22 15:36:11.000000000 +0800
++++ b/include/mlmmj.h	2012-01-22 15:36:16.000000000 +0800
+@@ -88,7 +88,7 @@
+ #define CHECKFULLPATH(name) if(strchr(name, '/') = NULL) { \
+ 			fprintf(stderr, "All mlmmj binaries have to " \
+ 					"be invoked with full path,\n" \
+-					"e.g. /usr/local/bin/%s\n", name); \
++					"e.g. /usr/bin/%s\n", name); \
+ 			exit(EXIT_FAILURE); \
+ 			};
 
-There have also been a number of bug fixes (including fixing some bugs
-which could cause mail to be lost), so everybody is encouraged to
-upgrade.
+what do you think?
 
-The documentation has also been improved.
+The other one is contrib/web/php-admin/htdocs/dot.htaccess:
 
-It is almost entirely backward-compatible. For instance, old list texts
-should continue to work (though upgrading them is highly recommended, as
-they have been vastly improved for this version). The main
-backward-incompatible change is that unsubscribe will now remove a user
-from all versions of the list, not just one (no matter which unsubscribe
-address is used). Users of the php-admin interface will also need to
-modify their configuration files to define $confdir.
+diff -u -r -N a/contrib/web/php-admin/htdocs/dot.htaccess
+b/contrib/web/php-admin/htdocs/dot.htaccess
+--- a/contrib/web/php-admin/htdocs/dot.htaccess	2012-01-22
+15:40:16.000000000 +0800
++++ b/contrib/web/php-admin/htdocs/dot.htaccess	2012-01-22
+15:40:37.000000000 +0800
+@@ -1,4 +1,5 @@
+ Require valid-user
+ AuthType Basic
+-AuthName "mlmmj web-interface"
+-AuthUserFile /home/mlmmj/htpasswd
++AuthName "mlmmj web-interface on Debian GNU/Linux"
++AuthUserFile /etc/mlmmj-php-web-admin/htpasswd
++php_value include_path "/usr/share/mlmmj-php-web-admin"
 
-(See the ChangeLog[2] for a more detailed list of changes.)
+I don't see how this one could be avoided, and I'm fine keeping it in
+the package.
 
-I hope you enjoy the new version.
-
-Ben.
-
-
-
-[1] http://mlmmj.org/downloads
-[2] http://mlmmj.org/hg/mlmmj/file/RELEASE_1_2_18_0/ChangeLog
-
-
-
+Thomas
 
