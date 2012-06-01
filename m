@@ -1,33 +1,46 @@
-From: Quentin Heath <dawan@melix.net>
-Date: Wed, 02 May 2012 16:41:44 +0000
-Subject: Re: [mlmmj] Mlmmj 1.2.18a1 released
-Message-Id: <CAFSJjVnP2M82ROTWMR+vZwJ_ECLqKSy=kB9NyG8BM=n3rEXHUA@mail.gmail.com>
+From: Yuri D'Elia <wavexx@thregr.org>
+Date: Fri, 01 Jun 2012 13:08:50 +0000
+Subject: [mlmmj] mlmmj, envelope address and BATV
+Message-Id: <4FC8BEE2.1080707@thregr.org>
 List-Id: <mlmmj.mlmmj.org>
-References: <4F5E32B9.6090908@yahoo.com.au>
-In-Reply-To: <4F5E32B9.6090908@yahoo.com.au>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Hi everyone,
+Hi everyone. I've posted some time ago this bug report:
 
-I know this comes a little late, and I don't really ave the time to
-introduce myself right now, but I would like to back on the 1.2.18-a1
-/ 1.2.18 proposal. It seems to me that it is the most intuitive and
-widely used.
-If your only concern is to be compatible with debian's scheme, the
-tilde was introduced for this reason: it is the only character smaller
-than the empty string, meaning that
-  1.2.18~ < 1.2.18 < 1.2.18-
-and therefore that
-  1.2.18~a3 < 1.2.18~b2 < 1.2.18~rc1 < 1.2.18 < 1.2.18-p1
+   http://mlmmj.org/bugs/bug.php?id3
 
-You can even formally call the package 1.2.18-a1 and give the deb the
-number 1.2.18~a1, I don't think anyone would get confused.
+along with some patches, fixing mlmmj behavior regarding the 
+envelope/mail from address. I've been using these patches ever since to 
+fix gmane (which I use for all my mailing lists).
 
-As soon as I have more time I will try to do more fundamental contributions.
+Got the first complaint today from a user coming from a BATV address:
 
--- 
-Quentin
+   http://en.wikipedia.org/wiki/Bounce_Address_Tag_Validation
+
+this is news to me. As was discussed before:
+
+   http://article.gmane.org/gmane.mail.mlmmj.general/1277
+
+this clearly requires re-reading a whole lot of stuff now. It has been 
+several years since I stopped lurking on nanae, but so far SPF/DKIM have 
+been completely transparent. Doesn't seem to be the same for BATV.
+
+ezmlm seem to have the same issue, since it processes addresses 
+according to the envelope from, and not from the "From:" header. I've 
+been trying to read what exactly mailman does, as mailman also uses 
+(used to) to process addresses based on the envelope address, but I 
+stopped because of lack of time.
+
+The current version of mlmmj will "work" for these addresses as it will 
+trust the "From:" header, but probably breaks a heap of other stuff such 
+as bounce/loop detection. Apparently, trusting the From: address 
+/should/ be safe whenever DKIM is being used, but this poses some 
+additional problems as to where to process DKIM validation entirely (at 
+the MTA level?).
+
+I'm at loss here about what to do here (BATV is still a draft afterall), 
+but I figured this would be important to discuss.
 
