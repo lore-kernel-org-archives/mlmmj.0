@@ -1,7 +1,7 @@
-From: Marco S Hyman <marc@snafu.org>
-Date: Thu, 25 Jul 2013 17:57:18 +0000
+From: Ben Schmidt <mail_ben_schmidt@yahoo.com.au>
+Date: Sun, 28 Jul 2013 03:04:52 +0000
 Subject: Re: [mlmmj] Rejecting HTML email
-Message-Id: <74D7293E-887A-4687-926D-F5F9CCB81F26@snafu.org>
+Message-Id: <51F48A54.6050103@yahoo.com.au>
 List-Id: <mlmmj.mlmmj.org>
 References: <CAF8XF0eb+proK0922N7s580n=r6L65m=5JYa3x9-wMk1W8Wp=A@mail.gmail.com>
 In-Reply-To: <CAF8XF0eb+proK0922N7s580n=r6L65m=5JYa3x9-wMk1W8Wp=A@mail.gmail.com>
@@ -10,16 +10,16 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-On Jul 25, 2013, at 2:44 AM, Kai Hendry <hendry@webconverger.com> wrote:
+> If you run a small amount of list with a specific set of people
+> subscribed filtering on multipart/* can work. It all depends on your
+> subscribers...
 
-> Could anyone offer some tips about implementing an HTML free mailing list?
+Very true.
 
-In control/access for the list add
+Beware of things such as signed mail, which are usually multipart.
 
-	allow ^Content-Type: text/plain
-	moderate
+Ben.
 
-There may be others you want to allow and you may want to change moderate to deny.
-Or you may want to specifically deny multipart and text/html
 
-There may be other ways... that's how I've done it.
+
+
