@@ -1,87 +1,66 @@
-From: "Ravi Chandran. S" <ravigsc@gmail.com>
-Date: Tue, 22 Oct 2013 10:21:32 +0000
-Subject: Re: [mlmmj] Msg "bounces"  from ml
-Message-Id: <BE20E61A-CD32-445F-9DAE-12FD4432ED91@gmail.com>
+From: Paul Fariello <paul@fariello.eu>
+Date: Tue, 05 Nov 2013 13:35:45 +0000
+Subject: [mlmmj] 8BITMIME
+Message-Id: <20131105133545.GE25691@chimay.paulfariello.fr>
 List-Id: <mlmmj.mlmmj.org>
-References: <5AA1B1D9-AEA9-4AC0-B9DC-3D3291F70CEB@gmail.com>
-In-Reply-To: <5AA1B1D9-AEA9-4AC0-B9DC-3D3291F70CEB@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 To: mlmmj@mlmmj.org
 
-Hello Ben,
+Hi all,
 
-Thanks for your help. 
+first I'd like to thank you for the great work you have done on mlmmj. It's
+really joyful to use it !
 
-All emails to this list showed starting with "MIME-Version: 1.0". The other symptom was the weird bounces on and off. 
+Unfortunately I have an issue with some of my mail that contains
+utf-8=C2=A0chararcters.
 
-Problem turned out to be an extra line feed in control/customheaders was screwing up the headers. Now, rectified and all is well.
+My MTA (OpenSMTPd) is masking data with 0x7f when mail are not coming with =
+the
+8BITMIME flag. And it seems that mlmmj is not using the 8BITMIME EHLO comma=
+nd
+when sending mail to the list. So it ends up with messy characters like "C'"
+instead of "=C3=A7".
 
-Thanks for the tip on verp. 
+I'm not aware of all specificity of 8BITMIME, may be my mail are missing so=
+me
+header. Here is an example of the mail that fails :
 
--- 
+
+> Delivered-To: mlmmj-test@lists.paulfariello.fr
+> Received: from chimay.paulfariello.fr (chimay.paulfariello.fr [109.190.14=
+2.210]);
+> 	by chimay.paulfariello.fr (OpenSMTPD) with ESMTPSA id 2e35f84e;
+> 	TLS version=3DTLSv1/SSLv3 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits%6 veri=
+fy=3DNO;
+> 	for <mlmmj-test@lists.paulfariello.fr>;
+> 	Tue, 5 Nov 2013 10:30:32 +0100 (CET)
+> Date: Tue, 5 Nov 2013 10:30:31 +0100
+> From: Paul Fariello <paul@fariello.eu>
+> To: mlmmj-test@lists.paulfariello.fr
+> Subject: Re: [Test] test mlmmj-send
+> Message-ID: <20131105093031.GM11270@chimay.paulfariello.fr>
+> References: <20131105091721.GB11270@chimay.paulfariello.fr>
+> List-Id: <test.lists.paulfariello.fr>
+> List-Post: <mailto:mlmmj-test@lists.paulfariello.fr>
+> List-Help: <mailto:mlmmj-test+help@lists.paulfariello.fr>
+> List-Subscribe: <mailto:mlmmj-test+subscribe@lists.paulfariello.fr>
+> List-Unsubscribe: <mailto:mlmmj-test+unsubscribe@lists.paulfariello.fr>
+> List-Owner: <mailto:mlmmj-test+owner@lists.paulfariello.fr>
+> MIME-Version: 1.0
+> Content-Type: text/plain; charset=3Dutf-8
+> Content-Disposition: inline
+> Content-Transfer-Encoding: 8bit
+> In-Reply-To: <20131105091721.GB11270@chimay.paulfariello.fr>
+> User-Agent: Mutt/1.5.21 (2010-09-15)
+>=20
+> =C3=A7a va ?
+
+Any idea of what I should do ? Patch mlmnj to set "EHLO" is an option ?
+
 Regards,
-Ravi
 
-> On 22-Oct-2013, at 11:31, Ben Schmidt <mail_ben_schmidt@yahoo.com.au> wrote:
-> 
-> Hi, Ravi!
-> 
-> At first glance, it seems to me that nothing is wrong. Mlmmj uses VERP
-> to facilitate automatic bounce processing. If you Google 'VERP' you can
-> find out more about it, and also see the 'verp' tunable in the
-> documentation (about 2/3 of the way through
-> http://mlmmj.org/docs/tunables/). It is only the 'envelope from' that
-> contains this 'bounces' address, not the 'from' header. When users hit
-> reply, their reply will go to the original sender. If you set up
-> appropriate List-* headers (see the 'customheaders' tunable), the user
-> can also hit 'reply list' to send a reply to the list. If the mail
-> system encounters an error, however, it will report the error to Mlmmj
-> through the 'bounces' address (rather than the original sender, which
-> would be annoying for the sender, and possibly a breach of the privacy
-> of the user whose email address is bouncing). If problems persist, Mlmmj
-> will unsubscribe the user, saving resources.
-> 
-> I hope this helps.
-> 
-> Ben.
-> 
-> 
-> 
->> On 22/10/13 2:20 PM, Ravi Chandran. S wrote:
->> Hello,
->> 
->>  I have setup a mlmmj ml on centos 6.4.
->> 
->> Many of the messages reach subscribers with From:
->> listname+bounces-xx-subscriber=domain.org@server.org
->> <mailto:listname+bounces-xx-subscriber=domain.org@server.org>
->> 
->> Part of message body is shown below.
->> 
->> MIME-Version: 1.0
->> To: "list name"<listname@server.org <mailto:rt95@rt95.org>>
->> From: Name <xxxx@yyyyy.org <mailto:xxxx@yyyyy.org>>
->> Subject: RE: [listname] Test ~ photo attachment
->> Date: Mon, 21 Oct 2013 15:21:17 +0530
->> Content-Type: multipart/mixed;
->>    boundary="_9554DF7C-9E7E-4F2C-9064-156C4B549D21_"
->> 
->> --_9554DF7C-9E7E-4F2C-9064-156C4B549D21_
->> Content-Type: multipart/alternative;
->>    boundary="_3472992B-84C1-4194-A618-CAFF272BEA0E_"
->> 
->> --_3472992B-84C1-4194-A618-CAFF272BEA0E_
->> Content-Transfer-Encoding: quoted-printable
->> Content-Type: text/plain; charset="utf-8"
->> 
->> 
->> 
->> Pointers to solve this problem will be appreciated.
->> 
->> TIA
->> --
->> Regards,
->> Ravi
+--=20
+Paul Fariello
 
