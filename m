@@ -1,7 +1,7 @@
-From: Ben Schmidt <mail_ben_schmidt@yahoo.com.au>
-Date: Fri, 22 Nov 2013 23:19:14 +0000
+From: Richard Mortimer <richm@oldelvet.org.uk>
+Date: Tue, 26 Nov 2013 13:52:37 +0000
 Subject: Re: [mlmmj] Problems with microsoft
-Message-Id: <528FE672.4070505@yahoo.com.au>
+Message-Id: <5294A7A5.8090801@oldelvet.org.uk>
 List-Id: <mlmmj.mlmmj.org>
 References: <90126ceb66d472c9ae7d603e72640bfb@swn.nu>
 In-Reply-To: <90126ceb66d472c9ae7d603e72640bfb@swn.nu>
@@ -10,122 +10,35 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Hi, Christian,
+Hi,
 
-Here are some thoughts:
+Have you tried looking up your mlmmj server's IP address in the various 
+blocklists. The following will do a lookup and that might help you to 
+see if it is just Microsoft or whether others think your server is a 
+problem.
 
-> I use mlmmj to send newsletters, and I have the following problem, but
-> now more serious since Microsoft have blocked the server.
+http://www.dnsbl.info/
 
-That's annoying. :-)
+That will at least give you an idea as to why the blocking may be happening.
 
-> Problem 1.
-> Our mail recipients sometimes receives a bunch of mails with the
-> following message "some messaged could not be delivered. If you see
-> this things are back to normal." They get many of these, so they
-> complain.
-> I understand that they get one mail telling them that everything
-> Works, but why 10-40?
+Regards
 
-It would be helpful to find out where those mails originate--is Mlmmj
-sending a lot of mail to Postfix, or is Postfix sending a lot of mail to
-the next server? There are a few things to look at: (1) your mail logs;
-you should be able to find the messages going out, (2)
-mlmmj.operations.log in the relevant listdir, (3)
-mlmmj-maintd.lastrun.log in the relevant listdir (if you get to it
-quickly enough after it happens), (4) the Message-ID and other headers
-of the received 'duplicate' messages.
+Richard
 
-Perhaps you could furnish us with some of that information. De-identify
-it by making some small modifications to the email/IP/list addresses in
-it if necessary.
-
-> Is it a configuration problem between mlmmj and postfix?
-
-Possibly.
-
-> I have the following settings for postfix and mlmmj that I think is
-> relevant for the problem. But i don't really understand how they
-> interact, could there be some configuration error so mlmmj fills
-> postfix with a queue due to lack of respone.
+On 24/11/2013 15:57, Christian Gleerup wrote:
+> Hi Ben and List,
+> I'm been going through the logs, but I am not getting much wiser.
 >
-> * /etc/postfix/main.cf
-> bounce_queue_lifetime = 2d
-> minimal_backoff_time = 1800s
-
-This could possibly be relevant if Postfix is trying to send mail to
-mlmmj-receive, succeeding, but receiving a failure response; Postfix
-will keep trying for 2 days to deliver the bounce message to Mlmmj,
-which will keep receiving it and keep thinking the address is bouncing,
-and keep sending bounce probes.
-
-You should be able to determine from your mail logs if this is happening
-(you will see a lot of failed messages from Postfix itself--postmaster,
-or mail_daemon or whatever it uses--to list+bounces addresses).
-
-It would also be helpful to know how Postfix and Mlmmj are linked? What
-do you have in your config files to facilitate delivery of messages to
-Mlmmj?
-
-> * in  'tunables' bouncelife
-> 2592000
-> (30 days)
-
-This shouldn't be too relevant; it's how long Mlmmj waits before giving
-up and unsubscribing the user. If you changed this, bounce probes would
-just turn into unsubscriptions; the cause of the problems wouldn't be
-addressed.
-
-> Problem 2
-> Microsoft think I am doing 'namespace mining', I know I don't. but
-> maybe it is somehow connected to the problem above ?
-
-If this is truly the case, it is probably unrelated to the problem
-above. If you are namespace mining, you are trying lots of addresses
-@hotmail.com (or wherever), hoping to find real ones. In fact, you are
-probably actually getting a lot of bounces for nonexistent addresses.
-So, if, as a responsible mail host, I want to detect if you're namespace
-mining, I would use the number of bounces due to nonexistent addresses
-as a heuristic, and block you if you get a lot of them.
-
-A nonexistent address can't receive a lot of probe messages! It can't
-receive anything. So it's probably not related to the problem above.
-
-However, it could be related to your bouncelife tunable. If an address
-ceases to exist, because it's deleted; or in some cases, if an address
-with wrong spelling is added to the list (e.g. without requiring
-confirmation), Mlmmj is going to receive a bounce message about the
-non-existent address. However, Mlmmj doesn't know whether that bounce
-message is a permanent error or a temporary error (and in fact,
-sometimes, due to misconfiguration, errors that seem permanent are
-actually temporary, so best retried anyway). Therefore Mlmmj will keep
-retrying the address--possibly every 2 hours (however often mlmmj-maintd
-runs; I'm not sure if Mlmmj throttles delivery or not) for *30 days*,
-and every time receive a bounce message due to the non-existent address.
-That many bounces for non-existent addresses would definitely make you
-look like you're namespace mining (if the watchdog software that uses
-the heuristic isn't smart enough to realise they're all for the same
-address or few addresses).
-
-You can check whether this is happening by looking in your listdir. The
-last bounce for each currently-bouncing address is stored in the bounce
-subdir, so you can read them, and see how many addresses (including how
-many from Microsoft) are bouncing, and why.
-
-One reason for doing automatic bounce processing is to minimise
-unnecessary bounces, by unsubscribing users before bounces to them
-become suspicious or waste too much bandwidth; by making your bouncelife
-so high, you've reduced the effectiveness of the feature.
-
-> Best Regards and I hope you can help me.
-
-No trouble. If you need more help, please furnish us with more
-information: mail logs, mlmmj logs, message headers, configuration. All
-this information is useful and necessary for properly tracking down
-these problems.
-
-Ben.
-
-
-
+> I hope the information provided here is the correct one, ontherwise please direct me as to what else to look for.
+>
+>
+> Here a snippet from /var/log/mail.log.1
+> ---- BEGIN SNIP -----------------------------------------------------
+> Nov 10 06:27:22 lists postfix/smtp[8385]: 1465545E8A: to=<someone@hotmail.com>, relay=mx1.hotmail.com[65.55.37.72]:25, delay=0.94, delays=0.16/0.01/0.59/0.19, dsn=5.0.0, status=bounced (host mx1.hotmail.com[65.55.37.72] said: 550 SC-002 (COL0-MC1-F1) Unfortunately, messages from ----IP---- weren't sent. Please contact your Internet service provider since part of their network is on our block list. You can also refer your provider to http://mail.live.com/mail/troubleshooting.aspx#errors. (in reply to MAIL FROM command))
+> Nov 10 06:27:22 lists postfix/smtp[8385]: 1465545E8A: lost connection with mx1.hotmail.com[65.55.37.72] while sending RCPT TO
+> Nov 10 06:27:22 lists postfix/cleanup[12147]: 108F1467C2: message-id=<20131110052722.108F1467C2@lists.DOMAIN>
+> Nov 10 06:27:22 lists postfix/cleanup[11855]: 0B321467BD: message-id=<1384061241-12392-mlmmj-5f63aeea@lists.DOMAIN>
+> Nov 10 06:27:22 lists postfix/smtp[8334]: 50697467AF: to=<someone@live.dk>, relay=mx4.hotmail.com[65.55.92.136]:25, delay=0.73, delays=0.1/0.01/0.47/0.15, dsn=5.0.0, status=bounced (host mx4.hotmail.com[65.55.92.136] said: 550 SC-002 (SNT0-MC1-F19) Unfortunately, messages from ----IP---- weren't sent. Please contact your Internet service provider since part of their network is on our block list. You can also refer your provider to http://mail.live.com/mail/troubleshooting.aspx#errors. (in reply to MAIL FROM command))
+> Nov 10 06:27:22 lists postfix/smtp[8334]: 50697467AF: lost connection with mx4.hotmail.com[65.55.92.136] while sending RCPT TO
+> Nov 10 06:27:22 lists postfix/cleanup[12193]: 17834467C3: message-id=<20131110052722.17834467C3@lists.DOMAIN>
 
