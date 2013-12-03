@@ -1,83 +1,91 @@
-From: G Stansfield <gstansfield@isat.co.za>
-Date: Mon, 02 Dec 2013 06:52:36 +0000
-Subject: Re: [mlmmj] Duplicate mail
-Message-Id: <529C2E34.3030305@isat.co.za>
+From: "Christian Gleerup" <christian.gleerup@swn.nu>
+Date: Tue, 03 Dec 2013 19:35:00 +0000
+Subject: Re[2]: [mlmmj] Problems with microsoft
+Message-Id: <a3f9f4c3d49d5c29785c8598f5aaec20@swn.nu>
 List-Id: <mlmmj.mlmmj.org>
-References: <20131128135142.GI1408@chimay.paulfariello.fr>
-In-Reply-To: <20131128135142.GI1408@chimay.paulfariello.fr>
+References: <ae4208d82aba105e14e3dd198f4ef133@swn.nu>
+In-Reply-To: <ae4208d82aba105e14e3dd198f4ef133@swn.nu>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 To: mlmmj@mlmmj.org
 
-On 28-Nov-13 8:19 PM, Richard Mortimer wrote:
-> Hi,
->
-> On 28/11/2013 13:51, Paul Fariello wrote:
->> Hi all,
->>
->> I may be wrong but mlmmj don't seems to ignore subscribers that
->> already are in "cc" or "to" headers.
->> This end up with user complaining about duplicate mail.
-> This isn't a problem that can be solved in general. The visible "cc" and
-> "to" headers are not necessarily what was used as the envelope addresses
-> to deliver to. There may also be "bcc" or (non-mlmmj) aliases used in
-> the visible headers.
->
-> By the time that the mail gets to mlmmj any original destinations will
-> already have been lost in intermediate mailservers so at best you are
-> going to be able to paper over the cracks with a solution that will work
-> in some (most maybe) cases but will fail in others and either the mail
-> will get lost or delivered twice.
->
->>
->> Is there a way to avoid this behavior ? Either by tweaking
->> customheaders, by
->> using a configuration I may have missed, by patching ?
->>
-> Sorry. I don't have a ready answer for that.
->
-> The only way that I know is to filter on MessageID on the receiving
-> server. The cyrus mail suite will do that but obviously that relies on
-> the receiver's ISP which you will not be able to fix. Oh and it does in
-> theory filter out any messages that errorneously have duplicate
-> MessageID fields but that tends to be spam in my experience so no big loss!
->
-> Regards
->
-> Richard
->
->
->>
->> Regards,
->>
->
-Hi all!
-Just adding a bit about my experience with duplicate mails, Bcc and 
-MessageID that is not mlmmj specific but is 'real world' pain in the ... 
-! [My setup is using OpenSUSE to fetchmail / procmail and place mail for 
-local users to collect on a LAN with Windows machines.]
+Hello list,
 
-Let fred@gmail.com send a mail To:Jack@myisp and Bcc:Jill@myisp where 
-both Jack and Jill are aliases and the mails are delivered to the same 
-POP3 box at @myisp for collection and local delivery.
+I have now updated to 1.2.18, and id did take some time to get the list tex=
+ts right, but it seems to be worken fine now.
+(I did a make install, and then moved the installed binaries since the old =
+binaries was installed in a different location)
 
-gmail sends two mails, both with identical MessageID - so letting 
-anything reject duplicate mails based on MessageID results in a 
-non-delivery to one recipient.
+But obviously I still have the problem with sending to hotmail accounts sin=
+ce that is a different problem...
+but as i noted in another mail,
+hotmail did, when they accepted mails from me, tell me to take it easy with=
+ sending that many mails in a little period of time.
 
-The mail Bcc:Jill@myisp has the envelope Delivered-To:jill@myisp and I 
-have to check that for delivery. Unfortunately, it also has a valid 
-To:Jack@myisp line. So the way / sequence of checking the envelope for 
-delivery *beyond To: and Cc:* matters to avoid duplicate mails. If this 
-is not done correctly then one recipient receives multiple deliveries.
+so the question is, how can i tell mlmmj+postfix to only deliver x mails pr=
+. hour to the hotmail domain?
 
-Just to complicate matters, not all mailer systems are set up to handle 
-Bcc: the way gmail does ..... and I give up!
+Also, It will be interesting to see if mlmmj unsubscribes those subscribers=
+ after bouncelife (=3D15 days) =C2=A0with the accounts from the domain that=
+ was taken down 2009.
 
-So I agree with Richard - hopefully get "a solution that will work in 
-some (most maybe) cases".
+and just another note,
+after upgrading the memory amount, I had to set noatime on the harddrive si=
+nce kjournald was using all the resources bringing the system practically t=
+o a halt.
 
-Regards,
-Geoff
+Regards
+Christian
+
+-----Original Message-----=20
+> From: "Ben Schmidt" <mail_ben_schmidt@yahoo.com.au>=20
+> To: "Christian Gleerup" <christian.gleerup@swn.nu>, mlmmj@mlmmj.org=20
+> Date: 28/11/2013 22:49=20
+> Subject: Re: [mlmmj] Problems with microsoft=20
+>=20
+> On 29/11/13 4:58 AM, Christian Gleerup wrote:
+> > I am considering just copying the 8 binaries
+> > (mlmmj-(bounce,list,maintd,process, recieve, send, sub, unsub)) in
+> > ~/mlmmj-1.2.18.0/src/ to /usr/bin/ where my old mlmmj files are.
+> >
+> > is there something I should be aware of or should it just Work?
+> > (I will give the files same owership, I will delete mlmmj-make-ml and m=
+lmmj-make-ml.sh)
+>=20
+> I never used a version as old as 1.2.16, so I'm not 100% sure.
+>=20
+> However...
+>=20
+> Take a bit of time to update your list texts as Mlmmj 1.2.18 uses a new
+> list text mechanism. As well as list-specific ones, there are
+> system-wide ones (can't quite remember where; maybe
+> /usr/local/share/mlmmj) which Mlmmj falls back to when it can't find
+> list-specific ones (and IIRC, it doesn't fall back in the most optimal
+> way, so it's best to update both).
+>=20
+> Also note how mlmmj-receive has had the spelling fixed. "make install"
+> installs a symlink with the old name, I think, so old entries in mail
+> server config continue to work. You might prefer to update your mail
+> server config.
+>=20
+> Apart from that, I think replacing the binaries will work. But no
+> guarantees!
+>=20
+> > (I have upgraded the installation so I now have 768MB of ram, so I
+> > hope there will be no more 'log blackouts')
+>=20
+> Cool. I had similar problems at one stage, where processes were killed
+> due to lack of memory. In fact, that's one reason I got into Mlmmj in
+> the first place, as its minimalist design makes it suitable for
+> constrained-memory applications. I have also found the software Monit
+> (single-host M/Monit) very helpful to keep essential services running
+> despite the kernel killing things (or other process death). By
+> installing it into inittab, Monit can be made to never die (or at least
+> be guaranteed a resurrection if it does).
+>=20
+> Ben.
+
+
+
 
