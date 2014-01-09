@@ -1,7 +1,7 @@
-From: "Ryein C. Goddard" <ryein@goddardlabs.com>
-Date: Thu, 09 Jan 2014 20:33:56 +0000
-Subject: RE: [mlmmj] TUNEABLES relayhost and smtpport
-Message-Id: <004c01cf0d7a$1ee132c0$5ca39840$@goddardlabs.com>
+From: Andreas Schulze <sca@andreasschulze.de>
+Date: Thu, 09 Jan 2014 21:08:47 +0000
+Subject: Re: [mlmmj] TUNEABLES relayhost and smtpport
+Message-Id: <20140109210847.GA15623@solar.andreasschulze.de>
 List-Id: <mlmmj.mlmmj.org>
 References: <20140108222928.Horde.EGrNHHlwq_UyjxXFw7ahsg3@horde.andreasschulze.de>
 In-Reply-To: <20140108222928.Horde.EGrNHHlwq_UyjxXFw7ahsg3@horde.andreasschulze.de>
@@ -10,31 +10,42 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Is there a demo of this software some where, or at least screenshots?  I am thinking about testing it out, but want to compare it with other solutions I have been exploring.
+Am 10.01.2014 07:22 schrieb Ben Schmidt:
+> Everything should use relayhost/smtpport. All mail Mlmmj sends is sent
+> by mlmmj-send, and it always does it by SMTP to relayhost on smtpport.
+> 
+> What makes you think it isn't?
+Helo Ben,
 
------Original Message-----
-From: mlmmj@mlmmj.org [mailto:mlmmj@mlmmj.org] On Behalf Of Ben Schmidt
-Sent: Thursday, January 9, 2014 12:22 PM
-To: Andreas Schulze; mlmmj
-Subject: Re: [mlmmj] TUNEABLES relayhost and smtpport
+I configured a separate port for mlm submission
+and created ~mlm/testing/control/smtpport
 
-On 9/01/14 8:29 AM, Andreas Schulze wrote:
-> could it be that both TUNEABLES are only used to forward valid messages.
-> What about rejects for example if a nonmember send to a list where 
-> control/subonlypost exist?
-> To mee it looks like this type of messages is not injected via 
-> relayhost/smtpport but /usr/sbin/sendmail. Do I somthing wrong?
+I have subonlypost and if I send to the list from a subscriber address
+the message is injected via my separate submissionport.
 
-Everything should use relayhost/smtpport. All mail Mlmmj sends is sent by mlmmj-send, and it always does it by SMTP to relayhost on smtpport.
+But when I send from a nonsubscriber adresse, the reject goes via
+127.0.0.1:25
 
-What makes you think it isn't?
+In no case the local sendmail interface was used. That claim was false.
 
-Ben.
+Also I miss a little bit detail of logging.
+The only logging from mlmmj-process is not very informational:
+
+Jan  8 17:22:58 main /usr/bin/mlmmj-process[5114]: mlmmj-process.c:828: Found To: undisclosed-recipients:;: Success
+Jan  8 17:23:01 main /usr/bin/mlmmj-process[5121]: mlmmj-process.c:828: Found To: undisclosed-recipients:;: Success
+Jan  8 17:23:05 main /usr/bin/mlmmj-process[5130]: mlmmj-process.c:828: Found To: undisclosed-recipients:;: Success
+Jan  8 21:37:09 main /usr/bin/mlmmj-process[11412]: mlmmj-process.c:828: Found To: testing@example.org: Success
+Jan  8 21:38:31 main /usr/bin/mlmmj-process[11433]: mlmmj-process.c:828: Found To: testing@example.org: Success
+Jan  8 21:47:59 main /usr/bin/mlmmj-process[11585]: mlmmj-process.c:828: Found To: testing@example.org: Success
+
+That where my test from different senders resulting in ml distibution or rejects.
+I also checked mlmmj.operation.log but there also only successfull messages where logged.
+
+I'm using mlmmj-1.2.18.0 build from source:
+  ./configure --prefix=/usr --enable-receive-strip
+  make
+  make install-strip
 
 
-
-
-
-
-
+Andreas
 
