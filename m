@@ -1,24 +1,28 @@
-From: Andreas Schulze <sca@andreasschulze.de>
-Date: Fri, 10 Jan 2014 08:37:40 +0000
-Subject: Re: [mlmmj] TUNEABLES relayhost and smtpport
-Message-Id: <20140110093740.Horde.q5cLxDxObdHJRzZfRs6Ufw5@horde.andreasschulze.de>
+From: =?ISO-8859-1?Q?An=EDbal_Pacheco?= <apacheco@ladiaria.com.uy>
+Date: Thu, 16 Jan 2014 23:08:08 +0000
+Subject: [mlmmj] Export lists subscribers
+Message-Id: <CA+pf5NKFhJp2Uo7j-F5g=e+cJUt0PYSrML_4m4dSDqZNrv+19Q@mail.gmail.com>
+MIME-Version: 1
+Content-Type: multipart/mixed; boundary="001a11c399eab0680704f01e7f93"
 List-Id: <mlmmj.mlmmj.org>
-References: <20140108222928.Horde.EGrNHHlwq_UyjxXFw7ahsg3@horde.andreasschulze.de>
-In-Reply-To: <20140108222928.Horde.EGrNHHlwq_UyjxXFw7ahsg3@horde.andreasschulze.de>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
+--001a11c399eab0680704f01e7f93
+Content-Type: text/plain; charset=ISO-8859-1
 
-Zitat von Ben Schmidt <mail_ben_schmidt@yahoo.com.au>:
+Hello, in our organization all the time people are asking who are the
+subscribers of a list, which represent effort to our IT department. I want
+to export this data from the server frequently and present it on a wiki or
+plain HTML.
+Is there a tool or script that already does that?
 
-> Could you please see if the patch below fixes it?
-it does. Thanks Ben!
+thanks
 
-Btw:
-Any news about the PTR for mlmmj.org[198.101.246.47]?
+--001a11c399eab0680704f01e7f93
+Content-Type: text/html; charset=ISO-8859-1
 
-Andreas
+<div dir="ltr"><div>Hello, in our organization all the time people are asking who are the subscribers of a list, which represent effort to our IT department. I want to export this data from the server frequently and present it on a wiki or plain HTML.<br>
+Is there a tool or script that already does that?<br><br></div>thanks<br></div>
 
+--001a11c399eab0680704f01e7f93--
 
