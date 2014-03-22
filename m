@@ -1,221 +1,99 @@
-From: Chris Knadle <Chris.Knadle@coredump.us>
-Date: Fri, 21 Mar 2014 20:09:28 +0000
+From: Matti Nykyri <matti.nykyri@iki.fi>
+Date: Sat, 22 Mar 2014 07:40:33 +0000
 Subject: Re: [mlmmj] Encrypted list
-Message-Id: <2098232.X7lJFMPTSo@trelane>
+Message-Id: <06D743FF-562B-496E-8C06-FAA1192CDC6D@iki.fi>
 List-Id: <mlmmj.mlmmj.org>
 References: <20140320184234.GG23804@szaflik.hasiok.net>
 In-Reply-To: <20140320184234.GG23804@szaflik.hasiok.net>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 To: mlmmj@mlmmj.org
 
-On Friday, March 21, 2014 17:48:48 Matti Nykyri wrote:
-> On Mar 21, 2014, at 1:31, Chris Knadle <Chris.Knadle@coredump.us> wrote:
-[...]
-> > Although technically possible to do, there are two snags.
-> >=20
-> > 1.  The GPG interface sucks.  I could rant about a long list of issues
-> > here,>=20
-> >    but suffice it to say that it's difficult to learn how to use it, how
-> >    to
-> >    get your favorite mail client integrated with it, how to configure G=
-PG
-> >    for setting the "default-preference-list" and "cert-digest-algo" ...
-> >    etc.
-> >    It represents a significant technical education problem.
->=20
-> Yes that is true. But what it means is that the worl is not ready yet!
-> Users don't pursue privacy... Is it gonna change in future? There are
-> many> intances that want to prevent this.
->=20
-> And if you you just look at gpg it really lags quite much compared to the
-> high end of the game. Openssl is far more advanced but the user interface
-> is light years behind gpg's :/ But in general the world of email would not
-> hurt from a little more of privacy!
+On Mar 21, 2014, at 22:09, Chris Knadle <Chris.Knadle@coredump.us> wrote:
 
-I'm in total in agreement on that latter part.
+> So encrypting the entire DATA section would only require changing the SMTP 
+> protocol for both MTAs and MUAs.  :-/
 
-> > 2.  GPG can only encrypt the body of the message, and that doesn't cover
-> > any>=20
-> >    of the headers of the message, so the Subject, who the message is Fr=
-om
-> >    and To, the route it took -- etc -- cannot be protected by GPG.  And
-> >    one of the things we've learned from the Edward Snowden NSA revelati=
-ons
-> >    is that "metadata" itself is incredibly revealing.
->=20
-> Well standards don't support it (wonder why) but actually encrypting the
-> entire data section of smtp should not prevent the mail from being
-> delivered. I have not tested though. In my belief the mail is transported
-> solely on rcpt and mail commands.
+Everything depends on the needs of users. And in the long run protocols an standards change. This hole snowden stuff has brought the problems to the eyes of common users. The professionals that seek for total privacy already have the tools and special applications for doing it. For an expert it is possible get privacy, but it takes a lot of effort.
 
-Eh, er, sort of.  In terms of the MTA transfer the mail could be routed eve=
-n=20
-if the DATA portion of the SMTP session was fully encrypted, but then you'd=
-=20
-end up with an additional Received: header from "the current hop" added=20
-directly on top of encrypted data where the rest of the headers were (and=20
-perhaps several layers of this happening.)  This would hide the source IP o=
-f=20
-the originating message and the Subject, but it wouldn't hide the sender's =
+An interesting change in smtp protocol would be an additional command that would specify a public key for the RCPT. In that way the new Received header could be encrypted with that key and prepended to the DATA portion. This would make each MTA aware only of the previous MTA, the sender, and  the recipient. It is also secure because only the sender needs to authenticate the public key of the recipient. If someone changes the key in between the recipient just can't open the message.
 
-address, receiver's, or the two MTAs.
+The sender address needs to be a real clear text address to receive the error of mail delivery. To get even more privacy the senders server could do virtual address map for all the mails it sends. So for every email the user part of the address is a new random string. When the message is being replied by the recipient or because of an error, the random user string is used. The original MTA will then map it to the real sender. The original recipient will get the true sender from the decrypted body of the message (the From header).
 
-However things would go wrong on the side of the MUA (i.e. mail client)=20
-because the email the user would get wouldn't have a From:, To:, Subject:, =
-or=20
-Date:, because all that would be encrypted, so instead the MUA would simply=
-=20
-show a list with an email showing empty data for those fields.  And an unkn=
-own=20
-number of decryption steps to get to the headers.  Ick.
+Another point is the sending time. To fake that you could delay the message for a random time. But fighting metadata is actually really tricky. That's why it is so useful in analyzing traffic. It is hard to fake.
 
-So encrypting the entire DATA section would only require changing the SMTP =
+But this is a never ending battle a cat and mouse chase... What gives more privacy and what hinders usability?!? Good solutions are usually simple and governments use billions for their goals!
 
-protocol for both MTAs and MUAs.  :-/
+> 
+> I agree that we'd /want/ this -- but how would you accomplish this without
+> CA-signed TLS certificates?  The whole CA system is screwed up and makes 
+> things more difficult.
 
-> > [...]
-> >=20
-> >>> Therefore, semi-confidentiality of a regular closed list is not much
-> >>> worse than re-encrypting list. To get in-transit confidentiality
-> >>> it will be much simpler just to configure the server to use and
-> >>> accept only STARTTLS SMTP sessions. Very few servers don't offer the
-> >>> functionality today - and most will use it when available. From my
-> >>> experience, non-TLS session on a TLS-advertising server is an almost
-> >>> sure indication of spam.
-> >>=20
-> >> I think there is a difference between the re-ecrypted and TLS protected
-> >> messages. ISP's and anyone between the route is able to record messages
-> >> and sell the content. That is what most of the companies do nowadays.
-> >> Nobody would setup an encrypting mailing list to a server they don't
-> >> trust.
-> >=20
-> > I agree with Piotr: TLS is a /requirement/ for any "secure" mailing lis=
-t,
-> > because TLS encryption starts at the connection with the MTA and theref=
-ore
-> > covers all of the headers as well as the body of the message.  The
-> > wonderful thing about TLS in SMTP is that if it were /mandated/ for all
-> > MTA transfers of a "secure" mailing list, the users don't have to do
-> > anything -- no GPG required, no key signatures, passwords -- nothing
-> > --from the user side it's dead simple.
-> >=20
-> > And thankfully I see the same thing Piotr does: TLS SMTP transfers are =
-now
-> > quite commonr.  There are unfortunately exceptions, so it's not quite
-> > ubiquitous yet -- I'm looking forward to the day when it is.
->=20
-> That depends entirely on your adversary! If you want privacy from big
-> companies or intelligence agencies TLS does not offer you anything! It
-> can't secure your connection to your bank nor to a mailing list! Any
-> intance who has access to a root certificate can claim to be anybody.
->
-> The problem does not lie within encryption. As you might have learned from
-> Snowden but it lies within authetication. Also it lies within key exhange
-> and key creation. This is a crucial part in securing your connection!
+I'm just saying that using TLS does not give any more privacy in mail delivery if you are fighting for privacy from a CA!
 
-I agree that we'd /want/ this -- but how would you accomplish this without
-CA-signed TLS certificates?  The whole CA system is screwed up and makes=20
-things more difficult.
+> The DANE protocol requires DNSSEC and very few sites/MTAs are using it 
+> (supposedly only about 20 so far from last I heard), and not all MTAs have the 
+> feature yet -- Postfix does but Exim doesn't yet -- the Exim developers are 
+> looking into it though.  But even with DANE, it's a LOT to expect for a site 
+> to run DNSSEC, especially being that not all DNS servers support it.
+> 
+> So for now I think the best we can do is use /unauthenticated/ TLS -- 
+> purposefully -- so that at least the MTA transfers will be encrypted, even 
+> though they're not authenticated.
 
-The DANE protocol requires DNSSEC and very few sites/MTAs are using it=20
-(supposedly only about 20 so far from last I heard), and not all MTAs have =
-the=20
-feature yet -- Postfix does but Exim doesn't yet -- the Exim developers are=
-=20
-looking into it though.  But even with DANE, it's a LOT to expect for a sit=
-e=20
-to run DNSSEC, especially being that not all DNS servers support it.
+To get true privacy to the content of the message you need to encrypt the message so that only your recipient has a key to open it! The true problem is authenticating this key you use to encrypt the message. Can you trust a CA to authenticate you recipients public key? To gain true positive authentication you will need to meet or talk with the recipient to verify the key. Here comes the web-of-trust in play. Now when you have established one authentication you should be able to trust all the keys that have been signed by your recipient.
 
-So for now I think the best we can do is use /unauthenticated/ TLS --=20
-purposefully -- so that at least the MTA transfers will be encrypted, even =
+>> Hopefully people will realice this some day. The main issue is in
+>> authentication. It is truely hard to be one 100% certain that someone is
+>> who he claims to be. The web-of-trust gives another and I would say a
+>> better approach to the chain-of-trust that has been the dominating way to
+>> do thigs.
+> 
+> The web-of-trust method is good for microcosms (such as the group of Debian 
+> developers) but as a worldwide solution I think it's too easily manipulated.
 
-though they're not authenticated.
+I think that all your friends are quite a small microcosmos.
 
-> Hopefully people will realice this some day. The main issue is in
-> authentication. It is truely hard to be one 100% certain that someone is
-> who he claims to be. The web-of-trust gives another and I would say a
-> better approach to the chain-of-trust that has been the dominating way to
-> do thigs.
+> 
+> Okay, I see what you mean.
+> 
+> There is another downside to GPG-encrypted email though; you can't search 
+> through it easily for past content you're looking for.  [Well, you can, but it 
+> takes significant effort.]
 
-The web-of-trust method is good for microcosms (such as the group of Debian=
-=20
-developers) but as a worldwide solution I think it's too easily manipulated.
+True. The search needs to happen in your MUA and it might get slow without good indexing or without downloading all the mail to your local drive.
 
-> > But if you say set up a separate copy of an MTA on a dedicated IP where
-> > the
-> > MTA /mandates/ TLS transfers, that in itself should cover most of what
-> > you'd need to allow running a "secure" mailing list with MLMMJ.
-> >=20
-> > At least ... almost this is where I currently have an issue with MLMMJ:
-> > because I did this sort of "dual IP" setup (without mandating TLS
-> > transfers), but MLMMJ currently doesn't have a facility to specify which
-> > source IP to send email from, which makes the headers of the resulting
-> > email "look wrong" because it's sourced from the wrong IP.  To fix that
-> > in Exim4 I ended up having to make a "hack" whereby the
-> > "received_header_text" is set
-> > conditionally to remove the appearance of the "local MTA1" -> "local MT=
-A2"
-> > transfer.
-> >=20
-> > Creating the "source-IP" tunable is the facility I've been considering
-> > working on.
->=20
-> Using open source software and encrypting your emails is the only way have
-> some privacy today. Who wants see Google read their emails? The only way
-> for an mailing list to exist in an encrypting environment is that it
-> re-encrypts everything. Do i require shuts privacy? No. But yes I would u=
-se
-> it if it were available and could be easily implemented.
+> However if you're looking for a Mailing List Manager that uses GPG, I believe 
+> the 'schleuder' package can do that (it's one of the MLMs I looked at before 
+> deciding to go with MLMMJ):
+> 
+> ---------------------------------------------------------------------
+> $ apt-cache show schleuder
+> 
+> Package: schleuder
+> Version: 2.2.1-3
+> Installed-Size: 151
+> Maintainer: Jérémy Bobbio <lunar@debian.org>
+> Architecture: all
+> Depends: adduser, exim4 | mail-transport-agent, ruby1.8, ruby-tmail, ruby-
+> gpgme, ruby-magic, ruby-log4r, ruby-highline
+> Description-en: GnuPG enabled mailing list manager with remailer-capabilities
+> Schleuder is designed as a tool for group communication: subscribers
+> can communicate encrypted (and pseudonymously) among themselves, receive
+> emails from non-subscribers and send emails to non-subscribers via the list.
+> .
+> Schleuder takes care of all decryption and encryption, stripping of headers,
+> formatting conversions, etc. Schleuder can also send out its own public key
+> upon request and process administrative commands by email.
+> Description-md5: 8480ae94adbe3ab75bd3e05d12375f2a
+> Homepage: http://schleuder.nadir.org/
+> Tag: implemented-in::ruby, interface::daemon, mail::list, mail::smtp,
+> network::server, protocol::smtp, role::program, scope::application,
+> security::authentication, security::cryptography, security::privacy,
+> works-with::mail
 
-Okay, I see what you mean.
+I think this comes down to individuals. Just one man who writes a good patch to support more privacy. Then its about community to evaluate if it is a good or the best solution. If it gets wide enough exceptance it might probably in some face end up in standard. The time will tell. 
 
-There is another downside to GPG-encrypted email though; you can't search=20
-through it easily for past content you're looking for.  [Well, you can, but=
- it=20
-takes significant effort.]
-
-However if you're looking for a Mailing List Manager that uses GPG, I belie=
-ve=20
-the 'schleuder' package can do that (it's one of the MLMs I looked at befor=
-e=20
-deciding to go with MLMMJ):
-
----------------------------------------------------------------------
-$ apt-cache show schleuder
-
-Package: schleuder
-Version: 2.2.1-3
-Installed-Size: 151
-Maintainer: J=E9r=E9my Bobbio <lunar@debian.org>
-Architecture: all
-Depends: adduser, exim4 | mail-transport-agent, ruby1.8, ruby-tmail, ruby-
-gpgme, ruby-magic, ruby-log4r, ruby-highline
-Description-en: GnuPG enabled mailing list manager with remailer-capabiliti=
-es
- Schleuder is designed as a tool for group communication: subscribers
- can communicate encrypted (and pseudonymously) among themselves, receive
- emails from non-subscribers and send emails to non-subscribers via the lis=
-t.
- .
- Schleuder takes care of all decryption and encryption, stripping of header=
-s,
- formatting conversions, etc. Schleuder can also send out its own public key
- upon request and process administrative commands by email.
-Description-md5: 8480ae94adbe3ab75bd3e05d12375f2a
-Homepage: http://schleuder.nadir.org/
-Tag: implemented-in::ruby, interface::daemon, mail::list, mail::smtp,
- network::server, protocol::smtp, role::program, scope::application,
- security::authentication, security::cryptography, security::privacy,
- works-with::mail
----------------------------------------------------------------------
-
-
-
-  -- Chris
-
---
-Chris Knadle
-Chris.Knadle@coredump.us
-
+-- 
+-Matti
