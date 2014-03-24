@@ -1,7 +1,7 @@
-From: Chris Knadle <Chris.Knadle@coredump.us>
-Date: Wed, 19 Mar 2014 22:08:41 +0000
+From: Ben Schmidt <mail_ben_schmidt@yahoo.com.au>
+Date: Mon, 24 Mar 2014 01:52:12 +0000
 Subject: Re: [mlmmj] Getting resent mail when subscribing to list
-Message-Id: <87208006.Q8A5FH2UxX@trelane>
+Message-Id: <532F8FCC.6000904@yahoo.com.au>
 List-Id: <mlmmj.mlmmj.org>
 References: <B1DF0070-DAA5-4C05-9400-D32EDBBD9115@iki.fi>
 In-Reply-To: <B1DF0070-DAA5-4C05-9400-D32EDBBD9115@iki.fi>
@@ -10,66 +10,67 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-On Wednesday, March 19, 2014 23:44:41 Matti Nykyri wrote:
-> On Mar 19, 2014, at 22:29, Chris Knadle <Chris.Knadle@coredump.us> wrote:
-> > On Wednesday, March 19, 2014 13:02:15 Matti Nykyri wrote:
-> >> Hello
-> >> 
-> >> I recently installed mlmmj on my server. I would like to add an option to
-> >> tunables so that list could be configured to send old posts when people
-> >> subscribe to the list
-> >> 
-> >> I'm thinking of adding a tunable subget (normal) that will as many old
-> >> posts as defined in the tunable. I'll download source from git and
-> >> supply a patch if you are interested.
+On 20/03/14 8:45 AM, Matti Nykyri wrote:
+> On Mar 19, 2014, at 23:04, Piotr Auksztulewicz <mlmmj-listrcpt@hasiok.net> wrote:
+>> On Wed, Mar 19, 2014 at 04:29:23PM -0400, Chris Knadle wrote:
+>>> On Wednesday, March 19, 2014 13:02:15 Matti Nykyri wrote:
+>>>> I recently installed mlmmj on my server. I would like to add an
+>>>> option to tunables so that list could be configured to send old
+>>>> posts when people subscribe to the list
+>>> A more interesting option which could do the same thing would be
+>>> to allow a subscriber of the list to be sent a particular /range/
+>>> of list emails.
+>>
+>> The 'get-range' option is more sensible. It would be rather annoying
+>> (for me at least) to get a bunch of emails just after subscribing
+>> to a list.  Besides, sending such bursts will not only load both the
+>> list server and the new subscriber's server - it potentialy can land
+>> the list server on some blacklists.
+>>
+>> Better still, keep a nice web archive of the list and have the list
+>> welcome message point to it.
+>>
+> The archive is the best, but still needs to be setup. Even more setup
+> is needed if some privacy is required... Although mailing list will
+> never be truly private due to design.
 
-[...]
-> When I mean tunable subget (normal) I mean a file under
-> control/ directory that specifies how many most recent messages will be
-> sent to the subscriber on subscribe.
-[...]
-> Of course this value needs to be reasonable. For example around 5 or 10
-> emails.
-[...]
-> But why would you need this new tunable? Well I'm dealing with regular women
-> that don't have clue how get archives from some mailing list. And when they
-> join this a list/conversation it's good tho know what people are talking
-> about. So they can immediately join the party.
+I agree with most of what has been said here.
 
-Well there are a lot of issues concerning telling someone to "view headers" on 
-list email messages; many people don't know how to do this, not least of which 
-is complicated by the fact that every MUA seems to do this differently such 
-that it turns into a game of 20 questions.  Q: "What mail client do you have?"  
-A: "What's a mail client?"  ... Ugh.
+I probably wouldn't accept a patch which automatically sends list posts
+when a user subscribes.
 
-However you can add a custom footer with the "footer" tunable that would say 
-something like:
+However, implementation of a range with +get would probably be OK
+(though it should probably have some restriction, perhaps a tunable
+maximum number of messages that can be retrieved this way; and thought
+should be given to whether to deliver such messages individually or as
+one or more digests--probably the digest is better). I would also be
+happy with changes that facilitate putting a link to specific +get
+address and/or an online archive in the welcome mail, e.g. a $lastindex$
+substitution.
 
-   "for mailing list options, email <list>+help@<list-addr>
-    for further information,  email <list>+faq@<list-addr>"
-    [and so on]
+Putting these ideas together, perhaps this kind of syntax works:
 
-to make it more obvious what options there are and other helpful information.
+- retrieve messages 123 to 456:
+   listname+get-123-456@lists.domain.tld
+
+- retrieve 123 messages, ending with message 456:
+   listname+get-456-123@lists.domain.tld
+
+- retrieve most recent 123 messages:
+   listname+get--123@lists.domain.tld
+
+- retrieve 10 most recent messages (for list texts):
+   $list+$get-$lastindex$-10@$domain$
+   $list+$get--10@$domain$
+   (note that the first one will give the last ten messages prior to the
+   text being sent, such as subscription time, whereas the second one
+   will give the last ten messages at the time the user sends mail +get,
+   which might be a useful link to include in the help email)
+
+Happy coding!
+
+Ben.
 
 
 
-But regardless -- I get your point and I see why you want this.
-
-[...]
-> Also the range thing that you proposed is actually a good idea and easy to
-> implement. I can also look into it. Just cloned the git branch.
-
-As you implement this keep in mind that there are limitations on what 
-characters can appear in the "local part" (the part before the @) in an email 
-address.  {}- characters are all fine which is why I suggested those.  Others 
-like [] and space are not unless encompassed in quotation marks.  A simple 
-pipe character (i.e. <list>+get-N|M@<list-addr>) could work too.
-
-   http://en.wikipedia.org/wiki/E-mail_address#Local_part
-
-  -- Chris
-
---
-Chris Knadle
-Chris.Knadle@coredump.us
 
