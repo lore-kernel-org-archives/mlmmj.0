@@ -1,7 +1,7 @@
-From: Chris Knadle <Chris.Knadle@coredump.us>
-Date: Sat, 22 Mar 2014 20:38:05 +0000
+From: Piotr Auksztulewicz <mlmmj-listrcpt@hasiok.net>
+Date: Mon, 24 Mar 2014 16:49:12 +0000
 Subject: Re: [mlmmj] Encrypted list
-Message-Id: <1466601.7IiCRv8oMB@trelane>
+Message-Id: <20140324164912.GA5777@szaflik.hasiok.net>
 List-Id: <mlmmj.mlmmj.org>
 References: <20140320184234.GG23804@szaflik.hasiok.net>
 In-Reply-To: <20140320184234.GG23804@szaflik.hasiok.net>
@@ -10,118 +10,180 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-On Saturday, March 22, 2014 09:40:33 Matti Nykyri wrote:
-> On Mar 21, 2014, at 22:09, Chris Knadle <Chris.Knadle@coredump.us> wrote:
-> > So encrypting the entire DATA section would only require changing the SMTP
-> > protocol for both MTAs and MUAs.  :-/
-[...]
-> An interesting change in smtp protocol would be an additional command that
-> would specify a public key for the RCPT. In that way the new Received
-> header could be encrypted with that key and prepended to the DATA portion.
+On Thu, Mar 20, 2014 at 11:34:34PM +0200, Matti Nykyri wrote:
+> The only ones that I can think of being keen on security
+> and sending mails in the free internet are security administrators 
+> for example with gentoo and the Linux kernel. Security administrators 
+> send sensitive and time critical information about the found security
+> security holes of the system and they use encryption.
 
-You can't do that.  The MTA needs to be able to see the RCPT TO as part of the 
-process /before/ the DATA SMTP section is seen, in order to know whether the 
-recipient of the mail is local or can otherwise be accepted.  The MTA itself 
-doesn't read the DATA section, it can only pass it to other processes and pass 
-along the contents.
+This is indeed a rare case of communication that's only mildly sensitive
+for a limited time, and also of a close-knitted group of people that may
+have some benefit such re-encrypting list. I still think such list isn't
+usable for serious matters, while a regular closed list is private
+enough for non-sensitive matters.
 
-> This would make each MTA aware only of the previous MTA, the sender, and 
-> the recipient. It is also secure because only the sender needs to
-> authenticate the public key of the recipient. If someone changes the key in
-> between the recipient just can't open the message.
-> 
-> The sender address needs to be a real clear text address to receive the
-> error of mail delivery. To get even more privacy the senders server could
-> do virtual address map for all the mails it sends. So for every email the
-> user part of the address is a new random string.
+Most of the lists out there are "hey, let's make a list for people
+interested in X" and anybody can join. This is not secure and only
+a little more private than a web forum or something.
 
-This is possible to do with some forms of wildcard addressing, but if the 
-sending address really were a random string then you'd be expecting the 
-recipient of the mail to accept email as if it came from someone they knew 
-even though it looked like it was sent from a new nonexistent address.  That 
-muddies the phishing scams problem.
+> It is sad to see how little people demand security and privacy todays.
+> When people don't demand it corporations don't implement it... on the
+> contrary they lessen your privacy by scanning your messages.
 
-> When the message is being
-> replied by the recipient or because of an error, the random user string is
-> used. The original MTA will then map it to the real sender. The original
-> recipient will get the true sender from the decrypted body of the message
-> (the From header).
->
-> Another point is the sending time. To fake that you could delay the message
-> for a random time. But fighting metadata is actually really tricky. That's
-> why it is so useful in analyzing traffic. It is hard to fake.
+This is also why email privacy is dead and buried. Even if I started
+using GPG now (actually, I have stopped long ago), as long as most of my
+correspondents flock to gmail and the like, either I can't use it with
+them, because they won't let go their shiny webmail interface and go
+back to Thunderbird or whatever, or I am at mercy of future gmail's
+features. I can easily imagine them offering support for encrypted mail
+by allowing to deposit one's private key with them, and many users
+blindly doing just that.
 
-I haven't yet considered sending/transit time in my statistics and ACL 
-checking, but I know others that do and seem to find it useful.
+Basically, email providers can't be trusted AND email users can't be
+trusted in majority.
 
-> But this is a never ending battle a cat and mouse chase... What gives more
-> privacy and what hinders usability?!? Good solutions are usually simple and
-> governments use billions for their goals!
->
-> > I agree that we'd /want/ this -- but how would you accomplish this without
-> > CA-signed TLS certificates?  The whole CA system is screwed up and makes
-> > things more difficult.
-> 
-> I'm just saying that using TLS does not give any more privacy in mail
-> delivery if you are fighting for privacy from a CA!
+Myself, I know only a handful of poeple that I can trust to hold their
+mailbox secure... and even with them I don't use encrypted email just
+because I don't have anything so sensitive to say, so it will be just
+a hassle or a moslty pointless excercise of GPG skills.
 
-TLS encryption hides the contents of the transfer, even if there isn't 
-authentication as part of it.  SSL/TLS has two distinct parts to it; 
-encryption and authentication.  The encryption part is what hides data from 
-prying eyes, the authentication part means being able to verify the source.  
-Encryption adds privacy, even though it doesn't add authenticity; 
-authentication alone /does not/ add privacy because it doesn't hide anything.
+For an email list, you can't trust anybody, unless you ultimately trust
+the owner and his methods of vetting subscribers. Kernel developers may
+be able to do that.
 
-It can give "a feeling of security", knowing that the message you got came 
-from the actual author, but not privacy.
+Myself, I am treating email as a postcard. Anybody in the post office
+can read it, secret agencies will scan and store it, kids in the
+neighbourhood can open the mailbox and steal or read the contents,
+addressee will put it in the trash for dumpster-divers to have. On the
+other hand, a random person would not snatch it in transit, or read
+the contents without considerable efforts, so it provides a little bit
+of privacy. So it is fine to send vacation postcards to your relatives,
+while it is not wise to post a billboard saying that (think burglars).
 
-> > The DANE protocol requires DNSSEC and very few sites/MTAs are using it
-> > (supposedly only about 20 so far from last I heard), and not all MTAs have
-> > the feature yet -- Postfix does but Exim doesn't yet -- the Exim
-> > developers are looking into it though.  But even with DANE, it's a LOT to
-> > expect for a site to run DNSSEC, especially being that not all DNS
-> > servers support it.
-> > 
-> > So for now I think the best we can do is use /unauthenticated/ TLS --
-> > purposefully -- so that at least the MTA transfers will be encrypted, even
-> > though they're not authenticated.
-> 
-> To get true privacy to the content of the message you need to encrypt the
-> message so that only your recipient has a key to open it! The true problem
-> is authenticating this key you use to encrypt the message. Can you trust a
-> CA to authenticate you recipients public key? To gain true positive
-> authentication you will need to meet or talk with the recipient to verify
-> the key. Here comes the web-of-trust in play. Now when you have established
-> one authentication you should be able to trust all the keys that have been
-> signed by your recipient.
+> Is it easier to crack the server or open the message? In most cases I
+> think it will be the server.
 
-You can encrypt a message for someone without meeting them if they tell you 
-their key ID (or if you look it up), they just won't be able to 
-cryptographically authenticate that it was you that sent it to them.
-Same thing in reverse.
+True. Bruce Schneier says "math is good". It is the application of it,
+or human shortcomings, that allow the secrets to be revealed.
 
-Having verified GPG keys that are signed and trusted is sadly a rare thing, 
-even in the technological circles I'm in.  I wouldn't count on having that.  
-Too problematic to accomplish in practice.
+> Only way to implement encrypted list is to let the list decrypt and then
+> reencrypt the messages. Otherwise the list needs to be implemented inside
+> the MUA.
 
-> >> Hopefully people will realice this some day. The main issue is in
-> >> authentication. It is truely hard to be one 100% certain that someone is
-> >> who he claims to be. The web-of-trust gives another and I would say a
-> >> better approach to the chain-of-trust that has been the dominating way to
-> >> do thigs.
-> > 
-> > The web-of-trust method is good for microcosms (such as the group of
-> > Debian developers) but as a worldwide solution I think it's too easily
-> > manipulated.
->
-> I think that all your friends are quite a small microcosmos.
+My disgression was about omitting the re-encrypting by encrypting at the
+sender with multiple keys. But it requires support in the MUA, or some
+clever script/plugin, yes. The server would re-mail as usual. But you
+need to keep all the keys. Maybe the server could help by attaching
+all keys to each email, or sending them on request. Such setup will
+circumvent the issue of server security and the trust of the owner;
+but you still need to trust all subscribers not to leak the message,
+intentionally or not. Kernel developers, again.
 
-What's your point?  Very few of my friends are also part of the web-of-trust, 
-so even assuming this was true, it doesn't really help.
+> The only metadata available to Eve the Evesdropper is the sender and
+> the list name and the route between them.
 
-  -- Chris
+GPG and no TLS would get Eve sitting on the wire near the server all
+subscribers' addresses, routing information, subject, date, MUAs used
+etc. etc. - from the headers.
 
---
-Chris Knadle
-Chris.Knadle@coredump.us
+TLS would get such Eve only the originating (or intermediate) and target
+MTAs. This may be sufficient to identify single subscribers (myself, for
+example - I run my own server).
+
+Attacking TLS is not so easy, but doable. If you think CA subversion -
+that's not needed in case of email. Most sending MTAs will accept any
+certificate, or go without TLS if not offerred. You need to do some kind
+of traffic hijacking (DNS poisoning? BGP false advertisement?) to get
+the TCP stream, then you can pretend to be any MTA you want, TLS or no
+TLS, get the headers and content, then re-send to the proper MTA. So a
+determined attacker can get any SMTP metadata almost without notice.
+Almost, because in case of hijacking the resent message will come from a
+different IP address than normal - unless you hijack the reverse path as
+well. Receiving MTA will likely accept that, unless there's a strong SPF
+policy or two-way DNS check policy in place, which is rare. Only a human
+checking the Received: headers could notice something strange.
+
+> I think there is a difference between the re-ecrypted and TLS protected
+> messages. ISP's and anyone between the route is able to record messages
+> and sell the content. That is what most of the companies do nowadays.
+
+It is a difference, but from my point of view it is not particularly
+significant. Both protect the message contents from a causal sniffer on
+the wire, TLS protects headers, too. I have not heard of any intermediate
+MTA that will mine the messages' contents (not counting virus/spam
+scanning). It is true, that many email account providers mine the emails
+for commercial purposes, but users of such services would be either
+unable/unwilling to use encrypted email (because they would loose the
+universal and convenient access to their mails from every web browser
+or phone app out there), or aware enough not to use them.
+
+Today there aren't many MTA hops in email transmissions, not counting
+technical ones, like one MTA instance sending to the virus scanner,
+then to another MTA instance sending it out - all within the same
+network/organisation. Then there's a direct hop to the recipient.
+Only spammers use the higher-order MX records :-)
+
+This is why I insist that enforcing TLS (and banning gmail users :-P)
+would be sufficient privacy for a listserver.
+
+> If mail servers would not record the route and the return path the
+> message would be anonymous and private as it is with old fasion 
+> letters.
+
+Not with the SMTP protocol. Sender and recipient are there, so not
+anonymous, and not private in the sense that the fact of communication
+is hidden. TLS helps a little. GPG adds confidentiality of contents
+only. Snail mail is a little better at privacy (metadata is not so
+easy to obtain) and worse at confidentiality - an envelope is not
+very secure, and even if there are methods of increasing physical
+security in order to enhance confidentiality, encryption is still much,
+much  better.
+
+> Hiding your true communication can be done by increasing
+> random traffic. If your want anonymity you will need a software
+> especially designed for that... for example TOR.
+
+This is what I was hinting at. Use the right tools. Email list
+is not one.
+
+> But I think that when cryptography
+> comes closer to normal people the situation will be different.
+
+It is a hard problem - how to make cryptography both secure and easy
+to use.
+
+> Cloud computing can be made
+> private if it is encrypted and the keys are kept only with the client.
+
+If you mean cloud storage, yes - and ONLY storage at this point. There
+are some precursors already, the new MEGA promises exactly that -
+client-side encryption. How easy to use it will be, and how hard to
+circumvent - time will tell. Myself, I won't trust server-pushed
+Javascript encryption software - even if MEGA's use of crypto is sound
+and key management is more or less secure.
+
+I use GPG before uploading my backups and stuff to S3.
+
+But "cloud" is more than that. Indexing your email for search, sorting,
+thumbnailing, cropping of your photos, recommending music based on what
+you've listened to before, etc. etc. - all require server-side
+processing of your unencrypted data and therefore are susceptible to
+data mining. People are used to that and won't let such features go.
+Homomorphic encryption is in statu nascendi and will be there for many
+years yet - and if it ever gets strong enough it would be most likely
+very CPU-intensive (and thus expensive!) to process any data in
+encrypted form. People want "free" and easy-to-use stuff. This is it.
+
+> A little more of encryption would not hurt.
+
+Sometimes it will - if it creates a false sense of security.
+
+
+PS. I apologize non-crypto-geeks on the list for the long rant :-)
+
+PPS. I like this list to go live - even if slighlty off-topic.
+
+-- 
+Piotr "Malgond" Auksztulewicz                     firstname@lastname.net
 
