@@ -1,8 +1,10 @@
 From: Uffe Jakobsen <uffe@uffe.org>
-Date: Tue, 24 Jun 2014 09:49:41 +0000
-Subject: [mlmmj] mlmmj and DKIM
-Message-Id: <53A949B5.8070300@uffe.org>
+Date: Tue, 24 Jun 2014 10:08:41 +0000
+Subject: Re: [mlmmj] mlmmj and DKIM
+Message-Id: <53A94E29.7000006@uffe.org>
 List-Id: <mlmmj.mlmmj.org>
+References: <53A949B5.8070300@uffe.org>
+In-Reply-To: <53A949B5.8070300@uffe.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -10,26 +12,40 @@ To: mlmmj@mlmmj.org
 
 
 
-Hi,
+On 2014-06-24 12:00, Yuri D'Elia wrote:
+> On 06/24/2014 11:49 AM, Uffe Jakobsen wrote:
+>> Their posts to the lists gets rejected by receiving parts (sites) that
+>> check for DKIM validity - hotmail.com being one site that seem to reject
+>> the most.
+>>
+>> One approach would be to setup proper SRS - I guess - but the number of
+>> lists and users that I have are quite low - and hence i was looking for
+>> an "easier" solution...
+>>
+>> Any suggestions - How do you approach such problems ?
+>
+> Yes, either just forward the message (do not change the content/reply-to
+> or anything else) or strip DKIM-Signature from incoming messages (using
+> delheaders).
+>
+> The latter will not work if DMARC is being used, but I didn't have
+> problems so far. YMMV.
+>
 
-I'm returning to list management after some years (10) of absence.
+Well, I've tried both your suggestions
 
-I'm trying to solve a problem with some users originating and posting to 
-my lists from DKIM "restrained" sites.
+The sending domain in question is @post11.tele.dk - and in that 
+combination the most problems is seen with recipients @hotmail.com
 
-Their posts to the lists gets rejected by receiving parts (sites) that 
-check for DKIM validity - hotmail.com being one site that seem to reject 
-the most.
+1) Plain forwarded messages from DKIM domains are rejected by hotmail. I 
+guess that they look at MAIL FROM and RCPT TO as well....
 
-One approach would be to setup proper SRS - I guess - but the number of 
-lists and users that I have are quite low - and hence i was looking for 
-an "easier" solution...
+2) Stripping DKIM headers does not seem til help either - hotmail.com 
+still rejects.
 
-Any suggestions - How do you approach such problems ?
+/Uffe
 
-Thanks in advance
 
-Kind regards Uffe :-)
 
 
 
