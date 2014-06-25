@@ -1,7 +1,7 @@
-From: Chris Knadle <Chris.Knadle@coredump.us>
-Date: Tue, 24 Jun 2014 19:23:02 +0000
+From: "A. Schulze" <sca@andreasschulze.de>
+Date: Wed, 25 Jun 2014 06:32:47 +0000
 Subject: Re: [mlmmj] mlmmj and DKIM
-Message-Id: <3213660.4D4aqjQXdI@trelane>
+Message-Id: <20140625083247.Horde.nQCbYbAAb1g5Kt5L0saNOg1@horde.andreasschulze.de>
 List-Id: <mlmmj.mlmmj.org>
 References: <53A949B5.8070300@uffe.org>
 In-Reply-To: <53A949B5.8070300@uffe.org>
@@ -10,60 +10,41 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-On Tuesday, June 24, 2014 15:41:11 Uffe Jakobsen wrote:
-> On 2014-06-24 13:19, Chris Knadle wrote:
-> > On Tuesday, June 24, 2014 12:08:41 Uffe Jakobsen wrote:
-> >> On 2014-06-24 12:00, Yuri D'Elia wrote:
-> >>> On 06/24/2014 11:49 AM, Uffe Jakobsen wrote:
-> >>>> Their posts to the lists gets rejected by receiving parts (sites) that
-> >>>> check for DKIM validity - hotmail.com being one site that seem to
-> >>>> reject
-> >>>> the most.
-> >>>> 
-> >>>> One approach would be to setup proper SRS - I guess - but the number of
-> >>>> lists and users that I have are quite low - and hence i was looking for
-> >>>> an "easier" solution...
-> >>>> 
-> >>>> Any suggestions - How do you approach such problems ?
-> >>> 
-> >>> Yes, either just forward the message (do not change the content/reply-to
-> >>> or anything else) or strip DKIM-Signature from incoming messages (using
-> >>> delheaders).
-> >>> 
-> >>> The latter will not work if DMARC is being used, but I didn't have
-> >>> problems so far. YMMV.
-> >> 
-> >> Well, I've tried both your suggestions
-> >> 
-> >> The sending domain in question is @post11.tele.dk - and in that
-> >> combination the most problems is seen with recipients @hotmail.com
-> >> 
-> >> 1) Plain forwarded messages from DKIM domains are rejected by hotmail. I
-> >> guess that they look at MAIL FROM and RCPT TO as well....
-> >> 
-> >> 2) Stripping DKIM headers does not seem til help either - hotmail.com
-> >> still rejects.
-> > 
-> > It looks like tele.dk is another domain that is now using DMARC with
-> > "p=reject" like AOL and Yahoo:( are.  Here's the test as to why I think
-> > that's> 
-> > what's going on:
-> >     $ dig _dmarc.tele.dk txt +short
-> >     "v=DMARC1\; p=reject\; sp=none\; pct0\;"
-> 
-> Ok, I need to read up on DMARC...
-> 
-> Would such DMARC record as stated above have an effect on a subdomain as
-> @post11.tele.dk ?
 
-It isn't clear.  This is what I'm able to find on the subject so far:
+Uffe Jakobsen:
 
-   http://dmarc.org/faq.html#s_21
+> I'm trying to solve a problem with some users originating and  
+> posting to my lists from DKIM "restrained" sites.
+...
+> Any suggestions - How do you approach such problems ?
 
-  -- Chris
+Hello,
 
---
+we had a similar question a month ago (unfortunately not visible in  
+the archive)
+I suggest to simply not modify any message content. Not only on  
+listservers - any MTA
+should be configured to avoid unnecessary content modification.
 
-Chris Knadle
-Chris.Knadle@coredump.us
+In case of mlmmj thats easy.
+
+$ rm ${LIST_HOME}/control/prefix
+$ rm ${LIST_HOME}/control/footer
+$ rm ${LIST_HOME}/control/delheaders
+
+also I suggest to add a set of standard headers. These are normally  
+not covered by DKIM signatures
+and should not invalidate them.
+
+$ cat ${LIST_HOME}/control/customheaders
+List-Id: <testing.lists.example.org>
+List-Post: <mailto:testing@lists.example.org>
+List-Help: <mailto:testing+help@lists.example.org>
+List-Subscribe: <mailto:testing+subscribe@lists.example.org>
+List-Unsubscribe: <mailto:testing+unsubscribe@lists.example.org>
+List-Owner: <mailto:testing+owner@lists.example.org>
+Precedence: list
+
+Andreas
+
 
