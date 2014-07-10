@@ -1,7 +1,7 @@
-From: "A. Schulze" <sca@andreasschulze.de>
-Date: Tue, 08 Jul 2014 19:04:28 +0000
+From: Ben Schmidt <mail_ben_schmidt@yahoo.com.au>
+Date: Thu, 10 Jul 2014 07:54:01 +0000
 Subject: Re: [mlmmj] Allowing empty enevelope senders
-Message-Id: <20140708210428.Horde.xCdJZhpO89aYiumhxoev7A1@horde.andreasschulze.de>
+Message-Id: <53BE4699.4000709@yahoo.com.au>
 List-Id: <mlmmj.mlmmj.org>
 References: <3154844.GYFGS8R0Q3@storm>
 In-Reply-To: <3154844.GYFGS8R0Q3@storm>
@@ -10,29 +10,27 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-
-Thomas Jarosch:
-
-> we have one mlmmj list that gets back email bounces
-> from a newsletter. Such bounce emails are usually sent
-> using an empty envelope sender address "<>".
-that may happen
-
-> Currently mlmmj discards all emails with an empty envelope sender
-> address and this is not configurable (see mlmmj-process.c, line ~704)
-show logs of your evidence please
-
+On 8/07/14 6:59 PM, Thomas Jarosch wrote:
 > I've found a good description why an empty envelope is a valid thing
 > according to RFC 821, page 15:
 > http://marc.merlins.org/netrants/nullenvelope.txt
-RFC821 is 32 years old and updated many times. In terms of <> it's  
-still not wrong
-but be careful with your references.
 
-> Should we make this configurable or disable the code altogether?
-> If we make it configurable: Should we invert the default value?
-first make sure you solve the right problem
+That link correctly identifies empty envelope senders as used for bounce
+messages.
 
-Andreas
+Furthermore, as you've identified, the mails are being discarded by
+Mlmmj, not the mail server. The mail server accepts them, meeting the
+requirements of the RFC and the document above. Mlmmj discards them,
+because they should not be delivered to the mailing list.
+
+If they are getting to that point in Mlmmj, it probably means VERP is
+not working/misconfigured, because bounce messages should come back to
+listname+bounces and get handled by mlmmj-bounce so bouncing users are
+automatically unsubscribed (which helps prevent your mail server getting
+blacklisted, among other things).
+
+Ben.
+
+
 
 
