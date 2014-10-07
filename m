@@ -1,7 +1,7 @@
-From: Gavin Henry <ghenry@suretec.co.uk>
-Date: Tue, 07 Oct 2014 19:28:26 +0000
+From: "A. Schulze" <sca@andreasschulze.de>
+Date: Tue, 07 Oct 2014 19:50:08 +0000
 Subject: Re: [mlmmj] Broken email
-Message-Id: <CAPcb_G+uCYzG2pCYj3RqgSMoLts3Pgq71FD-mtnod=hK8rtjjg@mail.gmail.com>
+Message-Id: <20141007215008.Horde.65RyIlVihnZiKyKjUpS2Kg1@horde.andreasschulze.de>
 List-Id: <mlmmj.mlmmj.org>
 References: <CAPcb_GLkCEA6jPGqTE-jOmTax79m4=WoOsFyRSPSpg9bgQFxMA@mail.gmail.com>
 In-Reply-To: <CAPcb_GLkCEA6jPGqTE-jOmTax79m4=WoOsFyRSPSpg9bgQFxMA@mail.gmail.com>
@@ -10,7 +10,14 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-All working, thanks.
 
-Was the newline.
+Gavin Henry:
+
+> All working, thanks.
+> Was the newline.
+
+maybe the code should check such error conditions?
+
+
+
 
