@@ -1,7 +1,7 @@
-From: Chris Knadle <Chris.Knadle@coredump.us>
-Date: Tue, 07 Oct 2014 07:38:40 +0000
+From: Richard Mortimer <richm@oldelvet.org.uk>
+Date: Tue, 07 Oct 2014 08:11:39 +0000
 Subject: Re: [mlmmj] Broken email
-Message-Id: <1673493.BIiKAv1dcW@trelane>
+Message-Id: <5433A03B.20908@oldelvet.org.uk>
 List-Id: <mlmmj.mlmmj.org>
 References: <CAPcb_GLkCEA6jPGqTE-jOmTax79m4=WoOsFyRSPSpg9bgQFxMA@mail.gmail.com>
 In-Reply-To: <CAPcb_GLkCEA6jPGqTE-jOmTax79m4=WoOsFyRSPSpg9bgQFxMA@mail.gmail.com>
@@ -10,30 +10,39 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-On Tuesday, October 07, 2014 17:30:00 Ben Schmidt wrote:
-[...]
-> > The To and From headers seem to have invalid email addresses in them
-> > like there's some kind of encapsulation going on; same with the
-> > Message-ID header.
-> 
-> I think that's because you read the plain text version of the email.
+Hi,
 
-That's correct.
+On 07/10/2014 08:25, Gavin Henry wrote:
+> Here's the raw email:
+>
+> http://paste.scsys.co.uk/428484
+>
+> We're testing with prefix, footer and customerheaders (have now
+> removed any trailing newlines and will test again):
+>
+> cat prefix
+> [NOC Alerts]
+>
+> cat customheaders
+> X-Mailinglist: noc-alerts
+> precedence: bulk
+> precedence: list
+> List-Id: <noc-alerts>
+> List-Unsubscribe: <mailto:noc-alerts+unsubscribe@lists.suretec.net>,
+> <http://lists.suretec.net/?list=noc-alerts>
+> List-Owner: Suretec Systems Ltd.
+>
 
-> Presumably because the OP copied and pasted the message body (which is
-> actually overflown headers), all the email addresses in it were
-> converted to hyperlinks by the MUA for HTML mail, and then the
-> hyperlinks were converted to plain text in a stupid way, totally
-> mangling them.
+I suspect that there is an empty line at the end of the customheaders 
+file as Ben suggested earlier. That matches with the blank line in your 
+raw email (the Message-Id, From and Date headers were added by 
+subsequent mail systems after it left mlmmj).
 
-Ah.  Yes, looks like it -- the HTML version of the message looks better.
-Thanks for pointing this out, it shows that the email that was sent was in a 
-lot better shape than it first appeared.
+Regards
 
-  -- Chris
+Richard
 
---
-
-Chris Knadle
-Chris.Knadle@coredump.us
+>
+> cat footer
+>
 
