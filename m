@@ -1,7 +1,7 @@
-From: Ben Schmidt <mail_ben_schmidt@yahoo.com.au>
-Date: Tue, 07 Oct 2014 06:30:00 +0000
+From: Gavin Henry <ghenry@suretec.co.uk>
+Date: Tue, 07 Oct 2014 07:25:42 +0000
 Subject: Re: [mlmmj] Broken email
-Message-Id: <54338868.10506@yahoo.com.au>
+Message-Id: <CAPcb_G+0n=p8qQ3+3y5aOQyo-C7gtax1iU3Eqp9DVyPWvwdqmA@mail.gmail.com>
 List-Id: <mlmmj.mlmmj.org>
 References: <CAPcb_GLkCEA6jPGqTE-jOmTax79m4=WoOsFyRSPSpg9bgQFxMA@mail.gmail.com>
 In-Reply-To: <CAPcb_GLkCEA6jPGqTE-jOmTax79m4=WoOsFyRSPSpg9bgQFxMA@mail.gmail.com>
@@ -10,46 +10,27 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-> The headers above show numerous errors and do not show an external
-> email sending attempt; all of the Received: lines show IP addresses
-> that are always in a private IP range.
+Here's the raw email:
 
-That will be because the external sending attempt is still in the
-message headers (before they were ended prematurely). Only the headers
-after the erroneous newline that's ending them are showing in the
-message body the OP pasted.
+http://paste.scsys.co.uk/428484
 
-> The To and From headers seem to have invalid email addresses in them
-> like there's some kind of encapsulation going on; same with the
-> Message-ID header.
+We're testing with prefix, footer and customerheaders (have now
+removed any trailing newlines and will test again):
 
-I think that's because you read the plain text version of the email.
-Presumably because the OP copied and pasted the message body (which is
-actually overflown headers), all the email addresses in it were
-converted to hyperlinks by the MUA for HTML mail, and then the
-hyperlinks were converted to plain text in a stupid way, totally
-mangling them.
+cat prefix
+[NOC Alerts]
 
-So instead of:
-
-To: noc-alerts@lists.suretec.net
-
-you saw:
-
-To: noc <noc-alerts@lists.suretec.net>-alerts@
-<noc-alerts@lists.suretec.net>lists.suretec.net
-<noc-alerts@lists.suretec.net>
-
-> That's all I can determine from the above text.
-
-Well done for getting that much!
-
-What a mess!
-
-Grins,
-
-Ben.
+cat customheaders
+X-Mailinglist: noc-alerts
+precedence: bulk
+precedence: list
+List-Id: <noc-alerts>
+List-Unsubscribe: <mailto:noc-alerts+unsubscribe@lists.suretec.net>,
+<http://lists.suretec.net/?list=noc-alerts>
+List-Owner: Suretec Systems Ltd.
 
 
-
+cat footer
+-- 
+To unsubscribe send a mail to noc-alerts+unsubscribe@lists.suretec.net
 
