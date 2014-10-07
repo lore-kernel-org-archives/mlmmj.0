@@ -1,7 +1,7 @@
 From: Ben Schmidt <mail_ben_schmidt@yahoo.com.au>
-Date: Tue, 07 Oct 2014 06:29:51 +0000
+Date: Tue, 07 Oct 2014 06:30:00 +0000
 Subject: Re: [mlmmj] Broken email
-Message-Id: <5433885F.8010505@yahoo.com.au>
+Message-Id: <54338868.10506@yahoo.com.au>
 List-Id: <mlmmj.mlmmj.org>
 References: <CAPcb_GLkCEA6jPGqTE-jOmTax79m4=WoOsFyRSPSpg9bgQFxMA@mail.gmail.com>
 In-Reply-To: <CAPcb_GLkCEA6jPGqTE-jOmTax79m4=WoOsFyRSPSpg9bgQFxMA@mail.gmail.com>
@@ -10,44 +10,43 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-On 7/10/14 10:21 AM, Gavin Henry wrote:
-> Hi all,
->
-> We've set up mlmmj but emails come through broken in Gmail and just shoe this in
-> the body with no Subject :
->
-> MIME-Version: 1.0
-> X-Received: by 10.68.209.138 with SMTP id mm10mr27452276pbc.88.1412636264404;
->   Mon, 06 Oct 2014 15:57:44 -0700 (PDT)
-> Received: by 10.70.32.68 with HTTP; Mon, 6 Oct 2014 15:57:44 -0700 (PDT)
-> Received: by 10.70.32.68 with HTTP; Mon, 6 Oct 2014 15:57:44 -0700 (PDT)
-> Date: Mon, 6 Oct 2014 23:57:44 +0100
-> Message-ID: <CAPcb_GLbsXNC7w6VHq
-> <mailto:CAPcb_GLbsXNC7w6VHq-FpqNDqUrA4rXEHu6awi8N2xnyuCvBiw@mail.gmail.com>-
-> <mailto:CAPcb_GLbsXNC7w6VHq-FpqNDqUrA4rXEHu6awi8N2xnyuCvBiw@mail.gmail.com>FpqNDqUrA4rXEHu6awi8N2xnyuCvBiw
-> <mailto:CAPcb_GLbsXNC7w6VHq-FpqNDqUrA4rXEHu6awi8N2xnyuCvBiw@mail.gmail.com>@
-> <mailto:CAPcb_GLbsXNC7w6VHq-FpqNDqUrA4rXEHu6awi8N2xnyuCvBiw@mail.gmail.com>mail.gmail.com
-> <mailto:CAPcb_GLbsXNC7w6VHq-FpqNDqUrA4rXEHu6awi8N2xnyuCvBiw@mail.gmail.com>>
-> Subject: [NOC Alerts] test
-> From: Gavin Henry <ghenry@ <mailto:ghenry@suretec.co.uk>suretec.co.uk
-> <mailto:ghenry@suretec.co.uk>>
-> To: noc <mailto:noc-alerts@lists.suretec.net>-alerts@
-> <mailto:noc-alerts@lists.suretec.net>lists.suretec.net
-> <mailto:noc-alerts@lists.suretec.net>
-> Content-Type: multipart/alternative; boundary7d7b111c77bcb66a0504c902b3
-> Delivered-To: noc <mailto:noc-alerts@lists.suretec.net>-alerts@
-> <mailto:noc-alerts@lists.suretec.net>lists.suretec.net
-> <mailto:noc-alerts@lists.suretec.net>
->
-> --047d7b111c77bcb66a0504c902b3
-> Content-Type: text/plain; charset=ISO-8859-1
->
-> What's breaking it?
+> The headers above show numerous errors and do not show an external
+> email sending attempt; all of the Received: lines show IP addresses
+> that are always in a private IP range.
 
-Looks like the headers are being ended early somehow.
+That will be because the external sending attempt is still in the
+message headers (before they were ended prematurely). Only the headers
+after the erroneous newline that's ending them are showing in the
+message body the OP pasted.
 
-Do you have a customheaders tunable that has an extra newline at the end
-of it? That could do it.
+> The To and From headers seem to have invalid email addresses in them
+> like there's some kind of encapsulation going on; same with the
+> Message-ID header.
+
+I think that's because you read the plain text version of the email.
+Presumably because the OP copied and pasted the message body (which is
+actually overflown headers), all the email addresses in it were
+converted to hyperlinks by the MUA for HTML mail, and then the
+hyperlinks were converted to plain text in a stupid way, totally
+mangling them.
+
+So instead of:
+
+To: noc-alerts@lists.suretec.net
+
+you saw:
+
+To: noc <noc-alerts@lists.suretec.net>-alerts@
+<noc-alerts@lists.suretec.net>lists.suretec.net
+<noc-alerts@lists.suretec.net>
+
+> That's all I can determine from the above text.
+
+Well done for getting that much!
+
+What a mess!
+
+Grins,
 
 Ben.
 
