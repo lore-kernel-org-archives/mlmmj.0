@@ -1,45 +1,43 @@
-From: G Stansfield <gstansfield@isat.co.za>
-Date: Wed, 15 Oct 2014 09:32:38 +0000
-Subject: [mlmmj] Sendmail and mlmmj
-Message-Id: <543E3F36.6060704@isat.co.za>
+From: Piotr Auksztulewicz <mlmmj-listrcpt@hasiok.net>
+Date: Wed, 15 Oct 2014 12:19:02 +0000
+Subject: [mlmmj] Experimenting with software configuration (was: Sendmail and mlmmj)
+Message-Id: <20141015121902.GC26470@kibel.hasiok.net>
 List-Id: <mlmmj.mlmmj.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Hi there!
-This is a fork of the '[mlmmj] initial setup/exim sender verification' 
-thread, as this may be a red herring.
+On Wed, Oct 15, 2014 at 11:32:38AM +0200, G Stansfield wrote:
+> I don't have a test
+> machine at present to work on - and clearly can't mess with the
+> sendmail config on the operational server!
 
-Is anyone on the list using mlmmj/Sendmail and having no problems?
+I am sorry I can't help with sendmail, last time I touched it
+in the early 90's :-)
 
-Philip communicated with me off list and said : "This indicates to me 
-that mlmmj isn't actually engaging the sendmail MTA, ...." and "This 
-points to something wrong with my aliases configuration, but I've 
-doubled-checked it and it seems correct.... :(  ". That was my 
-experience, too.
+There's an easy solution to not having a test machine.
 
-I am wondering if address masquerading in the header / envelope could be 
-causing the problem.
+There are plenty of cheap virtual machine providers - you can fire up
+a VM with any OS image you want, install some software and play with
+setting until you're satisfied. I do it all the time.
 
-My setup is opeSUSE12.3 sitting between the LAN users and the ISP. Users 
-on the LAN are in the private domain 'stansfield' and bind on Suse sorts 
-out the local naming / connections. [IP masquerading is up and running 
-for comms with the ISP]
+You can even set up a VPN to your network if you want to test how it
+will work there before putting your solution to operation.
 
-Clearly machine1.stansfield can't exist in the real world, so sendmail 
-is set to masquerade the domain in the 'From' header, has localhost and 
-stansfield as domains for local delivery, and masquerades local domains.
+As for email itself, it could be a bit tricker than for anything
+else, because you need those pesky MX records and stuff. When I am
+testing some new email 'trick' I usually create a subdomain within
+the domain I control, set all the records (MX, TXT/SPF) and then
+experiment with settings until I get it working, than simply
+implement it in the same way on the target domain.
 
-Could this be why ' mlmmj isn't actually engaging the sendmail MTA,'? 
-Perhaps it is, but they are not talking nicely and sendmail is doing a 
-return to sender type of thing.
+I don't want to turn this email into an advertisement, so if your're
+interested is specific providers, mail me directly - just solve
+the little puzzle from the signature :-)
 
-Red herring, or getting closer to the mark? I don't have a test machine 
-at present to work on - and clearly can't mess with the sendmail config 
-on the operational server!
+P.
 
-Regards,
-Geoff
+-- 
+Piotr "Malgond" Auksztulewicz                     firstname@lastname.net
 
