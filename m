@@ -1,97 +1,89 @@
-From: Ben Schmidt <mail_ben_schmidt@yahoo.com.au>
-Date: Fri, 21 Nov 2014 21:26:58 +0000
+From: Joe Eaves <joe@right2.org>
+Date: Sat, 22 Nov 2014 16:41:11 +0000
 Subject: Re: [mlmmj] Help setting up my first mailing list
-Message-Id: <546FAE22.2010908@yahoo.com.au>
+Message-Id: <2C648E6D-DE49-4BB9-B062-F2C4878B31C6@right2.org>
+MIME-Version: 1
+Content-Type: multipart/mixed; boundary="Apple-Mail=_DAB85B00-2F14-4441-BD40-1658544A36E5"
 List-Id: <mlmmj.mlmmj.org>
 References: <9EC4CE90-6B36-4C12-B02D-1E9328EBBD77@right2.org>
 In-Reply-To: <9EC4CE90-6B36-4C12-B02D-1E9328EBBD77@right2.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
 To: mlmmj@mlmmj.org
 
-Hi!
 
-The "No such file or directory" is a known red herring.
+--Apple-Mail=_DAB85B00-2F14-4441-BD40-1658544A36E5
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain;
+	charset=windows-1252
 
-I do think it's the ^M.
+On 21 Nov 2014, at 21:26, Ben Schmidt <mail_ben_schmidt@yahoo.com.au> =
+wrote:
 
-Suspect Haraka doesn't convert the CRLF line endings in SMTP to unix LF-onl=
-y line=20
-endings before piping to external programs as other MTAs do. Looks like som=
-e parts=20
-of Mlmmj cope with this and other parts don't.
+> I do think it's the ^M.
+>=20
+> Suspect Haraka doesn't convert the CRLF line endings in SMTP to unix =
+LF-only line endings before piping to external programs as other MTAs =
+do. Looks like some parts of Mlmmj cope with this and other parts don't.
 
-Try piping the mail through tr(1) to filter out the CRs and see if it works:
+Thanks for the swift reply Ben, you were right about the line endings I =
+now having a working mailing list!
 
-|tr -d '\r' | /bin/mlmmj-receive -L /opt/mlmmj/mylist/
+> Try piping the mail through tr(1) to filter out the CRs and see if it =
+works:
+>=20
+> |tr -d '\r' | /bin/mlmmj-receive -L /opt/mlmmj/mylist/
+>=20
+> If it doesn't like the pipe in aliases, try making a script that does =
+the piping and referring to that in aliases rather than mlmmj-receive =
+directly.
 
-If it doesn't like the pipe in aliases, try making a script that does the p=
-iping=20
-and referring to that in aliases rather than mlmmj-receive directly.
+Great suggestions, but Haraka had it all in hand.
 
-Cheers,
+The code that does the pipe to external commands is a plugin for Haraka =
+that I wrote myself[1]. The interface for using the content of an email =
+in Haraka is a stream and it takes the following option:
 
-Ben.
+* line_endings (default: "\r\n")
+
+All I had to do was pass "\n" as the value for that option and all was =
+solved :)
+
+Thanks again!
+
+Joe
+
+[1] =
+https://github.com/Joeasaurus/nuxMail/blob/master/plugins/jme.queue.pipe_c=
+ommand.js
+
+--
+:wq!
 
 
+--Apple-Mail=_DAB85B00-2F14-4441-BD40-1658544A36E5
+Content-Transfer-Encoding: 7bit
+Content-Disposition: attachment;
+	filename=signature.asc
+Content-Type: application/pgp-signature;
+	name=signature.asc
+Content-Description: Message signed with OpenPGP using GPGMail
 
-On 22/11/14 4:42 AM, Joe Eaves wrote:
-> Hi guys,
->
-> I'm having some trouble setting up a mailing list with mlmmj, I'm running=
- 1.2.18.1 from the EPEL repo on CentOS 7. I have set my smtp server to pipe=
- emails destined for the mailing list as so:
->
-> |/bin/mlmmj-receive -L /opt/mlmmj/mylist/
->
-> Everything seems to be going well, the email is received, but then I get =
-errors when it tries to send a reply. The log looks as follows:
->
-> /bin/mlmmj-process[6791]: mlmmj-process.c:828: Found To: right2-general@r=
-ight2.org: Success
-> /bin/mlmmj-send[6791]: mlmmj-send.c:925: Could not prepare headers: No su=
-ch file or directory
->
-> The only info I can find in the list directory is a file in the queue dir=
-ectory which seems to be the version of my email that the list is supposed =
-to receive. It has the following headers:
->
-> Envelope-To: <right2-general@right2.org>
-> Authentication-Results: email.right2.org; ; ^M
-> Received: from email.right2.org (garum.right2.org [178.62.6.212])^M
->          by email.right2.org (Haraka/2.5.0) with ESMTP id F4EF895C-E9E9-4=
-43D-8D34-81EB88DF501C.1^M
->          envelope-from <joe@right2.org>;^M
->          Fri, 21 Nov 2014 17:39:47 +0000^M
-> Received: (Haraka outbound); Fri, 21 Nov 2014 17:39:46 +0000^M
-> Received: from [192.168.33.137] (212.44.18.254.ip.redstone-isp.net [212.4=
-4.18.254])^M
->          by email.right2.org (Haraka/2.5.0) with ESMTPSA id 770D3771-B9E8=
--48BA-B1EF-CD8161FC9183.1^M
->          envelope-from <joe@right2.org> (authenticated bits=3D0)^M
->          (version=3DTLSv1/SSLv3 cipher=AES128-SHA verify=FAIL);^M
->          Fri, 21 Nov 2014 17:39:46 +0000^M
-> From: Joe Eaves <joe@right2.org>^M
-> Content-Type: text/plain; charset=3Dus-ascii^M
-> Content-Transfer-Encoding: 7bit^M
-> Subject: [Right2] -general- Hi^M
-> Message-Id: <79939293-967A-4149-A48F-DAAF9FEA6D09@right2.org>^M
-> Date: Fri, 21 Nov 2014 17:39:45 +0000^M
-> To: "right2-general@right2.org" <right2-general@right2.org>^M
-> X-Mailinglist: right2-general
-> Reply-To: right2-general@right2.org
-> Mime-Version: 1.0 (Mac OS X Mail 6.6 \(1510\))^M
-> X-Mailer: Apple Mail (2.1510)^M
->
-> Any ideas? The ^M worries me but I don't know if it's a major issue? Mayb=
-e I'm missing a header?
->
-> Cheers,
->
-> Joe
->
-> --
-> :wq!
->
+-----BEGIN PGP SIGNATURE-----
+Comment: GPGTools - https://gpgtools.org
+
+iQIcBAEBCgAGBQJUcLynAAoJEPHx7tTUAhHxp9gQALmWrb7VcBMn5OBZ/MifkS89
+HeMrfZR1479T2vOoJUnCS69yiNlNiI9n0rkpgLhduK4ej1lW2rCNGY2M9sMq8DH2
+1YFUOvJl9BmP9wo4toA17EbhWqYjHoN/Q02dyRwzsCq1wDEvpUYJLGFHGLYT90ic
+ui79GILKpIFoyhz1Y+OxW2XH9qOVv5OxYNKyoCisbklsx+2l2KK17dAG/Dh8T/Z/
+Vp1MJStcU0h0s1fkbsIAIpML27H6QdC1nDe/j+5fQrZuV8GWG1teKhwxz0yDao6L
+ZF/OlM/dR5+hvg+7fW6kxENkmJsGaSgMuFk4gfdLNwuK/2ODfV141uvZ+P2TvPKK
+WgsOYLiDibenxezJ2xBWsJAgYdYv5zo+rRq+mHwBSKe9V1JZjNFTp7YNJljv3arb
+Oub3GAZuu7L4PHqQ8eSxEoKvUcTWxN5phfcS9piSXP2UJRExKmvqh57464dRJiPk
+WBT+QLsPGbe6K6szKJIv6N+svBcB4ad/dBaaldu3fIFzXEU43YuSjNqj58KG8Zgr
+T0SH4Z8mQa5b6RgopMbKVd8oHMP3k7Olb8HF+AbqhJtTOgn12GEDyyFaL+D1o2SC
+eYFHjO2KuJK1pQlCrzCoZo7nUhwwsvqIWH8htdsCrKrWLJwUblhXR/NKn7yYz6IH
+EDJcHo6iWh5jdmfmLn8M
+=6oLn
+-----END PGP SIGNATURE-----
+
+--Apple-Mail=_DAB85B00-2F14-4441-BD40-1658544A36E5--
 
