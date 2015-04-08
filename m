@@ -1,7 +1,7 @@
-From: Christian Gleerup <cromozon@swn.nu>
-Date: Wed, 08 Apr 2015 05:48:24 +0000
+From: Chris Knadle <Chris.Knadle@coredump.us>
+Date: Wed, 08 Apr 2015 06:16:19 +0000
 Subject: Re: [mlmmj] Setup access rule to only allow single sender IP
-Message-Id: <mdj3zx.nmh44p.30mp3l-qmf@mail.itoverblik.dk>
+Message-Id: <5524C7B3.6090004@coredump.us>
 List-Id: <mlmmj.mlmmj.org>
 References: <20150407222757.3cea20fa@chg-trisquel>
 In-Reply-To: <20150407222757.3cea20fa@chg-trisquel>
@@ -10,24 +10,36 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-SGkgQ2hyaXMNCg0KVGhlIGNvbXB1dGVyIHRoYXQgdGhlIG1haWwgaXMgd3JpdHRlbiBmcm9tIGNh
-biBiZSBkaWZmZXJlbnQsICBidXQgdGhleSBhcmUgc2VuZCBmcm9tIGEgd2VibWFpbCBjbGllbnQs
-IGFzIGZhciBhcyBpIGNhbiBzZWUsIGl0IGRvZXMgbm90IGVtYmVkIHRoZSBpcCBpbiB0aGUgZW1h
-aWwgaGVhZGVyLiANCg0KU28gaSB3YXMgd29uZGVyaW5nIGlmIGl0IGNvdWxkIGJlIHNlZW4gaW4g
-c29tZSBvdGhlciB3YXk/IA0KDQoNCkRlbiBvbnMuIGFwci4gOCAwMzozNDoxOCAyMDE1IEdNVCsw
-MjAwIHNrcmV2IENocmlzIEtuYWRsZToNCj4gT24gMDQvMDcvMjAxNSAwNDoyNyBQTSwgQ2hyaXN0
-aWFuIEdsZWVydXAgd3JvdGU6DQo+ID4gSGVsbG8gbGlzdC4NCj4gPiANCj4gPiBJIGhhdmUgYSBu
-ZXdzbGV0dGVyIHdoZXJlIG9ubHkgb25lIGlzIGFsbG93ZWQgdG8gc2VuZCBvdXQgZW1haWxzLA0K
-PiA+IGN1cnJlbnRseSBJIGhhdmUgYSBydWxlIGluIHRoZSBhY2Nlc3MgZmlsZSB0aGF0IG9ubHkg
-YWxsb3dzIGVtYWlscw0KPiA+IHdoZXJlIHRoZSBmcm9tIGhlYWRlciBjb3JyZXNwb25kcyB0byB0
-aGUgY29ycmVjdCBzZW5kZXIgZW1haWwuDQo+ID4gDQo+ID4gYnV0IEkgY2FuIHNlZSB0aGVyZSBh
-cmUgc29tZSBhdHRlbXB0cyB0byBhYnVzZSB0aGUgbGlzdCwgc28gSSB3b3VsZA0KPiA+IGxpa2Ug
-dG8gYWRkIGEgbGltaXQgb24gdGhlIElQIGFkcmVzcz8NCj4gPiANCj4gPiBJcyB0aGF0IHBvc3Np
-YmxlPyAoSSBhbSBub3Qgc3VyZSB0aGUgSVAgaXRzZWxmIGlzIHBhcnQgb2YgdGhlIGVtYWlsDQo+
-ID4gYWRkcmVzcykNCj4gDQo+IEkgaW1hZ2luZSB5b3UgY291bGQgZG8gc29tZXRoaW5nIGxpa2U6
-DQo+IA0KPiAgIGFsbG93IF5SZWNlaXZlZDogZnJvbSBtYWlsLml0b3ZlcmJsaWsuZGsgKFs4MS43
-LjE2Mi4xNzBdKQ0KPiANCj4gYXNzdW1pbmcgdGhhdCB0aGUgTVRBIHlvdSdyZSB1c2luZyBpbmNs
-dWRlcyB0aGUgc2VuZGluZyBJUCBhZGRyZXNzIGluDQo+IHRoZXNlIGhlYWRlcnMgKG1vc3QgZG8p
-Lg0KPiANCj4gICAgLS0gQ2hyaXMNCj4gDQo+IC0tIA0KPiBDaHJpcyBLbmFkbGUNCj4gQ2hyaXMu
-S25hZGxlQGNvcmVkdW1wLnVzDQo+IA0KPg=
+On 04/08/2015 01:48 AM, Christian Gleerup wrote:
+> Hi Chris
+> 
+> The computer that the mail is written from can be different,  but
+> they are send from a webmail client, as far as i can see, it does not
+> embed the ip in the email header.
+
+That's unusual.  Usually a webmail system would talk SMTP to the local
+MTA, thereby leaving a "Received:" mail header that would contain the
+connection IP address (even if it's localhost [127.0.0.1]).  Are you
+saying that even this isn't added to the header?
+
+> So i was wondering if it could be seen in some other way?
+
+Well if you're sending mail from a webmail system then the /web server/
+would be the only place that would know the connection IP address.  From
+there if the webmail system contacts the MTA, the MTA will only get the
+IP of the webmail system, not the originating IP connecting to webmail.
+
+It might be possible to write an ACL /in the MTA rules/ to do what you
+want here, but it would require the ACL to be able to parse the webmail
+logs, i.e. the webserver logs for webmail connections.  There are
+versions of Exim [such as exim4-daemon-heavy on Debian] which contain
+embedded Perl where you could write such a rule and use Perl regexes
+and so forth to match on an IP or a particular authenticated username...
+but all of this is dependent on what MTA you're using.
+
+   -- Chris
+
+-- 
+Chris Knadle
+Chris.Knadle@coredump.us
 
