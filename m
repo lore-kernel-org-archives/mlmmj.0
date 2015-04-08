@@ -1,7 +1,7 @@
-From: Chris Knadle <Chris.Knadle@coredump.us>
-Date: Wed, 08 Apr 2015 01:34:18 +0000
+From: Christian Gleerup <cromozon@swn.nu>
+Date: Wed, 08 Apr 2015 05:48:24 +0000
 Subject: Re: [mlmmj] Setup access rule to only allow single sender IP
-Message-Id: <5524859A.6080505@coredump.us>
+Message-Id: <mdj3zx.nmh44p.30mp3l-qmf@mail.itoverblik.dk>
 List-Id: <mlmmj.mlmmj.org>
 References: <20150407222757.3cea20fa@chg-trisquel>
 In-Reply-To: <20150407222757.3cea20fa@chg-trisquel>
@@ -10,29 +10,24 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-On 04/07/2015 04:27 PM, Christian Gleerup wrote:
-> Hello list.
-> 
-> I have a newsletter where only one is allowed to send out emails,
-> currently I have a rule in the access file that only allows emails
-> where the from header corresponds to the correct sender email.
-> 
-> but I can see there are some attempts to abuse the list, so I would
-> like to add a limit on the IP adress?
-> 
-> Is that possible? (I am not sure the IP itself is part of the email
-> address)
-
-I imagine you could do something like:
-
-  allow ^Received: from mail.itoverblik.dk ([81.7.162.170])
-
-assuming that the MTA you're using includes the sending IP address in
-these headers (most do).
-
-   -- Chris
-
--- 
-Chris Knadle
-Chris.Knadle@coredump.us
+SGkgQ2hyaXMNCg0KVGhlIGNvbXB1dGVyIHRoYXQgdGhlIG1haWwgaXMgd3JpdHRlbiBmcm9tIGNh
+biBiZSBkaWZmZXJlbnQsICBidXQgdGhleSBhcmUgc2VuZCBmcm9tIGEgd2VibWFpbCBjbGllbnQs
+IGFzIGZhciBhcyBpIGNhbiBzZWUsIGl0IGRvZXMgbm90IGVtYmVkIHRoZSBpcCBpbiB0aGUgZW1h
+aWwgaGVhZGVyLiANCg0KU28gaSB3YXMgd29uZGVyaW5nIGlmIGl0IGNvdWxkIGJlIHNlZW4gaW4g
+c29tZSBvdGhlciB3YXk/IA0KDQoNCkRlbiBvbnMuIGFwci4gOCAwMzozNDoxOCAyMDE1IEdNVCsw
+MjAwIHNrcmV2IENocmlzIEtuYWRsZToNCj4gT24gMDQvMDcvMjAxNSAwNDoyNyBQTSwgQ2hyaXN0
+aWFuIEdsZWVydXAgd3JvdGU6DQo+ID4gSGVsbG8gbGlzdC4NCj4gPiANCj4gPiBJIGhhdmUgYSBu
+ZXdzbGV0dGVyIHdoZXJlIG9ubHkgb25lIGlzIGFsbG93ZWQgdG8gc2VuZCBvdXQgZW1haWxzLA0K
+PiA+IGN1cnJlbnRseSBJIGhhdmUgYSBydWxlIGluIHRoZSBhY2Nlc3MgZmlsZSB0aGF0IG9ubHkg
+YWxsb3dzIGVtYWlscw0KPiA+IHdoZXJlIHRoZSBmcm9tIGhlYWRlciBjb3JyZXNwb25kcyB0byB0
+aGUgY29ycmVjdCBzZW5kZXIgZW1haWwuDQo+ID4gDQo+ID4gYnV0IEkgY2FuIHNlZSB0aGVyZSBh
+cmUgc29tZSBhdHRlbXB0cyB0byBhYnVzZSB0aGUgbGlzdCwgc28gSSB3b3VsZA0KPiA+IGxpa2Ug
+dG8gYWRkIGEgbGltaXQgb24gdGhlIElQIGFkcmVzcz8NCj4gPiANCj4gPiBJcyB0aGF0IHBvc3Np
+YmxlPyAoSSBhbSBub3Qgc3VyZSB0aGUgSVAgaXRzZWxmIGlzIHBhcnQgb2YgdGhlIGVtYWlsDQo+
+ID4gYWRkcmVzcykNCj4gDQo+IEkgaW1hZ2luZSB5b3UgY291bGQgZG8gc29tZXRoaW5nIGxpa2U6
+DQo+IA0KPiAgIGFsbG93IF5SZWNlaXZlZDogZnJvbSBtYWlsLml0b3ZlcmJsaWsuZGsgKFs4MS43
+LjE2Mi4xNzBdKQ0KPiANCj4gYXNzdW1pbmcgdGhhdCB0aGUgTVRBIHlvdSdyZSB1c2luZyBpbmNs
+dWRlcyB0aGUgc2VuZGluZyBJUCBhZGRyZXNzIGluDQo+IHRoZXNlIGhlYWRlcnMgKG1vc3QgZG8p
+Lg0KPiANCj4gICAgLS0gQ2hyaXMNCj4gDQo+IC0tIA0KPiBDaHJpcyBLbmFkbGUNCj4gQ2hyaXMu
+S25hZGxlQGNvcmVkdW1wLnVzDQo+IA0KPg=
 
