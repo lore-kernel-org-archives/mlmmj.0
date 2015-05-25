@@ -1,56 +1,36 @@
-From: Achilleas Pipinellis <axilleas@axilleas.me>
-Date: Wed, 20 May 2015 08:38:43 +0000
-Subject: Re: [mlmmj] Duplicate e-mail entries in subscribers.d
-Message-Id: <555C4813.7080108@axilleas.me>
+From: Ben Schmidt <mail_ben_schmidt@yahoo.com.au>
+Date: Mon, 25 May 2015 22:16:47 +0000
+Subject: [mlmmj] Mlmmj 1.2.19.0 released
+Message-Id: <55639F4F.4010303@yahoo.com.au>
 List-Id: <mlmmj.mlmmj.org>
-References: <555B0FC3.6050907@axilleas.me>
-In-Reply-To: <555B0FC3.6050907@axilleas.me>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
------BEGIN PGP SIGNED MESSAGE-----
-Hash: SHA512
+Mlmmj 1.2.19.0 has been released. Find it on the downloads page 
+<http://mlmmj.org/downloads/>. It offers a small number of bug-fixes and 
+enhancements that have seen significant testing in production sites. These include:
 
-On 05/20/2015 01:57 AM, Ben Schmidt wrote:
-> Which version are you using? I think you may be encountering a
-> 1.2.18.0 bug that was fixed in 1.2.18.1:
-> 
-> 1.2.18.1 o Stop mlmmj-maintd deleting list posts while they are
-> being sent o Fix +list from crashing Mlmmj o Fix bug that made
-> double subscription possible
-> 
-> Note that the first item there was a bug that could cause mail to
-> be lost, so if you're running 1.2.18.0 you are strongly encouraged
-> to upgrade (you may like to wait for 1.2.19.0 to be released in a
-> week or two).
-> 
-> Ben.
-> 
+- Ensuring OpenSMTPD sends 8-bit mail so it works with non-ASCII mail
+- Improved handling of non-ASCII mail and long headers
+- Tunable for moderation request lifetime
+- Fix relayhost and related tunables which didn't work in some circumstances
 
-I see, thanks! Indeed I'm running 1.2.18.0-2 on Debian Wheezy. Jessie
-has 1.2.18.1-1 already, so I will either upgrade the whole system or
-use apt pinning I guess.
+Slightly more detail may be found in the ChangeLog 
+<http://mlmmj.org/hg/mlmmj/file/RELEASE_1_2_19_0/ChangeLog>.
+
+Apart from fixed bugs, this release is compatible with 1.2.18.
+
+I don't anticipate too long a delay before preparing a pre-release distribution of 
+1.2.20. I will use the bug-tracker <http://mlmmj.org/bugs/> as a guide to 
+prioritise development. If there is something you would like to see in Mlmmj 
+(fixed or added), please ensure it is included there, and vote for it.
+
+Thanks for your support.
+
+Ben.
 
 
-- -- 
-GPG : 0x3A7DDABC985EDC6E
-Blog: http://axilleas.me
------BEGIN PGP SIGNATURE-----
 
-iQIcBAEBCgAGBQJVXEgDAAoJEBTqGDGsMtXMdzEQAMZwT2ynQeAGMBKaoAaOrjm0
-5SwBMex//am+kXswk/uAfpmp0Gql9MU5T3haouzf5skqjFFADm/xq85tI97YuJcz
-gYJw6mIS4znJQxQeJuIxCyOKjlLs6EajTVUx/e6QtVAed7xwL+L01prIRB+SQEqV
-9NYrTfyPDt9/6E9MSZGUJHngSHPkWgBSJEDj7yC9FwFYVGPGYvyU1SqoQvEgBkpG
-Oiqxj/TS1LOB9+0olt4PU9DFGy/xaStBXyFx6KizuJAkvUqtorECyhMUVvJ3bTz8
-C2k2jWXxDu8XL4IVoHH2Dm3qQf0mJzDLrS+xndw1tqxNPgNSl/5N5LelqQosEDsk
-bIawiCry8n8L9LB0fIA6oWzeln/HyX0fhCF608ccyk56jcrLITNo0WAp1JdsywNk
-NGU9c/t2jir+ZIm2pFycPvtsZa5k+dqIIXxexancx7IFpfXB7MDtYc3wbRMnd2ei
-voZAvZxi0IJZK2aqTnwkynd624f3vWNgvvXszYPwssQ6/OrcdYMXI6uj0KsL/n1X
-mj+qXE0fJZ+SUnPHFu0d7L4A8gP910rqCix/LpfTIQvWVLclAZC4jrqs9b88sOkm
-WPnYq7RGjvaynzDh3eFmBEJuq3uSN6eWVZ19bRyD+DRe7S86SWpkODzGUebCDHd5
-gh1Ok8uRdRaEZWVR4VFe
-=SM4Z
------END PGP SIGNATURE-----
 
