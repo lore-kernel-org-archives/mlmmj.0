@@ -1,36 +1,58 @@
-From: Ben Schmidt <mail_ben_schmidt@yahoo.com.au>
-Date: Mon, 25 May 2015 22:16:47 +0000
-Subject: [mlmmj] Mlmmj 1.2.19.0 released
-Message-Id: <55639F4F.4010303@yahoo.com.au>
+From: Marc Delpont <m.delpont@firstweb.fr>
+Date: Fri, 26 Jun 2015 14:05:26 +0000
+Subject: [mlmmj] New tunable for newsletter style list
+Message-Id: <558D5C26.9030701@firstweb.fr>
+MIME-Version: 1
+Content-Type: multipart/mixed; boundary="------------020300030902040603040703"
 List-Id: <mlmmj.mlmmj.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Mlmmj 1.2.19.0 has been released. Find it on the downloads page 
-<http://mlmmj.org/downloads/>. It offers a small number of bug-fixes and 
-enhancements that have seen significant testing in production sites. These include:
+--------------020300030902040603040703
+Content-Type: text/plain; charset="utf-8"; format=flowed
+Content-Transfer-Encoding: 7bit
 
-- Ensuring OpenSMTPD sends 8-bit mail so it works with non-ASCII mail
-- Improved handling of non-ASCII mail and long headers
-- Tunable for moderation request lifetime
-- Fix relayhost and related tunables which didn't work in some circumstances
+Hi,
 
-Slightly more detail may be found in the ChangeLog 
-<http://mlmmj.org/hg/mlmmj/file/RELEASE_1_2_19_0/ChangeLog>.
+It would be good to have a tunable like "modonlypost" that allows only 
+moderators to post to the list, the same way that "subonlypost" allows 
+posting only to subscribers.
 
-Apart from fixed bugs, this release is compatible with 1.2.18.
+The list could then be used as a newsletter list, rejecting all posts 
+except from moderators, and sending to all subscribers.
 
-I don't anticipate too long a delay before preparing a pre-release distribution of 
-1.2.20. I will use the bug-tracker <http://mlmmj.org/bugs/> as a guide to 
-prioritise development. If there is something you would like to see in Mlmmj 
-(fixed or added), please ensure it is included there, and vote for it.
+Thanks for this really usefull and easy to install application !
 
-Thanks for your support.
-
-Ben.
+Marc
 
 
 
+--------------020300030902040603040703
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <head>
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  </head>
+  <body bgcolor="#FFFFFF" text="#000000">
+    <font size="2">Hi,<br>
+      <br>
+      It would be good to have a tunable like "modonlypost" that allows
+      only moderators to post to the list, the same way that
+      "subonlypost" allows posting only to subscribers.<br>
+      <br>
+      The list could then be used as a newsletter list, rejecting all
+      posts except from moderators, and sending to all subscribers.<br>
+      <br>
+      Thanks for this really usefull and easy to install application !<br>
+      <br>
+      Marc<br>
+      <br>
+      <br>
+    </font>
+  </body>
+</html>
+
+--------------020300030902040603040703--
 
