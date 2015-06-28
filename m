@@ -1,58 +1,37 @@
-From: Marc Delpont <m.delpont@firstweb.fr>
-Date: Fri, 26 Jun 2015 14:05:26 +0000
-Subject: [mlmmj] New tunable for newsletter style list
-Message-Id: <558D5C26.9030701@firstweb.fr>
-MIME-Version: 1
-Content-Type: multipart/mixed; boundary="------------020300030902040603040703"
+From: Ori Bernstein <ori@eigenstate.org>
+Date: Sun, 28 Jun 2015 23:13:07 +0000
+Subject: [mlmmj] Archive Script
+Message-Id: <20150628161307.c0621e23d727de511625d531@eigenstate.org>
 List-Id: <mlmmj.mlmmj.org>
-To: mlmmj@mlmmj.org
-
---------------020300030902040603040703
-Content-Type: text/plain; charset="utf-8"; format=flowed
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+To: mlmmj@mlmmj.org
 
 Hi,
 
-It would be good to have a tunable like "modonlypost" that allows only 
-moderators to post to the list, the same way that "subonlypost" allows 
-posting only to subscribers.
+I've been happily running mlmmj for my own stuff for the last while, but
+wasn't happy with the scripts for generating archives, so I wrote my own.
+You can look at it here:
 
-The list could then be used as a newsletter list, rejecting all posts 
-except from moderators, and sending to all subscribers.
+    http://git.eigenstate.org/ori/mkarchive.git/
 
-Thanks for this really usefull and easy to install application !
+This is kind of hacky, but, it does the job:
 
-Marc
+    - Written in Python
+    - Generates static pages
+    - Works well enough.
 
+To run it, I have this in my crontab;
 
+    $INSTALL_DIR/mkarchive.py -m $MLMMJ_SPOOL -o $WEBDIR -c $MHONARC_CONFIG
 
---------------020300030902040603040703
-Content-Type: text/html; charset="utf-8"
-Content-Transfer-Encoding: 7bit
+The main thing I'd change if I cared enough would be to switch the
+index generation away from hardcoded, and move it to a template or
+soemthing.
 
-<html>
-  <head>
+If anyone finds it useful, that would be cool.
 
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  </head>
-  <body bgcolor="#FFFFFF" text="#000000">
-    <font size="2">Hi,<br>
-      <br>
-      It would be good to have a tunable like "modonlypost" that allows
-      only moderators to post to the list, the same way that
-      "subonlypost" allows posting only to subscribers.<br>
-      <br>
-      The list could then be used as a newsletter list, rejecting all
-      posts except from moderators, and sending to all subscribers.<br>
-      <br>
-      Thanks for this really usefull and easy to install application !<br>
-      <br>
-      Marc<br>
-      <br>
-      <br>
-    </font>
-  </body>
-</html>
-
---------------020300030902040603040703--
+-- 
+    Ori Bernstein
 
