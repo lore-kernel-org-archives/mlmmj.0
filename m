@@ -1,60 +1,69 @@
-From: Chris Knadle <Chris.Knadle@coredump.us>
-Date: Wed, 07 Oct 2015 16:27:51 +0000
-Subject: Re: [mlmmj] address duplication in subscribers list
-Message-Id: <56154807.6020808@coredump.us>
+From: "Christian Gleerup" <cromozon@swn.nu>
+Date: Mon, 23 Nov 2015 22:08:19 +0000
+Subject: Re[2]: [mlmmj] Configuration problems using mlmmj+postfix
+Message-Id: <02b18adf31d229fc17a1b9015444850b@swn.nu>
 List-Id: <mlmmj.mlmmj.org>
-References: <56124C29.3080502@firstweb.fr>
-In-Reply-To: <56124C29.3080502@firstweb.fr>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 To: mlmmj@mlmmj.org
 
-Marc Delpont:
-> A. Schulze  :
->>
->> using the latest package from $os-vendor does not mean using the current
->> version:
->>
->> http://mlmmj.org/hg/mlmmj/file/RELEASE_1_2_19_0/ChangeLog#l11
->>
->> Andreas
->>
+
+Good question, 
+there is 'something' at port 25, here is the output
+
+
+sudo netstat -nltp
+Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name
+tcp        0      0 0.0.0.0:111             0.0.0.0:*               LISTEN      490/rpcbind
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      517/sshd
+tcp        0      0 0.0.0.0:25              0.0.0.0:*               LISTEN      1135/master
+tcp        0      0 0.0.0.0:39048           0.0.0.0:*               LISTEN      499/rpc.statd
+tcp        0      0 127.0.0.1:3306          0.0.0.0:*               LISTEN      10910/mysqld
+tcp6       0      0 :::111                  :::*                    LISTEN      490/rpcbind
+tcp6       0      0 :::80                   :::*                    LISTEN      13443/apache2
+tcp6       0      0 :::22                   :::*                    LISTEN      517/sshd
+tcp6       0      0 :::25                   :::*                    LISTEN      1135/master
+tcp6       0      0 :::443                  :::*                    LISTEN      13443/apache2
+tcp6       0      0 :::56747                :::*                    LISTEN      499/rpc.statd
+
+
+
+Kind regards and thanks
+Christian Gleerup
+
+
+-----Original Message----- 
+> From: "Morten Shearman Kirkegaard" <moki@fabletech.com> 
+> To: mlmmj@mlmmj.org 
+> Date: 23/11/2015 20:49 
+> Subject: Re: [mlmmj] Configuration problems using mlmmj+postfix 
 > 
-> Thanks for this precision !
+> Hi Christian,
 > 
-> I was just pointing out that the penultimate revision of the last version
-> can't seriously be considered as an "old" version.
+> On 2015-11-23 at 19:20:38 +0100, Christian Gleerup wrote:
+> > I have some problems getting mlmmj to send mails out, and I don't know
+> > where to look, so I hope you can help me.
+> > 
+> > I have the following clues
+> > In /var/log/mail.err
+> > Nov 23 16:00:01 Lists /usr/local/bin/mlmmj-send[21648]:
+> > init_sockfd.c:56: Could not connect to 127.0.0.1: Connection refused
+> 
+> By default mlmmj uses 127.0.0.1 as relay host, when sending mails. It
+> appears that you don't have an SMTP server listening there.
+> 
+> Does the following command (assuming you're on Linux) show an SMTP
+> daemon?
+> 
+> $ netstat -nltp
+> 
+> Kind regards,
+> Morten
+> 
+> 
+> 
+> 
 
-That depends on your point of view.  Your report was "hey this is broken",
-but it's been fixed "upstream" more than a year ago and Debian *Oldstable*
-(Wheezy) version doesn't have the fix.  From that point of view, Debian
-Oldstable's version is old.  Debian Stable (Jessie), Testing (Stretch) and
-Unstable (Sid) all have mlmmj 1.2.8.1-1 which should have the fix.
-
-It is possible to fix in Debian Stable and Oldstable, but the rules for
-those releases is that they can only get *important* fixes, not new
-versions... so to fix this someone would need to come up with the minimal
-patch required to fix the bug and submit it to a bug report.  Then the
-maintainer could upload that fix as "mlmmj-1.2.8-1+deb8u1" to a
-pending-proposed-updates repository, which will then get incorporated into
-the distribution on the next "point release" of that distribution.  (Usually
-every 3 months or so.)  I don't think this particular bug would be
-considered worth going through all this.
-
-The easiest way around all this would be to backport the package for Wheezy
-and put it into an external repository.  I just did this (because I'm
-likewise running mlmmj on Wheezy), so if you want it, it's available here:
-
-   http://debian-packages.coredump.us
-
-direct link if you just want the .deb files than to add the repo:
-
-   http://debian-packages.coredump.us/debian/pool/main/m/mlmmj/
-
-  -- Chris
-
--- 
-Chris Knadle
-Chris.Knadle@coredump.us
 
