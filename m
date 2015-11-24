@@ -1,7 +1,7 @@
 From: "Christian Gleerup" <cromozon@swn.nu>
-Date: Tue, 24 Nov 2015 07:45:07 +0000
+Date: Tue, 24 Nov 2015 09:10:53 +0000
 Subject: Re[2]: [mlmmj] Configuration problems using mlmmj+postfix
-Message-Id: <4ce322e7d195df0799d97db012cc3eee@swn.nu>
+Message-Id: <30c5c1b7a280ecf9519d47f119345c6f@swn.nu>
 List-Id: <mlmmj.mlmmj.org>
 References: <02b18adf31d229fc17a1b9015444850b@swn.nu>
 In-Reply-To: <02b18adf31d229fc17a1b9015444850b@swn.nu>
@@ -10,47 +10,32 @@ Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 To: mlmmj@mlmmj.org
 
+Hi Morten,
 
-you are right, the port is overridden in 
-
-
-/etc/mlmmj/nyhedsbrev/control/smtpport
-
-
-the old server must have listened to port 10025. 
-would you recomend me just changing it to 25? Or should I change postfix and the firewall to listen to 10025
-
-
-Ohh and one more thing,
-when I change the configuration, and the configuration is right so Things start working. 
-I would like to be sure the old mails are 'not' send, since they are only relevant for one day (newsletter)
-should I just empty the /var/spool/mlmmj/nyhedsbrev/queue using the commandline or should i use some mlmmj command?
-
-
-kind regards
-Christian Gleerup
-
-
+postfix responds to telnet, so that seems correct.
 -----Original Message----- 
-> From: "Piotr Auksztulewicz" <mlmmj-listrcpt@hasiok.net> 
+> From: "Morten Shearman Kirkegaard" <moki@fabletech.com> 
 > To: mlmmj@mlmmj.org 
-> Date: 24/11/2015 04:18 
+> Date: 24/11/2015 09:18 
 > Subject: Re: [mlmmj] Configuration problems using mlmmj+postfix 
 > 
-> On Mon, Nov 23, 2015 at 11:08:19PM +0100, Christian Gleerup wrote:
+> Hi Christian,
+> 
+> On 2015-11-23 at 23:08:19 +0100, Christian Gleerup wrote:
 > > Good question,
 > > there is 'something' at port 25, here is the output
+> ...
+> > tcp        0      0 0.0.0.0:25              0.0.0.0:*               LISTEN      1135/master
 > 
-> I had a quick look at the code, are you sure you are not overriding the
-> port in the control/smtpport setting for your list? Also, there's
-> a "secret" MLMMJ_TESTING environment variable which overrrides the port
-> to 10025 :-)
+> So, Postfix *is* listening on TCP/25. Can you telnet to 127.0.0.1 25 ?
 > 
-> -- 
-> Piotr "Malgond" Auksztulewicz                     firstname@lastname.net
-> 
+> Kind regards,
+> Morten
 > 
 > 
 > 
+> 
+
+
 
 
