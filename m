@@ -1,66 +1,53 @@
 From: "Christian Gleerup" <cromozon@swn.nu>
-Date: Mon, 23 Nov 2015 22:08:19 +0000
+Date: Tue, 24 Nov 2015 07:45:07 +0000
 Subject: Re[2]: [mlmmj] Configuration problems using mlmmj+postfix
-Message-Id: <02b18adf31d229fc17a1b9015444850b@swn.nu>
+Message-Id: <4ce322e7d195df0799d97db012cc3eee@swn.nu>
 List-Id: <mlmmj.mlmmj.org>
+References: <02b18adf31d229fc17a1b9015444850b@swn.nu>
+In-Reply-To: <02b18adf31d229fc17a1b9015444850b@swn.nu>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 To: mlmmj@mlmmj.org
 
 
-Good question, 
-there is 'something' at port 25, here is the output
+you are right, the port is overridden in 
 
 
-sudo netstat -nltp
-Active Internet connections (only servers)
-Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name
-tcp        0      0 0.0.0.0:111             0.0.0.0:*               LISTEN      490/rpcbind
-tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      517/sshd
-tcp        0      0 0.0.0.0:25              0.0.0.0:*               LISTEN      1135/master
-tcp        0      0 0.0.0.0:39048           0.0.0.0:*               LISTEN      499/rpc.statd
-tcp        0      0 127.0.0.1:3306          0.0.0.0:*               LISTEN      10910/mysqld
-tcp6       0      0 :::111                  :::*                    LISTEN      490/rpcbind
-tcp6       0      0 :::80                   :::*                    LISTEN      13443/apache2
-tcp6       0      0 :::22                   :::*                    LISTEN      517/sshd
-tcp6       0      0 :::25                   :::*                    LISTEN      1135/master
-tcp6       0      0 :::443                  :::*                    LISTEN      13443/apache2
-tcp6       0      0 :::56747                :::*                    LISTEN      499/rpc.statd
+/etc/mlmmj/nyhedsbrev/control/smtpport
 
 
+the old server must have listened to port 10025. 
+would you recomend me just changing it to 25? Or should I change postfix and the firewall to listen to 10025
 
-Kind regards and thanks
+
+Ohh and one more thing,
+when I change the configuration, and the configuration is right so Things start working. 
+I would like to be sure the old mails are 'not' send, since they are only relevant for one day (newsletter)
+should I just empty the /var/spool/mlmmj/nyhedsbrev/queue using the commandline or should i use some mlmmj command?
+
+
+kind regards
 Christian Gleerup
 
 
 -----Original Message----- 
-> From: "Morten Shearman Kirkegaard" <moki@fabletech.com> 
+> From: "Piotr Auksztulewicz" <mlmmj-listrcpt@hasiok.net> 
 > To: mlmmj@mlmmj.org 
-> Date: 23/11/2015 20:49 
+> Date: 24/11/2015 04:18 
 > Subject: Re: [mlmmj] Configuration problems using mlmmj+postfix 
 > 
-> Hi Christian,
+> On Mon, Nov 23, 2015 at 11:08:19PM +0100, Christian Gleerup wrote:
+> > Good question,
+> > there is 'something' at port 25, here is the output
 > 
-> On 2015-11-23 at 19:20:38 +0100, Christian Gleerup wrote:
-> > I have some problems getting mlmmj to send mails out, and I don't know
-> > where to look, so I hope you can help me.
-> > 
-> > I have the following clues
-> > In /var/log/mail.err
-> > Nov 23 16:00:01 Lists /usr/local/bin/mlmmj-send[21648]:
-> > init_sockfd.c:56: Could not connect to 127.0.0.1: Connection refused
+> I had a quick look at the code, are you sure you are not overriding the
+> port in the control/smtpport setting for your list? Also, there's
+> a "secret" MLMMJ_TESTING environment variable which overrrides the port
+> to 10025 :-)
 > 
-> By default mlmmj uses 127.0.0.1 as relay host, when sending mails. It
-> appears that you don't have an SMTP server listening there.
-> 
-> Does the following command (assuming you're on Linux) show an SMTP
-> daemon?
-> 
-> $ netstat -nltp
-> 
-> Kind regards,
-> Morten
+> -- 
+> Piotr "Malgond" Auksztulewicz                     firstname@lastname.net
 > 
 > 
 > 
