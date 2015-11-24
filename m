@@ -1,26 +1,29 @@
 From: Morten Shearman Kirkegaard <moki@fabletech.com>
-Date: Tue, 24 Nov 2015 07:40:18 +0000
+Date: Tue, 24 Nov 2015 12:29:39 +0000
 Subject: Re: [mlmmj] Configuration problems using mlmmj+postfix
-Message-Id: <20151124074017.GA3414@europa.afdelingp.dk>
+Message-Id: <20151124122938.GA6104@europa.afdelingp.dk>
 List-Id: <mlmmj.mlmmj.org>
 References: <2814c8bd343523366b23a6289b918a5f@swn.nu>
 In-Reply-To: <2814c8bd343523366b23a6289b918a5f@swn.nu>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Hi Christian,
+On 2015-11-24 at 08:45:07 +0100, Christian Gleerup wrote:
+> you are right, the port is overridden in
+> 
+> /etc/mlmmj/nyhedsbrev/control/smtpport
+> 
+> the old server must have listened to port 10025.
+> would you recomend me just changing it to 25?
 
-On 2015-11-23 at 23:08:19 +0100, Christian Gleerup wrote:
-> Good question,
-> there is 'something' at port 25, here is the output
-...
-> tcp=A0=A0=A0=A0=A0=A0=A0 0=A0=A0=A0=A0=A0 0 0.0.0.0:25=A0=A0=A0=A0=A0=A0=
-=A0=A0=A0=A0=A0=A0=A0 0.0.0.0:*=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 L=
-ISTEN=A0=A0=A0=A0=A0 1135/master
+Yes, and you can do that by just removing the "smtpport" file.
 
-So, Postfix *is* listening on TCP/25. Can you telnet to 127.0.0.1 25 ?
+> should I just empty the /var/spool/mlmmj/nyhedsbrev/queue using the
+> commandline or should i use some mlmmj command?
+
+The command line is fine.
 
 Kind regards,
 Morten
