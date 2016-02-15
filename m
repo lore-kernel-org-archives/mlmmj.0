@@ -1,7 +1,7 @@
 From: Ben Schmidt <mail_ben_schmidt@yahoo.com.au>
-Date: Mon, 15 Feb 2016 22:21:36 +0000
+Date: Mon, 15 Feb 2016 23:18:29 +0000
 Subject: Re: [mlmmj] bounces-help and exim
-Message-Id: <56C24F70.2090008@yahoo.com.au>
+Message-Id: <56C25CC5.4030004@yahoo.com.au>
 List-Id: <mlmmj.mlmmj.org>
 References: <CAPcb_G+ZVfXtgD1UoxzaitRhyYtWN3ToYu0kC2XgWJjjE9Jrww@mail.gmail.com>
 In-Reply-To: <CAPcb_G+ZVfXtgD1UoxzaitRhyYtWN3ToYu0kC2XgWJjjE9Jrww@mail.gmail.com>
@@ -10,91 +10,95 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-(Forwarding reply to the list, as I accidentally took the conversation off-list 
-earlier.)
+>> I'm thinking that perhaps something is messed up with your delimiter,
+>> i.e. +bounces-help is being treated like +help (+bounces-help is the
+>> address used when + commands fail, like subscription, etc.).
+>>
+>> Do other + commands work, e.g. subscribing via email?
+>
+> All others work. Oh, I didn't realise +bounces-help should return what
+> +help does?
+>
+> Or should it?
 
-On 15/02/2016 9:28 pm, Gavin Henry wrote:
- > On 15 February 2016 at 05:38, Ben Schmidt
- > <mail_ben_schmidt@yahoo.com.au> wrote:
- >> Strange.
- >
- > Yes, very. Our smarthost company has blocked our domain for now as
- > it's creating tickets.
- >
- >> It looks like a regular help email, the type you would expect from
- >> sending an email to surevoip-service-status+help@lists.suretec.net but
- >> it's going to mailer-daemon@... as if mailer-daemon sent an email to
- >> that address.
- >
- > Yes, true.
- >
- >> I'm thinking that perhaps something is messed up with your delimiter,
- >> i.e. +bounces-help is being treated like +help (+bounces-help is the
- >> address used when + commands fail, like subscription, etc.).
- >>
- >> Do other + commands work, e.g. subscribing via email?
- >
- > All others work. Oh, I didn't realise +bounces-help should return what
- > +help does?
- >
- > Or should it?
- >
- >> What happens if you send an email to the help address (above) from an
- >> address at which you can receive replies?
- >
- > All + actions are fine.
- >
- >> What if you replace the '+' with a '-'?
- >
- > Fails:
- >
- > root@governor:~# exim -bt surevoip-service-status-bounces-help@lists.suretec.net
- > R: system_aliases for surevoip-service-status-bounces-help@lists.suretec.net
- > surevoip-service-status-bounces-help@lists.suretec.net is
- > undeliverable: Unrouteable address
- >
- >> Is there anything revealing in "mlmmj-operation.log"? There should be an
- >> "XXX requested help" line when help emails are sent out.
- >
- > Just matching lines saying mailer-daemon requested help, as below:
- >
- > root@governor:~# grep -r help /var/spool/mlmmj/surevoip-service-status/*
- >
- > Thu Feb 11 15:50:37 2016 Mailer-Daemon@gladserv.com requested help
- > Thu Feb 11 15:55:22 2016 Mailer-Daemon@gladserv.com requested help
- > Thu Feb 11 16:26:38 2016 Mailer-Daemon@gladserv.com requested help
- > Thu Feb 11 19:53:30 2016 Mailer-Daemon@gladserv.com requested help
- > Thu Feb 11 20:05:22 2016 Mailer-Daemon@gladserv.com requested help
- > Thu Feb 11 20:05:29 2016 Mailer-Daemon@gladserv.com requested help
- > Thu Feb 11 22:21:45 2016 Mailer-Daemon@gladserv.com requested help
- > Fri Feb 12 04:20:24 2016 Mailer-Daemon@gladserv.com requested help
- > Fri Feb 12 10:39:31 2016 gavin.henry@gmail.com requested help
- > Fri Feb 12 10:53:09 2016 gavin.henry@gmail.com requested help
- > Fri Feb 12 15:40:28 2016 Mailer-Daemon@gladserv.com requested help
- > Fri Feb 12 15:43:48 2016 Mailer-Daemon@gladserv.com requested help
- > Fri Feb 12 17:38:37 2016 Mailer-Daemon@gladserv.com requested help
- > Sat Feb 13 03:40:32 2016 Mailer-Daemon@gladserv.com requested help
- > Sat Feb 13 03:55:32 2016 Mailer-Daemon@gladserv.com requested help
- > Sat Feb 13 05:56:50 2016 Mailer-Daemon@gladserv.com requested help
- > Sat Feb 13 21:40:37 2016 Mailer-Daemon@gladserv.com requested help
- > Sat Feb 13 22:08:46 2016 Mailer-Daemon@gladserv.com requested help
- > Sun Feb 14 00:28:46 2016 Mailer-Daemon@gladserv.com requested help
- > Sun Feb 14 12:48:50 2016 Mailer-Daemon@gladserv.com requested help
- > Sun Feb 14 15:40:43 2016 Mailer-Daemon@gladserv.com requested help
- > Sun Feb 14 16:23:52 2016 Mailer-Daemon@gladserv.com requested help
- > Sun Feb 14 16:30:55 2016 Mailer-Daemon@gladserv.com requested help
- > Sun Feb 14 16:31:02 2016 Mailer-Daemon@gladserv.com requested help
- > Sun Feb 14 17:15:54 2016 Mailer-Daemon@gladserv.com requested help
- > Sun Feb 14 17:16:15 2016 Mailer-Daemon@gladserv.com requested help
- > Sun Feb 14 17:16:26 2016 Mailer-Daemon@gladserv.com requested help
- > Sun Feb 14 22:28:53 2016 Mailer-Daemon@gladserv.com requested help
- > Mon Feb 15 03:40:47 2016 Mailer-Daemon@gladserv.com requested help
- > Mon Feb 15 04:09:00 2016 Mailer-Daemon@gladserv.com requested help
- > Mon Feb 15 04:30:47 2016 Mailer-Daemon@gladserv.com requested help
- >
- > P.S. No updates for this year:
- >
- > http://mlmmj.org/archive/mlmmj/
- >
+No, it shouldn't. Mlmmj should process it as a bounced 'help' message
+(which could be one from +help or any other 'special' message Mlmmj
+sends out, such as a request to confirm a subscription, etc.).
+
+>> Is there anything revealing in "mlmmj-operation.log"? There should be an
+>> "XXX requested help" line when help emails are sent out.
+>
+> Just matching lines saying mailer-daemon requested help, as below:
+
+OK, that's good to know (along with your other diagnostics). It seems
+that +help is truly being addressed.
+
+Having looked through Mlmmj's source code and brainstormed, I think the
+problem lies with how your mail is sent to your smart host.
+
+Mlmmj sends subscription and unsubscription confirmation requests,
+acknowledgements and errors, as well as digests, with a "From:" header
+that is the list help address, but with an SMTP envelope-from that is
+the bounce address.
+
+It appears your mailer-daemon friend is, however, sending bounce
+messages to the "From:" header.
+
+No self-respecting MTA would do that, however.
+
+So, I'm guessing the way your setup works is that you have Exim relaying
+Mlmmj's outgoing messages. I suspect that it is saving the message to a
+queue, discarding the SMTP envelope-from, and then when it grabs the
+message out of the queue to deliver to your smart host, it is using the
+"From:" header as the SMTP envelope-from. If that address is
+undeliverable for any reason, your mailer-daemon friend sends a bounce
+back, unfortunately to the wrong place, due to the substitution of the
+"From:" header as the SMTP envelope-from. Mlmmj duly replies with the
+help message, which your smart host redirects to their service desk
+address.
+
+What Exim should be doing is adding a Return-Path header to record the
+SMTP envelope-from when it first accepts and queues the message, then
+when it grabs the message from the queue, it should remove the
+Return-Path header, but use its content for the SMTP envelope-from. Then
+your upstream smart host will be given the correct envelope-from, and
+bounces will go to the appropriate bounce address and be handled by
+Mlmmj (automatically unsubscribing bouncing addresses, removing
+confirmation bookkeeping for invalid addresses, etc.).
+
+There are probably Exim configuration options that can be used to
+achieve this. They're possibly off by default so that any user can't
+just manipulate the envelope from by putting a Return-Path header in
+their messages, potentially bypassing authentication which may
+ordinarily be used to set the envelope from. I found these pages which
+might help:
+
+- <http://stackoverflow.com/a/7047164/4785823>
+- 
+<http://www.exim.org/exim-html-current/doc/html/spec_html/ch-generic_options_for_transports.html>
+   (see return_path_add and possibly return_path)
+- 
+<http://www.exim.org/exim-html-current/doc/html/spec_html/ch-message_processing.html>
+   (see point 15)
+
+If you can get that working, I think things should settle down (and,
+indeed, improve, because bouncing addresses will be handled, rather than
+building up and making you look like a spammer).
+
+That is, of course, assuming all of my guesses are correct about what's
+going on here.
+
+> P.S. No updates for this year:
+>
+> http://mlmmj.org/archive/mlmmj/
+
+Yours was the first truly meaningful message of the year.
+
+:-)
+
+Ben
+
+
+
 
 
