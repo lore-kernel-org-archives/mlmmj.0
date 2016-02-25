@@ -1,47 +1,42 @@
 From: "Steffen (Daode) Nurpmeso" <steffen@sdaoden.eu>
-Date: Thu, 25 Feb 2016 15:38:29 +0000
-Subject: [mlmmj] [PATCH 4/6] listcontrol(): be aware that ctrlvalues() can return NULL
-Message-Id: <66f489ac3caecbe06fff91d6b1389e98db05272b.1456413512.git.steffen@sdaoden.eu>
+Date: Thu, 25 Feb 2016 15:38:25 +0000
+Subject: [mlmmj] A small set of patches (Was: Empty messages not delivered unless memorymailsize tunable set 
+Message-Id: <cover.1456413512.git.steffen@sdaoden.eu>
 List-Id: <mlmmj.mlmmj.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
----
- src/listcontrol.c | 19 ++++++++++---------
- 1 file changed, 10 insertions(+), 9 deletions(-)
+Hello Mr. Big Ben,
 
-diff --git a/src/listcontrol.c b/src/listcontrol.c
-index d0c2e14..0885573 100644
---- a/src/listcontrol.c
-+++ b/src/listcontrol.c
-@@ -886,15 +886,16 @@ permit:
- 		if(statctrl(listdir, "nolistsubsemail"))
- 			return -1;
- 		owner_idx = -1;
--		owners = ctrlvalues(listdir, "owner");
--		for(i = 0; i < owners->count; i++) {
--			if(strcasecmp(fromemails->emaillist[0],
--						owners->strs[i]) = 0) {
--				log_oper(listdir, OPLOGFNAME,
--						"%s requested sub list",
--				fromemails->emaillist[0]);
--				owner_idx = i;
--				break;
-+		if((owners = ctrlvalues(listdir, "owner")) != NULL){
-+			for(i = 0; i < owners->count; i++) {
-+				if(strcasecmp(fromemails->emaillist[0],
-+							owners->strs[i]) = 0) {
-+					log_oper(listdir, OPLOGFNAME,
-+							"%s requested sub list",
-+					fromemails->emaillist[0]);
-+					owner_idx = i;
-+					break;
-+				}
- 			}
- 		}
- 		if (owner_idx = -1) {
+whereas possibly not truly meaningful ;) i have found / stumbled
+upon some oddities that this patch series against the 1.2.19
+tarball should fix.  Maybe some of them are of interest anyway.
+
+The 1.2.18.0 problem with a leading space in headers (as in
+"Subject:=?utf-8?q?_Post_" instead of "=?utf-8?q?Frequent") seems
+to be fixed in 1.2.19 (not in ChangeLog though).
+
+Ciao.
+
+Steffen (Daode) Nurpmeso (6):
+  mlmmj-send.c:main(): reject empty messages (early)
+  mlmmj-send.c:main():memorymailsize: handle
+    sizeof(long)!=sizeof(ssize_t) cases
+  Replace get_prepped*_from_map() series..
+  listcontrol(): be aware that ctrlvalues() can return NULL
+  mlmmj-sub.c:moderate_sub(): be aware that ctrlvalues() can return NULL
+  mlmmj-process.c:newmoderated: do not crash for empty "moderators"
+
+ include/mail-functions.h |  15 +++-
+ src/listcontrol.c        |  19 ++---
+ src/mail-functions.c     | 176 ++++++++++++++++++++++++++++++-----------------
+ src/mlmmj-process.c      |  10 ++-
+ src/mlmmj-send.c         |  28 ++++++--
+ src/mlmmj-sub.c          |  16 +++--
+ 6 files changed, 174 insertions(+), 90 deletions(-)
+
 --
 2.7.1
 
