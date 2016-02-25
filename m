@@ -1,45 +1,35 @@
-From: Gavin Henry <ghenry@suretec.co.uk>
-Date: Wed, 17 Feb 2016 19:28:59 +0000
-Subject: Re: [mlmmj] bounces-help and exim
-Message-Id: <CAPcb_GL=7hFe4fqRDiomGa9ndeu8DKrEBJETQ0jgV3Px8WH2Ww@mail.gmail.com>
-MIME-Version: 1
-Content-Type: multipart/mixed; boundary="047d7bdc8f7013fd42052bfc4398"
+From: "Steffen (Daode) Nurpmeso" <steffen@sdaoden.eu>
+Date: Thu, 25 Feb 2016 15:38:27 +0000
+Subject: [mlmmj] [PATCH 2/6] mlmmj-send.c:main():memorymailsize: handle sizeof(long)!=sizeof(ssize_t) cases
+Message-Id: <58d6176c10815a534c71dc7c7447ed192bed79b4.1456413512.git.steffen@sdaoden.eu>
 List-Id: <mlmmj.mlmmj.org>
-References: <CAPcb_G+ZVfXtgD1UoxzaitRhyYtWN3ToYu0kC2XgWJjjE9Jrww@mail.gmail.com>
-In-Reply-To: <CAPcb_G+ZVfXtgD1UoxzaitRhyYtWN3ToYu0kC2XgWJjjE9Jrww@mail.gmail.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
---047d7bdc8f7013fd42052bfc4398
-Content-Type: text/plain; charset=UTF-8
+---
+ src/mlmmj-send.c | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
 
->
-> I've now added this to existing vars:
->
-> # mlmmj 16.02.16 - GH
-> MLMMJ_HOME=/var/spool/mlmmj
-> domainlist mlmmj_domains = lists.suretec.net
-> return_path_remove = false
->
+diff --git a/src/mlmmj-send.c b/src/mlmmj-send.c
+index c4165ca..38c3a83 100644
+--- a/src/mlmmj-send.c
++++ b/src/mlmmj-send.c
+@@ -995,8 +995,12 @@ int main(int argc, char **argv)
+ 	memmailsizestr = ctrlvalue(listdir, "memorymailsize");
+ 	ctrlarchive = statctrl(listdir, "noarchive");
+ 	if(memmailsizestr) {
+-		memmailsize = strtol(memmailsizestr, NULL, 10);
++		long mmsi = strtol(memmailsizestr, NULL, 10);
++
+ 		myfree(memmailsizestr);
++
++		if ((memmailsize = (ssize_t)mmsi) != mmsi)
++			memmailsize = -1;
+ 	}
 
-Just for others, return_path_remove = false fixed this when using a
-smarthost.
-
-Thanks all.
-
---047d7bdc8f7013fd42052bfc4398
-Content-Type: text/html; charset=UTF-8
-
-<p dir="ltr"><br>
-&gt;<br>
-&gt; I&#39;ve now added this to existing vars:<br>
-&gt;<br>
-&gt; # mlmmj 16.02.16 - GH<br>
-&gt; MLMMJ_HOME=/var/spool/mlmmj<br>
-&gt; domainlist mlmmj_domains = <a href="http://lists.suretec.net">lists.suretec.net</a><br>
-&gt; return_path_remove = false<br>
-&gt;</p>
-<p dir="ltr">Just for others, return_path_remove = false fixed this when using a smarthost. </p>
-<p dir="ltr">Thanks all. </p>
-
---047d7bdc8f7013fd42052bfc4398--
+ 	if(memmailsize = 0)
+--
+2.7.1
 
