@@ -1,7 +1,7 @@
-From: "Robin H. Johnson" <robbat2@gentoo.org>
-Date: Fri, 20 May 2016 06:50:58 +0000
+From: Eric Wong <e@80x24.org>
+Date: Fri, 20 May 2016 21:55:32 +0000
 Subject: Re: [mlmmj] Adding customheaders & footer to mlmmj list-control mails message
-Message-Id: <robbat2-20160520T064326-619812984Z@orbis-terrarum.net>
+Message-Id: <20160520215532.GA1917@dcvr.yhbt.net>
 List-Id: <mlmmj.mlmmj.org>
 References: <robbat2-20160504T203222-118504689Z@orbis-terrarum.net>
 In-Reply-To: <robbat2-20160504T203222-118504689Z@orbis-terrarum.net>
@@ -10,41 +10,34 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-On Fri, May 20, 2016 at 01:30:56AM +0000, Eric Wong wrote:
+Eric Wong <e@80x24.org> wrote:
 > "Robin H. Johnson" <robbat2@gentoo.org> wrote:
 > > Not handled by the above is including HTTP-based sub/unsub links, as required
 > > by SORBS, but this should be big help to everybody.
+> 
 > Yikes, SORBS requires HTTP links?  (I assume HTTPS is fine, too?)
 > Anyways, I'll see what I can cook up with Sendmail::Pmilter
 > and a PSGI app...
-Here's what I got as a response from SORBS regarding the first incident (for
-which I started this thread) when talking to them.
 
-It's part of a template response, but still telling.
-| Additionally, we recommend implementing a one-click unsubscribe via the
-| List-Unsubscribe header as defined in RFC 2369 (http://tools.ietf.org/html/rfc2369).
-| Note that if following this link automatically unsubscribes the user, our spam
-| traps will unsubscribe themselves upon receiving these messages. At this time,
-| we only provide this functionality for HTTP links in the List-Unsubscribe
-| header.
+My first time using Sendmail::PMilter, but hopefully it's fine:
 
-As a recap of the incidents:
-1. Presumably compromised system send an email:
-   - From spamtrap@randomdomain.com
-   - To listname+subscribe@lists.gentoo.org
-2. The envelope sender & From header email were the same, and that domain
-   didn't have any SPF or DKIM to consider the email as spammy, so we accepted
-   it.
-3. mlmmj sent a subconf request to spamtrap@randomdomain.com.
-4. SORBS blacklists the lists.gentoo.org mailserver.
+https://public-inbox.org/meta/20160520213655.19381-1-e@80x24.org/
+(Also in the "unsub" branch in git://80x24.org/public-inbox.org)
 
-We stopped running the mlmmj CGIs many years ago because of abusive traffic,
-but now looks like we'll need to possibly bring back at least some of them :-(.
+For now the unique, per-user HTTPS unsubscribe link is only
+enabled for whitelisted users; I don't want to propagate URLs
+forever until I'm reasonably certain things are good.  I've
+whitelisted Robin's email for the milter above, I can add others
+if desired :>
 
--- 
-Robin Hugh Johnson
-Gentoo Linux: Dev, Infra Lead, Foundation Trustee & Treasurer
-E-Mail   : robbat2@gentoo.org
-GnuPG FP : 11ACBA4F 4778E3F6 E4EDF38E B27B944E 34884E85
-GnuPG FP : 7D0B3CEB E9B85B1F 825BCECF EE05E6F6 A48F6136
+You can try it with my instance at test@public-inbox.org
+(mlmmj subscription to test+subscribe@public-inbox.org works)
+I still have POST confirmation enabled in the example since
+destructive actions over HTTP GET seems wrong to me, but
+confirmation is easily disabled.
+
+
+On a side note, public-inbox will probably start offering
+lists over POP3, soon; since not many people read archives over
+NNTP and I really don't like pushing mail as opposed to pulling.
 
