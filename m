@@ -1,43 +1,41 @@
-From: Eric Wong <e@80x24.org>
-Date: Fri, 20 May 2016 21:55:32 +0000
-Subject: Re: [mlmmj] Adding customheaders & footer to mlmmj list-control mails message
-Message-Id: <20160520215532.GA1917@dcvr.yhbt.net>
+From: Ben Schmidt <mail_ben_schmidt@yahoo.com.au>
+Date: Sun, 22 May 2016 23:44:15 +0000
+Subject: [mlmmj] I need help testing Mlmmj 1.3.0a1
+Message-Id: <dfe775df-17bd-d642-459e-52ed8c610c68@yahoo.com.au>
 List-Id: <mlmmj.mlmmj.org>
-References: <robbat2-20160504T203222-118504689Z@orbis-terrarum.net>
-In-Reply-To: <robbat2-20160504T203222-118504689Z@orbis-terrarum.net>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Eric Wong <e@80x24.org> wrote:
-> "Robin H. Johnson" <robbat2@gentoo.org> wrote:
-> > Not handled by the above is including HTTP-based sub/unsub links, as required
-> > by SORBS, but this should be big help to everybody.
-> 
-> Yikes, SORBS requires HTTP links?  (I assume HTTPS is fine, too?)
-> Anyways, I'll see what I can cook up with Sendmail::Pmilter
-> and a PSGI app...
+Mlmmj 1.3.0a1 has been released. Although I believe it to be fairly stable, I've 
+labelled it alpha as it contains a number of changes that have not yet been tested 
+in production, and if there's a bug in them, it could cause significant failure. 
+I've given it a quick test on Debian using both Exim and Postfix, but I'm really 
+going to need the help of the community to test it further.
 
-My first time using Sendmail::PMilter, but hopefully it's fine:
+Please visit the downloads page (http://mlmmj.org/downloads/) to get it, try it 
+out, and report back successes on the mailing list, or problems on the bug tracker 
+(http://mlmmj.org/bugs/), which I will try to address promptly.
 
-https://public-inbox.org/meta/20160520213655.19381-1-e@80x24.org/
-(Also in the "unsub" branch in git://80x24.org/public-inbox.org)
+The changes include:
 
-For now the unique, per-user HTTPS unsubscribe link is only
-enabled for whitelisted users; I don't want to propagate URLs
-forever until I'm reasonably certain things are good.  I've
-whitelisted Robin's email for the milter above, I can add others
-if desired :>
+- A new smtphelo tunable for adjusting the hostname as given to SMTP HELO/EHLO
 
-You can try it with my instance at test@public-inbox.org
-(mlmmj subscription to test+subscribe@public-inbox.org works)
-I still have POST confirmation enabled in the example since
-destructive actions over HTTP GET seems wrong to me, but
-confirmation is easily disabled.
+- A new modonlypost tunable for lists with posts from moderators only
+
+- Bug fixes related to SMTP compliance and non-Mlmmj addresses containing the list 
+delimiter
+
+It should be compatible with 1.2.18. It is called 1.3.0 as I am attempting to 
+migrate to a semver versioning scheme, and this release contains new features. 
+Future 1.3.x releases will contain bug fixes and list text updates; future 1.x.x 
+releases will have new features, but should still be compatible with 1.3.0, and 
+any incompatible changes will go into 2.x.x.
+
+Happy hacking!
+
+Ben
 
 
-On a side note, public-inbox will probably start offering
-lists over POP3, soon; since not many people read archives over
-NNTP and I really don't like pushing mail as opposed to pulling.
 
