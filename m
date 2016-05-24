@@ -1,141 +1,126 @@
 From: Chris Knadle <Chris.Knadle@coredump.us>
-Date: Tue, 24 May 2016 17:44:11 +0000
-Subject: [mlmmj] [PATCH] add user to crontab instructions
-Message-Id: <574492EB.2020101@coredump.us>
+Date: Tue, 24 May 2016 17:21:07 +0000
+Subject: [mlmmj] [PATCH] ereg() removed in PHP 7.0
+Message-Id: <57448D83.1090009@coredump.us>
 MIME-Version: 1
-Content-Type: multipart/mixed; boundary="nkXv9R8ja5rWfpNNk2AKerVoboxoOkxif"
+Content-Type: multipart/mixed; boundary="PntFBXRn62cKN33RE2kRSXvE8dGrMIrpm"
 List-Id: <mlmmj.mlmmj.org>
 To: mlmmj@mlmmj.org
 
 This is an OpenPGP/MIME signed message (RFC 4880 and 3156)
---nkXv9R8ja5rWfpNNk2AKerVoboxoOkxif
-Content-Type: multipart/mixed; boundary="l3FaFAtIcat414mkKmacWJcQOHF3gPKq9"
+--PntFBXRn62cKN33RE2kRSXvE8dGrMIrpm
+Content-Type: multipart/mixed; boundary="s206W5tH3aOAle8LnXjjTP7h7UMAmdK7J"
 From: Chris Knadle <Chris.Knadle@coredump.us>
 To: mlmmj@mlmmj.org
-Message-ID: <574492EB.2020101@coredump.us>
-Subject: [PATCH] add user to crontab instructions
+Message-ID: <57448D83.1090009@coredump.us>
+Subject: [PATCH] ereg() removed in PHP 7.0
 
---l3FaFAtIcat414mkKmacWJcQOHF3gPKq9
+--s206W5tH3aOAle8LnXjjTP7h7UMAmdK7J
 Content-Type: multipart/mixed;
- boundary="------------010705000700080806030408"
+ boundary="------------040303030107030305080408"
 
 This is a multi-part message in MIME format.
---------------010705000700080806030408
+--------------040303030107030305080408
 Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: quoted-printable
 
-The instructions for making a crontab entry for mlmmj-maintd currently
-leaves out the user to execute the entry with.  Unfortunately if an
-administrator does as suggested by the output of mlmmj-make-ml and
-copy/pastes the suggestion to /etc/crontab, it seems other crontab entrie=
-s
-fail to run.
+Debian is transitioning from PHP 5 to PHP 7.0, and PHP 5 is soon to be
+removed.  The current mlmmj PHP code has 2 to calls to ereg() functions
+which were deprecated in PHP 5.3.0 and removed from PHP 7.0.0, thus
+requiring modification.  Attached is a patch that does this.
 
-mlmmj-make-ml also mentions running mlmmj-maintd "in daemon mode" which
-seems to add confusion; it seems better to simplify this to discussing a
-crontab entry, given that the suggestion in both the mlmmj-make-ml output=
+Note that the regex in contrib/web/php-user/mlmmj.php for matching email
+addresses could also use updating to allow for the full range of special
+characters that are allowed in email addresses:
 
-and the README is to run it that way and there isn't further discussion o=
-f
-"daemon mode" in the README nor an init script shipped for doing so.
+   https://tools.ietf.org/html/rfc5322#section-3.4.1
 
-The attach patch addresses both issues.
+Right now it looks like these special characters might not be accepted by=
+
+the regex AFAICT:
+   ! # $ % & ' * + / =3D ? ^ ` { | } ~
+
 Thanks
-  -- Chris
+   -- Chris
 
 --=20
 Chris Knadle
 Chris.Knadle@coredump.us
 
---------------010705000700080806030408
+--------------040303030107030305080408
 Content-Type: text/x-diff;
- name="07_fix-crontab-suggestions.diff"
+ name="06_fix-php-web-for-php7.diff"
 Content-Transfer-Encoding: quoted-printable
 Content-Disposition: attachment;
- filename="07_fix-crontab-suggestions.diff"
+ filename="06_fix-php-web-for-php7.diff"
 
-Description: Alter the mlmmj instructions for making a crontab entry, whi=
-ch
- by default tells the user to add an entry without specifying the user.
+Description: Update for PHP 5 -> PHP 7 transition
+ ereg() and eregi() were deprecated with PHP 5.3.0 and removed in PHP 7.0=
+=2E0
+   https://secure.php.net/manual/en/function.ereg.php
+   https://secure.php.net/manual/en/function.eregi.php
+ Also remove min 2, max 4 character TLD portion of regex, as there are
+ top-level domains > 4 chars now.
+ Thanks to Ron Guerin <ron@vnetworx.net> for his help with the PHP regexe=
+s.
 Author: Christopher Knadle <Chris.Knadle@coredump.us>
-Bug-Debian: https://bugs.debian.org/804436
+Bug-Debian: https://bugs.debian.org/821532
+Bug-Debian: https://bugs.debian.org/821533
 Last-Updated: 2016-05-22
 
---- a/src/mlmmj-make-ml
-+++ b/src/mlmmj-make-ml
-@@ -133,7 +133,7 @@
- fi
+--- a/contrib/web/php-user/mlmmj.php
++++ b/contrib/web/php-user/mlmmj.php
+@@ -37,7 +37,7 @@
 =20
- ALIAS=3D"$LISTNAME:  \"|$MLMMJRECEIVE -L $SPOOLDIR/$LISTNAME/\""
--CRONENTRY=3D"0 */2 * * * \"$MLMMJMAINTD -F -L $SPOOLDIR/$LISTNAME/\""
-+CRONENTRY=3D"0 */2 * * * root $MLMMJMAINTD -F -L $SPOOLDIR/$LISTNAME/"
-=20
- if [ -n "$A_CREATE" ]; then
- 	echo "I want to add the following to your $ALIASFILE file:"
-@@ -175,8 +175,10 @@
- fi
-=20
- echo
--echo "If you're not starting mlmmj-maintd in daemon mode,"
--echo "don't forget to add this to your crontab:"
-+echo "If you're not running mlmmj-maintd for all mailing lists"
-+echo "in /var/spool/mlmmj such as"
-+echo "   /usr/bin/mlmmj-maintd -F -d /var/spool/mlmmj"
-+echo "via cron, then don't forget to add this to your crontab:"
- echo "$CRONENTRY"
-=20
- echo
---- a/README
-+++ b/README
-@@ -95,11 +95,11 @@
-  4) Start mlmmj-maintd (remember full path when starting it!) or add it =
-to
-     crontab with -F switch. The recommended way for now is to run it via=
- cron:
-=20
--    "0 */2 * * *  /usr/bin/mlmmj-maintd -F -L /var/spool/mlmmj/mlmmj-tes=
-t"
-+    0 */2 * * *  root /usr/bin/mlmmj-maintd -F -L /var/spool/mlmmj/mlmmj=
--test
-=20
--    It should be started as root, as mlmmj-maintd will become the user o=
-wning
--    the listdir (/var/spool/mlmmj/mlmmj-test), and log it's last mainten=
-ance
--    run to listdir/mlmmj-maintd.lastrun.log.
-+    Started as root, as mlmmj-maintd will become the user owning the lis=
-tdir
-+    (/var/spool/mlmmj/mlmmj-test), and log it's last maintenance run to
-+    listdir/mlmmj-maintd.lastrun.log.
-=20
-     If you have several lists below /var/spool/mlmmj you can use -d:
-     /usr/bin/mlmmj-maintd -F -d /var/spool/mlmmj
+     function is_email($string=3D"")=20
+ 	{
+-	    if (eregi("^[a-z0-9\._-]+".chr(64)."+[a-z0-9\._-]+\.+[a-z]{2,4}$", =
+$string))=20
++	    if (preg_match(chr(7)."^[a-z0-9\._-]+@+[a-z0-9\._-]+\.+[a-z]+$".chr=
+(7).'i', $string))=20
+ 	    {=20
+ 		return TRUE;=20
+ 	    }
 
---------------010705000700080806030408--
+--- a/contrib/web/php-admin/htdocs/index.php
++++ b/contrib/web/php-admin/htdocs/index.php
+@@ -37,7 +37,7 @@
+=20
+ # use scandir to have alphabetical order
+ foreach (scandir($topdir) as $file) {
+-    if (!ereg("^\.",$file))
++    if (substr($file,0,1) !=3D '.')
+     {
+ 	$lists .=3D "<p>".htmlentities($file)."<br/>\n";
+ 	$lists .=3D "<a href=3D\"edit.php?list=3D".urlencode($file)."\">Config<=
+/a> - <a href=3D\"subscribers.php?list=3D".urlencode($file)."\">Subscribe=
+rs</a>\n";
 
---l3FaFAtIcat414mkKmacWJcQOHF3gPKq9--
+--------------040303030107030305080408--
 
---nkXv9R8ja5rWfpNNk2AKerVoboxoOkxif
+--s206W5tH3aOAle8LnXjjTP7h7UMAmdK7J--
+
+--PntFBXRn62cKN33RE2kRSXvE8dGrMIrpm
 Content-Type: application/pgp-signature; name="signature.asc"
 Content-Description: OpenPGP digital signature
 Content-Disposition: attachment; filename="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iQIcBAEBCgAGBQJXRJLrAAoJEEkSKbZEGfmqcJkP/A3mcuukv+ft8BmnHa7JhSWK
-yiJ7BFCcXUMYGJsQNqwhdpiLY7cios3GY0nWiWTA13QOrQm8UV4Stk5psZuvy/0N
-xwi1cZpzMsa2bXGL8AVALTCJFRRd3Z3Vj2HjAFbX7ww7bW+/rl14+oDpShWMbW3O
-SJpk0TYNYOQVMuEBySEjhOO9JqWQ7B8CBGKPjp6JNwdvUmW6KFA6zlj82fnDAvjp
-rtFtrjSCXtdacdlfhNn/cIuaYRFUAp0qFDYCXTftv+E0LzOKouz/LbH5zhM7Vo/d
-8Yp0LGPZhafx3EOUGnfn3BtcQNj3/pDS3Gqbpr8UdtgjnXiLwBukLaNQK09RKz69
-0zQmyPmdpNgqZM53TYgQPJvb2A604m5LlEZ18tJv3DHRJYvdvp15BiV/3TH4ca4f
-xt70NxmBsjVjmIdUZhnrdLkm5psb8+eXWH1eyTVZhmIhYZyAuNm1DMIsCNXh5fjq
-wFpEhr+5FpKNAx2CvKyY65cjUIczhfibppnxZtyStsNRkxqVVjFYiCCI5Tf1bNmi
-rtr9WCVeCtZJuBRjnmsMBjvhZeCtJEXkFkxdudkXT5JjClC/oVzFSrQhy9TM25kg
-Lr87sWGZ3PVA8aqtrjft0374+b+n95N/wR0S76zO57xI0bSUY4jnzBiIGLUsFM6l
-+HdJXdT+rG5GFa7nGbLb
-=53Ez
+iQIcBAEBCgAGBQJXRI2HAAoJEEkSKbZEGfmqhEoP/19H99MASNCfrTFTWaF78dej
+jqib3WwvL2GYAYxoS6VxYdvCfWi5LpUJC3lDuPbYe9Yu5JjF+f5X5JhpzQYtpQje
+YyrvVIBEY9So53zhRJlinM0tN0KcSJfGjwpebOx50Jz9p4yqCvuAEYgEm2/49S+9
+qgyYJITFcBBB/I0lqHHomHZBTwz8oVSvF2MmYdL8uNX0uaTpBIUnk9xcdX518T9Y
+4BVX3flCtFvIKjr5lFOj1x1YmMfEYP3gNxhCoZ2+tF00UqS3YTFLGhKkHNCvx2rq
+b5wDtZxabzEJWePGvWMcb1h68Jppt+zFKI+0z10RIGpyd23DPjeZY8SYRuKi5QZJ
+9LIpQlCPmyjeHmGVqtnr88wCorA9BVznc32Ch30YDHmh7T5igm5KvoIVFMzAfy5w
+oNtXR/S+OW1fcLHEpYlRw73ioMFM9HHtLtLKegs3y8Wg24Ur+cvGCqTHpFKkSSai
+5Z0a+4MISwRIx4WH2GT9CNffBF6rlgBfvdmHiRPloqnXjwkFbGjskwiv27qOmF6S
+dO57eSXuoUkFGoyUlOwDpIFZY/k+k0sXvPrl3zfFOlBs4hiLAYn/fYS45DcDsxkT
+Tkv0oTw8EfP4WeP0D0+zhmDsKhSmxGEp8LfA/54EZS0MZVt65UlBhccf5uIAxFNR
+SaicMoZUO1b4ti/+787W
+=+1zY
 -----END PGP SIGNATURE-----
 
---nkXv9R8ja5rWfpNNk2AKerVoboxoOkxif--
+--PntFBXRn62cKN33RE2kRSXvE8dGrMIrpm--
 
