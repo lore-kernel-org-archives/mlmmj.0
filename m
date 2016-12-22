@@ -1,40 +1,22 @@
-From: David Demelier <demelier.david@gmail.com>
-Date: Thu, 22 Dec 2016 12:24:10 +0000
-Subject: [mlmmj] Allowing specific addresses with subonlypost
-Message-Id: <13b7eecf-62da-b77b-4685-ddae6cc0ee39@gmail.com>
+From: Morten Shearman Kirkegaard <morten+mlmmj.org@afdelingp.dk>
+Date: Thu, 22 Dec 2016 12:51:41 +0000
+Subject: Re: [mlmmj] Allowing specific addresses with subonlypost
+Message-Id: <20161222125140.GA19005@europa.afdelingp.dk>
 List-Id: <mlmmj.mlmmj.org>
+References: <13b7eecf-62da-b77b-4685-ddae6cc0ee39@gmail.com>
+In-Reply-To: <13b7eecf-62da-b77b-4685-ddae6cc0ee39@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Hello all,
+On 2016-12-22, at 13:24:10 +0100, David Demelier wrote:
+> However to stop spam I've enabled the subonlypost option to only allow
+> subscribers to post mails. The problem is that I also would like to
+> add specific addresses so my own mail server can also send mails to
+> people subscribed.
 
-I've installed mlmmj with my postfix and it works fine.
+The easiest way of allowing that, is adding them in nomailsubs.d/.
 
-However to stop spam I've enabled the subonlypost option to only allow 
-subscribers to post mails. The problem is that I also would like to add 
-specific addresses so my own mail server can also send mails to people 
-subscribed.
-
-I've tried using this in the control/access file:
-
-     send ^From: .*@mydomain.tld
-
-If I send a mail to the list using foo@mydomain.tld, mlmmj seems to do 
-something with it but is not forwarded to the subscribers. And 
-obviously, if I don't have that access file at all and send a mail, the 
-administrator receives a mail saying that someone wanted to send a mail 
-and was denied because it is not subscribed.
-
-So what I'm missing to allow this? If it's possible of course. Because I 
-would like to avoid creating fake mail users just for sending mails from 
-the server itself.
-
-Regards,
-
--- 
-
-David
-
+// Moki
 
