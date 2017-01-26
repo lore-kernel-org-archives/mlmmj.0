@@ -1,84 +1,93 @@
 From: Barco van Rhijn <barco@atservice.co.za>
-Date: Thu, 26 Jan 2017 17:31:50 +0000
-Subject: [mlmmj] Errors on Cron job
-Message-Id: <15f8a122-c3d0-1386-9eed-f46dec861aaa@atservice.co.za>
+Date: Thu, 26 Jan 2017 14:49:11 +0000
+Subject: [mlmmj] Configuring Exim
+Message-Id: <f147daff-67ff-3421-ebf3-8b844ba44fbe@atservice.co.za>
 MIME-Version: 1
-Content-Type: multipart/mixed; boundary="------------E8E36CB69A0620AA749A43BA"
+Content-Type: multipart/mixed; boundary="------------4E6F5108874B0E6A8A54DB95"
 List-Id: <mlmmj.mlmmj.org>
 To: mlmmj@mlmmj.org
 
 This is a multi-part message in MIME format.
---------------E8E36CB69A0620AA749A43BA
+--------------4E6F5108874B0E6A8A54DB95
 Content-Type: text/plain; charset=utf-8; format=flowed
 Content-Transfer-Encoding: 7bit
 
-Good Evening,
+Hallo to everyone,
 
-Recently setup MLMMJ on a Centos server that has Cpanel installed.
+I'm trying to get MLMMJ setup on a Centos server running Cpanel.
+As the owner of this server I have root.
 
-*I get this error in my mail delivery log:*
+I've followed along the documentation to setup Exim and MLMMJ
+At the end of the exim configuration in step 6. I'm instructed to test 
+routing.
+*
+**I receive the following output:*
+exim -bt mlmmj-test@mymailinglist.com mlmmj-test@mymailinglist.com
+mail to mlmmj-test@mymailinglist.com is discarded
+mail to mlmmj-test@mymailinglist.com is discarded
 
-"Child process of mlmmj_transport transport returned 127 (could mean 
-unable to exec or command does not exist) from command: 
-/usr/local/bin/mlmmj-receive"
+/(I've substituted domain names for security).
 
-I checked the commands do not exist in this location
-On Centos the commands are indeed located in /usr/bin/
+*What I've tried so far**:*
+/
 
-So I've created a symbolic link for that file in the expected directory.
+  * /Searched previous mailing list entries to mlmmj.org/
+  * /Searched the web./
+  * /Searched through Exim documentation - but did not make much headway
+    here. All I've found was it's possibly an ACL but if it is I've
+    missed the rule that matches.
+    /
 
-*This did sort of work but now I get an error :*
-Child process of mlmmj_transport transport returned 1 from command: 
-/usr/local/bin/mlmmj-receive
-
-Any ideas how I could resolve this?
-
-BTW: My Cron is executed as root and I've checked permissions to the 
-spool directory before hitting this roadblock.
-
+/
+Can anyone point me in the right direction for troubleshooting why this 
+message gets discarded.
+/
 Warm Regards
 Barco van Rhijn
 
---------------E8E36CB69A0620AA749A43BA
+--------------4E6F5108874B0E6A8A54DB95
 Content-Type: text/html; charset=utf-8
 Content-Transfer-Encoding: 7bit
 
 <html>
   <head>
-
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
   </head>
   <body bgcolor="#FFFFFF" text="#000000">
-    <p>Good Evening, <br>
-    </p>
-    <p>Recently setup MLMMJ on a Centos server that has Cpanel
-      installed. <br>
-    </p>
-    <p><b>I get this error in my mail delivery log:</b><br>
-    </p>
-    <p>"Child process of mlmmj_transport transport returned 127 (could
-      mean unable to exec or command does not exist) from command:
-      /usr/local/bin/mlmmj-receive"</p>
-    I checked the commands do not exist in this location <br>
-    On Centos the commands are indeed located in /usr/bin/<br>
+    Hallo to everyone,<br>
     <br>
-    So I've created a symbolic link for that file in the expected
-    directory.<br>
+    I'm trying to get MLMMJ setup on a Centos server running Cpanel. <br>
+    As the owner of this server I have root. <br>
     <br>
-    <b>This did sort of work but now I get an error :</b><br>
-    Child process of mlmmj_transport transport returned 1 from command:
-    /usr/local/bin/mlmmj-receive<br>
+    I've followed along the documentation to setup Exim and MLMMJ <br>
+    At the end of the exim configuration in step 6. I'm instructed to
+    test routing.<br>
+    <b><br>
+    </b><b>I receive the following output:</b><br>
+    exim -bt <a class="moz-txt-link-abbreviated" href="mailto:mlmmj-test@mymailinglist.com">mlmmj-test@mymailinglist.com</a> <a class="moz-txt-link-abbreviated" href="mailto:mlmmj-test@mymailinglist.com">mlmmj-test@mymailinglist.com</a><br>
+    mail to <a class="moz-txt-link-abbreviated" href="mailto:mlmmj-test@mymailinglist.com">mlmmj-test@mymailinglist.com</a> is discarded<br>
+    mail to <a class="moz-txt-link-abbreviated" href="mailto:mlmmj-test@mymailinglist.com">mlmmj-test@mymailinglist.com</a> is discarded<br>
     <br>
-    Any ideas how I could resolve this?<br>
-    <br>
-    BTW: My Cron is executed as root and I've checked permissions to the
-    spool directory before hitting this roadblock.<br>
-    <br>
+    <i>(I've substituted domain names for security).<br>
+      <br>
+      <b>What I've tried so far</b><b>:</b><br>
+    </i>
+    <ul>
+      <li><i>Searched previous mailing list entries to mlmmj.org</i></li>
+      <li><i>Searched the web.</i></li>
+      <li><i>Searched through Exim documentation - but did not make much
+          headway here. All I've found was it's possibly an ACL but if
+          it is I've missed the rule that matches.<br>
+        </i></li>
+    </ul>
+    <i><br>
+      Can anyone point me in the right direction for troubleshooting why
+      this message gets discarded. <br>
+    </i><br>
     Warm Regards<br>
     Barco van Rhijn<br>
-    <div class="moz-signature"> </div>
   </body>
 </html>
 
---------------E8E36CB69A0620AA749A43BA--
+--------------4E6F5108874B0E6A8A54DB95--
 
