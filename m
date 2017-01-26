@@ -1,24 +1,84 @@
-From: Ben Schmidt <mail_ben_schmidt@yahoo.com.au>
-Date: Thu, 22 Dec 2016 21:05:46 +0000
-Subject: Re: [mlmmj] Allowing specific addresses with subonlypost
-Message-Id: <a643ec91-ad8d-a29a-b861-a561ac233c97@yahoo.com.au>
+From: Barco van Rhijn <barco@atservice.co.za>
+Date: Thu, 26 Jan 2017 17:31:50 +0000
+Subject: [mlmmj] Errors on Cron job
+Message-Id: <15f8a122-c3d0-1386-9eed-f46dec861aaa@atservice.co.za>
+MIME-Version: 1
+Content-Type: multipart/mixed; boundary="------------E8E36CB69A0620AA749A43BA"
 List-Id: <mlmmj.mlmmj.org>
-References: <13b7eecf-62da-b77b-4685-ddae6cc0ee39@gmail.com>
-In-Reply-To: <13b7eecf-62da-b77b-4685-ddae6cc0ee39@gmail.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-On 22/12/2016 11:51 pm, Morten Shearman Kirkegaard wrote:
-> On 2016-12-22, at 13:24:10 +0100, David Demelier wrote:
->> However to stop spam I've enabled the subonlypost option to only allow
->> subscribers to post mails. The problem is that I also would like to
->> add specific addresses so my own mail server can also send mails to
->> people subscribed.
->
-> The easiest way of allowing that, is adding them in nomailsubs.d/.
+This is a multi-part message in MIME format.
+--------------E8E36CB69A0620AA749A43BA
+Content-Type: text/plain; charset=utf-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-This is absolutely right. But using 'send' in an access file should have
-worked, too. I might have to look into that.
+Good Evening,
+
+Recently setup MLMMJ on a Centos server that has Cpanel installed.
+
+*I get this error in my mail delivery log:*
+
+"Child process of mlmmj_transport transport returned 127 (could mean 
+unable to exec or command does not exist) from command: 
+/usr/local/bin/mlmmj-receive"
+
+I checked the commands do not exist in this location
+On Centos the commands are indeed located in /usr/bin/
+
+So I've created a symbolic link for that file in the expected directory.
+
+*This did sort of work but now I get an error :*
+Child process of mlmmj_transport transport returned 1 from command: 
+/usr/local/bin/mlmmj-receive
+
+Any ideas how I could resolve this?
+
+BTW: My Cron is executed as root and I've checked permissions to the 
+spool directory before hitting this roadblock.
+
+Warm Regards
+Barco van Rhijn
+
+--------------E8E36CB69A0620AA749A43BA
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <head>
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  </head>
+  <body bgcolor="#FFFFFF" text="#000000">
+    <p>Good Evening, <br>
+    </p>
+    <p>Recently setup MLMMJ on a Centos server that has Cpanel
+      installed. <br>
+    </p>
+    <p><b>I get this error in my mail delivery log:</b><br>
+    </p>
+    <p>"Child process of mlmmj_transport transport returned 127 (could
+      mean unable to exec or command does not exist) from command:
+      /usr/local/bin/mlmmj-receive"</p>
+    I checked the commands do not exist in this location <br>
+    On Centos the commands are indeed located in /usr/bin/<br>
+    <br>
+    So I've created a symbolic link for that file in the expected
+    directory.<br>
+    <br>
+    <b>This did sort of work but now I get an error :</b><br>
+    Child process of mlmmj_transport transport returned 1 from command:
+    /usr/local/bin/mlmmj-receive<br>
+    <br>
+    Any ideas how I could resolve this?<br>
+    <br>
+    BTW: My Cron is executed as root and I've checked permissions to the
+    spool directory before hitting this roadblock.<br>
+    <br>
+    Warm Regards<br>
+    Barco van Rhijn<br>
+    <div class="moz-signature"> </div>
+  </body>
+</html>
+
+--------------E8E36CB69A0620AA749A43BA--
 
