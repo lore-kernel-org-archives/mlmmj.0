@@ -1,51 +1,26 @@
-From: Ben Schmidt <mail_ben_schmidt@yahoo.com.au>
-Date: Sun, 05 Feb 2017 00:02:45 +0000
-Subject: Re: [mlmmj] Thunderbird behaviour with Reply-To header
-Message-Id: <0cc4aefb-a6a0-82ed-5e68-0c30e3a7a9fb@yahoo.com.au>
+From: Profpatsch <mail@profpatsch.de>
+Date: Wed, 08 Mar 2017 14:15:01 +0000
+Subject: [mlmmj] Getting notified if a subscription mail bounces
+Message-Id: <20170308141501.GG15929@katara.openlab.lan>
 List-Id: <mlmmj.mlmmj.org>
-References: <7d088555-5608-b9c9-46e5-8a54eaae4f1a@gmail.com>
-In-Reply-To: <7d088555-5608-b9c9-46e5-8a54eaae4f1a@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="windows-1252"
+Content-Transfer-Encoding: quoted-printable
 To: mlmmj@mlmmj.org
 
-On 3/02/2017 9:39 pm, David Demelier wrote:
-> On 02/03/2017 11:23 AM, Ben Schmidt wrote:
->> This doesn't make sense to me. I am a Thunderbird user and I don't
->> recall having any problem. What do you mean by "answering twice"? Did
->> you change some setting in Thunderbird as well as change the
->> configuration of the mailing list, perhaps? Could you have an extension
->> which is causing the problem? Are you just not wanting to see your own
->> posts, so might be interested in the 'notmetoo' tunable?
->
-> Yeah, my assumptions were wrong, in fact the thunderbird window reply
-> twice only if I try to answer my own emails.
->
-> I have no extensions at all.
->
-> See the attached screenshot.
+I have a simple mlmmj+postfix setup here.
+Now if I want to subscribe an @aol.de user, the mail bounces:
 
-I've verified that I don't see this behaviour, and disabled the
-extensions I have which might have been interfering.
+(host mailin-01.mx.aol.com[64.12.88.131] said: 521 5.2.1 :  AOL will not ac=
+cept delivery of this message. (in reply to end of DATA command))
 
-Perhaps if you post
+But that only appears in the system log.
+Is it possible to forward such bounce messages to the owner?
 
-- what you have for your customheaders tunable
-- what you have for your delheaders tunable
-- complete headers of one of your messages arriving at the list (that
-   causes the strange reply behaviour)
-
-then I or others can offer suggestions.
-
-However, does it actually matter? If you have Mlmmj configured to add
-the Reply-To header anyway, it won't matter if it's already there from
-Thunderbird, will it?
-
-Smiles,
-
-Ben
-
-
-
+--=20
+Proudly written in Mutt with Vim on NixOS.
+Q: Why is this email five sentences or less?
+A: http://five.sentenc.es
+May take up to five days to read your message. If it=E2=80=99s urgent, call=
+ me.
 
