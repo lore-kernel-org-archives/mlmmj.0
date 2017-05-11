@@ -1,7 +1,7 @@
 From: Geert Stappers <stappers@stappers.nl>
-Date: Thu, 11 May 2017 17:14:06 +0000
+Date: Thu, 11 May 2017 17:15:36 +0000
 Subject: Re: [mlmmj] [PATCH 2/2] src/mlmmj-make-ml.in: use the YES from -a
-Message-Id: <20170511171406.GN19322@gpm.stappers.nl>
+Message-Id: <20170511171536.GO19322@gpm.stappers.nl>
 List-Id: <mlmmj.mlmmj.org>
 References: <1494519763-1307-2-git-send-email-stappers@stappers.nl>
 In-Reply-To: <1494519763-1307-2-git-send-email-stappers@stappers.nl>
@@ -10,29 +10,21 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-On Thu, May 11, 2017 at 06:22:43PM +0200, Geert Stappers wrote:
-> Replaced the test on non-zero lenght string
-> with an actual string compare.
-> ---
->  src/mlmmj-make-ml.in | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+On Thu, May 11, 2017 at 05:12:32PM +0000, Eric Wong wrote:
+> Geert Stappers <stappers@stappers.nl> wrote:
+> > -if [ -n "$A_CREATE" ]; then
+> > +if [ "$A_CREATE" = "YES" ]; then
+> >  	echo "I want to add the following to your $ALIASFILE file:"
+> >  	echo "$ALIAS"
 > 
-> diff --git a/src/mlmmj-make-ml.in b/src/mlmmj-make-ml.in
-> index c93084f..58fba8d 100755
-> --- a/src/mlmmj-make-ml.in
-> +++ b/src/mlmmj-make-ml.in
-> @@ -135,7 +135,7 @@ fi
->  ALIAS="$LISTNAME:  \"|$MLMMJRECEIVE -L $SPOOLDIR/$LISTNAME/\""
->  CRONENTRY="0 */2 * * * \"$MLMMJMAINTD -F -L $SPOOLDIR/$LISTNAME/\""
->  
-> -if [ -n "$A_CREATE" ]; then
-> +if [ "$A_CREATE" = "YES" ]; then
-  +if [ "$A_CREATE" = "YES" ]; then
->  	echo "I want to add the following to your $ALIASFILE file:"
->  	echo "$ALIAS"
->  
+> "=" is not portable, I suggest "=" for scripts run by /bin/sh
+> (which may not be bash, Debian-based systems tend to use dash,
+> there)
 
-So  s/=/=/  in the bash  [   ]  test
+yes
+
+
+(our mails did cross each other)
 
 
 Groeten
