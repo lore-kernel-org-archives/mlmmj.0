@@ -1,32 +1,31 @@
-From: Marvin =?utf-8?Q?G=C3=BClker?= <m-guelker@phoenixmail.de>
-Date: Sat, 03 Jun 2017 14:50:22 +0000
-Subject: Re: [mlmmj] mlmmj-chown
-Message-Id: <20170603145022.GA3717@hades.fritz.box>
+From: Geert Stappers <stappers@stappers.nl>
+Date: Fri, 14 Jul 2017 19:00:47 +0000
+Subject: [mlmmj] Re: Mailing list manager recommendation?
+Message-Id: <20170714190047.GO21385@gpm.stappers.nl>
 List-Id: <mlmmj.mlmmj.org>
-References: <20170603142334.GE32244@gpm.stappers.nl>
-In-Reply-To: <20170603142334.GE32244@gpm.stappers.nl>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-On Sat, Jun 03, 2017 at 04:23:34PM +0200, Geert Stappers wrote:
-> But `sudo` is not allowed for all users and surely not wanted
-> for webusers  ( the operating system user that runs the webserver
-> process )
+On Fri, Jul 14, 2017 at 02:41:07PM +0000, Tom Browder wrote:
+> I need an mailing list manager (MLM) and plan to eventually use GNU Mailman
+> 3 (MM3).  Until its installation process is easier, I would like to use an
+> interim MLM that is easiest to install.  Ideally I would be able to import
+> mail from the interim MLM into MM3.
+> 
+> Note: I have installed MM2 in the past, but don't want to use it again due
+> to its restriction on list names (the list names must be unique over all
+> domains, e.g., news@example.com and news@example2.com are not both legal
+> list names).
+> Does anyone have any recommendations?
 
-While I personally don't think that such functionality belongs into
-mlmmj, something different should. Currently, mlmmj forcibly creates all
-mails in archive/ with a mode of 0600. If I want to run a web archive
-under a user different from the mlmmj one, this requires ugly hacks
-(such as the one suggested by the OP). Can there be some kind of option
-in mlmmj that a) causes the archive files to be created with mode 0640
-and b) allows to set the group they're stored under?
+Mlmmj - Mailing List Management Made Joyful
+http://mlmmj.org/
 
-Greetings
-Marvin
 
+Groeten
+Geert Stappers
 -- 
-Blog: https://www.guelkerdev.de
-PGP/GPG ID: F1D8799FBCC8BC4F
+Leven en laten leven
 
