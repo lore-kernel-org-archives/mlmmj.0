@@ -1,38 +1,30 @@
-From: Zhang Huangbin <zhb@iredmail.org>
-Date: Sun, 27 Aug 2017 14:43:00 +0000
-Subject: Re: [mlmmj] Patch: Add new option '-d' for mlmmj-make-ml to specify FQDN domain name
-Message-Id: <DAE546DF-263D-4B3A-97D7-14568320E007@iredmail.org>
+From: tslbai <tslbai@agilolfinger.de>
+Date: Sun, 03 Sep 2017 18:10:17 +0000
+Subject: [mlmmj] listname+get-N to get files
+Message-Id: <711fd024-3c76-acb5-3f54-5cbb0a6a3df4@agilolfinger.de>
 List-Id: <mlmmj.mlmmj.org>
-References: <1C002620-E45A-48BB-B7D5-2D510B33A230@iredmail.org>
-In-Reply-To: <1C002620-E45A-48BB-B7D5-2D510B33A230@iredmail.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
+Hi,
 
-> On Aug 27, 2017, at 9:33 PM, A. Schulze <sca@andreasschulze.de> wrote:
-> 
->> I’d like to add one more patch to add 3 more options, your opinion?
->> 
->> -C: user to chown the spool directory to without confirm
->> -o: email address of the list owner (defaults to 'postmaster')
->> -l: language of this mailing list (defaults to 'en’)
-> 
-> if it replace something interactive ask by "make-ml" than it makes sense
+i'm new to mlmmj. Today i converted my majordomo-lists to mlmmj and i
+cannot find some features, which i used before:
 
-If user doesn’t use these options on command line, mlmmj-make-ml will prompt user to input required data.
-With above 3 new options, we can remove the line in mlmmj-make-ml man page:
+In majordomo there was a list-command: "get listname filename"
 
-"BUGS
+It was possible, to store any file in the list-archive and request it by
+get-command in a E-Mail to the list.
 
-It's not possible to create a list entirely on the command line.”
+Is it possible to use in mlmmj e.g. "listname+get-N@domain.tld" where
+"N" is the wanted file?
 
-If it’s ok to go, i will generate patch tomorrow and submit to bug tracker.
+(listname+get-1@domain.tld works, but listname+get-filename@domain.tld
+fails.)
+Is there another way to request files from the list?
 
-----
-Zhang Huangbin, founder of iRedMail project: http://www.iredmail.org/
-Time zone: GMT+8 (China/Beijing).
-Available on Telegram: https://t.me/iredmail
-
+Thanks,
+Florian
 
