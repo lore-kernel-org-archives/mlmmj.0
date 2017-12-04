@@ -1,35 +1,39 @@
-From: Zhang Huangbin <zhb@iredmail.org>
-Date: Fri, 24 Nov 2017 16:11:36 +0000
-Subject: Re: [mlmmj] patches in bugtracker
-Message-Id: <BAE59AB1-7C2C-4C50-9630-427E9FD56E96@iredmail.org>
+From: Geert Stappers <stappers@stappers.nl>
+Date: Mon, 04 Dec 2017 18:49:43 +0000
+Subject: [mlmmj] http://mlmmj.org/archive/mlmmj/2017-11/
+Message-Id: <20171204184943.GA21645@gpm.stappers.nl>
 List-Id: <mlmmj.mlmmj.org>
-References: <20171124134117.GF21645@gpm.stappers.nl>
-In-Reply-To: <20171124134117.GF21645@gpm.stappers.nl>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
+Hi,
 
-> On Nov 24, 2017, at 9:41 PM, Geert Stappers <stappers@stappers.nl> wrote:
-> 
-> http://mlmmj.org/bugs/bug.php?idc and http://mlmmj.org/bugs/bug.php?ide
-> have patches.
-> 
-> I think those are a reason for doing another release.
-> 
-> The good thing about a release is that
-> it tells the world that the project is alive.
+While searching for "did I submit that script allready?"
+I got a HTTP 404 Not found at http://mlmmj.org/archive/mlmmj/2017-11/
 
-Agree.
+There where postings in november.
 
-I understand current project leader/maintainer, Ben Schmidt, is busy,
-how about get some volunteers involved and grant them privileges to
-contribute to source code repo directly?
+Postings from may are at http://mlmmj.org/archive/mlmmj/2017-05/
 
-----
-Zhang Huangbin, founder of iRedMail project: http://www.iredmail.org/
-Time zone: GMT+8 (China/Beijing).
-Available on Telegram: https://t.me/iredmail
 
+Currently has http://mlmmj.org/archive/mlmmj/ as the last archive month.
+
+
+How to get december ( http://mlmmj.org/archive/mlmmj/2017-12/ ?? ) in the archive?
+
+It is a broken cronjob ??
+
+It is a full disk ??
+
+
+Who cares?
+
+
+
+Groeten
+Geert Stappers
+-- 
+Leven en laten leven
 
