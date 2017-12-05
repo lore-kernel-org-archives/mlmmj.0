@@ -1,39 +1,27 @@
-From: Geert Stappers <stappers@stappers.nl>
-Date: Mon, 04 Dec 2017 18:49:43 +0000
-Subject: [mlmmj] http://mlmmj.org/archive/mlmmj/2017-11/
-Message-Id: <20171204184943.GA21645@gpm.stappers.nl>
+From: Zhang Huangbin <zhb@iredmail.org>
+Date: Tue, 05 Dec 2017 02:27:04 +0000
+Subject: Re: [mlmmj] http://mlmmj.org/archive/mlmmj/2017-11/
+Message-Id: <E0F0D80E-16F2-4CA9-91A1-36E4B3B42484@iredmail.org>
 List-Id: <mlmmj.mlmmj.org>
+References: <20171204184943.GA21645@gpm.stappers.nl>
+In-Reply-To: <20171204184943.GA21645@gpm.stappers.nl>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Hi,
-
-While searching for "did I submit that script allready?"
-I got a HTTP 404 Not found at http://mlmmj.org/archive/mlmmj/2017-11/
-
-There where postings in november.
-
-Postings from may are at http://mlmmj.org/archive/mlmmj/2017-05/
 
 
-Currently has http://mlmmj.org/archive/mlmmj/ as the last archive month.
+> On Dec 5, 2017, at 2:49 AM, Geert Stappers <stappers@stappers.nl> wrote:
+> 
+> How to get december ( http://mlmmj.org/archive/mlmmj/2017-12/ ?? ) in the archive?
 
+I use marc.info:
+https://marc.info/?l=mlmmj
 
-How to get december ( http://mlmmj.org/archive/mlmmj/2017-12/ ?? ) in the archive?
+----
+Zhang Huangbin, founder of iRedMail project: http://www.iredmail.org/
+Time zone: GMT+8 (China/Beijing).
+Available on Telegram: https://t.me/iredmail
 
-It is a broken cronjob ??
-
-It is a full disk ??
-
-
-Who cares?
-
-
-
-Groeten
-Geert Stappers
--- 
-Leven en laten leven
 
