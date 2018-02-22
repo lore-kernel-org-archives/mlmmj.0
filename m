@@ -1,45 +1,26 @@
-From: Geert Stappers <stappers@stappers.nl>
-Date: Thu, 07 Dec 2017 18:51:22 +0000
-Subject: Re: [mlmmj] http://mlmmj.org/archive/mlmmj/2017-11/   OK
-Message-Id: <20171207185122.GY21645@gpm.stappers.nl>
+From: Per Jessen <per@opensuse.org>
+Date: Thu, 22 Feb 2018 10:34:12 +0000
+Subject: [mlmmj] moderated subscription?
+Message-Id: <p6m6b4$uf6$2@saturn.local.net>
 List-Id: <mlmmj.mlmmj.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 To: mlmmj@mlmmj.org
 
-On Thu, Dec 07, 2017 at 09:22:37PM +1100, Ben Schmidt wrote:
-> On 5/12/17 5:49 am, Geert Stappers wrote:
-> >Hi,
-> >
-> >While searching for "did I submit that script allready?"
-> >I got a HTTP 404 Not found at http://mlmmj.org/archive/mlmmj/2017-11/
-> >
-> >There where postings in november.
-> >
-> >Postings from may are at http://mlmmj.org/archive/mlmmj/2017-05/
-> >
-> >
-> >Currently has http://mlmmj.org/archive/mlmmj/ may as the last archive month.
-> >
-> 
-> Thanks for the prod.
+I can't seem to get moderated subscription to work.  
 
-    ;-)
+I have list/control/submod = <address>
+
+new subscribers are asked for confirmation, they confirm, the ops log
+says they have confirmed.  The moderator or <address> is never notified
+and the subscription doesn't happen. 
+
+Any hints?
 
 
-> I've updated it.
-
-Thank you
-
-Archive http://mlmmj.org/archive/mlmmj/ looks fine.
-
-
-> Ben
-
-
-Groeten
-Geert Stappers
 -- 
-Leven en laten leven
+Per Jessen, Zürich (-1.9°C)
+openSUSE mailing list admin
+
 
