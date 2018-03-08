@@ -1,44 +1,51 @@
 From: Per Jessen <per@opensuse.org>
-Date: Mon, 26 Feb 2018 17:13:19 +0000
-Subject: Re: [mlmmj] moderated subscription?  apparmor issue
-Message-Id: <p71f7f$hkd$2@saturn.local.net>
+Date: Thu, 08 Mar 2018 09:27:26 +0000
+Subject: [mlmmj] bug in mlmmj-sub.c
+Message-Id: <p7qvlv$7dp$1@saturn.local.net>
+MIME-Version: 1
+Content-Type: multipart/mixed; boundary="nextPart3036252.qZY5IRJjNx"
 List-Id: <mlmmj.mlmmj.org>
-References: <20180222130504.GI9226@gpm.stappers.nl>
-In-Reply-To: <20180222130504.GI9226@gpm.stappers.nl>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
 To: mlmmj@mlmmj.org
 
-Geert Stappers wrote:
 
-> On Thu, Feb 22, 2018 at 02:01:23PM +0100, Per Jessen wrote:
->> Per Jessen wrote:
->> 
->> > I can't seem to get moderated subscription to work.
->> > I have list/control/submod = <address>
->> > 
->> > new subscribers are asked for confirmation, they confirm, the ops
->> > log
->> > says they have confirmed.  The moderator or <address> is never
->> > notified and the subscription doesn't happen.
->> 
->> Please ignore, it was an apparmor issue.
->> 
-> 
-> And how was it solved?   (Please share your expirence with ML and ML
-> archive )
+--nextPart3036252.qZY5IRJjNx
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 
-By updating the apparmor profile :-) 
-
-Add this:
-/var/spool/mlmmj/*/moderation/* rw,
+In mlmmj version 1.2.19 and 1.3.0.=20
 
 
+--=20
+Per Jessen, Z=C3=BCrich (5.5=C2=B0C)
+Member, openSUSE Heroes
+
+--nextPart3036252.qZY5IRJjNx
+Content-Type: text/x-diff; name="mlmmj-sub.diff"
+Content-Transfer-Encoding: quoted-printable
+Content-Disposition: attachment; filename="mlmmj-sub.diff"
+
+--- mlmmj-sub.c=092012-03-27 04:08:44.000000000 +0200
++++ mlmmj-sub.c.pj=092018-03-08 10:23:26.634614784 +0100
+@@ -92,7 +92,7 @@
+ =09=09=09=09continue;
+ =09=09=09}
+ =09=09=09log_error(LOG_ARGS, "could not create %s"
+-=09=09=09=09=09"ignoring request: %s", str);
++=09=09=09=09=09"ignoring request: %s", modfilename, str);
+ =09=09=09exit(EXIT_FAILURE);
+ =09=09}
+ =09=09break;
+@@ -100,7 +100,7 @@
+=20
+ =09if(writen(fd, str, strlen(str)) < 0) {
+ =09=09log_error(LOG_ARGS, "could not write to %s"
+-=09=09=09=09"ignoring request: %s", str);
++=09=09=09=09"ignoring request: %s", modfilename, str);
+ =09=09exit(EXIT_FAILURE);
+ =09}
+ =09
 
 
--- 
-Per Jessen, Zürich (-8.2°C)
-openSUSE mailing list admin
+--nextPart3036252.qZY5IRJjNx--
 
 
