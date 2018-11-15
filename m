@@ -1,62 +1,48 @@
-From: =?utf-8?q?fsantiago=40gardenlan=2Ecom?= <fsantiago@gardenlan.com>
-Date: Thu, 15 Nov 2018 15:28:28 +0000
-Subject: [mlmmj] Mlmmj webarchiver
-Message-Id: <74E860C1-8583-4681-B3BD-4B77BC283293@gardenlan.com>
-MIME-Version: 1
-Content-Type: multipart/mixed; boundary="Apple-Mail-9B7B0224-EBCC-4376-91B3-C662694918A7"
+From: "A. Schulze" <sca@andreasschulze.de>
+Date: Thu, 15 Nov 2018 18:35:37 +0000
+Subject: Re: [mlmmj] Mlmmj webarchiver
+Message-Id: <8d1b76f4-a579-6386-34c2-b67e58f868f4@andreasschulze.de>
 List-Id: <mlmmj.mlmmj.org>
+References: <74E860C1-8583-4681-B3BD-4B77BC283293@gardenlan.com>
+In-Reply-To: <74E860C1-8583-4681-B3BD-4B77BC283293@gardenlan.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 To: mlmmj@mlmmj.org
 
 
---Apple-Mail-9B7B0224-EBCC-4376-91B3-C662694918A7
-Content-Type: text/plain;
-	charset=utf-8
-Content-Transfer-Encoding: base64
 
-SGVsbG8sDQoNCkkgaGF2ZSBhbiBVYnVudHUgMTguMDQgbHRzIHNlcnZlciBydW5uaW5nIG1sbW1q
-LiBJ4oCZdmUgdHJpZWQgaW1wbGVtZW50aW5nIHRoZSBtbG1tai13ZWJhcmNoaXZlciBwcm9qZWN0
-IGZyb206DQoNCmh0dHBzOi8vZ2l0LmNyeXB0b21pbGsub3JnL3Byb2plY3RzL21sbW1qLXdlYmFy
-Y2hpdmVyLmdpdC8NCg0KQW5kIEnigJl2ZSBnb3R0ZW4gaXQgbW9zdGx5IHdvcmtpbmcgZmluZSBl
-eGNlcHQgdGhlIHNlYXJjaCBsaW5rIHdoZW4gY2xpY2tlZCBwcmVzZW50cyBhIGJsYW5rIHBhZ2Uu
-IA0KDQpJIG5naW54IHdpdGggcGhwLWZwbSB0byBzZXJ2ZSB0aGUgc2l0ZS4gVGhlIG5naW54IGVy
-cm9yIGxvZyBjb21wbGFpbnMgYWJvdXQgYW4gdW5leHBlY3RlZCDigJgm4oCZIHNvbWV3aGVyZSBh
-cm91bmQgbGluZSAzNCBvZiB0aGUgc2VhcmNoLnBocCBmaWxlLiANCg0KSGFzIGFueW9uZSBzZWVu
-IHRoaXM/DQoNCkRvZXMgYW55b25lIHN0aWxsIHVzZSB0aGlzIHByb2plY3Q/DQoNCkFyZSB0aGVy
-ZSBiZXR0ZXIgZm9ya3Mgb3V0IHRoZXJlPw0KDQpBbnkgaGVscCB3b3VsZCBiZSBncmVhdGx5IGFw
-cHJlY2lhdGVkLiBUaGFuayB5b3UuIA0KDQotIEZhYmlhbiBTLg0KDQpPcGVuIFBHUDoNCjB4RTY4
-MjYwNThFNkVENzcyNkRBQTRDNzgzMDMxOTBDQzBEMTgwMEUzNg0KDQpTZW50IGZyb20gbXkgbW9i
-aWxlLg==
+Am 15.11.18 um 16:28 schrieb fsantiago@gardenlan.com:
+> https://git.cryptomilk.org/projects/mlmmj-webarchiver.git/
+> And I’ve gotten it mostly working fine except the search link when clicked presents a blank page. 
+> I nginx with php-fpm to serve the site. The nginx error log complains about an unexpected ‘&’ somewhere around line 34 of the search.php file. 
 
---Apple-Mail-9B7B0224-EBCC-4376-91B3-C662694918A7
-Content-Type: text/html;
-	charset=utf-8
-Content-Transfer-Encoding: base64
+I've created a package for my installations. And - surprise - I wrote a patch years ago that looks similar to your problem.
 
-PGh0bWw+PGhlYWQ+PG1ldGEgaHR0cC1lcXVpdj0iY29udGVudC10eXBlIiBjb250ZW50PSJ0ZXh0
-L2h0bWw7IGNoYXJzZXQ9dXRmLTgiPjwvaGVhZD48Ym9keSBkaXI9ImF1dG8iPjxkaXYgZGlyPSJs
-dHIiPjxzcGFuPjwvc3Bhbj48L2Rpdj48ZGl2IGRpcj0ibHRyIj48bWV0YSBodHRwLWVxdWl2PSJj
-b250ZW50LXR5cGUiIGNvbnRlbnQ9InRleHQvaHRtbDsgY2hhcnNldD11dGYtOCI+SGVsbG8sPGRp
-dj48YnI+PC9kaXY+PGRpdj5JIGhhdmUgYW4gVWJ1bnR1IDE4LjA0IGx0cyBzZXJ2ZXIgcnVubmlu
-ZyBtbG1tai4gSeKAmXZlIHRyaWVkIGltcGxlbWVudGluZyB0aGUgbWxtbWotd2ViYXJjaGl2ZXIg
-cHJvamVjdCBmcm9tOjwvZGl2PjxkaXY+PGJyPjwvZGl2PjxkaXY+PGEgaHJlZj0iaHR0cHM6Ly9n
-aXQuY3J5cHRvbWlsay5vcmcvcHJvamVjdHMvbWxtbWotd2ViYXJjaGl2ZXIuZ2l0LyI+aHR0cHM6
-Ly9naXQuY3J5cHRvbWlsay5vcmcvcHJvamVjdHMvbWxtbWotd2ViYXJjaGl2ZXIuZ2l0LzwvYT48
-L2Rpdj48ZGl2Pjxicj48L2Rpdj48ZGl2PkFuZCBJ4oCZdmUgZ290dGVuIGl0IG1vc3RseSB3b3Jr
-aW5nIGZpbmUgZXhjZXB0IHRoZSBzZWFyY2ggbGluayB3aGVuIGNsaWNrZWQgcHJlc2VudHMgYSBi
-bGFuayBwYWdlLiZuYnNwOzwvZGl2PjxkaXY+PGJyPjwvZGl2PjxkaXY+SSBuZ2lueCB3aXRoIHBo
-cC1mcG0gdG8gc2VydmUgdGhlIHNpdGUuIFRoZSBuZ2lueCBlcnJvciBsb2cgY29tcGxhaW5zIGFi
-b3V0IGFuIHVuZXhwZWN0ZWQg4oCYJmFtcDvigJkgc29tZXdoZXJlIGFyb3VuZCBsaW5lIDM0IG9m
-IHRoZSBzZWFyY2gucGhwIGZpbGUuJm5ic3A7PC9kaXY+PGRpdj48YnI+PC9kaXY+PGRpdj5IYXMg
-YW55b25lIHNlZW4gdGhpcz88L2Rpdj48ZGl2Pjxicj48L2Rpdj48ZGl2PkRvZXMgYW55b25lIHN0
-aWxsIHVzZSB0aGlzIHByb2plY3Q/PC9kaXY+PGRpdj48YnI+PC9kaXY+PGRpdj5BcmUgdGhlcmUg
-YmV0dGVyIGZvcmtzIG91dCB0aGVyZT88L2Rpdj48ZGl2Pjxicj48L2Rpdj48ZGl2PkFueSBoZWxw
-IHdvdWxkIGJlIGdyZWF0bHkgYXBwcmVjaWF0ZWQuIFRoYW5rIHlvdS4mbmJzcDs8L2Rpdj48ZGl2
-Pjxicj48L2Rpdj48ZGl2Pi0gRmFiaWFuIFMuPC9kaXY+PGRpdj48YnI+PC9kaXY+PGRpdj5PcGVu
-IFBHUDo8L2Rpdj48ZGl2PjxzcGFuIHN0eWxlPSJiYWNrZ3JvdW5kLWNvbG9yOiByZ2JhKDI1NSwg
-MjU1LCAyNTUsIDApOyI+MHhFNjgyNjA1OEU2RUQ3NzI2REFBNEM3ODMwMzE5MENDMEQxODAwRTM2
-PC9zcGFuPjwvZGl2PjxkaXY+PGJyPjxkaXYgaWQ9IkFwcGxlTWFpbFNpZ25hdHVyZSIgZGlyPSJs
-dHIiPlNlbnQgZnJvbSBteSBtb2JpbGUuPC9kaXY+PC9kaXY+PC9kaXY+PC9ib2R5PjwvaHRtbD4=
+--- mlmmj-webarchiver.orig/mlmmj-webarchiver/search.php.newlist
++++ mlmmj-webarchiver/mlmmj-webarchiver/search.php.newlist
+@@ -31,13 +31,13 @@
+                $html=array();
+                $count=0;
+                $maxresults=##MAX_RESULTS##;
+-               exec("find -type f -name '0*.html' | xargs egrep -roi '$words' | perl -pe 's/:.*//' | sort | uniq",&$output);
++               exec("find -type f -name '0*.html' | xargs egrep -roi '$words' | perl -pe 's/:.*//' | sort | uniq",$output);
+                while(isset($output[$count]) && $count<$maxresults)
+                {
+                        $file=$output[$count++];
+                        $content=file_get_contents($file);
+                        $matches=array();
+-                       if (preg_match('/<em>Subject<\/em>: ([^<]*)<\/li>[\S\s]+From<\/em>: ([^<]*)<\/li>[\S\s]+Date<\/em>: ([^<]*)<\/li>/',$content,&$matches))
++                       if (preg_match('/<em>Subject<\/em>: ([^<]*)<\/li>[\S\s]+From<\/em>: ([^<]*)<\/li>[\S\s]+Date<\/em>: ([^<]*)<\/li>/',$content,$matches))
+                        {
+                                $html[]="<li><a href='$file'>$matches[1]</a>, $matches[2], $matches[3]</li>";
+                        }
 
---Apple-Mail-9B7B0224-EBCC-4376-91B3-C662694918A7--
+> Has anyone seen this?
+obviously, because I wrote and forgot that patch :-)
 
+> Does anyone still use this project?
+yes - https://signing-milter.org/listarchive/ and https://mail.dnswl.org/ml-archive/
+
+Andreas
 
