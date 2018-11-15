@@ -1,84 +1,62 @@
-From: "Robin H. Johnson" <robbat2@gentoo.org>
-Date: Tue, 23 Oct 2018 21:27:24 +0000
-Subject: Re: [mlmmj] Patches wanted for hashing/nesting archive directory (1M+ mails in list)
-Message-Id: <robbat2-20181023T212239-981036633Z@orbis-terrarum.net>
+From: =?utf-8?q?fsantiago=40gardenlan=2Ecom?= <fsantiago@gardenlan.com>
+Date: Thu, 15 Nov 2018 15:28:28 +0000
+Subject: [mlmmj] Mlmmj webarchiver
+Message-Id: <74E860C1-8583-4681-B3BD-4B77BC283293@gardenlan.com>
 MIME-Version: 1
-Content-Type: multipart/mixed; boundary="e9fMjeYs+GPci+mg"
+Content-Type: multipart/mixed; boundary="Apple-Mail-9B7B0224-EBCC-4376-91B3-C662694918A7"
 List-Id: <mlmmj.mlmmj.org>
-References: <robbat2-20180807T030939-826380737Z@orbis-terrarum.net>
-In-Reply-To: <robbat2-20180807T030939-826380737Z@orbis-terrarum.net>
 To: mlmmj@mlmmj.org
 
 
---e9fMjeYs+GPci+mg
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+--Apple-Mail-9B7B0224-EBCC-4376-91B3-C662694918A7
+Content-Type: text/plain;
+	charset=utf-8
+Content-Transfer-Encoding: base64
 
-(Sorry for the lag, busy month so far)
+SGVsbG8sDQoNCkkgaGF2ZSBhbiBVYnVudHUgMTguMDQgbHRzIHNlcnZlciBydW5uaW5nIG1sbW1q
+LiBJ4oCZdmUgdHJpZWQgaW1wbGVtZW50aW5nIHRoZSBtbG1tai13ZWJhcmNoaXZlciBwcm9qZWN0
+IGZyb206DQoNCmh0dHBzOi8vZ2l0LmNyeXB0b21pbGsub3JnL3Byb2plY3RzL21sbW1qLXdlYmFy
+Y2hpdmVyLmdpdC8NCg0KQW5kIEnigJl2ZSBnb3R0ZW4gaXQgbW9zdGx5IHdvcmtpbmcgZmluZSBl
+eGNlcHQgdGhlIHNlYXJjaCBsaW5rIHdoZW4gY2xpY2tlZCBwcmVzZW50cyBhIGJsYW5rIHBhZ2Uu
+IA0KDQpJIG5naW54IHdpdGggcGhwLWZwbSB0byBzZXJ2ZSB0aGUgc2l0ZS4gVGhlIG5naW54IGVy
+cm9yIGxvZyBjb21wbGFpbnMgYWJvdXQgYW4gdW5leHBlY3RlZCDigJgm4oCZIHNvbWV3aGVyZSBh
+cm91bmQgbGluZSAzNCBvZiB0aGUgc2VhcmNoLnBocCBmaWxlLiANCg0KSGFzIGFueW9uZSBzZWVu
+IHRoaXM/DQoNCkRvZXMgYW55b25lIHN0aWxsIHVzZSB0aGlzIHByb2plY3Q/DQoNCkFyZSB0aGVy
+ZSBiZXR0ZXIgZm9ya3Mgb3V0IHRoZXJlPw0KDQpBbnkgaGVscCB3b3VsZCBiZSBncmVhdGx5IGFw
+cHJlY2lhdGVkLiBUaGFuayB5b3UuIA0KDQotIEZhYmlhbiBTLg0KDQpPcGVuIFBHUDoNCjB4RTY4
+MjYwNThFNkVENzcyNkRBQTRDNzgzMDMxOTBDQzBEMTgwMEUzNg0KDQpTZW50IGZyb20gbXkgbW9i
+aWxlLg==
 
-On Mon, Oct 01, 2018 at 02:45:00AM +0000, Chris Knadle wrote:
-> Robin H. Johnson:
-> > One of the larger gentoo.org lists recently passed 1M mails, and while
-> > performance hasn't taken a noticeable hit, doing admin ops in such large
-> > directories is painful.
-> Mmm. Yeah that's a lot for one directory.
->=20
-> > Has anybody started on patches to use a nested directory structure for
-> > archive? Ideally something that supports cleanly migrating from the old
-> > flat layout.
-> Not that I know of, but I think there's a reason.
->=20
-> Mlmmj doesn't include a "web archiver", so I think the only reason to kee=
-p old
-> archives in the same directory is for getting previous messages from the =
-list
-> via email by sending mail to <listname>-get-N@<list-domain-name> where N =
-is the
-> number of the desired message.  It's very unlikely that a user would want=
- to use
-> this to retrieve very many messages.
-Isn't the archive directory also used in the delayed/retry delivery
-cases? (I need to check the moderation cases as well).
+--Apple-Mail-9B7B0224-EBCC-4376-91B3-C662694918A7
+Content-Type: text/html;
+	charset=utf-8
+Content-Transfer-Encoding: base64
 
-The get-N functionality does get usage in Gentoo, as we document it in
-counterpart to the 'you missed some mail because your address was
-bouncing'
+PGh0bWw+PGhlYWQ+PG1ldGEgaHR0cC1lcXVpdj0iY29udGVudC10eXBlIiBjb250ZW50PSJ0ZXh0
+L2h0bWw7IGNoYXJzZXQ9dXRmLTgiPjwvaGVhZD48Ym9keSBkaXI9ImF1dG8iPjxkaXYgZGlyPSJs
+dHIiPjxzcGFuPjwvc3Bhbj48L2Rpdj48ZGl2IGRpcj0ibHRyIj48bWV0YSBodHRwLWVxdWl2PSJj
+b250ZW50LXR5cGUiIGNvbnRlbnQ9InRleHQvaHRtbDsgY2hhcnNldD11dGYtOCI+SGVsbG8sPGRp
+dj48YnI+PC9kaXY+PGRpdj5JIGhhdmUgYW4gVWJ1bnR1IDE4LjA0IGx0cyBzZXJ2ZXIgcnVubmlu
+ZyBtbG1tai4gSeKAmXZlIHRyaWVkIGltcGxlbWVudGluZyB0aGUgbWxtbWotd2ViYXJjaGl2ZXIg
+cHJvamVjdCBmcm9tOjwvZGl2PjxkaXY+PGJyPjwvZGl2PjxkaXY+PGEgaHJlZj0iaHR0cHM6Ly9n
+aXQuY3J5cHRvbWlsay5vcmcvcHJvamVjdHMvbWxtbWotd2ViYXJjaGl2ZXIuZ2l0LyI+aHR0cHM6
+Ly9naXQuY3J5cHRvbWlsay5vcmcvcHJvamVjdHMvbWxtbWotd2ViYXJjaGl2ZXIuZ2l0LzwvYT48
+L2Rpdj48ZGl2Pjxicj48L2Rpdj48ZGl2PkFuZCBJ4oCZdmUgZ290dGVuIGl0IG1vc3RseSB3b3Jr
+aW5nIGZpbmUgZXhjZXB0IHRoZSBzZWFyY2ggbGluayB3aGVuIGNsaWNrZWQgcHJlc2VudHMgYSBi
+bGFuayBwYWdlLiZuYnNwOzwvZGl2PjxkaXY+PGJyPjwvZGl2PjxkaXY+SSBuZ2lueCB3aXRoIHBo
+cC1mcG0gdG8gc2VydmUgdGhlIHNpdGUuIFRoZSBuZ2lueCBlcnJvciBsb2cgY29tcGxhaW5zIGFi
+b3V0IGFuIHVuZXhwZWN0ZWQg4oCYJmFtcDvigJkgc29tZXdoZXJlIGFyb3VuZCBsaW5lIDM0IG9m
+IHRoZSBzZWFyY2gucGhwIGZpbGUuJm5ic3A7PC9kaXY+PGRpdj48YnI+PC9kaXY+PGRpdj5IYXMg
+YW55b25lIHNlZW4gdGhpcz88L2Rpdj48ZGl2Pjxicj48L2Rpdj48ZGl2PkRvZXMgYW55b25lIHN0
+aWxsIHVzZSB0aGlzIHByb2plY3Q/PC9kaXY+PGRpdj48YnI+PC9kaXY+PGRpdj5BcmUgdGhlcmUg
+YmV0dGVyIGZvcmtzIG91dCB0aGVyZT88L2Rpdj48ZGl2Pjxicj48L2Rpdj48ZGl2PkFueSBoZWxw
+IHdvdWxkIGJlIGdyZWF0bHkgYXBwcmVjaWF0ZWQuIFRoYW5rIHlvdS4mbmJzcDs8L2Rpdj48ZGl2
+Pjxicj48L2Rpdj48ZGl2Pi0gRmFiaWFuIFMuPC9kaXY+PGRpdj48YnI+PC9kaXY+PGRpdj5PcGVu
+IFBHUDo8L2Rpdj48ZGl2PjxzcGFuIHN0eWxlPSJiYWNrZ3JvdW5kLWNvbG9yOiByZ2JhKDI1NSwg
+MjU1LCAyNTUsIDApOyI+MHhFNjgyNjA1OEU2RUQ3NzI2REFBNEM3ODMwMzE5MENDMEQxODAwRTM2
+PC9zcGFuPjwvZGl2PjxkaXY+PGJyPjxkaXYgaWQ9IkFwcGxlTWFpbFNpZ25hdHVyZSIgZGlyPSJs
+dHIiPlNlbnQgZnJvbSBteSBtb2JpbGUuPC9kaXY+PC9kaXY+PC9kaXY+PC9ib2R5PjwvaHRtbD4=
 
-For web-archiving, we do it entirely outside of mlmmj (subscribe the
-archiver to the list, use get-N for missing mail, profit).
+--Apple-Mail-9B7B0224-EBCC-4376-91B3-C662694918A7--
 
---=20
-Robin Hugh Johnson
-Gentoo Linux: Dev, Infra Lead, Foundation Treasurer
-E-Mail   : robbat2@gentoo.org
-GnuPG FP : 11ACBA4F 4778E3F6 E4EDF38E B27B944E 34884E85
-GnuPG FP : 7D0B3CEB E9B85B1F 825BCECF EE05E6F6 A48F6136
-
---e9fMjeYs+GPci+mg
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: Digital signature
-
------BEGIN PGP SIGNATURE-----
-Version: GnuPG v2
-Comment: Robbat2 @ Orbis-Terrarum Networks - The text below is a digital signature. If it doesn't make any sense to you, ignore it.
-
-iQKTBAEBCgB9FiEEveu2pS8Vb98xaNkRGTlfI8WIJsQFAlvPkjtfFIAAAAAALgAo
-aXNzdWVyLWZwckBub3RhdGlvbnMub3BlbnBncC5maWZ0aGhvcnNlbWFuLm5ldEJE
-RUJCNkE1MkYxNTZGREYzMTY4RDkxMTE5Mzk1RjIzQzU4ODI2QzQACgkQGTlfI8WI
-JsTuXA//aD/DOarQrlKd1iMeaiZ9H58Q1NnKPslmIcmkBPuvWYeHvt083JjHs/H4
-hbzZze8K8JCBwHwO5uIhxUdzfA1J74wJbmaH6W/JzDB1I7bsTrHK9A7ikNtm1ulC
-dmR8BVR/K2vEpCzonKqatSBbhjWqFf6+U6bdgSjMliE293VuVzeCdAjMNjjpMS1w
-6Fdzgr1KbW3M6vAyhtrJtk0+dR5hthR9Sj839dUKPyPcTzoA+jF3aHFDkZVejeVl
-Y49tEFPCZJYUyPVVLp6kGRcdhQRdSSYFfeyspV45DJZGhcliYAX2qM6NEL7P1i5n
-3kQnGCi5tKpgVrckcTpAen36jO0ocpCORJEWM8Ty9eD71V7UYIH9sRxX0waXcKy+
-CjBykglwKE4CQim/8xdkms9jdkFiZ0jj8MaApAE/FCNro7Pe5fiLcA6cZpTW+1gs
-vNIOLmvxo0VE+AFD0ZXvoVPJHunfvgzS7z07bgRgIxXwQtIKTRA4epVDdQCw4kEu
-S5nbzljivXvSccXxczwsRx1BM8tyyzDwOgrnJBFA7kXM0EpFB74uAc7XiF/EEX59
-9x0Pov7VZKPq6H+hc6C47CIWCOZf9thSR1Tmrj/ZBKYgcjfa6/h4L9QojEzK0kf6
-6Aa9OG8KzAgvdPg9oElFrjCO2qFv1Ghr89TYN4D3gftHMP7o1n0=
-=9rvM
------END PGP SIGNATURE-----
-
---e9fMjeYs+GPci+mg--
 
