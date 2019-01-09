@@ -1,36 +1,24 @@
-From: Geert Stappers <stappers@stappers.nl>
-Date: Tue, 29 Jan 2019 21:40:14 +0000
-Subject: Re: [mlmmj] How to update the website of MLMMJ
-Message-Id: <20190129214014.w7ozkx3rfwxtubci@gpm.stappers.nl>
+From: Zhang Huangbin <zhb@iredmail.org>
+Date: Wed, 09 Jan 2019 13:47:52 +0000
+Subject: Re: [mlmmj] Is this list active?
+Message-Id: <A6C742C7-7F4C-4636-89AC-F96488FD8C97@iredmail.org>
 List-Id: <mlmmj.mlmmj.org>
-References: <20190125212009.4ntpkxqfqwgea6hr@gpm.stappers.nl>
-In-Reply-To: <20190125212009.4ntpkxqfqwgea6hr@gpm.stappers.nl>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="windows-1252"
+Content-Transfer-Encoding: quoted-printable
 To: mlmmj@mlmmj.org
 
-On Fri, Jan 25, 2019 at 10:20:09PM +0100, Geert Stappers wrote:
-> 
-> Hi,
-> 
-> How to update our website http://mlmmj.org/ ?
-> 
-> Or is it more whom to contact to update the mlmmj website?
-> 
 
-The above is infact:
+> On Jan 9, 2019, at 9:40 PM, Mayuresh <mayuresh@acm.org> wrote:
+>=20
+> I am about to give mlmmj a try to set up a mailing list.
 
-  Hello, here a volunteer,
-  who grants me the privilege to update our website?
-  
+Last commit was 19 months ago, you name it. :(
+I=E2=80=99d like to pay developers for some new feature.
 
-So that http://mlmmj.org/development/ can tell
-about https://gitlab.com/mlmmj/mlmmj   (Yes, it has recent updates)
+----
+Zhang Huangbin, founder of iRedMail project: https://www.iredmail.org/
+Time zone: GMT+8 (China/Beijing).
+Available on Telegram: https://t.me/iredmail
 
-
-Groeten
-Geert Stappers
--- 
-Leven en laten leven
 
