@@ -1,38 +1,38 @@
-From: Mayuresh <mayuresh@acm.org>
-Date: Wed, 09 Jan 2019 13:52:35 +0000
-Subject: [mlmmj] Is this list active?
-Message-Id: <20190109134035.GA29810@localhost>
+From: Fabian Aldo Santiago <fsantiago@gardenlan.com>
+Date: Thu, 10 Jan 2019 16:28:48 +0000
+Subject: Re: [mlmmj] Is this list active?
+Message-Id: <f62f559776c10be9e019681d8ff26454@gardenlan.com>
 List-Id: <mlmmj.mlmmj.org>
 References: <A6C742C7-7F4C-4636-89AC-F96488FD8C97@iredmail.org>
 In-Reply-To: <A6C742C7-7F4C-4636-89AC-F96488FD8C97@iredmail.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="windows-1252"
+Content-Transfer-Encoding: quoted-printable
 To: mlmmj@mlmmj.org
 
-I am about to give mlmmj a try to set up a mailing list.
+On 2019-01-09 08:47, Zhang Huangbin wrote:
+>> On Jan 9, 2019, at 9:40 PM, Mayuresh <mayuresh@acm.org> wrote:
+>>=20
+>> I am about to give mlmmj a try to set up a mailing list.
+>=20
+> Last commit was 19 months ago, you name it. :(
+> I=E2=80=99d like to pay developers for some new feature.
+>=20
+> ----
+> Zhang Huangbin, founder of iRedMail project: https://www.iredmail.org/
+> Time zone: GMT+8 (China/Beijing).
+> Available on Telegram: https://t.me/iredmail
 
-At the onset a bit intrigued and why year 2018 is conspicuously absent in
-your mailing list archives[1]. Is everything alright out there? Hope this
-mail reaches the list.
+it's a shame. i see the utility of it but it felt lacking in some=20
+features so i switched it out for mailman 2.x in my mail server=20
+implementation.
 
-Just a few observations to begin with:
+Zhang, in iredmail, why not use MM instead? or rather, how/why did you=20
+choose mlmmj?
 
-- I notice "(No search yet, sorry!)" remark here[2]. I doubt whether that
-  is so important feature as anyone can search using Google for a given
-  domain anyway. [At least you don't have to be sorry!]
+--=20
+- Fabian S.
 
-- Wonder why your archives page[3] doesn't give your own archives[1] as an
-  example instead of libssh!
-
-- BTW, the link[4] cited at the bottom of [3] is not opening.
-
-Will soon post if I have queries when trying to set up mlmmj.
-
-Mayuresh
-
-[1] http://mlmmj.org/archive/mlmmj/
-[2] http://mlmmj.org/lists
-[3] http://mlmmj.org/docs/readme-archives/
-[4] http://mlmmj.org/archive/mlmmj/2010-08/1710.html
+Open PGP:
+0xE6826058E6ED7726DAA4C78303190CC0D1800E36
 
