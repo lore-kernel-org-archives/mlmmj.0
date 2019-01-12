@@ -1,21 +1,36 @@
-From: Fabian Aldo Santiago <fsantiago@gardenlan.com>
-Date: Sun, 18 Nov 2018 05:02:40 +0000
-Subject: [mlmmj] using the access control file / domain restrictions
-Message-Id: <81d64777ca454d9022b91854a679a5b0@gardenlan.com>
+From: Geert Stappers <stappers@stappers.nl>
+Date: Sat, 12 Jan 2019 17:22:42 +0000
+Subject: Re: [mlmmj] Is this list active? Where is "upstream"??
+Message-Id: <20190112172242.vkt65hucuzrqklr3@gpm.stappers.nl>
 List-Id: <mlmmj.mlmmj.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 To: mlmmj@mlmmj.org
 
-hello,
+Hi Mads,
+Hi Mailinglist,
 
-what's a proper regex for the access control file to allow only certain 
-email domains to subscribe? Thanks for your help.
+On Thu, Jan 10, 2019 at 05:30:33PM +0100, Mads Martin J=F8rgensen wrote:
+> > On 9 Jan 2019, at 14.47, Zhang Huangbin wrote:
+> >> On Jan 9, 2019, at 9:40 PM, Mayuresh wrote:
+> >>=20
+> >> I am about to give mlmmj a try to set up a mailing list.
+> >=20
+> > Last commit was 19 months ago, you name it. :(
+> > I???d like to pay developers for some new feature.
+>=20
+> Being open source, you can easily hire a developer for a feature,
+> and then submit it for upstream if you feel like it. It???s even MIT
+> license, so you don???t have to.
+>=20
 
--- 
-- Fabian S.
+Who are upstream of mlmmj?  How to join that team??
 
-Open PGP:
-0xE6826058E6ED7726DAA4C78303190CC0D1800E36
+
+
+Groeten
+Geert Stappers
+--=20
+Leven en laten leven
 
