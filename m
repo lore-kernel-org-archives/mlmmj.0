@@ -1,31 +1,38 @@
 From: Ben Schmidt <mail_ben_schmidt@yahoo.com.au>
-Date: Fri, 25 Jan 2019 08:42:11 +0000
+Date: Fri, 25 Jan 2019 08:56:29 +0000
 Subject: Re: [mlmmj] Is this list active? Where is "upstream"??
-Message-Id: <80a5344e-06b5-d03c-4c82-a2aa76330183@yahoo.com.au>
+Message-Id: <e0592d99-d4a4-c8e7-b0b1-823574855293@yahoo.com.au>
 List-Id: <mlmmj.mlmmj.org>
 References: <20190112172242.vkt65hucuzrqklr3@gpm.stappers.nl>
 In-Reply-To: <20190112172242.vkt65hucuzrqklr3@gpm.stappers.nl>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-On 19/1/19 3:22 pm, Zhang Huangbin wrote:
-> we’d like to sponsor for some features as we discussed one year ago,
-> but i didn’t get your further reply. :( I wonder whether you’re still
-> open to this.
+On 18/1/19 11:25 pm, Henne Vogelsang wrote:
+> Hey Ben,
+> 
+> On 18.01.19 11:57, Ben Schmidt wrote:
+>> There are some technical challenges to adding contributors with how
+>> we're currently set up.
+> 
+> If you need help migrating to a more feature complete dev-platform like
+> github/gitlab/gitea whatnot I would be willing to invest some time in it :-)
 
-Hi, Zhang,
+I think I might take you up on that. I had another idea I was interested
+in trying, but in the meantime I have become more familiar with GitHub
+and its features, so I think it would be worth moving there.
 
-You're right, and I'm sorry, I never did get back to you about this.
+In what ways would you be able to help? I should be able to easily
+enough create an Mlmmj organisation and push the code for starters, but
+I would definitely appreciate help migrating issues from the bug tracker
+and turning existing patches into branches with pull requests.
 
-I am still open to the idea, but I need to do some prerequisite work on
-the codebase before I can offer you any real value for money. Otherwise
-your money would go towards tidying up, not towards the features you
-want. I'll see what I can do in the next few weeks. Expect an update in
-March.
+Smiles,
 
 Ben
+
 
 
 
