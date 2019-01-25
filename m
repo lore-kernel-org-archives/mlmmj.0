@@ -1,7 +1,7 @@
-From: Zhang Huangbin <zhb@iredmail.org>
-Date: Sat, 19 Jan 2019 04:22:50 +0000
+From: Ben Schmidt <mail_ben_schmidt@yahoo.com.au>
+Date: Fri, 25 Jan 2019 08:42:11 +0000
 Subject: Re: [mlmmj] Is this list active? Where is "upstream"??
-Message-Id: <40162155-867E-4D94-9577-4FBD59CC5B78@iredmail.org>
+Message-Id: <80a5344e-06b5-d03c-4c82-a2aa76330183@yahoo.com.au>
 List-Id: <mlmmj.mlmmj.org>
 References: <20190112172242.vkt65hucuzrqklr3@gpm.stappers.nl>
 In-Reply-To: <20190112172242.vkt65hucuzrqklr3@gpm.stappers.nl>
@@ -10,27 +10,22 @@ Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 To: mlmmj@mlmmj.org
 
+On 19/1/19 3:22 pm, Zhang Huangbin wrote:
+> we’d like to sponsor for some features as we discussed one year ago,
+> but i didn’t get your further reply. :( I wonder whether you’re still
+> open to this.
 
+Hi, Zhang,
 
-> On Jan 18, 2019, at 6:57 PM, Ben Schmidt <mail_ben_schmidt@yahoo.com.au> wrote:
-> 
-> I have been struggling for time recently, though I hope it might change soon.
-> 
+You're right, and I'm sorry, I never did get back to you about this.
 
-> There are some technical challenges to adding contributors with how we're currently set up.
-> 
-> However, anyone who's willing to contribute a high quality patch won't be turned away, and if we get a few such patches, it will be worth the effort to get access sorted out.
-> 
-> So please get in touch if you have a patch, and feel free to reach out to me personally if I don't see a post on the mailing list.
+I am still open to the idea, but I need to do some prerequisite work on
+the codebase before I can offer you any real value for money. Otherwise
+your money would go towards tidying up, not towards the features you
+want. I'll see what I can do in the next few weeks. Expect an update in
+March.
 
-Dear Ben,
+Ben
 
-we’d like to sponsor for some features as we discussed one year ago, but i didn’t get your further reply. :(
-I wonder whether you’re still open to this.
-
-----
-Zhang Huangbin, founder of iRedMail project: https://www.iredmail.org/
-Time zone: GMT+8 (China/Beijing).
-Available on Telegram: https://t.me/iredmail
 
 
