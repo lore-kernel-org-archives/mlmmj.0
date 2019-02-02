@@ -1,38 +1,48 @@
 From: Geert Stappers <stappers@stappers.nl>
-Date: Thu, 10 Jan 2019 18:54:26 +0000
-Subject: Re: [mlmmj] Why  (above why not)
-Message-Id: <20190110185426.trs7jdinafy2u5ga@gpm.stappers.nl>
+Date: Sat, 02 Feb 2019 05:48:14 +0000
+Subject: [mlmmj] https://gitlab.com/mlmmj
+Message-Id: <20190202054814.dcejutr7uhdm4v74@gpm.stappers.nl>
 List-Id: <mlmmj.mlmmj.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-On Thu, Jan 10, 2019 at 11:28:48AM -0500, Fabian Aldo Santiago wrote:
-> On 2019-01-09 08:47, Zhang Huangbin wrote:
-> > > On Jan 9, 2019, at 9:40 PM, Mayuresh <mayuresh@acm.org> wrote:
+On Fri, Jan 25, 2019 at 10:08:36PM +0100, Geert Stappers wrote:
+> On Fri, Jan 25, 2019 at 05:52:04PM +0800, Zhang Huangbin wrote:
+> > On Jan 25, 2019, at 4:56 PM, Ben Schmidt <mail_ben_schmidt@yahoo.com.au> wrote:
 > > > 
-> > > I am about to give mlmmj a try to set up a mailing list.
+> > > I think I might take you up on that. I had another idea I was interested
+> > > in trying, but in the meantime I have become more familiar with GitHub
+> > > and its features, so I think it would be worth moving there.
+> > > 
+> > > In what ways would you be able to help? I should be able to easily
+> > > enough create an Mlmmj organisation and push the code for starters, but
+> > > I would definitely appreciate help migrating issues from the bug tracker
+> > > and turning existing patches into branches with pull requests.
 > > 
-> > Last commit was 19 months ago, you name it. :(
-> > I???d like to pay developers for some new feature.
+> > github supports migrating from existing git/hg repo, you can give it a try,
+> > should be easy and painless. :)
 > > 
 > 
-> it's a shame. i see the utility of it but it felt lacking in some features
-> so i switched it out for mailman 2.x in my mail server implementation.
+> That work has be done. There is https://gitlab.com/mlmmj/mlmmj
 > 
-> Zhang, in iredmail, why not use MM instead? or rather, how/why did you
-> choose mlmmj?
+> For those who want commit privilege to the mlmmj  mail this mailinglist,
+> just state your gitlab account name.
+> 
 
-My reason for  choosing mlmmj is that it integrates fine with postfix
-and has simple configuration files.
+It is a retransmit. However with new subject and in a new thread.
 
-It also provides a working replacement for  .forward configs.
+Quoting https://gitlab.com/mlmmj/mlmmj/commit/7dfd56d04a548498829445de105194e39a0ddf62
+which updates the TODO file
+
+ o Have a multiple person team
 
 
-Groeten
+
+Regards
 Geert Stappers
-Some what uncomfortable upon seeing the "defend your choice" request
+Looking forward to your   "Count me in, {}"  gitlab_account_name
 -- 
 Leven en laten leven
 
