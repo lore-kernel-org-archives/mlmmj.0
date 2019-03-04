@@ -1,67 +1,59 @@
 From: Geert Stappers <stappers@stappers.nl>
-Date: Fri, 01 Feb 2019 09:29:36 +0000
-Subject: Re: [mlmmj] Mlmmj webarchiver, patch, working confirmed
-Message-Id: <20190201092936.etok6fnk36haakx2@gpm.stappers.nl>
+Date: Mon, 04 Mar 2019 21:57:00 +0000
+Subject: Re: [mlmmj] https://gitlab.com/mlmmj
+Message-Id: <20190304215700.obbaubwuuh6ckckt@gpm.stappers.nl>
 List-Id: <mlmmj.mlmmj.org>
+References: <20190202054814.dcejutr7uhdm4v74@gpm.stappers.nl>
+In-Reply-To: <20190202054814.dcejutr7uhdm4v74@gpm.stappers.nl>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-On Thu, Nov 15, 2018 at 06:14:44PM -0500, Fabian Aldo Santiago wrote:
-> On 2018-11-15 13:47, Fabian Aldo Santiago wrote:
-> > On 2018-11-15 13:35, A. Schulze wrote:
-> > > Am 15.11.18 um 16:28 schrieb fsantiago@gardenlan.com:
-> > > > https://git.cryptomilk.org/projects/mlmmj-webarchiver.git/
-> > > > And I???ve gotten it mostly working fine except the search link
-> > > > when clicked presents a blank page.=A0
-> > > > I nginx with php-fpm to serve the site. The nginx error log
-> > > > complains about an unexpected ???&??? somewhere around line 34
-> > > > of the search.php file.
-> > >=20
-> > > I've created a package for my installations. And - surprise - I wrote
-> > > a patch years ago that looks similar to your problem.
-> > >=20
-> > > --- mlmmj-webarchiver.orig/mlmmj-webarchiver/search.php.newlist
-> > > +++ mlmmj-webarchiver/mlmmj-webarchiver/search.php.newlist
-> > > @@ -31,13 +31,13 @@
-> > >                 $html=3Darray();
-> > >                 $count=3D0;
-> > >                 $maxresults=3D##MAX_RESULTS##;
-> > > -               exec("find -type f -name '0*.html' | xargs egrep -roi
-> > > '$words' | perl -pe 's/:.*//' | sort | uniq",&$output);
-> > > +               exec("find -type f -name '0*.html' | xargs egrep -roi
-> > > '$words' | perl -pe 's/:.*//' | sort | uniq",$output);
-> > >                 while(isset($output[$count]) && $count<$maxresults)
-> > >                 {
-> > >                         $file=3D$output[$count++];
-> > >                         $content=3Dfile_get_contents($file);
-> > >                         $matches=3Darray();
-> > > -                       if (preg_match('/<em>Subject<\/em>:
-> > > ([^<]*)<\/li>[\S\s]+From<\/em>: ([^<]*)<\/li>[\S\s]+Date<\/em>:
-> > > ([^<]*)<\/li>/',$content,&$matches))
-> > > +                       if (preg_match('/<em>Subject<\/em>:
-> > > ([^<]*)<\/li>[\S\s]+From<\/em>: ([^<]*)<\/li>[\S\s]+Date<\/em>:
-> > > ([^<]*)<\/li>/',$content,$matches))
-> > >                         {
-> > >                                 $html[]=3D"<li><a
-> > > href=3D'$file'>$matches[1]</a>, $matches[2], $matches[3]</li>";
-> > >                         }
-> > >=20
-> > > > Has anyone seen this?
-> > > obviously, because I wrote and forgot that patch :-)
-> > >=20
-> >=20
-> > that's awesome! Thank you very much. I'll give this a whirl.
->=20
-> worked fine. thank you.
->=20
+On Mon, Feb 04, 2019 at 11:43:36PM +0100, Geert Stappers wrote:
+> On Mon, Feb 04, 2019 at 05:42:43PM +0100, Henne Vogelsang wrote:
+> > Hey,
+> > 
+> > On 02.02.19 06:48, Geert Stappers wrote:
+> > >       ... text previous posted in thread "where is upstream" ...
+> > >  o Have a multiple person team
+> > 
+> > Look, you realize that no one really knows who you are right? And that
+> > you not have a single commit in the mlmmj code base?
+> 
+> http://mlmmj.org/bugs/bug.php?idc
+> 
+> > That's why no one
+> > can really judge your intentions with moving this to $githoster.
+> > 
+> > I think your actions have been a bit premature. Mads is the founder, Ben
+> > is is the maintainer. It's their decision what to do, where and who to
+> > do it with.
+> > 
+> > I personally don't question your intentions and I'm sure you mean good,
+> > but as a project maintainer I would feel overwhelmed by your actions
+> > too. Maybe you can dial it back a bit and help Ben to come to a decision
+> > instead of deciding for him?
+> > 
+> > Henne
+> > 
+> > -- 
+> > Henne Vogelsang
+> > http://www.opensuse.org
+> > Everybody has a plan, until they get hit.
+> > 	- Mike Tyson
+> > 
+> > 
+> 
+> Yeah, lets wait.
 
-Who is in contact with upstream of mlmmj-webarchiver?
+It will tell how well alive  this mailing list is.
 
 
-Groeten
+Regards
 Geert Stappers
---=20
-Leven en laten leven
+-- 
+Some changes go so slowly that you don't notice them.
+Some changes go so quick that they don't notice you.
+
 
