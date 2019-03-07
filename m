@@ -1,34 +1,46 @@
-From: Zhang Huangbin <zhb@iredmail.org>
-Date: Wed, 06 Mar 2019 03:04:51 +0000
+From: Geert Stappers <stappers@stappers.nl>
+Date: Thu, 07 Mar 2019 19:01:14 +0000
 Subject: Re: [mlmmj] https://gitlab.com/mlmmj
-Message-Id: <E3893A9E-CE6E-4833-8E68-37EDA447CA34@iredmail.org>
+Message-Id: <20190307190114.j7jpb44i2rg3xahy@gpm.stappers.nl>
 List-Id: <mlmmj.mlmmj.org>
 References: <20190202054814.dcejutr7uhdm4v74@gpm.stappers.nl>
 In-Reply-To: <20190202054814.dcejutr7uhdm4v74@gpm.stappers.nl>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-
-
-> On Mar 6, 2019, at 3:54 AM, Geert Stappers <stappers@stappers.nl> wrote:
+On Wed, Mar 06, 2019 at 11:04:51AM +0800, Zhang Huangbin wrote:
+> > On Mar 6, 2019, at 3:54 AM, Geert Stappers wrote:
+> > 
+> > My goal is avoiding a rename.
 > 
-> My goal is avoiding a rename.
+> We all want to avoid it,
 
-We all want to avoid it, but we cannot contribute to the source code repo without
-Ben’s reply and permission.
+Yep.
 
-If current maintainer didn’t reply and submit any commit for a long time, the project
-should be considered as dead already.
+And we all are busy.
 
-Forking and renaming can keep development moving on and benefit all users.
-If Ben replies and grants privileges to commit to mlmmj repo directly, we can merge
-all changes to mlmmj repo.
+And we all feel fine that somebody(else??) does what needs to be done.
 
-----
-Zhang Huangbin, founder of iRedMail project: https://www.iredmail.org/
-Time zone: GMT+8 (China/Beijing).
-Available on Telegram: https://t.me/iredmail
+Then gets that 'somebody(else??)' other priorities ...
 
+
+Prior in history of this project was a handover from Martin to Ben.
+How much time there was with them parallel active, is unknown to me.
+
+There is no need for a next handover. There is need for several
+people being active[1]. https://gitlab.com/mlmmj/mlmmj/commit/7dfd56d04a548498829445de105194e39a0ddf62
+is about that.
+
+
+ 
+Groeten
+Geert Stappers
+
+[1] Active in a young project totally different
+    with the active in a mature project.
+
+-- 
+Leven en laten leven
 
