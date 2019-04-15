@@ -1,46 +1,27 @@
-From: Geert Stappers <stappers@stappers.nl>
-Date: Thu, 07 Mar 2019 19:01:14 +0000
-Subject: Re: [mlmmj] https://gitlab.com/mlmmj
-Message-Id: <20190307190114.j7jpb44i2rg3xahy@gpm.stappers.nl>
+From: "A. Schulze" <sca@andreasschulze.de>
+Date: Mon, 15 Apr 2019 19:25:01 +0000
+Subject: [mlmmj] state of mlmmj-archiver (and mlmmj.org)
+Message-Id: <5b5d9093-fc91-56d4-c9e8-425cab50d70b@andreasschulze.de>
 List-Id: <mlmmj.mlmmj.org>
-References: <20190202054814.dcejutr7uhdm4v74@gpm.stappers.nl>
-In-Reply-To: <20190202054814.dcejutr7uhdm4v74@gpm.stappers.nl>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-On Wed, Mar 06, 2019 at 11:04:51AM +0800, Zhang Huangbin wrote:
-> > On Mar 6, 2019, at 3:54 AM, Geert Stappers wrote:
-> > 
-> > My goal is avoiding a rename.
-> 
-> We all want to avoid it,
+Hello,
 
-Yep.
+the author of https://git.cryptomilk.org/projects/mlmmj-webarchiver.git told me off-list he's fine if
+that work will be transferred to https://gitlab.com/mlmmj.
 
-And we all are busy.
+He's currently not subscribed to any mlmmj related list. Reason TLS compatibility issues.
 
-And we all feel fine that somebody(else??) does what needs to be done.
+And - to be honest - it's reasonable. The mlmmj.org domain is using really,really outdated crypto:
+no HTTPS at all and tls1.0 maximum for SMTP :-/
 
-Then gets that 'somebody(else??)' other priorities ...
+This is a major barrier for participants.
 
+Andreas
 
-Prior in history of this project was a handover from Martin to Ben.
-How much time there was with them parallel active, is unknown to me.
-
-There is no need for a next handover. There is need for several
-people being active[1]. https://gitlab.com/mlmmj/mlmmj/commit/7dfd56d04a548498829445de105194e39a0ddf62
-is about that.
-
-
- 
-Groeten
-Geert Stappers
-
-[1] Active in a young project totally different
-    with the active in a mature project.
-
--- 
-Leven en laten leven
+- https://internet.nl/site/mlmmj.org/510595/
+- https://www.hardenize.com/report/mlmmj.org/1555355696
 
