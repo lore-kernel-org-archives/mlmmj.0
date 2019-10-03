@@ -1,28 +1,49 @@
-From: Linus =?utf-8?Q?L=C3=BCssing?= <linus.luessing@c0d3.blue>
-Date: Thu, 20 Jun 2019 22:15:35 +0000
-Subject: [mlmmj] Auto-Reply / Auto-Response?
-Message-Id: <20190620221535.GO2500@otheros>
+From: Martin Brampton <martin@black-sheep-research.com>
+Date: Thu, 03 Oct 2019 15:54:32 +0000
+Subject: [mlmmj] Not quite working
+Message-Id: <8db56057-d61f-56d7-4de2-4d70f3e18302@black-sheep-research.com>
 List-Id: <mlmmj.mlmmj.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Hi,
+Hi
 
-We have an unmoderated mlmmj mailing list here where anyone can
-write to. And would like to send an automatic reply to anyone
-sending an email to it (something like a "a response can take some
-time, please stand-by" text).
+Is this list active? I'm hoping so.
 
-So far we tried just creating a file in $listdir/text/ with
-"finish-post", "finish-post-request" and
-"wait-post-modnonsubposts" but those do not seem to work.
+I've added mlmmj to my Postfix based mail server. Seem to have got at 
+least some of the way. Created a list test-list@yorkshiremail.com.
 
-Does an auto-reply feature exist with mlmmj? Ideally the
-non-subscribed sender would also only get an auto-reply for the
-first message in a newly created mail thread (so basically for any
-message without an "In-Reply-To" field).
+But sending mail to the test list results in a bounce with the message:
 
-Regards, Linus
+
+<yorkshiremail.com--test-list@localhost.mlmmj> (expanded from
+     <test-list@yorkshiremail.com>): Command died with status 1:
+     "/usr/bin/mlmmj-receive"
+
+
+Mail log has:
+Oct  3 16:37:25 mx /usr/bin/mlmmj-receive[24159]: mlmmj-receive.c:122: 
+Could not stat /var/spool/mlmmj/list-dir: No such file or directory
+Oct  3 16:37:25 mx postfix/pipe[24158]: EFA709E271: 
+to=<yorkshiremail.com--test-list@localhost.mlmmj>, 
+orig_to=<test-list@yorkshiremail.com>, relay=mlmmj, delay=1.1, 
+delays=1.1/0.01/0/0.02, dsn=5.3.0, status=bounced (Command died with 
+status 1: "/usr/bin/mlmmj-receive")
+
+
+What can I look at to figure out what's wrong? I'm not clear why there 
+is a reference to /var/spool/mlmmj/list-dir when the list is test-list.
+
+Best regards, Martin
+
+
+-- 
+Martin Brampton, Black Sheep Research
+martin@black-sheep-research.com
+http://black-sheep-research.com
+Tel: +44 1653 696210 or +1 585 939 7885
+Mobile: +44 7771 787010
+Office: 4 York Road, Malton, North Yorkshire, YO17 6AX, UK.
 
