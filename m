@@ -1,37 +1,38 @@
 From: Martin Brampton <martin@black-sheep-research.com>
-Date: Thu, 03 Oct 2019 16:27:39 +0000
-Subject: Re: [mlmmj] Not quite working
-Message-Id: <f3825fd8-e209-3d8f-d08c-c15780253c92@black-sheep-research.com>
+Date: Fri, 04 Oct 2019 10:02:52 +0000
+Subject: [mlmmj] Custom headers
+Message-Id: <821dfe3a-4f36-017c-5f28-7070f179d96a@black-sheep-research.com>
 List-Id: <mlmmj.mlmmj.org>
-References: <8db56057-d61f-56d7-4de2-4d70f3e18302@black-sheep-research.com>
-In-Reply-To: <8db56057-d61f-56d7-4de2-4d70f3e18302@black-sheep-research.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Thanks very much. Yes, my stupid fault. I copied the example for the 
-transport and failed to amend the name of the directory to match my own 
-list (left it as list-dir).
+When I set up my first test list, I used the example given in the 
+documenation i.e.
 
-Seems to be working now!
+X-Mailinglist: test-list
+Reply-To: test-list@yorkshiremail.com
 
-On 03/10/2019 17:20, Zhang Huangbin wrote:
-> 
-> 
->> On Oct 3, 2019, at 11:54 PM, Martin Brampton <martin@black-sheep-research.com> wrote:
->> ...
->> Oct  3 16:37:25 mx /usr/bin/mlmmj-receive[24159]: mlmmj-receive.c:122: Could not stat /var/spool/mlmmj/list-dir: No such file or directory
->> ...
->> What can I look at to figure out what's wrong? I'm not clear why there is a reference to /var/spool/mlmmj/list-dir when the list is test-list.
-> 
-> The log is pretty clear: your mlmmj setup is configured to use /var/spool/mlmmj/list-dir for mailing list "test-list@".
-> This is controlled by the part in /etc/postfix/master.cf, i think you have improper setting. It would be better if you post mlmmj related part here so that others can help troubleshoot.
-> 
-> ----
-> Zhang Huangbin, founder of iRedMail project: https://www.iredmail.org/
-> 
-> 
-> 
+However, this doesn't give a particularly good result in Thunderbird. 
+Noticing that this list gives better results, I looked at the headers. 
+It seems that (adapted for my list) these are:
 
+List-Id: <test-list.yorkshiremail.com>
+List-Help: <mailto:test-list+help@yorkshiremail.com>
+List-Post: <mailto:test-list@yorkshiremail.com>
+List-Subscribe: <mailto:test-list+subscribe@yorkshiremail.com>
+List-Unsubscribe: <mailto:test-list+unsubscribe@yorkshiremail.com>
+
+There don't seem to be either X-MailingList or Reply-To headers.
+
+The (un)subscribe headers don't seem to have any effect on Thunderbird, 
+are they useful elsewhere? Or are they for people who know how to look 
+at mail headers?
+
+Is the second list above the best configuration for headers?
+
+Should this go into the documentation perhaps?
+
+Martin
 
