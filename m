@@ -1,30 +1,24 @@
-From: Piotr Auksztulewicz <mlmmj-listrcpt@hasiok.net>
-Date: Wed, 18 Dec 2019 20:18:43 +0000
-Subject: [mlmmj] How long are bounce probes sent?
-Message-Id: <20191218201843.GE19470@kibel.hasiok.net>
+From: Geert Stappers <stappers@stappers.nl>
+Date: Fri, 21 Feb 2020 16:34:03 +0000
+Subject: Re: [mlmmj] (meta) still active
+Message-Id: <20200221163403.juafoix4mqy2z2ac@gpm.stappers.nl>
 List-Id: <mlmmj.mlmmj.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
+On Fri, Feb 21, 2020 at 05:24:22PM +0100, Valentin Iovene wrote:
+> when i go to http://mlmmj.org/archive/mlmmj/ the oldest messages i see
+> date back to 2017. this makes me wonder if this mailing list is still
+> active. is anyone here? :)
 
-Hello all!
+Yes,  example given:   me
 
-A quick question.
 
-Some subscribed address was undeliverable, but I got a new one from the
-person and manually unsubscribed the old address and subscribed the new
-one. The bounce probes are still sent for the old one every time cron
-starts mlmmj-maintd.
 
-Should I remove some files from <list>/bounce directory or will they
-be removed automatically? For how long are bounce probes sent?
-
-Maybe maintd should check if the bouncing address is still subscribed?
-
-Thanks.
-
+Regards
+Geert Stappers
 -- 
-Piotr "Malgond" Auksztulewicz                     firstname@lastname.net
+Silence is hard to parse
 
