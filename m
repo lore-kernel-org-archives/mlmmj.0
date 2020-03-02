@@ -1,66 +1,58 @@
 From: "Richard Torrens (lists)" <Lists@Torrens.org>
-Date: Tue, 03 Mar 2020 12:17:39 +0000
-Subject: Re: [mlmmj] DMARC (corrected)
-Message-Id: <584b6eaaf7Lists@Torrens.org>
+Date: Mon, 02 Mar 2020 11:13:51 +0000
+Subject: [mlmmj] DMARC
+Message-Id: <S84ae4fccdLists@Torrens.org>
+MIME-Version: 1
+Content-Type: multipart/mixed; boundary="584ae43539nXWcJIblPMzDU5vUduVBQt"
 List-Id: <mlmmj.mlmmj.org>
-References: <20200303095859.Horde.WCHP_tNDxpm70b-4WXMAcYP@andreasschulze.de>
-In-Reply-To: <20200303095859.Horde.WCHP_tNDxpm70b-4WXMAcYP@andreasschulze.de>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-In article
-<20200303095859.Horde.WCHP_tNDxpm70b-4WXMAcYP@andreasschulze.de>,
-   A. Schulze <sca@andreasschulze.de> wrote:
+This is a MIME encapsulated message.
 
-> Christof Thalhofer:
+--584ae43539nXWcJIblPMzDU5vUduVBQt
+Content-Type: text/plain
 
-> > They say, reject every mail that is supposed to come from casema.nl but
-> > was sent from a server not being part of this domain.
+My server uses Exim and mlmmj. I did not set it up - it's a virtual linux
+account so I have no sudo access.
 
-> Hello,
+One of the mailing lists I run has a problem with DMARC - from one user!
+Every time this use posts there are a load of one-off bounces because that
+DMARC verification has failed.
 
-> I like to correct the wording:
-> p=reject aks the receiving MTA to reject messages with RFC5322.From =  
-> *@casema.nl
-> unless the message could be successful authenticated by SPF or DKIM.
+The member concerned is @casema.nl 
 
-dig is a tool I was not aware of. Unfortunately the response is not
-exactly clear so thanks fot the exp;anation.
+Other members postings nerver bounce for that reason. It's clear that
+casema.nl must have a stringent policy, but I cannot find out what is
+causing the problem.
+
+Has anyone any hints or suggestions?
+
+mlmmj-sub version 1.2.15
+
+Attached:
+  customheaders
+  delheaders
 
 
-
-> That open two options
-> - auth by SPF
->    usually happen for directly sent messages from the originators MTA
->    unlikely to happen for messages sent via an MLM as such hosts  
-> aren't expected to be included in senders SPF
-
-> - auth by DKIM
->    very common for MLM to break DKIM signatures by
->    * adding a subject tag
->    * adding a footer to mail body
-
-> So, as MLM operator you /may/ make your lists "dkim save": strictly  
-> avoid any message modification.
-> Then any subscriber could use your MLM even if the subscriber announce  
-> dmarc p=reject
-
-Yes - I got this much earlier: I used to add a footer and an i/d to the
-subject. But removing them has not changed things. 
-
-It seems to me that I need to remove the original From and insert subjects
-such as
-
-From: thelist
-Original-sender: theposter
-
-But there seems to be no way of inserting the original poster's email
-address in a new header?
 
 -- 
 Richard Torrens.
 http://www.Torrens.org for genealogy, natural history, wild food, walks, cats
 and more!
+
+--584ae43539nXWcJIblPMzDU5vUduVBQt
+Content-Type: text/plain; Name="customheaders"
+
+Reply-To: StrongED@Torrens.org
+List-Id: RISC OS StrongED mailing list
+Sender: StrongED Mailing List <StrongED@Torrens.org>
+List-Unsubscribe: <StrongED+unsubscribe@Torrens.org>
+
+--584ae43539nXWcJIblPMzDU5vUduVBQt
+Content-Type: text/plain; Name="delheaders"
+
+X-ThisMailContainsUnwantedMimeParts:
+Return-Receipt-To:
+
+--584ae43539nXWcJIblPMzDU5vUduVBQt--
 
