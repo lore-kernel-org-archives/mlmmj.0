@@ -1,92 +1,63 @@
-From: "Dave Nelson (dave@dalek.zone)" <dave@dalek.zone>
-Date: Mon, 02 Mar 2020 10:34:37 +0000
+From: Christof Thalhofer <chrisml@deganius.de>
+Date: Mon, 02 Mar 2020 11:49:09 +0000
 Subject: Re: [mlmmj] Is this list alive?
-Message-Id: <ce282c6d953c3cfdc73f04302457d261@dalek.zone>
+Message-Id: <cea2ae10-c99a-d361-06d2-2955a0991ba5@deganius.de>
 MIME-Version: 1
-Content-Type: multipart/mixed; boundary="=_746a21dc3c6e0f4a6b4339e5f3367597"
+Content-Type: multipart/mixed; boundary="WfZOTk16apyggk65IsEzrP6eDL1VBpsjH"
 List-Id: <mlmmj.mlmmj.org>
 References: <4ea7a6d6-0838-4bff-3699-676e235b81d7@deganius.de>
 In-Reply-To: <4ea7a6d6-0838-4bff-3699-676e235b81d7@deganius.de>
 To: mlmmj@mlmmj.org
 
---=_746a21dc3c6e0f4a6b4339e5f3367597
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset=US-ASCII;
- format=flowed
+This is an OpenPGP/MIME signed message (RFC 4880 and 3156)
+--WfZOTk16apyggk65IsEzrP6eDL1VBpsjH
+Content-Type: multipart/mixed; boundary="FLObObv62qrgF4XBqLbzHJ34WD7een62D"
 
-Life still beats in its heart here...
+--FLObObv62qrgF4XBqLbzHJ34WD7een62D
+Content-Type: text/plain; charset=utf-8
+Content-Language: en-US
+Content-Transfer-Encoding: quoted-printable
 
----
-All the best,
+Am 02.03.20 um 11:34 schrieb Dave Nelson (dave@dalek.zone):
 
-Dave
+> Life still beats in its heart here...
 
-On 2020-03-02 09:53, Christof Thalhofer wrote:
-> Hello everybody,
-> 
-> just a test, as the archive shows no activity since 2017.
-> 
-> Alles Gute
-> 
-> Christof Thalhofer
---=_746a21dc3c6e0f4a6b4339e5f3367597
-Content-Transfer-Encoding: 7bit
-Content-Type: application/pgp-keys;
- name=0xA4FB3059.asc
-Content-Disposition: attachment;
- filename=0xA4FB3059.asc;
- size=3053
+Ok, very cool, thank you all, this is very nice! So I'll be reading
+along here from now on. In the future i will transfer some mailing lists
+from mailman 2 to mlmmj, and then i may contact you with specific questio=
+ns.
 
------BEGIN PGP PUBLIC KEY BLOCK-----
+Thank you and have a good time!
 
-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
-=8qDF
------END PGP PUBLIC KEY BLOCK-----
+Christof Thalhofer
 
---=_746a21dc3c6e0f4a6b4339e5f3367597--
+--=20
+Dies ist keine Signatur
+
+
+--FLObObv62qrgF4XBqLbzHJ34WD7een62D--
+
+--WfZOTk16apyggk65IsEzrP6eDL1VBpsjH
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: OpenPGP digital signature
+Content-Disposition: attachment; filename="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCgAdFiEEp/QSihTiBGN70hb+5r9EJtW1vzUFAl5c8rUACgkQ5r9EJtW1
+vzUofg//YiYoxpdcSJDp2DplqKBkINz5PPVWlY6XlXO4xliXtQSkuS73aj+BTOKs
+7lK8EVGAEBff+TlzMDGnrjg3CSECnAfkUc5KRhjrxIsDcFYCvhTTsXwI+DsSzyle
+3Von373suMBp4no+1Xfi/4GFVAQH4rLrbtESXTgH9XpnC/1RGnadMl9NXR+HZgrp
+jEXwmphkm+owIwf7GeZQ0REScFu8D2Gd86HZyHrlQXXOmvS+JUg6fDEyg6J+kSFn
+TPi3bAeAkgvt8ugcuPfe3PnTjdbr0cpSuQAOj3By6kyTi4xuW5tJtR011iac+vdt
+8RCiYzk0qwDWU7pd3tNNmYgjkTGCfQkqCRDPl12ZhtEbSSc9+UiHAdWbYYyKRryb
+hOdyCYfpIzrb+/+NYUAMw9Xik6E1zAy5M8uJtrp2yMc/CWXrbq8rIhHTmVtX1ZM+
+5ai2JQT1VqDd6QUxTnJXt0Ch27tcFq0c9y3nHxQV/1t3og9Iry/AHUEstu2RmlaF
+cnjSgbSICpI1Tvrhe8FxBnGXd67BdKMlsUrikZjrUcINqrG6FA8jg4ZS97H6M7NI
+WXssxwaqHy7xtri3QI+qR5RyNBumxmn1ovPZj6tHs/Ty6SbznRHRjcO+doHFkTJC
+KHdae+fBPxAkxpbi6o5L6b0VV7tfTHTbJ4bvlmhsx2UlW9BIn9U=
+=FEG0
+-----END PGP SIGNATURE-----
+
+--WfZOTk16apyggk65IsEzrP6eDL1VBpsjH--
 
