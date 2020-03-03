@@ -1,22 +1,42 @@
-From: jf-mlmmj@bookofsand.co.uk
-Date: Fri, 21 Feb 2020 16:40:13 +0000
-Subject: Re: [mlmmj] (meta) still active?
-Message-Id: <32754.1582303213@calligramme.charmers>
+From: "A. Schulze" <sca@andreasschulze.de>
+Date: Tue, 03 Mar 2020 08:58:59 +0000
+Subject: Re: [mlmmj] DMARC (corrected)
+Message-Id: <20200303095859.Horde.WCHP_tNDxpm70b-4WXMAcYP@andreasschulze.de>
 List-Id: <mlmmj.mlmmj.org>
-References: <20200221162422.5l2pxnp77tmyvki5@valoup>
-In-Reply-To: <20200221162422.5l2pxnp77tmyvki5@valoup>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-On 2020-02-21 at 17:24+0100 Valentin Iovene wrote:
-> when i go to http://mlmmj.org/archive/mlmmj/ the oldest messages i see
-> date back to 2017. this makes me wonder if this mailing list is still
-> active. is anyone here? :)
 
-There were messages on here in October 2019, so it looks more
-like the archive isn’t working.
+Christof Thalhofer:
 
-  — Jón
+> They say, reject every mail that is supposed to come from casema.nl but
+> was sent from a server not being part of this domain.
+
+Hello,
+
+I like to correct the wording:
+p=reject aks the receiving MTA to reject messages with RFC5322.From =  
+*@casema.nl
+unless the message could be successful authenticated by SPF or DKIM.
+
+That open two options
+- auth by SPF
+   usually happen for directly sent messages from the originators MTA
+   unlikely to happen for messages sent via an MLM as such hosts  
+aren't expected to be included in senders SPF
+
+- auth by DKIM
+   very common for MLM to break DKIM signatures by
+   * adding a subject tag
+   * adding a footer to mail body
+
+So, as MLM operator you /may/ make your lists "dkim save": strictly  
+avoid any message modification.
+Then any subscriber could use your MLM even if the subscriber announce  
+dmarc p=reject
+
+Andreas
+
 
