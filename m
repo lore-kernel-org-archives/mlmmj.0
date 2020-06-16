@@ -1,27 +1,28 @@
-From: Roderick <hruodr@gmail.com>
-Date: Tue, 16 Jun 2020 09:41:00 +0000
+From: Per Jessen <per@opensuse.org>
+Date: Tue, 16 Jun 2020 09:46:32 +0000
 Subject: Re: [mlmmj] access::Deny seems to have stopped working ?
-Message-Id: <alpine.BSF.2.22.419.2006160937120.1164@fbsd.local>
+Message-Id: <rca4do$aqa$1@saturn.local.net>
 List-Id: <mlmmj.mlmmj.org>
 References: <rc5bj1$gl8$1@saturn.local.net>
 In-Reply-To: <rc5bj1$gl8$1@saturn.local.net>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 To: mlmmj@mlmmj.org
 
+Mads Martin Jørgensen wrote:
+
+> That's because it's kind of headers, in the body. IIRC you're right
+> Per. Only headers are checked.
+> 
+
+Thanks for confirming it, Mads.
 
 
-On Tue, 16 Jun 2020, Per Jessen wrote:
 
-> As far as I can tell from the source code and my debugging, yes - headers are 
-> only collected until the empty line between header and body.
 
-And that corresponds to what I read in README.access. That is what I
-wanted to say: no bug. The OP expects a feature neither implemented
-nor documented: to filter according to contents in the body. For
-trateing headers in attachments with RE one needs perhaps something
-like a variable in it with the boundary.
+-- 
+Per Jessen, Zürich (19.2°C)
+Member, openSUSE Heroes
 
-Rodrigo
 
