@@ -1,7 +1,7 @@
 From: Per Jessen <per@opensuse.org>
-Date: Tue, 16 Jun 2020 09:46:32 +0000
+Date: Tue, 16 Jun 2020 09:49:54 +0000
 Subject: Re: [mlmmj] access::Deny seems to have stopped working ?
-Message-Id: <rca4do$aqa$1@saturn.local.net>
+Message-Id: <rca4k2$aqa$2@saturn.local.net>
 List-Id: <mlmmj.mlmmj.org>
 References: <rc5bj1$gl8$1@saturn.local.net>
 In-Reply-To: <rc5bj1$gl8$1@saturn.local.net>
@@ -10,19 +10,23 @@ Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 To: mlmmj@mlmmj.org
 
-Mads Martin Jørgensen wrote:
+Roderick wrote:
 
-> That's because it's kind of headers, in the body. IIRC you're right
-> Per. Only headers are checked.
+> On Tue, 16 Jun 2020, Per Jessen wrote:
 > 
+>> As far as I can tell from the source code and my debugging, yes -
+>> headers are only collected until the empty line between header and
+>> body.
+> 
+> And that corresponds to what I read in README.access. That is what I
+> wanted to say: no bug. 
 
-Thanks for confirming it, Mads.
-
-
+Oh yes, I agree.  If anything, the bug is on our side, that we have
+expected it to work for more than 13 years :-) 
 
 
 -- 
-Per Jessen, Zürich (19.2°C)
+Per Jessen, Zürich (19.1°C)
 Member, openSUSE Heroes
 
 
