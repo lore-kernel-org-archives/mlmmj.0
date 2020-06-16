@@ -1,7 +1,7 @@
 From: Per Jessen <per@opensuse.org>
-Date: Mon, 15 Jun 2020 06:55:39 +0000
+Date: Tue, 16 Jun 2020 07:06:41 +0000
 Subject: Re: [mlmmj] access::Deny seems to have stopped working ?
-Message-Id: <5EE71B6B.5060809@opensuse.org>
+Message-Id: <rc9r21$98l$1@saturn.local.net>
 List-Id: <mlmmj.mlmmj.org>
 References: <rc5bj1$gl8$1@saturn.local.net>
 In-Reply-To: <rc5bj1$gl8$1@saturn.local.net>
@@ -10,23 +10,27 @@ Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 To: mlmmj@mlmmj.org
 
-Mads Martin Jørgensen wrote:
-> Have you checked the source of mails going through that it actually matches?
+Per Jessen wrote:
+
+> For years we have had a standard set of access rules, the previous
+> list manager at openSUSE set them up.  Somehow those rules seems to
+> have stopped working - example:
 > 
-> Maybe with. Hex editor. 
+> deny ^Content-Type:.*image/png
+> 
+> simply does not deny a mail with a png attached.  I was just wondering
+> if anybody else had observed this?
 
-Oh yes, it matches just fine.  That's the weird thing.  I've tested with 
-standard emails from Thunderbird.  Other people have noticed the same because we 
-suddenly had emails with e.g. pngs turning up on our mailing lists.
+This morning I added some debug output to mlmmj-process - the reason
+the "deny" above isn't working is simply that MIME headers in the email
+body are not being tested :-) 
 
-
-
-brgds
-Per
+I guess our many 'deny' rules (to refuse various attachments) quite
+simply _never_ worked. 
 
 
 -- 
-Per Jessen, Zürich (17.7°C)
+Per Jessen, Zürich (17.4°C)
 Member, openSUSE Heroes
 
 
