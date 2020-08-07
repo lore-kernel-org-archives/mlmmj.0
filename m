@@ -1,31 +1,82 @@
-From: Per Jessen <per@opensuse.org>
-Date: Fri, 28 Aug 2020 09:09:35 +0000
-Subject: Re: [mlmmj] SPF Alignment
-Message-Id: <riahkf$dv7$1@saturn.local.net>
+From: webmaster <webmaster@vlsc.org>
+Date: Fri, 07 Aug 2020 18:21:32 +0000
+Subject: [mlmmj] Suggestion: a tunable that allows for moderation of individual email addresses, instead of t
+Message-Id: <a8b0d9d3-4416-9a50-dda1-a1f541b4f16f@vlsc.org>
+MIME-Version: 1
+Content-Type: multipart/mixed; boundary="------------E78E231FC3B8246B8BD7A0C2"
 List-Id: <mlmmj.mlmmj.org>
-References: <56c10cea-f802-bc61-0c42-e1bec911986e@black-sheep-research.com>
-In-Reply-To: <56c10cea-f802-bc61-0c42-e1bec911986e@black-sheep-research.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
 To: mlmmj@mlmmj.org
 
-Martin Brampton wrote:
+This is a multi-part message in MIME format.
+--------------E78E231FC3B8246B8BD7A0C2
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 7bit
 
-> Unfortunately, this makes mlmmj mailing lists unusable if any of the
-> list members have addresses like a.n.other@btinternet.com. I don't
-> know whether the same applies to any other mail providers.
-> 
-> Any thoughts on this?
+Thanks for the help back in June, with adjusting my "delimiter" tunable
+to enable moderation of a list.
 
-As far as I am aware, this is the standard problem with mailing lists
-and other forwarding mechanism - they break SPF (or the other way
-around).  
+Now that I've been moderation for awhile, this questions arises:
 
+Is there a way to moderate individual email addresses instead of the
+entire list?
 
+I haven't seen anything in the docs, but I can imagine a tunable file
+that contains emails from the list that require moderation.
 
--- 
-Per Jessen, Zürich (23.6°C)
-Member, openSUSE Heroes
+I assume I'm not the first person to consider this, as it seems there
+could be a variety of reasons for wanting to moderate a sub-set of the
+list addresses instead of all of them.
 
+One example: someone is violating the rules/expectations for using a
+list - instead of removing them, the administrator could put them on
+probation for some period, and moderate their submissions to prevent
+further abuse of the list during the probation period.
+
+( the current news cycle provides plenty of examples where a similar
+paradigm like this might be helpful! :-)
+
+Philip
+
+--------------E78E231FC3B8246B8BD7A0C2
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <head>
+
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  </head>
+  <body>
+    <font face="Helvetica, Arial, sans-serif">Thanks for the help back
+      in June, with adjusting my "delimiter" tunable to enable
+      moderation of a list.<br>
+      <br>
+      Now that I've been moderation for awhile, this questions arises:<br>
+      <br>
+      Is there a way to moderate individual email addresses instead of
+      the entire list?<br>
+      <br>
+      I haven't seen anything in the docs, but I can imagine a tunable
+      file that contains emails from the list that require moderation.<br>
+      <br>
+      I assume I'm not the first person to consider this, as it seems
+      there could be a variety of reasons for wanting to moderate a
+      sub-set of the list addresses instead of all of them. <br>
+      <br>
+      One example: someone is violating the rules/expectations for using
+      a list - instead of removing them, the administrator could put
+      them on probation for some period, and moderate their submissions
+      to prevent further abuse of the list </font><font
+      face="Helvetica, Arial, sans-serif"><font face="Helvetica, Arial,
+        sans-serif">during the probation period. <br>
+        <br>
+        ( the current news cycle provides plenty of examples where a
+        similar paradigm like this might be helpful! :-)<br>
+        <br>
+        Philip<br>
+      </font></font>
+  </body>
+</html>
+
+--------------E78E231FC3B8246B8BD7A0C2--
 
