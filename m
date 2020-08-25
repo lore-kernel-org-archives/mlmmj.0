@@ -1,61 +1,38 @@
-From: Geert Stappers <stappers@stappers.nl>
-Date: Sun, 21 Jun 2020 15:58:08 +0000
-Subject: Re: [mlmmj] Trying to use moderation, but email server is rejecting moderator's release reply to lis
-Message-Id: <20200621155808.r6tduylg7bzpd36j@gpm.stappers.nl>
+From: Martin Brampton <martin@black-sheep-research.com>
+Date: Tue, 25 Aug 2020 11:11:55 +0000
+Subject: [mlmmj] SPF Alignment
+Message-Id: <56c10cea-f802-bc61-0c42-e1bec911986e@black-sheep-research.com>
 List-Id: <mlmmj.mlmmj.org>
-References: <8cd0e063-4f12-5fed-ee05-d6d1f34640fd@vlsc.org>
-In-Reply-To: <8cd0e063-4f12-5fed-ee05-d6d1f34640fd@vlsc.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-On Sun, Jun 21, 2020 at 07:50:18AM -0700, webmaster wrote:
-> On 6/21/2020 5:33 AM, Roderick wrote:
-> >
-> > On Sun, 21 Jun 2020, Geert Stappers wrote:
-> >
-> >>>>>>> [list name]_release-59d6019902a42d96@vlsc.org
-> >
-> >> Yes=A0 and time will tell how usefull that is for original poster.
-> >
-> > I never used moderation, just tested a little mlmmj.
-> >
-> > As I remember, mlmmj is configured out of the box to use + as separator,
-> > and many MTA are out of the box configured to consider + part as
-> > extension.
-> >
-> > Perhaps he misconfigured mlmmj to use _ as separator?
-> >
->=20
-> Thanks for the nudge, Roderick, that was all I needed - I reset the
-> delimiter to "+" and all is well.
->=20
-> I overlooked the "delimiter" Tunable while searching the docs yesterday
-> (I'm on US PST).
->=20
-> Several servers back, my MTA at the time did use "_" as the default, so
-> I'd configured my "delimiter" files that way; but as I said, never
-> actually implemented moderation. So the "_" delimiter has been silently
-> following my lists through several server migrations.
->=20
-> A simple comment in the docs somewhere close to the comments about the
-> moderation tunables, reminding the reader "the delimiter tunable must
-> match the MTA's current setting or moderation won't work" would perhaps
-> be helpful to people trying to use the documentation,
+Apologies if this has been raised before, but I couldn't find anything.
 
-Please make that change in the documentation.
-Then sent the new version of the file to the mailinglist AKA upstream.
+There seem to be issues over SPF alignment for using mlmmj. Using a mail 
+server tends to involve the From address (on the sender's domain) and 
+the ReturnPath (on the list server's domain) being different, for 
+obvious reasons. But this makes SPF not aligned.
 
+In theory, this would not matter for DMARC if DKIM is aligned. But not 
+every sender will have DKIM set up correctly.
 
-> and might avoid queries like mine from happening.
+Worse, it seems that arrogant and unhelpful BT Internet is sending mail 
+to spam if it is not SPF aligned, even though it is passing DMARC, SPF 
+and DKIM tests. It appears that a lot of BT Internet users don't look at 
+their spam. I can't tell that for sure, but it seems the only 
+explanation for what is happening.
 
-Please more respect for yourself.
-Making queries is much smarter then keep wandering.
+If I send to a mailing list that includes a.n.other@btinternet.com from 
+a mail box on a different domain to the mailing list, the mail goes to 
+spam. If I send from a mail box on the same domain as the mailing list, 
+it doesn't go to spam. The only difference I can see is that the former 
+is not SPF aligned.
 
+Unfortunately, this makes mlmmj mailing lists unusable if any of the 
+list members have addresses like a.n.other@btinternet.com. I don't know 
+whether the same applies to any other mail providers.
 
-Regards
-Geert Stappers
---=20
-Silence can be a weapon that is self-inflicting
+Any thoughts on this?
 
