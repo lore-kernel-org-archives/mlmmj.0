@@ -1,86 +1,62 @@
-From: Christof Thalhofer <chrisml@deganius.de>
-Date: Mon, 25 Jan 2021 08:19:35 +0000
-Subject: Re: [mlmmj] server requirements Was: distribution "dead upstream" discussion
-Message-Id: <35c3fffd-6878-5f16-c3a3-af55e0fba9fe@deganius.de>
-MIME-Version: 1
-Content-Type: multipart/mixed; boundary="kwHsFLWEcKK4fXTFc0RCULSTi6u4q0K1s"
+From: Chris Knadle <Chris.Knadle@coredump.us>
+Date: Thu, 21 Jan 2021 10:35:05 +0000
+Subject: [mlmmj] distribution "dead upstream" discussion
+Message-Id: <b6763fd2-a7ca-1c16-b304-43d1ce0b09da@coredump.us>
 List-Id: <mlmmj.mlmmj.org>
-References: <f3b729cd-a0fd-60e2-94b9-e0918d2c54e1@deganius.de>
-In-Reply-To: <f3b729cd-a0fd-60e2-94b9-e0918d2c54e1@deganius.de>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-This is an OpenPGP/MIME signed message (RFC 4880 and 3156)
---kwHsFLWEcKK4fXTFc0RCULSTi6u4q0K1s
-Content-Type: multipart/mixed; boundary="6dmv5zw2eDUjEf8YRf92Sqa0ngxcOA9mn"
+Today I was contacted and asked about the status of mlmmj upstream because from 
+the point of view of the outside world it looks dead; the mailing list archive 
+stopped working in Dec 2017, there's no new commits to the Mercurial or Git 
+repositories since 2017, and thus no indication that MLMMJ is "alive".
 
---6dmv5zw2eDUjEf8YRf92Sqa0ngxcOA9mn
-Content-Type: text/plain; charset=utf-8
-Content-Language: en-US
-Content-Transfer-Encoding: quoted-printable
+I happen to be on the mlmmj "discussion" mailing list because I maintain the 
+'mlmmj' package in Debian, so I took the time to read through the "Is this list 
+active? Where is "upstream"??" and similar threads, and I see that there's a Git 
+repo fork at  https://gitlab.com/mlmmj/mlmmj and had a look at it ... but nobody 
+from the outside world can see that this exists, because that repo is not 
+mentioned on the website nor the mailing list archives.
 
-Am 22.01.21 um 07:53 schrieb Geert Stappers:
+ From the distribution point of view this appears to be "dead upstream" and is a 
+reason for package removal. Debian is about to do a "soft freeze" for 
+preparation for the next release whereby packages in the archive will need bug 
+support for 3 years.
 
->> Hello, do you have any idea how much traffic the website and mailingli=
-st
->> generate per month?
->=20
-> Expect "low",  an amount of traffic that easily fits
-> on a low cost VPS.   ("low cost VPS"  a virtual private server that com=
-es
-> for the price of half a cinema ticket, something fairly easy to pay.)
->=20
-> I'm willing to chip in to prevent any form of advertisment.
+The main thing I want to know is "what should I do about the release?"
+I'm considering the following choices:
+   a) release 'mlmmj' as before, with myself as maintainer of the package.
+   b) orphan the package so that there is no listed maintainer, where the package
+      might be released with Debian 11 or might get dropped, depending on what
+      the Release Team decides about the package themselves
+   c) request removal of the package from the archive
 
-Yes, we are in the same money zone. :-)
+Choice "a)" only fits if someone in "upstream" is willing to try to fix bugs 
+that get reported. Are there others helping with this at present?
+Right now I'm uncomfortable about this because the GitLab repo can't be found 
+from the mlmmj.org web page, and that repo seems to be where bugs are reported 
+and handled lately, as best I can tell. Is that correct?
 
-I'm a member of a German cooperative called Hostsharing, its an Open
-Source Hoster which runs its machines on Debian. I asked the people, we
-can donate some webspace and Traffic for the Mlmmj community.
+Side note: In terms of chances of bugs needing upstream help, looking at the 
+Debian "popularity contest" figures I see that the number of users reporting 
+having mlmmj loaded is low but slowly going /up/, which is good but not what I 
+expected to see. (Note: these "popcon" numbers are likely artificially low, 
+because not all machines are set to report popcon data to Debian.)
 
-The machines here are managed and run (between others) Mlmmj and Apache
-on Debian (currently) Buster, so I think it would be no problem to host
-the website and also this very small mailinglist.
+    https://qa.debian.org/popcon.php?package=mlmmj
 
-This would be enough:
-https://www.hostsharing.net/angebote/managed-webspace/
+Choice "b)" seems the most reasonable to me under the circumstances, but puts 
+the package at risk of removal. This option does not preclude me from continuing 
+to help fix bugs on the package as a "non-maintainer", which is what I would 
+intend to do, for as long as I still use the package.
 
-I am (as well as the people at Hostsharing) personally interested in the
-continuation of the Mlmmj community, because I want to use Mlmmj as a
-successor for the dying Mailman 2.
+I'd like to hear other's thoughts about this so we can discuss it some.
+Thanks.
+    -- Chris
 
-So Geert, now you have two offers to choose between. :-)
-
-Alles Gute
-
-Christof Thalhofer
-
---=20
-Dies ist keine Signatur
-
-
---6dmv5zw2eDUjEf8YRf92Sqa0ngxcOA9mn--
-
---kwHsFLWEcKK4fXTFc0RCULSTi6u4q0K1s
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: OpenPGP digital signature
-Content-Disposition: attachment; filename="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAEBCgAdFiEEp/QSihTiBGN70hb+5r9EJtW1vzUFAmAOfxcACgkQ5r9EJtW1
-vzVgTw/+M8W/BMwNzD274NzhQL7BTMtEgQ8z9l7MN+b/bTwSkVs6VojiUVEDik0R
-8OSDFQb5eyznOGuWo3txqYFL5QwdUG1NwBQDOLkdP8yhE2F3urqVPZMCouG9tvmB
-TjpbDtG0Zud453tMPsQievj+2wioOTpmBhYiSbuWem7SE8xdN5EzhBUCnW8VzC6D
-ysvILoroJnTxTs7e1snZsKs82XTf492IDQi11H07M/Yxv+fMR35LlT+t+PGKNf5u
-sLJCy94UAcO6Uj5R4XOAqhPahhgjsHlLsLVWlDtuVUMpmS4s3CNpQyhA2l9US/WA
-z9dTUb1MPTgCBYI3GRu/QaZg+a56YLh0L9rBkMOlrmIRGiQ2EPJgPv+vUlA/YELT
-jCvo53MDzbwidUc+4q7EiLcrTAVOAH6glmv+d6jZJHDo7JHGmza2LBjN6oxhhWoU
-4AP/kCh6H7fr28N/o09cGUNfLbPJdxNpBUtL3vQnKv+fFtV4bwRCnIgJihCutW+W
-ZcT5wDuOcdhwmoDE3o3E0lKFG6haBswOduarysSOM2oPvf2LPeMFqbFZIcV86lGi
-s8Ft5VlaK/TCqTMonkFY7c+hl1yTClFrTQQJH4UfrjvvSpEp783FFNUkKP7y+Hk9
-6ZnQU6g6R545xqwtWG/P+M2vfhMDfP8Vm2lZU8y/ZAd6OLCohvE=
-=yPNi
------END PGP SIGNATURE-----
-
---kwHsFLWEcKK4fXTFc0RCULSTi6u4q0K1s--
+-- 
+Chris Knadle
+Chris.Knadle@coredump.us
 
