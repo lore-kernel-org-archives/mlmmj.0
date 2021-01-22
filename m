@@ -1,7 +1,7 @@
-From: Chris Knadle <Chris.Knadle@coredump.us>
-Date: Fri, 22 Jan 2021 03:57:25 +0000
+From: =?utf-8?Q?Mads_Martin_J=C3=B8rgensen?= <mmj@mmj.dk>
+Date: Fri, 22 Jan 2021 06:03:35 +0000
 Subject: Re: [mlmmj] distribution "dead upstream" discussion
-Message-Id: <9cb7668c-c404-b58c-a382-cb367cd76978@coredump.us>
+Message-Id: <743E0865-72BD-4485-9F25-FDA1B7A49A4F@mmj.dk>
 List-Id: <mlmmj.mlmmj.org>
 References: <b6763fd2-a7ca-1c16-b304-43d1ce0b09da@coredump.us>
 In-Reply-To: <b6763fd2-a7ca-1c16-b304-43d1ce0b09da@coredump.us>
@@ -10,40 +10,18 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Eric Wong:
-> Chris Knadle <Chris.Knadle@coredump.us> wrote:
-[...]
->>  From the distribution point of view this appears to be "dead upstream" and
->> is a reason for package removal. Debian is about to do a "soft freeze" for
->> preparation for the next release whereby packages in the archive will need
->> bug support for 3 years.
+Hello all,
+
+> On 22 Jan 2021, at 04.50, Chris Knadle <Chris.Knadle@coredump.us> wrote:
 > 
-> As a mere user of Debian who doesn't care for popcon, I find
-> the "dead upstream" reason annoying.  Sometimes software is just
-> "done" and good :)  New features generally leads to more bugs,
-> which can penalize existing users.
+> I've already explained my concerns in the email I sent to the list.  What about what I said wasn't clear?  All MLMMJ development has stopped, the mailing list archives stopped working in 2017, there's a repo fork that isn't listed anywhere on the site, and I wanted to know how to report bugs upstream because that was up in the air.  Are you saying you consider all of that as being "just fine"?
 
-Debian Developers are intended to remain in contact with upstream developers for 
-a number of reasons; DDs are not expected to fix non-Debian related bugs, for 
-instance.
+I also haven't heard from Ben since 2018, so maybe it's time to move the website somewhere else and find a fresh maintainer. Would really hope the transition could be with Bens blessing, but as the original developer I do have access to the people who own the mlmmj.org domain.
 
-https://www.debian.org/doc/manuals/developers-reference/developer-duties.en.html#coordination-with-upstream-developers
+Best wishes,
+Mads Martin
+--
+"Why make things difficult, when it is possible to make them cryptic and
+totally illogical, with just a little bit more effort?" - A. P. J
 
-And yes, the "dead upstream" reason for package removal is annoying, but it's 
-one of the most common reasons I see cited for package removal when there's also 
-bugs that upstream would normally be the one to handle handle.
-
-> I've already lost "iprint" and "mp3gain" so just end up copying
-> binaries from old installs, now.
-
-Debian has quite a number of packages (1189) that are "orphaned" and still in 
-the archive.
-
-https://www.debian.org/devel/wnpp/orphaned
-
-    -- Chris
-
--- 
-Chris Knadle
-Chris.Knadle@coredump.us
 
