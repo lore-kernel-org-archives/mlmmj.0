@@ -1,30 +1,64 @@
-From: Marcus MERIGHI <mcmer-mlmmj@tor.at>
-Date: Sun, 31 Jan 2021 13:47:27 +0000
-Subject: Re: [mlmmj] moderate subscriptions
-Message-Id: <YBa072qePuG2wGYD@tor.at>
+From: Christof Thalhofer <chrisml@deganius.de>
+Date: Fri, 22 Jan 2021 09:10:40 +0000
+Subject: Re: [mlmmj] server requirements Was: distribution "dead upstream" discussion
+Message-Id: <f3b729cd-a0fd-60e2-94b9-e0918d2c54e1@deganius.de>
+MIME-Version: 1
+Content-Type: multipart/mixed; boundary="qcxZGahhTafaHrAmT4ZZvFnECkvOmRg4N"
 List-Id: <mlmmj.mlmmj.org>
-References: <cabe4d75-656b-4c7f-8ca4-567052604f6a@www.fastmail.com>
-In-Reply-To: <cabe4d75-656b-4c7f-8ca4-567052604f6a@www.fastmail.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
 To: mlmmj@mlmmj.org
 
-Hello Svetlana,=20
+This is an OpenPGP/MIME signed message (RFC 4880 and 3156)
+--qcxZGahhTafaHrAmT4ZZvFnECkvOmRg4N
+Content-Type: multipart/mixed; boundary="m0D2NytK7YrsU1i5Zz0nWxG3N3kVhQbJ8"
 
-svetlana@members.fsf.org (Svetlana Tkachenko), 2021.01.31 (Sun) 06:57 (CET):
-> Hi. How do I moderate subscriptions, please? Is it possible? I would
-> like to moderate list membership. Found 'control/moderated' and
-> 'control/moderators' in documentation, but they only moderate the
-> posts. Svetlana
+--m0D2NytK7YrsU1i5Zz0nWxG3N3kVhQbJ8
+Content-Type: text/plain; charset=utf-8
+Content-Language: en-US
+Content-Transfer-Encoding: quoted-printable
 
-/usr/local/share/doc/mlmmj/TUNABLES says:
+Am 22.01.21 um 07:53 schrieb Geert Stappers:
 
-=B7 submod                       (list)
+> Expect "low",  an amount of traffic that easily fits
+> on a low cost VPS.   ("low cost VPS"  a virtual private server that com=
+es
+> for the price of half a cinema ticket, something fairly easy to pay.)
+>=20
+> I'm willing to chip in to prevent any form of advertisment.
 
-If this file is present, subscription will be moderated by owner(s).
-If there are emailaddresses in this file, then these will be used
-instead of owner.
+Ok thank you, i will have to talk to some people, maybe we can find a
+solution. More later.
 
-Marcus
+Alles Gute
+
+Christof Thalhofer
+
+--=20
+Dies ist keine Signatur
+
+
+--m0D2NytK7YrsU1i5Zz0nWxG3N3kVhQbJ8--
+
+--qcxZGahhTafaHrAmT4ZZvFnECkvOmRg4N
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: OpenPGP digital signature
+Content-Disposition: attachment; filename="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCgAdFiEEp/QSihTiBGN70hb+5r9EJtW1vzUFAmAKlpEACgkQ5r9EJtW1
+vzWv3A//V74B2mYa2+GNNsYV2HzlZFiqzNX7owZSJ6P9ni6lxaj7Bxh1e/TpyTV0
+WKGbbfUeBMk7Rk3mtmDyhnytPYQfvVAzVW8NzS3hMrkv+BGKj9fdBO26pnks/Ad0
+WbyyY+62yYZsze7m300/Vtb7rpF63LeKNB1FGJjwcttV2yj3fRSDQmxt3KQz/RT3
+uovkBtSZjB0bb1rbK4qah7Jr5rm1Vlf0I/UwmD1xFe+wwc1VhsRfd2v79iV86gg6
+eojp0hbPc2LTSfz0NVrX3SaWo+I7ByLTvfkX38C3vr5cjccOabCUmYn4H84f6yOr
+V0CS7GiGfEUXrS32aVbQM2n0P4ohIsEWzY8nmlBXbwinp0DhKp3k8rNu7b/JsGzT
+cFdLkO4WcA7g6phJdHYPf/p2p5p7khenIYAiaMyb4UBcq2iPfIoJIWEwMKJZcXO2
+N2vzFkmkRVAToqIW7djl9ZOf069GoPlt8AZxQiMH2KdcBziYmhWNfEyL9Gj8niif
+9GugqIoQuTctO2lwSNgymtEJ/sw0TcNtUQKxHgZ/Y77MjuMc7UrmsbcjAJIrAJsS
+oNCSs60FMks8Ts+aRDFXKmWREu63fXMwfiJSAVK6Ssg4CRA+gH4n8Oe7OqNCgjHu
+Vkk0BFqHJYN+WNiYfwQ5gRsdpG63JU+OxokEucjmvHwf792N2T4=
+=93Qs
+-----END PGP SIGNATURE-----
+
+--qcxZGahhTafaHrAmT4ZZvFnECkvOmRg4N--
 
