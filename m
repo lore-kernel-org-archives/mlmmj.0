@@ -1,67 +1,47 @@
-From: Christof Thalhofer <chrisml@deganius.de>
-Date: Wed, 27 Jan 2021 09:18:31 +0000
-Subject: Re: [mlmmj] server switch over
-Message-Id: <816a71e1-9ba4-f885-f419-ca32d7c00d11@deganius.de>
-MIME-Version: 1
-Content-Type: multipart/mixed; boundary="O789b9Sjnnf1uNxf9V4ZJ9NCTpF0VS4p4"
+From: Geert Stappers <stappers@stappers.nl>
+Date: Fri, 22 Jan 2021 07:11:48 +0000
+Subject: [mlmmj] Transfer power   Was: distribution "dead upstream" discussion
+Message-Id: <20210122071148.fayh3hyu4mb2542g@gpm.stappers.nl>
 List-Id: <mlmmj.mlmmj.org>
-References: <20210125220841.qhrji7b77obenbu6@gpm.stappers.nl>
-In-Reply-To: <20210125220841.qhrji7b77obenbu6@gpm.stappers.nl>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="iso-8859-9"
+Content-Transfer-Encoding: quoted-printable
 To: mlmmj@mlmmj.org
 
-This is an OpenPGP/MIME signed message (RFC 4880 and 3156)
---O789b9Sjnnf1uNxf9V4ZJ9NCTpF0VS4p4
-Content-Type: multipart/mixed; boundary="Op1NexTYwLQJ2XrZYVgU4IOeZcZvHSECA"
+On Fri, Jan 22, 2021 at 07:03:35AM +0100, Mads Martin J=F8rgensen wrote:
+> Hello all,
+>=20
+> > On 22 Jan 2021, at 04.50, Chris Knadle <Chris.Knadle@coredump.us> wrote:
+> >=20
+> > I've already explained my concerns in the email I sent to the list.
+> > What about what I said wasn't clear?  All MLMMJ development has
+> > stopped, the mailing list archives stopped working in 2017, there's
+> > a repo fork that isn't listed anywhere on the site, and I wanted
+> > to know how to report bugs upstream because that was up in the air.
+> > Are you saying you consider all of that as being "just fine"?
 
---Op1NexTYwLQJ2XrZYVgU4IOeZcZvHSECA
-Content-Type: text/plain; charset=utf-8
-Content-Language: en-US
-Content-Transfer-Encoding: quoted-printable
+I did read in the posting from Thomas
+   "Please say if there is something that needs urgent attention"
 
-Am 26.01.21 um 09:26 schrieb Christof Thalhofer:
+In other words: He asked for input on priority rescheduling.
 
-> But i can do no webdesign, maintenance of the mailinglist etc. I also
-> don't want to be the owner of mlmmj.org.
 
-What i forgot: We can also transfer the domain to Hostsharing that it
-can be registered there and the DNS is done by HS. This would be
-convenient because then the DNS Zonefiles could be altered/adapted
-easily. Think of SPF entries or subdomains for instance. A domain at HS
-costs 20 EUR/year. But we also can create the webspace with the
-domainname at another DNS service pointing to the IP at HS. It would be
-simply less convenient.
+> I also haven't heard from Ben since 2018, so maybe it's time to move
+> the website somewhere else and find a fresh maintainer. Would really
+> hope the transition could be with Bens blessing, but as the original
+> developer I do have access to the people who own the mlmmj.org domain.
 
-Alles Gute
+Ah great, that answers my question on how much transfer power Mads has.
 
-Christof Thalhofer
 
+=20
+> Best wishes,
+> Mads Martin
+
+
+
+Regards
+Geert Stappers
 --=20
-Dies ist keine Signatur
-
-
---Op1NexTYwLQJ2XrZYVgU4IOeZcZvHSECA--
-
---O789b9Sjnnf1uNxf9V4ZJ9NCTpF0VS4p4
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: OpenPGP digital signature
-Content-Disposition: attachment; filename="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAEBCgAdFiEEp/QSihTiBGN70hb+5r9EJtW1vzUFAmARL+cACgkQ5r9EJtW1
-vzVmgw//VKYQ+Oo0kA84QARq/VczIHJBnVwgNBC24IP9iPhfPZl+n+Y7um+B+iRh
-FS2YLuhyOeB4ODxjZCALkfRceMEPdamxSborI+LWQrpuMcw1iGKbT+LjzrbS/de8
-YiKGFYFW6RT4w3jy8fSAOGyeIEpFPPsx0zP8rpcJbpW4cJt5QV4tPLakLTqdcGz5
-SE8uYe/jzM5Sr93UcTig5/GEEKdb2kjA68jmFoiLTRdRlxnKgb0nvucsgBq4i/GM
-l0wh4bFOpmUhU+5i/n28brZ5y2+1RWyLAJCqiNrVIslWxqJy/HVqipcO/5PqmbUh
-YPsIXyyO7wCxYv6luHWUs10uIBCfSGDQMXgqYntkI3zUlaMETY9RVrNG4360a2sS
-Cysdvtd3QdgiW9oyqO8o8PpIoqSvjizFT7zL28dryOrIwzc5xP7hOIRlVKbw55PC
-oMduAqvW9WpElRDH1kBS2Tq01ib7TWzS0goJKIVFFn8Yu0rREsy8dL4P1OWuDmsz
-9M8Mlp39WdYz2vAAsrxahp0MWEzMGPfrqcEXurxa63hYh+gBeDcbONmAjSxp2E2v
-sX7sNWEVZHyksYZNLysDFdIUdsIGoX2V/14j6NHAuWu01d4g86+A3gXwndwFO7LL
-VxOZKUfADtuqK8of9zlI19kU1Wnmql24AEtolSy8QFQ7bkQKMCM=
-=Dfjs
------END PGP SIGNATURE-----
-
---O789b9Sjnnf1uNxf9V4ZJ9NCTpF0VS4p4--
+Silence is hard to parse
 
