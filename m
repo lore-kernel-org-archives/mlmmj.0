@@ -1,47 +1,41 @@
-From: Geert Stappers <stappers@stappers.nl>
-Date: Fri, 22 Jan 2021 07:11:48 +0000
-Subject: [mlmmj] Transfer power   Was: distribution "dead upstream" discussion
-Message-Id: <20210122071148.fayh3hyu4mb2542g@gpm.stappers.nl>
+From: Bob Hutchinson <arwystli@gmail.com>
+Date: Fri, 22 Jan 2021 12:45:01 +0000
+Subject: [mlmmj] list alive again
+Message-Id: <CABZp-i2dTJL_NL=xRF5dEA_wUhtTU63vJOc0Dy2AC-H35nnp=A@mail.gmail.com>
+MIME-Version: 1
+Content-Type: multipart/mixed; boundary="000000000000204b9405b97c8f01"
 List-Id: <mlmmj.mlmmj.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="iso-8859-9"
-Content-Transfer-Encoding: quoted-printable
 To: mlmmj@mlmmj.org
 
-On Fri, Jan 22, 2021 at 07:03:35AM +0100, Mads Martin J=F8rgensen wrote:
-> Hello all,
->=20
-> > On 22 Jan 2021, at 04.50, Chris Knadle <Chris.Knadle@coredump.us> wrote:
-> >=20
-> > I've already explained my concerns in the email I sent to the list.
-> > What about what I said wasn't clear?  All MLMMJ development has
-> > stopped, the mailing list archives stopped working in 2017, there's
-> > a repo fork that isn't listed anywhere on the site, and I wanted
-> > to know how to report bugs upstream because that was up in the air.
-> > Are you saying you consider all of that as being "just fine"?
+--000000000000204b9405b97c8f01
+Content-Type: text/plain; charset="UTF-8"
 
-I did read in the posting from Thomas
-   "Please say if there is something that needs urgent attention"
+Good to see the mlmmj list awake again, Mlmmj mailinglist software works
+well, the admin frontend side of things could be improved as could install
+scripts. The Instructions for postfix in README.postfix as found in git
+work fine for me but require a good understanding of unix perms which of
+course a sysadmin should have.
 
-In other words: He asked for input on priority rescheduling.
+The website needs some TLC for sure, updating to the current version of
+Concrete Cms would be a start and the css needs to be responsive is the
+site and the software to attract a younger audience.
 
+Thanks, Bob Hutchinson
 
-> I also haven't heard from Ben since 2018, so maybe it's time to move
-> the website somewhere else and find a fresh maintainer. Would really
-> hope the transition could be with Bens blessing, but as the original
-> developer I do have access to the people who own the mlmmj.org domain.
+--000000000000204b9405b97c8f01
+Content-Type: text/html; charset="UTF-8"
 
-Ah great, that answers my question on how much transfer power Mads has.
+<div dir="ltr">Good to see the mlmmj list awake again, Mlmmj mailinglist software works 
+well, the admin frontend side of things could be improved as could 
+install scripts. The Instructions for postfix in README.postfix as found 
+in git work fine for me but require a good understanding of unix perms 
+which of course a sysadmin should have.
+<br>
+<br>The website needs some TLC for sure, updating to the current version of 
+Concrete Cms would be a start and the css needs to be responsive is the 
+site and the software to attract a younger audience.
+<br>
+<br>Thanks, Bob Hutchinson<br><div><br></div></div>
 
-
-=20
-> Best wishes,
-> Mads Martin
-
-
-
-Regards
-Geert Stappers
---=20
-Silence is hard to parse
+--000000000000204b9405b97c8f01--
 
