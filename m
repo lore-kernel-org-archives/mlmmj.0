@@ -1,41 +1,60 @@
-From: Bob Hutchinson <arwystli@gmail.com>
-Date: Fri, 22 Jan 2021 12:45:01 +0000
-Subject: [mlmmj] list alive again
-Message-Id: <CABZp-i2dTJL_NL=xRF5dEA_wUhtTU63vJOc0Dy2AC-H35nnp=A@mail.gmail.com>
-MIME-Version: 1
-Content-Type: multipart/mixed; boundary="000000000000204b9405b97c8f01"
+From: Geert Stappers <stappers@stappers.nl>
+Date: Fri, 22 Jan 2021 06:53:20 +0000
+Subject: [mlmmj] server requirements   Was: distribution "dead upstream" discussion
+Message-Id: <20210122065320.lufeaabapuu7bjqi@gpm.stappers.nl>
 List-Id: <mlmmj.mlmmj.org>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
---000000000000204b9405b97c8f01
-Content-Type: text/plain; charset="UTF-8"
+On Thu, Jan 21, 2021 at 11:40:18PM +0100, Christof Thalhofer wrote:
+> Am 21.01.21 um 22:59 schrieb Geert Stappers:
+> 
+> > My thoughts about this:
+> > 
+> > * Discuss this further
+> > * Scrape/Mirror/Copy the website   (to prevent making a new design)
+> > * Transfer the domain name to community thrust
+> > * Have somewhere webserver that can serve static webpages
+> > * Update DNS to point to that webserver
+> > * Update website
+> > ** mlmmj is mature
+> > ** https://gitlab.com/mlmmj/mlmmj
+> > * Have somewhere server that can do mlmmj
+> > * Transfer this mailinglist to that server
+> > * Accept that mlmmj is mature software
+> > Last, but not least
+> > * Make contributing to this mature software possible
+> 
+> Hello, do you have any idea how much traffic the website and mailinglist
+> generate per month?
 
-Good to see the mlmmj list awake again, Mlmmj mailinglist software works
-well, the admin frontend side of things could be improved as could install
-scripts. The Instructions for postfix in README.postfix as found in git
-work fine for me but require a good understanding of unix perms which of
-course a sysadmin should have.
+Expect "low",  an amount of traffic that easily fits
+on a low cost VPS.   ("low cost VPS"  a virtual private server that comes
+for the price of half a cinema ticket, something fairly easy to pay.)
 
-The website needs some TLC for sure, updating to the current version of
-Concrete Cms would be a start and the css needs to be responsive is the
-site and the software to attract a younger audience.
+I'm willing to chip in to prevent any form of advertisment.
 
-Thanks, Bob Hutchinson
 
---000000000000204b9405b97c8f01
-Content-Type: text/html; charset="UTF-8"
+ 
+> Alles Gute
 
-<div dir="ltr">Good to see the mlmmj list awake again, Mlmmj mailinglist software works 
-well, the admin frontend side of things could be improved as could 
-install scripts. The Instructions for postfix in README.postfix as found 
-in git work fine for me but require a good understanding of unix perms 
-which of course a sysadmin should have.
-<br>
-<br>The website needs some TLC for sure, updating to the current version of 
-Concrete Cms would be a start and the css needs to be responsive is the 
-site and the software to attract a younger audience.
-<br>
-<br>Thanks, Bob Hutchinson<br><div><br></div></div>
+Dankjewel, dat het ook goed met jou mag gaan.
 
---000000000000204b9405b97c8f01--
+
+
+That was Dutch from me, and German from Christof.
+It says that it is very very high likely that both of them
+are in the european money zone. Meaning easy money transfer
+to share the cost of a VPS.
+
+ 
+> Christof Thalhofer
+
+
+Regards
+Geert Stappers
+-- 
+Silence is hard to parse
 
