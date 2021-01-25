@@ -1,80 +1,82 @@
-From: Chris Knadle <Chris.Knadle@coredump.us>
-Date: Wed, 27 Jan 2021 15:58:38 +0000
-Subject: Re: [mlmmj] distribution "dead upstream" discussion
-Message-Id: <88bb23c3-e8dc-14d6-d86f-fdde0c808e6b@coredump.us>
+From: Geert Stappers <stappers@stappers.nl>
+Date: Mon, 25 Jan 2021 22:08:41 +0000
+Subject: [mlmmj] server switch over
+Message-Id: <20210125220841.qhrji7b77obenbu6@gpm.stappers.nl>
 List-Id: <mlmmj.mlmmj.org>
-References: <b6763fd2-a7ca-1c16-b304-43d1ce0b09da@coredump.us>
-In-Reply-To: <b6763fd2-a7ca-1c16-b304-43d1ce0b09da@coredump.us>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Thomas Goirand:
-> On 1/22/21 4:50 AM, Chris Knadle wrote:
->> Thomas Goirand:
->>> There's currently no RC bug against the Debian package, so there's no
->>> reason to remove it because of that.
->>
->> Library and compiler changes commonly cause new build bugs if nothing
->> else, and it's very common for unmaintained software to eventually get
->> removed because of that kind of breakage.  As such it makes sense to
->> contact upstream to discuss the situation now.
+
+
+Previous-Subject: Re: [mlmmj] server requirements Was: distribution "dead upstream" discussion
+In-Reply-To: <35c3fffd-6878-5f16-c3a3-af55e0fba9fe@deganius.de>
+
+On Mon, Jan 25, 2021 at 09:19:35AM +0100, Christof Thalhofer wrote:
+> Am 22.01.21 um 07:53 schrieb Geert Stappers:
 > 
-> It's been years this didn't happen to MLMMJ, because it's using a very
-> clean C code, which doesn't involve lots of moving parts. Have you
-> notice how much the MLMMJ Build-Depends: is empty? How much MLMMJ only
-> relies on the standard C libs? That's also one very strong point of
-> MLMMJ and why I like it so much.
-
-If mlmmj were to become orphaned then this would become an important factor as 
-to how long the software would survive in distributions, but other than that I 
-don't see the above as relevant at the moment.
-
-> MLMMJ is of very low need for maintenance, both upstream or in the
-> Debian package. So much that our Debian source package is bit-rotting,
-> and would need a real clean-up (to switch to the dh sequencer, for a
-> start, and probably many other stuff...).
-
-Yes, the Debian mlmmj package is bit-rotting some, because there's no new 
-versions to upload nor new bugs to prompt making a new upload. I don't see the 
-point of updating the debian/rules file to dh unless MLMMJ development is picked 
-up again, but I am interested in doing that if that happens.
-
-Speaking of bit-rotting, I'd appreciate it if you could look at bug #622621, 
-because I've looked at that bug several times over several years and I don't 
-know how to complete the documentation updates that the user was told you'd do. 
-As it's documentation updates this is also something upstream would normally 
-need to be involved in.
-
-https://bugs.debian.org/622621
-
->>> What's the numerous problems you've found against MLMMJ that you're
->>> discussing here? I see MLMMJ as a package with really minimum issue.
->>
->> I've already explained my concerns in the email I sent to the list.
->> What about what I said wasn't clear?  All MLMMJ development has stopped,
->> the mailing list archives stopped working in 2017, there's a repo fork
->> that isn't listed anywhere on the site, and I wanted to know how to
->> report bugs upstream because that was up in the air.  Are you saying you
->> consider all of that as being "just fine"?
+> >> Hello, do you have any idea how much traffic the website and mailinglist
+> >> generate per month?
+> > 
+> > Expect "low",  an amount of traffic that easily fits
+> > on a low cost VPS.   ("low cost VPS"  a virtual private server that comes
+> > for the price of half a cinema ticket, something fairly easy to pay.)
+> > 
+> > I'm willing to chip in to prevent any form of advertisment.
 > 
-> It's not fine, it's best when the site is well maintained, I agree. But
-> I do not consider MLMMJ itself unmaintained like you thought. At least,
-> the currently situation isn't as bad as enough to remove MLMMJ from Debian.
+> Yes, we are in the same money zone. :-)
+> 
+> I'm a member of a German cooperative called Hostsharing, its an Open
+> Source Hoster which runs its machines on Debian. I asked the people, we
+> can donate some webspace and Traffic for the Mlmmj community.
+> 
+> The machines here are managed and run (between others) Mlmmj and Apache
+> on Debian (currently) Buster, so I think it would be no problem to host
+> the website and also this very small mailinglist.
+> 
+> This would be enough:
+> https://www.hostsharing.net/angebote/managed-webspace/
+> 
+> I am (as well as the people at Hostsharing) personally interested in the
+> continuation of the Mlmmj community, because I want to use Mlmmj as a
+> successor for the dying Mailman 2.
+> 
+> So Geert, now you have two offers to choose between. :-)
 
-I don't agree that MLMMJ is maintained -- for the moment it isn't, but there's 
-some hope that that may change soon, or at least that's what I'm hoping for.
+IIRC has the other choice the status "asking, I be back"
 
-> My reasoning is also triggered by the fact I would trust Martin to help
-> in case there's nobody else available. Martin, can you confirm that?
 
-Nope. I appreciate that we got the answer to that though, as it helps plan what 
-to try to do next.
 
-    -- Chris
+The reason for server switch over is being able to update the website.
 
+Previous requests on website update went unanswered. It is still fine is
+someone says "Oh, I can update http://mlmmj.org/"
+
+
+Plan for server switch over
+
+* Mads Martin  says something like "Yes, those who have DNS of mlmmj.org
+  are with us for this transfer"
+* Now it makes sense for going further
+* We have a Virtual Private Server
+* We prepare that VPS
+** Webserver
+** website content
+** Mailserver
+** mlmmj
+* Some checks
+* Go / no go  decission
+* Happy flow continues
+* DNS update
+* DNS cache delay
+* We are switched over
+* Happy ever after with those who care about mlmmj
+
+
+
+Regards
+Geert Stappers
 -- 
-Chris Knadle
-Chris.Knadle@coredump.us
+Silence is hard to parse
 
