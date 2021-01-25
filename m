@@ -1,47 +1,60 @@
-From: Martin Brampton <martin@black-sheep-research.com>
-Date: Mon, 12 Oct 2020 10:14:26 +0000
-Subject: Re: [mlmmj] Problems with spam filters
-Message-Id: <8072bb3a-3172-6dc8-211b-a8eafa665734@black-sheep-research.com>
+From: "Robin H. Johnson" <robbat2@gentoo.org>
+Date: Mon, 25 Jan 2021 08:36:24 +0000
+Subject: [mlmmj] mlmmj archive recovery
+Message-Id: <robbat2-20210125T083117-292157525Z@orbis-terrarum.net>
+MIME-Version: 1
+Content-Type: multipart/mixed; boundary="u1HsC8E+FAPnhAa+"
 List-Id: <mlmmj.mlmmj.org>
-References: <640117cb-85da-7b62-6a6e-7066f6f3ec94@black-sheep-research.com>
-In-Reply-To: <640117cb-85da-7b62-6a6e-7066f6f3ec94@black-sheep-research.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-OK, thanks. I guess that's inherent in mail server usage.
 
-But I'm having problems with btinternet and hotmail users receiving from 
-my mailing lists even when I am the sender. And in the case where I am 
-the sender, the list server is my mail server, and so the mail should 
-arrive with correct SPF, DKIM and DMARC.
+--u1HsC8E+FAPnhAa+
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Yet it is still treated as spam.
+Hi all,
 
-Is there any solution to any of these problems? Or are conventional 
-mailing lists obsolete, to the detriment of the usefulness of email?
+Seeing the "it's still alive" thread (Hi Geert!), there were concerns
+about the loss of the mailing list archive.
 
+I've got my archive of it back through 2007/Apr/11, and if other people
+have a matching copy to line up with it, and possibly further back, I
+believe we can re-populate it and put it online with a moved website.
 
-On 12/10/2020 07:55, Marcus MERIGHI wrote:
-> Because the IP of the sending server (mlmmj list server at
-> 198.101.246.47) is not in the SPF-published "allowed sender" IP list:
-> 
-> $ echo black-sheep-research.com | smtpctl spf walk
-> 79.79.41.36
-> 164.90.179.118
-> 45.55.101.18
-> 205.201.128.0/20
-> 198.2.128.0/18
-> 148.105.8.0/21
-> 207.58.142.208/29
-> 207.58.147.64/28
-> 216.22.15.224/27
-> 43.228.184.0/22
-> 103.47.204.0/22
-> 103.36.108.0/22
-> 103.2.140.0/22
-> 203.31.36.0/22
-> 66.128.144.88/29
-> 198.74.56.28
+Gentoo has used mlmmj for more than a decade, and would be happy to
+ensure it continues running.
+
+--=20
+Robin Hugh Johnson
+Gentoo Linux: Dev, Infra Lead, Foundation Treasurer
+E-Mail   : robbat2@gentoo.org
+GnuPG FP : 11ACBA4F 4778E3F6 E4EDF38E B27B944E 34884E85
+GnuPG FP : 7D0B3CEB E9B85B1F 825BCECF EE05E6F6 A48F6136
+
+--u1HsC8E+FAPnhAa+
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v2
+Comment: Robbat2 @ Orbis-Terrarum Networks - The text below is a digital signature. If it doesn't make any sense to you, ignore it.
+
+iQKTBAABCgB9FiEEveu2pS8Vb98xaNkRGTlfI8WIJsQFAmAOgwRfFIAAAAAALgAo
+aXNzdWVyLWZwckBub3RhdGlvbnMub3BlbnBncC5maWZ0aGhvcnNlbWFuLm5ldEJE
+RUJCNkE1MkYxNTZGREYzMTY4RDkxMTE5Mzk1RjIzQzU4ODI2QzQACgkQGTlfI8WI
+JsTdHA/+PCnSsep5UClhAHdoPshXkBdlxbF2fV16+VZMPN4dFXBH2O9dxAUEpe6f
+Zw/5f8bzkMfcTAMovgrS3me6xgdAeeqe6DDGhw7Vrw7JuJXzjDSQ+N9DkaWWp/Iz
+fJQPgtIeGvx2lTGD6j4m3BDNlP+MnBEZo33I0mkN12OiOEeyArtSLg+6KhxvCN/y
+OTipbqrPcRsqR+4LkRV1MjgLsXwKX3BSXxiS/+GIp4wr0nXf5cmuGdagfsiM0m6A
+RdZovdm3AxNrWQIet4MOqasUuY8Ugaf6TqHciGXPGA8xMMl2T+gGqmcBct2QlBAh
+4c94deQpuHRxV1h2ObGIcA1wbzCtEfkzkygVRzf1QNmKrMFIpjWX0H/QL+z/Dy7+
+cFjBYyn/qxp1M0vBycWihJGeabhA8l9XA2yJSvvZnAu05W401nPwNxFw6I0KuqBQ
+NY90wubLRoa/+LbkIwUesYJIZKKUSvdV+CeeUTgfwQPnZUOTTqp5GKraOgOwvqK5
+7OgMAY4LAajQKex4mxekcm39regp1LXCn5fdMQ2V+pvkcrFTIv9MIXY9Qy57azTC
+ZcULmUQ7Yl5KbbjY5BWtYldj/gNETxAOdeBN0CC5LgLTmxqFy2rpJBIuHbbeAWHM
+TCabrX0W3shSAmgE9h2V4VWGDsjArac6zLUgJwIo7qLhvPh0qbc=
+=dBe8
+-----END PGP SIGNATURE-----
+
+--u1HsC8E+FAPnhAa+--
 
