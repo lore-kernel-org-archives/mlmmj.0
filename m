@@ -1,79 +1,88 @@
-From: jf-mlmmj@bookofsand.co.uk
-Date: Tue, 26 Jan 2021 15:13:26 +0000
+From: =?UTF-8?Q?Christian_St=C3=A6rk?= <xi@borderworlds.dk>
+Date: Tue, 26 Jan 2021 17:32:30 +0000
 Subject: Re: [mlmmj] server switch over
-Message-Id: <64325.1611674006@calligramme.charmers>
+Message-Id: <54a31508-c761-4831-95b2-619afe248006@www.fastmail.com>
 List-Id: <mlmmj.mlmmj.org>
 References: <20210125220841.qhrji7b77obenbu6@gpm.stappers.nl>
 In-Reply-To: <20210125220841.qhrji7b77obenbu6@gpm.stappers.nl>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 To: mlmmj@mlmmj.org
 
-On 2021-01-25 at 23:08+0100 Geert Stappers wrote:
-> IIRC has the other choice the status "asking, I be back"
+From searching back on the list, it looks like Wolf Bergenham <wolf+mlmmj@b=
+ergenheim.net> is in charge of the current server.
 
-I’ve asked Mythic Beasts and this was their reply:
+I believe that I am in charge of the domain and have been paying for it for=
+ quite a while. I will be happy to transfer it to whoever should be the own=
+er going forward and I can of course change the DNS records in the short te=
+rm.
 
->> Yes, we'd be happy to support mlmmj in return for a short
->> acknowledgement, e.g. in the page footer as on the valgrind
->> site. Decent open source mailing lists software is something
->> we get a lot of benefit from, so we're keen to support
->> projects in this field. We can certainly do the same as we do
->> for valgrind, which is to throw free bandwidth on top of a
->> standard paid virtual server, but it sounds like that might
->> not be all that helpful if you anticipate it being a low
->> bandwidth. As an alternative, we'd do a 50% discount on a
->> server up to a VPS 4, or a 25% discount on a bigger VPS.
+Best regards
+Christian
 
-I’m not sure how useful that is. If you think this is worth
-pursuing, I could ask them whether they would be willing to
-apply the discount to my current VPS2, in which case if it’s big
-enough I could host mlmmj for nothing and pay for the domain
-renewals too. It’s possible that the mlmmj requirements are
-small enough that I could just add it to the domains on my VPS,
-though that wouldn’t pay for the domain.
-
-  — Jón
-
-> 
-> 
-> The reason for server switch over is being able to update the website.
-> 
-> Previous requests on website update went unanswered. It is still fine is
-> someone says "Oh, I can update http://mlmmj.org/"
-> 
-> 
-> Plan for server switch over
-> 
-> * Mads Martin  says something like "Yes, those who have DNS of mlmmj.org
->   are with us for this transfer"
-> * Now it makes sense for going further
-> * We have a Virtual Private Server
-> * We prepare that VPS
-> ** Webserver
-> ** website content
-> ** Mailserver
-> ** mlmmj
-> * Some checks
-> * Go / no go  decission
-> * Happy flow continues
-> * DNS update
-> * DNS cache delay
-> * We are switched over
-> * Happy ever after with those who care about mlmmj
-> 
-> 
-> 
-> Regards
-> Geert Stappers
-> -- 
-> Silence is hard to parse
-> 
-> 
-
--- 
-Jón Fairbairn                             Jon.Fairbairn@bookofsand.co.uk
-31 Chalmers Road                                  jf@littlepinkcloud.com
-Cambridge CB1 3SZ            +44 1223 570179 (after 14:00 only, please!)
+tir 26. jan 2021 klokken 14:30 skrev Mads Martin J=C3=B8rgensen:
+> Who is actually maintaining the mlmmj.org server? MX points to=20
+> mlmmj.org and mlmmj.org is rackspace. So I wonder if anyone remembers=20
+> who it is?=20
+>=20
+> > On 26 Jan 2021, at 09.26, Christof Thalhofer <chrisml@deganius.de> wrot=
+e:
+> >=20
+> > Am 25.01.21 um 23:08 schrieb Geert Stappers:
+> >=20
+> >> The reason for server switch over is being able to update the website.
+> >>=20
+> >> Previous requests on website update went unanswered. It is still fine =
+is
+> >> someone says "Oh, I can update http://mlmmj.org/"
+> >=20
+> > I am not that guy.
+> >=20
+> > Together with Hostsharing i can offer webspace on a shared server. There
+> > the mlmmj community can create several unix users, in whose homedirs the
+> > website and the mailinglist can run as well as other common things like
+> > Git for example.
+> >=20
+> > A Vps is not necessary as the shared webspace at HS is equally powerful
+> > at minimum. In addition, the server is managed by the admin team at HS,
+> > which means that no one has to worry about the operating system or
+> > updates/upgrades. If the website is static HTML, it can basically be
+> > there forever without anyone having to worry much about hacks and such
+> > things.
+> >=20
+> > On the servers at HS Mlmmj is installed by default, so the mailinglist
+> > can be run there as long as the data and configuration files can be cop=
+ied.
+> >=20
+> > What i can do is giving support on how to manage the webspace (users,
+> > [sub-]domains, email accounts and so on).
+> >=20
+> > But i can do no webdesign, maintenance of the mailinglist etc. I also
+> > don't want to be the owner of mlmmj.org.
+> >=20
+> > So if someone says "i do it" we can connect with each other and start
+> > copying the website to the HS space and if all looks nice then transfer
+> > the domain.
+> >=20
+> > And if someone says, i prefer to do it on my own webspace, then i think
+> > that's fine, because then i don't have much work to do.
+> >=20
+> > :-)
+> >=20
+> > Alles Gute
+> >=20
+> > Christof Thalhofer
+> >=20
+> > --=20
+> > Dies ist keine Signatur
+> >=20
+>=20
+> --
+> "Why make things difficult, when it is possible to make them cryptic and
+> totally illogical, with just a little bit more effort?" - A. P. J
+>=20
+>=20
+>=20
+>
 
