@@ -1,69 +1,35 @@
-From: Rok Saksida <rok.saksida@arctur.si>
-Date: Mon, 01 Feb 2021 10:52:35 +0000
-Subject: [mlmmj] mlmmj replication
-Message-Id: <7c27eb47-7a10-cdc2-4e1b-d319aba01008@arctur.si>
-MIME-Version: 1
-Content-Type: multipart/mixed; boundary="------------1332AC23326FA6C2EAC163E5"
+From: Piotr Auksztulewicz <mlmmj-listrcpt@hasiok.net>
+Date: Mon, 01 Feb 2021 12:03:50 +0000
+Subject: Re: [mlmmj] mlmmj replication
+Message-Id: <20210201120350.GB28068@bonclok.hasiok.net>
 List-Id: <mlmmj.mlmmj.org>
+References: <7c27eb47-7a10-cdc2-4e1b-d319aba01008@arctur.si>
+In-Reply-To: <7c27eb47-7a10-cdc2-4e1b-d319aba01008@arctur.si>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
---------------1332AC23326FA6C2EAC163E5
-Content-Type: text/plain; charset="utf-8"; format=flowed
-Content-Transfer-Encoding: 7bit
+On Mon, Feb 01, 2021 at 11:52:35AM +0100, Rok Saksida wrote:
+> Now, I want to create HA system. Does mlmmj provides some way of
+> replication?
 
-Hello.
+As you've probably noticed, mlmmj is a very simple piece of software.
+It does not provide sophisticates features. You need to build your HA
+capability yourself.
 
-I'm using mlmmj and i'm are very satisfied with mlmmj features, because 
-it's a very greate mailing list system.
-
-My setup have mlmmj with postfix, mariadb and home directory located in 
-/var/spool/mlmmj/.
-
-Now, I want to create HA system. Does mlmmj provides some way of 
-replication?
-
-Thank you for your time and answer.
+For my private small server, I have contenerized mlmmj, so I can bring
+it up on one of two machines, and it connects to an internal bridge
+using a private IP address, so I don't have to reconfigure postfix,
+bridge takes care of delivering packets. But the container is only
+software etc. The run-time data (configuration, state and archive)
+is mounted form outside the container. Configuration is kept in git
+with clones on both machines. State (subscribed addresses and message
+sequence numbers) and archives are copied via rsync in cron. I had not
+implemented automatic switchover and don't intend to, it is too
+complicated for my small installation, and postfix will keep messages
+in its queue until I fire up the container on the other host.
 
 -- 
-Best regards,
-Rok
-
---------------1332AC23326FA6C2EAC163E5
-Content-Type: text/html; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-
-<html>
-  <head>
-
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  </head>
-  <body>
-    <p> </p>
-    <div class="moz-forward-container">
-      <p>Hello.</p>
-      <p>I'm using mlmmj and i'm are very satisfied with mlmmj features,
-        because it's a very greate mailing list system.<br>
-      </p>
-      <p>My setup have mlmmj with postfix, mariadb and home directory
-        located in /var/spool/mlmmj/.</p>
-      <p>Now, I want to create HA system. Does mlmmj provides some way
-        of replication?</p>
-      <p>Thank you for your time and answer.<br>
-      </p>
-      <div class="moz-signature">
-        <meta http-equiv="content-type" content="text/html;
-          charset=UTF-8">
-        <title></title>
-        <div class="moz-signature">-- <br>
-          <div style="font-family:Calibri,
-            Arial;font-size:11pt;color:black;"> Best regards,<br>
-            Rok<br>
-          </div>
-        </div>
-      </div>
-    </div>
-  </body>
-</html>
-
---------------1332AC23326FA6C2EAC163E5--
+Piotr "Malgond" Auksztulewicz                     firstname@lastname.net
 
