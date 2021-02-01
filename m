@@ -1,22 +1,19 @@
-From: Piotr Auksztulewicz <mlmmj-listrcpt@hasiok.net>
-Date: Wed, 17 Feb 2021 09:54:33 +0000
-Subject: Re: [mlmmj] Possible typo in FROM field
-Message-Id: <20210217095432.GA1114@bonclok.hasiok.net>
+From: Kirk Reiser <kirk@reisers.ca>
+Date: Mon, 01 Feb 2021 14:03:19 +0000
+Subject: [mlmmj] A silly newbie question
+Message-Id: <cd905c3c-ad58-6cd4-115a-b16d7ab2b0e5@reisers.ca>
 List-Id: <mlmmj.mlmmj.org>
-References: <a213b64c-288c-40cf-85d1-0df9fc7155f6@www.fastmail.com>
-In-Reply-To: <a213b64c-288c-40cf-85d1-0df9fc7155f6@www.fastmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-On Wed, Feb 17, 2021 at 01:54:23PM +1100, Svetlana Tkachenko wrote:
-> Email with subject "Subscription request for mylist@mydomain: foo@example.org"
-> is sent FROM "mylist-moderators@mydomain". Is this a typo (a bug)? I think it
-> is meant to be mylist+moderators@mydomain.
+Hi folks: I have very recently moved from mailman to mlmmj but am
+having an issue I'm not sure how to fix. I am receiving spam messages
+on my lists by nonmembers of the list. Do I need to place a file or
+something in the control directory of the lists to only allow mail
+from members?
 
-Check your 'delimiter' setting in <LISTDIR>/control. It's most likely this.
+   Kirk
 
--- 
-Piotr "Malgond" Auksztulewicz                     firstname@lastname.net
 
