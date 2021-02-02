@@ -1,36 +1,32 @@
-From: Piotr Auksztulewicz <mlmmj-listrcpt@hasiok.net>
-Date: Tue, 02 Feb 2021 09:08:48 +0000
-Subject: Re: [mlmmj] mlmmj replication
-Message-Id: <20210202090848.GD28068@bonclok.hasiok.net>
+From: Thomas Goirand <thomas@goirand.fr>
+Date: Tue, 02 Feb 2021 17:14:21 +0000
+Subject: Re: [mlmmj] distribution "dead upstream" discussion
+Message-Id: <c5ba7335-440e-ac03-2a09-fc684e61fd87@goirand.fr>
 List-Id: <mlmmj.mlmmj.org>
-References: <7c27eb47-7a10-cdc2-4e1b-d319aba01008@arctur.si>
-In-Reply-To: <7c27eb47-7a10-cdc2-4e1b-d319aba01008@arctur.si>
+References: <b6763fd2-a7ca-1c16-b304-43d1ce0b09da@coredump.us>
+In-Reply-To: <b6763fd2-a7ca-1c16-b304-43d1ce0b09da@coredump.us>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-On Tue, Feb 02, 2021 at 07:36:49AM +0000, Robin H. Johnson wrote:
-> How do you intend to handle the case where the failure might be after a
-> mail is delivered, index/sequence has incremented, but before the next
-> rsync cron has fired?
+On 1/27/21 4:58 PM, Chris Knadle wrote:
+>> MLMMJ is of very low need for maintenance, both upstream or in the
+>> Debian package. So much that our Debian source package is bit-rotting,
+>> and would need a real clean-up (to switch to the dh sequencer, for a
+>> start, and probably many other stuff...).
+> 
+> Yes, the Debian mlmmj package is bit-rotting some, because there's no
+> new versions to upload nor new bugs to prompt making a new upload. I
+> don't see the point of updating the debian/rules file to dh unless MLMMJ
+> development is picked up again, but I am interested in doing that if
+> that happens.
 
-I do not at the moment. My installation is small and traffic is very low.
-I have implemented my 'cluster' mostly to be able to resume operation quickly
-after a failure, not to have 99.999% availability. If something happens to
-one of my VPSes, I will just switch to the other and take time to repair or
-rebuild the broken one. I have described my setup as an example and an
-inspiration for further work.
+The point is that it helps to keep your package up-to-date for new
+stuff. For example, the current version of the package doesn't call
+dh_strip_nondeterminism which is a new thing, and which dh calls.
 
-> If the /archives/ directory could be sharded, then it would be
-> significantly easier;
+Cheers,
 
-It would be a nice feature request/contribution. I started a workaround:
-a cron script that will move old archived emails to a different, sharded
-hierarchy, at the cost of not being able to retrieve old messages by
-list+get-N functionality, but I abandoned it because I don't get that
-many emails.
-
--- 
-Piotr "Malgond" Auksztulewicz                     firstname@lastname.net
+Thomas Goirand (zigo)
 
