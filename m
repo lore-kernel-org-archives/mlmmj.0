@@ -1,54 +1,49 @@
-From: Chris Knadle <Chris.Knadle@coredump.us>
-Date: Wed, 03 Feb 2021 21:02:36 +0000
-Subject: Re: [mlmmj] distribution "dead upstream" discussion
-Message-Id: <ab4827fa-27ca-5e1e-b770-00ffc414ff63@coredump.us>
+From: Piotr Auksztulewicz <mlmmj-listrcpt@hasiok.net>
+Date: Wed, 10 Feb 2021 15:15:28 +0000
+Subject: [mlmmj] Selective 'notmetoo' - how to do in mlmmj or outside?
+Message-Id: <20210210151528.GA5946@bonclok.hasiok.net>
 List-Id: <mlmmj.mlmmj.org>
-References: <b6763fd2-a7ca-1c16-b304-43d1ce0b09da@coredump.us>
-In-Reply-To: <b6763fd2-a7ca-1c16-b304-43d1ce0b09da@coredump.us>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Thomas Goirand:
-> On 1/27/21 4:58 PM, Chris Knadle wrote:
->>> MLMMJ is of very low need for maintenance, both upstream or in the
->>> Debian package. So much that our Debian source package is bit-rotting,
->>> and would need a real clean-up (to switch to the dh sequencer, for a
->>> start, and probably many other stuff...).
->>
->> Yes, the Debian mlmmj package is bit-rotting some, because there's no
->> new versions to upload nor new bugs to prompt making a new upload. I
->> don't see the point of updating the debian/rules file to dh unless MLMMJ
->> development is picked up again, but I am interested in doing that if
->> that happens.
-> 
-> The point is that it helps to keep your package up-to-date for new
-> stuff. For example, the current version of the package doesn't call
-> dh_strip_nondeterminism which is a new thing, and which dh calls.
+Hi all,
 
-I think this is a "red herring".
+Just a poll for ideas for solving a little bugger.
 
-- The purpose of dh_strip_nondeterminism is to remove build-time changes
-   that would cause the package not to be reproducible -- but the mlmmj
-   package has been reproducible for a long time.
+I have UNSET notmetoo on all lists as I (and probably most listmembers)
+think it is useful to get a copy of own posts. However, one subscriber's
+mail server is rejecting these copies as forgeries based on From: header
+(not the envelope from). The result is as follows:
 
-    https://tests.reproducible-builds.org/debian/rb-pkg/unstable/amd64/mlmmj.html
+1. A message number N arrives from subscriber A and is processed by mlmmj
+2. mlmmj sends a copy also to subscriber A which gets rejected by his MTA
+3. mlmmj records a bounce for subscriber A as it could not know better
+4. A message N+1 arrives for the list from some other subscriber B
+5. Message N+1 gets delivered to subscriber A successfully
+6. mlmmj concludes that subscriber A's address is no longer bouncing,
+   removes the record from the 'bounce' subdirectory and send the 'probe'
+   listtext to subscriber A saying it's ok now, but he missed message N
+   (from himself)
+7. Subscriber A gets somewhat annoyed :-(
 
-- dh_strip_nondeterminism could be called without switching to dh
-- A switch to dh in debian/rules is an invasive change (i.e. it commonly
-   causes some bugs to start with) and so it's not something I'd want to do
-   close to freeze time, which is exactly where we are.
+I know I could just set notmetoo and forget about it, but other people
+may be unhappy not getting copies.
 
+I am contemplating a patch to make notmetoo a tunable of type list, which
+would tell what subscribers do not want copies. But before I get to it
+(if ever) maybe there's some workaround possible in mlmmj itself or
+outside of it.
 
+I already use some trickery in the 'access' tunable to get rid of some
+problems with strange subscribers' MTAs (like autoresponse for EVERY
+message!), but I guess it is consulted only on inbound messages and not
+on outbound - am I right?
 
-I haven't heard any reply about bug #622621 which is something that I think 
-would be good to address before the Debian release. I'm making a second request: 
-can you please look at that bug and discuss it?
-
-    -- Chris
+If I cannot stop it inside mlmmj maybe some clever trick in relaying
+MTA (postfix)? Just an idea...
 
 -- 
-Chris Knadle
-Chris.Knadle@coredump.us
+Piotr "Malgond" Auksztulewicz                     firstname@lastname.net
 
