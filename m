@@ -1,7 +1,7 @@
-From: Chris Knadle <Chris.Knadle@coredump.us>
-Date: Thu, 11 Feb 2021 20:38:52 +0000
+From: Piotr Auksztulewicz <mlmmj-listrcpt@hasiok.net>
+Date: Fri, 12 Feb 2021 10:53:07 +0000
 Subject: Re: [mlmmj] Selective 'notmetoo' - how to do in mlmmj or outside?
-Message-Id: <87f0e2d9-0a8c-b5a1-da76-4930ed273ec2@coredump.us>
+Message-Id: <20210212105307.GC20431@bonclok.hasiok.net>
 List-Id: <mlmmj.mlmmj.org>
 References: <20210210151528.GA5946@bonclok.hasiok.net>
 In-Reply-To: <20210210151528.GA5946@bonclok.hasiok.net>
@@ -10,89 +10,50 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Piotr Auksztulewicz:
-> Hi all,
+On Thu, Feb 11, 2021 at 08:38:52PM +0000, Chris Knadle wrote:
+> That subscriber could do these rejections but create an exception for the
+> mailing list. That's what I would suggest.
+
+That would be the most logical way, but he isn't in control of the receiving
+end (company email). I would guess a before-queue spam filter is configured
+to deny messages that have the From: header (the RFC 822 one) with their
+domain, but do not originate from their servers. My sending MTA (relayhost
+from the mlmmj point of view) gets 554 5.7.1 response after DATA saying
+it's a forgery. Seems quite logical, but does not take traditional mailing
+lists into account.
+
+Problem was solved today by the subscriber providing a different address and
+asking me to change the subscription, which i did manually.
+
+> A tunable list of which subscribers don't want copies would be interesting.
+> IIRC I think Mailman2 might have that feature tunable on a per-user basis,
+> so there is some precedent for it.
+
+I looked at the mlmmj code yesterday and made a first attempt at it. I need
+to test it somehow though. Since the problem just went away, I would need to
+setup some artificial environment...
+
+> > If I cannot stop it inside mlmmj maybe some clever trick in relaying
+> > MTA (postfix)? Just an idea...
 > 
-> Just a poll for ideas for solving a little bugger.
-> 
-> I have UNSET notmetoo on all lists as I (and probably most listmembers)
-> think it is useful to get a copy of own posts. However, one subscriber's
-> mail server is rejecting these copies as forgeries based on From: header
-> (not the envelope from).
+> I'm not sure what this 'relaying MTA' refers to; meaning the MTA that is
+> running the MLMMJ mailing list? On this it depends; the outbound MTA could
+> alter the From: header, for instance, using pattern matching, at least on
+> some MTAs.
 
-I've read the description of the entire issue, but the above portion *is* the 
-actual problem, I think. i.e. the actual problem is that the subscriber's MTA is 
-set to reject "metoo" copies from the mailing mist as forgeries.
+Yes, I referred to my own MTA which mlmmj is talking to as the relayhost.
+I run postfix. I realize it's a dirty trick to alter the headers in the MTA,
+I just tried to solicit some ideas how to do it on outgoing mails. I would
+probably need to create some very specific milter app. I already add DKIM
+headers via a milter, so it is definitely possible; I was looking for some
+ready-to-use generic solution to rewrite headers. But let's forget it as
+the problem is gone and I have a patch for mlmmj.
 
-That subscriber could do these rejections but create an exception for the 
-mailing list. That's what I would suggest.
-
-I have such exceptions built for Exim4, so I know at least with that MTA it 
-could be done. I'm not sure but hope it could also be done with Postfix.
-
-And ... _which_ "From:" header are we talking about, BTW? If we're talking about 
-the "apparent From:" which is in the BODY of the message rather than it being in 
-the actual "headers" that the MTA would deal with, then that's not something the 
-MTA should do anything to.
-
- > The result is as follows:
-> 
-> 1. A message number N arrives from subscriber A and is processed by mlmmj
-> 2. mlmmj sends a copy also to subscriber A which gets rejected by his MTA
-> 3. mlmmj records a bounce for subscriber A as it could not know better
-> 4. A message N+1 arrives for the list from some other subscriber B
-> 5. Message N+1 gets delivered to subscriber A successfully
-> 6. mlmmj concludes that subscriber A's address is no longer bouncing,
->     removes the record from the 'bounce' subdirectory and send the 'probe'
->     listtext to subscriber A saying it's ok now, but he missed message N
->     (from himself)
-> 7. Subscriber A gets somewhat annoyed :-(
-> 
-> I know I could just set notmetoo and forget about it, but other people
-> may be unhappy not getting copies.
-
-AFAIK this type of rejection requires one to be running their own MTA which is 
-rather rare these days. The type of rejection they're doing is a logical choice 
-to try to reject spam, but there are often exceptions to blanket rules where 
-there are issues to work around.
-
-> I am contemplating a patch to make notmetoo a tunable of type list, which
-> would tell what subscribers do not want copies. But before I get to it
-> (if ever) maybe there's some workaround possible in mlmmj itself or
-> outside of it.
-
-A tunable list of which subscribers don't want copies would be interesting. IIRC 
-I think Mailman2 might have that feature tunable on a per-user basis, so there 
-is some precedent for it.
-
-The 'workarounds' available really depend on how the particular subscriber is 
-doing the rejection rules; for instance there might be a way for the subscriber 
-to add a rule to accept mail from the mailing list that would have precedence 
-over the reject rule for detecting From: forgeries. If the only "workarounds" 
-considered are solely in the mailing list itself, that's likely to be very limiting.
-
-> I already use some trickery in the 'access' tunable to get rid of some
-> problems with strange subscribers' MTAs (like autoresponse for EVERY
-> message!), but I guess it is consulted only on inbound messages and not
-> on outbound - am I right?
-> 
-> If I cannot stop it inside mlmmj maybe some clever trick in relaying
-> MTA (postfix)? Just an idea...
-
-I'm not sure what this 'relaying MTA' refers to; meaning the MTA that is running 
-the MLMMJ mailing list? On this it depends; the outbound MTA could alter the 
-From: header, for instance, using pattern matching, at least on some MTAs. Exim 
-for instance could theoretically do this using "if" and "match" rules in the 
-received_header_text variable, but doing so is quite messy and wouldn't 
-typically be used for this type of issue.
-
-See the "received_header_text" string setting:
-
-https://www.exim.org/exim-html-current/doc/html/spec_html/ch-main_configuration.html
-
-    -- Chris
+I will try testing my patch somehow, at least at the basic level - to see
+if mlmmj omits sending a copy to the listed subscriber. I would like to
+publish it once it's ready, but I am not aware what's the current policy
+of supplying patches to be incorporated in future versions of mlmmj.
 
 -- 
-Chris Knadle
-Chris.Knadle@coredump.us
+Piotr "Malgond" Auksztulewicz                     firstname@lastname.net
 
