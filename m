@@ -1,76 +1,21 @@
-From: Piotr Auksztulewicz <mlmmj-listrcpt@hasiok.net>
-Date: Mon, 15 Feb 2021 14:52:36 +0000
-Subject: [mlmmj] [PATCH] Selective 'notmetoo'
-Message-Id: <20210215145236.GV20431@bonclok.hasiok.net>
+From: =?UTF-8?Q?Jakob_Kj=C3=A6r_Butler?= <makob@makob.dk>
+Date: Fri, 19 Mar 2021 20:50:21 +0000
+Subject: [mlmmj] New release?
+Message-Id: <4bf6c0767e276342c61e908bcc8e65bb@makob.dk>
 List-Id: <mlmmj.mlmmj.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="macroman"
+Content-Transfer-Encoding: base64
 To: mlmmj@mlmmj.org
 
-On Fri, Feb 12, 2021 at 11:53:07AM +0100, Piotr Auksztulewicz wrote:
-> I looked at the mlmmj code yesterday and made a first attempt at it. I need
-> to test it somehow though. Since the problem just went away, I would need to
-> setup some artificial environment...
-
-I have tested my patch by setting up a few local addresses, creating a test
-list, subscribing that addresses and then sending emails from them, while
-tweeking my new notmeetoo tunable. Seems to work fine.
-
-The new version of notmetoo tunable is backwards-compatible. If it's unset
-(file doesn't exists), mlmmj sends copies to all originators when they post
-to the list. If it is an empty file, mlmmj does not send copies to any
-originator. The new functionality is, when you put some email addresses in
-the file (one per line), copies are sent to all originators except those listed.
-
-This may work fine if you only have a few exceptions, but may be a bit
-troublesome if you have a lot of them. Subscribers lists are segmented by
-the initial letter, so it's a bit lighter on the filesystem, but not too much.
-Anyway, implementing per-subscriber tunables would be a huge update and
-probably not worth the effort for just this purpose.
-
-I include the patch below. I was struggling to show some love for mlmmj on
-Valentine's day, but I was so busy with my real life Valentines yesterday.
-Sorry, mlmmj.
-
-
-diff --git a/src/mlmmj-process.c b/src/mlmmj-process.c
-index 82e4d04..785aadd 100644
---- a/src/mlmmj-process.c
-+++ b/src/mlmmj-process.c
-@@ -477,6 +477,7 @@ int main(int argc, char **argv)
-        struct email_container ccemails = { 0, NULL };
-        struct email_container rpemails = { 0, NULL };
-        struct email_container dtemails = { 0, NULL };
-+       struct strlist *notmetooaddrs = NULL;
-        struct strlist *access_rules = NULL;
-        struct strlist *delheaders = NULL;
-        struct strlist allheaders;
-@@ -1118,7 +1119,22 @@ int main(int argc, char **argv)
-                }
-        }
-
--       notmetoo = statctrl(listdir, "notmetoo");
-+       if (statctrl(listdir, "notmetoo")) {
-+               notmetooaddrs = ctrlvalues(listdir, "notmetoo");
-+               if (notmetooaddrs->count > 0) {
-+                       for (i = 0; i < notmetooaddrs->count; ++i) {
-+                               if (strcasecmp(posteraddr, notmetooaddrs->strs[i]) = 0) {
-+                                       notmetoo = 1;
-+                               }
-+                       }
-+               } else {
-+                       notmetoo = 1;
-+               }
-+               for(i = 0; i < notmetooaddrs->count; i++)
-+                       myfree(notmetooaddrs->strs[i]);
-+               myfree(notmetooaddrs->strs);
-+               myfree(notmetooaddrs);
-+       }
-
-        if(moderated) {
-                mqueuename = concatstr(3, listdir, "/moderation/",
-
--- 
-Piotr "Malgond" Auksztulewicz                     firstname@lastname.net
-
+SGkgYWxsLAoKKGRpc2NsYWltZXI6IEknbSBuZXcgdG8gbWxtbWopCgpJIHJlY2VudGx5IHN3aXRj
+aGVkIGZyb20gbWFpbG1hbjMgdG8gbWxtbWogLSBhbmQgYWxsIGlzIHdlbGwgYW5kIGdvb2QuIApI
+b3dldmVyLCBtYW55IG9mIHRoZSBtZW1iZXJzIG9uIG15IGxpc3RzIG1pc3MgdG9waWMgcHJlZml4
+ZXMgd2hpY2ggSSAKZGFyZSBub3QgZW5hYmxlIGR1ZSB0byBES0lNIHZhbGlkYXRpb24gY29uY2Vy
+bnMuIEEgImZpeCIgZm9yIHRoaXMgaXMgdGhlIAoibXVuZ2Vmcm9tIiBmZWF0dXJlLiBUaGVyZSdz
+IGEgcGF0Y2ggcGVuZGluZyBmb3IgZXhhY3RseSB0aGF0IGZyb20gCiJtbG1taiBhdCBpbmdlbmlv
+dXMgZG90IGNvIGRvdCBueiIgb24gCmh0dHA6Ly9tbG1tai5vcmcvYnVncy9idWcucGhwP2lkPTc2
+LgoKU28gd2l0aG91dCBmdXJ0aGVyIGFkbzoKQXJlIHRoZXJlIHBsYW5zIGZvciBhIG5ldyByZWxl
+YXNlIG9mIG1sbW1qPyBQZXJoYXBzIHdpdGggdGhlICdtdW5nZWZyb20nIApmZWF0dXJlIGluPyA6
+KQoKClRoYW5rcyBhbmQgYmVzdCByZWdhcmRzLApKYWtvYgoKLS0gCkpha29iIEtqw6ZyIEJ1dGxl
+cgptYWtvYkBtYWtvYi5kawoKCg==
