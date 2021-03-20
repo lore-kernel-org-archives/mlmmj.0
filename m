@@ -1,21 +1,49 @@
-From: =?UTF-8?Q?Jakob_Kj=C3=A6r_Butler?= <makob@makob.dk>
-Date: Fri, 19 Mar 2021 20:50:21 +0000
-Subject: [mlmmj] New release?
-Message-Id: <4bf6c0767e276342c61e908bcc8e65bb@makob.dk>
+From: Geert Stappers <stappers@stappers.nl>
+Date: Sat, 20 Mar 2021 21:39:02 +0000
+Subject: Re: [mlmmj] New release?
+Message-Id: <20210320213902.6ichvqoenm4vdhjc@gpm.stappers.nl>
 List-Id: <mlmmj.mlmmj.org>
+References: <4bf6c0767e276342c61e908bcc8e65bb@makob.dk>
+In-Reply-To: <4bf6c0767e276342c61e908bcc8e65bb@makob.dk>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="macroman"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="iso-8859-9"
+Content-Transfer-Encoding: quoted-printable
 To: mlmmj@mlmmj.org
 
-SGkgYWxsLAoKKGRpc2NsYWltZXI6IEknbSBuZXcgdG8gbWxtbWopCgpJIHJlY2VudGx5IHN3aXRj
-aGVkIGZyb20gbWFpbG1hbjMgdG8gbWxtbWogLSBhbmQgYWxsIGlzIHdlbGwgYW5kIGdvb2QuIApI
-b3dldmVyLCBtYW55IG9mIHRoZSBtZW1iZXJzIG9uIG15IGxpc3RzIG1pc3MgdG9waWMgcHJlZml4
-ZXMgd2hpY2ggSSAKZGFyZSBub3QgZW5hYmxlIGR1ZSB0byBES0lNIHZhbGlkYXRpb24gY29uY2Vy
-bnMuIEEgImZpeCIgZm9yIHRoaXMgaXMgdGhlIAoibXVuZ2Vmcm9tIiBmZWF0dXJlLiBUaGVyZSdz
-IGEgcGF0Y2ggcGVuZGluZyBmb3IgZXhhY3RseSB0aGF0IGZyb20gCiJtbG1taiBhdCBpbmdlbmlv
-dXMgZG90IGNvIGRvdCBueiIgb24gCmh0dHA6Ly9tbG1tai5vcmcvYnVncy9idWcucGhwP2lkPTc2
-LgoKU28gd2l0aG91dCBmdXJ0aGVyIGFkbzoKQXJlIHRoZXJlIHBsYW5zIGZvciBhIG5ldyByZWxl
-YXNlIG9mIG1sbW1qPyBQZXJoYXBzIHdpdGggdGhlICdtdW5nZWZyb20nIApmZWF0dXJlIGluPyA6
-KQoKClRoYW5rcyBhbmQgYmVzdCByZWdhcmRzLApKYWtvYgoKLS0gCkpha29iIEtqw6ZyIEJ1dGxl
-cgptYWtvYkBtYWtvYi5kawoKCg==
+On Fri, Mar 19, 2021 at 09:50:21PM +0100, Jakob Kj=E6r Butler wrote:
+> Hi all,
+>=20
+> (disclaimer: I'm new to mlmmj)
+
+Welcome,
+
+=20
+> I recently switched from mailman3 to mlmmj - and all is well and good.
+> However, many of the members on my lists miss topic prefixes which I dare
+> not enable due to DKIM validation concerns. A "fix" for this is the
+> "mungefrom" feature. There's a patch pending for exactly that from "mlmmj=
+ at
+> ingenious dot co dot nz" on http://mlmmj.org/bugs/bug.php?id=3D76.
+
+Oops, that wasn't noticed before.
+Issue is now updated.
+
+=20
+> So without further ado:
+> Are there plans for a new release of mlmmj?
+
+Another good wake up call.
+
+
+> Perhaps with the 'mungefrom' feature in? :)
+
+:-)     mungefrom is already present ...
+
+
+
+
+Groeten
+Geert Stappers
+--=20
+Silence is hard to parse
+
