@@ -1,52 +1,19 @@
-From: Geert Stappers <stappers@stappers.nl>
-Date: Sun, 30 May 2021 21:45:12 +0000
-Subject: Re: [mlmmj] Where to send patches
-Message-Id: <20210530214512.tgwc6m5brread5pj@gpm.stappers.nl>
+From: =?UTF-8?Q?Jakob_Kj=C3=A6r_Butler?= <makob@makob.dk>
+Date: Mon, 31 May 2021 19:40:07 +0000
+Subject: [mlmmj] Website updates?
+Message-Id: <dcb7983cf7d24f3209ce327874d58531@makob.dk>
 List-Id: <mlmmj.mlmmj.org>
-References: <20210526130607.us4pobshuj5dnpb4@aniel.nours.eu>
-In-Reply-To: <20210526130607.us4pobshuj5dnpb4@aniel.nours.eu>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="macroman"
+Content-Transfer-Encoding: base64
 To: mlmmj@mlmmj.org
 
-On Wed, May 26, 2021 at 03:06:07PM +0200, Baptiste Daroussin wrote:
-> Hello everyone,
-> 
-> I am migrating FreeBSD's mailing lists from mailman2 to mlmmj, in the process I
-> had to write a couple of patches for mlmmj, I would like to upstream those
-> patches if possible.
-> 
-> My understanding is that the origin developement site is dead, and there has been a
-> kind of takeover on gitlab. Am I right? so pushing things upstream now means
-> pushing things to that gitlab?
-> 
-> The 2 patches in question are the following:
-> -  A patch which adds a new tunnable (boolean) nobounceprobe to be able to
->    disable probes on demande if needed.
-> 
-> - A patch which Allow to support X-Origin-From header. This one is quite
->   special. in our setup we didn't want to use the mungefrom patch that we can
->   find on the mailing list (and on the gitlab repo), because we only want to
->   munge when we actually need to and not always. so we are using the
->   developement version of rspamd to handle the muning part. the interesting this
->   is when rspamd do munge, it sets the original From into the new
->   X-Original-From header, so our patch is taking in account this new header for
->   mlmmj-process when testing is the sender is a subsriber to the mailing list or
->   a moderator, it also uses it to send back the denial email if the email was
->   denied.
-> 
-
-Send the two patches in two seperate emails to this mailinglist.
-
- 
-Two seperate merge requests at https://gitlab.com/mlmmj/mlmmj is also
-fine.
-
-
-
-Groeten
-Geert Stappers
--- 
-Silence is hard to parse
-
+SGl5YSwKClRoZSB3ZWJzaXRlIG9uIGh0dHA6Ly9tbG1tai5vcmcgc2VlbXMgdG8gYmUgcXVpdGUg
+b3V0IG9mIGRhdGUuIEZvciAKZXhhbXBsZSwgaXQgc3RpbGwgY2xhaW1zIE1lcmN1cmlhbCBpcyB0
+aGUgdmVyc2lvbiBjb250cm9sIHN5c3RlbS4KRG9lcyBhbnlvbmUgKEdlZXJ0PykgaGF2ZSB3cml0
+ZSBhY2Nlc3MgdG8gdGhlIHdlYnNpdGU/IENhbiBJIHNvbWVob3cgCmhlbHAgdXBkYXRlIHRoZSBz
+aXRlPyBJJ20gd2lsbGluZyB0byBzcGVuZCBzb21lIHRpbWUgdXBkYXRpbmcgdGhpbmdzIGFzIAps
+b25nIGFzIEkgY2FuIHNlbmQgbXkgcGF0Y2hlcyBzb21ld2hlcmUuCgpBbHNvLCBpcyB0aGVyZSBh
+bnkgY2hhbmNlIHNvbWUgb2YgdGhlIHBlbmRpbmcgbWVyZ2UgcmVxdWVzdHMgb24gZ2l0bGFiIAp3
+aWxsIGdldCBtZXJnZWQ/IDopCgpUaGFua3MsCkpha29iCgotLSAKSmFrb2IgS2rDpnIgQnV0bGVy
+Cm1ha29iQG1ha29iLmRrCgoK
