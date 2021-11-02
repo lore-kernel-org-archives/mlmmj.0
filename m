@@ -1,19 +1,41 @@
-From: =?UTF-8?Q?Jakob_Kj=C3=A6r_Butler?= <makob@makob.dk>
-Date: Mon, 31 May 2021 19:40:07 +0000
-Subject: [mlmmj] Website updates?
-Message-Id: <dcb7983cf7d24f3209ce327874d58531@makob.dk>
+From: R Richard Summerhill <rrsum@summerhill.org>
+Date: Tue, 02 Nov 2021 23:31:43 +0000
+Subject: [mlmmj] Setting up mlmmj
+Message-Id: <d0f08508-d9c3-f419-8015-9cb539f80208@summerhill.org>
 List-Id: <mlmmj.mlmmj.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="macroman"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 To: mlmmj@mlmmj.org
 
-SGl5YSwKClRoZSB3ZWJzaXRlIG9uIGh0dHA6Ly9tbG1tai5vcmcgc2VlbXMgdG8gYmUgcXVpdGUg
-b3V0IG9mIGRhdGUuIEZvciAKZXhhbXBsZSwgaXQgc3RpbGwgY2xhaW1zIE1lcmN1cmlhbCBpcyB0
-aGUgdmVyc2lvbiBjb250cm9sIHN5c3RlbS4KRG9lcyBhbnlvbmUgKEdlZXJ0PykgaGF2ZSB3cml0
-ZSBhY2Nlc3MgdG8gdGhlIHdlYnNpdGU/IENhbiBJIHNvbWVob3cgCmhlbHAgdXBkYXRlIHRoZSBz
-aXRlPyBJJ20gd2lsbGluZyB0byBzcGVuZCBzb21lIHRpbWUgdXBkYXRpbmcgdGhpbmdzIGFzIAps
-b25nIGFzIEkgY2FuIHNlbmQgbXkgcGF0Y2hlcyBzb21ld2hlcmUuCgpBbHNvLCBpcyB0aGVyZSBh
-bnkgY2hhbmNlIHNvbWUgb2YgdGhlIHBlbmRpbmcgbWVyZ2UgcmVxdWVzdHMgb24gZ2l0bGFiIAp3
-aWxsIGdldCBtZXJnZWQ/IDopCgpUaGFua3MsCkpha29iCgotLSAKSmFrb2IgS2rDpnIgQnV0bGVy
-Cm1ha29iQG1ha29iLmRrCgoK
+I'm trying to setup mlmmj on a FreeBSD server running sendmail. I've 
+followed the recipe in the mlmmj README file, but on sending email to 
+mlmmj-test@summerhill.org, I get the following return message:
+
+-- 
+"|/usr/local/bin/mlmmj-receive -L /var/spool/mlmmj/mlmmj-test"
+     (reason: 1)
+     (expanded from: <mlmmj-test@summerhill.org>)
+
+    ----- Transcript of session follows -----
+Have to invoke either as root or as the user owning listdir
+554 5.3.0 unknown mailer error 1
+-- 
+
+I have all the files in the spool directory owned by smmsp.  The other 
+possibility is mailnull.
+
+Can anyone tell me what is wrong?  Thanks in advance.
+
+--Rick
+
+-- 
+Rick Summerhill
+Retired, Chief Technology Officer, Internet2
+10233 Timberhill Rd
+Manchester, MI 48158 USA
+-- 
+Home: 734-428-1422
+Web: http://www.rick.summerhill.org
+
+
