@@ -1,50 +1,55 @@
-From: agro <agro@agrox.host.lecturify.net>
-Date: Mon, 03 Oct 2022 06:38:35 +0000
-Subject: [mlmmj] clear steps to install
-Message-Id: <b2c60c9c-a91f-d780-59f8-683eb5cab1ec@agrox.host.lecturify.net>
+From: Franky Van Liedekerke <liedekef@telenet.be>
+Date: Mon, 03 Oct 2022 07:13:56 +0000
+Subject: Re: [mlmmj] clear steps to install
+Message-Id: <69f2ca1189ff17ddd261ece0e2b3ac9c8a77bbf9.camel@telenet.be>
 MIME-Version: 1
-Content-Type: multipart/mixed; boundary="------------TnSHTFaC6AODRqHWXdUgizvb"
+Content-Type: multipart/mixed; boundary="=-AF6vDtG1p2Yz2kd5pZtp"
 List-Id: <mlmmj.mlmmj.org>
+References: <b2c60c9c-a91f-d780-59f8-683eb5cab1ec@agrox.host.lecturify.net>
+In-Reply-To: <b2c60c9c-a91f-d780-59f8-683eb5cab1ec@agrox.host.lecturify.net>
 To: mlmmj@mlmmj.org
 
-This is a multi-part message in MIME format.
---------------TnSHTFaC6AODRqHWXdUgizvb
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+--=-AF6vDtG1p2Yz2kd5pZtp
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Hello
+Which steps did you follow? What mailserver are you using? mlmmj takes
+like 5 minutes to install on postfix ...
 
-I did an installation on OpenBSD 7.1, but it failed with:
+With friendly regards,
+Franky
 
-The response from the remote server was:
-524 5.2.4 Mailing list expansion problem:
-<mlmmj-test+subscribe@agrox.host.lecturify.net  <https://webmail.vcn.bc.ca/src/compose.php?send_to=mlmmj-test%2Bsubscribe%40agrox.host.lecturify.net>>
+On Sun, 2022-10-02 at 23:38 -0700, agro wrote:
+> Hello
+> I did an installation on OpenBSD 7.1, but it failed with:
+> The response from the remote server was:
+> 524 5.2.4 Mailing list expansion problem:
+> <mlmmj-test+subscribe@agrox.host.lecturify.net>
+>=20
+> What are the exact steps to install mlmmj, suposed it is easy!
+> thanks.
 
-What are the exact steps to install mlmmj, suposed it is easy!
-thanks.
+--=-AF6vDtG1p2Yz2kd5pZtp
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
 
---------------TnSHTFaC6AODRqHWXdUgizvb
-Content-Type: text/html; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+<html><head>
 
-<html>
-  <head>
-
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+   =20
   </head>
-  <body>
-    <p>Hello</p>
-    <p>I did an installation on OpenBSD 7.1, but it failed with:</p>
-    <pre>The response from the remote server was:
-524 5.2.4 Mailing list expansion problem:
-&lt;<a href="https://webmail.vcn.bc.ca/src/compose.php?send_to=mlmmj-test%2Bsubscribe%40agrox.host.lecturify.net">mlmmj-test+subscribe@agrox.host.lecturify.net</a>&gt;
+  <body><div>Which steps did you follow? What mailserver are you using? mlm=
+mj takes like 5 minutes to install on postfix ...</div><div><br></div><div>=
+With friendly regards,</div><div>Franky</div><div><span></span></div><div><=
+br></div><div>On Sun, 2022-10-02 at 23:38 -0700, agro wrote:</div><blockquo=
+te type=3D"cite" style=3D"margin:0 0 0 .8ex; border-left:2px #729fcf solid;=
+padding-left:1ex"><p>Hello</p><p>I did an installation on OpenBSD 7.1, but =
+it failed with:</p><pre>The response from the remote server was:</pre><pre>=
+524 5.2.4 Mailing list expansion problem:</pre><pre>&lt;<a href=3D"https://=
+webmail.vcn.bc.ca/src/compose.php?send_to=3Dmlmmj-test%2Bsubscribe%40agrox.=
+host.lecturify.net">mlmmj-test+subscribe@agrox.host.lecturify.net</a>&gt;</=
+pre><pre><br></pre><pre>What are the exact steps to install mlmmj, suposed =
+it is easy!</pre><pre>thanks.</pre><p></p><div> </div></blockquote></body><=
+/html>
 
-What are the exact steps to install mlmmj, suposed it is easy!
-thanks.
-</pre>
-    <p></p>
-  </body>
-</html>
-
---------------TnSHTFaC6AODRqHWXdUgizvb--
+--=-AF6vDtG1p2Yz2kd5pZtp--
 
