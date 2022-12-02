@@ -1,35 +1,70 @@
 From: Baptiste Daroussin <bapt@nours.eu>
-Date: Fri, 09 Dec 2022 05:56:35 +0000
-Subject: Re: [mlmmj] mlmmj patches from distributions: Gentoo
-Message-Id: <F0AE59F0-56DA-44DF-9BA7-0532D6B17101@nours.eu>
+Date: Fri, 02 Dec 2022 14:51:08 +0000
+Subject: [mlmmj] Candidate for an 1.4.0.a1
+Message-Id: <20221202145108.m3vw6f73ppyhvygm@aniel.nours.eu>
 List-Id: <mlmmj.mlmmj.org>
-References: <robbat2-20221208T005748-436219077Z@orbis-terrarum.net>
-In-Reply-To: <robbat2-20221208T005748-436219077Z@orbis-terrarum.net>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
+Hello everyone,
 
+A 1.5 years ago, I migrated FreeBSD's mailing list to mlmmj. So far so good we
+are very happy with it.
 
-Le 9 décembre 2022 06:36:54 GMT+01:00, "Robin H. Johnson" <robbat2@gentoo.org> a écrit :
->On Fri, Dec 09, 2022 at 06:25:58AM +0100, Baptiste Daroussin wrote:
->> >Cleaning up the archives directory will break the +get-NNNN
->> >functionality.
->> >
->> >It makes the directory take extremely long to scan during backups.
->> >I think it should be partitioned more, but any +get-NNNN code will need
->> >to support both partitioned & non-partitioned.
->> Good point and easy to implement, I ll looking into it.
->Great to hear. Please do consider how to migrate existing /archive/
->directories into it.
->
-My current plan is pretty simple make a 100k partition via mlmmj-maintd, is scans the archives and move mails around. So the rest of the code remains the same.
+Since that date I have been working on modernizing mlmmj codebase, integrate our
+patches etc. While the work is clearly not done, I think it is advanced enough
+for it to be shared.
 
-+get will look into 2 places the root of the archive and the partitionned directory
+Disclaimer: this is a very early alpha, mostly tested under FreeBSD! While I tried
+(and intend) to keep using only portable things, their maybe issues, the main goal
+is to open the gate to contributors, testers and open discussions.
 
-This should (famous last word) be easy and not really intrusive.
+https://codeberg.org/mlmmj/mlmmj/releases
 
-Best regards
+The working has been ongoing here: https://codeberg.org/mlmmj/mlmmj
+
+The changelog is the following:
+ * Add a test suite
+ * Modernize code (dprintf, posix_spawn, asprintf, getline, daemon, ...)
+ * Supporting passing email to a mta over ipv6
+ * Fix relaying in IPV6-only systems
+ * Fix decode quoted printable subject
+ * Fix parsing RFC1891
+ * Fix a crash if no owner has been defined
+ * Validate ranges of all integers conversion
+ * New 'nobounceprobe' tunable for debugging purpose
+ * New 'send' tunable to allow email passthrough
+ * Add support for 'X-Original-From'
+ * Reduce subscription confirmation address length to fit RFC 5321
+ * Use arc4random is available
+ * Reduce memory manipulation
+ * When unsubscribing bouncers, keep the bounce file if something went
+ * wrong and report in syslog what went wrong
+ * Remove the -b option from mlmmj-unsub, it is not used anymore
+ * simplify the locking mechanism
+
+My plans before a full 1.4.0:
+ * Remove the php part
+ * Merge interesting parts of mlmmj-receive-strip into mlmmj-receive
+
+Note that one thing I didn't do is merge the mungefrom patches. So far I consider
+mailing list should not be altering parts of the email that are part of the dkim
+signatures aka:
+- Should not modify the subject
+- Should not strip any part of the emial
+- Should not add a footer
+
+If so, emails going through a mailing list respects dkim/dmarc expectations.
+Note that I don't have strong feelings about this, so I can be convince to merge
+those patches.
+
+Open question:
+- should this still be mlmmj? (aka the continuation of the project?) if most do
+  not like the approach, I will of course fork and rename, otherwise I will be
+  happy to make it a continuation of the project.
+
+Best regards,
 Bapt
 
