@@ -1,7 +1,7 @@
-From: Uffe Jakobsen <uffe@uffe.org>
-Date: Sat, 03 Dec 2022 20:53:57 +0000
+From: Baptiste Daroussin <bapt@nours.eu>
+Date: Mon, 05 Dec 2022 09:32:03 +0000
 Subject: Re: [mlmmj] Candidate for an 1.4.0.a1
-Message-Id: <cone.1670100837.525352.15671.1001@mailhost.starion.dk>
+Message-Id: <20221205093203.fqrln5bixzbmwyoe@aniel.nours.eu>
 List-Id: <mlmmj.mlmmj.org>
 References: <20221202145108.m3vw6f73ppyhvygm@aniel.nours.eu>
 In-Reply-To: <20221202145108.m3vw6f73ppyhvygm@aniel.nours.eu>
@@ -10,44 +10,53 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Hi Bapt,
+On Sat, Dec 03, 2022 at 04:24:42PM +0100, A. Schulze wrote:
+> 
+> 
+> Am 03.12.22 um 09:48 schrieb Franky Van Liedekerke:
+> > > ok, now "make check" fail:
+> > You need to install atf-sh (the devel-package of it, on fedora it is libatf-sh-devel)
+> 
+> Hello,
+> 
+> adding 'atf-sh' make sense, but do not change anything, at least on Debian (Bullseye|Bookworm).
+> Here is how to reproduce with docker:
+> 
+> $ install -d /tmp/mlmmj/
+> $ cat <<EOF > /tmp/mlmmj/Dockerfile
+> FROM debian:bullseye-slim
+> 
+> RUN  apt-get -qq update && apt-get -qq --no-install-recommends install \
+>        atf-sh \
+>        autoconf \
+>        automake \
+>        build-essential \
+>        ca-certificates \
+>        git \
+>        kyua \
+>        libatf-dev \
+>        pkg-config \
+> 
+> WORKDIR /tmp/
+> RUN git clone https://codeberg.org/mlmmj/mlmmj
+> WORKDIR /tmp/mlmmj/
+> RUN git clone https://codeberg.org/mlmmj/listtexts
+> 
+> RUN sed -i -e '/^AC_CHECK_INCLUDES_DEFAULT/d' configure.ac
+> RUN autoreconf -i
+> RUN ./configure
+> RUN make
+> 
+> # this fail ...
+> RUN make check
+> EOF
+> 
+> $ docker build -t mlmmj:1.4.0.a1 /tmp/mlmmj/
+> 
 
-First of all thank you so much for your effort.
+The issue is because it runs the test suite as root, I will make sure the
+testsuite can be run safely as root.
 
-I have for some time been looking at the changes that was done to mlmmj in  
-order to match the needs for the FreeBSD project mailing lists
-
-One thing that I really missed in the FreeBSD version of mlmmj was the "from-munging"
-
-
-Here comes a story - I'll try to keep it short...
-
-I run a couple of internal mlmmj-based mailing lists
-
-I'm challenged with users that does not understand and/or respect mailing  
-list defacto conventions - what to do and what not to do etc...
-
-They keep side-tracking the thread by only replying to some of the users - leaving out the list etc etc... it is a nightmare...  :-/
-
-What they do is not intended.
-
-Much of what they do is due to the different workings of various mailers (Reply, Reply All, Reply List etc)...
-Also they are sloppy - they do not take a look at the resulting receipient lists before pressing send.
-
-It really messes up mailing list threads if they are side-tracked from the  
-list for some time (by accident) and then re-added after some iterations   :-/
-
-For that purpose I would really like to use from-munging
-Just displaying From: "Firstname Lastname via some-mailing-list-name"...
-Effectively supressing all other email adresses than the maillist address - and in that way keep the whole mailing list thread on the list...
-
-They would be better off with a forum system - but insist on the mailinglist approach...
-
-With that story in mind I would really like to see the "from-munging" in mlmmj
-
-Kind regards Uffe Jakobsen :-)
-
-
-
-
+Best regards,
+Bapt
 
