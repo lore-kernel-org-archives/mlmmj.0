@@ -1,24 +1,30 @@
-From: =?utf-8?Q?Mads_Martin_J=C3=B8rgensen?= <mmj@mmj.dk>
-Date: Wed, 08 Feb 2023 09:18:28 +0000
+From: Zhang Huangbin <zhb@iredmail.org>
+Date: Wed, 08 Feb 2023 09:22:48 +0000
 Subject: Re: [mlmmj] Candidate for an 1.4.0.a1, glad for the work
-Message-Id: <C5C62C81-F8D8-41D8-BE38-2DD537B22775@mmj.dk>
+Message-Id: <C643F3D7-BBC8-4C51-9242-004E6EC9F19F@iredmail.org>
 List-Id: <mlmmj.mlmmj.org>
 References: <572dfe82-87b0-f959-f174-0944c5658199@coredump.us>
 In-Reply-To: <572dfe82-87b0-f959-f174-0944c5658199@coredump.us>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 To: mlmmj@mlmmj.org
 
-Would be a good idea if it's a fork, but it's not. It's mlmmj.
 
-> On 8 Feb 2023, at 08.44, Chris Knadle <Chris.Knadle@coredump.us> wrote:
-> 
-> Re: using the mlmmj name, my only thought is perhaps a minor addition to the name to distinguish the fork, such as mlmmj-ng (next-generation) or mlmmj2. It's not a requirement, it's just mentioning what I typically see other projects do. I think the idea is to cover the possibility of upstream picking up their old project again and/or avoiding old/new naming clashes. If the old/same name is stuck with I don't have any objection.
+> On Feb 8, 2023, at 5:18 PM, Mads Martin J=C3=B8rgensen <mmj@mmj.dk> wrote:
+>=20
+> Would be a good idea if it's a fork, but it's not. It's mlmmj.
 
+Will it become the "official" mlmmj project instead of fork?
 
---
-"Why make things difficult, when it is possible to make them cryptic and
-totally illogical, with just a little bit more effort?" - A. P. J
+Official Mercurial repo raises "500 Internal Server Error" right now: http:=
+//mlmmj.org/hg/mlmmj
+And no development in years.
+
+----
+Zhang Huangbin, founder of:
+- iRedMail: Open source email server solution: https://www.iredmail.org/
+- Spider: Lightweight, on-premises Email Archiving Software: https://spider=
+d.io
 
 
