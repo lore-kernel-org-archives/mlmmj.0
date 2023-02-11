@@ -1,110 +1,132 @@
 From: Wolf Bergenheim <wolf+mlmmj@bergenheim.net>
-Date: Sat, 11 Feb 2023 19:15:00 +0000
+Date: Sat, 11 Feb 2023 20:15:45 +0000
 Subject: Re: [mlmmj] Candidate for an 1.4.0.a1, glad for the work
-Message-Id: <CAJhTkW6r6hmnqByQ2+oG7LN=J_rRr0VdRn-oeZcLNVONTbKQVw@mail.gmail.com>
+Message-Id: <CAJhTkW4PioTRN997inUfw2LtC4WHEmbK_nBJTBQdfKA2p15qQw@mail.gmail.com>
 MIME-Version: 1
-Content-Type: multipart/mixed; boundary="000000000000db408905f4716e88"
+Content-Type: multipart/mixed; boundary="0000000000001ad26305f4724871"
 List-Id: <mlmmj.mlmmj.org>
 References: <572dfe82-87b0-f959-f174-0944c5658199@coredump.us>
 In-Reply-To: <572dfe82-87b0-f959-f174-0944c5658199@coredump.us>
 To: mlmmj@mlmmj.org
 
---000000000000db408905f4716e88
-Content-Type: multipart/alternative; boundary="000000000000db408705f4716e87"
+--0000000000001ad26305f4724871
+Content-Type: multipart/alternative; boundary="0000000000001ad26105f4724870"
 
---000000000000db408705f4716e87
+--0000000000001ad26105f4724870
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
-Hi,
-
-I'm hosting the server currently (a Linode VM). I took a look and indeed it
-seems like the mercurial web stuff is broken and built in python2 =F0=9F=99=
-=88 I'm
-going to have to learn how to set it up for python3.. It's going to take a
-day or two. Sorry for not catching it earlier... If anyone knows how to set
-up HgWebDir and wants to help, I can give access to the server (all I need
-is an SSH public key)
-
-@Christian I'm happy to take over the DNS though, and maintain it, in fact
-I thought we had already set it up. Let me check the process and get back
-to you on that.
+Looks like it was easier than I thought. The mlmmj mercurial server is up
+and running again. If you want to commit that is going to need to be done
+through SSH.
 
 --Wolf
 
-On Thu, 9 Feb 2023 at 00:21, Christian St=C3=A6rk <xi@borderworlds.dk> wrot=
-e:
+On Sat, 11 Feb 2023 at 21:15, Wolf Bergenheim <wolf+mlmmj@bergenheim.net>
+wrote:
 
-> Yes, it seems I am still the one holding the DNS.
+> Hi,
 >
-> If it makes sense, I would like someone else to take over DNS as I am not
-> currently using mlmmj myself. However, for now I can make the desired
-> changes.
+> I'm hosting the server currently (a Linode VM). I took a look and indeed
+> it seems like the mercurial web stuff is broken and built in python2 =F0=
+=9F=99=88 I'm
+> going to have to learn how to set it up for python3.. It's going to take =
+a
+> day or two. Sorry for not catching it earlier... If anyone knows how to s=
+et
+> up HgWebDir and wants to help, I can give access to the server (all I nee=
+d
+> is an SSH public key)
 >
-> The zone currently looks like this:
+> @Christian I'm happy to take over the DNS though, and maintain it, in fac=
+t
+> I thought we had already set it up. Let me check the process and get back
+> to you on that.
 >
+> --Wolf
 >
+> On Thu, 9 Feb 2023 at 00:21, Christian St=C3=A6rk <xi@borderworlds.dk> wr=
+ote:
 >
-> Best regards
-> Christian
->
-> On 2/8/23 11:04, Mads Martin J=C3=B8rgensen wrote:
->
-> I think Christian (Cc:) can help with the DNS, IIRC?
->
->
-> On 8 Feb 2023, at 11.01, Baptiste Daroussin <bapt@nours.eu> <bapt@nours.e=
-u> wrote:
->
-> On Wed, Feb 08, 2023 at 05:22:48PM +0800, Zhang Huangbin wrote:
->
-> On Feb 8, 2023, at 5:18 PM, Mads Martin J=C3=B8rgensen <mmj@mmj.dk> <mmj@=
-mmj.dk> wrote:
->
-> Would be a good idea if it's a fork, but it's not. It's mlmmj.
->
-> Will it become the "official" mlmmj project instead of fork?
->
-> Official Mercurial repo raises "500 Internal Server Error" right now: htt=
-p://mlmmj.org/hg/mlmmj
-> And no development in years.
->
->
-> I don't have access to the website, but I think it will be fair to point =
-the
-> website at https://codeberg.org/mlmmj/mlmmj for the development repositor=
-y.
->
-> Best regards,
-> Bapt
->
-> --
-> "Why make things difficult, when it is possible to make them cryptic and
-> totally illogical, with just a little bit more effort?" - A. P. J
->
->
->
->
+>> Yes, it seems I am still the one holding the DNS.
+>>
+>> If it makes sense, I would like someone else to take over DNS as I am no=
+t
+>> currently using mlmmj myself. However, for now I can make the desired
+>> changes.
+>>
+>> The zone currently looks like this:
+>>
+>>
+>>
+>> Best regards
+>> Christian
+>>
+>> On 2/8/23 11:04, Mads Martin J=C3=B8rgensen wrote:
+>>
+>> I think Christian (Cc:) can help with the DNS, IIRC?
+>>
+>>
+>> On 8 Feb 2023, at 11.01, Baptiste Daroussin <bapt@nours.eu> <bapt@nours.=
+eu> wrote:
+>>
+>> On Wed, Feb 08, 2023 at 05:22:48PM +0800, Zhang Huangbin wrote:
+>>
+>> On Feb 8, 2023, at 5:18 PM, Mads Martin J=C3=B8rgensen <mmj@mmj.dk> <mmj=
+@mmj.dk> wrote:
+>>
+>> Would be a good idea if it's a fork, but it's not. It's mlmmj.
+>>
+>> Will it become the "official" mlmmj project instead of fork?
+>>
+>> Official Mercurial repo raises "500 Internal Server Error" right now: ht=
+tp://mlmmj.org/hg/mlmmj
+>> And no development in years.
+>>
+>>
+>> I don't have access to the website, but I think it will be fair to point=
+ the
+>> website at https://codeberg.org/mlmmj/mlmmj for the development reposito=
+ry.
+>>
+>> Best regards,
+>> Bapt
+>>
+>> --
+>> "Why make things difficult, when it is possible to make them cryptic and
+>> totally illogical, with just a little bit more effort?" - A. P. J
+>>
+>>
+>>
+>>
 
---000000000000db408705f4716e87
+--0000000000001ad26105f4724870
 Content-Type: text/html; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
-<div dir=3D"ltr"><div dir=3D"ltr">Hi,<div><br></div><div>I&#39;m hosting th=
-e server currently (a Linode VM). I took a look and indeed it seems like th=
-e mercurial web stuff is broken and built in python2=C2=A0=F0=9F=99=88=C2=
-=A0I&#39;m going to have to learn how to set it up for python3.. It&#39;s g=
-oing to take a day or two. Sorry for not catching it earlier... If anyone k=
-nows how to set up HgWebDir and wants to help, I can give access to the ser=
-ver (all I need is an SSH public key)</div><div><br></div><div>@Christian I=
-&#39;m happy to take over the DNS though, and maintain it, in fact I though=
-t we had already set it up. Let me check the process and get back to you on=
- that.</div><div><br></div><div>--Wolf</div></div><br><div class=3D"gmail_q=
-uote"><div dir=3D"ltr" class=3D"gmail_attr">On Thu, 9 Feb 2023 at 00:21, Ch=
-ristian St=C3=A6rk &lt;<a href=3D"mailto:xi@borderworlds.dk">xi@borderworld=
-s.dk</a>&gt; wrote:<br></div><blockquote class=3D"gmail_quote" style=3D"mar=
-gin:0px 0px 0px 0.8ex;border-left:1px solid rgb(204,204,204);padding-left:1=
-ex">
+<div dir=3D"ltr"><div dir=3D"ltr">Looks like it was easier than I thought. =
+The mlmmj mercurial server is up and running again. If you want to commit t=
+hat is going to need to be done through SSH.<br></div><div><br></div><div>-=
+-Wolf</div><br><div class=3D"gmail_quote"><div dir=3D"ltr" class=3D"gmail_a=
+ttr">On Sat, 11 Feb 2023 at 21:15, Wolf Bergenheim &lt;<a href=3D"mailto:wo=
+lf%2Bmlmmj@bergenheim.net" target=3D"_blank">wolf+mlmmj@bergenheim.net</a>&=
+gt; wrote:<br></div><blockquote class=3D"gmail_quote" style=3D"margin:0px 0=
+px 0px 0.8ex;border-left:1px solid rgb(204,204,204);padding-left:1ex"><div =
+dir=3D"ltr"><div dir=3D"ltr">Hi,<div><br></div><div>I&#39;m hosting the ser=
+ver currently (a Linode VM). I took a look and indeed it seems like the mer=
+curial web stuff is broken and built in python2=C2=A0=F0=9F=99=88=C2=A0I&#3=
+9;m going to have to learn how to set it up for python3.. It&#39;s going to=
+ take a day or two. Sorry for not catching it earlier... If anyone knows ho=
+w to set up HgWebDir and wants to help, I can give access to the server (al=
+l I need is an SSH public key)</div><div><br></div><div>@Christian I&#39;m =
+happy to take over the DNS though, and maintain it, in fact I thought we ha=
+d already set it up. Let me check the process and get back to you on that.<=
+/div><div><br></div><div>--Wolf</div></div><br><div class=3D"gmail_quote"><=
+div dir=3D"ltr" class=3D"gmail_attr">On Thu, 9 Feb 2023 at 00:21, Christian=
+ St=C3=A6rk &lt;<a href=3D"mailto:xi@borderworlds.dk" target=3D"_blank">xi@=
+borderworlds.dk</a>&gt; wrote:<br></div><blockquote class=3D"gmail_quote" s=
+tyle=3D"margin:0px 0px 0px 0.8ex;border-left:1px solid rgb(204,204,204);pad=
+ding-left:1ex">
  =20
    =20
  =20
@@ -174,10 +196,12 @@ totally illogical, with just a little bit more effort?&quot; - A. P. J
     <br>
   </div>
 </blockquote></div></div>
+</blockquote></div>
+</div>
 
---000000000000db408705f4716e87--
+--0000000000001ad26105f4724870--
 
---000000000000db408905f4716e88
+--0000000000001ad26305f4724871
 Content-Type: image/png; name="Screenshot_2023-02-08_22-57-59.png"
 Content-Disposition: inline; filename="Screenshot_2023-02-08_22-57-59.png"
 Content-Transfer-Encoding: base64
@@ -899,5 +923,5 @@ AMDr4fXJcKWlpcytNwAAAABee6E8pwEAAAAAXi1kOAAAAIDIgwwHAAAAEHmQ4QAAAAAiDzIcAAAA
 QOQJvi414AGaAAAAALClYBwOAAAAIPIgwwEAAABEHmQ4AAAAgMiDDAcAAAAQeYJnOK/X+5L7AQAA
 AAAbCIhnQTKcVCp9+PAhYhwAAADAFuH1eh8+fCiVSn1bqKWlpbXthoeHTSbTS+wYAAAAAGxEKpUW
 Fhb6fgye4QAAAABgK8OaBgAAAIDI87/pJFvflTugGAAAAABJRU5ErkJggg==
---000000000000db408905f4716e88--
+--0000000000001ad26305f4724871--
 
