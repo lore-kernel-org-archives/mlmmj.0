@@ -1,47 +1,51 @@
 From: Baptiste Daroussin <bapt@nours.eu>
-Date: Fri, 19 May 2023 05:59:21 +0000
-Subject: Re: [mlmmj] Properly disabling "bounce probes"
-Message-Id: <D1B75B71-7E99-46E5-A88D-3A09F9E0846F@nours.eu>
+Date: Mon, 15 May 2023 15:42:59 +0000
+Subject: [mlmmj] MLMMJ 1.4.0 beta1
+Message-Id: <c7wzjdlvdvb65ktjmj46g4acd4nsj3bewky4t5hvt5x3bf5jsg@3cvuyew6h4nx>
 List-Id: <mlmmj.mlmmj.org>
-References: <20230518-bonfire-unreached-ad9b67@meerkat>
-In-Reply-To: <20230518-bonfire-unreached-ad9b67@meerkat>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-Le 18 mai 2023 22:36:23 GMT+02:00, Konstantin Ryabitsev <konstantin@linuxfoundation.org> a écrit :
->Hello:
->
->We are moving vger.kernel.org to be mlmmj-managed, but we've hit the problem
->of bounce probe messages confusing or annoying people.
->
->Every now and again, we accept a spam message (despite spamassassin checks and
->everything), which is not accepted by subscribers when we try to deliver it
->and therefore generates a bounce. This results in the "bounce probe" message
->going out, which tends to hit a large enough number of people to cause
->grumbling (e.g. everyone with a gmail account).
->
->I saw the suggestion to make the bounce-probe text unreadable to the mlmmj
->process, but it seems like a hack, and I'm not sure if turning of bounce-probe
->messages means that nobody is ever unsubscribed due to bounces.
->
->Is there a solution that would completely eliminate bounce-probe messages, but
->still properly unsubscribe emails that are bouncing?
->
->Thank you,
->Konstantin
->
->
+Hello everyone,
 
-Hello great news,
+This is getting slower than I would like it to be but still progress is being
+made!
 
-On freebsd side when migrating to mlmmj a couple of years ago, I faced the same issue, I patched mlmmj with https://cgit.freebsd.org/ports/plain/mail/mlmmj/files/patch-nobounceprobe for the same reasons,
+This is the first "usable" version of the 1.4 series, it is still beta and
+probably have plenty of bugs and even obvious bugs given the amount of
+refactoring.
 
-It gave me time to study why I got so many bounces and once we have fine tuned enough I removed the nobounceprobe.
+The test suite starts to be relevant.
+This release has been tested on debian stable, archlinux, alpine and FreeBSD
 
-Happy to help sharing our experience if you need to.
+Note the testsuite is known to be broken on Fedora due to a too old version of
+libatf there.
 
+In the beta compared to previous version:
+- the contributed php code now runs on modern php (thanks Franky Van Liedekerke)
+- manpage converted from man(7) to mdoc(7)
+- Fix a potential crash with mail without separator between headers and body
+- mlmmj-send: -l 6 has been removed
+- mlmmj-send: accept file descriptor number as -s argument
+- mlmmj-send: accept file descriptor number as -m argument
+- cleanup .omit files leftover if moderated emails are rejected and
+  notmetoo is set.
+- remove many fork/exec
+- reduce memory usage
+
+I will now focus on stabilising the new code base, and extend more the
+testsuite.
+
+Partitioning support (requested by Gentoo people) will be worked on after the
+relase, planned for 1.5
+If I find time, I may merge the "always munge from" feature for 1.4.0
+
+Please test and report issues.
+
+https://codeberg.org/mlmmj/mlmmj
+
+Best regards,
 Bapt
-
 
