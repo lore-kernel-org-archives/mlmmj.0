@@ -1,29 +1,31 @@
-From: Baptiste Daroussin <bapt@nours.eu>
-Date: Mon, 15 May 2023 10:15:29 +0000
-Subject: Re: [mlmmj] make check fail for 1.4.0.a2
-Message-Id: <xntx64bzrfsnq4uefcaapzlu7degyxyhegd3ekfxb4mwgidf2m@6vc43qvyzyob>
+From: Konstantin Ryabitsev <konstantin@linuxfoundation.org>
+Date: Thu, 18 May 2023 20:36:23 +0000
+Subject: [mlmmj] Properly disabling "bounce probes"
+Message-Id: <20230518-bonfire-unreached-ad9b67@meerkat>
 List-Id: <mlmmj.mlmmj.org>
-References: <3a21b675-1ae7-71e8-1338-ccc2666e9f5d@andreasschulze.de>
-In-Reply-To: <3a21b675-1ae7-71e8-1338-ccc2666e9f5d@andreasschulze.de>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 To: mlmmj@mlmmj.org
 
-On Mon, Mar 06, 2023 at 11:07:54AM +0100, Franky Van Liedekerke wrote:
-> Fedora 37, latest updates, testing git master.
-> 
-> Franky
+Hello:
 
-Sorry it took so long to reply.
+We are moving vger.kernel.org to be mlmmj-managed, but we've hit the problem
+of bounce probe messages confusing or annoying people.
 
-I have now a full CI runnin fedora (to complete with debian and archlinux)
-I have been able to track down the bug. This is due to the atf framework being
-outdated on fedora, in particular: https://github.com/jmmv/atf/issues/15,
+Every now and again, we accept a spam message (despite spamassassin checks and
+everything), which is not accepted by subscribers when we try to deliver it
+and therefore generates a bounce. This results in the "bounce probe" message
+going out, which tends to hit a large enough number of people to cause
+grumbling (e.g. everyone with a gmail account).
 
-0.21 was released in 2014 and has the fix.
-I will see to remove the nested forks in the test suite, still it would be a
-good idea to make fedora upgrade libatf from 0.20 to 0.21.
+I saw the suggestion to make the bounce-probe text unreadable to the mlmmj
+process, but it seems like a hack, and I'm not sure if turning of bounce-probe
+messages means that nobody is ever unsubscribed due to bounces.
 
-Bapt
+Is there a solution that would completely eliminate bounce-probe messages, but
+still properly unsubscribe emails that are bouncing?
+
+Thank you,
+Konstantin
 
