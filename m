@@ -1,63 +1,53 @@
-From: Franky Van Liedekerke <liedekef@telenet.be>
-Date: Sun, 02 Jul 2023 17:46:45 +0000
+From: Baptiste Daroussin <bapt@nours.eu>
+Date: Mon, 03 Jul 2023 07:03:12 +0000
 Subject: Re: SOLVED: [mlmmj] make check fail for 1.4.0.a2
-Message-Id: <146d521f-6d05-0594-346b-ef1ba5563274@telenet.be>
+Message-Id: <yhxd24yiny5xm6qk5hd2mntvk2d3d5vastqhgcb4z4wqayfnxy@kv6td2v6lph7>
 List-Id: <mlmmj.mlmmj.org>
 References: <d59ddb9d-a113-5225-f26e-c24d42134ff4@andreasschulze.de>
 In-Reply-To: <d59ddb9d-a113-5225-f26e-c24d42134ff4@andreasschulze.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 To: mlmmj@mlmmj.org
 
-My tests still fail on 4 checks:
+On Sun, Jul 02, 2023 at 07:46:45PM +0200, Franky Van Liedekerke wrote:
+> My tests still fail on 4 checks:
+>=20
+> mlmmj:generate_subconfirm=A0 ->=A0 failed: atf-c/utils.c:81: Cannot open
+> atf_utils_fork_out.txt=A0 [0.048s]
+> mlmmj:generate_subscription=A0 ->=A0 failed: atf-c/utils.c:81: Cannot open
+> atf_utils_fork_out.txt=A0 [0.049s]
+> mlmmj:notify_sub=A0 ->=A0 failed: atf-c/utils.c:81: Cannot open
+> atf_utils_fork_out.txt=A0 [0.047s]
+> mlmmj:send_help=A0 ->=A0 failed: atf-c/utils.c:81: Cannot open
+> atf_utils_fork_out.txt=A0 [0.052s]
+>=20
+> Running on latest fedora 38, all updates installed (not running as root as
+> well, but a regular user account used for compiling)
+>=20
+> After running make check via strace, it seems atf fails because of nopeno=
+pe
+> not existing. I never heard of this program, but then I found this in
+> ./tests/mlmmj.c:
+>=20
+> =A0./tests/mlmmj.c:=A0=A0=A0 =A0=A0=A0 exec_or_die("/usr/bin/nopenope", N=
+ULL);
+> ./tests/mlmmj.c:=A0=A0=A0 atf_utils_wait(p, 1, "", "mlmmj: Execution fail=
+ed for
+> '/usr/bin/nopenope': No such file or directory\n");
+> ./tests/mlmmj.c:=A0=A0=A0 int val =3D exec_and_wait("/usr/bin/nopenope", =
+NULL);
+>=20
+> I don't know why tests/mlmmj.c searches for this weird command :-)
 
-mlmmj:generate_subconfirm  ->  failed: atf-c/utils.c:81: Cannot open 
-atf_utils_fork_out.txt  [0.048s]
-mlmmj:generate_subscription  ->  failed: atf-c/utils.c:81: Cannot open 
-atf_utils_fork_out.txt  [0.049s]
-mlmmj:notify_sub  ->  failed: atf-c/utils.c:81: Cannot open 
-atf_utils_fork_out.txt  [0.047s]
-mlmmj:send_help  ->  failed: atf-c/utils.c:81: Cannot open 
-atf_utils_fork_out.txt  [0.052s]
+here we are testing a non existing command execution, so what you see is
+expected.
 
-Running on latest fedora 38, all updates installed (not running as root 
-as well, but a regular user account used for compiling)
+there are 4 unit tests not working on fedora 37 according to my CI, I am
+investigating them:
 
-After running make check via strace, it seems atf fails because of 
-nopenope not existing. I never heard of this program, but then I found 
-this in ./tests/mlmmj.c:
+https://builds.sr.ht/~bapt/job/1017633
 
-  ./tests/mlmmj.c:        exec_or_die("/usr/bin/nopenope", NULL);
-./tests/mlmmj.c:    atf_utils_wait(p, 1, "", "mlmmj: Execution failed 
-for '/usr/bin/nopenope': No such file or directory\n");
-./tests/mlmmj.c:    int val = exec_and_wait("/usr/bin/nopenope", NULL);
-
-I don't know why tests/mlmmj.c searches for this weird command :-)
-
-
-Franky
-
-On 7/2/23 17:25, A. Schulze wrote:
-> Hello all,
->
-> I spend some time on mlmmj today and now I manage to build and PASS 
-> 'make check'!
-> Since my last try 1.4.0b2 is available. So I used that version.
->
-> The key point was to *not* run 'make check' as root but as user nobody.
->
-> So finally my build issue is solved and I could step further to create 
-> a working lab environment to make real live tests.
->
-> Thanks
-> Andreas
->
-> Am 04.03.23 um 16:45 schrieb A. Schulze:
->>
->> mlmmj-bounce:basics_6  ->  failed: atf-check failed; see the output 
->> of the test for details  [0.054s]
->>
->
->
+Best regards,
+Bapt
 
