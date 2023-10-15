@@ -1,64 +1,52 @@
-From: "Robin H. Johnson" <robbat2@gentoo.org>
-Date: Fri, 06 Oct 2023 04:55:32 +0000
-Subject: Re: [mlmmj] RFE: improving access rejection messages
-Message-Id: <robbat2-20231006T045310-207807927Z@orbis-terrarum.net>
+From: Christof Thalhofer <chrisml@deganius.de>
+Date: Sun, 15 Oct 2023 10:16:33 +0000
+Subject: [mlmmj] mlmmj website is down
+Message-Id: <405025f4-29e9-43ef-8478-e71ed5cd9a8a@deganius.de>
 MIME-Version: 1
-Content-Type: multipart/mixed; boundary="kC3Pdg2Tkwfbz5qO"
+Content-Type: multipart/mixed; boundary="------------HezHsmuvz0p2MYThem0ZvSX6"
 List-Id: <mlmmj.mlmmj.org>
-References: <20231004-unsnap-cofounder-ed17ed@meerkat>
-In-Reply-To: <20231004-unsnap-cofounder-ed17ed@meerkat>
 To: mlmmj@mlmmj.org
 
+This is an OpenPGP/MIME signed message (RFC 4880 and 3156)
+--------------HezHsmuvz0p2MYThem0ZvSX6
+Content-Type: multipart/mixed; boundary="------------HNfL3G0Ako4Zv0zMbfryS5kf";
+ protected-headers="v1"
+From: Christof Thalhofer <chrisml@deganius.de>
+To: "mlmmj@mlmmj.org" <mlmmj@mlmmj.org>
+Message-ID: <405025f4-29e9-43ef-8478-e71ed5cd9a8a@deganius.de>
+Subject: mlmmj website is down
 
---kC3Pdg2Tkwfbz5qO
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+--------------HNfL3G0Ako4Zv0zMbfryS5kf
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: base64
 
-On Wed, Oct 04, 2023 at 05:20:39PM -0400, Konstantin Ryabitsev wrote:
-> Hello:
->=20
-> One of the problems I'm having is not being able to tell submitters
-> exactly why their message was denied. For example, I may have the
-> following rules in my access file:
-Can we discuss the rejection process in general?
+SGVsbG8sDQoNCmh0dHA6Ly9tbG1tai5vcmcvDQoNCj4gVW5hYmxlIHRvIGNvbm5lY3QgdG8g
+ZGF0YWJhc2UuDQo+IEEgZGF0YWJhc2UgZXJyb3Igb2NjdXJyZWQgd2hpbGUgcHJvY2Vzc2lu
+ZyB0aGlzIHJlcXVlc3QuDQoNCkFsbGVzIEd1dGUNCg0KQ2hyaXN0b2YgVGhhbGhvZmVyDQoN
+Ci0tIA0KRGllcyBpc3Qga2VpbmUgU2lnbmF0dXINCg==
 
-The common setup here generates a response email, which contributes to
-bounceback spam.
+--------------HNfL3G0Ako4Zv0zMbfryS5kf--
 
-Does anybody have a milter or similar tool that permits SMTP-time
-rejection, based on access rules?
-
---=20
-Robin Hugh Johnson
-Gentoo Linux: Dev, Infra Lead, Foundation President & Treasurer
-E-Mail   : robbat2@gentoo.org
-GnuPG FP : 11ACBA4F 4778E3F6 E4EDF38E B27B944E 34884E85
-GnuPG FP : 7D0B3CEB E9B85B1F 825BCECF EE05E6F6 A48F6136
-
---kC3Pdg2Tkwfbz5qO
-Content-Type: application/pgp-signature; name="signature.asc"
+--------------HezHsmuvz0p2MYThem0ZvSX6
+Content-Type: application/pgp-signature; name="OpenPGP_signature.asc"
+Content-Description: OpenPGP digital signature
+Content-Disposition: attachment; filename="OpenPGP_signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
-Version: GnuPG v2
-Comment: Robbat2 @ Orbis-Terrarum Networks - The text below is a digital signature. If it doesn't make any sense to you, ignore it.
 
-iQKTBAABCgB9FiEEveu2pS8Vb98xaNkRGTlfI8WIJsQFAmUfk0NfFIAAAAAALgAo
-aXNzdWVyLWZwckBub3RhdGlvbnMub3BlbnBncC5maWZ0aGhvcnNlbWFuLm5ldEJE
-RUJCNkE1MkYxNTZGREYzMTY4RDkxMTE5Mzk1RjIzQzU4ODI2QzQACgkQGTlfI8WI
-JsTxyBAAj9YMsLqADBf3yNMlSyHy/k8ZZJP4/zujyYB0b3BBEFPoM+kaXbiwwtiH
-83WCauEdjXICyYx8Ptds+uYLZXy35JSxcpZJz2O5ou0iymQOZ+LlKXbD7bXEYj1r
-AkhuVLwrV74KUJd9qqDXlLNwhcFbQnEITL58IrQShotnE4A1mqaKhekBSHCKXNC3
-PJAAajDRtGqw4K2uai5OveGVWyYlO8Aqo/8BvTecWdTFlSablHh77odcN7I4Dt6S
-rAj5+LdldSFsRN9+PTh8u2iivY6FsKyhkhT0cVYAEQQODHlShm2fNCBL8EHhr0C6
-VIfswlZGCTknpWZUsVBJfVd+Q0sv4mIOdhD3iZii1htCGBAIzb9Wj8I2kWElh/hg
-pzkNPJUGLP6gmyYHjnfEyYM+Li0urWfevuRWGq+poMEsJXBaLFNq/azOmnM+pxKS
-ggdY+ClIz5LNxe2q6y6hQGgmcwZhXwR/aRia8il8hLEJ2xAfUrK+aSkLWIP3uNSq
-e9xENn6GjHq0gG2Vx9N51+YXo9DJryO95iBpQy42XAJRE8LKYJ4GzmGqLNn9CmAF
-6tnJqpmnb67NQq/rFl47GoxKoeXhYrACV0MsnpI7fh3oSXE8iehxgL2DMMVKAq12
-AWFrKlZGeg3eHg3w1zfHfLJUXPvSU5pcUwT0kp+5n7lwuMiDOmc=
-=eltN
+wsF5BAABCAAjFiEEp/QSihTiBGN70hb+5r9EJtW1vzUFAmUrvAIFAwAAAAAACgkQ5r9EJtW1vzXt
+vRAAgi9X/Qelf2ajTfC6ehw+MD0L6q65T66dF6A96PQMSDU/WHRl3yceDtoTAtgFcdUX7N9SBZpp
+sip0KzGnTGL/Ax1tkg5sIjPNWiKW7wX3YAx1mUJ9E1XfPL2g7GeuuBMafINfE4kewdhoOScYDoti
+Gf6AhpgBAEeU5KfhAdmKp9oF+TzmeQU/C6W7Ko2yC18HZDRnRsYaoWA95JiuRfciEvzXLyk9O0Ri
+5Z3Ug+IlJm/C6ZrLh5noOuW5uPjxVsE9GxhixgZU9FWvJx6HdWSX4xLXWuGWdz2fZitFKQBWH3xy
+NUln2MHZe2jqmktPXF4U5bbqPwj5nc28plf1Ao1YKYfe2qEXQ8YQ/R2lIRxCN9xQrEm5G0EtlOab
+/ha1wbyU+2fgUPTRy0XoIWWvvUo28f7+2N+bjjjL3aGr9vRAUAmr+Hx8LJ2IO14XR06Burv/a9wG
+xt40mCQ3hOGGikUX0FYXpRg03K3FSPzwN5C3i2VjxdW1mtySqjxLeIoGpvE455BNJ3CXj7SQac43
+O3+IkL9Y0XVh6/6/i1zXn9KCKvPDU1IDs3XtGUeLZM8ywGndLlRoMf3IwAgma+fpS+6bucwTMncS
+4bgb42/zl1Md4U1OlClJLALjSVuUylb/RFmL0YM587RomJcPCbOY5Hvq8EMdgMdTmEgo/O2i/kBg
+WvA=
+=WbZU
 -----END PGP SIGNATURE-----
 
---kC3Pdg2Tkwfbz5qO--
+--------------HezHsmuvz0p2MYThem0ZvSX6--
 
