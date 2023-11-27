@@ -1,114 +1,77 @@
-Return-Path: <mlmmj+bounces-3011-mlmmj=archiver.kernel.org@mlmmj.org>
+Return-Path: <mlmmj+bounces-3012-mlmmj=archiver.kernel.org@mlmmj.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mlmmj.mlmmj.org (mlmmj.mlmmj.org [194.233.166.186])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62E96C4167B
-	for <mlmmj@archiver.kernel.org>; Mon, 27 Nov 2023 13:49:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54278C4167B
+	for <mlmmj@archiver.kernel.org>; Mon, 27 Nov 2023 15:24:34 +0000 (UTC)
 Received: from localhost ([127.0.0.1] helo=mlmmj.mlmmj.org)
 	by mlmmj.mlmmj.org with esmtp (Exim 4.94.2)
-	(envelope-from <mlmmj+bounces-3011-mlmmj=archiver.kernel.org@mlmmj.org>)
-	id 1r7bU8-00CM6n-Ac
-	for mlmmj@archiver.kernel.org; Mon, 27 Nov 2023 13:17:12 +0000
-Received: from mail-40140.protonmail.ch ([185.70.40.140])
+	(envelope-from <mlmmj+bounces-3012-mlmmj=archiver.kernel.org@mlmmj.org>)
+	id 1r7d6r-00CMsj-GZ
+	for mlmmj@archiver.kernel.org; Mon, 27 Nov 2023 15:01:17 +0000
+Received: from mx5.starion.dk ([213.83.176.199])
 	by mlmmj.mlmmj.org with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.94.2)
-	(envelope-from <pcros@protonmail.com>)
-	id 1r7bU1-00CM61-Lr
-	for mlmmj@mlmmj.org; Mon, 27 Nov 2023 13:17:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=protonmail.com;
-	s=protonmail3; t=1701091533; x=1701350733;
-	bh=4mhEPoarZOLDyk9kCq6ASPi3iLMl9/8+NuwI6QLpsRk=;
-	h=Date:To:From:Subject:Message-ID:Feedback-ID:From:To:Cc:Date:
-	 Subject:Reply-To:Feedback-ID:Message-ID:BIMI-Selector;
-	b=JqpdCK17eZBoM9FtPC/g0S3ybh3U+4m/iK9ufijDriMu03CqlUbpyoWUmr+ZRECCC
-	 J1rexXtggj7hMWmHOozzbHoip8/jW9i6PgrBuSYJTPPLLTGOrU9Wnds6bJe0aji0Yr
-	 oRQdrArXljL1E6elrhuwWNdz/Ra2J6eAd+DtEx052JUqD6z2z2f+fYlN8oZ4RiI09H
-	 OVJjWHdEuPd6OA881UIoqEAOYoheVkUeCXhuTKxeLRyVIPF1zGVUXhyx4kWuYP/I+7
-	 6XSJZUMgOXieOLotvSEC4RVV/Yk8+chr4TyxtpmzNTKwsd3LARAzS6sm9+yImdUrtU
-	 WM0RUvE/F8CUw==
-Date: Mon, 27 Nov 2023 13:25:18 +0000
-To: "mlmmj@mlmmj.org" <mlmmj@mlmmj.org>
-From: Pierre Cros <pcros@protonmail.com>
-Subject: [mlmmj] Problem with mail sent by @orange.fr to @protonmail.com
-Message-ID: <2shIYpcGYGDjX-CmJQn6qMG7Hcji--MPqGFEcZUWEfWhzTaiQ28M7Y0h9LrCZcAANJ4D4eUTK2PQBgUBCsGKjPgIcz2caiqDEjrckCNF-dU=@protonmail.com>
-Feedback-ID: 21719519:user:proton
+	(envelope-from <uffe@uffe.org>)
+	id 1r7d6k-00CMrp-R4
+	for mlmmj@mlmmj.org; Mon, 27 Nov 2023 15:01:10 +0000
+Received: by mx5.starion.dk (Postfix, from userid 1001)
+	id C0AA1A100E; Mon, 27 Nov 2023 16:09:47 +0100 (CET)
+Received: from mailhost.starion.dk (localhost [127.0.0.1])
+	by mx5.starion.dk (Postfix) with UTF8SMTP id BAC40A1002;
+	Mon, 27 Nov 2023 16:09:47 +0100 (CET)
+References: <2shIYpcGYGDjX-CmJQn6qMG7Hcji--MPqGFEcZUWEfWhzTaiQ28M7Y0h9LrCZcAANJ4D4eUTK2PQBgUBCsGKjPgIcz2caiqDEjrckCNF-dU=@protonmail.com>
+Message-ID: <cone.1701097787.573100.51016.1001@mailhost.starion.dk>
+X-Mailer: http://www.courier-mta.org/cone/
+From: Uffe Jakobsen <uffe@uffe.org>
+To: =?UTF-8?Q?mlmmj=40mlmmj=2Eorg?= <mlmmj@mlmmj.org>
+Subject: Re: [mlmmj] Problem with mail sent by @orange.fr to @protonmail.com
+Date: Mon, 27 Nov 2023 16:09:47 +0100
 List-Id: <mlmmj.mlmmj.org>
 List-Help: <mailto:mlmmj+help@mlmmj.org>
 List-Post: <mailto:mlmmj@mlmmj.org>
 List-Subscribe: <mailto:mlmmj+subscribe@mlmmj.org>
 List-Unsubscribe: <mailto:mlmmj+unsubscribe@mlmmj.org>
 Sender: <mlmmj@mlmmj.org>
-MIME-Version: 1.0
-Content-Type: multipart/alternative;
- boundary="b1_1w6tcWb79eeobPPlsKbtTz4GGTnl2qRKftkv0rL1sGs"
+Mime-Version: 1.0
+Content-Type: text/plain; format=flowed; delsp=yes; charset="UTF-8"
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
 
-This is a multi-part message in MIME format.
+Pierre Cros writes:
+>
+> It works well even for the pretty bad admin I am. But I don't know where to  
+> look to understand the following problem :
+>
+> • My list works well for all users most of the time
+>
+> • When a sender uses orange.fr SMTP to send a mail on this list, the  
+> subscribers with @protonmail.com adresses won't get the mail at all (not even  
+> in the spams), the other subscribers will receive it.
+>
+> • if some @orange.fr sender, sends a mail directly (without the list) to some  
+> @protonmail.com receiver, it works
+>
+> It looks like mlmmj adds something that will make mails sent by orange.fr  
+> unacceptable for @protonmail.com mail serveur.
+>
 
---b1_1w6tcWb79eeobPPlsKbtTz4GGTnl2qRKftkv0rL1sGs
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: base64
+The most common problem is if a list member is sending from a domain that  
+exposes SPF/DMARC information.
 
-SGVsbG8gdGhlcmUsCgpJIGluc3RhbGxlZCBtbG1taiAodmlhIGlSZWRNYWlsKSBvbiBEZWJpYW4g
-Qm9va3dvcm0uCgpJdCB3b3JrcyB3ZWxsIGV2ZW4gZm9yIHRoZSBwcmV0dHkgYmFkIGFkbWluIEkg
-YW0uIEJ1dCBJIGRvbid0IGtub3cgd2hlcmUgdG8gbG9vayB0byB1bmRlcnN0YW5kIHRoZSBmb2xs
-b3dpbmcgcHJvYmxlbSA6CgotIE15IGxpc3Qgd29ya3Mgd2VsbCBmb3IgYWxsIHVzZXJzIG1vc3Qg
-b2YgdGhlIHRpbWUKLSBXaGVuIGEgc2VuZGVyIHVzZXMgb3JhbmdlLmZyIFNNVFAgdG8gc2VuZCBh
-IG1haWwgb24gdGhpcyBsaXN0LCB0aGUgc3Vic2NyaWJlcnMgd2l0aCBAcHJvdG9ubWFpbC5jb20g
-YWRyZXNzZXMgd29uJ3QgZ2V0IHRoZSBtYWlsIGF0IGFsbCAobm90IGV2ZW4gaW4gdGhlIHNwYW1z
-KSwgdGhlIG90aGVyIHN1YnNjcmliZXJzIHdpbGwgcmVjZWl2ZSBpdC4KLSBpZiBzb21lIEBvcmFu
-Z2UuZnIgc2VuZGVyLCBzZW5kcyBhIG1haWwgZGlyZWN0bHkgKHdpdGhvdXQgdGhlIGxpc3QpIHRv
-IHNvbWUgQHByb3Rvbm1haWwuY29tIHJlY2VpdmVyLCBpdCB3b3JrcwoKSXQgbG9va3MgbGlrZSBt
-bG1taiBhZGRzIHNvbWV0aGluZyB0aGF0IHdpbGwgbWFrZSBtYWlscyBzZW50IGJ5IG9yYW5nZS5m
-ciB1bmFjY2VwdGFibGUgZm9yIEBwcm90b25tYWlsLmNvbSBtYWlsIHNlcnZldXIuCgpBbnkgaWRl
-YSB3aGVyZSBJIHNob3VsZCBsb29rID8gVGhhbmsgeW91CgpQaWVycmUKCkVudm95w6kgYXZlYyBs
-YSBtZXNzYWdlcmllIHPDqWN1cmlzw6llIFtQcm90b24gTWFpbC5dKGh0dHBzOi8vcHJvdG9uLm1l
-Lyk=
+Relaying such message through mlmmj (and any other mailing list) will retain the sender information - but with a new origin (the mlmmj server)
 
---b1_1w6tcWb79eeobPPlsKbtTz4GGTnl2qRKftkv0rL1sGs
-Content-Type: text/html; charset=utf-8
-Content-Transfer-Encoding: base64
+If the receiving part (protonmail) inspects the SPF/DMARC (supplied by the originating domain) it will propably drop the email or put it in quarantine.
 
-PGRpdiBzdHlsZT0iZm9udC1mYW1pbHk6IEFyaWFsLCBzYW5zLXNlcmlmOyBmb250LXNpemU6IDE0
-cHg7Ij5IZWxsbyB0aGVyZSw8L2Rpdj48ZGl2IHN0eWxlPSJmb250LWZhbWlseTogQXJpYWwsIHNh
-bnMtc2VyaWY7IGZvbnQtc2l6ZTogMTRweDsiPjxicj48L2Rpdj48ZGl2IHN0eWxlPSJmb250LWZh
-bWlseTogQXJpYWwsIHNhbnMtc2VyaWY7IGZvbnQtc2l6ZTogMTRweDsiPkkgaW5zdGFsbGVkIG1s
-bW1qICh2aWEgaVJlZE1haWwpIG9uIERlYmlhbiBCb29rd29ybS48L2Rpdj48ZGl2IHN0eWxlPSJm
-b250LWZhbWlseTogQXJpYWwsIHNhbnMtc2VyaWY7IGZvbnQtc2l6ZTogMTRweDsiPjxicj48L2Rp
-dj48ZGl2IHN0eWxlPSJmb250LWZhbWlseTogQXJpYWwsIHNhbnMtc2VyaWY7IGZvbnQtc2l6ZTog
-MTRweDsiPkl0IHdvcmtzIHdlbGwgZXZlbiBmb3IgdGhlIHByZXR0eSBiYWQgYWRtaW4gSSBhbS4g
-QnV0IEkgZG9uJ3Qga25vdyB3aGVyZSB0byBsb29rIHRvIHVuZGVyc3RhbmQgdGhlIGZvbGxvd2lu
-ZyBwcm9ibGVtIDo8L2Rpdj48ZGl2IHN0eWxlPSJmb250LWZhbWlseTogQXJpYWwsIHNhbnMtc2Vy
-aWY7IGZvbnQtc2l6ZTogMTRweDsiPjx1bCBkYXRhLWVkaXRpbmctaW5mbz0ieyZxdW90O29yZGVy
-ZWRTdHlsZVR5cGUmcXVvdDs6MSwmcXVvdDt1bm9yZGVyZWRTdHlsZVR5cGUmcXVvdDs6MX0iPjxs
-aSBzdHlsZT0ibGlzdC1zdHlsZS10eXBlOiBkaXNjOyI+PHNwYW4+TXkgbGlzdCB3b3JrcyB3ZWxs
-IGZvciBhbGwgdXNlcnMgbW9zdCBvZiB0aGUgdGltZTwvc3Bhbj48L2xpPjxsaSBzdHlsZT0ibGlz
-dC1zdHlsZS10eXBlOiBkaXNjOyI+PHNwYW4+V2hlbiBhIHNlbmRlciB1c2VzIG9yYW5nZS5mciBT
-TVRQIHRvIHNlbmQgYSBtYWlsIG9uIHRoaXMgbGlzdCwgdGhlIHN1YnNjcmliZXJzIHdpdGggQHBy
-b3Rvbm1haWwuY29tIGFkcmVzc2VzIHdvbid0IGdldCB0aGUgbWFpbCBhdCBhbGwgKG5vdCBldmVu
-IGluIHRoZSBzcGFtcyksIHRoZSBvdGhlciBzdWJzY3JpYmVycyB3aWxsIHJlY2VpdmUgaXQuPC9z
-cGFuPjwvbGk+PGxpIHN0eWxlPSJsaXN0LXN0eWxlLXR5cGU6IGRpc2M7Ij48c3Bhbj5pZiBzb21l
-IEBvcmFuZ2UuZnIgc2VuZGVyLCBzZW5kcyBhIG1haWwgZGlyZWN0bHkgKHdpdGhvdXQgdGhlIGxp
-c3QpIHRvIHNvbWUgQHByb3Rvbm1haWwuY29tIHJlY2VpdmVyLCBpdCB3b3Jrczxicj48L3NwYW4+
-PC9saT48L3VsPjxkaXY+SXQgbG9va3MgbGlrZSBtbG1taiBhZGRzIHNvbWV0aGluZyB0aGF0IHdp
-bGwgbWFrZSBtYWlscyBzZW50IGJ5IG9yYW5nZS5mciB1bmFjY2VwdGFibGUgZm9yIEBwcm90b25t
-YWlsLmNvbSBtYWlsIHNlcnZldXIuPC9kaXY+PGRpdj48YnI+PC9kaXY+PGRpdj5BbnkgaWRlYSB3
-aGVyZSBJIHNob3VsZCBsb29rID8gVGhhbmsgeW91PC9kaXY+PGRpdj48YnI+PC9kaXY+PGRpdj5Q
-aWVycmU8YnI+PC9kaXY+PC9kaXY+PGRpdiBzdHlsZT0iZm9udC1mYW1pbHk6IEFyaWFsLCBzYW5z
-LXNlcmlmOyBmb250LXNpemU6IDE0cHg7Ij48YnI+PC9kaXY+PGRpdiBzdHlsZT0iZm9udC1mYW1p
-bHk6IEFyaWFsLCBzYW5zLXNlcmlmOyBmb250LXNpemU6IDE0cHg7Ij48YnI+PC9kaXY+DQo8ZGl2
-IGNsYXNzPSJwcm90b25tYWlsX3NpZ25hdHVyZV9ibG9jayIgc3R5bGU9ImZvbnQtZmFtaWx5OiBB
-cmlhbCwgc2Fucy1zZXJpZjsgZm9udC1zaXplOiAxNHB4OyI+DQogICAgPGRpdiBjbGFzcz0icHJv
-dG9ubWFpbF9zaWduYXR1cmVfYmxvY2stdXNlciBwcm90b25tYWlsX3NpZ25hdHVyZV9ibG9jay1l
-bXB0eSI+DQogICAgICAgIA0KICAgICAgICAgICAgPC9kaXY+DQogICAgDQogICAgICAgICAgICA8
-ZGl2IGNsYXNzPSJwcm90b25tYWlsX3NpZ25hdHVyZV9ibG9jay1wcm90b24iPg0KICAgICAgICBF
-bnZvecOpIGF2ZWMgbGEgbWVzc2FnZXJpZSBzw6ljdXJpc8OpZSA8YSB0YXJnZXQ9Il9ibGFuayIg
-aHJlZj0iaHR0cHM6Ly9wcm90b24ubWUvIiByZWw9Im5vb3BlbmVyIG5vcmVmZXJyZXIiPlByb3Rv
-biBNYWlsLjwvYT4NCiAgICA8L2Rpdj4NCjwvZGl2Pg0K
+Mlmmj still nedds a proper sender rewriting feature that will rewrite the sender information into something ala "Original sender name via mlmmj-liste-name <mlmmj-list-name@mlmmj-domain-name.xxx>"
+
+PS: I'm just guessing about the reasons for your described problem...
 
 
---b1_1w6tcWb79eeobPPlsKbtTz4GGTnl2qRKftkv0rL1sGs--
+/UFfe
+
 
 
 
