@@ -1,43 +1,45 @@
-Return-Path: <mlmmj+bounces-3014-mlmmj=archiver.kernel.org@mlmmj.org>
+Return-Path: <mlmmj+bounces-3016-mlmmj=archiver.kernel.org@mlmmj.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mlmmj.mlmmj.org (mlmmj.mlmmj.org [194.233.166.186])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B2D1C4167B
-	for <mlmmj@archiver.kernel.org>; Tue, 28 Nov 2023 16:20:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A9D2C4167B
+	for <mlmmj@archiver.kernel.org>; Tue, 28 Nov 2023 16:54:11 +0000 (UTC)
 Received: from localhost ([127.0.0.1] helo=mlmmj.mlmmj.org)
 	by mlmmj.mlmmj.org with esmtp (Exim 4.94.2)
-	(envelope-from <mlmmj+bounces-3014-mlmmj=archiver.kernel.org@mlmmj.org>)
-	id 1r80LJ-00CVQp-Vf
-	for mlmmj@archiver.kernel.org; Tue, 28 Nov 2023 15:49:46 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	(envelope-from <mlmmj+bounces-3016-mlmmj=archiver.kernel.org@mlmmj.org>)
+	id 1r80sy-00CVl7-7H
+	for mlmmj@archiver.kernel.org; Tue, 28 Nov 2023 16:24:32 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by mlmmj.mlmmj.org with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.94.2)
 	(envelope-from <konstantin@linuxfoundation.org>)
-	id 1r80LD-00CVQB-7Q
-	for mlmmj@mlmmj.org; Tue, 28 Nov 2023 15:49:39 +0000
+	id 1r80sr-00CVk0-AR
+	for mlmmj@mlmmj.org; Tue, 28 Nov 2023 16:24:25 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 3982E61579;
-	Tue, 28 Nov 2023 15:58:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AC997C433C8;
-	Tue, 28 Nov 2023 15:58:14 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id 59D98CE1A80;
+	Tue, 28 Nov 2023 16:32:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 77007C433C8;
+	Tue, 28 Nov 2023 16:32:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1701187094;
-	bh=GAqbTR3xVOYsGRhVDsP0KPMGi0/ysvHSGScQYtVELmI=;
+	s=korg; t=1701189178;
+	bh=lDyZSlCz+HVj+bjZpA++3OkuegdMcpOcMhk5mMCOJdo=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=LJHfv2ZOU4BPVMyrok8/5g8shC61pXBEG0j4NrVmoEsabv+yNUwwqkZ7Z8Goslr11
-	 /06J9CA53I+nnqatyTOMF50nJcfzayxSg+nYuf5MsVgbgezIS3DnTWyPGv4v3G6tvd
-	 spRH1k681RBIKlQxC6z7cV+AFKN3eFMSCZo6+Dwg=
-Date: Tue, 28 Nov 2023 10:58:13 -0500
+	b=Uhn/rvoe9WyXImdgDxOmaEthHatDW7boZSzeoTVTSRyPzHurtM+ghgVWkcWUX1S1k
+	 aE4Fs2wX7F/kudS3vbZHRy3Zg3lUe13Sm3Zx6Ai9ZM6FwDnBM/svGTcknxkhsvX/Qz
+	 7yFDS6nm66TxvaRkM+LyjEKACc5s8YpjhG1uizKk=
+Date: Tue, 28 Nov 2023 11:32:57 -0500
 From: Konstantin Ryabitsev <konstantin@linuxfoundation.org>
 To: Baptiste Daroussin <bapt@nours.eu>
 Cc: mlmmj@mlmmj.org, Uffe Jakobsen <uffe@uffe.org>
 Subject: Re: [mlmmj] Problem with mail sent by @orange.fr to @protonmail.com
-Message-ID: <20231128-warping-aboriginal-ermine-d48cfc@nitro>
+Message-ID: <20231128-mustard-coua-of-whirlwind-ba498c@meerkat>
 References: <2shIYpcGYGDjX-CmJQn6qMG7Hcji--MPqGFEcZUWEfWhzTaiQ28M7Y0h9LrCZcAANJ4D4eUTK2PQBgUBCsGKjPgIcz2caiqDEjrckCNF-dU=@protonmail.com>
  <cone.1701097787.573100.51016.1001@mailhost.starion.dk>
  <3E4F30F2-AF6B-4EC6-B896-37383F645518@nours.eu>
+ <20231128-warping-aboriginal-ermine-d48cfc@nitro>
+ <ctexrm2bjkzeaslilgkvdwc2pwkhy6x6h7aqmgag6gdr5b5o6b@ih4iyoij5uxp>
 List-Id: <mlmmj.mlmmj.org>
 List-Help: <mailto:mlmmj+help@mlmmj.org>
 List-Post: <mailto:mlmmj@mlmmj.org>
@@ -47,29 +49,19 @@ Sender: <mlmmj@mlmmj.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <3E4F30F2-AF6B-4EC6-B896-37383F645518@nours.eu>
+In-Reply-To: <ctexrm2bjkzeaslilgkvdwc2pwkhy6x6h7aqmgag6gdr5b5o6b@ih4iyoij5uxp>
 
-On Mon, Nov 27, 2023 at 10:55:22PM +0100, Baptiste Daroussin wrote:
-> Well if you don t alter the email (no subject modifications for example)
+On Tue, Nov 28, 2023 at 05:06:12PM +0100, Baptiste Daroussin wrote:
+> Forwarded to is something that can be easily implemented in mlmmj, I will add it
+> to the todo list for 1.5
 
-So, can we stop the mlmmj list from doing this? :)
+I would wait a bit -- I think the milter that will do the ARC signing will
+also be able to inject Forwarded-To: headers. 
 
-> I first went down the "munging from" path using rspamd in front of mlmmj
-> (hence the new feature of suporting X_ORIGINAL_FROM in mlmmj 1.4.0). But
-> then realised that if I stop altering the emails (just play with custom
-> headers) then the dkim signatures remains valid and all mail providers do
-> accept the emails as only being relayed.
+That said, it would be generally nice if control/customheaders supported
+using variables.
 
-This should continue to work for a while, but soon we'll need to work on being
-conformant with DARA [1], which will require adding Forwarded-To: headers and
-ARC-signing every outgoing message. Yes, this means that if your mailing list
-has 5,000 subscribers, you'll need to cryptographically sign 5,000 individual
-messages.
-
-We probably have a couple of years before that starts being relevant, though.
-
+Regards,
 -K
-
-[1] https://datatracker.ietf.org/doc/draft-chuang-replay-resistant-arc/
 
 
