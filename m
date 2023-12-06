@@ -1,41 +1,39 @@
-Return-Path: <mlmmj+bounces-3019-mlmmj=archiver.kernel.org@mlmmj.org>
+Return-Path: <mlmmj+bounces-3020-mlmmj=archiver.kernel.org@mlmmj.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mlmmj.mlmmj.org (mlmmj.mlmmj.org [194.233.166.186])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24552C4167B
-	for <mlmmj@archiver.kernel.org>; Fri,  1 Dec 2023 01:30:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9215FC4167B
+	for <mlmmj@archiver.kernel.org>; Wed,  6 Dec 2023 16:54:46 +0000 (UTC)
 Received: from localhost ([127.0.0.1] helo=mlmmj.mlmmj.org)
 	by mlmmj.mlmmj.org with esmtp (Exim 4.94.2)
-	(envelope-from <mlmmj+bounces-3019-mlmmj=archiver.kernel.org@mlmmj.org>)
-	id 1r8rp9-00CrsY-Og
-	for mlmmj@archiver.kernel.org; Fri, 01 Dec 2023 00:56:07 +0000
-Received: from new.vlsc.org ([68.169.58.153])
-	by mlmmj.mlmmj.org with esmtps  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(envelope-from <mlmmj+bounces-3020-mlmmj=archiver.kernel.org@mlmmj.org>)
+	id 1rAuVl-00DcGR-T5
+	for mlmmj@archiver.kernel.org; Wed, 06 Dec 2023 16:12:33 +0000
+Received: from nours.eu ([176.31.115.77] helo=aniel.nours.eu)
+	by mlmmj.mlmmj.org with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.94.2)
-	(envelope-from <webmaster@vlsc.org>)
-	id 1r8rp2-00Crrl-UI
-	for mlmmj@mlmmj.org; Fri, 01 Dec 2023 00:56:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=vlsc.org;
-	 s=dkim; h=In-Reply-To:References:To:Subject:From:MIME-Version:Date:
-	Message-ID:Content-Type:Sender:Reply-To:Cc:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=aya34DIMZ2gkD9exRqIRhf0l2ltaL3MyVqRhZjueAa4=; b=Bsg2ARDTaubLDRUGsCgr4otOl3
-	WkoaHHhNLtqbS7bHeOvJNG7KVKmn8A9r/Owq1NfVZPZ3UhbtY4+widvNF55rCxKe7mwdSpCU4bogQ
-	Tv2uYSuOf77blvCkLuhZ5QNnRqviU+dW7lECO3Urr+7leRtgLHaH8+rgUPmZhE01tbpM=;
-Received: from c-71-236-142-158.hsd1.wa.comcast.net ([71.236.142.158] helo=[192.168.1.107])
-	by new.vlsc.org with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
-	(Exim 4.94)
-	(envelope-from <webmaster@vlsc.org>)
-	id 1r8rxN-00006O-NO
-	for mlmmj@mlmmj.org; Thu, 30 Nov 2023 17:04:37 -0800
-Content-Type: multipart/alternative;
- boundary="------------TjSFyABC2d8nWgh0HaDxFg51"
-Message-ID: <d63cc86f-13c6-4eb7-b105-016368446310@vlsc.org>
-Date: Thu, 30 Nov 2023 17:04:36 -0800
+	(envelope-from <bapt@nours.eu>)
+	id 1rAuVf-00DcFo-7R
+	for mlmmj@mlmmj.org; Wed, 06 Dec 2023 16:12:27 +0000
+Received: by aniel.nours.eu (Postfix, from userid 1001)
+	id 348E7F90A9; Wed,  6 Dec 2023 17:21:14 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nours.eu; s=20190522;
+	t=1701879674;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type;
+	bh=S+GCz4S3M3RLhZW9d+Z6z1biLwiZGcv222NQDubIzmQ=;
+	b=MFuc7VsRkbST8/eT4MDYqdiUzodYfmB8sF2vqv+8Dt1Qk9z+bHrajDKnf9ies6S0W1F6VR
+	+ywVf/jQNmJ6bOYFehPyM2nx8DWB3232qaj3JOSwGd8QUTsXLwzwVRB3uFuY/TAmOyfnp9
+	bUoCDQcO7rZ4k4sfp8g2TUn7marzjQ+C03R/Z4h8fjDpPw7DJrEjS2K9EoB4ei29tsh07M
+	MGEEPyX0ukkHcOiI720KTLtLlNVn1E15J7QmFCTpK/eluq8qmALvFlwnTuFa5nKEpmRWL3
+	PBWO3MvSk0IkcIJhGN89cmYzS6CKnjcpOXXoC57lPZSslKiSpMii2CGuBsDaNQ==
+Date: Wed, 6 Dec 2023 17:21:14 +0100
+From: Baptiste Daroussin <bapt@nours.eu>
+To: mlmmj@mlmmj.org
+Subject: [mlmmj] mlmmj 1.4.0 is now out!
+Message-ID: <kpsdycifpeeuhzo3qjkxv4h7hxo7exrwfxrnjvpfqfzmem4sw2@i34opbf4lduv>
 List-Id: <mlmmj.mlmmj.org>
 List-Help: <mailto:mlmmj+help@mlmmj.org>
 List-Post: <mailto:mlmmj@mlmmj.org>
@@ -43,147 +41,61 @@ List-Subscribe: <mailto:mlmmj+subscribe@mlmmj.org>
 List-Unsubscribe: <mailto:mlmmj+unsubscribe@mlmmj.org>
 Sender: <mlmmj@mlmmj.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: webmaster@vlsc.org
-Subject: Re: [mlmmj] Problem with mail sent by @orange.fr to @protonmail.com
-Content-Language: en-US
-To: mlmmj@mlmmj.org
-References: <2shIYpcGYGDjX-CmJQn6qMG7Hcji--MPqGFEcZUWEfWhzTaiQ28M7Y0h9LrCZcAANJ4D4eUTK2PQBgUBCsGKjPgIcz2caiqDEjrckCNF-dU=@protonmail.com>
-In-Reply-To: <2shIYpcGYGDjX-CmJQn6qMG7Hcji--MPqGFEcZUWEfWhzTaiQ28M7Y0h9LrCZcAANJ4D4eUTK2PQBgUBCsGKjPgIcz2caiqDEjrckCNF-dU=@protonmail.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-This is a multi-part message in MIME format.
---------------TjSFyABC2d8nWgh0HaDxFg51
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Hello everyone,
 
-I must admit I've seen this behavior also; it is a troubling issue to 
-track down, and it reduces the trust list-members have (approx 150) that 
-everyone is receiving all the email posts.
+I am proud to announce the final release of the 1.4.0 version of mlmmj.
+It is a major milestone, because this is the first version with me as a
+maintainer (I hope I won't disappoint you!) and there has been a huge
+refactoring of the mlmmj code itself.
 
-I have been using mlmmj for many years, and I'm grateful for all the 
-recent work being done!
+As end user the Changelog is not that big:
 
-Having said that, I haven't yet updated my installations as I've been 
-waiting for a stable release - I'm optimistic that will be soon, and I 
-hope it will address this issue for my participants.
+ - Add a test suite
+ - Modernize code (dprintf, posix_spawn, asprintf, getline, daemon, ...)
+ - Supporting passing email to a mta over ipv6
+ - Fix relaying in IPV6-only systems
+ - Fix decode quoted printable subject
+ - Fix parsing RFC1891
+ - Fix a crash if no owner has been defined
+ - Validate ranges of all integers conversion
+ - New 'send' tunable to allow email passthrough
+ - Add support for 'X-Original-From'
+ - Reduce subscription confirmation address length to fit RFC 5321
+ - Use arc4random is available
+ - Reduce memory manipulation
+ - When unsubscribing bouncers, keep the bounce file if something went wrong and report in syslog what went wrong
+ - Remove the -b option from mlmmj-unsub, it is not used anymore
+ - Fix a crash with forged probe emails
+ - mlmmj-send does not need anymore absolute path
+ - Use copy_file_range if available
+ - Use arc4random_uniform if available
+ - Logs are not limited anymore to 256 characters per lines
+ - manpage converted from man(7) to mdoc(7)
+ - Fix a potential crash with mail without separator between headers and body
+ - mlmmj-send: -l 6 has been removed
+ - mlmmj-send: accept file descriptor number as -s argument
+ - mlmmj-send: accept file descriptor number as -m argument
+ - cleanup .omit files leftover if moderated emails are rejected and notmetoo
+ - moderation cookie for subscription is now under the sub directory moderation/subscribe
+ - mlmmj-make-ml: now supports non interactive mailing list creation
+ - listtext: reintegrate the tree (not a submodule anymore)
+ - lots of code deduplication
+ - php8 support!
 
-Thank you all!
+Thank you to everyone who has been involved by tested, sharing ideas, sending patches!
 
-Philip
+Please report bugs, I will try to fix them quickly and cut bug fixes release as often as needed.
 
-On 11/27/2023 5:25 AM, Pierre Cros wrote:
-> Hello there,
->
-> I installed mlmmj (via iRedMail) on Debian Bookworm.
->
-> It works well even for the pretty bad admin I am. But I don't know 
-> where to look to understand the following problem :
->
->   * My list works well for all users most of the time
->   * When a sender uses orange.fr SMTP to send a mail on this list, the
->     subscribers with @protonmail.com adresses won't get the mail at
->     all (not even in the spams), the other subscribers will receive it.
->   * if some @orange.fr sender, sends a mail directly (without the
->     list) to some @protonmail.com receiver, it works
->
-> It looks like mlmmj adds something that will make mails sent by 
-> orange.fr unacceptable for @protonmail.com mail serveur.
->
-> Any idea where I should look ? Thank you
->
-> Pierre
->
->
-> Envoyé avec la messagerie sécurisée Proton Mail. <https://proton.me/>
+I don't plan to start working on the next major version before at least 6 months to focus on bug fixing.
 
---------------TjSFyABC2d8nWgh0HaDxFg51
-Content-Type: text/html; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+https://codeberg.org/mlmmj/mlmmj/releases/tag/RELEASE_1_4_0
 
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  </head>
-  <body>
-    <font face="Helvetica, Arial, sans-serif">I must admit I've seen
-      this behavior also; it is a troubling issue to track down, and it
-      reduces the trust list-members have (approx 150) that everyone is
-      receiving all the email posts.<br>
-      <br>
-      I have been using mlmmj for many years, and I'm grateful for all
-      the recent work being done!<br>
-      <br>
-      Having said that, I haven't yet updated my installations as I've
-      been waiting for a stable release - I'm optimistic that will be
-      soon, and I hope it will address this issue for my participants.<br>
-      <br>
-      Thank you all!<br>
-      <br>
-      Philip<br>
-    </font><br>
-    <div class="moz-cite-prefix">On 11/27/2023 5:25 AM, Pierre Cros
-      wrote:<br>
-    </div>
-    <blockquote type="cite"
-cite="mid:2shIYpcGYGDjX-CmJQn6qMG7Hcji--MPqGFEcZUWEfWhzTaiQ28M7Y0h9LrCZcAANJ4D4eUTK2PQBgUBCsGKjPgIcz2caiqDEjrckCNF-dU=@protonmail.com">
-      <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-      <div style="font-family: Arial, sans-serif; font-size: 14px;">Hello
-        there,</div>
-      <div style="font-family: Arial, sans-serif; font-size: 14px;"><br>
-      </div>
-      <div style="font-family: Arial, sans-serif; font-size: 14px;">I
-        installed mlmmj (via iRedMail) on Debian Bookworm.</div>
-      <div style="font-family: Arial, sans-serif; font-size: 14px;"><br>
-      </div>
-      <div style="font-family: Arial, sans-serif; font-size: 14px;">It
-        works well even for the pretty bad admin I am. But I don't know
-        where to look to understand the following problem :</div>
-      <div style="font-family: Arial, sans-serif; font-size: 14px;">
-        <ul
-data-editing-info="{&quot;orderedStyleType&quot;:1,&quot;unorderedStyleType&quot;:1}">
-          <li style="list-style-type: disc;"><span>My list works well
-              for all users most of the time</span></li>
-          <li style="list-style-type: disc;"><span>When a sender uses
-              orange.fr SMTP to send a mail on this list, the
-              subscribers with @protonmail.com adresses won't get the
-              mail at all (not even in the spams), the other subscribers
-              will receive it.</span></li>
-          <li style="list-style-type: disc;"><span>if some @orange.fr
-              sender, sends a mail directly (without the list) to some
-              @protonmail.com receiver, it works<br>
-            </span></li>
-        </ul>
-        <div>It looks like mlmmj adds something that will make mails
-          sent by orange.fr unacceptable for @protonmail.com mail
-          serveur.</div>
-        <div><br>
-        </div>
-        <div>Any idea where I should look ? Thank you</div>
-        <div><br>
-        </div>
-        <div>Pierre<br>
-        </div>
-      </div>
-      <div style="font-family: Arial, sans-serif; font-size: 14px;"><br>
-      </div>
-      <div style="font-family: Arial, sans-serif; font-size: 14px;"><br>
-      </div>
-      <div class="protonmail_signature_block"
-        style="font-family: Arial, sans-serif; font-size: 14px;">
-        <div
-class="protonmail_signature_block-user protonmail_signature_block-empty">
-        </div>
-        <div class="protonmail_signature_block-proton"> Envoyé avec la
-          messagerie sécurisée <a target="_blank"
-            href="https://proton.me/" rel="noopener noreferrer"
-            moz-do-not-send="true">Proton Mail.</a> </div>
-      </div>
-    </blockquote>
-    <br>
-  </body>
-</html>
+Best regards,
+Bapt
 
---------------TjSFyABC2d8nWgh0HaDxFg51--
+
 
 
