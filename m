@@ -1,40 +1,42 @@
-Return-Path: <mlmmj+bounces-3023-mlmmj=archiver.kernel.org@mlmmj.org>
+Return-Path: <mlmmj+bounces-3024-mlmmj=archiver.kernel.org@mlmmj.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mlmmj.mlmmj.org (mlmmj.mlmmj.org [194.233.166.186])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B76DC4167B
-	for <mlmmj@archiver.kernel.org>; Thu,  7 Dec 2023 23:01:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A26F7C4167B
+	for <mlmmj@archiver.kernel.org>; Fri,  8 Dec 2023 08:02:27 +0000 (UTC)
 Received: from localhost ([127.0.0.1] helo=mlmmj.mlmmj.org)
 	by mlmmj.mlmmj.org with esmtp (Exim 4.94.2)
-	(envelope-from <mlmmj+bounces-3023-mlmmj=archiver.kernel.org@mlmmj.org>)
-	id 1rBMjX-00DnAg-Rf
-	for mlmmj@archiver.kernel.org; Thu, 07 Dec 2023 22:20:39 +0000
-Received: from mout01.posteo.de ([185.67.36.65])
+	(envelope-from <mlmmj+bounces-3024-mlmmj=archiver.kernel.org@mlmmj.org>)
+	id 1rBV5d-00DqpA-0J
+	for mlmmj@archiver.kernel.org; Fri, 08 Dec 2023 07:16:01 +0000
+Received: from mail-4325.protonmail.ch ([185.70.43.25])
 	by mlmmj.mlmmj.org with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.94.2)
-	(envelope-from <flberger-lists@posteo.net>)
-	id 1rBMjR-00DnA1-1x
-	for mlmmj@mlmmj.org; Thu, 07 Dec 2023 22:20:33 +0000
-Received: from submission (posteo.de [185.67.36.169]) 
-	by mout01.posteo.de (Postfix) with ESMTPS id E3EB8240027
-	for <mlmmj@mlmmj.org>; Thu,  7 Dec 2023 23:29:22 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=posteo.net; s=2017;
-	t=1701988162; bh=0TIAqX3Np4zaxPYmsTeqphkNys2vxQ4MuFT1U39yYz0=;
-	h=Message-ID:Date:MIME-Version:To:Cc:From:Subject:
-	 Content-Transfer-Encoding:From;
-	b=MoK4k1W5+Q0zt7yQUgF3b2dadtZYBo9b+93433pq1ady/ROFeui+bNGLUHKdb6SBA
-	 1QqAh6KIRn6Rfj2tvUpz38pzdDdGr9WWwRwerucgcyFAo5U8kd4kfhkWrSvPvc0wm1
-	 0DqyjqQCT7IPpIJWkp4qa313l+lX0xTBuOMV+4kpLXSzIz/5ApegyIUhOXJ+Qkr48l
-	 I0wrO4J2/ttRh6AjjdMo4j4fdLVwE6OckASv5kC3xv3BCGYPDYFlDvT0qoLKGEkQ8l
-	 aJZy18qggZrt+7Z6NKKKxLkmvjPyDpXOBL9LvzHiN+ZyhShIkV1ohc+pwUTCPJLk5A
-	 1cAVAaXvxTUnw==
-Received: from customer (localhost [127.0.0.1])
-	by submission (posteo.de) with ESMTPSA id 4SmTTZ1xmnz6tn4;
-	Thu,  7 Dec 2023 23:29:22 +0100 (CET)
-Message-ID: <df58ab7f-0592-4055-b5cd-3769fa210edc@posteo.net>
-Date: Thu,  7 Dec 2023 22:29:20 +0000
+	(envelope-from <pcros@protonmail.com>)
+	id 1rBV5W-00DqoU-BK
+	for mlmmj@mlmmj.org; Fri, 08 Dec 2023 07:15:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=protonmail.com;
+	s=protonmail3; t=1702020284; x=1702279484;
+	bh=FRAsLxuzIgpZUgEOl0PIaLCEG6YIa9A2VHB47jDCHOE=;
+	h=Date:To:From:Subject:Message-ID:In-Reply-To:References:
+	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
+	 Message-ID:BIMI-Selector;
+	b=qomhfrx5WxxfbbGohovgG5WxnfHfI4EiGHYsngYZyP0s+OLN24SfXV65XDEXOxpaK
+	 kbeHs/igIxHpkPznce4CiI+mLHpJ7uw8qM1ya6mQjpeAS6LqZrNWfU0rSbl9JoJ110
+	 b+Kr+qTRkuwSD/+PnrEJjaizD4EynI0O5TZbQ8awMn6vTCbAetXBUY1/25L99hEnGj
+	 zakjpBzkuWon6lrd4Eof36fhiTNWYBzn1rC8UVxalB8ATB9Mz5eviBjzeDivLYdbJt
+	 v5U56k3LURh0VOaZXtQoiLe6MC0hPtDs055QWP718MwE6bYtBRCQJFIzMyOztD3Mej
+	 DnqPSn/oIYMHQ==
+Date: Fri, 08 Dec 2023 07:24:33 +0000
+To: "mlmmj@mlmmj.org" <mlmmj@mlmmj.org>
+From: Pierre Cros <pcros@protonmail.com>
+Subject: Re : Re: Re : Re: [mlmmj] Problem with mail sent by @orange.fr to @protonmail.com
+Message-ID: <N8gjductAc3czTwVfr__P4_E24JsxIBvvJo37fXE0f6ACSQ2IT_3YO17Zr3HTHg3elAUywgUUgmg7t5JnP5keMeMIUFWGCKahnfh090Gu3g=@protonmail.com>
+In-Reply-To: <ox5gcz6ku3l4i2uyxgdu2oqmgmh6f64cvcinpmvuv4xiguwi3i@liy5chw43gye>
+References: <2shIYpcGYGDjX-CmJQn6qMG7Hcji--MPqGFEcZUWEfWhzTaiQ28M7Y0h9LrCZcAANJ4D4eUTK2PQBgUBCsGKjPgIcz2caiqDEjrckCNF-dU=@protonmail.com> <cone.1701097787.573100.51016.1001@mailhost.starion.dk> <3E4F30F2-AF6B-4EC6-B896-37383F645518@nours.eu> <-zlv36oUOUAXIF_-dgxjzOYa50nUerscKJGsjdsUbpvu6NZdF7XiYBg6O8FBk1KAuA4u0goocPSCi962Sis71wZ4ZRzkv07DxfkQt7OXGmg=@protonmail.com> <ox5gcz6ku3l4i2uyxgdu2oqmgmh6f64cvcinpmvuv4xiguwi3i@liy5chw43gye>
+Feedback-ID: 21719519:user:proton
 List-Id: <mlmmj.mlmmj.org>
 List-Help: <mailto:mlmmj+help@mlmmj.org>
 List-Post: <mailto:mlmmj@mlmmj.org>
@@ -42,44 +44,27 @@ List-Subscribe: <mailto:mlmmj+subscribe@mlmmj.org>
 List-Unsubscribe: <mailto:mlmmj+unsubscribe@mlmmj.org>
 Sender: <mlmmj@mlmmj.org>
 MIME-Version: 1.0
-To: mlmmj@mlmmj.org
-Content-Language: en-US
-Cc: webmaster@plonk.de
-From: Florian Berger <flberger-lists@posteo.net>
-Subject: [mlmmj] README.exim4 broken, needs update
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 
-The mlmmj.org website hosts a tutorial for exim 4 setup at http://mlmmj.org/docs/readme-exim4/ , 
-which in turn refers to https://plonk.de/sw/mlmmj/README.exim4 as the most recent original (hence 
-author Jakob Hirsch in cc:).
+Le mercredi 29 novembre 2023 =C3=A0 17:59, Baptiste Daroussin <bapt@nours.e=
+u> a =C3=A9crit=C2=A0:
 
-For the transport configuration, it advertises:
+> Nothing is needed in headers, just stop altering subject and body of the =
+email.
+>=20
+> Why I said adding custom headers, it means for people willing to filer th=
+e
+> emails they should use List-Id instead of a prefix on the subject for exa=
+mple.
 
-mlmmj_transport:
-   [irrelevant lines left out]
-   command = /usr/local/bin/mlmmj-recieve -F -L MLMMJ_HOME/${lc:$local_part}
+For those who might be interested : my lists used some custom headers.
 
-This will no longer work in recent versions of exim (4.94 and above). exim now considers 
-sender-derived data tainted, and will refuse to use them as-is. See
+I created a new list without fiddling with anything and... it just works ou=
+t of the box between orange.fr and protonmail.com.
 
-- https://git.exim.org/exim.git/blob/HEAD:/src/README.UPDATING
-- https://www.exim.org/exim-html-current/doc/html/spec_html/ch-string_expansions.html
+Thank you Baptiste and others, and congrats for the 1.4.0 release !
 
-As far as the mlmmj config is concerned, $local_part is considered tainted.
-
-It can reasonably be de-tainted by changing it into a directory lookup:
-
-mlmmj_transport:
-   [unchanged lines left out]
-   command = /usr/bin/mlmmj-receive -F -L "${lookup {$local_part} dsearch,ret=full {MLMMJ_HOME}}"
-
-To avoind exim users running into issues, the tutorial at plonk.de and mlmmj.org should be updated 
-accordingly.
-
-
-Thanks for considering,
-
-Florian
+Pierre
 
 
