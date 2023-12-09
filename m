@@ -1,42 +1,39 @@
-Return-Path: <mlmmj+bounces-3024-mlmmj=archiver.kernel.org@mlmmj.org>
+Return-Path: <mlmmj+bounces-3025-mlmmj=archiver.kernel.org@mlmmj.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mlmmj.mlmmj.org (mlmmj.mlmmj.org [194.233.166.186])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A26F7C4167B
-	for <mlmmj@archiver.kernel.org>; Fri,  8 Dec 2023 08:02:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A97EC4167B
+	for <mlmmj@archiver.kernel.org>; Sat,  9 Dec 2023 17:02:08 +0000 (UTC)
 Received: from localhost ([127.0.0.1] helo=mlmmj.mlmmj.org)
 	by mlmmj.mlmmj.org with esmtp (Exim 4.94.2)
-	(envelope-from <mlmmj+bounces-3024-mlmmj=archiver.kernel.org@mlmmj.org>)
-	id 1rBV5d-00DqpA-0J
-	for mlmmj@archiver.kernel.org; Fri, 08 Dec 2023 07:16:01 +0000
-Received: from mail-4325.protonmail.ch ([185.70.43.25])
+	(envelope-from <mlmmj+bounces-3025-mlmmj=archiver.kernel.org@mlmmj.org>)
+	id 1rC01g-00E4Y8-Db
+	for mlmmj@archiver.kernel.org; Sat, 09 Dec 2023 16:18:00 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by mlmmj.mlmmj.org with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.94.2)
-	(envelope-from <pcros@protonmail.com>)
-	id 1rBV5W-00DqoU-BK
-	for mlmmj@mlmmj.org; Fri, 08 Dec 2023 07:15:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=protonmail.com;
-	s=protonmail3; t=1702020284; x=1702279484;
-	bh=FRAsLxuzIgpZUgEOl0PIaLCEG6YIa9A2VHB47jDCHOE=;
-	h=Date:To:From:Subject:Message-ID:In-Reply-To:References:
-	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
-	 Message-ID:BIMI-Selector;
-	b=qomhfrx5WxxfbbGohovgG5WxnfHfI4EiGHYsngYZyP0s+OLN24SfXV65XDEXOxpaK
-	 kbeHs/igIxHpkPznce4CiI+mLHpJ7uw8qM1ya6mQjpeAS6LqZrNWfU0rSbl9JoJ110
-	 b+Kr+qTRkuwSD/+PnrEJjaizD4EynI0O5TZbQ8awMn6vTCbAetXBUY1/25L99hEnGj
-	 zakjpBzkuWon6lrd4Eof36fhiTNWYBzn1rC8UVxalB8ATB9Mz5eviBjzeDivLYdbJt
-	 v5U56k3LURh0VOaZXtQoiLe6MC0hPtDs055QWP718MwE6bYtBRCQJFIzMyOztD3Mej
-	 DnqPSn/oIYMHQ==
-Date: Fri, 08 Dec 2023 07:24:33 +0000
-To: "mlmmj@mlmmj.org" <mlmmj@mlmmj.org>
-From: Pierre Cros <pcros@protonmail.com>
-Subject: Re : Re: Re : Re: [mlmmj] Problem with mail sent by @orange.fr to @protonmail.com
-Message-ID: <N8gjductAc3czTwVfr__P4_E24JsxIBvvJo37fXE0f6ACSQ2IT_3YO17Zr3HTHg3elAUywgUUgmg7t5JnP5keMeMIUFWGCKahnfh090Gu3g=@protonmail.com>
-In-Reply-To: <ox5gcz6ku3l4i2uyxgdu2oqmgmh6f64cvcinpmvuv4xiguwi3i@liy5chw43gye>
-References: <2shIYpcGYGDjX-CmJQn6qMG7Hcji--MPqGFEcZUWEfWhzTaiQ28M7Y0h9LrCZcAANJ4D4eUTK2PQBgUBCsGKjPgIcz2caiqDEjrckCNF-dU=@protonmail.com> <cone.1701097787.573100.51016.1001@mailhost.starion.dk> <3E4F30F2-AF6B-4EC6-B896-37383F645518@nours.eu> <-zlv36oUOUAXIF_-dgxjzOYa50nUerscKJGsjdsUbpvu6NZdF7XiYBg6O8FBk1KAuA4u0goocPSCi962Sis71wZ4ZRzkv07DxfkQt7OXGmg=@protonmail.com> <ox5gcz6ku3l4i2uyxgdu2oqmgmh6f64cvcinpmvuv4xiguwi3i@liy5chw43gye>
-Feedback-ID: 21719519:user:proton
+	(envelope-from <konstantin@linuxfoundation.org>)
+	id 1rC01Z-00E4XS-G9
+	for mlmmj@mlmmj.org; Sat, 09 Dec 2023 16:17:53 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id F273FCE2B2D;
+	Sat,  9 Dec 2023 16:26:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0B308C433C8;
+	Sat,  9 Dec 2023 16:26:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+	s=korg; t=1702139201;
+	bh=57omfg6om2rKHjUEwnh0LyvhmsoQyI4V2+5N7Tcnb18=;
+	h=Date:From:To:Subject:From;
+	b=lsMAdUePcmejPnF1/SqMQRwj+3vQF9JpFKniRWgS2v8JxGxIqjon/s7QVfSvEsVw3
+	 YTUg5TXSoVl1L57zxIVoU2RhITk/99/nObjkdlt+cByj27ZSx2n+fdf/HQkz34qtJa
+	 lhHlvAHlJwWcicH3+rMcgPJSAA7uZd5J6ppPdWV0=
+Date: Sat, 9 Dec 2023 11:26:39 -0500
+From: Konstantin Ryabitsev <konstantin@linuxfoundation.org>
+To: mlmmj@mlmmj.org
+Subject: [mlmmj] bug: Index is never incremented
+Message-ID: <20231209-watchful-screeching-marmot-a9a19f@meerkat>
 List-Id: <mlmmj.mlmmj.org>
 List-Help: <mailto:mlmmj+help@mlmmj.org>
 List-Post: <mailto:mlmmj@mlmmj.org>
@@ -45,26 +42,28 @@ List-Unsubscribe: <mailto:mlmmj+unsubscribe@mlmmj.org>
 Sender: <mlmmj@mlmmj.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Disposition: inline
 
-Le mercredi 29 novembre 2023 =C3=A0 17:59, Baptiste Daroussin <bapt@nours.e=
-u> a =C3=A9crit=C2=A0:
+Hello:
 
-> Nothing is needed in headers, just stop altering subject and body of the =
-email.
->=20
-> Why I said adding custom headers, it means for people willing to filer th=
-e
-> emails they should use List-Id instead of a prefix on the subject for exa=
-mple.
+I just realized that I have a problem with the lists that are set up to use
+1.4.0 -- the index is never incremented. For example, the list that has
+received several new messages in the past week still has the same index value
+from September:
 
-For those who might be interested : my lists used some custom headers.
+$ ls -al index
+-rw-------. 1 mlmmj mlmmj 4 Sep 28 04:54 index
+$ cat index
+1173
 
-I created a new list without fiddling with anything and... it just works ou=
-t of the box between orange.fr and protonmail.com.
+All the messages since September go out from the list as:
+tools+bounces-1174...
 
-Thank you Baptiste and others, and congrats for the 1.4.0 release !
+Everything still works for regular mail delivery, but this is obviously a
+problem.
 
-Pierre
+Happy to help troubleshoot this further.
+
+-K
 
 
