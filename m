@@ -1,39 +1,39 @@
-Return-Path: <mlmmj+bounces-3030-mlmmj=archiver.kernel.org@mlmmj.org>
+Return-Path: <mlmmj+bounces-3031-mlmmj=archiver.kernel.org@mlmmj.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mlmmj.mlmmj.org (mlmmj.mlmmj.org [194.233.166.186])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45746C35274
-	for <mlmmj@archiver.kernel.org>; Thu, 21 Dec 2023 08:27:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 808F4C4706C
+	for <mlmmj@archiver.kernel.org>; Fri, 12 Jan 2024 17:34:48 +0000 (UTC)
 Received: from localhost ([127.0.0.1] helo=mlmmj.mlmmj.org)
 	by mlmmj.mlmmj.org with esmtp (Exim 4.94.2)
-	(envelope-from <mlmmj+bounces-3030-mlmmj=archiver.kernel.org@mlmmj.org>)
-	id 1rGDib-00HGPG-EP
-	for mlmmj@archiver.kernel.org; Thu, 21 Dec 2023 07:43:45 +0000
+	(envelope-from <mlmmj+bounces-3031-mlmmj=archiver.kernel.org@mlmmj.org>)
+	id 1rOL0E-006owi-Mu
+	for mlmmj@archiver.kernel.org; Fri, 12 Jan 2024 17:07:30 +0000
 Received: from nours.eu ([176.31.115.77] helo=aniel.nours.eu)
 	by mlmmj.mlmmj.org with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.94.2)
 	(envelope-from <bapt@nours.eu>)
-	id 1rGDiT-00HGOb-BH
-	for mlmmj@mlmmj.org; Thu, 21 Dec 2023 07:43:37 +0000
+	id 1rOL07-006ow2-Tm
+	for mlmmj@mlmmj.org; Fri, 12 Jan 2024 17:07:23 +0000
 Received: by aniel.nours.eu (Postfix, from userid 1001)
-	id 39C1AE0EFE; Thu, 21 Dec 2023 08:52:45 +0100 (CET)
+	id 78C671C4343; Fri, 12 Jan 2024 18:17:02 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nours.eu; s=20190522;
-	t=1703145165;
+	t=1705079822;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:mime-version:mime-version:content-type:content-type;
-	bh=varddHoVPcK2lPn2r0Sn9YUKR6wYDVlmpbNo4fap5I8=;
-	b=c4aWg07NhvUQOc2jhwzuUBYJaC3YL9SZzi/520ynmRqt481Fifu+ta45q/YKdNQZ6Hr8Uw
-	CLiERXsfm74dlH6sqIJNRIKwByU0eK4SGIaUxLXa7W3tbU4MIsAS2U9PAW6CuRpXGnKWcs
-	KmT/tPphCGTFEoj4765+3ry0gN/ySF8kokIZ1mWRFdkaa/yn9zMXYiknmm0x5BiHoEULYY
-	zpzytgpC0VArhwyMkmXmQK0XbQ8eJq1ujbXDftKt9fZTcmgAMcrVT80/UsujWH0HIuVfTk
-	R5x4nUt6vOSrVydjtIahJd0b0e7QtXWiRmmwM26ft5eVFjzm4CsqmRcqY9AF9w==
-Date: Thu, 21 Dec 2023 08:52:45 +0100
+	bh=IWHiysPAXyXNChhy3HuQDkqzdBpiCZ5NwLcLPsNo6J8=;
+	b=rZCcWUmVrv3ao3rCML4f+WI6/ffmvZ2L5j77kOsnBaO8pK7kOyL8vhREumeRfCz2Odv8Q8
+	FjVYrkKr2gwzvwzDh6JcidbEEUZCZ5Vfr0nJkHUgxhU/WaV2vwP/DHPz1rMX7kVKF0A5jB
+	hjq1L6rcMlls1ma3HAV2Le7biaDVJUmAmvv8RaNMEwyJOPzCcVdJEoj94B+BikP7NtUS20
+	9/PV/spMn+uz2YbaGUktO16TNqYZqd+SeWajssJGE+IJIFv7x2q3Ms9qWDtAIuYlw5O4K2
+	xThLRMWKzYMCvAeH8opIEAHusioQBcNzpa0E+A9yRW834lLGv2fjxdYf5M0QGg==
+Date: Fri, 12 Jan 2024 18:17:02 +0100
 From: Baptiste Daroussin <bapt@nours.eu>
 To: mlmmj@mlmmj.org
-Subject: [mlmmj] Release 1.4.3
-Message-ID: <qhu2rhur3lwzw5hxmbuposd7n2q2jv36hnvxyjuk7h4yifuexy@7au7bcnrhrgl>
+Subject: [mlmmj] new release 1.4.4
+Message-ID: <jznjdkb42mlvpoxuom5ump7v2rfui5jgmjgwyrt3z4j6em6maw@g2loztdz7rls>
 List-Id: <mlmmj.mlmmj.org>
 List-Help: <mailto:mlmmj+help@mlmmj.org>
 List-Post: <mailto:mlmmj@mlmmj.org>
@@ -46,10 +46,14 @@ Content-Disposition: inline
 
 Hello everyone,
 
-I have spotted and fxed yet another bug:
-- mlmmj losing track of bounce probes.
+I am happy to announce mlmmj 1.4.4 has been released yesterday, this is a simple
+bug fix release (fixing an issue with the probes not properly listing the list
+of bounced emails).
 
-As such I have issued a new release 1.4.3
+While I am here, would it be possible to modifiy the mlmmj.org website so it
+redirects at the https://codeber.org/mlmmj/mlmmj or something like this?
+
+People are getting confuse because the website is outdated and not under https.
 
 Best regards,
 Bapt
