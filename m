@@ -1,39 +1,33 @@
-Return-Path: <mlmmj+bounces-3031-mlmmj=archiver.kernel.org@mlmmj.org>
+Return-Path: <mlmmj+bounces-3032-mlmmj=archiver.kernel.org@mlmmj.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mlmmj.mlmmj.org (mlmmj.mlmmj.org [194.233.166.186])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 808F4C4706C
-	for <mlmmj@archiver.kernel.org>; Fri, 12 Jan 2024 17:34:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4390C47422
+	for <mlmmj@archiver.kernel.org>; Thu, 25 Jan 2024 16:42:45 +0000 (UTC)
 Received: from localhost ([127.0.0.1] helo=mlmmj.mlmmj.org)
 	by mlmmj.mlmmj.org with esmtp (Exim 4.94.2)
-	(envelope-from <mlmmj+bounces-3031-mlmmj=archiver.kernel.org@mlmmj.org>)
-	id 1rOL0E-006owi-Mu
-	for mlmmj@archiver.kernel.org; Fri, 12 Jan 2024 17:07:30 +0000
-Received: from nours.eu ([176.31.115.77] helo=aniel.nours.eu)
-	by mlmmj.mlmmj.org with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(envelope-from <mlmmj+bounces-3032-mlmmj=archiver.kernel.org@mlmmj.org>)
+	id 1rT21e-009yQ2-5t
+	for mlmmj@archiver.kernel.org; Thu, 25 Jan 2024 15:52:22 +0000
+Received: from planetofnix.com ([198.251.81.44])
+	by mlmmj.mlmmj.org with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256
 	(Exim 4.94.2)
-	(envelope-from <bapt@nours.eu>)
-	id 1rOL07-006ow2-Tm
-	for mlmmj@mlmmj.org; Fri, 12 Jan 2024 17:07:23 +0000
-Received: by aniel.nours.eu (Postfix, from userid 1001)
-	id 78C671C4343; Fri, 12 Jan 2024 18:17:02 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nours.eu; s=20190522;
-	t=1705079822;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:mime-version:mime-version:content-type:content-type;
-	bh=IWHiysPAXyXNChhy3HuQDkqzdBpiCZ5NwLcLPsNo6J8=;
-	b=rZCcWUmVrv3ao3rCML4f+WI6/ffmvZ2L5j77kOsnBaO8pK7kOyL8vhREumeRfCz2Odv8Q8
-	FjVYrkKr2gwzvwzDh6JcidbEEUZCZ5Vfr0nJkHUgxhU/WaV2vwP/DHPz1rMX7kVKF0A5jB
-	hjq1L6rcMlls1ma3HAV2Le7biaDVJUmAmvv8RaNMEwyJOPzCcVdJEoj94B+BikP7NtUS20
-	9/PV/spMn+uz2YbaGUktO16TNqYZqd+SeWajssJGE+IJIFv7x2q3Ms9qWDtAIuYlw5O4K2
-	xThLRMWKzYMCvAeH8opIEAHusioQBcNzpa0E+A9yRW834lLGv2fjxdYf5M0QGg==
-Date: Fri, 12 Jan 2024 18:17:02 +0100
-From: Baptiste Daroussin <bapt@nours.eu>
-To: mlmmj@mlmmj.org
-Subject: [mlmmj] new release 1.4.4
-Message-ID: <jznjdkb42mlvpoxuom5ump7v2rfui5jgmjgwyrt3z4j6em6maw@g2loztdz7rls>
+	(envelope-from <hawk@planetofnix.com>)
+	id 1rT21S-009yPK-JE
+	for mlmmj@mlmmj.org; Thu, 25 Jan 2024 15:52:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=mail; bh=n3DbKIs9jAfHW
+	ttsnASC5/W+bJGzOIKkeL/bCOxNDpo=; h=subject:from:to:date;
+	d=planetofnix.com; b=YNvib9tz9i0rmQx8y67uA9Ux86uFYXPOinNpMcwoRYqwTJaPo
+	wF6kS5BYJl3u4OiBpp8DbGlYzlJsih7Ev7Z1N0grRSUIP2Dgx4CREFzhz3Z0MDU5edqM68
+	cZbLH6B1ePz1snXP7Yp0y7OaxmPc/AvImjLM1Tj+E9ZdNGy4q6+E=
+Received: 
+	by planetofnix.com (OpenSMTPD) with ESMTPSA id d4b9d002 (TLSv1.3:TLS_CHACHA20_POLY1305_SHA256:256:NO)
+	for <mlmmj@mlmmj.org>;
+	Thu, 25 Jan 2024 11:02:06 -0500 (EST)
+Message-ID: <0cc844f0-53d9-4ec8-86e2-8a366b65b958@planetofnix.com>
+Date: Thu, 25 Jan 2024 08:02:04 -0800
 List-Id: <mlmmj.mlmmj.org>
 List-Help: <mailto:mlmmj+help@mlmmj.org>
 List-Post: <mailto:mlmmj@mlmmj.org>
@@ -41,21 +35,19 @@ List-Subscribe: <mailto:mlmmj+subscribe@mlmmj.org>
 List-Unsubscribe: <mailto:mlmmj+unsubscribe@mlmmj.org>
 Sender: <mlmmj@mlmmj.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Content-Language: en-CA
+To: mlmmj@mlmmj.org
+From: hawk <hawk@planetofnix.com>
+Subject: [mlmmj] mlmmj Mailing list expansion problem
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-Hello everyone,
+Hello
+Could someone help with these message? When somebody send an e-mail to 
+subscribe, mlmmj responded Mailing list expansion problem.
 
-I am happy to announce mlmmj 1.4.4 has been released yesterday, this is a simple
-bug fix release (fixing an issue with the probes not properly listing the list
-of bounced emails).
+Thanks
 
-While I am here, would it be possible to modifiy the mlmmj.org website so it
-redirects at the https://codeber.org/mlmmj/mlmmj or something like this?
-
-People are getting confuse because the website is outdated and not under https.
-
-Best regards,
-Bapt
 
 
