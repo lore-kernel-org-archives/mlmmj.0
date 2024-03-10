@@ -1,41 +1,41 @@
-Return-Path: <mlmmj+bounces-3043-mlmmj=archiver.kernel.org@mlmmj.org>
+Return-Path: <mlmmj+bounces-3044-mlmmj=archiver.kernel.org@mlmmj.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mlmmj.mlmmj.org (mlmmj.mlmmj.org [194.233.166.186])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B20B0C54798
-	for <mlmmj@archiver.kernel.org>; Tue,  5 Mar 2024 20:05:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D342C54791
+	for <mlmmj@archiver.kernel.org>; Sun, 10 Mar 2024 13:20:44 +0000 (UTC)
 Received: from localhost ([127.0.0.1] helo=mlmmj.mlmmj.org)
 	by mlmmj.mlmmj.org with esmtp (Exim 4.94.2)
-	(envelope-from <mlmmj+bounces-3043-mlmmj=archiver.kernel.org@mlmmj.org>)
-	id 1rhaRW-003RQG-Ak
-	for mlmmj@archiver.kernel.org; Tue, 05 Mar 2024 19:27:14 +0000
+	(envelope-from <mlmmj+bounces-3044-mlmmj=archiver.kernel.org@mlmmj.org>)
+	id 1rjIUp-004imr-Dz
+	for mlmmj@archiver.kernel.org; Sun, 10 Mar 2024 12:41:43 +0000
 Received: from degmail.deganius.de ([162.55.175.133])
 	by mlmmj.mlmmj.org with esmtp (Exim 4.94.2)
 	(envelope-from <chrisml@deganius.de>)
-	id 1rhaRP-003RPZ-GC
-	for mlmmj@mlmmj.org; Tue, 05 Mar 2024 19:27:07 +0000
+	id 1rjIUi-004im9-Jl
+	for mlmmj@mlmmj.org; Sun, 10 Mar 2024 12:41:36 +0000
 Received: from mail.wacker.deganius.de (p578c211e.dip0.t-ipconnect.de [87.140.33.30])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by degmail.deganius.de (Postfix) with ESMTPSA id 939531787CC
-	for <mlmmj@mlmmj.org>; Tue,  5 Mar 2024 20:37:59 +0100 (CET)
+	by degmail.deganius.de (Postfix) with ESMTPSA id 16B851787CC
+	for <mlmmj@mlmmj.org>; Sun, 10 Mar 2024 13:52:35 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=deganius.de; s=2021;
-	t=1709667479; bh=oOYLJRVqAnxviNPha50qMEibFLTtqcqYZauM6JZ5PRw=;
+	t=1710075155; bh=9otG2TuOJGIIiInGEPbfc+bdJW8PnuVtpHKYkiAmP3w=;
 	h=Date:Subject:To:References:From:In-Reply-To:From;
-	b=GKPLUbsKj9jVOQTKLcuQ7Q/I3HRizEUAC6gsGNPCDUireTnPC26zQzZSIMgsI3uyr
-	 JvZchmUAiYLTsc/wXWAow1CJmb6FXW67HQrdfC2ckzIfODd3s5FD4qqrl1UA1OwcsM
-	 UGA7eDr0PRbf3zKLsKGZiZSjcUmZwvbtB79YaZqBipt8KYQCmxLY0j0hi6aDOufYB9
-	 /FxCkveB+eIqEI8zC+LXakQsAY9qCNeujAKJ6uePHL48MpTQGfnzjQF84lzOCCp2y/
-	 XpFjt3AgD1pb+V0v3D1CALowGn8B1sugghC8HB8uXJn/bhEzKDvWNUIiC4IjY9kdBa
-	 NYc5XEJEbs1Sw==
+	b=Cid+kRCQbwNpoH5qSAqAmthDs19efWnHmj6sT9iA52u8jyWm959nDgzogjA2eHsvD
+	 miGZe4/pJWMO+NVEUT4xu5FObb8nTtbkmdxllXVkIkJaMuIzUwLYDLu3DF1870LeE3
+	 FZuUrNSA+lBTdayBk4DEeKzAtHgWABFoUqdTFZ/vrwdee2Ed9jFa5Wq7s4KvRa6UnF
+	 OLRElqL/pC6j6MxKbctocWwmI88nGMWRwlfi9JeXD30+T2aaz+Y836A+eiyv9zGmVb
+	 y0ls+29OU8B3DE3jVdxfatmwwUpS8nNIb7hkU1IyMBz82sQRaPfq1ATp4cyVKjlxR0
+	 Dvh9/qIPIbNNQ==
 Received: from [172.16.31.6] (unknown [172.16.31.6])
-	by mail.wacker.deganius.de (Postfix) with ESMTP id 0C32B6EAF62C
-	for <mlmmj@mlmmj.org>; Tue,  5 Mar 2024 20:37:58 +0100 (CET)
-Message-ID: <fa7db532-5f55-4468-9970-fd4b618db46d@deganius.de>
-Date: Tue, 5 Mar 2024 20:37:58 +0100
+	by mail.wacker.deganius.de (Postfix) with ESMTP id 72D994049F1C
+	for <mlmmj@mlmmj.org>; Sun, 10 Mar 2024 13:52:34 +0100 (CET)
+Message-ID: <17adbca1-0c86-48c8-b42d-bdd526a85152@deganius.de>
+Date: Sun, 10 Mar 2024 13:52:34 +0100
 List-Id: <mlmmj.mlmmj.org>
 List-Help: <mailto:mlmmj+help@mlmmj.org>
 List-Post: <mailto:mlmmj@mlmmj.org>
@@ -45,63 +45,74 @@ Sender: <mlmmj@mlmmj.org>
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [mlmmj] What do you do with Gmail accounts?
-Content-Language: en-US
 To: mlmmj@mlmmj.org
 References: <835f7d93-96e1-4101-839c-6ce02acd0d2b@deganius.de>
- <20240305-futuristic-arcane-potoo-f2bb4f@meerkat>
+ <83203f9e60f7e8e214ae14b9eff9a2abec86d954@nours.eu>
+Content-Language: en-US
 From: Christof Thalhofer <chrisml@deganius.de>
 Organization: Deganius
-In-Reply-To: <20240305-futuristic-arcane-potoo-f2bb4f@meerkat>
+In-Reply-To: <83203f9e60f7e8e214ae14b9eff9a2abec86d954@nours.eu>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 
-Hello Konstantin,
+Hello Baptiste,
 
-Am 05.03.24 um 17:04 schrieb Konstantin Ryabitsev:
+Am 05.03.24 um 12:14 schrieb Baptiste Daroussin:
 
->> Reply-To-munging seems to be the only way to give Gmail-users the
->> possibility to answer direct to the list. But is is impossible to be done in
->> Mlmmj.
->>
->> What to do?
+> Reply to munge is an interesting feature to add, can you create a
+> feature request on codeberg so I don't forget when I will start
+> working on 1.5?
 > 
-> If you rewrite headers such as Reply-To, this will almost certainly invalidate
-> the DKIM signature of the original message if you also keep the original
-> "From:" header. If you want to modify any signed headers, you *must* rewrite
-> the From: address.
-> 
-> There are only two possible solutions when it comes to mailing lists these
-> days:
-> 
-> 1. Don't touch any headers, only add List-* headers (e.g. List-ID)
-> 2. If you do change any headers, you *must* also rewrite the original From:
->     header (e.g. by moving it to X-Original-From:), because otherwise you will
->     violate DKIM/DMARC policies of the sender's domain
+> https://codeberg.org/mlmmj/mlmmj
 
-Ok. I will choose (1). The poor guys at Gmail have to live with it that 
-they cannot hit 'Reply' to answer to the list. Instead they have to 
-choose 'Reply to all' with which Gmail would send:
+"Reply-To" munging destroys DKIM signatures and therefor should not be a 
+separate tunable. But there are situations where I would like to use it.
 
-To: authors_email@domain
-CC: list@listserver
+Because of that I come to the conclusion: What should be done in a 
+future version of Mlmmj is to fix the 'delheaders' tunable.
 
-Then they have to delete 'authors_email@domain' from 'To:' and move 
-'list@listserver' to 'To:'.
+IMO 'delheaders' in the current state is impossible to use right because 
+if set it not only deletes the header I want but also does that:
 
-Their bad luck to be with this provider.
+'"From " and "Return-Path:" are deleted no matter what.'
 
----
+as it is stated the documentation.
 
-When I add this header:
+Additionally it rewrites the message body and inserts something like 
+that (in the body!???), this is the head of the body of a testmail I 
+sent to our mailinglist:
 
-'Mail-Reply-To:  list@listserver'
+ > MIME-Version: 1.0
+ > User-Agent: Mozilla Thunderbird
+ > Content-Language: en-US
+ > From: Christof Thalhofer <chrisml@deganius.de>
+ > To: Gambas Basic Mailing List <user@lists.gambas-basic.org>
+ > Subject: [Gambas-user] Next test for Gmail users
+ > Content-Type: text/plain; charset=3DUTF-8; format=3Dflowed
+ > Content-Transfer-Encoding: 7bit
+ >
+ > Please hit reply.
+ >
+ > Alles Gute
+ >
+ > Christof Thalhofer
 
-Thunderbird and Claws Mail and a lot of other MUAs reply to 
-'list@listserver' when the user hits <Ctrl-R>.
+This creates a lot of rubbish in the mailinglist, so 'delheaders' is not 
+usable!
 
-And DKIM is not broken.
+If I compare Mlmmj to Sympa then Sympa offers the possibility to delete 
+any header I want in the incoming mail without rewriting any other part 
+of the mail.
 
-Thank you all!
+This would be the cool way to delete headers!
+
+With that together with the 'customheaders' tunable everybody can do 
+'Reply-To:' munging if necessary and a lot of other things.
+
+For instance I wanted to use Mlmmj for a newsletter. Here I would 
+replace 'From:' as well as DKIM signatures of the incoming mail.
+
+This is impossible with the current 'delheaders' tunable of Mlmmj.
 
 Alles Gute
 
