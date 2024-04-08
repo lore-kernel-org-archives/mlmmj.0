@@ -1,104 +1,123 @@
-Return-Path: <mlmmj+bounces-3046-mlmmj=archiver.kernel.org@mlmmj.org>
+Return-Path: <mlmmj+bounces-3047-mlmmj=archiver.kernel.org@mlmmj.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mlmmj.mlmmj.org (mlmmj.mlmmj.org [194.233.166.186])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1774C54E58
-	for <mlmmj@archiver.kernel.org>; Mon, 11 Mar 2024 14:59:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4989C67861
+	for <mlmmj@archiver.kernel.org>; Mon,  8 Apr 2024 05:52:08 +0000 (UTC)
 Received: from localhost ([127.0.0.1] helo=mlmmj.mlmmj.org)
 	by mlmmj.mlmmj.org with esmtp (Exim 4.94.2)
-	(envelope-from <mlmmj+bounces-3046-mlmmj=archiver.kernel.org@mlmmj.org>)
-	id 1rjgg9-00506Y-Pz
-	for mlmmj@archiver.kernel.org; Mon, 11 Mar 2024 14:31:01 +0000
-Received: from degmail.deganius.de ([162.55.175.133])
-	by mlmmj.mlmmj.org with esmtp (Exim 4.94.2)
-	(envelope-from <chrisml@deganius.de>)
-	id 1rjgg2-00505l-W2
-	for mlmmj@mlmmj.org; Mon, 11 Mar 2024 14:30:55 +0000
-Received: from mail.wacker.deganius.de (p578c211e.dip0.t-ipconnect.de [87.140.33.30])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by degmail.deganius.de (Postfix) with ESMTPSA id C1B4D1787E6
-	for <mlmmj@mlmmj.org>; Mon, 11 Mar 2024 15:41:54 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=deganius.de; s=2021;
-	t=1710168114; bh=M+mns5dUCqCxsitG06mXEyI9GcVTyyq6A+D75FbRnK0=;
-	h=Date:Subject:To:References:From:In-Reply-To:From;
-	b=aVtiQaSYbb5D1yroNdId9sjIUM7PIqSDDUbZT/snLm4IkkcxBP0W5kexk/cnMY0R/
-	 dYq204/Nqf8j6bC9+uvcSu97diAPchOqVlOkuHX/Qea/sv8FKrMEr+p0KPuVWprUHH
-	 ghhkXs3wXIjwRrE99mpmS0ZC6by0cJOy5Ox6uEKr/xLXRIMkmmBe7iPEQoVX8YP/eH
-	 IcOTvMbn6U4AGu9np6/mRoNTlXjq5ulAOlgFIgeef6qOoGe0p2ONT+MaNFAGnoDnk/
-	 kjAUIyEWI/HuMLFYFy0ZMExIrLUu/I/R2BvjD9iSTeLzcf21JuS6nV26llCN3qEHZN
-	 mkzllB3MaoM7A==
-Received: from [172.16.31.6] (unknown [172.16.31.6])
-	by mail.wacker.deganius.de (Postfix) with ESMTP id 35A60538D694
-	for <mlmmj@mlmmj.org>; Mon, 11 Mar 2024 15:41:54 +0100 (CET)
-Message-ID: <dd673391-c17a-4e77-8f46-1bbd01c4bd16@deganius.de>
-Date: Mon, 11 Mar 2024 15:41:53 +0100
+	(envelope-from <mlmmj+bounces-3047-mlmmj=archiver.kernel.org@mlmmj.org>)
+	id 1rthQq-00DIHy-Db
+	for mlmmj@archiver.kernel.org; Mon, 08 Apr 2024 05:20:36 +0000
+Received: from mail.kamar.nz ([103.158.176.251])
+	by mlmmj.mlmmj.org with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <kent@kamar.nz>)
+	id 1rthQj-00DIHB-4X
+	for mlmmj@mlmmj.org; Mon, 08 Apr 2024 05:20:29 +0000
+Received: from mail.kamar.nz (mail.kamar.nz [127.0.0.1])
+	by mail.kamar.nz (Postfix) with ESMTP id 4VCd500s8pz2JrH
+	for <mlmmj@mlmmj.org>; Mon,  8 Apr 2024 17:32:04 +1200 (NZST)
+Authentication-Results: mail.kamar.nz (amavisd-new); dkim=pass (1024-bit key)
+	reason="pass (just generated, assumed good)" header.d=kamar.nz
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kamar.nz; h=
+	x-mailer:to:date:message-id:subject:mime-version
+	:content-transfer-encoding:content-type:from; s=dkim; t=
+	1712554322; x=1715146323; bh=o9G1H0X2RvS6Dhv9YB53T5iCeR78lkYEDMd
+	vGgXBWYI=; b=ix0Aa3wb1EPizKYCzz8XxRDFR2KS8noodg6PtrxPe7hZneNquQ4
+	C5eIh0nQTfkHc1WK4qh8cm332RklKsgfiV3cxWk5D4ajdOBhw5kvHDcY03s7RcX9
+	ppczlM98SlY5292+BuxghV5lipED+ADW4jmXMtdshODc9idRmrs3QbYA=
+X-Amavis-Modified: Mail body modified (using disclaimer) - mail.kamar.nz
+X-Virus-Scanned: Debian amavisd-new at mail.kamar.nz
+Received: from mail.kamar.nz ([127.0.0.1])
+	by mail.kamar.nz (mail.kamar.nz [127.0.0.1]) (amavisd-new, port 10026)
+	with ESMTP id VXgitjkCuJtI for <mlmmj@mlmmj.org>;
+	Mon,  8 Apr 2024 17:32:02 +1200 (NZST)
+Received: from smtpclient.apple (unknown [192.168.41.40])
+	by mail.kamar.nz (Postfix) with ESMTPSA id 4VCd4y04gZz2Jn9
+	for <mlmmj@mlmmj.org>; Mon,  8 Apr 2024 17:32:01 +1200 (NZST)
+From: Kent <kent@kamar.nz>
+Content-Type: text/plain;
+	charset=us-ascii
+Content-Transfer-Encoding: quoted-printable
 List-Id: <mlmmj.mlmmj.org>
 List-Help: <mailto:mlmmj+help@mlmmj.org>
 List-Post: <mailto:mlmmj@mlmmj.org>
 List-Subscribe: <mailto:mlmmj+subscribe@mlmmj.org>
 List-Unsubscribe: <mailto:mlmmj+unsubscribe@mlmmj.org>
 Sender: <mlmmj@mlmmj.org>
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [mlmmj] What do you do with Gmail accounts?
-Content-Language: en-US
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3774.500.171.1.1\))
+Subject: [mlmmj] Mailing Lists and DKIM signing breaking when sender DKIM policy is REJECT
+Message-Id: <81DB5D4E-7D63-4B97-8DCB-320872DDB801@kamar.nz>
+Date: Mon, 8 Apr 2024 17:32:01 +1200
 To: mlmmj@mlmmj.org
-References: <835f7d93-96e1-4101-839c-6ce02acd0d2b@deganius.de>
- <83203f9e60f7e8e214ae14b9eff9a2abec86d954@nours.eu>
- <17adbca1-0c86-48c8-b42d-bdd526a85152@deganius.de>
- <20240311-benign-snobbish-ibex-829c20@lemur>
-From: Christof Thalhofer <chrisml@deganius.de>
-Organization: Deganius
-In-Reply-To: <20240311-benign-snobbish-ibex-829c20@lemur>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+X-Mailer: Apple Mail (2.3774.500.171.1.1)
 
-Am 11.03.24 um 14:30 schrieb Konstantin Ryabitsev:
+Hi All,
 
-> On Sun, Mar 10, 2024 at 01:52:34PM +0100, Christof Thalhofer wrote:
+We run a mailing list using mlmmj on our mail server.  Recently I've had =
+clients report that emails either aren't delivered to some recipients or =
+end up in spam for other recipients.  This started Feb apparently.
 
->> IMO 'delheaders' in the current state is impossible to use right
-> 
-> We're using it across hundreds of mailing lists, delivering millions of
-> messages daily, so this statement is incorrect.
+Digging into it further, I discovered that the client in question had =
+set up their DMARC policy to REJECT.
 
-Yes, I think you are right. See above:
+This meant whenever they sent an email via our mailing list, their =
+original dkim signature, after us forwarding on, was failing. And =
+depending on the destination mail server it was either rejected =
+completely (eg. mac.com) or sent to spam (eg. Google.com).
 
->> because if
->> set it not only deletes the header I want but also does that:
->>
->> '"From " and "Return-Path:" are deleted no matter what.'
-> 
-> I have previously explained why this is the correct course of action:
-> https://lore.kernel.org/mlmmj/20240305-tricky-crouching-shellfish-eb7c96@meerkat/
-> 
-> You may be confusing "From " (envelope-from) and "From:" (the cosmetic
-> header). They are not the same thing and the distinction is crucial to
-> understanding why mlmmj does the right thing.
 
-Ok, thank you!
+I set up a Google mailing list and looked into how they handle mailing =
+lists.  It appears they strip out all relevant authentication headers =
+and replace the 'FROM' with:   "'Sender Name' via List Name" =
+<listname@google.com>
 
->> Additionally it rewrites the message body and inserts something like that
->> (in the body!???), this is the head of the body of a testmail I sent to our
->> mailinglist:
-> 
-> I think you may have an extra blank line in your customheaders tunable.
+And based on this I have got to the point where I've replicated this =
+behaviour, stripping the relevant headers and replacing the 'From' with =
+the list name.
 
-Ok, I can't reproduce it now, but that was obviously the case. I tested 
-again. Now 'delheaders' and 'customheaders' work as expected.
+The only thing I haven't worked out is how to insert the original =
+senders name into the 'From' so each message at least looks like it came =
+from someone different.
 
-Sorry for the wind. I'm quite new to mlmmj.
 
-Alles Gute
+Anyone have any ideas on how I can achieve this last bit in the puzzle ?
 
-Christof Thalhofer
+Thanks
+Kent.
 
--- 
-Dies ist keine Signatur
+
+
+I followed these instructions:  http://mlmmj.org/docs/tunables/
+
+1) Edited 'contentheaders' to:
+----
+Precedence: bulk
+From: List Name <listname@domain.nz>
+X-Mailing-List: listname@domain.nz
+List-Id: <listname@domain.nz>
+List-Post: <mailto:listname@domain.nz>
+List-Subscribe: <mailto:listname+subscribe@domain.nz?subject=3DSubscribe>
+List-Unsubscribe: =
+<mailto:listname+unsubscribe@domain.nz?subject=3DUnsubscribe>
+----
+
+2) Edited 'delheaders' to:
+----
+From:
+DKIM-Signature:
+X-Google-DKIM-Signature:
+X-Gm-Message-State:
+X-Google-Smtp-Source:
+Authentication-Results:
+ARC-Seal:
+ARC-Message-Signature:
+ARC-Authentication-Results:
+-----
+
 
 
 
