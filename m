@@ -1,52 +1,43 @@
-Return-Path: <mlmmj+bounces-3052-mlmmj=archiver.kernel.org@mlmmj.org>
+Return-Path: <mlmmj+bounces-3053-mlmmj=archiver.kernel.org@mlmmj.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mlmmj.mlmmj.org (mlmmj.mlmmj.org [194.233.166.186])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 863E7C4345F
-	for <mlmmj@archiver.kernel.org>; Thu,  2 May 2024 12:25:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B94AAC4345F
+	for <mlmmj@archiver.kernel.org>; Thu,  2 May 2024 12:58:04 +0000 (UTC)
 Received: from localhost ([127.0.0.1] helo=mlmmj.mlmmj.org)
 	by mlmmj.mlmmj.org with esmtp (Exim 4.94.2)
-	(envelope-from <mlmmj+bounces-3052-mlmmj=archiver.kernel.org@mlmmj.org>)
-	id 1s2VAO-001f5C-KA
-	for mlmmj@archiver.kernel.org; Thu, 02 May 2024 12:04:00 +0000
-Received: from lightning-mcqueen.10100.to ([157.90.166.63] helo=10100.to)
+	(envelope-from <mlmmj+bounces-3053-mlmmj=archiver.kernel.org@mlmmj.org>)
+	id 1s2VUU-001fVg-1C
+	for mlmmj@archiver.kernel.org; Thu, 02 May 2024 12:24:46 +0000
+Received: from nours.eu ([176.31.115.77] helo=aniel.nours.eu)
 	by mlmmj.mlmmj.org with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.94.2)
-	(envelope-from <michele@10100.to>)
-	id 1s2VAH-001f4R-OK
-	for mlmmj@mlmmj.org; Thu, 02 May 2024 12:03:53 +0000
-Received: from localhost (localhost [127.0.0.1])
-	by lightning-mcqueen.10100.to (Postfix) with ESMTP id 67B9340532
-	for <mlmmj@mlmmj.org>; Thu,  2 May 2024 14:16:04 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=10100.to; h=
-	content-type:content-type:content-transfer-encoding:mime-version
-	:references:in-reply-to:message-id:date:date:subject:subject
-	:from:from; s=default; t=1714652163; x=1716466564; bh=e75AnAuavN
-	NfmjzfGNPSgEZKk7zdsk9kUJtg7DGyS3U=; b=Ehh6J/pi1MOVQYt2Y7o2aYNjys
-	0PL4qSnW9h9kq/VMhE4eVHJUE5oDNWJWJHGZ1LLu4obtiSfnLRiRfLq7NivOth//
-	OSQpZ3ABiM6k49X4nx8Re2niFZXFgxd1eazYhQOLx2CWUqs1QrxMtftKdwe6VJ2i
-	8TlrI2AYN0/KkuuBfDyHFJatpe39snk+3ykk1E6AZHGa16HyHAW7pLVQyuggZ25I
-	7heKxZxaidl2Ke9ZPCV2SyVk4KGZHhrySW0VAOJrSHDwBqi5SaQ4s3+eAf3PAng0
-	OBwo44X6wnopoUHaGnc49XK8+T8KYdmcxqM+9BJW8adJ0Aa1VZgjPZ5uf7Pg==
-X-Virus-Scanned: Debian amavisd-new at lightning-mcqueen.10100.to
-Received: from lightning-mcqueen.10100.to ([127.0.0.1])
-	by localhost (mail.10100.to [127.0.0.1]) (amavisd-new, port 10026)
-	with LMTP id sMJL3pALlJxn for <mlmmj@mlmmj.org>;
-	Thu,  2 May 2024 14:16:03 +0200 (CEST)
-Received: from yoko.localnet (unknown [87.121.148.191])
-	(Authenticated sender: michele@10100.to)
-	by lightning-mcqueen.10100.to (Postfix) with ESMTPSA id 813453FC20
-	for <mlmmj@mlmmj.org>; Thu,  2 May 2024 14:16:03 +0200 (CEST)
-From: Michele <michele@10100.to>
-To: mlmmj@mlmmj.org
+	(envelope-from <bapt@nours.eu>)
+	id 1s2VUN-001fUy-7n
+	for mlmmj@mlmmj.org; Thu, 02 May 2024 12:24:39 +0000
+Received: by aniel.nours.eu (Postfix, from userid 1001)
+	id 3003AA680B; Thu,  2 May 2024 14:36:49 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nours.eu; s=20190522;
+	t=1714653409;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=pDZFbI+kfYgDpx6x9b/7FrqStrJVsOY4XucsxzNmiG4=;
+	b=DXn3iTOCAvislWQLbr4p2+A00QXHqY+roiie0f1+IwOB18xEQ9yQ3KmaHH2D2DBvD/dIqT
+	Bf8D0PapghW1oT78ZYLLKbOdX3QjKFVB7dxpmKwokKX9GOE1guQvlRmbv9HT8NeN20sRA+
+	zFHK7/8try6Fix1oOobl/2q1Zjggbi1Jmtur2jSYcKFxcEEFLekmhbYO1Fe4MPOvMFMRfL
+	01SkwlgtrTQT3x4BA+pwU6GIwe3g5ABhGgLJjAInQY/fg9guUJqNDtXOxEwZovVclMazFK
+	TnmtCros3D5epJgb/Z7znVZ4g8Sbb66Vdr1mEtSTAjJpPsWQa9+m/569fOH4Iw==
+Date: Thu, 2 May 2024 14:36:49 +0200
+From: Baptiste Daroussin <bapt@nours.eu>
+To: Michele <michele@10100.to>
+Cc: mlmmj@mlmmj.org
 Subject: Re: [mlmmj] Release 1.4.2
-Date: Thu, 02 May 2024 14:16:02 +0200
-Message-ID: <3805806.nq5txsKOOX@yoko>
-X-Face: *A{%->08frcej]'gm;C(iI>,gA^(wV.7lN.*QR(?p)z[Ea]ay5$%7}^<oy(T\PsC$9Oq5G O_Bcl'pq%J:)5:^FR"*0!{+J5@=tY(V?\C|"F
-In-Reply-To: <25lqa52awkp7tkcdjdzb4cslunuxd6ytoiidj5r6bma2sflogn@drcwbe2c4kwe>
+Message-ID: <hwb55oub6un6rzeimyehdvczaaoof7qi65gye3ospjntcxlsol@7ylu5gpaoab3>
 References: <25lqa52awkp7tkcdjdzb4cslunuxd6ytoiidj5r6bma2sflogn@drcwbe2c4kwe>
+ <3805806.nq5txsKOOX@yoko>
 List-Id: <mlmmj.mlmmj.org>
 List-Help: <mailto:mlmmj+help@mlmmj.org>
 List-Post: <mailto:mlmmj@mlmmj.org>
@@ -54,33 +45,35 @@ List-Subscribe: <mailto:mlmmj+subscribe@mlmmj.org>
 List-Unsubscribe: <mailto:mlmmj+unsubscribe@mlmmj.org>
 Sender: <mlmmj@mlmmj.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <3805806.nq5txsKOOX@yoko>
 
-Hello,
-
-sorry for my stupid question: where can I download the package? 
-
-Thank you!
--- 
-Michele
-
-
-> Hello everyone,
+On Thu 02 May 14:16, Michele wrote:
+> Hello,
 > 
-> A new bug fix release has been launched today:
+> sorry for my stupid question: where can I download the package? 
 > 
-> - 1.4.2, this fixes an issue when parting lastestdigest
->   by mlmmj-maintd
-> 
-> Best regards,
-> Bapt
+> Thank you!
+> -- 
+> Michele
 > 
 > 
-> 
+Not a stupid question, given I don't have access to mlmmj.org infrastructure
+beside my request it is not easy for people to find out.
 
+You can find it here:
+https://codeberg.org/mlmmj/mlmmj/releases
 
+For OS specific:
+- FreeBSD package are up to date
+- Alpine linux edge is up to date
+- No news from debian
+- Epel9 and fedora 40 have 1.4.5 (fedora 39 has 1.4.4)
 
+No news from other OSes.
 
+Best regards,
+Bapt
 
 
