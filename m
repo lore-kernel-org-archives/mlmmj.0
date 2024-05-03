@@ -1,43 +1,39 @@
-Return-Path: <mlmmj+bounces-3055-mlmmj=archiver.kernel.org@mlmmj.org>
+Return-Path: <mlmmj+bounces-3056-mlmmj=archiver.kernel.org@mlmmj.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mlmmj.mlmmj.org (mlmmj.mlmmj.org [194.233.166.186])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5B39C4345F
-	for <mlmmj@archiver.kernel.org>; Thu,  2 May 2024 18:22:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBA88C4345F
+	for <mlmmj@archiver.kernel.org>; Fri,  3 May 2024 14:53:35 +0000 (UTC)
 Received: from localhost ([127.0.0.1] helo=mlmmj.mlmmj.org)
 	by mlmmj.mlmmj.org with esmtp (Exim 4.94.2)
-	(envelope-from <mlmmj+bounces-3055-mlmmj=archiver.kernel.org@mlmmj.org>)
-	id 1s2ao6-001ihz-PN
-	for mlmmj@archiver.kernel.org; Thu, 02 May 2024 18:05:22 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	(envelope-from <mlmmj+bounces-3056-mlmmj=archiver.kernel.org@mlmmj.org>)
+	id 1s2tsh-001xFY-0o
+	for mlmmj@archiver.kernel.org; Fri, 03 May 2024 14:27:23 +0000
+Received: from nours.eu ([176.31.115.77] helo=aniel.nours.eu)
 	by mlmmj.mlmmj.org with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.94.2)
-	(envelope-from <konstantin@linuxfoundation.org>)
-	id 1s2anz-001ihF-Pl
-	for mlmmj@mlmmj.org; Thu, 02 May 2024 18:05:16 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id A1AF7CE16DB;
-	Thu,  2 May 2024 18:17:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 90522C116B1;
-	Thu,  2 May 2024 18:17:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1714673837;
-	bh=jtKICH7o4jYtqUGkey3PJ/p9XlTGYUorevXhGINGnDU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ShMufvgSTZTGRCNTOXtN6meR/jGALYkAvLXn52z0aM7oRLdEh97SS2qw4v3spXo5A
-	 jWh1ud8PUeOm8zWUckCFVhrA9/lms9d/l2o1IEnj+u7WvUsE2irXLwm0zpotSbj/l1
-	 Pba8L3m5RUpImqeC3SVDGPMt4a7ACWd6r3dlltbI=
-Date: Thu, 2 May 2024 14:17:12 -0400
-From: Konstantin Ryabitsev <konstantin@linuxfoundation.org>
-To: Baptiste Daroussin <bapt@nours.eu>
-Cc: Michele <michele@10100.to>, mlmmj@mlmmj.org
-Subject: Re: [mlmmj] Release 1.4.2
-Message-ID: <20240502-piquant-newt-of-fantasy-71c5df@lemur>
-References: <25lqa52awkp7tkcdjdzb4cslunuxd6ytoiidj5r6bma2sflogn@drcwbe2c4kwe>
- <3805806.nq5txsKOOX@yoko>
- <hwb55oub6un6rzeimyehdvczaaoof7qi65gye3ospjntcxlsol@7ylu5gpaoab3>
+	(envelope-from <bapt@nours.eu>)
+	id 1s2tsa-001xEn-72
+	for mlmmj@mlmmj.org; Fri, 03 May 2024 14:27:16 +0000
+Received: from mail.nours.eu (nours.eu [IPv6:2001:41d0:8:3a4d::1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by aniel.nours.eu (Postfix) with ESMTPSA id A19B9ADCA4
+	for <mlmmj@mlmmj.org>; Fri,  3 May 2024 16:39:26 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nours.eu; s=20190522;
+	t=1714747166;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=e10fgdyN7VWGzgsOExqz/u1dDDy4YXywKTmWkVGQsAc=;
+	b=F83+GZNdzzUOLOV0bqMg5hFXDWBnAS/gZR9R6B6FepTTpCTzxOIocJdJtGRzamzcpxRS9B
+	HXwSCr3pMqICYLgkozliVK6k2F26F6rHjo+pBvVeRG3Mc9Tz1PdZm/8dyxcmVtNn2OzZJ8
+	Qfuu+bFLZZBwXgYcbWvptueLxTimAu+VDqK0v8G9XY2WKEEX0AfEr5c3sP9FpFWImn4p7H
+	+3KXhD6dc93KKZX2m3+ipw/GU6eyhW55hnJ9C7NDWlj+FDgyDsNTc+Y9OoZp62RWOSXubF
+	hyaiswCnRRc8gFrtPlS7XS7S1XVIHrFtU2+SglH8fGCGAZV7ntWfQWGkjJvCdw==
 List-Id: <mlmmj.mlmmj.org>
 List-Help: <mailto:mlmmj+help@mlmmj.org>
 List-Post: <mailto:mlmmj@mlmmj.org>
@@ -45,28 +41,41 @@ List-Subscribe: <mailto:mlmmj+subscribe@mlmmj.org>
 List-Unsubscribe: <mailto:mlmmj+unsubscribe@mlmmj.org>
 Sender: <mlmmj@mlmmj.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <hwb55oub6un6rzeimyehdvczaaoof7qi65gye3ospjntcxlsol@7ylu5gpaoab3>
+Date: Fri, 03 May 2024 14:39:26 +0000
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+From: "Baptiste Daroussin" <bapt@nours.eu>
+Message-ID: <8e40c6fe4b3550052e405e068ecd13619602c4c7@nours.eu>
+TLS-Required: No
+Subject: [mlmmj] Roadmap for 1.5
+To: mlmmj@mlmmj.org
 
-On Thu, May 02, 2024 at 02:36:49PM GMT, Baptiste Daroussin wrote:
-> You can find it here:
-> https://codeberg.org/mlmmj/mlmmj/releases
-> 
-> For OS specific:
-> - FreeBSD package are up to date
-> - Alpine linux edge is up to date
-> - No news from debian
-> - Epel9 and fedora 40 have 1.4.5 (fedora 39 has 1.4.4)
-> 
-> No news from other OSes.
+Hello everyone,
 
-There's also a package I build for CentOS 7 available here:
-https://copr.fedorainfracloud.org/coprs/icon/lfit/package/mlmmj/
+Now that mlmmj 1.4 seems to have properly settle, I would like to propose=
+ a roadmap for mlmmj 1.5,
+please find here:
 
-Since CentOS 7 is EOL in 2 more months, I won't be maintaining it for 
-much longer either.
+https://codeberg.org/mlmmj/mlmmj/issues?type=3Dall&sort=3D&state=3Dopen&l=
+abels=3D&milestone=3D4774&project=3D0&assignee=3D0&poster=3D0=20
 
--K
+The=20list of tasks I plan to do before releasing mlmmj 1.5.0
+
+Do not hesitate to comment, discuss and propose other tasks.
+
+Basically 1.4 was mostly: modernize the code base (this is not finished, =
+but advanced enough) and provide a test suite. for 1.5 I plan to cleanup =
+features which in my opinion do not make sense anymore because they break=
+ fields used for DKIM signatures and implement the feature that has been =
+requested by people here over the last year.
+
+I have no ETA for 1.5.0 it will be released when it will be released.
+
+Extra note, I would really love to get access to mlmmj.org to fix the mai=
+ling list with dkim and to be able to update the website or point it to c=
+odeberg.
+
+Best regards,
+Bapt
 
 
