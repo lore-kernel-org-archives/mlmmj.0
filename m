@@ -1,32 +1,32 @@
-Return-Path: <mlmmj+bounces-3080-mlmmj=archiver.kernel.org@mlmmj.org>
+Return-Path: <mlmmj+bounces-3081-mlmmj=archiver.kernel.org@mlmmj.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mlmmj.mlmmj.org (mlmmj.mlmmj.org [194.233.166.186])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4926CFD376
-	for <mlmmj@archiver.kernel.org>; Sun, 30 Nov 2025 05:00:18 +0000 (UTC)
-Received: from localhost ([127.0.0.1]:51088 helo=mlmmj.mlmmj.org)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C85FCD111A8
+	for <mlmmj@archiver.kernel.org>; Sun, 30 Nov 2025 06:34:53 +0000 (UTC)
+Received: from localhost ([127.0.0.1]:60058 helo=mlmmj.mlmmj.org)
 	by mlmmj.mlmmj.org with esmtp (Exim 4.96)
-	(envelope-from <mlmmj+bounces-3080-mlmmj=archiver.kernel.org@mlmmj.org>)
-	id 1vPZ5f-00DWce-2X
+	(envelope-from <mlmmj+bounces-3081-mlmmj=archiver.kernel.org@mlmmj.org>)
+	id 1vPaSg-00DWxk-2z
 	for mlmmj@archiver.kernel.org;
-	Sun, 30 Nov 2025 04:31:15 +0000
-Received: from yorick.ofobscurity.com ([69.195.140.133]:48361)
+	Sun, 30 Nov 2025 05:59:06 +0000
+Received: from yorick.ofobscurity.com ([69.195.140.133]:51191)
 	by mlmmj.mlmmj.org with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <Chris.Knadle@coredump.us>)
-	id 1vPZ5Y-00DWbv-30
+	id 1vPaSa-00DWx1-0V
 	for mlmmj@mlmmj.org;
-	Sun, 30 Nov 2025 04:31:08 +0000
+	Sun, 30 Nov 2025 05:59:00 +0000
 Received: from pool-100-33-240-150.nycmny.fios.verizon.net ([100.33.240.150] helo=[10.137.0.42])
 	by yorick.ofobscurity.com with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
 	(Exim 4.94.2)
 	(envelope-from <Chris.Knadle@coredump.us>)
-	id 1vPZ9B-003Fi0-2m
-	for mlmmj@mlmmj.org; Sat, 29 Nov 2025 23:34:55 -0500
-Message-ID: <db1084c0-e20e-4a2f-8877-05e3d27b3e51@coredump.us>
-Date: Sat, 29 Nov 2025 23:34:47 -0500
+	id 1vPaWC-003GR0-2j
+	for mlmmj@mlmmj.org; Sun, 30 Nov 2025 01:02:46 -0500
+Message-ID: <6d3ae229-d10c-4e7a-834c-b0dee05ee749@coredump.us>
+Date: Sun, 30 Nov 2025 01:02:39 -0500
 List-Id: <mlmmj.mlmmj.org>
 List-Help: <mailto:mlmmj+help@mlmmj.org>
 List-Post: <mailto:mlmmj@mlmmj.org>
@@ -39,6 +39,8 @@ Subject: Re: control/amime-footer-base64
 To: mlmmj@mlmmj.org
 References: <5c7451cc-07d2-4d64-a1db-fc998241d282@vnetworx.net>
  <7f82c96e-d58f-49a4-9ee6-32b72f217eb2@coredump.us>
+ <db1084c0-e20e-4a2f-8877-05e3d27b3e51@coredump.us>
+ <336e2b62-29f1-40f5-8b67-5f5a18e24caf@vnetworx.net>
 Content-Language: en-US, fo-FO
 From: Chris Knadle <Chris.Knadle@coredump.us>
 Autocrypt: addr=Chris.Knadle@coredump.us; keydata=
@@ -85,7 +87,7 @@ Autocrypt: addr=Chris.Knadle@coredump.us; keydata=
  384HKfHJdLe4oH0MgkhSDMBUrcLwK8fuAd3D/U0KDo4wJYSMSxgxi0s/q4t3Lgn73VudFSsr
  Zye478tFqMmPnfYFZuwI7HgrV9kcK40RIhfzphZXk8sA4JNxICgnHTkN+IzCS2NR69SqKFn/
  hhRdBRUgHWUDis6VRoMNZhvr2oo=
-In-Reply-To: <7f82c96e-d58f-49a4-9ee6-32b72f217eb2@coredump.us>
+In-Reply-To: <336e2b62-29f1-40f5-8b67-5f5a18e24caf@vnetworx.net>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-Spam_score: -1.0
@@ -94,67 +96,72 @@ X-Spam_bar: -
 
 Hey, Ron.
 
-Apparently mlmmj-amime-receive has also not been included in the Debian 
-package for mlmmj either. The file is from 2008 and was committed to the 
-Debian source package in 2012 with mlmmj 1.2.18.0.
+You had written me privately in your reply below, but based on the 
+contents of the mail I think it was meant to go to the [mlmmj-discuss] 
+mailing list, so I'm sending a reply there. If my guess was wrong let me 
+know, but looking at it, it seems safe to send to the list.
 
-Although it's in the Debian source package, it's not being shipped 
-inside the Debian mlmmj binary package. It looks straightforward enough 
-that it's probably safe to include it, as it's a simple wrapper script 
-to pass parameters to altermime and then mlmmj-receive. I'd just like to 
-know if it seems reasonable to go ahead and add that. Do you have an 
-opinion? ;-)
+mlmmj-receive-strip -- okay yep, got it. As long as it's useful for 
+admins then it should also be included.
+
+Thanks for the heads-up on that.
+
+There is a little more work to cosider as these two binaries are 
+included. The Debian Policy Manual, section 12.1 states that:
+
+     "Each program, utility, and function should have an associated 
+manual page included in the same package or a dependency.
+      It is suggested that all configuration files also have a manual 
+page included as well."
+
+and
+
+     "If no manual page is available, this is considered as a bug and 
+should be reported to the Debian Bug Tracking System
+     (the maintainer of the package is allowed to write this bug report 
+themselves, if they so desire)."
+
+There's a number of options to handle this, and in this case I'm tempted 
+to create "wishlist" bugs tagged "newbie" for someone helpful looking to 
+get into Debian packaging to create them and send a patch.
+
+Also I note that in looking at mlmmj-receive-strip, it is a full 
+replacement for mlmmj-receive, and mlmmj-amime-receive is meant to be 
+used in /etc/aliases as a replacement for mlmmj-receive too, and pipes 
+the output of the script to mlmmj-receive. i.e. There seem to be 
+competing replacements for mlmmj-receive between the two. Presumably one 
+would not want to use both at the same time, but I'm mentioning this so 
+that can be considered.
 
     -- Chris
 
 Chris Knadle
 Chris.Knadle@coredump.us
 
-On 11/29/25 18:24, Chris Knadle wrote:
-> Hey, Ron.
+On 11/29/25 23:49, Ron Guerin wrote:
+> Hi Chris,
 >
-> I read the comments of contrib/mlmmj-amime-receive, I see it isn't 
-> clear there, but I found some hints that I think answer the question.
+> I've been reluctant to make requests in this regard, knowing how much 
+> you've got on your plate.  But since you've asked, I'm going to say 
+> that yes, I think it's a worthy addition, as it allows you to add 
+> footers to HTML emails.
 >
-> Looking through the code, as best I can tell mlmmj-amime-receive is a 
-> pass-through program to grab parameters and send them to 
-> /usr/bin/altermime and /usr/bin/mlmmj-receive.
+> Related, for those who don't want any MIME content on their lists, I'd 
+> also like to ask that you consider adding mlmmj-receive-strip, which 
+> is also in the contrib directory.
 >
-> And the thing is that the Debian package for MLMMJ doesn't depend, 
-> recommend, or suggest the altermime package. The MLMMJ 
-> README.footers.md states that footer support is rudimentary, and 
-> non-text footers are meant to be passed through alterMIME -- meaning 
-> MIME-encoded footers require alterMIME.
+> /* a version of mlmmj-receive that parses the mail on the fly and 
+> strips unwanted
+>    mime parts
+>    opens the files control/mimedeny and control/mimestrip for a list 
+> of mime
+>    types for body parts that should be denied or stripped.
+>    It adds an extra header X-ThisMailContainsUnwantedMimeParts: Y for 
+> mails that
+>    contain disallowed mimeparts and 
+> X-ThisMailContainsUnwantedMimeParts: N otherwise
+> */
 >
-> Looking through the mlmmj-amime-receive code, the execution aborts if 
-> the file for the alterMIME binary isn't found. So based on this as 
-> best I can tell amime-footer-base64 is meant to contain Base-64, and 
-> MLMMJ won't act on it unless altermime is also available.
->
-> Now that I know this, I think I'm going to add a "Suggests: altermime" 
-> on the Debian package for MLMMJ -- this is to that users/admins of the 
-> package get a "hint" for this, and I'm going to add some text to the 
-> README.Debian file about it.
->
->    -- Chris
->
-> Chris Knadle
-> Chris.Knadle@coredump.us
-> Debian maintiner for MLMMJ
->
-> On 10/12/25 21:07, Ron Guerin wrote:
->>
->> Apologies if this is a stupid question...
->>
->> But what am I supposed to put in
->>
->> control/amime-footer-base64
->>
->> When using the contrib/mlmmj-amime-receive script?  Is it plaintext, 
->> or should I be Base-64 encoding the contents?
->>
->> - Ron
->
->
+> - Ron 
 
 
