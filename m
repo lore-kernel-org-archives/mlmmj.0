@@ -1,32 +1,32 @@
-Return-Path: <mlmmj+bounces-3079-mlmmj=archiver.kernel.org@mlmmj.org>
+Return-Path: <mlmmj+bounces-3080-mlmmj=archiver.kernel.org@mlmmj.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mlmmj.mlmmj.org (mlmmj.mlmmj.org [194.233.166.186])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 435E6D116EA
-	for <mlmmj@archiver.kernel.org>; Sat, 29 Nov 2025 23:59:45 +0000 (UTC)
-Received: from localhost ([127.0.0.1]:41720 helo=mlmmj.mlmmj.org)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4926CFD376
+	for <mlmmj@archiver.kernel.org>; Sun, 30 Nov 2025 05:00:18 +0000 (UTC)
+Received: from localhost ([127.0.0.1]:51088 helo=mlmmj.mlmmj.org)
 	by mlmmj.mlmmj.org with esmtp (Exim 4.96)
-	(envelope-from <mlmmj+bounces-3079-mlmmj=archiver.kernel.org@mlmmj.org>)
-	id 1vPUFk-00DVhc-2X
+	(envelope-from <mlmmj+bounces-3080-mlmmj=archiver.kernel.org@mlmmj.org>)
+	id 1vPZ5f-00DWce-2X
 	for mlmmj@archiver.kernel.org;
-	Sat, 29 Nov 2025 23:21:20 +0000
-Received: from yorick.ofobscurity.com ([69.195.140.133]:55725)
+	Sun, 30 Nov 2025 04:31:15 +0000
+Received: from yorick.ofobscurity.com ([69.195.140.133]:48361)
 	by mlmmj.mlmmj.org with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <Chris.Knadle@coredump.us>)
-	id 1vPUFd-00DVgv-1l
+	id 1vPZ5Y-00DWbv-30
 	for mlmmj@mlmmj.org;
-	Sat, 29 Nov 2025 23:21:13 +0000
+	Sun, 30 Nov 2025 04:31:08 +0000
 Received: from pool-100-33-240-150.nycmny.fios.verizon.net ([100.33.240.150] helo=[10.137.0.42])
 	by yorick.ofobscurity.com with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
 	(Exim 4.94.2)
 	(envelope-from <Chris.Knadle@coredump.us>)
-	id 1vPUJE-003Dns-22
-	for mlmmj@mlmmj.org; Sat, 29 Nov 2025 18:24:59 -0500
-Message-ID: <7f82c96e-d58f-49a4-9ee6-32b72f217eb2@coredump.us>
-Date: Sat, 29 Nov 2025 18:24:50 -0500
+	id 1vPZ9B-003Fi0-2m
+	for mlmmj@mlmmj.org; Sat, 29 Nov 2025 23:34:55 -0500
+Message-ID: <db1084c0-e20e-4a2f-8877-05e3d27b3e51@coredump.us>
+Date: Sat, 29 Nov 2025 23:34:47 -0500
 List-Id: <mlmmj.mlmmj.org>
 List-Help: <mailto:mlmmj+help@mlmmj.org>
 List-Post: <mailto:mlmmj@mlmmj.org>
@@ -38,6 +38,7 @@ User-Agent: Mozilla Thunderbird
 Subject: Re: control/amime-footer-base64
 To: mlmmj@mlmmj.org
 References: <5c7451cc-07d2-4d64-a1db-fc998241d282@vnetworx.net>
+ <7f82c96e-d58f-49a4-9ee6-32b72f217eb2@coredump.us>
 Content-Language: en-US, fo-FO
 From: Chris Knadle <Chris.Knadle@coredump.us>
 Autocrypt: addr=Chris.Knadle@coredump.us; keydata=
@@ -84,7 +85,7 @@ Autocrypt: addr=Chris.Knadle@coredump.us; keydata=
  384HKfHJdLe4oH0MgkhSDMBUrcLwK8fuAd3D/U0KDo4wJYSMSxgxi0s/q4t3Lgn73VudFSsr
  Zye478tFqMmPnfYFZuwI7HgrV9kcK40RIhfzphZXk8sA4JNxICgnHTkN+IzCS2NR69SqKFn/
  hhRdBRUgHWUDis6VRoMNZhvr2oo=
-In-Reply-To: <5c7451cc-07d2-4d64-a1db-fc998241d282@vnetworx.net>
+In-Reply-To: <7f82c96e-d58f-49a4-9ee6-32b72f217eb2@coredump.us>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-Spam_score: -1.0
@@ -93,45 +94,67 @@ X-Spam_bar: -
 
 Hey, Ron.
 
-I read the comments of contrib/mlmmj-amime-receive, I see it isn't clear 
-there, but I found some hints that I think answer the question.
+Apparently mlmmj-amime-receive has also not been included in the Debian 
+package for mlmmj either. The file is from 2008 and was committed to the 
+Debian source package in 2012 with mlmmj 1.2.18.0.
 
-Looking through the code, as best I can tell mlmmj-amime-receive is a 
-pass-through program to grab parameters and send them to 
-/usr/bin/altermime and /usr/bin/mlmmj-receive.
-
-And the thing is that the Debian package for MLMMJ doesn't depend, 
-recommend, or suggest the altermime package. The MLMMJ README.footers.md 
-states that footer support is rudimentary, and non-text footers are 
-meant to be passed through alterMIME -- meaning MIME-encoded footers 
-require alterMIME.
-
-Looking through the mlmmj-amime-receive code, the execution aborts if 
-the file for the alterMIME binary isn't found. So based on this as best 
-I can tell amime-footer-base64 is meant to contain Base-64, and MLMMJ 
-won't act on it unless altermime is also available.
-
-Now that I know this, I think I'm going to add a "Suggests: altermime" 
-on the Debian package for MLMMJ -- this is to that users/admins of the 
-package get a "hint" for this, and I'm going to add some text to the 
-README.Debian file about it.
+Although it's in the Debian source package, it's not being shipped 
+inside the Debian mlmmj binary package. It looks straightforward enough 
+that it's probably safe to include it, as it's a simple wrapper script 
+to pass parameters to altermime and then mlmmj-receive. I'd just like to 
+know if it seems reasonable to go ahead and add that. Do you have an 
+opinion? ;-)
 
     -- Chris
 
 Chris Knadle
 Chris.Knadle@coredump.us
-Debian maintiner for MLMMJ
 
-On 10/12/25 21:07, Ron Guerin wrote:
+On 11/29/25 18:24, Chris Knadle wrote:
+> Hey, Ron.
 >
-> Apologies if this is a stupid question...
+> I read the comments of contrib/mlmmj-amime-receive, I see it isn't 
+> clear there, but I found some hints that I think answer the question.
 >
-> But what am I supposed to put in
+> Looking through the code, as best I can tell mlmmj-amime-receive is a 
+> pass-through program to grab parameters and send them to 
+> /usr/bin/altermime and /usr/bin/mlmmj-receive.
 >
-> control/amime-footer-base64
+> And the thing is that the Debian package for MLMMJ doesn't depend, 
+> recommend, or suggest the altermime package. The MLMMJ 
+> README.footers.md states that footer support is rudimentary, and 
+> non-text footers are meant to be passed through alterMIME -- meaning 
+> MIME-encoded footers require alterMIME.
 >
-> When using the contrib/mlmmj-amime-receive script?  Is it plaintext, or should I be Base-64 encoding the contents?
+> Looking through the mlmmj-amime-receive code, the execution aborts if 
+> the file for the alterMIME binary isn't found. So based on this as 
+> best I can tell amime-footer-base64 is meant to contain Base-64, and 
+> MLMMJ won't act on it unless altermime is also available.
 >
-> - Ron
+> Now that I know this, I think I'm going to add a "Suggests: altermime" 
+> on the Debian package for MLMMJ -- this is to that users/admins of the 
+> package get a "hint" for this, and I'm going to add some text to the 
+> README.Debian file about it.
+>
+>    -- Chris
+>
+> Chris Knadle
+> Chris.Knadle@coredump.us
+> Debian maintiner for MLMMJ
+>
+> On 10/12/25 21:07, Ron Guerin wrote:
+>>
+>> Apologies if this is a stupid question...
+>>
+>> But what am I supposed to put in
+>>
+>> control/amime-footer-base64
+>>
+>> When using the contrib/mlmmj-amime-receive script?  Is it plaintext, 
+>> or should I be Base-64 encoding the contents?
+>>
+>> - Ron
+>
+>
 
 
