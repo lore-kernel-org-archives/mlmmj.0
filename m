@@ -1,86 +1,116 @@
-Return-Path: <mlmmj+bounces-3096-mlmmj=archiver.kernel.org@mlmmj.org>
+Return-Path: <mlmmj+bounces-3097-mlmmj=archiver.kernel.org@mlmmj.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mlmmj.mlmmj.org (mlmmj.mlmmj.org [194.233.166.186])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 518D4FF492D
-	for <mlmmj@archiver.kernel.org>; Mon, 30 Mar 2026 02:20:18 +0000 (UTC)
-Received: from localhost ([127.0.0.1]:54008 helo=mlmmj.mlmmj.org)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C740BFF492D
+	for <mlmmj@archiver.kernel.org>; Mon, 30 Mar 2026 02:21:53 +0000 (UTC)
+Received: from localhost ([127.0.0.1]:58164 helo=mlmmj.mlmmj.org)
 	by mlmmj.mlmmj.org with esmtp (Exim 4.96)
-	(envelope-from <mlmmj+bounces-3096-mlmmj=archiver.kernel.org@mlmmj.org>)
-	id 1w71fy-00B10F-36
+	(envelope-from <mlmmj+bounces-3097-mlmmj=archiver.kernel.org@mlmmj.org>)
+	id 1w722K-00B18Y-0G
 	for mlmmj@archiver.kernel.org;
-	Mon, 30 Mar 2026 01:44:23 +0000
-Received: from mail.vnetworx.net ([86.48.29.242]:38773)
+	Mon, 30 Mar 2026 02:07:28 +0000
+Received: from mail.independend.ch ([88.99.26.173]:47434)
 	by mlmmj.mlmmj.org with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96)
-	(envelope-from <ron@vnetworx.net>)
-	id 1w71fr-00B0zG-1v
+	(envelope-from <Jona.Mueller@independend.ch>)
+	id 1w722D-00B17l-0U
 	for mlmmj@mlmmj.org;
-	Mon, 30 Mar 2026 01:44:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=vnetworx.net; s=mail;
-	t=1774835469; bh=9flrC18wQnSazpq5YQOVUdnfH6j9nHxjcV5WboL82VQ=;
-	h=Date:Subject:To:References:From:In-Reply-To:From;
-	b=qyfcd0Ob1AjS1pPuC1xsKy2Tv2SMQ9yrSWO0KiElEMlEELfjCwuyfR7HeoppFt9t6
-	 KKY45Ckjyyvwk/fvamEHmiKc8u2LZDqICgnIIbqvZQh1Zm3tWLwuqU4l3yvVt4R5Dc
-	 BqXKiOEQGGncePKpf9pnDP2RstYbTHxLQebLetHo=
-Received: from [192.168.1.151] (unknown [66.24.89.225])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (secp384r1) server-digest SHA384)
-	(No client certificate requested)
-	(Authenticated sender: ron@vnetworx.net)
-	by mail.vnetworx.net (Postfix) with ESMTPSA id 1D133660DE9
-	for <mlmmj@mlmmj.org>; Sun, 29 Mar 2026 21:51:08 -0400 (EDT)
-Message-ID: <679f813b-3bfa-4d06-b258-c8bb3c8a2cec@vnetworx.net>
-Date: Sun, 29 Mar 2026 21:51:07 -0400
+	Mon, 30 Mar 2026 02:07:21 +0000
+Authentication-Results: OpenDMARC; arc=none smtp.remote-ip=127.0.0.1
+Authentication-Results: mail.independend.ch;
+	dkim=pass (2048-bit key; secure) header.d=independend.ch header.i=@independend.ch header.a=rsa-sha256 header.s=dkim header.b=KKvKyJmM;
+	dkim-atps=neutral
+Received: from mail.independend.ch (mail.independend.ch [127.0.0.1])
+	by mail.independend.ch (Postfix) with ESMTP id 4fkZZ057Ktz1c6Gm
+	for <mlmmj@mlmmj.org>; Mon, 30 Mar 2026 04:14:16 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=independend.ch;
+	 h=x-mailer:to:references:message-id:date:in-reply-to:from
+	:subject:mime-version:content-transfer-encoding:content-type; s=
+	dkim; t=1774836856; x=1777428857; bh=kLNbFDJ/GVGCfdGogJWwcGM2tUL
+	c2gjOURzGdU42ZCY=; b=KKvKyJmMwwtGI5bUGqq4BJXrQpo7BnVMnK3FyM3xfLe
+	+umNTRyk1vA5Ny7+ueLiEgKQkGO33oZ6hofx+Zk1e88qUkPHw1YMJXbYuPZjpTbO
+	DhN1m3nA4kpuxeMV7So92VbZb2Q+zCWxHRyH0RNrejuw7fooLJ9XK6Dtp6wTANHA
+	nGZ+9YGtbZ/gqescVscdUu+JgNqwi96g0iJqpZQEyy9UvrVirUrwAt8RcWE3R09Q
+	9ikwtWEfFZON9BFVT6kY+rUod2AqhXVtF9FXYYqoXNJ3XygC34HTBi6oQhMCVhja
+	MuhiG4UekoLmKqyJWtjGkDWQYokSvhxeYUnzURZnpYQ==
+X-Virus-Scanned: Debian amavis at mail.independend.ch
+Received: from mail.independend.ch ([127.0.0.1])
+ by mail.independend.ch (mail.independend.ch [127.0.0.1]) (amavis, port 10026)
+ with ESMTP id 3lEOQmN_3kU4 for <mlmmj@mlmmj.org>;
+ Mon, 30 Mar 2026 04:14:16 +0200 (CEST)
+Authentication-Results: OpenDMARC; arc=none smtp.remote-ip=217.250.0.25
+Received: from smtpclient.apple (pd9fa0019.dip0.t-ipconnect.de [217.250.0.25])
+	by mail.independend.ch (Postfix) with ESMTPSA id 4fkZZ01zmWz1c6Gf;
+	Mon, 30 Mar 2026 04:14:16 +0200 (CEST)
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 List-Id: <mlmmj.mlmmj.org>
 List-Help: <mailto:mlmmj+help@mlmmj.org>
 List-Post: <mailto:mlmmj@mlmmj.org>
 List-Subscribe: <mailto:mlmmj+subscribe@mlmmj.org>
 List-Unsubscribe: <mailto:mlmmj+unsubscribe@mlmmj.org>
 Sender: <mlmmj@mlmmj.org>
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
+Mime-Version: 1.0 (1.0)
 Subject: Re: Call for testing: 2.0.0 is close to the doors
-To: mlmmj@mlmmj.org
-References: <b98dcb9ff3ce9dfbc79312d9b716917ffdc33a5c@nours.eu>
-From: Ron Guerin <ron@vnetworx.net>
-Content-Language: en-US
-In-Reply-To: <b98dcb9ff3ce9dfbc79312d9b716917ffdc33a5c@nours.eu>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-AV-Checked: ClamAV using ClamSMTP by mail.vnetworx.net
+From: =?utf-8?Q?Jona_M=C3=BCller?= <Jona.Mueller@independend.ch>
+In-Reply-To: <679f813b-3bfa-4d06-b258-c8bb3c8a2cec@vnetworx.net>
+Cc: mlmmj@mlmmj.org
+Date: Mon, 30 Mar 2026 04:14:05 +0200
+Message-Id: <4FF403A2-19DE-43E8-8114-F1A976442CC0@independend.ch>
+References: <679f813b-3bfa-4d06-b258-c8bb3c8a2cec@vnetworx.net>
+To: Ron Guerin <ron@vnetworx.net>
+X-Mailer: iPhone Mail (20G81)
 
-On 3/29/26 4:26 AM, Baptiste Daroussin wrote:
-> Hello Everyone
-> 
-> In 2022, I took over the maintenance of mlmmj which I am using for the FreeBSD mailing lists and more.
+Hello Ron,
 
-mlmmj seems in a practical sense, to be "the last man standing", when it 
-comes to mailing list managers.  I've recently come over, as a refugee 
-from Mailman 2, in despair of Mailman 3.  The SDLU successor to the old 
-SPAM-L list recently shut down as it was running on Mailman 2, and I 
-suspect there will be more of these this year as continuing to operate 
-Python 2 things becomes increasingly problematic.
+Chris recommendend your archiver to me and I really like the idea. The piper=
+mail-style output is a lot less clunky and much faster than the modern repla=
+cements. Especially for threads.=20
 
-I offer my thanks to you for taking over mlmmj.
+This should=E2=80=99t be too hard to implement, maybe you=E2=80=99ll have to=
+ answer some questions when I try to set up the archiver first.=20
 
-> I am close to have delivered all the features I intended to add as such I would like to stamp it with naming the next release: 2.0.0!
+Maybe I cook something up on my fork in the near future.=20
 
-Apologies if this is the wrong place to make a request.
+Cheers,
 
-(And I realize it's too late for 2.0.0.)
+Jona M=C3=BCller
 
-I would like to have a hook available, so that when mlmmj places a 
-message in the archive, it allows me to run some other program, 
-specifically in my case, a web archiver script I've developed to produce 
-web pages substantially similar to those produced by Pipermail from GNU 
-Mailman 2.  I would offer a patch if I were capable of producing one. 
-Having not written a line of C in 35 years, I haven't been able to do so.
+> On 30. Mar 2026, at 03:51, Ron Guerin <ron@vnetworx.net> wrote:
+> =EF=BB=BFOn 3/29/26 4:26 AM, Baptiste Daroussin wrote:
+>> Hello Everyone
+>> In 2022, I took over the maintenance of mlmmj which I am using for the Fre=
+eBSD mailing lists and more.
+>=20
+> mlmmj seems in a practical sense, to be "the last man standing", when it c=
+omes to mailing list managers.  I've recently come over, as a refugee from M=
+ailman 2, in despair of Mailman 3.  The SDLU successor to the old SPAM-L lis=
+t recently shut down as it was running on Mailman 2, and I suspect there wil=
+l be more of these this year as continuing to operate Python 2 things become=
+s increasingly problematic.
+>=20
+> I offer my thanks to you for taking over mlmmj.
+>=20
+>> I am close to have delivered all the features I intended to add as such I=
+ would like to stamp it with naming the next release: 2.0.0!
+>=20
+> Apologies if this is the wrong place to make a request.
+>=20
+> (And I realize it's too late for 2.0.0.)
+>=20
+> I would like to have a hook available, so that when mlmmj places a message=
+ in the archive, it allows me to run some other program, specifically in my c=
+ase, a web archiver script I've developed to produce web pages substantially=
+ similar to those produced by Pipermail from GNU Mailman 2.  I would offer a=
+ patch if I were capable of producing one. Having not written a line of C in=
+ 35 years, I haven't been able to do so.
+>=20
+> Vive la mlmmj!
+>=20
+> - Ron
 
-Vive la mlmmj!
-
-- Ron
 
 
