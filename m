@@ -1,43 +1,50 @@
-Return-Path: <mlmmj+bounces-3105-mlmmj=archiver.kernel.org@mlmmj.org>
+Return-Path: <mlmmj+bounces-3106-mlmmj=archiver.kernel.org@mlmmj.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mlmmj.mlmmj.org (mlmmj.mlmmj.org [194.233.166.186])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F88BD6AAFE
-	for <mlmmj@archiver.kernel.org>; Thu,  2 Apr 2026 19:44:25 +0000 (UTC)
-Received: from localhost ([127.0.0.1]:47490 helo=mlmmj.mlmmj.org)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6847CD6AB0A
+	for <mlmmj@archiver.kernel.org>; Thu,  2 Apr 2026 20:26:58 +0000 (UTC)
+Received: from localhost ([127.0.0.1]:49080 helo=mlmmj.mlmmj.org)
 	by mlmmj.mlmmj.org with esmtp (Exim 4.96)
-	(envelope-from <mlmmj+bounces-3105-mlmmj=archiver.kernel.org@mlmmj.org>)
-	id 1w8NMQ-00BK0N-08
+	(envelope-from <mlmmj+bounces-3106-mlmmj=archiver.kernel.org@mlmmj.org>)
+	id 1w8O8Y-00BKJN-10
 	for mlmmj@archiver.kernel.org;
-	Thu, 02 Apr 2026 19:05:46 +0000
-Received: from new.vlsc.org ([68.169.58.153]:37404)
-	by mlmmj.mlmmj.org with esmtps  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	Thu, 02 Apr 2026 19:55:30 +0000
+Received: from b.nours.eu ([54.38.177.57]:62242)
+	by mlmmj.mlmmj.org with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96)
-	(envelope-from <webmaster@vlsc.org>)
-	id 1w8NMI-00BJzg-1g
+	(envelope-from <bapt@nours.eu>)
+	id 1w8O8R-00BKIZ-10
 	for mlmmj@mlmmj.org;
-	Thu, 02 Apr 2026 19:05:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=vlsc.org;
-	 s=dkim; h=In-Reply-To:References:To:Subject:From:MIME-Version:Date:
-	Message-ID:Content-Type:Sender:Reply-To:Cc:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=PTtncx7Tj8KgS9GkFnPg78BaI60EYwWReQ5xLJJ/nSc=; b=bDrmuUia6mD/HKrG/Q3C126Dpo
-	oOfmExnmoaAL7NKTON5nYqplGbWEV0wra5qKSeOC1NRi00p01UyhmY2gX2taGsZd0x5jP5VQcN+Vp
-	R6lPSpscpEO2kN8Y0WiGc3GhYn5Pv4wj3O4ViZIEESsvSd8LD2LZJ3c/OY9pUNVcq4Iw=;
-Received: from c-67-189-97-28.hsd1.or.comcast.net ([67.189.97.28] helo=[192.168.1.102])
-	by new.vlsc.org with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
-	(Exim 4.94)
-	(envelope-from <webmaster@vlsc.org>)
-	id 1w8NSz-0001uF-7T
-	for mlmmj@mlmmj.org; Thu, 02 Apr 2026 12:12:33 -0700
-Content-Type: multipart/alternative;
- boundary="------------vKl6AIt2Lpt6pAT0RF9fMWYE"
-Message-ID: <091f6edc-6634-442b-8df9-e568af3f22e5@vlsc.org>
-Date: Thu, 2 Apr 2026 12:12:32 -0700
+	Thu, 02 Apr 2026 19:55:23 +0000
+Received: from ehlo.thunderbird.net (unknown [IPv6:2a01:e0a:274:cc70:fc6a:e8f2:d332:f6a6])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by b.nours.eu (Postfix) with ESMTPSA id 05C91134487;
+	Thu, 02 Apr 2026 22:02:24 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nours.eu; s=20190522;
+	t=1775160144;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=P4ZCiv0HH7VZfZOfolGS7bmZhSS8Z64uCykvhfxqphI=;
+	b=cYD1g7MiBMIgBVxmg+PGp6jK+YHtbzHR7nutb6c5UyUKC384wTWXHqbDW6w78HMGpSchI0
+	TsyMJZbGOCe3+aFtGyDI3rMQnDVxuup+FdE/gh3Ed0/xFtD2o5a9p8Zei3ha7Ijw3+h2hU
+	1Sc+q6BXvBclgHNQZOoc0bNNzERkd4qMFIcJOcuXgHfJKY4fS/YfGlGDFHZ5CgKVl5ASrm
+	ANkECsmvZ0f4ZO2XRCvlTQ54LFH4OgOsokxeg+mVjsrKeCi7QVpLBScqJNmeitb2WgiD7y
+	QXaq35tr0Vix9FpuDF7/JXl4mppqMPjyk22lgCq8G8SWpP0Ln9/6/pJCYuWz+Q==
+Date: Thu, 02 Apr 2026 22:02:22 +0200
+From: Baptiste Daroussin <bapt@nours.eu>
+To: mlmmj@mlmmj.org, webmaster@vlsc.org
+Subject: Re: Call for testing: 2.0.0 is close to the doors
+User-Agent: Thunderbird for Android
+In-Reply-To: <091f6edc-6634-442b-8df9-e568af3f22e5@vlsc.org>
+References: <b98dcb9ff3ce9dfbc79312d9b716917ffdc33a5c@nours.eu> <091f6edc-6634-442b-8df9-e568af3f22e5@vlsc.org>
+Message-ID: <BB5393BB-F762-441D-B53E-90D772AC663A@nours.eu>
 List-Id: <mlmmj.mlmmj.org>
 List-Help: <mailto:mlmmj+help@mlmmj.org>
 List-Post: <mailto:mlmmj@mlmmj.org>
@@ -45,136 +52,162 @@ List-Subscribe: <mailto:mlmmj+subscribe@mlmmj.org>
 List-Unsubscribe: <mailto:mlmmj+unsubscribe@mlmmj.org>
 Sender: <mlmmj@mlmmj.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: webmaster@vlsc.org
-Subject: Re: Call for testing: 2.0.0 is close to the doors
-To: mlmmj@mlmmj.org
-References: <b98dcb9ff3ce9dfbc79312d9b716917ffdc33a5c@nours.eu>
-Content-Language: en-US
-In-Reply-To: <b98dcb9ff3ce9dfbc79312d9b716917ffdc33a5c@nours.eu>
-
-This is a multi-part message in MIME format.
---------------vKl6AIt2Lpt6pAT0RF9fMWYE
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: multipart/alternative;
+ boundary=----3NXE35J0LBE5I34BBE23IBQDDI0YS4
 Content-Transfer-Encoding: 7bit
 
-This may have already appeared in a recent rev... but I have a 
-question/request:
+------3NXE35J0LBE5I34BBE23IBQDDI0YS4
+Content-Type: text/plain;
+ charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 
-Is there a tunable (or can someone create one) that would set a throttle 
-on the # of emails sent within a time period (i.e. no more than 10 
-emails sent per minute)?
+I don t think such configuration belongs to mlmmj should be imho on the MTA=
+ side, for example on postfix, I think something this should cover your nee=
+d
 
-Using mlmmj, I continue to see (in my server logs) that the big email 
-service vendors (gmail, microsoft, comcast, etc.) will deliver a handful 
-of emails sent their way, but then balk at some point, and send a 
-response about "deferring" delivery of the rest of the emails sent to 
-them; which usually means they don't send the rest at all. This happens 
-even with relatively small email lists (< 150 emails). With a very 
-limited list (<12 emails) all emails are delivered.
+default_destination_rate_delay =3D 5s can ve configured more fine grained
 
-The reason I think a "throttle" tunable would be useful, is because on 
-the same server, I have separate internal processes that periodically 
-send email notifications effectively to the same emails, based on some 
-user-profile condition. The code builds a custom email for each 
-user-profile, and then sends out that email and moves to the next profile.
-
-I have an adjustable throttle for that process, and have experimented 
-with time intervals. Slowing down the deliveries does in fact get all 
-the emails delivered. Of course this means it slows down the time it 
-takes to deliver all the emails, but under most conditions, at least for 
-me, that's not an issue.
-
-Would it be possible to add a time "throttle" tunable that would enable 
-some control over how fast the server sends out the emails?
-
-Very respectfully,
-
-Philip
+Bapt
 
 
-
-On 3/29/2026 1:26 AM, Baptiste Daroussin wrote:
-> Hello Everyone
+Le 2 avril 2026 21:12:32 GMT+02:00, webmaster@vlsc=2Eorg a =C3=A9crit=C2=
+=A0:
+>This may have already appeared in a recent rev=2E=2E=2E but I have a ques=
+tion/request:
 >
-> In 2022, I took over the maintenance of mlmmj which I am using for the FreeBSD mailing lists and more.
+>Is there a tunable (or can someone create one) that would set a throttle =
+on the # of emails sent within a time period (i=2Ee=2E no more than 10 emai=
+ls sent per minute)?
 >
-> I am close to have delivered all the features I intended to add as such I would like to stamp it with naming the next release: 2.0.0!
+>Using mlmmj, I continue to see (in my server logs) that the big email ser=
+vice vendors (gmail, microsoft, comcast, etc=2E) will deliver a handful of =
+emails sent their way, but then balk at some point, and send a response abo=
+ut "deferring" delivery of the rest of the emails sent to them; which usual=
+ly means they don't send the rest at all=2E This happens even with relative=
+ly small email lists (< 150 emails)=2E With a very limited list (<12 emails=
+) all emails are delivered=2E
 >
-> Here is what happened since 1.3.0
+>The reason I think a "throttle" tunable would be useful, is because on th=
+e same server, I have separate internal processes that periodically send em=
+ail notifications effectively to the same emails, based on some user-profil=
+e condition=2E The code builds a custom email for each user-profile, and th=
+en sends out that email and moves to the next profile=2E
 >
-> - Code cleanup and modernization
-> - Addition of a test suite which lead to plenty of fixes
-> - Fix many of RFC compliances issues
-> - Improved bounce email by adding the messageid to it
-> - Finish the old non finished "subrelease" feature
-> - Add autoscribe feature
+>I have an adjustable throttle for that process, and have experimented wit=
+h time intervals=2E Slowing down the deliveries does in fact get all the em=
+ails delivered=2E Of course this means it slows down the time it takes to d=
+eliver all the emails, but under most conditions, at least for me, that's n=
+ot an issue=2E
 >
-> The new things from 1.8.0 to 2.0.0 are:
-> - new build system
-> - by default respect RFC 2919/2369 List-* and Precedence headers generated by default (can be disabled via nolistheaders)
-> - Subscription follow reply-to for confirmations
-> - X-Forwarded-To (Gmail forwarding) (xforwardedto tunables) (incompatible with VERP)
-> - X-Signed-Recipient (DARA/ARC) (data tunable). (Incompatible with VERP)
-> - A bit of hardening
-> - some portability fixes
-> - archive partionning option (archive/YYYY/MM) with automatic migration (that's per request of Gentoo people)
+>Would it be possible to add a time "throttle" tunable that would enable s=
+ome control over how fast the server sends out the emails?
 >
-> Please test and send feedbacks!
+>Very respectfully,
 >
-> note: autotools are not needed anymore but the build workflow remain the same:
->
-> ./configure
-> make
-> make check
->
-> Best regards,
-> Bapt
+>Philip
 >
 >
 >
+>On 3/29/2026 1:26 AM, Baptiste Daroussin wrote:
+>> Hello Everyone
+>>=20
+>> In 2022, I took over the maintenance of mlmmj which I am using for the =
+FreeBSD mailing lists and more=2E
+>>=20
+>> I am close to have delivered all the features I intended to add as such=
+ I would like to stamp it with naming the next release: 2=2E0=2E0!
+>>=20
+>> Here is what happened since 1=2E3=2E0
+>>=20
+>> - Code cleanup and modernization
+>> - Addition of a test suite which lead to plenty of fixes
+>> - Fix many of RFC compliances issues
+>> - Improved bounce email by adding the messageid to it
+>> - Finish the old non finished "subrelease" feature
+>> - Add autoscribe feature
+>>=20
+>> The new things from 1=2E8=2E0 to 2=2E0=2E0 are:
+>> - new build system
+>> - by default respect RFC 2919/2369 List-* and Precedence headers genera=
+ted by default (can be disabled via nolistheaders)
+>> - Subscription follow reply-to for confirmations
+>> - X-Forwarded-To (Gmail forwarding) (xforwardedto tunables) (incompatib=
+le with VERP)
+>> - X-Signed-Recipient (DARA/ARC) (data tunable)=2E (Incompatible with VE=
+RP)
+>> - A bit of hardening
+>> - some portability fixes
+>> - archive partionning option (archive/YYYY/MM) with automatic migration=
+ (that's per request of Gentoo people)
+>>=20
+>> Please test and send feedbacks!
+>>=20
+>> note: autotools are not needed anymore but the build workflow remain th=
+e same:
+>>=20
+>> =2E/configure
+>> make
+>> make check
+>>=20
+>> Best regards,
+>> Bapt
+>>=20
+>>=20
+>>=20
 
---------------vKl6AIt2Lpt6pAT0RF9fMWYE
-Content-Type: text/html; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+------3NXE35J0LBE5I34BBE23IBQDDI0YS4
+Content-Type: text/html;
+ charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-=
+8">
   </head>
-  <body>
-    <font size="4" face="Helvetica, Arial, sans-serif">This may have
-      already appeared in a recent rev... but I have a question/request:<br>
+  <body><div dir=3D"auto">I don t think such configuration belongs to mlmm=
+j should be imho on the MTA side, for example on postfix, I think something=
+ this should cover your need<br><br>default_destination_rate_delay =3D 5s c=
+an ve configured more fine grained<br><br>Bapt<br></div><br><br><div class=
+=3D"gmail_quote"><div dir=3D"auto">Le 2 avril 2026 21:12:32 GMT+02:00, webm=
+aster@vlsc=2Eorg a =C3=A9crit=C2=A0:</div><blockquote class=3D"gmail_quote"=
+ style=3D"margin: 0pt 0pt 0pt 0=2E8ex; border-left: 1px solid rgb(204, 204,=
+ 204); padding-left: 1ex;">
+
+    <font size=3D"4" face=3D"Helvetica, Arial, sans-serif">This may have
+      already appeared in a recent rev=2E=2E=2E but I have a question/requ=
+est:<br>
       <br>
       Is there a tunable (or can someone create one) that would set a
-      throttle on the # of emails sent within a time period (i.e. no
+      throttle on the # of emails sent within a time period (i=2Ee=2E no
       more than 10 emails sent per minute)?<br>
       <br>
       Using mlmmj, I continue to see (in my server logs) that the big
-      email service vendors (gmail, microsoft, comcast, etc.) will
+      email service vendors (gmail, microsoft, comcast, etc=2E) will
       deliver a handful of emails sent their way, but then balk at some
       point, and send a response about "deferring" delivery of the rest
       of the emails sent to them; which usually means they don't send
-      the rest at all. This happens even with relatively small email
-      lists (&lt; 150 emails). With a very limited list (&lt;12 emails)
-      all emails are delivered.<br>
+      the rest at all=2E This happens even with relatively small email
+      lists (&lt; 150 emails)=2E With a very limited list (&lt;12 emails)
+      all emails are delivered=2E<br>
       <br>
       The reason I think a "throttle" tunable would be useful, is
       because on the same server, I have separate internal processes
       that periodically send email notifications effectively to the same
-      emails, based on some user-profile condition. The code builds a
+      emails, based on some user-profile condition=2E The code builds a
       custom email for each user-profile, and then sends out that email
-      and moves to the next profile.  <br>
+      and moves to the next profile=2E&nbsp;&nbsp;<br>
       <br>
       I have an adjustable throttle for that process, and have
-      experimented with time intervals. Slowing down the deliveries does
-      in fact get all the emails delivered. Of course this means it
+      experimented with time intervals=2E Slowing down the deliveries does
+      in fact get all the emails delivered=2E Of course this means it
       slows down the time it takes to deliver all the emails, but under
-      most conditions, at least for me, that's not an issue.<br>
+      most conditions, at least for me, that's not an issue=2E<br>
       <br>
       Would it be possible to add a time "throttle" tunable that would
-      enable some control over how fast the server sends out the emails?<br>
+      enable some control over how fast the server sends out the emails?<b=
+r>
       <br>
       Very respectfully,<br>
       <br>
@@ -182,18 +215,20 @@ Content-Transfer-Encoding: 8bit
       <br>
       <br>
     </font><br>
-    <div class="moz-cite-prefix">On 3/29/2026 1:26 AM, Baptiste
+    <div class=3D"moz-cite-prefix">On 3/29/2026 1:26 AM, Baptiste
       Daroussin wrote:<br>
     </div>
-    <blockquote type="cite"
-      cite="mid:b98dcb9ff3ce9dfbc79312d9b716917ffdc33a5c@nours.eu">
-      <pre wrap="" class="moz-quote-pre">Hello Everyone
+    <blockquote type=3D"cite" cite=3D"mid:b98dcb9ff3ce9dfbc79312d9b716917f=
+fdc33a5c@nours=2Eeu">
+      <pre wrap=3D"" class=3D"moz-quote-pre">Hello Everyone
 
-In 2022, I took over the maintenance of mlmmj which I am using for the FreeBSD mailing lists and more.
+In 2022, I took over the maintenance of mlmmj which I am using for the Fre=
+eBSD mailing lists and more=2E
 
-I am close to have delivered all the features I intended to add as such I would like to stamp it with naming the next release: 2.0.0!
+I am close to have delivered all the features I intended to add as such I =
+would like to stamp it with naming the next release: 2=2E0=2E0!
 
-Here is what happened since 1.3.0
+Here is what happened since 1=2E3=2E0
 
 - Code cleanup and modernization
 - Addition of a test suite which lead to plenty of fixes
@@ -202,21 +237,25 @@ Here is what happened since 1.3.0
 - Finish the old non finished "subrelease" feature
 - Add autoscribe feature
 
-The new things from 1.8.0 to 2.0.0 are:
+The new things from 1=2E8=2E0 to 2=2E0=2E0 are:
 - new build system
-- by default respect RFC 2919/2369 List-* and Precedence headers generated by default (can be disabled via nolistheaders)
+- by default respect RFC 2919/2369 List-* and Precedence headers generated=
+ by default (can be disabled via nolistheaders)
 - Subscription follow reply-to for confirmations
-- X-Forwarded-To (Gmail forwarding) (xforwardedto tunables) (incompatible with VERP)
-- X-Signed-Recipient (DARA/ARC) (data tunable). (Incompatible with VERP)
+- X-Forwarded-To (Gmail forwarding) (xforwardedto tunables) (incompatible =
+with VERP)
+- X-Signed-Recipient (DARA/ARC) (data tunable)=2E (Incompatible with VERP)
 - A bit of hardening
 - some portability fixes
-- archive partionning option (archive/YYYY/MM) with automatic migration (that's per request of Gentoo people)
+- archive partionning option (archive/YYYY/MM) with automatic migration (t=
+hat's per request of Gentoo people)
 
 Please test and send feedbacks!
 
-note: autotools are not needed anymore but the build workflow remain the same:
+note: autotools are not needed anymore but the build workflow remain the s=
+ame:
 
-./configure
+=2E/configure
 make
 make check
 
@@ -228,9 +267,9 @@ Bapt
 </pre>
     </blockquote>
     <br>
-  </body>
+  </blockquote></div></body>
 </html>
 
---------------vKl6AIt2Lpt6pAT0RF9fMWYE--
+------3NXE35J0LBE5I34BBE23IBQDDI0YS4--
 
 
