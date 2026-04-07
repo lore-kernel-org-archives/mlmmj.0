@@ -1,73 +1,50 @@
-Return-Path: <mlmmj+bounces-3110-mlmmj=archiver.kernel.org@mlmmj.org>
+Return-Path: <mlmmj+bounces-3111-mlmmj=archiver.kernel.org@mlmmj.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mlmmj.mlmmj.org (mlmmj.mlmmj.org [194.233.166.186])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 506D6FF5138
-	for <mlmmj@archiver.kernel.org>; Tue,  7 Apr 2026 19:52:16 +0000 (UTC)
-Received: from localhost ([127.0.0.1]:44742 helo=mlmmj.mlmmj.org)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB7C5EDB7D0
+	for <mlmmj@archiver.kernel.org>; Tue,  7 Apr 2026 20:54:05 +0000 (UTC)
+Received: from localhost ([127.0.0.1]:56372 helo=mlmmj.mlmmj.org)
 	by mlmmj.mlmmj.org with esmtp (Exim 4.96)
-	(envelope-from <mlmmj+bounces-3110-mlmmj=archiver.kernel.org@mlmmj.org>)
-	id 1wABwj-00BbGx-1J
+	(envelope-from <mlmmj+bounces-3111-mlmmj=archiver.kernel.org@mlmmj.org>)
+	id 1wACak-00BbXm-0s
 	for mlmmj@archiver.kernel.org;
-	Tue, 07 Apr 2026 19:18:45 +0000
-Received: from dahlem.somaf.de ([185.183.157.243]:45364)
+	Tue, 07 Apr 2026 20:00:06 +0000
+Received: from b.nours.eu ([54.38.177.57]:61353)
 	by mlmmj.mlmmj.org with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96)
-	(envelope-from <sca@andreasschulze.de>)
-	id 1wABwc-00BbGH-0B
+	(envelope-from <bapt@nours.eu>)
+	id 1wACad-00BbWq-0j
 	for mlmmj@mlmmj.org;
-	Tue, 07 Apr 2026 19:18:38 +0000
-Received: from mta.somaf.de (mta.somaf.de [IPv6:2001:470:77b3:103::25])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519MLKEM768 server-signature ECDSA (prime256v1 raw public key) server-digest SHA256)
-	(Client did not present a certificate)
-	by dahlem.somaf.de (Postfix) with ESMTPS id 4fqx4V49Bzz7Bjy
-	for <mlmmj@mlmmj.org>; Tue, 07 Apr 2026 21:25:46 +0200 (CEST)
-ARC-Seal: i=2; a=rsa-sha256; d=dahlem.somaf.de; s=arc1; t=1775589946;
-	cv=none; b=x6quXgsJlRA04U+2zEOyEgiJh1YGIQ150q6ID8o5H+e7No5CC9vt5o3iViREQ39uUSa8/kdaxkj2DxyBQJCAzW8o+GX8eMoDt0ozVyCQir1dlvypw8MasSEw1kf5/Zr9gC1MdLO+QUXXcC5xz8UlsoJZwNyGe8/k1xcWqK9eYzuwHTE5Xf0mcgswH+bTRpYSd/LO0coCeaRIWQmm65+1g77DzCEyQbbQVkHkcaA7Wxe+MmR//HHKwzlgCCVJOSr5ioYG0zeAv/7J18MOyYEeBTqnZ9JltpHBBDwIosnVip9mnhl0w8zWySA21/BHOwOPkpSGZTb7AOdxsRCrBl7nzQ==
-ARC-Message-Signature: i=2; a=rsa-sha256; d=dahlem.somaf.de; s=arc1;
-	t=1775589946; c=relaxed/relaxed;
-	bh=PgmoYdYF/nlc47Efd74qLg8Z1Wsg4rrVyu0aq6/YySM=;
-	h=Message-ID:ARC-Message-Signature:ARC-Authentication-Results:
-	 DKIM-Signature:DKIM-Signature:Date:MIME-Version:Subject:To:
-	 References:Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding; b=KyJ8p0Z/ZFnvZCr1aeu7SJY16bdxkMjdaQ+g3kD39MKc7hSFaKDNMZZj9nPtdVb5B4uvEyQ4AJEzqjNZiNFrGw4PjipgKC22eaD94/v2rBRdq59qQg7F80CjjGrs4ogwxv334gmbEmJvKAtQXVSGuJurNtIExtS3rOAHRa0FH9vIWB04JXEvOv2x8rkKr0UA2T10eSI+RFl5Dh/N2rUqSRimsWvzmr6vuaooillwPOqM4aVWBC4qaqtxWytVQFycxAHRTGNAxKrEB/Jweg5g7VP/FRTzdLZr6cCN9hl3NLFFquw03F0C9nGPqVqpl3TJr/VBoGr7zD0lmN1REBN3Ag==
-ARC-Authentication-Results: i=2; dahlem.somaf.de
-Message-ID: <45b66d34-9e66-45aa-bb02-78b3b56ec1ea@andreasschulze.de>
-ARC-Seal: i=1; a=rsa-sha256; d=mta.somaf.de; s=arc1; t=1775589944; cv=none;
-	b=r2HltKkxt9NU05QUKWmXf8JbBiaF/Zln2iqatcNpTpLlresEpKTfstVcEqlxJSW8ZWsiB/+B2PA/do+igEeB/I1cwp8eiQilgxjESAoY8UFu985Ze69Dt2MaYyKERzfq0ft5dVS39rf/jzqD6Woj6LCIlje6eIf1QH9yOwXDIPsuzzygYFca7J9tbOSr6IsT8QtVa4BMSinWut6gBAq5sTfU+ilxp5WS7jA0zoQRp6KY61ZDdE0zhkze662MheHew+yPQVEnNf+hFfZ6E3yrYmRdFQSdTritNZr0dn8a8OLgdQWB2ibvhgVfVX+fbRUGHe86suCCstLQtuTlSvnuTw==
-ARC-Message-Signature: i=1; a=rsa-sha256; d=mta.somaf.de; s=arc1;
-	t=1775589944; c=relaxed/relaxed;
-	bh=PgmoYdYF/nlc47Efd74qLg8Z1Wsg4rrVyu0aq6/YySM=;
-	h=Message-ID:DKIM-Signature:DKIM-Signature:Date:MIME-Version:
-	 Subject:To:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding; b=C3y8VVdfJmgFez0Aa+zqpZkFgms7jYfCHuBiAAq+1wSWP9/29LSzxnr2EAeeSZvxJXtRJaNJipLl94cySdX+eikWu2WhYpA77KSXzSXTX7f7TZSYPScqgfseEHj+Dbda8cE0BpYGDLOSACckAMj44PLs7jl3qnbVO5Su9qhQFZbpjZGcgb4IHZQWDJrFcVSxxXOFAqdh2saGA6bVqO6h82qFl4T4JmrRnz1urTTq911zmk/DNWGpRUTBmnQTDkX1T3kXsUNkFfjJxoyUT9oDl3zCn15ffYqW6M4kEOPojwlOtz0Txp3hzYBUSQ5S5qSXeU6XnZRzoszPcwblMIsSDA==
-ARC-Authentication-Results: i=1; mta.somaf.de
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=andreasschulze.de;
-	s=20260330-BF35CB2D; t=1775589944; x=1780589944;
-	bh=PgmoYdYF/nlc47Efd74qLg8Z1Wsg4rrVyu0aq6/YySM=;
-	h=Message-ID:Date:MIME-Version:Subject:To:References:From:
-	 In-Reply-To:Content-Type:Content-Transfer-Encoding:autocrypt:cc:
-	 content-transfer-encoding:content-type:date:from:in-reply-to:
-	 message-id:mime-version:openpgp:references:subject:to;
-	b=ned2VM27kpdwK1eEEZPcwSfzEcRfOAZg/SImZwawkk5JzkVJ/n1Ml0rmFPn4S6JM4
-	 wW5G078kHc+eyds3CmOSZXRrp9hOTEF/xalESfu8+//qgjqvD2qLGLugKg90CIDF+y
-	 rjBGkjtOitZqXGW9SzCQ8zGFCXPGeB1P6shdYsxeicAUGCzKg4JaVafhBpqP2RthCc
-	 mDblHku0UgdS0a1cMXi0Aef/MaTTFIpIOHddhbBNp8YbtDeE4D3CAJFfSCIGGeHD+z
-	 X3esmnhvA0clV0vwC8ryCApiNM2im3NvSAd10EW8oxePGakpM/lO6X9JA0aFWM1cOb
-	 1KMpkWDavofaQ==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed;
-	d=andreasschulze.de; s=20260330-E896BFCF; t=1775589944;
-	x=1780589944; bh=PgmoYdYF/nlc47Efd74qLg8Z1Wsg4rrVyu0aq6/YySM=;
-	h=Message-ID:Date:MIME-Version:Subject:To:References:From:
-	 In-Reply-To:Content-Type:Content-Transfer-Encoding:autocrypt:cc:
-	 content-transfer-encoding:content-type:date:from:in-reply-to:
-	 message-id:mime-version:openpgp:references:subject:to;
-	b=Hl+VW0ZEewk/MrROCyRtVrCtMDMaO9m3ZOsVl53UIqVcFS3GFiL2zkKPl7L5xQSt3
-	 nGu44FAePZ+AWoGgFeHAg==
-Date: Tue, 7 Apr 2026 21:25:44 +0200
+	Tue, 07 Apr 2026 19:59:59 +0000
+Received: from ehlo.thunderbird.net (unknown [IPv6:2a01:e0a:274:cc70:591e:a06c:d026:fe13])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by b.nours.eu (Postfix) with ESMTPSA id 2FD4643DA2;
+	Tue, 07 Apr 2026 22:07:07 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nours.eu; s=20190522;
+	t=1775592427;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=gW5pV6EETMma7cYfIDtveFZiNyDfj8cZs/ovtks755U=;
+	b=NqFaOJj5TMd6pAtp4PyqCYl//JOlDmNM3nBbGwdh6WB4LlVTuu3bQXAl+WRmbCcTIuqxgE
+	cAK6N9t5OgSHdre4KBOc9n2oWmgsuzIX+w+KoFP+zNRR77KeiJe2/6n8xItNJNjnYsYc+C
+	1KQpIYzaAE89zKOixPkHoW8/IlrIDJmZIgOBOvb9ZpwNNmwHfA7kbNnhnDXgfyFWqyQfZp
+	ZlypZCD0gQMhP3BpVU311xqMNYc6QFhQlk/1rP4ggMuNVC18eb/cMXSbZJPn0KiLN4tvv+
+	4xdJ2rfLABjKJInkuaRLgEOaOuTZ2UPX1sWJuTHsYN3wK5vPQm3sZLOEpxKN4Q==
+Date: Tue, 07 Apr 2026 22:07:05 +0200
+From: Baptiste Daroussin <bapt@nours.eu>
+To: mlmmj@mlmmj.org, "A.Schulze" <sca@andreasschulze.de>
+Subject: Re: Call for testing: 2.0.0 is close to the doors
+User-Agent: Thunderbird for Android
+In-Reply-To: <45b66d34-9e66-45aa-bb02-78b3b56ec1ea@andreasschulze.de>
+References: <b98dcb9ff3ce9dfbc79312d9b716917ffdc33a5c@nours.eu> <45b66d34-9e66-45aa-bb02-78b3b56ec1ea@andreasschulze.de>
+Message-ID: <DE68916A-B6D2-4893-9966-FCCCB64260BA@nours.eu>
 List-Id: <mlmmj.mlmmj.org>
 List-Help: <mailto:mlmmj+help@mlmmj.org>
 List-Post: <mailto:mlmmj@mlmmj.org>
@@ -75,29 +52,77 @@ List-Subscribe: <mailto:mlmmj+subscribe@mlmmj.org>
 List-Unsubscribe: <mailto:mlmmj+unsubscribe@mlmmj.org>
 Sender: <mlmmj@mlmmj.org>
 MIME-Version: 1.0
-Subject: Re: Call for testing: 2.0.0 is close to the doors
-To: mlmmj@mlmmj.org
-References: <b98dcb9ff3ce9dfbc79312d9b716917ffdc33a5c@nours.eu>
-Content-Language: en-US, de-DE
-From: "A.Schulze" <sca@andreasschulze.de>
-In-Reply-To: <b98dcb9ff3ce9dfbc79312d9b716917ffdc33a5c@nours.eu>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: multipart/alternative;
+ boundary=----KH98UFBKN75XERSI7YUQPX45W8DIVY
 Content-Transfer-Encoding: 7bit
 
+------KH98UFBKN75XERSI7YUQPX45W8DIVY
+Content-Type: text/plain;
+ charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 
+you are right, it was "almost" intentional, I reused templates from other p=
+rogram I maintains which are installed in sbin, and this is just muscle mem=
+ory to type sbindir instead of bindir=2E sorry about that=2E
 
-Am 29.03.26 um 10:26 schrieb Baptiste Daroussin:
-> I am close to have delivered all the features I intended to add as such I would like to stamp it with naming the next release: 2.0.0!
-> Please test and send feedbacks!
+in anycase fixed
 
-Hello,
+best regards,
+Bapt
 
-in earlier versions, "make install" installed the binaries in /usr/local/bin/
-Now, using the latest available commit at codeberg, binaries are installed in /usr/local/sbin/
+Le 7 avril 2026 21:25:44 GMT+02:00, "A=2ESchulze" <sca@andreasschulze=2Ede=
+> a =C3=A9crit=C2=A0:
+>
+>
+>Am 29=2E03=2E26 um 10:26 schrieb Baptiste Daroussin:
+>> I am close to have delivered all the features I intended to add as such=
+ I would like to stamp it with naming the next release: 2=2E0=2E0!
+>> Please test and send feedbacks!
+>
+>Hello,
+>
+>in earlier versions, "make install" installed the binaries in /usr/local/=
+bin/
+>Now, using the latest available commit at codeberg, binaries are installe=
+d in /usr/local/sbin/
+>
+>This break some things here and require path adjustments=2E Is it intenti=
+onal?
+>I would say, mlmmj binaries are not limited to be used by a root, so I fa=
+vor =2E=2E=2E/bin over =2E=2E=2E/sbin
+>
+>Andreas
+>
+>
 
-This break some things here and require path adjustments. Is it intentional?
-I would say, mlmmj binaries are not limited to be used by a root, so I favor .../bin over .../sbin
+------KH98UFBKN75XERSI7YUQPX45W8DIVY
+Content-Type: text/html;
+ charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 
-Andreas
+<html><head></head><body><div dir=3D"auto">you are right, it was "almost" i=
+ntentional, I reused templates from other program I maintains which are ins=
+talled in sbin, and this is just muscle memory to type sbindir instead of b=
+indir=2E sorry about that=2E<br><br>in anycase fixed<br><br>best regards,<b=
+r>Bapt</div><br><br><div class=3D"gmail_quote"><div dir=3D"auto">Le 7 avril=
+ 2026 21:25:44 GMT+02:00, "A=2ESchulze" &lt;sca@andreasschulze=2Ede&gt; a =
+=C3=A9crit=C2=A0:</div><blockquote class=3D"gmail_quote" style=3D"margin: 0=
+pt 0pt 0pt 0=2E8ex; border-left: 1px solid rgb(204, 204, 204); padding-left=
+: 1ex;">
+<pre class=3D"net-thunderbird-android__plain-text-message-pre"><div dir=3D=
+"auto"><br><br>Am 29=2E03=2E26 um 10:26 schrieb Baptiste Daroussin:<br></di=
+v><blockquote class=3D"gmail_quote" style=3D"margin-bottom: 1ex; --net-thun=
+derbird-android__blockquote-default-border-color: #729fcf;"><div dir=3D"aut=
+o">I am close to have delivered all the features I intended to add as such =
+I would like to stamp it with naming the next release: 2=2E0=2E0!<br>Please=
+ test and send feedbacks!<br></div></blockquote><div dir=3D"auto"><br>Hello=
+,<br><br>in earlier versions, "make install" installed the binaries in /usr=
+/local/bin/<br>Now, using the latest available commit at codeberg, binaries=
+ are installed in /usr/local/sbin/<br><br>This break some things here and r=
+equire path adjustments=2E Is it intentional?<br>I would say, mlmmj binarie=
+s are not limited to be used by a root, so I favor =2E=2E=2E/bin over =2E=
+=2E=2E/sbin<br><br>Andreas<br><br><br></div></pre></blockquote></div></body=
+></html>
+------KH98UFBKN75XERSI7YUQPX45W8DIVY--
 
 
