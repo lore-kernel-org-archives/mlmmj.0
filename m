@@ -1,63 +1,42 @@
-Return-Path: <mlmmj+bounces-3116-mlmmj=archiver.kernel.org@mlmmj.org>
+Return-Path: <mlmmj+bounces-3117-mlmmj=archiver.kernel.org@mlmmj.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mlmmj.mlmmj.org (mlmmj.mlmmj.org [194.233.166.186])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 401B2C43458
-	for <mlmmj@archiver.kernel.org>; Tue, 30 Jun 2026 12:34:56 +0000 (UTC)
-Received: from localhost ([127.0.0.1]:48538 helo=mlmmj.mlmmj.org)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CC13C43458
+	for <mlmmj@archiver.kernel.org>; Fri, 10 Jul 2026 12:39:25 +0000 (UTC)
+Received: from localhost ([127.0.0.1]:38592 helo=mlmmj.mlmmj.org)
 	by mlmmj.mlmmj.org with esmtp (Exim 4.96)
-	(envelope-from <mlmmj+bounces-3116-mlmmj=archiver.kernel.org@mlmmj.org>)
-	id 1weWuw-0014k4-14
+	(envelope-from <mlmmj+bounces-3117-mlmmj=archiver.kernel.org@mlmmj.org>)
+	id 1wiA3e-001q53-2d
 	for mlmmj@archiver.kernel.org;
-	Tue, 30 Jun 2026 11:46:18 +0000
-Received: from e1.harlan.de ([91.99.131.231]:50796)
+	Fri, 10 Jul 2026 12:10:18 +0000
+Received: from mail-4396.protonmail.ch ([185.70.43.96]:59997)
 	by mlmmj.mlmmj.org with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96)
-	(envelope-from <magnus@harlan.de>)
-	id 1weWup-0014jO-09
+	(envelope-from <me@borjavelasco.me>)
+	id 1wiA3X-001q4M-19
 	for mlmmj@mlmmj.org;
-	Tue, 30 Jun 2026 11:46:11 +0000
-Received: from imail.harlan.de (imail [192.168.200.73])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by e1.harlan.de (Postfix) with ESMTPS id EFDA664BF8
-	for <mlmmj@mlmmj.org>; Tue, 30 Jun 2026 13:55:27 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=harlan.de; s=default;
-	t=1782820528;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=L0hLBjPg1oKbCAUNuQ60sx4TCvjxcuyzcKayzcJUv0U=;
-	b=nC+4keJNCe5K2wfXuICYCydjbnZCeZ2swdFfGiBI9lwtCvImQ/20XNsNPi2I69Yrbn76Nn
-	0/+GDTsfUPuH3aPFVVhz7rg617PeXS9cR15qmmkZgszykHA7teMoN98R+EKwLyUoCEhQpF
-	sbpswF4/SbAqVxgyz47m4CIWoEt9IOc=
-ARC-Seal: i=1; a=rsa-sha256; d=harlan.de; s=arc; cv=none; t=1782820528;
-	b=f2jG0yN0C8RB/KCUcQ7QCR80bojuw2SW35EFY/hYUJ/K0iUFWD7RDQdKRlAEg1Se13jsDe
-	IgF6A8hj+UV5WNB4BUWagJtB6BJYpCvXyfOF9Dw2pPuEaAF9WG/3SO9Nt5sK1Ow7KL01Kl
-	y1RmAHF+3r63643TwISk0+tZJ7r3+g8=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=harlan.de;
-	s=arc; t=1782820528;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=L0hLBjPg1oKbCAUNuQ60sx4TCvjxcuyzcKayzcJUv0U=;
-	b=XnVlZL0iv/O5oLyzBDkxO9X2RCrVFfQbLJaohFtgm0nfBcLPVZbW0nBobSKvBEiAZCC1Hv
-	7z1j8QLeV2Z6TFfxGAe502I+Y91YaghHVzRD5ioorvHvEMd1mRTfU7wO8QjB63sjYjEAEo
-	N8bOWKdpv5BNx/XBaEIKHSEsqmogjEQ=
-ARC-Authentication-Results: i=1;
-	e1.harlan.de;
-	none
-Received: from [192.168.67.23] (garda.harlan.de [192.168.67.23])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange x25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by imail.harlan.de (Postfix) with ESMTPSA id A14AD26C9310
-	for <mlmmj@mlmmj.org>; Tue, 30 Jun 2026 13:55:27 +0200 (CEST)
-Message-ID: <c11250fc-23b5-4520-bfdd-7f9d2e0d1835@harlan.de>
-Date: Tue, 30 Jun 2026 13:55:26 +0200
+	Fri, 10 Jul 2026 12:10:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=borjavelasco.me;
+	s=protonmail3; t=1783685984; x=1783945184;
+	bh=XMnKHesljYRdf1V/WVHS+CuN+rO07mOq2Abrad1hjJw=;
+	h=Date:To:From:Subject:Message-ID:Feedback-ID:From:To:Cc:Date:
+	 Subject:Reply-To:Feedback-ID:Message-ID:BIMI-Selector;
+	b=mcm3DZSZZNvINzptxIKP5CjR7sTFlBbhNQiEsZvcfvS8/ZGwHsxIRuIYkiDA387xj
+	 cEXuxdib3SZ3D73Qc8G4ZFsFjF7yqJeOaM9Wbr2tQazpahsEs/RJMV7ih5ODuLKpEx
+	 qXzgSfbg1573OmmWx3Q8WXx1qWBnEePsn9dqrGTKLcAJ6e6+10QiGem9CQqcaxQ9Bc
+	 4WHQ8tRmdZpAYAdpWoLEITUwalJb3nz//Oyq8gP4RKnA3eH5WhpnKXgQDjyj09ScoJ
+	 zjlOtiA9G802OvpGxGTq5Czak1n8IP1zyujKaM05SsLT4tbu83q/7rCkfzM3BXluFc
+	 ca0yWPe4tPAJw==
+Date: Fri, 10 Jul 2026 12:19:38 +0000
+To: "mlmmj@mlmmj.org" <mlmmj@mlmmj.org>
+From: Borja Velasco <me@borjavelasco.me>
+Subject: AI Policy of the project.
+Message-ID: <guEw5pe0-g8jgP0dBUpUb2fmxQnLtwsiH_CKNw2AT9jaJJdtp6gYTYy-HU7AbZ6ZnVjBjn_ByS_008n8UDFWS6zLgjAZf9U-2WNEPegQD3M=@borjavelasco.me>
+Feedback-ID: 143232821:user:proton
+X-Pm-Message-ID: c540f5d58702efd48ab187d5aa2103a5ebeaa843
 List-Id: <mlmmj.mlmmj.org>
 List-Help: <mailto:mlmmj+help@mlmmj.org>
 List-Post: <mailto:mlmmj@mlmmj.org>
@@ -65,29 +44,39 @@ List-Subscribe: <mailto:mlmmj+subscribe@mlmmj.org>
 List-Unsubscribe: <mailto:mlmmj+unsubscribe@mlmmj.org>
 Sender: <mlmmj@mlmmj.org>
 MIME-Version: 1.0
-User-Agent: Betterbird (Linux)
-To: mlmmj@mlmmj.org
-From: Magnus Harlander <magnus@harlan.de>
-Content-Language: de-DE
-Subject: Version clash
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 
-Hi,
+Hello mlmmj users and developers.
 
-I think the 2.1 source tarballs for download from codeberg
+I'm writing you because I'm starting project that wants to create a
+community and software where the LLM usage is fully optional (now it's
+not anymore since almost every system is being developed with LLMs so
+you are using LLM indirectly).
 
-https://codeberg.org/mlmmj/mlmmj/releases/download/RELEASE_2_1_0/mlmmj-2.1.0.tar.xz
+I think that Software is a kind of art and we want a site where you
+can really use human art in your computer. Of course, I understand
+that no every person with think like me. I want to clarify that I
+compare software as architecture, is art and is useful, there are real
+structures that are beautiful and you'll love to be in and use it.
+Software allows everyone to use this kind of useful art.
 
-are containing not the 2.1.0 sources but 2.0.1. (tells me configure.def)
+That's because I am doing a real effort to create a database of
+software that uses LLMs or has been developed with LLMs and that
+will use for our operations. (avoiding software creating with
+LLMs in our main repositories and classifying the usage and
+policy in this software to add to our "AI allowed repo" that only
+wants to be really transparent with people to know how they're
+using AI.
 
-\Magnus
+For that reason, before use your mail software as our mailing list
+software "by default" and add it to our future repositories I need
+to know if you are using LLMs to made new characteristics or for=20
+solving bugs or every use.
 
--- 
-Dr. Magnus Harlander
-Mail: harlan@harlan.de
-Web: www.harlan.de
-Stiftung: www.harlander-stiftung.de
+Of course, I have no problems with your LLM usage if you use
+LLMs. I'm asking only for classification use.
 
+Greetings, Borja.
 
 
